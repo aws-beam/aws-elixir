@@ -495,6 +495,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      circuit_breaker_configuration() :: %{
+        "mode" => list(any())
+      }
+
+  """
+  @type circuit_breaker_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cloud_watch_logs_input_config() :: %{
         "logGroupNamePrefixes" => list(String.t() | atom()),
         "logGroupNames" => list(String.t() | atom()),
@@ -2907,6 +2918,19 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      evaluation_dimension() :: %{
+        "dimensionInstruction" => String.t() | atom(),
+        "dimensionName" => String.t() | atom(),
+        "dimensionRatingScale" => list()
+      }
+
+  """
+  @type evaluation_dimension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       evaluator_summary() :: %{
         "createdAt" => [non_neg_integer()],
         "description" => String.t() | atom(),
@@ -2924,6 +2948,46 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type evaluator_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fallback() :: %{
+        "circuitBreaker" => circuit_breaker_configuration(),
+        "firstByteTimeoutMilliseconds" => [integer()],
+        "targetFallback" => list(fallback_target()),
+        "triggerOn" => fallback_triggers()
+      }
+
+  """
+  @type fallback() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fallback_target() :: %{
+        "firstByteTimeoutMilliseconds" => [integer()],
+        "model" => String.t() | atom(),
+        "targetName" => String.t() | atom(),
+        "triggerOn" => fallback_triggers()
+      }
+
+  """
+  @type fallback_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fallback_triggers() :: %{
+        "errors" => list(list(any())()),
+        "statusCodes" => list(String.t() | atom())
+      }
+
+  """
+  @type fallback_triggers() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6131,6 +6195,29 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      match_model_entry() :: %{
+        "operator" => list(any()),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type match_model_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      match_models() :: %{
+        "anyOf" => list(match_model_entry())
+      }
+
+  """
+  @type match_models() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       match_paths() :: %{
         "anyOf" => list(String.t() | atom())
       }
@@ -7606,6 +7693,8 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       static_route() :: %{
+        "fallback" => fallback(),
+        "model" => String.t() | atom(),
         "targetName" => String.t() | atom()
       }
 
@@ -7900,7 +7989,9 @@ defmodule AWS.BedrockAgentCoreControl do
 
       target_traffic_split_entry() :: %{
         "description" => [String.t() | atom()],
+        "fallback" => fallback(),
         "metadata" => map(),
+        "model" => String.t() | atom(),
         "name" => [String.t() | atom()],
         "targetName" => String.t() | atom(),
         "weight" => [integer()]
@@ -16077,6 +16168,11 @@ defmodule AWS.BedrockAgentCoreControl do
 
   @doc """
   Updates an existing gateway.
+
+  Replaces the entire gateway configuration. Any optional field that you omit,
+  including fields in `protocolConfiguration`, is reset. For information about
+  retrieving the current configuration, see
+  [GetGateway](https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_GetGateway.html).
   """
   @spec update_gateway(map(), String.t() | atom(), update_gateway_request(), list()) ::
           {:ok, update_gateway_response(), any()}

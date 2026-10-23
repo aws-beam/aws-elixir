@@ -1116,6 +1116,7 @@ defmodule AWS.BedrockAgentCore do
         "context" => list(),
         "errorCode" => String.t() | atom(),
         "errorMessage" => String.t() | atom(),
+        "evaluationDimensionName" => String.t() | atom(),
         "evaluatorArn" => String.t() | atom(),
         "evaluatorId" => String.t() | atom(),
         "evaluatorName" => String.t() | atom(),
@@ -1169,6 +1170,7 @@ defmodule AWS.BedrockAgentCore do
   ## Example:
 
       evaluator_summary() :: %{
+        "evaluationDimensionName" => [String.t() | atom()],
         "evaluatorId" => [String.t() | atom()],
         "statistics" => evaluator_statistics(),
         "totalEvaluated" => [integer()],

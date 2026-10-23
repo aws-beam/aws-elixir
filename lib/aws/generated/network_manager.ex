@@ -163,6 +163,8 @@ defmodule AWS.NetworkManager do
         "EdgeLocation" => String.t() | atom(),
         "EdgeLocations" => list(String.t() | atom()),
         "LastModificationErrors" => list(attachment_error()),
+        "NatGatewaySupport" => list(any()),
+        "NatSystemRouteSupport" => boolean(),
         "NetworkFunctionGroupName" => String.t() | atom(),
         "OwnerAccountId" => String.t() | atom(),
         "ProposedNetworkFunctionGroupChange" => proposed_network_function_group_change(),
@@ -190,6 +192,20 @@ defmodule AWS.NetworkManager do
 
   """
   @type attachment_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attachment_nat_configuration() :: %{
+        "AttachmentId" => String.t() | atom(),
+        "NatGatewayRules" => list(nat_rule()),
+        "NatGatewaySupport" => list(any()),
+        "NatSystemRouteSupport" => boolean()
+      }
+
+  """
+  @type attachment_nat_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -667,6 +683,8 @@ defmodule AWS.NetworkManager do
 
       create_connect_attachment_request() :: %{
         optional("ClientToken") => String.t() | atom(),
+        optional("NatGatewayRules") => list(nat_rule_request()),
+        optional("NatGatewaySupport") => list(any()),
         optional("RoutingPolicyLabel") => String.t() | atom(),
         optional("Tags") => list(tag()),
         required("CoreNetworkId") => String.t() | atom(),
@@ -836,6 +854,9 @@ defmodule AWS.NetworkManager do
 
       create_direct_connect_gateway_attachment_request() :: %{
         optional("ClientToken") => String.t() | atom(),
+        optional("NatGatewayRules") => list(nat_rule_request()),
+        optional("NatGatewaySupport") => list(any()),
+        optional("NatSystemRouteSupport") => boolean(),
         optional("RoutingPolicyLabel") => String.t() | atom(),
         optional("Tags") => list(tag()),
         required("CoreNetworkId") => String.t() | atom(),
@@ -937,6 +958,9 @@ defmodule AWS.NetworkManager do
 
       create_site_to_site_vpn_attachment_request() :: %{
         optional("ClientToken") => String.t() | atom(),
+        optional("NatGatewayRules") => list(nat_rule_request()),
+        optional("NatGatewaySupport") => list(any()),
+        optional("NatSystemRouteSupport") => boolean(),
         optional("RoutingPolicyLabel") => String.t() | atom(),
         optional("Tags") => list(tag()),
         required("CoreNetworkId") => String.t() | atom(),
@@ -1018,6 +1042,8 @@ defmodule AWS.NetworkManager do
 
       create_vpc_attachment_request() :: %{
         optional("ClientToken") => String.t() | atom(),
+        optional("NatGatewayRules") => list(nat_rule_request()),
+        optional("NatGatewaySupport") => list(any()),
         optional("Options") => vpc_options(),
         optional("RoutingPolicyLabel") => String.t() | atom(),
         optional("Tags") => list(tag()),
@@ -1890,6 +1916,8 @@ defmodule AWS.NetworkManager do
         optional("DestinationFilters") => map(),
         optional("ExactCidrMatches") => list(String.t() | atom()),
         optional("LongestPrefixMatches") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
         optional("PrefixListIds") => list(String.t() | atom()),
         optional("States") => list(list(any())()),
         optional("SubnetOfMatches") => list(String.t() | atom()),
@@ -1906,8 +1934,10 @@ defmodule AWS.NetworkManager do
   ## Example:
 
       get_network_routes_response() :: %{
+        "CoreNetworkNetworkFunctionGroup" => core_network_network_function_group_identifier(),
         "CoreNetworkSegmentEdge" => core_network_segment_edge_identifier(),
         "NetworkRoutes" => list(network_route()),
+        "NextToken" => String.t() | atom(),
         "RouteTableArn" => String.t() | atom(),
         "RouteTableTimestamp" => non_neg_integer(),
         "RouteTableType" => list(any())
@@ -2212,6 +2242,33 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
+      list_attachment_nat_configurations_request() :: %{
+        optional("AttachmentId") => String.t() | atom(),
+        optional("CoreNetworkId") => String.t() | atom(),
+        optional("Filters") => map(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_attachment_nat_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_attachment_nat_configurations_response() :: %{
+        "AttachmentNatConfigurations" => list(attachment_nat_configuration()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_attachment_nat_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_attachment_routing_policy_associations_request() :: %{
         optional("AttachmentId") => String.t() | atom(),
         optional("MaxResults") => integer(),
@@ -2345,11 +2402,15 @@ defmodule AWS.NetworkManager do
       list_core_network_routing_information_request() :: %{
         optional("CommunityMatches") => list(String.t() | atom()),
         optional("ExactAsPathMatches") => list(String.t() | atom()),
+        optional("ExactPrefixMatches") => list(String.t() | atom()),
         optional("LocalPreferenceMatches") => list(String.t() | atom()),
+        optional("LongestPrefixMatches") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
         optional("MedMatches") => list(String.t() | atom()),
         optional("NextHopFilters") => map(),
         optional("NextToken") => String.t() | atom(),
+        optional("SubnetOfMatches") => list(String.t() | atom()),
+        optional("SupernetOfMatches") => list(String.t() | atom()),
         required("EdgeLocation") => String.t() | atom(),
         required("SegmentName") => String.t() | atom()
       }
@@ -2477,6 +2538,33 @@ defmodule AWS.NetworkManager do
 
   """
   @type location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      nat_rule() :: %{
+        "MatchSourceCidr" => String.t() | atom(),
+        "NatCidr" => String.t() | atom(),
+        "RuleNumber" => integer(),
+        "State" => list(any())
+      }
+
+  """
+  @type nat_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      nat_rule_request() :: %{
+        "MatchSourceCidr" => String.t() | atom(),
+        "NatCidr" => String.t() | atom(),
+        "RuleNumber" => integer()
+      }
+
+  """
+  @type nat_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3243,6 +3331,34 @@ defmodule AWS.NetworkManager do
 
   """
   @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_attachment_nat_configuration_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("NatGatewayRules") => list(nat_rule_request()),
+        optional("NatGatewaySupport") => list(any()),
+        optional("NatSystemRouteSupport") => boolean()
+      }
+
+  """
+  @type update_attachment_nat_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_attachment_nat_configuration_response() :: %{
+        "AttachmentId" => String.t() | atom(),
+        "NatGatewayRules" => list(nat_rule()),
+        "NatGatewaySupport" => list(any()),
+        "NatSystemRouteSupport" => boolean()
+      }
+
+  """
+  @type update_attachment_nat_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4035,6 +4151,13 @@ defmodule AWS.NetworkManager do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type list_attachment_nat_configurations_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type list_attachment_routing_policy_associations_errors() ::
           validation_exception()
           | throttling_exception()
@@ -4181,6 +4304,15 @@ defmodule AWS.NetworkManager do
   @type untag_resource_errors() ::
           validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type update_attachment_nat_configuration_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
@@ -6947,6 +7079,42 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
+  Returns the NAT configurations of core network attachments.
+
+  You must specify either a core network ID or an attachment ID. Only the core
+  network owner can list NAT configurations.
+  """
+  @spec list_attachment_nat_configurations(
+          map(),
+          list_attachment_nat_configurations_request(),
+          list()
+        ) ::
+          {:ok, list_attachment_nat_configurations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_attachment_nat_configurations_errors()}
+  def list_attachment_nat_configurations(%Client{} = client, input, options \\ []) do
+    url_path = "/nat-configurations"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Lists the routing policy associations for attachments in a core network.
   """
   @spec list_attachment_routing_policy_associations(
@@ -7837,6 +8005,52 @@ defmodule AWS.NetworkManager do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the NAT configuration of a core network attachment.
+
+  You can enable or disable NAT gateway support, specify whether the core network
+  installs system routes for the NAT CIDR blocks, and replace the NAT rules of the
+  attachment. Specify at least one of `NatGatewaySupport`,
+  `NatSystemRouteSupport`, or `NatGatewayRules`.
+
+  Only the core network owner can update the NAT configuration of an attachment.
+  The attachment must be in the `AVAILABLE`, `PENDING_ATTACHMENT_ACCEPTANCE`, or
+  `PENDING_TAG_ACCEPTANCE` state. Changes are applied asynchronously, and the
+  attachment is in the `UPDATING` state while they are applied. If the attachment
+  is pending acceptance, the NAT configuration is stored and is applied after the
+  attachment is accepted.
+  """
+  @spec update_attachment_nat_configuration(
+          map(),
+          String.t() | atom(),
+          update_attachment_nat_configuration_request(),
+          list()
+        ) ::
+          {:ok, update_attachment_nat_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_attachment_nat_configuration_errors()}
+  def update_attachment_nat_configuration(%Client{} = client, attachment_id, input, options \\ []) do
+    url_path = "/attachments/#{AWS.Util.encode_uri(attachment_id)}/nat-configuration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
       url_path,
       query_params,
       custom_headers ++ headers,

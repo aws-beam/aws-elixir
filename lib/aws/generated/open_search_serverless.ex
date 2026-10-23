@@ -194,6 +194,33 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
+      cancel_ingestion_job_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("collectionId") => String.t() | atom(),
+        required("ingestionJobId") => String.t() | atom()
+      }
+      
+  """
+  @type cancel_ingestion_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_ingestion_job_response() :: %{
+        "collectionId" => String.t() | atom(),
+        "ingestionJobId" => String.t() | atom(),
+        "ingestionJobName" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+      
+  """
+  @type cancel_ingestion_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       capacity_details() :: %{
         "autoscalingStatus" => String.t() | atom(),
         "capacityInOcu" => [float()]
@@ -528,6 +555,63 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
+      create_ingestion_job_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("failureIndexName") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        required("collectionId") => String.t() | atom(),
+        required("indexName") => String.t() | atom(),
+        required("ingestionJobName") => String.t() | atom(),
+        required("source") => ingestion_job_source()
+      }
+      
+  """
+  @type create_ingestion_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_ingestion_job_response() :: %{
+        "ingestionJobDetail" => ingestion_job_detail()
+      }
+      
+  """
+  @type create_ingestion_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_ingestion_stream_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("failureIndexName") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        required("collectionId") => String.t() | atom(),
+        required("indexName") => String.t() | atom(),
+        required("ingestionStreamName") => String.t() | atom(),
+        required("roleArn") => String.t() | atom(),
+        required("source") => ingestion_stream_source()
+      }
+      
+  """
+  @type create_ingestion_stream_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_ingestion_stream_response() :: %{
+        "ingestionStreamDetail" => ingestion_stream_detail()
+      }
+      
+  """
+  @type create_ingestion_stream_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_lifecycle_policy_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
@@ -760,6 +844,33 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
+      delete_ingestion_stream_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("collectionId") => String.t() | atom(),
+        required("ingestionStreamId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_ingestion_stream_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_ingestion_stream_response() :: %{
+        "collectionId" => String.t() | atom(),
+        "ingestionStreamId" => String.t() | atom(),
+        "ingestionStreamName" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+      
+  """
+  @type delete_ingestion_stream_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_lifecycle_policy_request() :: %{
         optional("clientToken") => String.t() | atom(),
         required("name") => String.t() | atom(),
@@ -981,6 +1092,52 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
+      get_ingestion_job_request() :: %{
+        required("collectionId") => String.t() | atom(),
+        required("ingestionJobId") => String.t() | atom()
+      }
+      
+  """
+  @type get_ingestion_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ingestion_job_response() :: %{
+        "ingestionJobDetail" => ingestion_job_detail()
+      }
+      
+  """
+  @type get_ingestion_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ingestion_stream_request() :: %{
+        required("collectionId") => String.t() | atom(),
+        required("ingestionStreamId") => String.t() | atom()
+      }
+      
+  """
+  @type get_ingestion_stream_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ingestion_stream_response() :: %{
+        "ingestionStreamDetail" => ingestion_stream_detail()
+      }
+      
+  """
+  @type get_ingestion_stream_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_policies_stats_request() :: %{}
       
   """
@@ -1073,6 +1230,173 @@ defmodule AWS.OpenSearchServerless do
       
   """
   @type iam_identity_center_config_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ingestion_alert() :: %{
+        "code" => String.t() | atom(),
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type ingestion_alert() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ingestion_failure_reason() :: %{
+        "code" => String.t() | atom(),
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type ingestion_failure_reason() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ingestion_job_detail() :: %{
+        "activeAlerts" => list(ingestion_alert()),
+        "arn" => String.t() | atom(),
+        "collectionId" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "failureIndexName" => String.t() | atom(),
+        "failureReasons" => list(ingestion_failure_reason()),
+        "indexName" => String.t() | atom(),
+        "ingestionJobId" => String.t() | atom(),
+        "ingestionJobName" => String.t() | atom(),
+        "revision" => [float()],
+        "source" => ingestion_job_source(),
+        "state" => String.t() | atom(),
+        "statistics" => ingestion_statistics(),
+        "status" => String.t() | atom(),
+        "updatedAt" => [non_neg_integer()]
+      }
+      
+  """
+  @type ingestion_job_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ingestion_job_s3_source() :: %{
+        "bucket" => String.t() | atom(),
+        "bucketOwnerAccountId" => String.t() | atom(),
+        "keyPrefix" => [String.t() | atom()]
+      }
+      
+  """
+  @type ingestion_job_s3_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ingestion_job_source() :: %{
+        "s3" => ingestion_job_s3_source()
+      }
+      
+  """
+  @type ingestion_job_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ingestion_job_summary() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "indexName" => String.t() | atom(),
+        "ingestionJobId" => String.t() | atom(),
+        "ingestionJobName" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "updatedAt" => [non_neg_integer()]
+      }
+      
+  """
+  @type ingestion_job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ingestion_statistics() :: %{
+        "s3" => s3_statistics()
+      }
+      
+  """
+  @type ingestion_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ingestion_stream_detail() :: %{
+        "activeAlerts" => list(ingestion_alert()),
+        "arn" => String.t() | atom(),
+        "collectionId" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "failureIndexName" => String.t() | atom(),
+        "failureReasons" => list(ingestion_failure_reason()),
+        "indexName" => String.t() | atom(),
+        "ingestionStreamId" => String.t() | atom(),
+        "ingestionStreamName" => String.t() | atom(),
+        "revision" => [float()],
+        "roleArn" => String.t() | atom(),
+        "source" => ingestion_stream_source(),
+        "state" => String.t() | atom(),
+        "statistics" => ingestion_statistics(),
+        "status" => String.t() | atom(),
+        "updatedAt" => [non_neg_integer()]
+      }
+      
+  """
+  @type ingestion_stream_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ingestion_stream_s3_source() :: %{
+        "buckets" => list(stream_bucket_config()),
+        "sqsArn" => String.t() | atom()
+      }
+      
+  """
+  @type ingestion_stream_s3_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ingestion_stream_source() :: %{
+        "s3" => ingestion_stream_s3_source()
+      }
+      
+  """
+  @type ingestion_stream_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ingestion_stream_summary() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "indexName" => String.t() | atom(),
+        "ingestionStreamId" => String.t() | atom(),
+        "ingestionStreamName" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "updatedAt" => [non_neg_integer()]
+      }
+      
+  """
+  @type ingestion_stream_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1246,6 +1570,56 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
+      list_ingestion_jobs_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()],
+        required("collectionId") => String.t() | atom()
+      }
+      
+  """
+  @type list_ingestion_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_ingestion_jobs_response() :: %{
+        "ingestionJobSummaries" => list(ingestion_job_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+      
+  """
+  @type list_ingestion_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_ingestion_streams_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()],
+        required("collectionId") => String.t() | atom()
+      }
+      
+  """
+  @type list_ingestion_streams_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_ingestion_streams_response() :: %{
+        "ingestionStreamSummaries" => list(ingestion_stream_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+      
+  """
+  @type list_ingestion_streams_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_lifecycle_policies_request() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => [String.t() | atom()],
@@ -1392,6 +1766,19 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
+      s3_statistics() :: %{
+        "objectsDiscovered" => [float()],
+        "objectsFailed" => [float()],
+        "objectsIngested" => [float()]
+      }
+      
+  """
+  @type s3_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       saml_config_options() :: %{
         "groupAttribute" => String.t() | atom(),
         "metadata" => String.t() | atom(),
@@ -1513,6 +1900,19 @@ defmodule AWS.OpenSearchServerless do
 
   ## Example:
       
+      stream_bucket_config() :: %{
+        "bucket" => String.t() | atom(),
+        "bucketOwnerAccountId" => String.t() | atom(),
+        "initialScan" => String.t() | atom()
+      }
+      
+  """
+  @type stream_bucket_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       tag() :: %{
         "key" => String.t() | atom(),
         "value" => String.t() | atom()
@@ -1622,6 +2022,7 @@ defmodule AWS.OpenSearchServerless do
         "deletionProtection" => String.t() | atom(),
         "description" => [String.t() | atom()],
         "id" => String.t() | atom(),
+        "kmsKeyArn" => [String.t() | atom()],
         "lastModifiedDate" => [float()],
         "name" => String.t() | atom(),
         "status" => String.t() | atom(),
@@ -1683,6 +2084,7 @@ defmodule AWS.OpenSearchServerless do
         optional("clientToken") => String.t() | atom(),
         optional("deletionProtection") => String.t() | atom(),
         optional("description") => [String.t() | atom()],
+        optional("encryptionConfig") => encryption_config(),
         optional("vectorOptions") => vector_options(),
         required("id") => String.t() | atom()
       }
@@ -1951,6 +2353,12 @@ defmodule AWS.OpenSearchServerless do
 
   @type batch_get_vpc_endpoint_errors() :: validation_exception() | internal_server_exception()
 
+  @type cancel_ingestion_job_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
   @type create_access_policy_errors() ::
           validation_exception()
           | service_quota_exceeded_exception()
@@ -1972,6 +2380,20 @@ defmodule AWS.OpenSearchServerless do
 
   @type create_index_errors() ::
           validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type create_ingestion_job_errors() ::
+          validation_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
+  @type create_ingestion_stream_errors() ::
+          validation_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
@@ -2021,6 +2443,12 @@ defmodule AWS.OpenSearchServerless do
   @type delete_index_errors() ::
           validation_exception() | resource_not_found_exception() | internal_server_exception()
 
+  @type delete_ingestion_stream_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+
   @type delete_lifecycle_policy_errors() ::
           validation_exception()
           | resource_not_found_exception()
@@ -2053,6 +2481,12 @@ defmodule AWS.OpenSearchServerless do
   @type get_index_errors() ::
           validation_exception() | resource_not_found_exception() | internal_server_exception()
 
+  @type get_ingestion_job_errors() ::
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
+
+  @type get_ingestion_stream_errors() ::
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
+
   @type get_policies_stats_errors() :: internal_server_exception()
 
   @type get_security_config_errors() ::
@@ -2066,6 +2500,12 @@ defmodule AWS.OpenSearchServerless do
   @type list_collection_groups_errors() :: validation_exception() | internal_server_exception()
 
   @type list_collections_errors() :: validation_exception() | internal_server_exception()
+
+  @type list_ingestion_jobs_errors() ::
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
+
+  @type list_ingestion_streams_errors() ::
+          validation_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type list_lifecycle_policies_errors() :: validation_exception() | internal_server_exception()
 
@@ -2248,6 +2688,23 @@ defmodule AWS.OpenSearchServerless do
   end
 
   @doc """
+  Cancels an in-progress ingestion job.
+
+  Documents that were already indexed before the cancellation remain in the index.
+  """
+  @spec cancel_ingestion_job(map(), cancel_ingestion_job_request(), list()) ::
+          {:ok, cancel_ingestion_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, cancel_ingestion_job_errors()}
+  def cancel_ingestion_job(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CancelIngestionJob", input, options)
+  end
+
+  @doc """
   Creates a data access policy for OpenSearch Serverless.
 
   Access policies limit access to collections and the resources within them, and
@@ -2321,6 +2778,47 @@ defmodule AWS.OpenSearchServerless do
       metadata()
 
     Request.request_post(client, meta, "CreateIndex", input, options)
+  end
+
+  @doc """
+  Creates an ingestion job that performs a one-time bulk ingestion of data from an
+  Amazon S3 bucket into an index in an OpenSearch Serverless collection.
+
+  An ingestion job scans the source bucket, indexes the documents it finds, and
+  then completes. To continuously ingest new data as it arrives, use
+  `CreateIngestionStream` instead.
+  """
+  @spec create_ingestion_job(map(), create_ingestion_job_request(), list()) ::
+          {:ok, create_ingestion_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_ingestion_job_errors()}
+  def create_ingestion_job(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateIngestionJob", input, options)
+  end
+
+  @doc """
+  Creates an ingestion stream that continuously ingests data from an Amazon S3
+  bucket into an index in an OpenSearch Serverless collection.
+
+  An ingestion stream processes Amazon S3 event notifications delivered to an
+  Amazon SQS queue and ingests new objects as they arrive. The stream continues to
+  ingest data until you delete it. To perform a one-time bulk ingestion instead,
+  use `CreateIngestionJob`.
+  """
+  @spec create_ingestion_stream(map(), create_ingestion_stream_request(), list()) ::
+          {:ok, create_ingestion_stream_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_ingestion_stream_errors()}
+  def create_ingestion_stream(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateIngestionStream", input, options)
   end
 
   @doc """
@@ -2470,6 +2968,23 @@ defmodule AWS.OpenSearchServerless do
   end
 
   @doc """
+  Deletes an ingestion stream.
+
+  Documents that were already indexed by the stream remain in the index.
+  """
+  @spec delete_ingestion_stream(map(), delete_ingestion_stream_request(), list()) ::
+          {:ok, delete_ingestion_stream_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_ingestion_stream_errors()}
+  def delete_ingestion_stream(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteIngestionStream", input, options)
+  end
+
+  @doc """
   Deletes an OpenSearch Serverless lifecycle policy.
 
   For more information, see [Deleting data lifecycle policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-lifecycle.html#serverless-lifecycle-delete).
@@ -2588,6 +3103,38 @@ defmodule AWS.OpenSearchServerless do
   end
 
   @doc """
+  Returns information about an ingestion job, including its configuration, status,
+  and processing state.
+  """
+  @spec get_ingestion_job(map(), get_ingestion_job_request(), list()) ::
+          {:ok, get_ingestion_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_ingestion_job_errors()}
+  def get_ingestion_job(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetIngestionJob", input, options)
+  end
+
+  @doc """
+  Returns information about an ingestion stream, including its configuration,
+  status, and processing state.
+  """
+  @spec get_ingestion_stream(map(), get_ingestion_stream_request(), list()) ::
+          {:ok, get_ingestion_stream_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_ingestion_stream_errors()}
+  def get_ingestion_stream(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetIngestionStream", input, options)
+  end
+
+  @doc """
   Returns statistical information about your OpenSearch Serverless access
   policies, security configurations, and security policies.
   """
@@ -2688,6 +3235,36 @@ defmodule AWS.OpenSearchServerless do
       metadata()
 
     Request.request_post(client, meta, "ListCollections", input, options)
+  end
+
+  @doc """
+  Returns a list of ingestion jobs in a collection.
+  """
+  @spec list_ingestion_jobs(map(), list_ingestion_jobs_request(), list()) ::
+          {:ok, list_ingestion_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_ingestion_jobs_errors()}
+  def list_ingestion_jobs(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListIngestionJobs", input, options)
+  end
+
+  @doc """
+  Returns a list of ingestion streams in a collection.
+  """
+  @spec list_ingestion_streams(map(), list_ingestion_streams_request(), list()) ::
+          {:ok, list_ingestion_streams_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_ingestion_streams_errors()}
+  def list_ingestion_streams(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListIngestionStreams", input, options)
   end
 
   @doc """

@@ -849,6 +849,27 @@ defmodule AWS.KafkaConnect do
 
   ## Example:
 
+      pause_connector_request() :: %{}
+
+  """
+  @type pause_connector_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      pause_connector_response() :: %{
+        "connectorArn" => String.t() | atom(),
+        "connectorOperationArn" => String.t() | atom()
+      }
+
+  """
+  @type pause_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       plugin() :: %{
         "customPlugin" => custom_plugin()
       }
@@ -925,6 +946,27 @@ defmodule AWS.KafkaConnect do
 
   """
   @type restart_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resume_connector_request() :: %{}
+
+  """
+  @type resume_connector_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      resume_connector_response() :: %{
+        "connectorArn" => String.t() | atom(),
+        "connectorOperationArn" => String.t() | atom()
+      }
+
+  """
+  @type resume_connector_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1136,6 +1178,7 @@ defmodule AWS.KafkaConnect do
       update_connector_request() :: %{
         optional("capacity") => capacity_update(),
         optional("connectorConfiguration") => map(),
+        optional("skipHealthValidation") => boolean(),
         required("currentVersion") => String.t() | atom()
       }
 
@@ -1421,6 +1464,16 @@ defmodule AWS.KafkaConnect do
           | forbidden_exception()
           | bad_request_exception()
 
+  @type pause_connector_errors() ::
+          unauthorized_exception()
+          | too_many_requests_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
+
   @type restart_connector_errors() ::
           unauthorized_exception()
           | too_many_requests_exception()
@@ -1428,6 +1481,16 @@ defmodule AWS.KafkaConnect do
           | not_found_exception()
           | internal_server_error_exception()
           | forbidden_exception()
+          | bad_request_exception()
+
+  @type resume_connector_errors() ::
+          unauthorized_exception()
+          | too_many_requests_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
           | bad_request_exception()
 
   @type tag_resource_errors() ::
@@ -1954,6 +2017,38 @@ defmodule AWS.KafkaConnect do
   end
 
   @doc """
+  Pauses the specified connector.
+
+  The operation runs asynchronously. To track the pause, pass the connector
+  operation ARN from the response to `DescribeConnectorOperation`.
+  """
+  @spec pause_connector(map(), String.t() | atom(), pause_connector_request(), list()) ::
+          {:ok, pause_connector_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, pause_connector_errors()}
+  def pause_connector(%Client{} = client, connector_arn, input, options \\ []) do
+    url_path = "/v1/connectors/#{AWS.Util.encode_uri(connector_arn)}/pause"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Restarts the specified connector.
 
   By default, this operation restarts the connector and all of its tasks. This
@@ -1982,6 +2077,38 @@ defmodule AWS.KafkaConnect do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Resumes the specified paused connector.
+
+  The operation runs asynchronously. To track the resume, pass the connector
+  operation ARN from the response to `DescribeConnectorOperation`.
+  """
+  @spec resume_connector(map(), String.t() | atom(), resume_connector_request(), list()) ::
+          {:ok, resume_connector_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, resume_connector_errors()}
+  def resume_connector(%Client{} = client, connector_arn, input, options \\ []) do
+    url_path = "/v1/connectors/#{AWS.Util.encode_uri(connector_arn)}/resume"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
       url_path,
       query_params,
       custom_headers ++ headers,

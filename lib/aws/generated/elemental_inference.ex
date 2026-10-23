@@ -194,6 +194,34 @@ defmodule AWS.ElementalInference do
 
   ## Example:
 
+      create_schedule_action_request() :: %{
+        required("actionName") => String.t() | atom(),
+        required("operations") => list(list()),
+        required("startConfiguration") => list()
+      }
+
+  """
+  @type create_schedule_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_schedule_action_response() :: %{
+        "actionName" => String.t() | atom(),
+        "error" => schedule_action_error(),
+        "operations" => list(list()),
+        "startConfiguration" => list(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_schedule_action_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cropping_config() :: %{
         "templateGroups" => list(template_group())
       }
@@ -264,6 +292,28 @@ defmodule AWS.ElementalInference do
 
   """
   @type delete_feed_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_schedule_action_request() :: %{
+        required("actionName") => String.t() | atom()
+      }
+
+  """
+  @type delete_schedule_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_schedule_action_response() :: %{
+        "actionName" => String.t() | atom()
+      }
+
+  """
+  @type delete_schedule_action_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -349,6 +399,17 @@ defmodule AWS.ElementalInference do
 
   """
   @type feed_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fixed_mode_schedule_action_start_settings() :: %{
+        "scheduledAt" => [non_neg_integer()]
+      }
+
+  """
+  @type fixed_mode_schedule_action_start_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -554,6 +615,30 @@ defmodule AWS.ElementalInference do
 
   ## Example:
 
+      list_schedule_actions_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_schedule_actions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_schedule_actions_response() :: %{
+        "nextToken" => [String.t() | atom()],
+        "scheduleActions" => list(schedule_action())
+      }
+
+  """
+  @type list_schedule_actions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_tags_for_resource_request() :: %{}
 
   """
@@ -594,12 +679,50 @@ defmodule AWS.ElementalInference do
 
   ## Example:
 
+      remove_clipping_data_source_configuration() :: %{
+        "outputName" => String.t() | atom()
+      }
+
+  """
+  @type remove_clipping_data_source_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       resource_not_found_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
   @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      schedule_action() :: %{
+        "actionName" => String.t() | atom(),
+        "error" => schedule_action_error(),
+        "operations" => list(list()),
+        "startConfiguration" => list(),
+        "status" => list(any())
+      }
+
+  """
+  @type schedule_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      schedule_action_error() :: %{
+        "errorCode" => list(any()),
+        "errorMessage" => [String.t() | atom()]
+      }
+
+  """
+  @type schedule_action_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -726,6 +849,18 @@ defmodule AWS.ElementalInference do
 
   ## Example:
 
+      update_clipping_data_source_configuration() :: %{
+        "dataSourceConfiguration" => data_source_configuration(),
+        "outputName" => String.t() | atom()
+      }
+
+  """
+  @type update_clipping_data_source_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_dictionary_request() :: %{
         optional("entries") => String.t() | atom(),
         optional("language") => list(any()),
@@ -803,6 +938,18 @@ defmodule AWS.ElementalInference do
 
   ## Example:
 
+      update_output_status() :: %{
+        "outputName" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type update_output_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception() :: %{
         "message" => [String.t() | atom()]
       }
@@ -835,6 +982,15 @@ defmodule AWS.ElementalInference do
           | conflict_exception()
           | access_denied_exception()
 
+  @type create_schedule_action_errors() ::
+          validation_exception()
+          | too_many_request_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type delete_dictionary_errors() ::
           validation_exception()
           | too_many_request_exception()
@@ -856,6 +1012,14 @@ defmodule AWS.ElementalInference do
           | too_many_request_exception()
           | resource_not_found_exception()
           | internal_server_error_exception()
+          | access_denied_exception()
+
+  @type delete_schedule_action_errors() ::
+          validation_exception()
+          | too_many_request_exception()
+          | resource_not_found_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type disassociate_feed_errors() ::
@@ -909,6 +1073,13 @@ defmodule AWS.ElementalInference do
           | access_denied_exception()
 
   @type list_feeds_errors() ::
+          validation_exception()
+          | too_many_request_exception()
+          | resource_not_found_exception()
+          | internal_server_error_exception()
+          | access_denied_exception()
+
+  @type list_schedule_actions_errors() ::
           validation_exception()
           | too_many_request_exception()
           | resource_not_found_exception()
@@ -1111,6 +1282,45 @@ defmodule AWS.ElementalInference do
   end
 
   @doc """
+  Creates a schedule action on a feed.
+
+  A schedule action applies configuration changes to the feed at a time that you
+  specify, in the same way as an UpdateFeed request.
+
+  Elemental Inference validates the targets of the action when you create it.
+  """
+  @spec create_schedule_action(
+          map(),
+          String.t() | atom(),
+          create_schedule_action_request(),
+          list()
+        ) ::
+          {:ok, create_schedule_action_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_schedule_action_errors()}
+  def create_schedule_action(%Client{} = client, id, input, options \\ []) do
+    url_path = "/v1/feed/#{AWS.Util.encode_uri(id)}/schedule-actions"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Deletes the specified dictionary.
 
   You cannot delete a dictionary that is referenced by a feed. You must first
@@ -1205,6 +1415,52 @@ defmodule AWS.ElementalInference do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Deletes a schedule action from a feed.
+
+  A deleted action never runs.
+
+  You can delete only an action whose status is PENDING. Deleting an action
+  doesn't reverse changes that the action already made to the feed. When you
+  delete or archive a feed, Elemental Inference deletes all the schedule actions
+  on that feed.
+  """
+  @spec delete_schedule_action(
+          map(),
+          String.t() | atom(),
+          delete_schedule_action_request(),
+          list()
+        ) ::
+          {:ok, delete_schedule_action_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_schedule_action_errors()}
+  def delete_schedule_action(%Client{} = client, id, input, options \\ []) do
+    url_path = "/v1/feed/#{AWS.Util.encode_uri(id)}/schedule-actions"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"actionName", "actionName"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -1375,6 +1631,54 @@ defmodule AWS.ElementalInference do
           | {:error, list_feeds_errors()}
   def list_feeds(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/v1/feeds"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Displays a list of the schedule actions on a feed, including the status of each
+  action and, for a failed action, information about why it failed.
+
+  Elemental Inference keeps an action whose status is COMPLETED or FAILED for
+  about 48 hours after its scheduled time, and then deletes it automatically.
+  """
+  @spec list_schedule_actions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_schedule_actions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_schedule_actions_errors()}
+  def list_schedule_actions(
+        %Client{} = client,
+        id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/feed/#{AWS.Util.encode_uri(id)}/schedule-actions"
     headers = []
     query_params = []
 

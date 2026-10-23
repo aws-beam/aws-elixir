@@ -20166,6 +20166,36 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      get_transit_gateway_attachment_nat_configuration_request() :: %{
+        optional("DryRun") => boolean(),
+        required("TransitGatewayAttachmentId") => String.t() | atom()
+      }
+      
+  """
+  @type get_transit_gateway_attachment_nat_configuration_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      get_transit_gateway_attachment_nat_configuration_result() :: %{
+        "NatGatewayRules" => list(transit_gateway_nat_rule()),
+        "NatGatewaySupport" => list(any()),
+        "NatSystemRouteSupport" => list(any()),
+        "TransitGatewayAttachmentId" => String.t() | atom()
+      }
+      
+  """
+  @type get_transit_gateway_attachment_nat_configuration_result() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       get_transit_gateway_attachment_propagations_request() :: %{
         optional("DryRun") => boolean(),
         optional("Filters") => list(filter()),
@@ -26599,6 +26629,40 @@ defmodule AWS.EC2 do
       
   """
   @type modify_traffic_mirror_session_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_transit_gateway_attachment_nat_configuration_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("NatGatewayRules") => list(transit_gateway_nat_rule_request()),
+        optional("NatGatewaySupport") => list(any()),
+        optional("NatSystemRouteSupport") => list(any()),
+        optional("ResetNatGatewayRules") => boolean(),
+        required("TransitGatewayAttachmentId") => String.t() | atom()
+      }
+      
+  """
+  @type modify_transit_gateway_attachment_nat_configuration_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_transit_gateway_attachment_nat_configuration_result() :: %{
+        "NatGatewayRules" => list(transit_gateway_nat_rule()),
+        "NatGatewaySupport" => list(any()),
+        "NatSystemRouteSupport" => list(any()),
+        "TransitGatewayAttachmentId" => String.t() | atom()
+      }
+      
+  """
+  @type modify_transit_gateway_attachment_nat_configuration_result() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -33394,6 +33458,7 @@ defmodule AWS.EC2 do
       transit_gateway_attachment() :: %{
         "Association" => transit_gateway_attachment_association(),
         "CreationTime" => non_neg_integer(),
+        "NatGatewaySupport" => list(any()),
         "ResourceId" => String.t() | atom(),
         "ResourceOwnerId" => String.t() | atom(),
         "ResourceType" => list(any()),
@@ -33751,6 +33816,33 @@ defmodule AWS.EC2 do
       
   """
   @type transit_gateway_multicast_registered_group_sources() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      transit_gateway_nat_rule() :: %{
+        "MatchSourceCidr" => String.t() | atom(),
+        "NatCidr" => String.t() | atom(),
+        "RuleNumber" => integer(),
+        "State" => list(any())
+      }
+      
+  """
+  @type transit_gateway_nat_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      transit_gateway_nat_rule_request() :: %{
+        "MatchSourceCidr" => String.t() | atom(),
+        "NatCidr" => String.t() | atom(),
+        "RuleNumber" => integer()
+      }
+      
+  """
+  @type transit_gateway_nat_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -42253,10 +42345,14 @@ defmodule AWS.EC2 do
   @doc """
   Deletes the specified transit gateway route table.
 
-  If there are any route tables associated with
-  the transit gateway route table, you must first run `DisassociateRouteTable`
-  before you can delete the transit gateway route table. This removes any route
-  tables associated with the transit gateway route table.
+  Before you can delete a transit gateway route table, you
+  must disassociate all attachments from it by using
+  `DisassociateTransitGatewayRouteTable` and wait for the disassociations to
+  complete. You can't delete a transit gateway route table that is the default
+  association route table
+  or default propagation route table for the transit gateway. To change the
+  default route tables, use
+  `ModifyTransitGateway`.
   """
   @spec delete_transit_gateway_route_table(
           map(),
@@ -50742,6 +50838,32 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Describes the NAT configuration for the specified transit gateway attachment.
+
+  Only the owner of the transit gateway can describe the NAT configuration.
+  """
+  @spec get_transit_gateway_attachment_nat_configuration(
+          map(),
+          get_transit_gateway_attachment_nat_configuration_request(),
+          list()
+        ) ::
+          {:ok, get_transit_gateway_attachment_nat_configuration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_transit_gateway_attachment_nat_configuration(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "GetTransitGatewayAttachmentNatConfiguration",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Lists the route tables to which the specified resource attachment propagates
   routes.
   """
@@ -52762,6 +52884,54 @@ defmodule AWS.EC2 do
       metadata()
 
     Request.request_post(client, meta, "ModifyTransitGateway", input, options)
+  end
+
+  @doc """
+  Modifies the NAT configuration for the specified transit gateway attachment.
+
+  Use this operation to do the following:
+
+    *
+  Enable or disable NAT gateway support for the attachment.
+
+    *
+  Specify whether the transit gateway installs routes for the NAT CIDRs.
+
+    *
+  Replace the NAT gateway rules for the attachment.
+
+  Only the owner of the transit gateway can modify the NAT configuration.
+
+  With NAT gateway support enabled, the transit gateway translates addresses in
+  each rule's `MatchSourceCidr` range
+  to the corresponding addresses in its `NatCidr` range.
+
+  The transit gateway applies changes asynchronously. To check the result, use
+  `GetTransitGatewayAttachmentNatConfiguration`.
+  """
+  @spec modify_transit_gateway_attachment_nat_configuration(
+          map(),
+          modify_transit_gateway_attachment_nat_configuration_request(),
+          list()
+        ) ::
+          {:ok, modify_transit_gateway_attachment_nat_configuration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def modify_transit_gateway_attachment_nat_configuration(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    meta =
+      metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "ModifyTransitGatewayAttachmentNatConfiguration",
+      input,
+      options
+    )
   end
 
   @doc """

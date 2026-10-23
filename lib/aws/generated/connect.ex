@@ -487,6 +487,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      approximate_drifted_resource_count() :: %{
+        "Count" => float(),
+        "Region" => String.t() | atom(),
+        "Timestamp" => non_neg_integer()
+      }
+
+  """
+  @type approximate_drifted_resource_count() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       assign_contact_category_action_definition() :: %{}
 
   """
@@ -7584,6 +7597,7 @@ defmodule AWS.Connect do
         "AgentConfig" => agent_config(),
         "Arn" => String.t() | atom(),
         "Id" => String.t() | atom(),
+        "LastFailoverTime" => non_neg_integer(),
         "SignInConfig" => sign_in_config(),
         "TelephonyConfig" => telephony_config()
       }
@@ -9554,6 +9568,33 @@ defmodule AWS.Connect do
 
   """
   @type list_realtime_contact_analysis_segments_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_replication_findings_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceType") => String.t() | atom()
+      }
+
+  """
+  @type list_replication_findings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_replication_findings_response() :: %{
+        "ApproximateDriftedResourceCounts" => list(approximate_drifted_resource_count()),
+        "NextToken" => String.t() | atom(),
+        "ReplicationFindingsList" => list(replication_finding()),
+        "ResourceReplicationStatuses" => list(resource_replication_status())
+      }
+
+  """
+  @type list_replication_findings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12019,6 +12060,24 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      replication_finding() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Operation" => String.t() | atom(),
+        "ReferenceCode" => String.t() | atom(),
+        "Region" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+
+  """
+  @type replication_finding() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       replication_status_summary() :: %{
         "Region" => String.t() | atom(),
         "ReplicationStatus" => list(any()),
@@ -12084,6 +12143,18 @@ defmodule AWS.Connect do
 
   """
   @type resource_not_ready_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_replication_status() :: %{
+        "Region" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type resource_replication_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18970,6 +19041,13 @@ defmodule AWS.Connect do
           throttling_exception()
           | resource_not_found_exception()
           | output_type_not_found_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+
+  @type list_replication_findings_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
           | invalid_request_exception()
           | internal_service_exception()
           | access_denied_exception()
@@ -30512,6 +30590,67 @@ defmodule AWS.Connect do
       options,
       200
     )
+  end
+
+  @doc """
+  Lists replication findings for resources of a specified resource type in a
+  specified
+  Connect Customer instance.
+
+  A replication finding describes a single resource whose replication
+  to one or more Regions is incomplete or has encountered an error. Results are
+  returned in pages.
+  This operation is available only for instances that are set up for Global
+  Resiliency.
+  """
+  @spec list_replication_findings(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, list_replication_findings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_replication_findings_errors()}
+  def list_replication_findings(
+        %Client{} = client,
+        instance_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        resource_type,
+        options \\ []
+      ) do
+    url_path = "/replication-findings/#{AWS.Util.encode_uri(instance_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resource_type) do
+        [{"resourceType", resource_type} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """

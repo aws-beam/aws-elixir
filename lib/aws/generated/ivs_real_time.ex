@@ -1375,6 +1375,26 @@ defmodule AWS.IVSRealTime do
 
   ## Example:
 
+      revoke_connection_token_request() :: %{
+        required("tokenId") => String.t() | atom()
+      }
+
+  """
+  @type revoke_connection_token_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      revoke_connection_token_response() :: %{}
+
+  """
+  @type revoke_connection_token_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       s3_destination_configuration() :: %{
         "encoderConfigurationArns" => list(String.t() | atom()),
         "recordingConfiguration" => recording_configuration(),
@@ -1924,6 +1944,9 @@ defmodule AWS.IVSRealTime do
 
   @type list_tags_for_resource_errors() ::
           validation_exception() | resource_not_found_exception() | internal_server_exception()
+
+  @type revoke_connection_token_errors() ::
+          validation_exception() | internal_server_exception() | access_denied_exception()
 
   @type start_composition_errors() ::
           validation_exception()
@@ -2936,6 +2959,39 @@ defmodule AWS.IVSRealTime do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Revokes the specified connection token so that it can no longer connect to a
+  stage.
+
+  This operation disconnects any participant currently connected with the revoked
+  token.
+  """
+  @spec revoke_connection_token(map(), revoke_connection_token_request(), list()) ::
+          {:ok, revoke_connection_token_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, revoke_connection_token_errors()}
+  def revoke_connection_token(%Client{} = client, input, options \\ []) do
+    url_path = "/RevokeConnectionToken"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

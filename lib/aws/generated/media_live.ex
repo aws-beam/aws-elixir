@@ -444,6 +444,15 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      auto_filter_settings() :: %{}
+
+  """
+  @type auto_filter_settings() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       automatic_input_failover_settings() :: %{
         "ErrorClearTimeMsec" => integer(),
         "FailoverConditions" => list(failover_condition()),
@@ -473,12 +482,26 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      av1_filter_settings() :: %{
+        "AutoFilterSettings" => auto_filter_settings(),
+        "NoneFilterSettings" => none_filter_settings(),
+        "PerceptualFilterSettings" => perceptual_filter_settings()
+      }
+
+  """
+  @type av1_filter_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       av1_settings() :: %{
         "AfdSignaling" => list(any()),
         "BitDepth" => list(any()),
         "Bitrate" => integer(),
         "BufSize" => integer(),
         "ColorSpaceSettings" => av1_color_space_settings(),
+        "FilterSettings" => av1_filter_settings(),
         "FixedAfd" => list(any()),
         "FramerateDenominator" => integer(),
         "FramerateNumerator" => integer(),
@@ -3516,7 +3539,10 @@ defmodule AWS.MediaLive do
   ## Example:
 
       h264_filter_settings() :: %{
+        "AutoFilterSettings" => auto_filter_settings(),
         "BandwidthReductionFilterSettings" => bandwidth_reduction_filter_settings(),
+        "NoneFilterSettings" => none_filter_settings(),
+        "PerceptualFilterSettings" => perceptual_filter_settings(),
         "TemporalFilterSettings" => temporal_filter_settings()
       }
 
@@ -3530,6 +3556,7 @@ defmodule AWS.MediaLive do
       h264_settings() :: %{
         "AdaptiveQuantization" => list(any()),
         "AfdSignaling" => list(any()),
+        "AllowExplicitWeightedPrediction" => list(any()),
         "Bitrate" => integer(),
         "BufFillPct" => integer(),
         "BufSize" => integer(),
@@ -3598,7 +3625,10 @@ defmodule AWS.MediaLive do
   ## Example:
 
       h265_filter_settings() :: %{
+        "AutoFilterSettings" => auto_filter_settings(),
         "BandwidthReductionFilterSettings" => bandwidth_reduction_filter_settings(),
+        "NoneFilterSettings" => none_filter_settings(),
+        "PerceptualFilterSettings" => perceptual_filter_settings(),
         "TemporalFilterSettings" => temporal_filter_settings()
       }
 
@@ -6116,6 +6146,15 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      none_filter_settings() :: %{}
+
+  """
+  @type none_filter_settings() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       not_found_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -6289,6 +6328,17 @@ defmodule AWS.MediaLive do
 
   """
   @type pause_state_schedule_action_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      perceptual_filter_settings() :: %{
+        "Strength" => list(any())
+      }
+
+  """
+  @type perceptual_filter_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

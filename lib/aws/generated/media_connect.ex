@@ -357,12 +357,57 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      automatic_endpoint_encryption_configuration() :: %{}
+
+  """
+  @type automatic_endpoint_encryption_configuration() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       bad_request_exception() :: %{
         "Message" => [String.t() | atom()]
       }
 
   """
   @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_destination_endpoint_error() :: %{
+        "Arn" => String.t() | atom(),
+        "Code" => [String.t() | atom()],
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type batch_get_destination_endpoint_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_destination_endpoint_request() :: %{
+        required("Arns") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_get_destination_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_destination_endpoint_response() :: %{
+        "DestinationEndpoints" => list(destination_endpoint()),
+        "Errors" => list(batch_get_destination_endpoint_error())
+      }
+
+  """
+  @type batch_get_destination_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -471,6 +516,42 @@ defmodule AWS.MediaConnect do
 
   """
   @type batch_get_router_output_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_source_endpoint_error() :: %{
+        "Arn" => String.t() | atom(),
+        "Code" => [String.t() | atom()],
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type batch_get_source_endpoint_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_source_endpoint_request() :: %{
+        required("Arns") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_get_source_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_source_endpoint_response() :: %{
+        "Errors" => list(batch_get_source_endpoint_error()),
+        "SourceEndpoints" => list(source_endpoint())
+      }
+
+  """
+  @type batch_get_source_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -622,6 +703,42 @@ defmodule AWS.MediaConnect do
 
   """
   @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connect_endpoints_request() :: %{
+        required("SourceEndpointArn") => String.t() | atom()
+      }
+
+  """
+  @type connect_endpoints_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connect_endpoints_response() :: %{
+        "DestinationEndpointArn" => String.t() | atom(),
+        "DestinationEndpointName" => [String.t() | atom()],
+        "SourceEndpointArn" => String.t() | atom(),
+        "SourceEndpointName" => [String.t() | atom()]
+      }
+
+  """
+  @type connect_endpoints_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      consumed_resource_share_details() :: %{
+        "OwnerAccountId" => [String.t() | atom()]
+      }
+
+  """
+  @type consumed_resource_share_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -988,6 +1105,27 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      deregister_destination_endpoint_request() :: %{}
+
+  """
+  @type deregister_destination_endpoint_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_destination_endpoint_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => [String.t() | atom()]
+      }
+
+  """
+  @type deregister_destination_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       deregister_gateway_instance_request() :: %{
         optional("Force") => [boolean()]
       }
@@ -1006,6 +1144,27 @@ defmodule AWS.MediaConnect do
 
   """
   @type deregister_gateway_instance_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_source_endpoint_request() :: %{}
+
+  """
+  @type deregister_source_endpoint_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_source_endpoint_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => [String.t() | atom()]
+      }
+
+  """
+  @type deregister_source_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1203,6 +1362,111 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      destination_endpoint() :: %{
+        "Arn" => String.t() | atom(),
+        "AssociatedResourceDetails" => list(),
+        "AvailabilityZone" => [String.t() | atom()],
+        "AvailabilityZoneId" => [String.t() | atom()],
+        "Configuration" => list(),
+        "ConnectedSource" => String.t() | atom(),
+        "ConnectionDetails" => list(),
+        "ConnectionState" => list(any()),
+        "CreatedAt" => [non_neg_integer()],
+        "DecryptionConfiguration" => list(),
+        "DecryptionType" => list(any()),
+        "Description" => [String.t() | atom()],
+        "DestinationType" => list(any()),
+        "Id" => [String.t() | atom()],
+        "LifecycleManagement" => list(any()),
+        "Messages" => list(destination_endpoint_message()),
+        "Name" => [String.t() | atom()],
+        "RegionName" => [String.t() | atom()],
+        "RegistrationState" => list(any()),
+        "ResourceShareDetails" => list(),
+        "ResourceShareOwnership" => list(any()),
+        "Tags" => map(),
+        "UpdatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type destination_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      destination_endpoint_message() :: %{
+        "Code" => [String.t() | atom()],
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type destination_endpoint_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      destination_endpoint_router_input_configuration() :: %{
+        "EndpointLifecycleManagement" => list(any()),
+        "SourceTransitDecryption" => list(),
+        "SourceTransitDecryptionType" => list(any())
+      }
+
+  """
+  @type destination_endpoint_router_input_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      destination_endpoint_router_input_stream_details() :: %{}
+
+  """
+  @type destination_endpoint_router_input_stream_details() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      destination_endpoint_service_quota_exceeded_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type destination_endpoint_service_quota_exceeded_exception() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      disconnect_endpoints_request() :: %{
+        required("SourceEndpointArn") => String.t() | atom()
+      }
+
+  """
+  @type disconnect_endpoints_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disconnect_endpoints_response() :: %{
+        "DestinationEndpointArn" => String.t() | atom(),
+        "DestinationEndpointName" => [String.t() | atom()],
+        "SourceEndpointArn" => String.t() | atom(),
+        "SourceEndpointName" => [String.t() | atom()]
+      }
+
+  """
+  @type disconnect_endpoints_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       egress_gateway_bridge() :: %{
         "InstanceId" => [String.t() | atom()],
         "MaxBitrate" => [integer()]
@@ -1265,6 +1529,17 @@ defmodule AWS.MediaConnect do
 
   """
   @type encryption() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      endpoint_encryption_secret_configuration() :: %{
+        "SecretArn" => String.t() | atom()
+      }
+
+  """
+  @type endpoint_encryption_secret_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1529,6 +1804,26 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      get_destination_endpoint_request() :: %{}
+
+  """
+  @type get_destination_endpoint_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_destination_endpoint_response() :: %{
+        "DestinationEndpoint" => destination_endpoint()
+      }
+
+  """
+  @type get_destination_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_router_input_request() :: %{}
 
   """
@@ -1628,6 +1923,26 @@ defmodule AWS.MediaConnect do
 
   """
   @type get_router_output_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_source_endpoint_request() :: %{}
+
+  """
+  @type get_source_endpoint_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_source_endpoint_response() :: %{
+        "SourceEndpoint" => source_endpoint()
+      }
+
+  """
+  @type get_source_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1775,6 +2090,31 @@ defmodule AWS.MediaConnect do
 
   """
   @type list_bridges_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_destination_endpoints_request() :: %{
+        optional("Filters") => list(list()),
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_destination_endpoints_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_destination_endpoints_response() :: %{
+        "DestinationEndpoints" => list(listed_destination_endpoint()),
+        "NextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_destination_endpoints_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2000,6 +2340,31 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      list_source_endpoints_request() :: %{
+        optional("Filters") => list(list()),
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_source_endpoints_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_source_endpoints_response() :: %{
+        "NextToken" => [String.t() | atom()],
+        "SourceEndpoints" => list(listed_source_endpoint())
+      }
+
+  """
+  @type list_source_endpoints_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_tags_for_global_resource_request() :: %{}
 
   """
@@ -2050,6 +2415,34 @@ defmodule AWS.MediaConnect do
 
   """
   @type listed_bridge() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      listed_destination_endpoint() :: %{
+        "Arn" => String.t() | atom(),
+        "AssociatedResourceArn" => [String.t() | atom()],
+        "AvailabilityZone" => [String.t() | atom()],
+        "AvailabilityZoneId" => [String.t() | atom()],
+        "ConnectedSource" => String.t() | atom(),
+        "ConnectionState" => list(any()),
+        "CreatedAt" => [non_neg_integer()],
+        "DecryptionType" => list(any()),
+        "DestinationType" => list(any()),
+        "Id" => [String.t() | atom()],
+        "LifecycleManagement" => list(any()),
+        "MessageCount" => [integer()],
+        "Name" => [String.t() | atom()],
+        "RegionName" => [String.t() | atom()],
+        "RegistrationState" => list(any()),
+        "ResourceShareOwnership" => list(any()),
+        "ResourceShareState" => list(any()),
+        "UpdatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type listed_destination_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2180,6 +2573,34 @@ defmodule AWS.MediaConnect do
 
   """
   @type listed_router_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      listed_source_endpoint() :: %{
+        "Arn" => String.t() | atom(),
+        "AssociatedResourceArn" => [String.t() | atom()],
+        "AvailabilityZone" => [String.t() | atom()],
+        "AvailabilityZoneId" => [String.t() | atom()],
+        "ConnectedDestinationCount" => [integer()],
+        "ConnectionState" => list(any()),
+        "CreatedAt" => [non_neg_integer()],
+        "EncryptionType" => list(any()),
+        "Id" => [String.t() | atom()],
+        "LifecycleManagement" => list(any()),
+        "MessageCount" => [integer()],
+        "Name" => [String.t() | atom()],
+        "RegionName" => [String.t() | atom()],
+        "RegistrationState" => list(any()),
+        "ResourceShareOwnership" => list(any()),
+        "ResourceShareState" => list(any()),
+        "SourceType" => list(any()),
+        "UpdatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type listed_source_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2634,6 +3055,17 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      owned_resource_share_details() :: %{
+        "ShareState" => list(any())
+      }
+
+  """
+  @type owned_resource_share_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       preferred_day_time_maintenance_configuration() :: %{
         "Day" => list(any()),
         "Time" => [String.t() | atom()]
@@ -2641,6 +3073,32 @@ defmodule AWS.MediaConnect do
 
   """
   @type preferred_day_time_maintenance_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      public_destination_endpoint_networking_configuration() :: %{
+        "DestinationAllowRules" => list(public_destination_endpoint_networking_configuration_allow_rule())
+      }
+
+  """
+  @type public_destination_endpoint_networking_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      public_destination_endpoint_networking_configuration_allow_rule() :: %{
+        "Cidr" => [String.t() | atom()]
+      }
+
+  """
+  @type public_destination_endpoint_networking_configuration_allow_rule() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -2663,6 +3121,30 @@ defmodule AWS.MediaConnect do
 
   """
   @type public_router_network_interface_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      public_source_endpoint_networking_configuration() :: %{
+        "SourceAllowRules" => list(public_source_endpoint_networking_configuration_allow_rule())
+      }
+
+  """
+  @type public_source_endpoint_networking_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      public_source_endpoint_networking_configuration_allow_rule() :: %{
+        "Cidr" => [String.t() | atom()]
+      }
+
+  """
+  @type public_source_endpoint_networking_configuration_allow_rule() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -2695,6 +3177,58 @@ defmodule AWS.MediaConnect do
 
   """
   @type purchase_offering_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_destination_endpoint_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => [String.t() | atom()],
+        optional("RegionName") => [String.t() | atom()],
+        optional("Tags") => map(),
+        required("Configuration") => list()
+      }
+
+  """
+  @type register_destination_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_destination_endpoint_response() :: %{
+        "DestinationEndpoint" => destination_endpoint()
+      }
+
+  """
+  @type register_destination_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_source_endpoint_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => [String.t() | atom()],
+        optional("RegionName") => [String.t() | atom()],
+        optional("Tags") => map(),
+        required("Configuration") => list()
+      }
+
+  """
+  @type register_source_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_source_endpoint_response() :: %{
+        "SourceEndpoint" => source_endpoint()
+      }
+
+  """
+  @type register_source_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2951,8 +3485,33 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      rist_standard_destination_endpoint_configuration() :: %{
+        "DestinationAddress" => [String.t() | atom()],
+        "DestinationIngestPort" => [integer()]
+      }
+
+  """
+  @type rist_standard_destination_endpoint_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rist_standard_source_endpoint_configuration() :: %{
+        "DestinationIngestPort" => [integer()],
+        "RecoveryLatencyMilliseconds" => [float()]
+      }
+
+  """
+  @type rist_standard_source_endpoint_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       router_input() :: %{
         "Arn" => String.t() | atom(),
+        "AssociatedDestinationEndpointArns" => list(String.t() | atom()),
         "AvailabilityZone" => [String.t() | atom()],
         "Configuration" => list(),
         "ContentQualityAnalysisConfiguration" => list(),
@@ -2982,6 +3541,48 @@ defmodule AWS.MediaConnect do
 
   """
   @type router_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      router_input_destination_endpoint_associated_resource_details() :: %{
+        "MaximumBitrate" => [float()],
+        "Messages" => list(router_input_message()),
+        "Name" => [String.t() | atom()],
+        "State" => list(any())
+      }
+
+  """
+  @type router_input_destination_endpoint_associated_resource_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      router_input_destination_endpoint_configuration() :: %{
+        "RouterInputArn" => String.t() | atom()
+      }
+
+  """
+  @type router_input_destination_endpoint_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      router_input_destination_endpoint_connection_details() :: %{
+        "SourceEncryptionConfiguration" => list(),
+        "SourceEncryptionType" => list(any()),
+        "SourceEndpointType" => list(any())
+      }
+
+  """
+  @type router_input_destination_endpoint_connection_details() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -3086,6 +3687,7 @@ defmodule AWS.MediaConnect do
 
       router_output() :: %{
         "Arn" => String.t() | atom(),
+        "AssociatedSourceEndpointArns" => list(String.t() | atom()),
         "AvailabilityZone" => [String.t() | atom()],
         "Configuration" => list(),
         "CreatedAt" => [non_neg_integer()],
@@ -3141,6 +3743,46 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      router_output_source_endpoint_associated_resource_details() :: %{
+        "MaximumBitrate" => [float()],
+        "Messages" => list(router_output_message()),
+        "Name" => [String.t() | atom()],
+        "State" => list(any())
+      }
+
+  """
+  @type router_output_source_endpoint_associated_resource_details() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      router_output_source_endpoint_configuration() :: %{
+        "RouterOutputArn" => String.t() | atom()
+      }
+
+  """
+  @type router_output_source_endpoint_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      router_output_source_endpoint_connection_details() :: %{
+        "DestinationDecryptionConfiguration" => list(),
+        "DestinationDecryptionType" => list(any()),
+        "DestinationEndpointType" => list(any())
+      }
+
+  """
+  @type router_output_source_endpoint_connection_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       rtmp_push_router_output_configuration() :: %{
         "ApplicationName" => [String.t() | atom()],
         "DestinationAddress" => [String.t() | atom()],
@@ -3181,6 +3823,31 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      rtp_standard_destination_endpoint_configuration() :: %{
+        "DestinationAddress" => [String.t() | atom()],
+        "DestinationIngestPort" => [integer()],
+        "ForwardErrorCorrectionState" => list(any())
+      }
+
+  """
+  @type rtp_standard_destination_endpoint_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rtp_standard_source_endpoint_configuration() :: %{
+        "DestinationIngestPort" => [integer()],
+        "ForwardErrorCorrectionState" => list(any())
+      }
+
+  """
+  @type rtp_standard_source_endpoint_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       secrets_manager_encryption_key_configuration() :: %{
         "RoleArn" => String.t() | atom(),
         "SecretArn" => String.t() | atom()
@@ -3188,6 +3855,18 @@ defmodule AWS.MediaConnect do
 
   """
   @type secrets_manager_encryption_key_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      secrets_manager_endpoint_encryption_configuration() :: %{
+        "EncryptionSecret" => endpoint_encryption_secret_configuration(),
+        "EncryptionSecretType" => list(any())
+      }
+
+  """
+  @type secrets_manager_endpoint_encryption_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3302,6 +3981,84 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      source_endpoint() :: %{
+        "Arn" => String.t() | atom(),
+        "AssociatedResourceDetails" => list(),
+        "AvailabilityZone" => [String.t() | atom()],
+        "AvailabilityZoneId" => [String.t() | atom()],
+        "Configuration" => list(),
+        "ConnectedDestinations" => list(String.t() | atom()),
+        "ConnectionDetails" => list(),
+        "ConnectionState" => list(any()),
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => [String.t() | atom()],
+        "EncryptionConfiguration" => list(),
+        "EncryptionType" => list(any()),
+        "Id" => [String.t() | atom()],
+        "LifecycleManagement" => list(any()),
+        "Messages" => list(source_endpoint_message()),
+        "Name" => [String.t() | atom()],
+        "RegionName" => [String.t() | atom()],
+        "RegistrationState" => list(any()),
+        "ResourceShareDetails" => list(),
+        "ResourceShareOwnership" => list(any()),
+        "SourceType" => list(any()),
+        "Tags" => map(),
+        "UpdatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type source_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_endpoint_message() :: %{
+        "Code" => [String.t() | atom()],
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type source_endpoint_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_endpoint_router_output_configuration() :: %{
+        "DestinationTransitEncryption" => list(),
+        "DestinationTransitEncryptionType" => list(any()),
+        "EndpointLifecycleManagement" => list(any())
+      }
+
+  """
+  @type source_endpoint_router_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_endpoint_router_output_stream_details() :: %{}
+
+  """
+  @type source_endpoint_router_output_stream_details() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      source_endpoint_service_quota_exceeded_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type source_endpoint_service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       source_priority() :: %{
         "PrimarySource" => [String.t() | atom()]
       }
@@ -3338,6 +4095,34 @@ defmodule AWS.MediaConnect do
 
   """
   @type srt_caller_router_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      srt_caller_standard_destination_endpoint_configuration() :: %{
+        "EncryptionPassphrase" => endpoint_encryption_secret_configuration(),
+        "MinimumLatencyMilliseconds" => [float()],
+        "SourceListenerPort" => [integer()]
+      }
+
+  """
+  @type srt_caller_standard_destination_endpoint_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      srt_caller_standard_source_endpoint_configuration() :: %{
+        "DestinationIngestPort" => [integer()],
+        "EncryptionPassphrase" => endpoint_encryption_secret_configuration(),
+        "MinimumLatencyMilliseconds" => [float()]
+      }
+
+  """
+  @type srt_caller_standard_source_endpoint_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3391,6 +4176,77 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      srt_listener_standard_destination_endpoint_configuration() :: %{
+        "DestinationAddress" => [String.t() | atom()],
+        "DestinationIngestPort" => [integer()],
+        "EncryptionPassphrase" => endpoint_encryption_secret_configuration(),
+        "MinimumLatencyMilliseconds" => [float()],
+        "StreamId" => [String.t() | atom()]
+      }
+
+  """
+  @type srt_listener_standard_destination_endpoint_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      srt_listener_standard_source_endpoint_configuration() :: %{
+        "EncryptionPassphrase" => endpoint_encryption_secret_configuration(),
+        "MinimumLatencyMilliseconds" => [float()],
+        "SourceAddress" => [String.t() | atom()],
+        "SourceListenerPort" => [integer()],
+        "StreamId" => [String.t() | atom()]
+      }
+
+  """
+  @type srt_listener_standard_source_endpoint_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      standard_destination_endpoint_associated_resource_details() :: %{}
+
+  """
+  @type standard_destination_endpoint_associated_resource_details() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      standard_destination_endpoint_configuration() :: %{
+        "DestinationNetworkingConfiguration" => list(),
+        "DestinationNetworkingType" => list(any()),
+        "Name" => [String.t() | atom()],
+        "Protocol" => list(any()),
+        "ProtocolConfiguration" => list()
+      }
+
+  """
+  @type standard_destination_endpoint_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      standard_destination_endpoint_connection_details() :: %{
+        "SourceEncryptionConfiguration" => list(),
+        "SourceEncryptionType" => list(any()),
+        "SourceEndpointType" => list(any()),
+        "SourceIpAddress" => [String.t() | atom()],
+        "SourceListenerPort" => [integer()]
+      }
+
+  """
+  @type standard_destination_endpoint_connection_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       standard_router_input_configuration() :: %{
         "NetworkInterfaceArn" => String.t() | atom(),
         "Protocol" => list(any()),
@@ -3434,6 +4290,45 @@ defmodule AWS.MediaConnect do
 
   """
   @type standard_router_output_stream_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      standard_source_endpoint_associated_resource_details() :: %{}
+
+  """
+  @type standard_source_endpoint_associated_resource_details() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      standard_source_endpoint_configuration() :: %{
+        "Name" => [String.t() | atom()],
+        "Protocol" => list(any()),
+        "ProtocolConfiguration" => list(),
+        "SourceNetworkingConfiguration" => list(),
+        "SourceNetworkingType" => list(any())
+      }
+
+  """
+  @type standard_source_endpoint_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      standard_source_endpoint_connection_details() :: %{
+        "DestinationDecryptionConfiguration" => list(),
+        "DestinationDecryptionType" => list(any()),
+        "DestinationEndpointType" => list(any()),
+        "DestinationIngestPort" => [integer()],
+        "DestinationIpAddress" => [String.t() | atom()]
+      }
+
+  """
+  @type standard_source_endpoint_connection_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3891,6 +4786,29 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      update_destination_endpoint_request() :: %{
+        optional("Configuration") => list(),
+        optional("Description") => [String.t() | atom()]
+      }
+
+  """
+  @type update_destination_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_destination_endpoint_response() :: %{
+        "DestinationEndpoint" => destination_endpoint()
+      }
+
+  """
+  @type update_destination_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_egress_gateway_bridge_request() :: %{
         "MaxBitrate" => [integer()]
       }
@@ -4242,6 +5160,29 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      update_source_endpoint_request() :: %{
+        optional("Configuration") => list(),
+        optional("Description") => [String.t() | atom()]
+      }
+
+  """
+  @type update_source_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_source_endpoint_response() :: %{
+        "SourceEndpoint" => source_endpoint()
+      }
+
+  """
+  @type update_source_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       video_monitoring_setting() :: %{
         "BlackFrames" => black_frames(),
         "FrozenFrames" => frozen_frames()
@@ -4249,6 +5190,18 @@ defmodule AWS.MediaConnect do
 
   """
   @type video_monitoring_setting() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_destination_endpoint_networking_configuration() :: %{
+        "SecurityGroupIds" => list([String.t() | atom()]()),
+        "SubnetId" => [String.t() | atom()]
+      }
+
+  """
+  @type vpc_destination_endpoint_networking_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4304,6 +5257,18 @@ defmodule AWS.MediaConnect do
 
   """
   @type vpc_router_network_interface_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_source_endpoint_networking_configuration() :: %{
+        "SecurityGroupIds" => list([String.t() | atom()]()),
+        "SubnetId" => [String.t() | atom()]
+      }
+
+  """
+  @type vpc_source_endpoint_networking_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4369,6 +5334,13 @@ defmodule AWS.MediaConnect do
           | forbidden_exception()
           | bad_request_exception()
 
+  @type batch_get_destination_endpoint_errors() ::
+          too_many_requests_exception()
+          | service_unavailable_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
+          | bad_request_exception()
+
   @type batch_get_router_input_errors() ::
           too_many_requests_exception()
           | service_unavailable_exception()
@@ -4387,6 +5359,22 @@ defmodule AWS.MediaConnect do
           too_many_requests_exception()
           | service_unavailable_exception()
           | internal_server_error_exception()
+          | conflict_exception()
+          | bad_request_exception()
+
+  @type batch_get_source_endpoint_errors() ::
+          too_many_requests_exception()
+          | service_unavailable_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
+          | bad_request_exception()
+
+  @type connect_endpoints_errors() ::
+          too_many_requests_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
           | conflict_exception()
           | bad_request_exception()
 
@@ -4496,7 +5484,25 @@ defmodule AWS.MediaConnect do
           | conflict_exception()
           | bad_request_exception()
 
+  @type deregister_destination_endpoint_errors() ::
+          too_many_requests_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
+
   @type deregister_gateway_instance_errors() ::
+          too_many_requests_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
+
+  @type deregister_source_endpoint_errors() ::
           too_many_requests_exception()
           | service_unavailable_exception()
           | not_found_exception()
@@ -4570,6 +5576,24 @@ defmodule AWS.MediaConnect do
           | internal_server_error_exception()
           | bad_request_exception()
 
+  @type disconnect_endpoints_errors() ::
+          too_many_requests_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
+
+  @type get_destination_endpoint_errors() ::
+          too_many_requests_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
+
   @type get_router_input_errors() ::
           too_many_requests_exception()
           | service_unavailable_exception()
@@ -4613,6 +5637,14 @@ defmodule AWS.MediaConnect do
           | conflict_exception()
           | bad_request_exception()
 
+  @type get_source_endpoint_errors() ::
+          too_many_requests_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
+
   @type grant_flow_entitlements_errors() ::
           too_many_requests_exception()
           | service_unavailable_exception()
@@ -4623,6 +5655,13 @@ defmodule AWS.MediaConnect do
           | bad_request_exception()
 
   @type list_bridges_errors() ::
+          too_many_requests_exception()
+          | service_unavailable_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
+          | bad_request_exception()
+
+  @type list_destination_endpoints_errors() ::
           too_many_requests_exception()
           | service_unavailable_exception()
           | internal_server_error_exception()
@@ -4688,6 +5727,13 @@ defmodule AWS.MediaConnect do
           | conflict_exception()
           | bad_request_exception()
 
+  @type list_source_endpoints_errors() ::
+          too_many_requests_exception()
+          | service_unavailable_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
+          | bad_request_exception()
+
   @type list_tags_for_global_resource_errors() ::
           not_found_exception() | internal_server_error_exception() | bad_request_exception()
 
@@ -4700,6 +5746,24 @@ defmodule AWS.MediaConnect do
           | not_found_exception()
           | internal_server_error_exception()
           | forbidden_exception()
+          | bad_request_exception()
+
+  @type register_destination_endpoint_errors() ::
+          too_many_requests_exception()
+          | service_unavailable_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | destination_endpoint_service_quota_exceeded_exception()
+          | conflict_exception()
+          | bad_request_exception()
+
+  @type register_source_endpoint_errors() ::
+          too_many_requests_exception()
+          | source_endpoint_service_quota_exceeded_exception()
+          | service_unavailable_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
           | bad_request_exception()
 
   @type remove_bridge_output_errors() ::
@@ -4887,6 +5951,15 @@ defmodule AWS.MediaConnect do
           | conflict_exception()
           | bad_request_exception()
 
+  @type update_destination_endpoint_errors() ::
+          too_many_requests_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
+
   @type update_flow_errors() ::
           too_many_requests_exception()
           | service_unavailable_exception()
@@ -4954,6 +6027,15 @@ defmodule AWS.MediaConnect do
           | bad_request_exception()
 
   @type update_router_output_errors() ::
+          too_many_requests_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
+
+  @type update_source_endpoint_errors() ::
           too_many_requests_exception()
           | service_unavailable_exception()
           | not_found_exception()
@@ -5168,6 +6250,31 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
+  Retrieves information about multiple destination endpoints in a single request.
+  """
+  @spec batch_get_destination_endpoint(map(), String.t() | atom(), list()) ::
+          {:ok, batch_get_destination_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_get_destination_endpoint_errors()}
+  def batch_get_destination_endpoint(%Client{} = client, arns, options \\ []) do
+    url_path = "/v1/destinationEndpoints"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(arns) do
+        [{"arns", arns} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves information about multiple router inputs in AWS Elemental
   MediaConnect.
   """
@@ -5243,6 +6350,60 @@ defmodule AWS.MediaConnect do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about multiple source endpoints in a single request.
+  """
+  @spec batch_get_source_endpoint(map(), String.t() | atom(), list()) ::
+          {:ok, batch_get_source_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_get_source_endpoint_errors()}
+  def batch_get_source_endpoint(%Client{} = client, arns, options \\ []) do
+    url_path = "/v1/sourceEndpoints"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(arns) do
+        [{"arns", arns} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Connects a source endpoint to a destination endpoint.
+  """
+  @spec connect_endpoints(map(), String.t() | atom(), connect_endpoints_request(), list()) ::
+          {:ok, connect_endpoints_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, connect_endpoints_errors()}
+  def connect_endpoints(%Client{} = client, destination_endpoint_arn, input, options \\ []) do
+    url_path = "/v1/connectEndpoints/#{AWS.Util.encode_uri(destination_endpoint_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
   end
 
   @doc """
@@ -5613,6 +6774,40 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
+  Deregisters a destination endpoint from MediaConnect.
+  """
+  @spec deregister_destination_endpoint(
+          map(),
+          String.t() | atom(),
+          deregister_destination_endpoint_request(),
+          list()
+        ) ::
+          {:ok, deregister_destination_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, deregister_destination_endpoint_errors()}
+  def deregister_destination_endpoint(%Client{} = client, arn, input, options \\ []) do
+    url_path = "/v1/destinationEndpoint/#{AWS.Util.encode_uri(arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deregisters an instance.
 
   Before you deregister an instance, all bridges running on the instance must be
@@ -5652,6 +6847,40 @@ defmodule AWS.MediaConnect do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Deregisters a source endpoint from MediaConnect.
+  """
+  @spec deregister_source_endpoint(
+          map(),
+          String.t() | atom(),
+          deregister_source_endpoint_request(),
+          list()
+        ) ::
+          {:ok, deregister_source_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, deregister_source_endpoint_errors()}
+  def deregister_source_endpoint(%Client{} = client, arn, input, options \\ []) do
+    url_path = "/v1/sourceEndpoint/#{AWS.Util.encode_uri(arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -5818,6 +7047,53 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
+  Disconnects a source endpoint from a destination endpoint.
+  """
+  @spec disconnect_endpoints(map(), String.t() | atom(), disconnect_endpoints_request(), list()) ::
+          {:ok, disconnect_endpoints_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disconnect_endpoints_errors()}
+  def disconnect_endpoints(%Client{} = client, destination_endpoint_arn, input, options \\ []) do
+    url_path = "/v1/disconnectEndpoints/#{AWS.Util.encode_uri(destination_endpoint_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Retrieves information about a destination endpoint.
+  """
+  @spec get_destination_endpoint(map(), String.t() | atom(), list()) ::
+          {:ok, get_destination_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_destination_endpoint_errors()}
+  def get_destination_endpoint(%Client{} = client, arn, options \\ []) do
+    url_path = "/v1/destinationEndpoint/#{AWS.Util.encode_uri(arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves information about a specific router input in AWS Elemental
   MediaConnect.
   """
@@ -5912,6 +7188,24 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
+  Retrieves information about a source endpoint.
+  """
+  @spec get_source_endpoint(map(), String.t() | atom(), list()) ::
+          {:ok, get_source_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_source_endpoint_errors()}
+  def get_source_endpoint(%Client{} = client, arn, options \\ []) do
+    url_path = "/v1/sourceEndpoint/#{AWS.Util.encode_uri(arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Grants entitlements to an existing flow.
   """
   @spec grant_flow_entitlements(
@@ -5997,6 +7291,44 @@ defmodule AWS.MediaConnect do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves a list of the destination endpoints in your account.
+
+  The results are paginated. Use the NextToken value that's returned to retrieve
+  additional results.
+  """
+  @spec list_destination_endpoints(map(), list_destination_endpoints_request(), list()) ::
+          {:ok, list_destination_endpoints_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_destination_endpoints_errors()}
+  def list_destination_endpoints(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/destinationEndpoints"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"MaxResults", "maxResults"},
+        {"NextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -6334,6 +7666,44 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
+  Retrieves a list of the source endpoints in your account.
+
+  The results are paginated. Use the NextToken value that's returned to retrieve
+  additional results.
+  """
+  @spec list_source_endpoints(map(), list_source_endpoints_request(), list()) ::
+          {:ok, list_source_endpoints_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_source_endpoints_errors()}
+  def list_source_endpoints(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/sourceEndpoints"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"MaxResults", "maxResults"},
+        {"NextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Lists the tags associated with a global resource in AWS Elemental MediaConnect.
 
   The API supports the following global resources: router inputs, router outputs
@@ -6384,6 +7754,64 @@ defmodule AWS.MediaConnect do
           | {:error, purchase_offering_errors()}
   def purchase_offering(%Client{} = client, offering_arn, input, options \\ []) do
     url_path = "/v1/offerings/#{AWS.Util.encode_uri(offering_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Registers a new destination endpoint in MediaConnect.
+  """
+  @spec register_destination_endpoint(map(), register_destination_endpoint_request(), list()) ::
+          {:ok, register_destination_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, register_destination_endpoint_errors()}
+  def register_destination_endpoint(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/destinationEndpoint"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Registers a new source endpoint in MediaConnect.
+  """
+  @spec register_source_endpoint(map(), register_source_endpoint_request(), list()) ::
+          {:ok, register_source_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, register_source_endpoint_errors()}
+  def register_source_endpoint(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/sourceEndpoint"
     headers = []
     custom_headers = []
     query_params = []
@@ -7227,6 +8655,40 @@ defmodule AWS.MediaConnect do
   end
 
   @doc """
+  Updates the configuration of a destination endpoint.
+  """
+  @spec update_destination_endpoint(
+          map(),
+          String.t() | atom(),
+          update_destination_endpoint_request(),
+          list()
+        ) ::
+          {:ok, update_destination_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_destination_endpoint_errors()}
+  def update_destination_endpoint(%Client{} = client, arn, input, options \\ []) do
+    url_path = "/v1/destinationEndpoint/#{AWS.Util.encode_uri(arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Updates an existing flow.
 
   Because `UpdateFlowSources` and `UpdateFlow` are separate operations, you can't
@@ -7565,6 +9027,40 @@ defmodule AWS.MediaConnect do
           | {:error, update_router_output_errors()}
   def update_router_output(%Client{} = client, arn, input, options \\ []) do
     url_path = "/v1/routerOutput/#{AWS.Util.encode_uri(arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Updates the configuration of a source endpoint.
+  """
+  @spec update_source_endpoint(
+          map(),
+          String.t() | atom(),
+          update_source_endpoint_request(),
+          list()
+        ) ::
+          {:ok, update_source_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_source_endpoint_errors()}
+  def update_source_endpoint(%Client{} = client, arn, input, options \\ []) do
+    url_path = "/v1/sourceEndpoint/#{AWS.Util.encode_uri(arn)}"
     headers = []
     custom_headers = []
     query_params = []

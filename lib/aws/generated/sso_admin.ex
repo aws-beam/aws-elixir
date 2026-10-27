@@ -1745,7 +1745,8 @@ defmodule AWS.SSOAdmin do
       
       list_instances_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+        optional("NextToken") => String.t() | atom(),
+        optional("RegionScope") => list(any())
       }
       
   """
@@ -4768,10 +4769,10 @@ defmodule AWS.SSOAdmin do
     * Enable permission sets for the instance by specifying
   `PermissionSetsEnabled`.
 
-  A request that specifies both `EncryptionConfiguration` and
-  `PermissionSetsEnabled` returns a `ValidationException`. To perform both
-  operations, call `UpdateInstance` separately for each. The two calls can be made
-  in parallel.
+  If you specify both `EncryptionConfiguration` and `PermissionSetsEnabled` in a
+  request, the request returns a `ValidationException`. To perform both
+  operations, call `UpdateInstance` separately for each. You can make the two
+  calls in parallel.
   """
   @spec update_instance(map(), update_instance_request(), list()) ::
           {:ok, update_instance_response(), any()}

@@ -10719,6 +10719,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      nullable_additional_recipients() :: %{
+        "CcEmailAddresses" => list(email_address_info())
+      }
+
+  """
+  @type nullable_additional_recipients() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       number_condition() :: %{
         "ComparisonType" => list(any()),
         "FieldName" => String.t() | atom(),
@@ -15355,6 +15366,7 @@ defmodule AWS.Connect do
   ## Example:
 
       update_contact_request() :: %{
+        optional("AdditionalRecipients") => nullable_additional_recipients(),
         optional("CustomerEndpoint") => endpoint(),
         optional("Description") => String.t() | atom(),
         optional("Name") => String.t() | atom(),
@@ -15741,6 +15753,52 @@ defmodule AWS.Connect do
 
   """
   @type update_notification_content_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_outbound_email_contact_message_request() :: %{
+        required("EmailMessage") => update_outbound_email_content()
+      }
+
+  """
+  @type update_outbound_email_contact_message_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_outbound_email_contact_message_response() :: %{
+        "ContactId" => String.t() | atom()
+      }
+
+  """
+  @type update_outbound_email_contact_message_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_outbound_email_content() :: %{
+        "MessageSourceType" => list(any()),
+        "RawMessage" => update_outbound_raw_message()
+      }
+
+  """
+  @type update_outbound_email_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_outbound_raw_message() :: %{
+        "Body" => String.t() | atom(),
+        "ContentType" => String.t() | atom()
+      }
+
+  """
+  @type update_outbound_raw_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -20013,6 +20071,14 @@ defmodule AWS.Connect do
           | resource_not_found_exception()
           | invalid_request_exception()
           | invalid_parameter_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+
+  @type update_outbound_email_contact_message_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | resource_conflict_exception()
+          | invalid_request_exception()
           | internal_service_exception()
           | access_denied_exception()
 
@@ -36073,6 +36139,54 @@ defmodule AWS.Connect do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the draft outbound email message for a contact.
+
+  Use this operation to save changes to an in-progress
+  outbound email reply before you send it. This operation applies only to contacts
+  with an `OUTBOUND` or
+  `AGENT_REPLY` initiation method; it isn't supported for flow-initiated emails.
+  """
+  @spec update_outbound_email_contact_message(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_outbound_email_contact_message_request(),
+          list()
+        ) ::
+          {:ok, update_outbound_email_contact_message_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_outbound_email_contact_message_errors()}
+  def update_outbound_email_contact_message(
+        %Client{} = client,
+        contact_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/instances/#{AWS.Util.encode_uri(instance_id)}/contacts/#{AWS.Util.encode_uri(contact_id)}/outbound-email-message"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
       url_path,
       query_params,
       custom_headers ++ headers,

@@ -56,6 +56,17 @@ defmodule AWS.Billing do
 
   ## Example:
       
+      additional_recipient() :: %{
+        "email" => String.t() | atom()
+      }
+      
+  """
+  @type additional_recipient() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       amount() :: %{
         "currencyAmount" => String.t() | atom(),
         "currencyCode" => String.t() | atom()
@@ -63,6 +74,40 @@ defmodule AWS.Billing do
       
   """
   @type amount() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      approver_details() :: %{
+        "email" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "title" => String.t() | atom()
+      }
+      
+  """
+  @type approver_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_contract_request() :: %{
+        required("contractArn") => String.t() | atom(),
+        required("contractDocumentId") => String.t() | atom()
+      }
+      
+  """
+  @type associate_contract_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_contract_response() :: %{}
+      
+  """
+  @type associate_contract_response() :: %{}
 
   @typedoc """
 
@@ -86,6 +131,30 @@ defmodule AWS.Billing do
       
   """
   @type associate_source_views_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attestation_details() :: %{
+        "attestationValue" => list(),
+        "investmentDistributions" => list(investment_distribution())
+      }
+      
+  """
+  @type attestation_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attestation_quantity() :: %{
+        "attestationUnit" => [String.t() | atom()],
+        "attestationVolume" => [String.t() | atom()]
+      }
+      
+  """
+  @type attestation_quantity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -309,6 +378,28 @@ defmodule AWS.Billing do
 
   ## Example:
       
+      cancel_contractual_investment_attestation_request() :: %{
+        required("attestationId") => String.t() | atom(),
+        required("contractArn") => String.t() | atom(),
+        required("reason") => String.t() | atom()
+      }
+      
+  """
+  @type cancel_contractual_investment_attestation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_contractual_investment_attestation_response() :: %{}
+      
+  """
+  @type cancel_contractual_investment_attestation_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       charge_account() :: %{
         "accountId" => String.t() | atom(),
         "chargePercentage" => [String.t() | atom()]
@@ -341,6 +432,21 @@ defmodule AWS.Billing do
       
   """
   @type contract_account() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      contract_summary() :: %{
+        "associationStatus" => list(any()),
+        "contractArn" => String.t() | atom(),
+        "contractTerm" => interval(),
+        "contractType" => list(any()),
+        "lastUpdatedAt" => [non_neg_integer()]
+      }
+      
+  """
+  @type contract_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -381,6 +487,36 @@ defmodule AWS.Billing do
       
   """
   @type create_billing_view_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_contractual_investment_attestation_request() :: %{
+        optional("additionalRecipients") => list(additional_recipient()),
+        optional("clientToken") => String.t() | atom(),
+        optional("investmentDisbursedAt") => [non_neg_integer()],
+        required("approverDetails") => approver_details(),
+        required("attestationDetails") => attestation_details(),
+        required("contractArn") => String.t() | atom(),
+        required("contractDocumentId") => String.t() | atom(),
+        required("investmentId") => String.t() | atom(),
+        required("investmentSummaryId") => String.t() | atom()
+      }
+      
+  """
+  @type create_contractual_investment_attestation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_contractual_investment_attestation_response() :: %{
+        "attestationId" => String.t() | atom()
+      }
+      
+  """
+  @type create_contractual_investment_attestation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -463,6 +599,26 @@ defmodule AWS.Billing do
       
   """
   @type dimension_values() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_contract_request() :: %{
+        required("contractArn") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_contract_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_contract_response() :: %{}
+      
+  """
+  @type disassociate_contract_response() :: %{}
 
   @typedoc """
 
@@ -560,6 +716,28 @@ defmodule AWS.Billing do
       
   """
   @type get_billing_view_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_contract_information_request() :: %{
+        required("contractArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_contract_information_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_contract_information_response() :: %{
+        "contract" => list()
+      }
+      
+  """
+  @type get_contract_information_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -723,6 +901,102 @@ defmodule AWS.Billing do
 
   ## Example:
       
+      interval() :: %{
+        "endDateInclusive" => [non_neg_integer()],
+        "startDateInclusive" => [non_neg_integer()]
+      }
+      
+  """
+  @type interval() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      investment_attestation() :: %{
+        "attestationId" => String.t() | atom(),
+        "attestationStatus" => list(any()),
+        "attestedAt" => [non_neg_integer()],
+        "attestedValue" => amount(),
+        "investmentDisbursedAt" => [non_neg_integer()],
+        "investmentDistributions" => list(investment_distribution()),
+        "investmentId" => String.t() | atom(),
+        "investmentName" => [String.t() | atom()],
+        "investmentSummaryId" => String.t() | atom(),
+        "isCancellable" => [boolean()],
+        "outcomeDescription" => [String.t() | atom()],
+        "rejectionReasons" => list(String.t() | atom()),
+        "updatedAt" => [non_neg_integer()]
+      }
+      
+  """
+  @type investment_attestation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      investment_distribution() :: %{
+        "accountId" => String.t() | atom(),
+        "investmentAmount" => amount()
+      }
+      
+  """
+  @type investment_distribution() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      investment_multiplier() :: %{
+        "investmentAttestationInputUnit" => [String.t() | atom()],
+        "multiplierType" => list(any()),
+        "value" => [String.t() | atom()]
+      }
+      
+  """
+  @type investment_multiplier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      investment_restriction() :: %{
+        "amount" => amount()
+      }
+      
+  """
+  @type investment_restriction() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      investment_summary() :: %{
+        "investmentName" => [String.t() | atom()],
+        "investmentSummaryId" => String.t() | atom(),
+        "investmentType" => list(any()),
+        "maxAllowedInvestmentDisbursementValue" => amount()
+      }
+      
+  """
+  @type investment_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      legal_entity() :: %{
+        "legalEntityName" => String.t() | atom()
+      }
+      
+  """
+  @type legal_entity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       linked_account_charge() :: %{
         "accountId" => String.t() | atom(),
         "accountType" => [String.t() | atom()],
@@ -860,6 +1134,107 @@ defmodule AWS.Billing do
 
   ## Example:
       
+      list_contracts_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_contracts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_contracts_response() :: %{
+        "items" => list(contract_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_contracts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_contractual_investment_attestations_request() :: %{
+        optional("investmentSummaryId") => String.t() | atom(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        required("contractArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_contractual_investment_attestations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_contractual_investment_attestations_response() :: %{
+        "items" => list(investment_attestation()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_contractual_investment_attestations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_contractual_investment_summaries_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        required("contractArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_contractual_investment_summaries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_contractual_investment_summaries_response() :: %{
+        "items" => list(investment_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_contractual_investment_summaries_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_contractual_investments_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        required("contractArn") => String.t() | atom(),
+        required("investmentSummaryId") => String.t() | atom()
+      }
+      
+  """
+  @type list_contractual_investments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_contractual_investments_response() :: %{
+        "items" => list(list()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_contractual_investments_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_enterprise_support_linked_account_charges_request() :: %{
         optional("accountId") => String.t() | atom(),
         optional("maxResults") => [integer()],
@@ -937,6 +1312,35 @@ defmodule AWS.Billing do
 
   ## Example:
       
+      milestone_based_investment() :: %{
+        "investmentDisbursedAt" => [non_neg_integer()],
+        "investmentId" => String.t() | atom(),
+        "investmentValue" => amount()
+      }
+      
+  """
+  @type milestone_based_investment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      outcome_based_investment() :: %{
+        "attestationWindow" => interval(),
+        "disbursedValue" => amount(),
+        "investmentId" => String.t() | atom(),
+        "investmentMultipliers" => list(investment_multiplier()),
+        "investmentRestrictions" => list(investment_restriction()),
+        "outcomeDescription" => [String.t() | atom()]
+      }
+      
+  """
+  @type outcome_based_investment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       pricing_plan() :: %{
         "description" => [String.t() | atom()],
         "discountAppliesToMinimumCharge" => [boolean()],
@@ -970,6 +1374,22 @@ defmodule AWS.Billing do
       
   """
   @type pricing_plan_tier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      private_pricing_addendum() :: %{
+        "contractArn" => String.t() | atom(),
+        "contractRestrictions" => list(list(any())()),
+        "contractTerm" => interval(),
+        "eligiblePayerAccounts" => list(String.t() | atom()),
+        "investmentAccounts" => list(String.t() | atom()),
+        "legalEntities" => list(legal_entity())
+      }
+      
+  """
+  @type private_pricing_addendum() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1204,6 +1624,14 @@ defmodule AWS.Billing do
   """
   @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
+  @type associate_contract_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type associate_source_views_errors() ::
           validation_exception()
           | throttling_exception()
@@ -1212,6 +1640,14 @@ defmodule AWS.Billing do
           | internal_server_exception()
           | conflict_exception()
           | billing_view_health_status_exception()
+          | access_denied_exception()
+
+  @type cancel_contractual_investment_attestation_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type create_billing_view_errors() ::
@@ -1224,11 +1660,26 @@ defmodule AWS.Billing do
           | billing_view_health_status_exception()
           | access_denied_exception()
 
+  @type create_contractual_investment_attestation_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type delete_billing_view_errors() ::
           validation_exception()
           | throttling_exception()
           | internal_server_exception()
           | conflict_exception()
+          | access_denied_exception()
+
+  @type disassociate_contract_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | access_denied_exception()
 
   @type disassociate_source_views_errors() ::
@@ -1247,6 +1698,13 @@ defmodule AWS.Billing do
           | access_denied_exception()
 
   @type get_billing_view_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_contract_information_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -1308,6 +1766,33 @@ defmodule AWS.Billing do
           | access_denied_exception()
 
   @type list_business_support_subscription_history_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_contracts_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_contractual_investment_attestations_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_contractual_investment_summaries_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_contractual_investments_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -1388,6 +1873,27 @@ defmodule AWS.Billing do
   end
 
   @doc """
+  Private Pricing contracts let eligible payer accounts manage private pricing
+  agreements with Amazon Web Services.
+
+  This operation associates a private pricing contract with the caller's Amazon
+  Web Services account. The caller must be a payer (management) account listed on
+  the contract. This operation is idempotent, so retrying a request that already
+  succeeded is safe.
+  """
+  @spec associate_contract(map(), associate_contract_request(), list()) ::
+          {:ok, associate_contract_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, associate_contract_errors()}
+  def associate_contract(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "AssociateContract", input, options)
+  end
+
+  @doc """
   Associates one or more source billing views with an existing billing view.
 
   This allows creating aggregate billing views that combine data from multiple
@@ -1406,6 +1912,28 @@ defmodule AWS.Billing do
   end
 
   @doc """
+  Cancels a contractual investment attestation.
+
+  This operation is idempotent, so retrying is safe. You can cancel an attestation
+  only while it is still pending (its `isCancellable` value is `true`).
+  """
+  @spec cancel_contractual_investment_attestation(
+          map(),
+          cancel_contractual_investment_attestation_request(),
+          list()
+        ) ::
+          {:ok, cancel_contractual_investment_attestation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, cancel_contractual_investment_attestation_errors()}
+  def cancel_contractual_investment_attestation(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CancelContractualInvestmentAttestation", input, options)
+  end
+
+  @doc """
   Creates a billing view with the specified billing view attributes.
   """
   @spec create_billing_view(map(), create_billing_view_request(), list()) ::
@@ -1421,6 +1949,30 @@ defmodule AWS.Billing do
   end
 
   @doc """
+  Creates an attestation that claims an investment award for a completed milestone
+  or outcome within a private pricing contract.
+
+  Supply a `clientToken` to make the request idempotent so a safe retry does not
+  create a duplicate attestation. This operation starts an asynchronous review and
+  returns an `attestationId` while the attestation is pending.
+  """
+  @spec create_contractual_investment_attestation(
+          map(),
+          create_contractual_investment_attestation_request(),
+          list()
+        ) ::
+          {:ok, create_contractual_investment_attestation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_contractual_investment_attestation_errors()}
+  def create_contractual_investment_attestation(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateContractualInvestmentAttestation", input, options)
+  end
+
+  @doc """
   Deletes the specified billing view.
   """
   @spec delete_billing_view(map(), delete_billing_view_request(), list()) ::
@@ -1433,6 +1985,25 @@ defmodule AWS.Billing do
       metadata()
 
     Request.request_post(client, meta, "DeleteBillingView", input, options)
+  end
+
+  @doc """
+  Removes the association between a private pricing contract and your Amazon Web
+  Services account.
+
+  The account must have been associated with the contract previously. This
+  operation is idempotent, so retrying is safe.
+  """
+  @spec disassociate_contract(map(), disassociate_contract_request(), list()) ::
+          {:ok, disassociate_contract_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disassociate_contract_errors()}
+  def disassociate_contract(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DisassociateContract", input, options)
   end
 
   @doc """
@@ -1485,6 +2056,25 @@ defmodule AWS.Billing do
       metadata()
 
     Request.request_post(client, meta, "GetBillingView", input, options)
+  end
+
+  @doc """
+  Returns information about a specific private pricing contract, including its
+  term (duration), eligible payer accounts, investment accounts, and legal
+  entities.
+
+  This operation is read-only.
+  """
+  @spec get_contract_information(map(), get_contract_information_request(), list()) ::
+          {:ok, get_contract_information_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_contract_information_errors()}
+  def get_contract_information(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetContractInformation", input, options)
   end
 
   @doc """
@@ -1667,6 +2257,86 @@ defmodule AWS.Billing do
       metadata()
 
     Request.request_post(client, meta, "ListBusinessSupportSubscriptionHistory", input, options)
+  end
+
+  @doc """
+  Lists the private pricing contracts that your Amazon Web Services account is an
+  eligible payer account of.
+
+  This operation is read-only and paginated.
+  """
+  @spec list_contracts(map(), list_contracts_request(), list()) ::
+          {:ok, list_contracts_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_contracts_errors()}
+  def list_contracts(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListContracts", input, options)
+  end
+
+  @doc """
+  Lists the investment attestations submitted under a specific private pricing
+  contract.
+
+  Use this operation to track attestation status, including the terminal statuses
+  `DISBURSED`, `REJECTED`, and `CANCELLED`. This operation is read-only and
+  paginated.
+  """
+  @spec list_contractual_investment_attestations(
+          map(),
+          list_contractual_investment_attestations_request(),
+          list()
+        ) ::
+          {:ok, list_contractual_investment_attestations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_contractual_investment_attestations_errors()}
+  def list_contractual_investment_attestations(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListContractualInvestmentAttestations", input, options)
+  end
+
+  @doc """
+  Lists the investment summaries within a specific private pricing contract.
+
+  This operation is read-only and paginated.
+  """
+  @spec list_contractual_investment_summaries(
+          map(),
+          list_contractual_investment_summaries_request(),
+          list()
+        ) ::
+          {:ok, list_contractual_investment_summaries_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_contractual_investment_summaries_errors()}
+  def list_contractual_investment_summaries(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListContractualInvestmentSummaries", input, options)
+  end
+
+  @doc """
+  Lists the investments within a specific investment summary.
+
+  This operation is read-only and paginated.
+  """
+  @spec list_contractual_investments(map(), list_contractual_investments_request(), list()) ::
+          {:ok, list_contractual_investments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_contractual_investments_errors()}
+  def list_contractual_investments(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListContractualInvestments", input, options)
   end
 
   @doc """

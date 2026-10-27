@@ -731,6 +731,7 @@ defmodule AWS.Odb do
         "dbNodeStorageSizeInGBs" => [integer()],
         "dbServerVersion" => [String.t() | atom()],
         "displayName" => [String.t() | atom()],
+        "exascaleConfiguration" => exascale_configuration(),
         "lastMaintenanceRunId" => [String.t() | atom()],
         "maintenanceWindow" => maintenance_window(),
         "maxCpuCount" => [integer()],
@@ -779,6 +780,7 @@ defmodule AWS.Odb do
         "dbNodeStorageSizeInGBs" => [integer()],
         "dbServerVersion" => [String.t() | atom()],
         "displayName" => [String.t() | atom()],
+        "exascaleConfiguration" => exascale_configuration(),
         "lastMaintenanceRunId" => [String.t() | atom()],
         "maintenanceWindow" => maintenance_window(),
         "maxCpuCount" => [integer()],
@@ -842,6 +844,9 @@ defmodule AWS.Odb do
         "diskRedundancy" => list(any()),
         "displayName" => [String.t() | atom()],
         "domain" => [String.t() | atom()],
+        "exascaleDbStorageVaultArn" => String.t() | atom(),
+        "exascaleDbStorageVaultId" => String.t() | atom(),
+        "fileSystemConfigurationDetails" => list(file_system_configuration_details()),
         "giVersion" => [String.t() | atom()],
         "hostname" => [String.t() | atom()],
         "iamRoles" => list(iam_role()),
@@ -866,10 +871,13 @@ defmodule AWS.Odb do
         "sshPublicKeys" => list(String.t() | atom()),
         "status" => list(any()),
         "statusReason" => [String.t() | atom()],
+        "storageManagementType" => list(any()),
         "storageSizeInGBs" => [integer()],
         "systemVersion" => [String.t() | atom()],
         "timeZone" => [String.t() | atom()],
-        "vipIds" => list([String.t() | atom()]())
+        "vipIds" => list([String.t() | atom()]()),
+        "vmBackupStorageType" => list(any()),
+        "vmFileSystemStorageType" => list(any())
       }
       
   """
@@ -895,6 +903,9 @@ defmodule AWS.Odb do
         "diskRedundancy" => list(any()),
         "displayName" => [String.t() | atom()],
         "domain" => [String.t() | atom()],
+        "exascaleDbStorageVaultArn" => String.t() | atom(),
+        "exascaleDbStorageVaultId" => String.t() | atom(),
+        "fileSystemConfigurationDetails" => list(file_system_configuration_details()),
         "giVersion" => [String.t() | atom()],
         "hostname" => [String.t() | atom()],
         "iamRoles" => list(iam_role()),
@@ -919,10 +930,13 @@ defmodule AWS.Odb do
         "sshPublicKeys" => list(String.t() | atom()),
         "status" => list(any()),
         "statusReason" => [String.t() | atom()],
+        "storageManagementType" => list(any()),
         "storageSizeInGBs" => [integer()],
         "systemVersion" => [String.t() | atom()],
         "timeZone" => [String.t() | atom()],
-        "vipIds" => list([String.t() | atom()]())
+        "vipIds" => list([String.t() | atom()]()),
+        "vmBackupStorageType" => list(any()),
+        "vmFileSystemStorageType" => list(any())
       }
       
   """
@@ -1150,6 +1164,8 @@ defmodule AWS.Odb do
         optional("dataStorageSizeInTBs") => [float()],
         optional("dbNodeStorageSizeInGBs") => [integer()],
         optional("dbServers") => list([String.t() | atom()]()),
+        optional("exascaleDbStorageVaultId") => String.t() | atom(),
+        optional("fileSystemConfigurationDetails") => list(file_system_configuration_details()),
         optional("isLocalBackupEnabled") => [boolean()],
         optional("isSparseDiskgroupEnabled") => [boolean()],
         optional("licenseModel") => list(any()),
@@ -1158,6 +1174,8 @@ defmodule AWS.Odb do
         optional("systemVersion") => [String.t() | atom()],
         optional("tags") => map(),
         optional("timeZone") => [String.t() | atom()],
+        optional("vmBackupStorageType") => list(any()),
+        optional("vmFileSystemStorageType") => list(any()),
         required("cloudExadataInfrastructureId") => String.t() | atom(),
         required("cpuCoreCount") => [integer()],
         required("displayName") => String.t() | atom(),
@@ -1239,6 +1257,7 @@ defmodule AWS.Odb do
         optional("availabilityZone") => [String.t() | atom()],
         optional("availabilityZoneId") => [String.t() | atom()],
         optional("clientToken") => String.t() | atom(),
+        optional("cloudExadataInfrastructureId") => String.t() | atom(),
         optional("description") => [String.t() | atom()],
         optional("isAutoscaleEnabled") => [boolean()],
         optional("tags") => map(),
@@ -2077,6 +2096,20 @@ defmodule AWS.Odb do
 
   ## Example:
       
+      exascale_configuration() :: %{
+        "availableStorageSizeInGBs" => [integer()],
+        "availableVmStorageSizeInGBs" => [integer()],
+        "totalStorageSizeInGBs" => [integer()],
+        "totalVmStorageSizeInGBs" => [integer()]
+      }
+      
+  """
+  @type exascale_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       exascale_db_storage_details() :: %{
         "availableSizeInGBs" => [integer()],
         "totalSizeInGBs" => [integer()]
@@ -2095,6 +2128,8 @@ defmodule AWS.Odb do
         "autoscaleLimitInGBs" => [integer()],
         "availabilityZone" => [String.t() | atom()],
         "availabilityZoneId" => [String.t() | atom()],
+        "cloudExadataInfrastructureArn" => String.t() | atom(),
+        "cloudExadataInfrastructureId" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
         "description" => [String.t() | atom()],
         "displayName" => [String.t() | atom()],
@@ -2109,6 +2144,7 @@ defmodule AWS.Odb do
         "status" => list(any()),
         "statusReason" => [String.t() | atom()],
         "timeZone" => [String.t() | atom()],
+        "vaultType" => list(any()),
         "vmClusterArns" => list(String.t() | atom()),
         "vmClusterCount" => [integer()],
         "vmClusterIds" => list(String.t() | atom())
@@ -2127,6 +2163,8 @@ defmodule AWS.Odb do
         "autoscaleLimitInGBs" => [integer()],
         "availabilityZone" => [String.t() | atom()],
         "availabilityZoneId" => [String.t() | atom()],
+        "cloudExadataInfrastructureArn" => String.t() | atom(),
+        "cloudExadataInfrastructureId" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
         "description" => [String.t() | atom()],
         "displayName" => [String.t() | atom()],
@@ -2141,6 +2179,7 @@ defmodule AWS.Odb do
         "status" => list(any()),
         "statusReason" => [String.t() | atom()],
         "timeZone" => [String.t() | atom()],
+        "vaultType" => list(any()),
         "vmClusterArns" => list(String.t() | atom()),
         "vmClusterCount" => [integer()],
         "vmClusterIds" => list(String.t() | atom())
@@ -2174,6 +2213,18 @@ defmodule AWS.Odb do
       
   """
   @type failover_autonomous_database_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      file_system_configuration_details() :: %{
+        "fileSystemSizeInGBs" => [integer()],
+        "mountPoint" => [String.t() | atom()]
+      }
+      
+  """
+  @type file_system_configuration_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2935,8 +2986,10 @@ defmodule AWS.Odb do
   ## Example:
       
       list_exascale_db_storage_vaults_input() :: %{
+        optional("cloudExadataInfrastructureId") => String.t() | atom(),
         optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
+        optional("nextToken") => [String.t() | atom()],
+        optional("vaultType") => list(any())
       }
       
   """
@@ -3979,6 +4032,32 @@ defmodule AWS.Odb do
 
   ## Example:
       
+      update_exascale_cloud_exadata_infrastructure_input() :: %{
+        optional("totalVmStorageSizeInGBs") => [integer()],
+        required("totalStorageSizeInGBs") => [integer()]
+      }
+      
+  """
+  @type update_exascale_cloud_exadata_infrastructure_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_exascale_cloud_exadata_infrastructure_output() :: %{
+        "cloudExadataInfrastructureId" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type update_exascale_cloud_exadata_infrastructure_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_exascale_db_storage_vault_input() :: %{
         optional("additionalFlashCacheInPercent") => [integer()],
         optional("autoscaleLimitInGBs") => [integer()],
@@ -4206,6 +4285,7 @@ defmodule AWS.Odb do
           validation_exception()
           | throttling_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
           | access_denied_exception()
@@ -4517,6 +4597,7 @@ defmodule AWS.Odb do
   @type list_exascale_db_storage_vaults_errors() ::
           validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
           | access_denied_exception()
 
@@ -4659,6 +4740,14 @@ defmodule AWS.Odb do
           | access_denied_exception()
 
   @type update_exadb_vm_cluster_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type update_exascale_cloud_exadata_infrastructure_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -4881,6 +4970,9 @@ defmodule AWS.Odb do
 
   @doc """
   Creates an Exascale storage vault.
+
+  To create the Exascale storage vault on dedicated Exadata infrastructure,
+  specify `cloudExadataInfrastructureId`.
   """
   @spec create_exascale_db_storage_vault(map(), create_exascale_db_storage_vault_input(), list()) ::
           {:ok, create_exascale_db_storage_vault_output(), any()}
@@ -5983,6 +6075,28 @@ defmodule AWS.Odb do
       metadata()
 
     Request.request_post(client, meta, "UpdateExadbVmCluster", input, options)
+  end
+
+  @doc """
+  Configures or updates the Exascale storage on an Exadata infrastructure.
+
+  After you configure Exascale storage, you can create Exascale storage vaults on
+  the infrastructure and VM clusters that use Exascale storage.
+  """
+  @spec update_exascale_cloud_exadata_infrastructure(
+          map(),
+          update_exascale_cloud_exadata_infrastructure_input(),
+          list()
+        ) ::
+          {:ok, update_exascale_cloud_exadata_infrastructure_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_exascale_cloud_exadata_infrastructure_errors()}
+  def update_exascale_cloud_exadata_infrastructure(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateExascaleCloudExadataInfrastructure", input, options)
   end
 
   @doc """

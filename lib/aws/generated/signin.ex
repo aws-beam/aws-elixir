@@ -5,9 +5,8 @@ defmodule AWS.Signin do
   @moduledoc """
   AWS Sign-In manages authentication for AWS services.
 
-  This service provides
-  secure authentication flows for accessing AWS resources from the console and
-  developer tools.
+  It implements OAuth 2.0, providing secure token exchange and refresh
+  capabilities.
   """
 
   alias AWS.Client
@@ -109,7 +108,7 @@ defmodule AWS.Signin do
 
       create_o_auth2_token_with_iam_request() :: %{
         required("grantType") => String.t() | atom(),
-        required("resource") => [String.t() | atom()]
+        required("resource") => String.t() | atom()
       }
 
   """
@@ -127,6 +126,35 @@ defmodule AWS.Signin do
 
   """
   @type create_o_auth2_token_with_iam_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_o_auth2_token_with_token_exchange_request() :: %{
+        optional("resource") => String.t() | atom(),
+        optional("scope") => String.t() | atom(),
+        optional("subjectToken") => String.t() | atom(),
+        optional("subjectTokenType") => String.t() | atom(),
+        required("grantType") => String.t() | atom()
+      }
+
+  """
+  @type create_o_auth2_token_with_token_exchange_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_o_auth2_token_with_token_exchange_response() :: %{
+        "accessToken" => String.t() | atom(),
+        "expiresIn" => integer(),
+        "issuedTokenType" => String.t() | atom(),
+        "tokenType" => String.t() | atom()
+      }
+
+  """
+  @type create_o_auth2_token_with_token_exchange_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -255,7 +283,7 @@ defmodule AWS.Signin do
         "iss" => [String.t() | atom()],
         "jti" => [String.t() | atom()],
         "nbf" => [float()],
-        "resource" => [String.t() | atom()],
+        "resource" => String.t() | atom(),
         "signinSession" => [String.t() | atom()],
         "sub" => [String.t() | atom()],
         "tokenType" => String.t() | atom(),
@@ -264,6 +292,30 @@ defmodule AWS.Signin do
 
   """
   @type introspect_o_auth2_token_with_iam_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_grant_exception() :: %{
+        "error" => list(any()),
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type invalid_grant_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_scope_exception() :: %{
+        "error" => list(any()),
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type invalid_scope_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -417,6 +469,18 @@ defmodule AWS.Signin do
 
   ## Example:
 
+      service_unavailable_exception() :: %{
+        "error" => list(any()),
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       signin_resource_based_policy() :: %{
         "statement" => list(policy_statement()),
         "version" => [String.t() | atom()]
@@ -460,6 +524,14 @@ defmodule AWS.Signin do
           | too_many_requests_error()
           | internal_server_exception()
           | access_denied_exception()
+
+  @type create_o_auth2_token_with_token_exchange_errors() ::
+          validation_exception()
+          | too_many_requests_error()
+          | service_unavailable_exception()
+          | invalid_scope_exception()
+          | invalid_grant_exception()
+          | internal_server_exception()
 
   @type delete_console_authorization_configuration_errors() ::
           validation_exception()
@@ -540,46 +612,8 @@ defmodule AWS.Signin do
   end
 
   @doc """
-  CreateOAuth2Token API
-
-  Path: /v1/token
-  Request Method: POST
-  Content-Type: application/json or application/x-www-form-urlencoded
-
-  This API implements OAuth 2.0 flows for AWS Sign-In CLI clients, supporting
-  both:
-  1.
-
-  Authorization code redemption (grant_type=authorization_code) - NOT idempotent
-  2. Token refresh (grant_type=refresh_token) - Idempotent within token validity
-  window
-
-  The operation behavior is determined by the grant_type parameter in the request
-  body:
-
-  ## Authorization Code Flow (NOT Idempotent):
-  - JSON or form-encoded body with client_id, grant_type=authorization_code, code,
-  redirect_uri, code_verifier
-  - Returns access_token, token_type, expires_in, refresh_token, and id_token
-  - Each authorization code can only be used ONCE for security (prevents replay
-  attacks)
-
-  ## Token Refresh Flow (Idempotent):
-  - JSON or form-encoded body with client_id, grant_type=refresh_token,
-  refresh_token
-  - Returns access_token, token_type, expires_in, and refresh_token (no id_token)
-  - Multiple calls with same refresh_token return consistent results within
-  validity window
-
-  Authentication and authorization:
-  - Confidential clients: sigv4 signing required with signin:ExchangeToken
-  permissions
-  - CLI clients (public): authn/authz skipped based on client_id & grant_type
-
-  Note: This operation cannot be marked as @idempotent because it handles both
-  idempotent
-  (token refresh) and non-idempotent (auth code redemption) flows in a single
-  endpoint.
+  Exchanges an authorization code or refresh token for an OAuth 2.0 access token
+  and refresh token.
   """
   @spec create_o_auth2_token(map(), create_o_auth2_token_request(), list()) ::
           {:ok, create_o_auth2_token_response(), any()}
@@ -608,8 +642,8 @@ defmodule AWS.Signin do
   end
 
   @doc """
-  Grants permission to exchange client credentials for an OAuth 2.0 access token
-  scoped to a resource that can be used to access AWS services from applications
+  Exchanges client credentials for an OAuth 2.0 access token scoped to a resource,
+  which you can use to access AWS services from applications.
   """
   @spec create_o_auth2_token_with_iam(map(), create_o_auth2_token_with_iam_request(), list()) ::
           {:ok, create_o_auth2_token_with_iam_response(), any()}
@@ -618,6 +652,40 @@ defmodule AWS.Signin do
           | {:error, create_o_auth2_token_with_iam_errors()}
   def create_o_auth2_token_with_iam(%Client{} = client, input, options \\ []) do
     url_path = "/v1/token?x-amz-client-auth-method=iam"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Exchanges a supported token for an OAuth 2.0 access token scoped to a resource,
+  which you can use to access AWS services from applications.
+  """
+  @spec create_o_auth2_token_with_token_exchange(
+          map(),
+          create_o_auth2_token_with_token_exchange_request(),
+          list()
+        ) ::
+          {:ok, create_o_auth2_token_with_token_exchange_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_o_auth2_token_with_token_exchange_errors()}
+  def create_o_auth2_token_with_token_exchange(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/token?x-amz-oauth-token-method=token-exchange"
     headers = []
     custom_headers = []
     query_params = []
@@ -766,19 +834,11 @@ defmodule AWS.Signin do
   end
 
   @doc """
-  Grants permission to inspect the metadata and state of an OAuth 2.0
-  access token or refresh token
+  Inspects the metadata and active state of an OAuth 2.0 access token or refresh
+  token.
 
   Implements RFC 7662 OAuth 2.0 Token Introspection over a SigV4-authenticated
-  endpoint.
-
-  Inspects the metadata of an access_token or refresh_token issued
-  by AWS Sign-In and returns the claims associated with it.
-
-  Inactive token semantics (RFC 7662 §2.2): when the supplied token is
-  unknown, expired, revoked, malformed, or owned by a different account,
-  the response body is exactly { "active": false } with all other claims
-  omitted.
+  endpoint. Returns the claims associated with a token issued by AWS Sign-In.
   """
   @spec introspect_o_auth2_token_with_iam(
           map(),
@@ -910,15 +970,7 @@ defmodule AWS.Signin do
   end
 
   @doc """
-  Grants permission to revoke an OAuth 2.0 refresh token and its associated
-  refresh tokens
-
-  Revokes a refresh_token issued by AWS Sign-In, invalidating the entire token
-  chain so that the refresh_token can no longer be used to mint new access_tokens.
-
-  Idempotency: revoking an already-revoked, expired, or otherwise invalid token
-  still returns 200 OK with an empty body. Only the refresh_token type is
-  accepted.
+  Revokes an OAuth 2.0 refresh token and its associated token chain.
   """
   @spec revoke_o_auth2_token_with_iam(map(), revoke_o_auth2_token_with_iam_request(), list()) ::
           {:ok, revoke_o_auth2_token_with_iam_response(), any()}

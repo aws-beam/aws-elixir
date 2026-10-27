@@ -958,6 +958,17 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      crd_management_configuration() :: %{
+        "managed" => boolean()
+      }
+
+  """
+  @type crd_management_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_access_config_request() :: %{
         "authenticationMode" => list(any()),
         "bootstrapClusterCreatorAdminPermissions" => boolean()
@@ -1918,7 +1929,8 @@ defmodule AWS.EKS do
   ## Example:
 
       elastic_load_balancing() :: %{
-        "enabled" => boolean()
+        "enabled" => boolean(),
+        "gatewayApi" => gateway_api_configuration()
       }
 
   """
@@ -2026,6 +2038,17 @@ defmodule AWS.EKS do
 
   """
   @type fargate_profile_selector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gateway_api_configuration() :: %{
+        "crds" => crd_management_configuration()
+      }
+
+  """
+  @type gateway_api_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

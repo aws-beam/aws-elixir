@@ -1202,9 +1202,11 @@ defmodule AWS.Lightsail do
         optional("customErrorResponses") => list(distribution_custom_error_response()),
         optional("defaultRootObject") => String.t() | atom(),
         optional("enablePrivateOriginAccess") => boolean(),
+        optional("enableWaf") => boolean(),
         optional("ipAddressType") => list(any()),
         optional("tags") => list(tag()),
         optional("viewerMinimumTlsProtocolVersion") => list(any()),
+        optional("wafRules") => list(waf_rule()),
         required("bundleId") => String.t() | atom(),
         required("defaultCacheBehavior") => cache_behavior(),
         required("distributionName") => String.t() | atom(),
@@ -4349,7 +4351,8 @@ defmodule AWS.Lightsail do
         "status" => String.t() | atom(),
         "supportCode" => String.t() | atom(),
         "tags" => list(tag()),
-        "viewerMinimumTlsProtocolVersion" => String.t() | atom()
+        "viewerMinimumTlsProtocolVersion" => String.t() | atom(),
+        "waf" => waf_config()
       }
       
   """
@@ -5810,10 +5813,12 @@ defmodule AWS.Lightsail do
         optional("defaultCacheBehavior") => cache_behavior(),
         optional("defaultRootObject") => String.t() | atom(),
         optional("enablePrivateOriginAccess") => boolean(),
+        optional("enableWaf") => boolean(),
         optional("isEnabled") => boolean(),
         optional("origin") => input_origin(),
         optional("useDefaultCertificate") => boolean(),
         optional("viewerMinimumTlsProtocolVersion") => list(any()),
+        optional("wafRules") => list(waf_rule()),
         required("distributionName") => String.t() | atom()
       }
       
@@ -5958,6 +5963,84 @@ defmodule AWS.Lightsail do
       
   """
   @type update_relational_database_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      waf_acfp_config() :: %{
+        "creationPath" => String.t() | atom(),
+        "payloadType" => list(any()),
+        "registrationPagePath" => String.t() | atom(),
+        "responseInspection" => waf_response_inspection()
+      }
+      
+  """
+  @type waf_acfp_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      waf_atp_config() :: %{
+        "loginPath" => String.t() | atom(),
+        "passwordField" => String.t() | atom(),
+        "payloadType" => list(any()),
+        "responseInspection" => waf_response_inspection(),
+        "usernameField" => String.t() | atom()
+      }
+      
+  """
+  @type waf_atp_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      waf_bot_control_config() :: %{
+        "inspectionLevel" => list(any())
+      }
+      
+  """
+  @type waf_bot_control_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      waf_config() :: %{
+        "isWafEnabled" => boolean(),
+        "wafRules" => list(waf_rule())
+      }
+      
+  """
+  @type waf_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      waf_response_inspection() :: %{
+        "failureCodes" => list(integer()),
+        "successCodes" => list(integer())
+      }
+      
+  """
+  @type waf_response_inspection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      waf_rule() :: %{
+        "acfpConfig" => waf_acfp_config(),
+        "atpConfig" => waf_atp_config(),
+        "botControlConfig" => waf_bot_control_config(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type waf_rule() :: %{(String.t() | atom()) => any()}
 
   @type allocate_static_ip_errors() ::
           unauthenticated_exception()

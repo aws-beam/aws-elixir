@@ -321,6 +321,7 @@ defmodule AWS.Ivs do
         "arn" => String.t() | atom(),
         "authorized" => boolean(),
         "containerFormat" => String.t() | atom(),
+        "failoverSlateConfigurationArn" => String.t() | atom(),
         "ingestEndpoint" => String.t() | atom(),
         "insecureIngest" => boolean(),
         "latencyMode" => String.t() | atom(),
@@ -365,6 +366,7 @@ defmodule AWS.Ivs do
         "adConfigurationArn" => String.t() | atom(),
         "arn" => String.t() | atom(),
         "authorized" => boolean(),
+        "failoverSlateConfigurationArn" => String.t() | atom(),
         "insecureIngest" => boolean(),
         "latencyMode" => String.t() | atom(),
         "name" => String.t() | atom(),
@@ -430,6 +432,7 @@ defmodule AWS.Ivs do
         optional("adConfigurationArn") => String.t() | atom(),
         optional("authorized") => boolean(),
         optional("containerFormat") => String.t() | atom(),
+        optional("failoverSlateConfigurationArn") => String.t() | atom(),
         optional("insecureIngest") => boolean(),
         optional("latencyMode") => String.t() | atom(),
         optional("multitrackInputConfiguration") => multitrack_input_configuration(),
@@ -455,6 +458,32 @@ defmodule AWS.Ivs do
 
   """
   @type create_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_failover_slate_configuration_request() :: %{
+        optional("activationThresholdSeconds") => integer(),
+        optional("maxSlateDisplaySeconds") => integer(),
+        optional("minSlateDisplaySeconds") => integer(),
+        optional("name") => String.t() | atom(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_failover_slate_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_failover_slate_configuration_response() :: %{
+        "failoverSlateConfiguration" => failover_slate_configuration()
+      }
+
+  """
+  @type create_failover_slate_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -558,6 +587,17 @@ defmodule AWS.Ivs do
 
   ## Example:
 
+      delete_failover_slate_configuration_request() :: %{
+        required("arn") => String.t() | atom()
+      }
+
+  """
+  @type delete_failover_slate_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_playback_key_pair_request() :: %{
         required("arn") => String.t() | atom()
       }
@@ -622,6 +662,40 @@ defmodule AWS.Ivs do
 
   ## Example:
 
+      failover_slate_configuration() :: %{
+        "activationThresholdSeconds" => integer(),
+        "arn" => String.t() | atom(),
+        "maxSlateDisplaySeconds" => integer(),
+        "minSlateDisplaySeconds" => integer(),
+        "name" => String.t() | atom(),
+        "state" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type failover_slate_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      failover_slate_configuration_summary() :: %{
+        "activationThresholdSeconds" => integer(),
+        "arn" => String.t() | atom(),
+        "maxSlateDisplaySeconds" => integer(),
+        "minSlateDisplaySeconds" => integer(),
+        "name" => String.t() | atom(),
+        "state" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type failover_slate_configuration_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_ad_configuration_request() :: %{
         required("arn") => String.t() | atom()
       }
@@ -661,6 +735,28 @@ defmodule AWS.Ivs do
 
   """
   @type get_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_failover_slate_configuration_request() :: %{
+        required("arn") => String.t() | atom()
+      }
+
+  """
+  @type get_failover_slate_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_failover_slate_configuration_response() :: %{
+        "failoverSlateConfiguration" => failover_slate_configuration()
+      }
+
+  """
+  @type get_failover_slate_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -915,6 +1011,7 @@ defmodule AWS.Ivs do
 
       list_channels_request() :: %{
         optional("filterByAdConfigurationArn") => String.t() | atom(),
+        optional("filterByFailoverSlateConfigurationArn") => String.t() | atom(),
         optional("filterByName") => String.t() | atom(),
         optional("filterByPlaybackRestrictionPolicyArn") => String.t() | atom(),
         optional("filterByRecordingConfigurationArn") => String.t() | atom(),
@@ -936,6 +1033,30 @@ defmodule AWS.Ivs do
 
   """
   @type list_channels_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_failover_slate_configurations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_failover_slate_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_failover_slate_configurations_response() :: %{
+        "failoverSlateConfigurations" => list(failover_slate_configuration_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_failover_slate_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1473,6 +1594,7 @@ defmodule AWS.Ivs do
       stream_session() :: %{
         "channel" => channel(),
         "endTime" => non_neg_integer(),
+        "failoverSlateConfiguration" => failover_slate_configuration(),
         "ingestConfiguration" => ingest_configuration(),
         "ingestConfigurations" => ingest_configurations(),
         "recordingConfiguration" => recording_configuration(),
@@ -1639,6 +1761,7 @@ defmodule AWS.Ivs do
         optional("adConfigurationArn") => String.t() | atom(),
         optional("authorized") => boolean(),
         optional("containerFormat") => String.t() | atom(),
+        optional("failoverSlateConfigurationArn") => String.t() | atom(),
         optional("insecureIngest") => boolean(),
         optional("latencyMode") => String.t() | atom(),
         optional("multitrackInputConfiguration") => multitrack_input_configuration(),
@@ -1663,6 +1786,32 @@ defmodule AWS.Ivs do
 
   """
   @type update_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_failover_slate_configuration_request() :: %{
+        optional("activationThresholdSeconds") => integer(),
+        optional("maxSlateDisplaySeconds") => integer(),
+        optional("minSlateDisplaySeconds") => integer(),
+        optional("name") => String.t() | atom(),
+        required("arn") => String.t() | atom()
+      }
+
+  """
+  @type update_failover_slate_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_failover_slate_configuration_response() :: %{
+        "failoverSlateConfiguration" => failover_slate_configuration()
+      }
+
+  """
+  @type update_failover_slate_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1759,6 +1908,14 @@ defmodule AWS.Ivs do
           | pending_verification()
           | access_denied_exception()
 
+  @type create_failover_slate_configuration_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type create_playback_restriction_policy_errors() ::
           validation_exception()
           | throttling_exception()
@@ -1792,6 +1949,13 @@ defmodule AWS.Ivs do
           validation_exception()
           | resource_not_found_exception()
           | pending_verification()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type delete_failover_slate_configuration_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | conflict_exception()
           | access_denied_exception()
 
@@ -1829,6 +1993,12 @@ defmodule AWS.Ivs do
 
   @type get_channel_errors() ::
           validation_exception() | resource_not_found_exception() | access_denied_exception()
+
+  @type get_failover_slate_configuration_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_playback_key_pair_errors() ::
           validation_exception() | resource_not_found_exception() | access_denied_exception()
@@ -1878,6 +2048,9 @@ defmodule AWS.Ivs do
 
   @type list_channels_errors() ::
           validation_exception() | conflict_exception() | access_denied_exception()
+
+  @type list_failover_slate_configurations_errors() ::
+          validation_exception() | internal_server_exception() | access_denied_exception()
 
   @type list_playback_key_pairs_errors() :: validation_exception() | access_denied_exception()
 
@@ -1941,8 +2114,18 @@ defmodule AWS.Ivs do
 
   @type update_channel_errors() ::
           validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | pending_verification()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type update_failover_slate_configuration_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | conflict_exception()
           | access_denied_exception()
 
@@ -2165,6 +2348,39 @@ defmodule AWS.Ivs do
   end
 
   @doc """
+  Creates a new failover slate configuration.
+  """
+  @spec create_failover_slate_configuration(
+          map(),
+          create_failover_slate_configuration_request(),
+          list()
+        ) ::
+          {:ok, create_failover_slate_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_failover_slate_configuration_errors()}
+  def create_failover_slate_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/CreateFailoverSlateConfiguration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a new playback restriction policy, for constraining playback by
   countries and/or origins.
   """
@@ -2316,6 +2532,39 @@ defmodule AWS.Ivs do
           | {:error, delete_channel_errors()}
   def delete_channel(%Client{} = client, input, options \\ []) do
     url_path = "/DeleteChannel"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes the specified failover slate configuration.
+  """
+  @spec delete_failover_slate_configuration(
+          map(),
+          delete_failover_slate_configuration_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_failover_slate_configuration_errors()}
+  def delete_failover_slate_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteFailoverSlateConfiguration"
     headers = []
     custom_headers = []
     query_params = []
@@ -2507,6 +2756,39 @@ defmodule AWS.Ivs do
           | {:error, get_channel_errors()}
   def get_channel(%Client{} = client, input, options \\ []) do
     url_path = "/GetChannel"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Gets the failover slate configuration for the specified ARN.
+  """
+  @spec get_failover_slate_configuration(
+          map(),
+          get_failover_slate_configuration_request(),
+          list()
+        ) ::
+          {:ok, get_failover_slate_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_failover_slate_configuration_errors()}
+  def get_failover_slate_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/GetFailoverSlateConfiguration"
     headers = []
     custom_headers = []
     query_params = []
@@ -2822,6 +3104,40 @@ defmodule AWS.Ivs do
           | {:error, list_channels_errors()}
   def list_channels(%Client{} = client, input, options \\ []) do
     url_path = "/ListChannels"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Gets summary information about all failover slate configurations in your
+  account, in the Amazon Web Services region where the API request is processed.
+  """
+  @spec list_failover_slate_configurations(
+          map(),
+          list_failover_slate_configurations_request(),
+          list()
+        ) ::
+          {:ok, list_failover_slate_configurations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_failover_slate_configurations_errors()}
+  def list_failover_slate_configurations(%Client{} = client, input, options \\ []) do
+    url_path = "/ListFailoverSlateConfigurations"
     headers = []
     custom_headers = []
     query_params = []
@@ -3254,6 +3570,39 @@ defmodule AWS.Ivs do
           | {:error, update_channel_errors()}
   def update_channel(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateChannel"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a specified failover slate configuration.
+  """
+  @spec update_failover_slate_configuration(
+          map(),
+          update_failover_slate_configuration_request(),
+          list()
+        ) ::
+          {:ok, update_failover_slate_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_failover_slate_configuration_errors()}
+  def update_failover_slate_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateFailoverSlateConfiguration"
     headers = []
     custom_headers = []
     query_params = []

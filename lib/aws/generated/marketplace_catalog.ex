@@ -711,6 +711,7 @@ defmodule AWS.MarketplaceCatalog do
         "OfferSummary" => offer_summary(),
         "ResaleAuthorizationSummary" => resale_authorization_summary(),
         "SaaSProductSummary" => saa_s_product_summary(),
+        "SubsidiaryAuthorizationSummary" => subsidiary_authorization_summary(),
         "Visibility" => String.t() | atom()
       }
 
@@ -1946,6 +1947,172 @@ defmodule AWS.MarketplaceCatalog do
 
   """
   @type start_change_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subsidiary_authorization_created_date_filter() :: %{
+        "DateRange" => subsidiary_authorization_created_date_filter_date_range()
+      }
+
+  """
+  @type subsidiary_authorization_created_date_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subsidiary_authorization_created_date_filter_date_range() :: %{
+        "AfterValue" => String.t() | atom(),
+        "BeforeValue" => String.t() | atom()
+      }
+
+  """
+  @type subsidiary_authorization_created_date_filter_date_range() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      subsidiary_authorization_entity_id_filter() :: %{
+        "ValueList" => list(String.t() | atom())
+      }
+
+  """
+  @type subsidiary_authorization_entity_id_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subsidiary_authorization_filters() :: %{
+        "CreatedDate" => subsidiary_authorization_created_date_filter(),
+        "EntityId" => subsidiary_authorization_entity_id_filter(),
+        "LastModifiedDate" => subsidiary_authorization_last_modified_date_filter(),
+        "Name" => subsidiary_authorization_name_filter(),
+        "ResourceId" => subsidiary_authorization_resource_id_filter(),
+        "ResourceName" => subsidiary_authorization_resource_name_filter(),
+        "Status" => subsidiary_authorization_status_filter(),
+        "SubsidiaryAccountId" => subsidiary_authorization_subsidiary_account_id_filter()
+      }
+
+  """
+  @type subsidiary_authorization_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subsidiary_authorization_last_modified_date_filter() :: %{
+        "DateRange" => subsidiary_authorization_last_modified_date_filter_date_range()
+      }
+
+  """
+  @type subsidiary_authorization_last_modified_date_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subsidiary_authorization_last_modified_date_filter_date_range() :: %{
+        "AfterValue" => String.t() | atom(),
+        "BeforeValue" => String.t() | atom()
+      }
+
+  """
+  @type subsidiary_authorization_last_modified_date_filter_date_range() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      subsidiary_authorization_name_filter() :: %{
+        "ValueList" => list(String.t() | atom()),
+        "WildCardValue" => String.t() | atom()
+      }
+
+  """
+  @type subsidiary_authorization_name_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subsidiary_authorization_resource_id_filter() :: %{
+        "ValueList" => list(String.t() | atom())
+      }
+
+  """
+  @type subsidiary_authorization_resource_id_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subsidiary_authorization_resource_name_filter() :: %{
+        "ValueList" => list(String.t() | atom()),
+        "WildCardValue" => String.t() | atom()
+      }
+
+  """
+  @type subsidiary_authorization_resource_name_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subsidiary_authorization_sort() :: %{
+        "SortBy" => list(any()),
+        "SortOrder" => list(any())
+      }
+
+  """
+  @type subsidiary_authorization_sort() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subsidiary_authorization_status_filter() :: %{
+        "ValueList" => list(list(any())())
+      }
+
+  """
+  @type subsidiary_authorization_status_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subsidiary_authorization_subsidiary_account_id_filter() :: %{
+        "ValueList" => list(String.t() | atom())
+      }
+
+  """
+  @type subsidiary_authorization_subsidiary_account_id_filter() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      subsidiary_authorization_summary() :: %{
+        "CreatedDate" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceName" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "SubsidiaryAccountId" => String.t() | atom()
+      }
+
+  """
+  @type subsidiary_authorization_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

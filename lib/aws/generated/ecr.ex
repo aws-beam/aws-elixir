@@ -713,6 +713,41 @@ defmodule AWS.ECR do
 
   ## Example:
       
+      describe_replication_backfill_results_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("registryId") => String.t() | atom(),
+        optional("resultStatusFilter") => list(any()),
+        required("replicationBackfillId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_replication_backfill_results_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_replication_backfill_results_response() :: %{
+        "destination" => replication_destination(),
+        "endedAt" => non_neg_integer(),
+        "failureCode" => String.t() | atom(),
+        "nextToken" => String.t() | atom(),
+        "progress" => replication_backfill_progress(),
+        "registryId" => String.t() | atom(),
+        "replicationBackfillId" => String.t() | atom(),
+        "results" => list(replication_backfill_result()),
+        "startedAt" => non_neg_integer(),
+        "status" => list(any())
+      }
+      
+  """
+  @type describe_replication_backfill_results_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_repositories_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
@@ -1674,6 +1709,32 @@ defmodule AWS.ECR do
 
   ## Example:
       
+      list_replication_backfills_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("registryId") => String.t() | atom()
+      }
+      
+  """
+  @type list_replication_backfills_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_replication_backfills_response() :: %{
+        "backfills" => list(replication_backfill_summary()),
+        "nextToken" => String.t() | atom(),
+        "registryId" => String.t() | atom()
+      }
+      
+  """
+  @type list_replication_backfills_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_tags_for_resource_request() :: %{
         required("resourceArn") => String.t() | atom()
       }
@@ -2070,6 +2131,85 @@ defmodule AWS.ECR do
 
   ## Example:
       
+      replication_backfill_in_progress_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type replication_backfill_in_progress_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replication_backfill_invalid_status_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type replication_backfill_invalid_status_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replication_backfill_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type replication_backfill_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replication_backfill_progress() :: %{
+        "completedReplicationCount" => integer(),
+        "failedReplicationCount" => integer(),
+        "failureCodes" => list(String.t() | atom()),
+        "totalReplicationCount" => integer()
+      }
+      
+  """
+  @type replication_backfill_progress() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replication_backfill_result() :: %{
+        "failureCode" => String.t() | atom(),
+        "imageId" => image_identifier(),
+        "repositoryName" => String.t() | atom(),
+        "status" => list(any()),
+        "subImageFailureCodes" => list(String.t() | atom())
+      }
+      
+  """
+  @type replication_backfill_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      replication_backfill_summary() :: %{
+        "destination" => replication_destination(),
+        "endedAt" => non_neg_integer(),
+        "failureCode" => String.t() | atom(),
+        "progress" => replication_backfill_progress(),
+        "replicationBackfillId" => String.t() | atom(),
+        "startedAt" => non_neg_integer(),
+        "status" => list(any())
+      }
+      
+  """
+  @type replication_backfill_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       replication_configuration() :: %{
         "rules" => list(replication_rule())
       }
@@ -2433,6 +2573,60 @@ defmodule AWS.ECR do
       
   """
   @type start_lifecycle_policy_preview_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_replication_backfill_request() :: %{
+        optional("registryId") => String.t() | atom(),
+        required("destination") => replication_destination()
+      }
+      
+  """
+  @type start_replication_backfill_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_replication_backfill_response() :: %{
+        "destination" => replication_destination(),
+        "registryId" => String.t() | atom(),
+        "replicationBackfillId" => String.t() | atom(),
+        "startedAt" => non_neg_integer(),
+        "status" => list(any())
+      }
+      
+  """
+  @type start_replication_backfill_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_replication_backfill_request() :: %{
+        optional("registryId") => String.t() | atom(),
+        required("replicationBackfillId") => String.t() | atom()
+      }
+      
+  """
+  @type stop_replication_backfill_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_replication_backfill_response() :: %{
+        "destination" => replication_destination(),
+        "registryId" => String.t() | atom(),
+        "replicationBackfillId" => String.t() | atom(),
+        "startedAt" => non_neg_integer(),
+        "status" => list(any())
+      }
+      
+  """
+  @type stop_replication_backfill_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2956,6 +3150,12 @@ defmodule AWS.ECR do
   @type describe_registry_errors() ::
           validation_exception() | server_exception() | invalid_parameter_exception()
 
+  @type describe_replication_backfill_results_errors() ::
+          validation_exception()
+          | server_exception()
+          | replication_backfill_not_found_exception()
+          | invalid_parameter_exception()
+
   @type describe_repositories_errors() ::
           server_exception() | repository_not_found_exception() | invalid_parameter_exception()
 
@@ -3031,6 +3231,9 @@ defmodule AWS.ECR do
           | server_exception()
           | limit_exceeded_exception()
           | invalid_parameter_exception()
+
+  @type list_replication_backfills_errors() ::
+          validation_exception() | server_exception() | invalid_parameter_exception()
 
   @type list_tags_for_resource_errors() ::
           server_exception() | repository_not_found_exception() | invalid_parameter_exception()
@@ -3109,6 +3312,20 @@ defmodule AWS.ECR do
           | repository_not_found_exception()
           | lifecycle_policy_preview_in_progress_exception()
           | lifecycle_policy_not_found_exception()
+          | invalid_parameter_exception()
+
+  @type start_replication_backfill_errors() ::
+          validation_exception()
+          | server_exception()
+          | replication_backfill_in_progress_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+
+  @type stop_replication_backfill_errors() ::
+          validation_exception()
+          | server_exception()
+          | replication_backfill_not_found_exception()
+          | replication_backfill_invalid_status_exception()
           | invalid_parameter_exception()
 
   @type tag_resource_errors() ::
@@ -3636,6 +3853,33 @@ defmodule AWS.ECR do
   end
 
   @doc """
+  Returns the status, progress, and per-image results for a replication backfill.
+
+  The
+  backfill to describe is identified by the `replicationBackfillId` returned by
+  the `StartReplicationBackfill` operation.
+
+  The per-image results are available only after the replication backfill reaches
+  a
+  terminal status.
+  """
+  @spec describe_replication_backfill_results(
+          map(),
+          describe_replication_backfill_results_request(),
+          list()
+        ) ::
+          {:ok, describe_replication_backfill_results_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_replication_backfill_results_errors()}
+  def describe_replication_backfill_results(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeReplicationBackfillResults", input, options)
+  end
+
+  @doc """
   Describes image repositories in a registry.
   """
   @spec describe_repositories(map(), describe_repositories_request(), list()) ::
@@ -3924,6 +4168,26 @@ defmodule AWS.ECR do
       metadata()
 
     Request.request_post(client, meta, "ListPullTimeUpdateExclusions", input, options)
+  end
+
+  @doc """
+  Lists the replication backfills for a registry, including their status and
+  progress.
+
+  Replication backfills that have reached a terminal status are retained for 90
+  days
+  after they end, after which they are no longer returned.
+  """
+  @spec list_replication_backfills(map(), list_replication_backfills_request(), list()) ::
+          {:ok, list_replication_backfills_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_replication_backfills_errors()}
+  def list_replication_backfills(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListReplicationBackfills", input, options)
   end
 
   @doc """
@@ -4220,6 +4484,64 @@ defmodule AWS.ECR do
       metadata()
 
     Request.request_post(client, meta, "StartLifecyclePolicyPreview", input, options)
+  end
+
+  @doc """
+  Starts a replication backfill for a registry.
+
+  A replication backfill replicates a
+  registry's existing images that match its replication configuration to the
+  specified
+  destination. Use the `DescribeReplicationBackfillResults` operation to
+  monitor the progress of a replication backfill, and to retrieve its per-image
+  results
+  after it reaches a terminal status.
+
+  The destination must already be configured in the registry's replication
+  configuration.
+
+  Only one replication backfill can be in progress for a given destination Region
+  at
+  a time. Starting a replication backfill for a destination Region that already
+  has one
+  in progress fails with a `ReplicationBackfillInProgressException`. In
+  addition, a registry can have at most 10 replication backfills in progress at
+  once.
+  Starting a replication backfill that would exceed this limit fails with a
+  `LimitExceededException`.
+  """
+  @spec start_replication_backfill(map(), start_replication_backfill_request(), list()) ::
+          {:ok, start_replication_backfill_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_replication_backfill_errors()}
+  def start_replication_backfill(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "StartReplicationBackfill", input, options)
+  end
+
+  @doc """
+  Stops an in progress replication backfill for a registry.
+
+  The backfill to stop is
+  identified by the `replicationBackfillId` returned by the
+  `StartReplicationBackfill` operation.
+
+  Images that have already been replicated are not affected, and replications that
+  are already in progress continue to completion.
+  """
+  @spec stop_replication_backfill(map(), stop_replication_backfill_request(), list()) ::
+          {:ok, stop_replication_backfill_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, stop_replication_backfill_errors()}
+  def stop_replication_backfill(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "StopReplicationBackfill", input, options)
   end
 
   @doc """

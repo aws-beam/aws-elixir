@@ -55,6 +55,25 @@ defmodule AWS.KMS do
   such as Java 7
   and later support these modes.
 
+  With current technology, brute force attacks on KMS TLS cipher suite key
+  exchange
+  mechanisms are not feasible. However, cipher suites that use
+  Rivest–Shamir–Adleman (RSA)
+  or Diffie-Hellman (DH) key exchange will be susceptible if large-scale quantum
+  computing
+  becomes practical.
+  [NIST IR 8547](https://nvlpubs.nist.gov/nistpubs/ir/2024/NIST.IR.8547.ipd.pdf) on the NIST website establishes a timeline to phase out quantum-vulnerable
+  algorithms
+  by 2030 and disallow them entirely by 2035. If your applications rely on the
+  long-term
+  confidentiality of KMS API traffic, we recommend that you
+  [use post-quantum TLS with
+  KMS](https://docs.aws.amazon.com/kms/latest/developerguide/pqtls.html).
+  For more information about post-quantum cybersecurity, see [Post-Quantum Cybersecurity
+  Resources](https://www.nsa.gov/Cybersecurity/Post-Quantum-Cybersecurity-Resources/)
+  on the
+  National Security Agency (NSA) website.
+
   ## Signing Requests
 
   Requests must be signed using an access key ID and a secret access key. We
@@ -443,6 +462,34 @@ defmodule AWS.KMS do
 
   ## Example:
       
+      decapsulate_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("GrantTokens") => list(String.t() | atom()),
+        required("EncapsulationAlgorithm") => list(any()),
+        required("KeyId") => String.t() | atom(),
+        required("SharedSecretCiphertextBlob") => binary()
+      }
+      
+  """
+  @type decapsulate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      decapsulate_response() :: %{
+        "EncapsulationAlgorithm" => list(any()),
+        "KeyId" => String.t() | atom(),
+        "SharedSecret" => binary()
+      }
+      
+  """
+  @type decapsulate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       decrypt_request() :: %{
         optional("CiphertextBlob") => binary(),
         optional("DryRun") => boolean(),
@@ -705,6 +752,34 @@ defmodule AWS.KMS do
       
   """
   @type enable_key_rotation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      encapsulate_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("GrantTokens") => list(String.t() | atom()),
+        required("EncapsulationAlgorithm") => list(any()),
+        required("KeyId") => String.t() | atom()
+      }
+      
+  """
+  @type encapsulate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      encapsulate_response() :: %{
+        "EncapsulationAlgorithm" => list(any()),
+        "KeyId" => String.t() | atom(),
+        "SharedSecret" => binary(),
+        "SharedSecretCiphertextBlob" => binary()
+      }
+      
+  """
+  @type encapsulate_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1043,6 +1118,7 @@ defmodule AWS.KMS do
       
       get_public_key_response() :: %{
         "CustomerMasterKeySpec" => list(any()),
+        "EncapsulationAlgorithms" => list(list(any())()),
         "EncryptionAlgorithms" => list(list(any())()),
         "KeyAgreementAlgorithms" => list(list(any())()),
         "KeyId" => String.t() | atom(),
@@ -1281,6 +1357,7 @@ defmodule AWS.KMS do
         "DeletionDate" => non_neg_integer(),
         "Description" => String.t() | atom(),
         "Enabled" => boolean(),
+        "EncapsulationAlgorithms" => list(list(any())()),
         "EncryptionAlgorithms" => list(list(any())()),
         "ExpirationModel" => list(any()),
         "KeyAgreementAlgorithms" => list(list(any())()),
@@ -2228,6 +2305,18 @@ defmodule AWS.KMS do
           | custom_key_store_invalid_state_exception()
           | cloud_hsm_cluster_invalid_configuration_exception()
 
+  @type decapsulate_errors() ::
+          not_found_exception()
+          | kms_invalid_state_exception()
+          | kms_internal_exception()
+          | key_unavailable_exception()
+          | invalid_key_usage_exception()
+          | invalid_grant_token_exception()
+          | invalid_ciphertext_exception()
+          | dry_run_operation_exception()
+          | disabled_exception()
+          | dependency_timeout_exception()
+
   @type decrypt_errors() ::
           not_found_exception()
           | kms_invalid_state_exception()
@@ -2318,6 +2407,17 @@ defmodule AWS.KMS do
           | kms_invalid_state_exception()
           | kms_internal_exception()
           | invalid_arn_exception()
+          | disabled_exception()
+          | dependency_timeout_exception()
+
+  @type encapsulate_errors() ::
+          not_found_exception()
+          | kms_invalid_state_exception()
+          | kms_internal_exception()
+          | key_unavailable_exception()
+          | invalid_key_usage_exception()
+          | invalid_grant_token_exception()
+          | dry_run_operation_exception()
           | disabled_exception()
           | dependency_timeout_exception()
 
@@ -3407,6 +3507,85 @@ defmodule AWS.KMS do
   end
 
   @doc """
+  Recovers the shared secret that was encapsulated with the public key of an
+  ML-KEM KMS key.
+
+  Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM), specified in [FIPS 203](https://csrc.nist.gov/pubs/fips/203/final) on the NIST website, is a
+  post-quantum algorithm for establishing a shared secret between two parties. For
+  an example
+  of how two parties establish a shared secret over an insecure channel using
+  ML-KEM, see
+  [ML-KEM keys in
+  KMS](https://docs.aws.amazon.com/kms/latest/developerguide/pqkeys.html#mlkem) in
+  the *Key Management Service Developer Guide*.
+
+  The Decapsulate operation is not available in China Regions.
+
+  `Decapsulate` returns the shared secret as a 32-byte value. You can use it
+  directly
+  as key material, or run it through a key derivation function to derive multiple
+  keys and nonces.
+
+  `Decapsulate` returns an `InvalidCiphertextException` when the
+  length of the `SharedSecretCiphertextBlob` is inconsistent with the ML-KEM key
+  spec. In all other cases, `Decapsulate` returns a 32-byte pseudo-random
+  value. This is true even when the `SharedSecretCiphertextBlob` was created using
+  a different ML-KEM key or altered from its original value. This behavior is a
+  security
+  feature called *implicit rejection* that helps protect against
+  chosen-ciphertext attacks.
+
+  Because a response does not indicate that the ciphertext and key are valid,
+  confirm the
+  two parties derived the same shared secret before using it.
+
+  The KMS key that you use for this operation must be in a compatible key state.
+  For
+  details, see [Key states of KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
+  the *Key Management Service Developer Guide*.
+
+  **Cross-account use**: Yes. To perform this operation with a KMS key in a
+  different Amazon Web Services account, specify
+  the key ARN or alias ARN in the value of the `KeyId` parameter.
+
+  **Required permissions**:
+  [kms:Decapsulate](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
+
+  ## Related operations:
+
+    *
+
+  `Encapsulate`
+
+    *
+
+  `CreateKey`
+
+    *
+
+  `GetPublicKey`
+
+    *
+
+  `DescribeKey`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model.
+  For more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency).
+  """
+  @spec decapsulate(map(), decapsulate_request(), list()) ::
+          {:ok, decapsulate_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, decapsulate_errors()}
+  def decapsulate(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "Decapsulate", input, options)
+  end
+
+  @doc """
   Decrypts ciphertext that was encrypted by a KMS key using any of the following
   operations:
 
@@ -4407,6 +4586,71 @@ defmodule AWS.KMS do
   end
 
   @doc """
+  Generates a shared secret and its encapsulated (ciphertext) form using the
+  public key of
+  an ML-KEM KMS key pair.
+
+  Module-Lattice-Based Key-Encapsulation Mechanism (ML-KEM), specified in [FIPS 203](https://csrc.nist.gov/pubs/fips/203/final) on the NIST website, is a
+  post-quantum algorithm for establishing a shared secret between two parties.
+
+  For an example of how two parties establish a shared secret over an insecure
+  channel using
+  ML-KEM, see [ML-KEM keys in KMS](https://docs.aws.amazon.com/kms/latest/developerguide/pqkeys.html#mlkem) in
+  the *Key Management Service Developer Guide*.
+
+  The Encapsulate operation is not available in China Regions.
+
+  The KMS key that you use for this operation must be in a compatible key state.
+  For
+  details, see [Key states of KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in
+  the *Key Management Service Developer Guide*.
+
+  **Cross-account use**: Yes. To perform this operation with a KMS key in a
+  different Amazon Web Services account, specify
+  the key ARN or alias ARN in the value of the `KeyId` parameter.
+
+  **Required permissions**:
+  [kms:Encapsulate](https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html) (key policy)
+
+  ## Related operations:
+
+    *
+
+  `Decapsulate`
+
+    *
+
+  `DeriveSharedSecret`
+
+    *
+
+  `CreateKey`
+
+    *
+
+  `GetPublicKey`
+
+    *
+
+  `DescribeKey`
+
+  **Eventual consistency**: The KMS API follows an eventual consistency model.
+  For more information, see [KMS eventual
+  consistency](https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency).
+  """
+  @spec encapsulate(map(), encapsulate_request(), list()) ::
+          {:ok, encapsulate_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, encapsulate_errors()}
+  def encapsulate(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "Encapsulate", input, options)
+  end
+
+  @doc """
   Encrypts plaintext of up to 4,096 bytes using a KMS key.
 
   You can use a symmetric or
@@ -4743,6 +4987,12 @@ defmodule AWS.KMS do
   specified in [RFC 5280](https://tools.ietf.org/html/rfc5280). The private key is a DER-encoded PKCS8 PrivateKeyInfo, as specified in [RFC
   5958](https://tools.ietf.org/html/rfc5958).
 
+  For ML-KEM data key pairs, the DER-encoded PKCS8 PrivateKeyInfo contains the
+  private key
+  in seed format. As a result, the length of the private key is the same for all
+  ML-KEM key pair
+  specs.
+
   `GenerateDataKeyPair` also supports [Amazon Web Services Nitro Enclaves](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html),
   which provide an
   isolated compute environment in Amazon EC2. To call `GenerateDataKeyPair` for an
@@ -4860,7 +5110,14 @@ defmodule AWS.KMS do
   used to encrypt
   the private key. The public key is a DER-encoded X.509 SubjectPublicKeyInfo, as
   specified in
-  [RFC 5280](https://tools.ietf.org/html/rfc5280).   You can use an optional encryption context to add additional security to the
+  [RFC 5280](https://tools.ietf.org/html/rfc5280). 
+  For ML-KEM data key pairs, the DER-encoded PKCS8 PrivateKeyInfo contains the
+  private key
+  in seed format. As a result, the length of the private key is the same for all
+  ML-KEM key pair
+  specs.
+
+  You can use an optional encryption context to add additional security to the
   encryption
   operation. If you specify an `EncryptionContext`, you must specify the same
   encryption context (a case-sensitive exact match) when decrypting the encrypted
@@ -5207,7 +5464,9 @@ defmodule AWS.KMS do
   `DisabledException` entries, as there could be infrequent workflows that are
   dependent on the key. By looking for this exception, you can identify potential
   dependencies
-  and workload failures before they occur.
+  and workload failures before they occur. CloudTrail remains the authoritative
+  source for all
+  API calls made to your key.
 
   **Cross-account use**: No. You cannot perform this operation
   on a KMS key in a different Amazon Web Services account.

@@ -235,6 +235,8 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       create_grant_request() :: %{
+        optional("GrantType") => list(any()),
+        optional("Options") => options(),
         optional("Tags") => list(tag()),
         required("AllowedOperations") => list(list(any())()),
         required("ClientToken") => String.t() | atom(),
@@ -1090,6 +1092,7 @@ defmodule AWS.LicenseManager do
         "GrantArn" => String.t() | atom(),
         "GrantName" => String.t() | atom(),
         "GrantStatus" => list(any()),
+        "GrantType" => list(any()),
         "GrantedOperations" => list(list(any())()),
         "GranteePrincipalArn" => String.t() | atom(),
         "HomeRegion" => String.t() | atom(),
@@ -2057,7 +2060,8 @@ defmodule AWS.LicenseManager do
   ## Example:
       
       options() :: %{
-        "ActivationOverrideBehavior" => list(any())
+        "ActivationOverrideBehavior" => list(any()),
+        "DesiredStatus" => list(any())
       }
       
   """
@@ -2151,6 +2155,7 @@ defmodule AWS.LicenseManager do
       
       received_metadata() :: %{
         "AllowedOperations" => list(list(any())()),
+        "GrantType" => list(any()),
         "ReceivedStatus" => list(any()),
         "ReceivedStatusReason" => String.t() | atom()
       }
@@ -3228,6 +3233,32 @@ defmodule AWS.LicenseManager do
   entitlements with a specific Amazon Web Services account, an organization, or an
   organizational unit (OU). For more information, see [Granted licenses in License Manager](https://docs.aws.amazon.com/license-manager/latest/userguide/granted-licenses.html)
   in the *License Manager User Guide*.
+
+  Set the type of grant with the `GrantType` field:
+
+    *
+
+  `BuyerGrant` - The default grant type, created by the seller when a
+  customer subscribes to a product. The seller creates a license for the
+  subscription
+  and a buyer grant for the customer. With a buyer grant, the customer can use,
+  consume, and distribute the license, according to the permissions the seller
+  sets in
+  the product contract.
+
+    *
+
+  `DelegateGrant` - A delegate grant gives the grantee read-only
+  visibility into the licenses and grants that you have distributed to buyers for
+  a
+  product. The grantee can monitor that activity on your behalf, and can also
+  listen
+  for the related Amazon EventBridge events. A delegate grant conveys no
+  entitlement to
+  use the licenses, and its only allowed operation is `ListReceivedLicenses`.
+  You must create the delegate grant, and its license, from the same
+  Amazon Web Services account that you used to create those buyer licenses and
+  grants.
   """
   @spec create_grant(map(), create_grant_request(), list()) ::
           {:ok, create_grant_response(), any()}

@@ -4120,6 +4120,17 @@ defmodule AWS.Lightsail do
 
   ## Example:
       
+      instance_attribute_updates() :: %{
+        "bundleId" => String.t() | atom()
+      }
+      
+  """
+  @type instance_attribute_updates() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       instance_entry() :: %{
         "availabilityZone" => String.t() | atom(),
         "instanceType" => String.t() | atom(),
@@ -5435,6 +5446,7 @@ defmodule AWS.Lightsail do
   ## Example:
       
       start_instance_request() :: %{
+        optional("attributeUpdates") => instance_attribute_updates(),
         required("instanceName") => String.t() | atom()
       }
       

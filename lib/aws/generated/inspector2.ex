@@ -4,9 +4,8 @@
 defmodule AWS.Inspector2 do
   @moduledoc """
   Amazon Inspector is a vulnerability discovery service that automates continuous
-  scanning for
-  security vulnerabilities within your Amazon EC2, Amazon ECR, and Amazon Web
-  Services Lambda environments.
+  scanning for security vulnerabilities within your Amazon EC2, Amazon ECR, and
+  Amazon Web Services Lambda environments.
   """
 
   alias AWS.Client
@@ -83,6 +82,7 @@ defmodule AWS.Inspector2 do
 
       ami_aggregation() :: %{
         "amis" => list(string_filter()),
+        "scanSources" => list(String.t() | atom()),
         "sortBy" => String.t() | atom(),
         "sortOrder" => String.t() | atom()
       }
@@ -103,11 +103,66 @@ defmodule AWS.Inspector2 do
         "cloudPartition" => String.t() | atom(),
         "cloudProvider" => String.t() | atom(),
         "cloudRegion" => String.t() | atom(),
+        "scanSource" => String.t() | atom(),
         "severityCounts" => severity_counts()
       }
 
   """
   @type ami_aggregation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ami_configuration() :: %{
+        "createdWithin" => String.t() | atom(),
+        "lastLaunchedWithin" => String.t() | atom(),
+        "scanModeConfiguration" => ami_scan_mode_configuration()
+      }
+
+  """
+  @type ami_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ami_configuration_state() :: %{
+        "createdWithin" => String.t() | atom(),
+        "lastLaunchedWithin" => String.t() | atom(),
+        "scanModeConfiguration" => ami_scan_mode_configuration(),
+        "status" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type ami_configuration_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ami_scan_mode_configuration() :: %{
+        "excludeBackupDlmAmis" => [boolean()],
+        "excludeCopiedAmis" => [boolean()],
+        "scanMode" => String.t() | atom(),
+        "tags" => list(ami_tag_filter())
+      }
+
+  """
+  @type ami_scan_mode_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ami_tag_filter() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type ami_tag_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -162,6 +217,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       auto_enable() :: %{
+        "ami" => [boolean()],
         "codeRepository" => [boolean()],
         "ec2" => [boolean()],
         "ecr" => [boolean()],
@@ -1457,6 +1513,7 @@ defmodule AWS.Inspector2 do
         "lambdaFunctionTags" => list(coverage_map_filter()),
         "lastScannedAt" => list(coverage_date_filter()),
         "lastScannedCommitId" => list(coverage_string_filter()),
+        "machineImageTags" => list(coverage_map_filter()),
         "resourceId" => list(coverage_string_filter()),
         "resourceType" => list(coverage_string_filter()),
         "scanMode" => list(coverage_string_filter()),
@@ -1993,6 +2050,7 @@ defmodule AWS.Inspector2 do
 
       destination() :: %{
         "bucketName" => [String.t() | atom()],
+        "expectedBucketOwner" => String.t() | atom(),
         "keyPrefix" => [String.t() | atom()],
         "kmsKeyArn" => [String.t() | atom()]
       }
@@ -2454,6 +2512,10 @@ defmodule AWS.Inspector2 do
         "lambdaFunctionName" => list(string_filter()),
         "lambdaFunctionRuntime" => list(string_filter()),
         "lastObservedAt" => list(date_filter()),
+        "machineImageId" => list(string_filter()),
+        "machineImageName" => list(string_filter()),
+        "machineImageOwnerAccountId" => list(string_filter()),
+        "machineImagePlatform" => list(string_filter()),
         "networkProtocol" => list(string_filter()),
         "portRange" => list(port_range_filter()),
         "relatedVulnerabilities" => list(string_filter()),
@@ -2795,6 +2857,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       get_configuration_response() :: %{
+        optional("amiConfiguration") => ami_configuration_state(),
         optional("ec2Configuration") => ec2_configuration_state(),
         optional("ecrConfiguration") => ecr_configuration_state()
       }
@@ -2916,6 +2979,36 @@ defmodule AWS.Inspector2 do
 
   """
   @type get_member_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_on_demand_scan_status_request() :: %{
+        required("resourceId") => String.t() | atom(),
+        required("resourceType") => list(any()),
+        required("scanId") => String.t() | atom()
+      }
+
+  """
+  @type get_on_demand_scan_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_on_demand_scan_status_response() :: %{
+        "completedAt" => [non_neg_integer()],
+        "resourceId" => String.t() | atom(),
+        "resourceType" => list(any()),
+        "scanId" => String.t() | atom(),
+        "scanStatus" => list(any()),
+        "scanStatusReason" => list(any()),
+        "startedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type get_on_demand_scan_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3602,6 +3695,32 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      list_on_demand_scans_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        required("resourceId") => String.t() | atom(),
+        required("resourceType") => list(any())
+      }
+
+  """
+  @type list_on_demand_scans_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_on_demand_scans_response() :: %{
+        "items" => list(on_demand_scan()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_on_demand_scans_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_tags_for_resource_request() :: %{}
 
   """
@@ -3642,6 +3761,39 @@ defmodule AWS.Inspector2 do
 
   """
   @type list_usage_totals_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      machine_image_details() :: %{
+        "architecture" => String.t() | atom(),
+        "creationDate" => non_neg_integer(),
+        "isPublic" => [boolean()],
+        "machineImageId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "ownerAccountId" => String.t() | atom(),
+        "platform" => String.t() | atom(),
+        "rootDeviceType" => String.t() | atom(),
+        "sourceResourceId" => String.t() | atom(),
+        "state" => String.t() | atom(),
+        "virtualizationType" => String.t() | atom()
+      }
+
+  """
+  @type machine_image_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      machine_image_metadata() :: %{
+        "platform" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type machine_image_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3742,6 +3894,23 @@ defmodule AWS.Inspector2 do
 
   """
   @type number_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      on_demand_scan() :: %{
+        "completedAt" => [non_neg_integer()],
+        "resourceId" => String.t() | atom(),
+        "resourceType" => list(any()),
+        "scanId" => String.t() | atom(),
+        "scanStatus" => list(any()),
+        "scanStatusReason" => list(any()),
+        "startedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type on_demand_scan() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4017,6 +4186,7 @@ defmodule AWS.Inspector2 do
         "awsLambdaFunction" => aws_lambda_function_details(),
         "codeRepository" => code_repository_details(),
         "image" => image(),
+        "machineImage" => machine_image_details(),
         "serverlessFunction" => serverless_function(),
         "vm" => vm()
       }
@@ -4090,6 +4260,7 @@ defmodule AWS.Inspector2 do
         "ecrImage" => ecr_container_image_metadata(),
         "ecrRepository" => ecr_repository_metadata(),
         "lambdaFunction" => lambda_function_metadata(),
+        "machineImage" => machine_image_metadata(),
         "serverlessFunction" => serverless_function_metadata(),
         "vmInstance" => vm_instance_metadata()
       }
@@ -4102,6 +4273,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       resource_state() :: %{
+        "ami" => state(),
         "codeRepository" => state(),
         "ec2" => state(),
         "ecr" => state(),
@@ -4117,6 +4289,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       resource_status() :: %{
+        "ami" => String.t() | atom(),
         "codeRepository" => String.t() | atom(),
         "ec2" => String.t() | atom(),
         "ecr" => String.t() | atom(),
@@ -4447,6 +4620,30 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      start_on_demand_scan_request() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        required("resourceId") => String.t() | atom(),
+        required("resourceType") => list(any())
+      }
+
+  """
+  @type start_on_demand_scan_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_on_demand_scan_response() :: %{
+        "scanId" => String.t() | atom()
+      }
+
+  """
+  @type start_on_demand_scan_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       state() :: %{
         "errorCode" => String.t() | atom(),
         "errorMessage" => String.t() | atom(),
@@ -4771,6 +4968,7 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       update_configuration_inheritance() :: %{
+        "amiConfiguration" => String.t() | atom(),
         "ec2Configuration" => String.t() | atom(),
         "ecrConfiguration" => String.t() | atom()
       }
@@ -4784,6 +4982,7 @@ defmodule AWS.Inspector2 do
 
       update_configuration_request() :: %{
         optional("accountId") => String.t() | atom(),
+        optional("amiConfiguration") => ami_configuration(),
         optional("ec2Configuration") => ec2_configuration(),
         optional("ecrConfiguration") => ecr_configuration(),
         optional("updateConfigurationInheritance") => update_configuration_inheritance()
@@ -5481,6 +5680,13 @@ defmodule AWS.Inspector2 do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type get_on_demand_scan_status_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type get_sbom_export_errors() ::
           validation_exception()
           | throttling_exception()
@@ -5580,6 +5786,12 @@ defmodule AWS.Inspector2 do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type list_on_demand_scans_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type list_tags_for_resource_errors() ::
           validation_exception()
           | throttling_exception()
@@ -5634,6 +5846,13 @@ defmodule AWS.Inspector2 do
           | conflict_exception()
           | access_denied_exception()
 
+  @type start_on_demand_scan_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type stop_cis_session_errors() ::
           validation_exception()
           | throttling_exception()
@@ -5681,6 +5900,7 @@ defmodule AWS.Inspector2 do
           validation_exception()
           | throttling_exception()
           | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type update_connector_errors() ::
@@ -5751,12 +5971,10 @@ defmodule AWS.Inspector2 do
   Associates an Amazon Web Services account with an Amazon Inspector delegated
   administrator.
 
-  An HTTP 200 response
-  indicates the association was successfully started, but doesn’t indicate whether
-  it was
-  completed. You can check if the association completed by using
-  [ListMembers](https://docs.aws.amazon.com/inspector/v2/APIReference/API_ListMembers.html) for multiple
-  accounts or
+  An HTTP 200 response indicates the association was successfully started, but
+  doesn’t indicate whether it was completed. You can check if the association
+  completed by using
+  [ListMembers](https://docs.aws.amazon.com/inspector/v2/APIReference/API_ListMembers.html) for multiple accounts or
   [GetMembers](https://docs.aws.amazon.com/inspector/v2/APIReference/API_GetMember.html)
   for a single account.
   """
@@ -5788,8 +6006,7 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Associates multiple code repositories with an Amazon Inspector code security
-  scan
-  configuration.
+  scan configuration.
   """
   @spec batch_associate_code_security_scan_configuration(
           map(),
@@ -5823,8 +6040,7 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Disassociates multiple code repositories from an Amazon Inspector code security
-  scan
-  configuration.
+  scan configuration.
   """
   @spec batch_disassociate_code_security_scan_configuration(
           map(),
@@ -5892,8 +6108,7 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Retrieves code snippets from findings that Amazon Inspector detected code
-  vulnerabilities
-  in.
+  vulnerabilities in.
   """
   @spec batch_get_code_snippet(map(), batch_get_code_snippet_request(), list()) ::
           {:ok, batch_get_code_snippet_response(), any()}
@@ -5981,12 +6196,10 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Retrieves Amazon Inspector deep inspection activation status of multiple member
-  accounts within
-  your organization.
+  accounts within your organization.
 
   You must be the delegated administrator of an organization in Amazon Inspector
-  to
-  use this API.
+  to use this API.
   """
   @spec batch_get_member_ec2_deep_inspection_status(
           map(),
@@ -6020,12 +6233,10 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Activates or deactivates Amazon Inspector deep inspection for the provided
-  member accounts in your
-  organization.
+  member accounts in your organization.
 
   You must be the delegated administrator of an organization in Amazon Inspector
-  to use
-  this API.
+  to use this API.
   """
   @spec batch_update_member_ec2_deep_inspection_status(
           map(),
@@ -6149,8 +6360,8 @@ defmodule AWS.Inspector2 do
 
   After calling the `CreateCodeSecurityIntegration` operation, you complete
   authentication and authorization with your provider. Next you call the
-  `UpdateCodeSecurityIntegration` operation to provide the `details`
-  to complete the integration setup
+  `UpdateCodeSecurityIntegration` operation to provide the `details` to complete
+  the integration setup
   """
   @spec create_code_security_integration(
           map(),
@@ -6248,8 +6459,8 @@ defmodule AWS.Inspector2 do
   @doc """
   Creates a filter resource using specified filter criteria.
 
-  When the filter action is set
-  to `SUPPRESS` this action creates a suppression rule.
+  When the filter action is set to `SUPPRESS` this action creates a suppression
+  rule.
   """
   @spec create_filter(map(), create_filter_request(), list()) ::
           {:ok, create_filter_response(), any()}
@@ -6280,9 +6491,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Creates a finding report.
 
-  By default only `ACTIVE` findings are returned in
-  the report. To see `SUPRESSED` or `CLOSED` findings you must specify
-  a value for the `findingStatus` filter criteria.
+  By default only `ACTIVE` findings are returned in the report. To see `SUPRESSED`
+  or `CLOSED` findings you must specify a value for the `findingStatus` filter
+  criteria.
   """
   @spec create_findings_report(map(), create_findings_report_request(), list()) ::
           {:ok, create_findings_report_response(), any()}
@@ -6529,8 +6740,7 @@ defmodule AWS.Inspector2 do
   @doc """
   Disables Amazon Inspector scans for one or more Amazon Web Services accounts.
 
-  Disabling all scan types in an
-  account disables the Amazon Inspector service.
+  Disabling all scan types in an account disables the Amazon Inspector service.
   """
   @spec disable(map(), disable_request(), list()) ::
           {:ok, disable_response(), any()}
@@ -6856,12 +7066,10 @@ defmodule AWS.Inspector2 do
   @doc """
   Retrieves setting configurations for Amazon Inspector scans.
 
-  If you specify an
-  `accountId`, this operation returns the scan configuration for that member
-  account. You must be the delegated administrator for the specified member
-  account.
-  If you do not specify an `accountId`, this operation returns your own
-  scan configuration.
+  If you specify an `accountId`, this operation returns the scan configuration for
+  that member account. You must be the delegated administrator for the specified
+  member account. If you do not specify an `accountId`, this operation returns
+  your own scan configuration.
   """
   @spec get_configuration(map(), get_configuration_request(), list()) ::
           {:ok, get_configuration_response(), any()}
@@ -6891,8 +7099,7 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Retrieves information about the Amazon Inspector delegated administrator for
-  your
-  organization.
+  your organization.
   """
   @spec get_delegated_admin_account(map(), get_delegated_admin_account_request(), list()) ::
           {:ok, get_delegated_admin_account_response(), any()}
@@ -6922,8 +7129,7 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Retrieves the activation status of Amazon Inspector deep inspection and custom
-  paths associated
-  with your account.
+  paths associated with your account.
   """
   @spec get_ec2_deep_inspection_configuration(
           map(),
@@ -7046,6 +7252,35 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
+  Retrieves the status of a specific on-demand scan for a resource.
+  """
+  @spec get_on_demand_scan_status(map(), get_on_demand_scan_status_request(), list()) ::
+          {:ok, get_on_demand_scan_status_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_on_demand_scan_status_errors()}
+  def get_on_demand_scan_status(%Client{} = client, input, options \\ []) do
+    url_path = "/ondemand/scan/status"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Gets details of a software bill of materials (SBOM) report.
   """
   @spec get_sbom_export(map(), get_sbom_export_request(), list()) ::
@@ -7075,7 +7310,6 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
-
   Lists the permissions an account has to configure Amazon Inspector.
 
   If the account is a member account or standalone account with resources managed
@@ -7272,8 +7506,7 @@ defmodule AWS.Inspector2 do
 
   @doc """
   Lists the associations between code repositories and Amazon Inspector code
-  security scan
-  configurations.
+  security scan configurations.
   """
   @spec list_code_security_scan_configuration_associations(
           map(),
@@ -7595,8 +7828,7 @@ defmodule AWS.Inspector2 do
 
   @doc """
   List members associated with the Amazon Inspector delegated administrator for
-  your
-  organization.
+  your organization.
   """
   @spec list_members(map(), list_members_request(), list()) ::
           {:ok, list_members_response(), any()}
@@ -7605,6 +7837,35 @@ defmodule AWS.Inspector2 do
           | {:error, list_members_errors()}
   def list_members(%Client{} = client, input, options \\ []) do
     url_path = "/members/list"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists the on-demand scans for a resource.
+  """
+  @spec list_on_demand_scans(map(), list_on_demand_scans_request(), list()) ::
+          {:ok, list_on_demand_scans_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_on_demand_scans_errors()}
+  def list_on_demand_scans(%Client{} = client, input, options \\ []) do
+    url_path = "/ondemand/scans"
     headers = []
     custom_headers = []
     query_params = []
@@ -7674,8 +7935,8 @@ defmodule AWS.Inspector2 do
   @doc """
   Resets an encryption key.
 
-  After the key is reset your resources will be encrypted by an
-  Amazon Web Services owned key.
+  After the key is reset your resources will be encrypted by an Amazon Web
+  Services owned key.
   """
   @spec reset_encryption_key(map(), reset_encryption_key_request(), list()) ::
           {:ok, reset_encryption_key_response(), any()}
@@ -7735,10 +7996,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Sends a CIS session health.
 
-  This API is used by the Amazon Inspector SSM plugin to
-  communicate with the Amazon Inspector service. The Amazon Inspector SSM plugin
-  calls
-  this API to start a CIS scan session for the scan ID supplied by the service.
+  This API is used by the Amazon Inspector SSM plugin to communicate with the
+  Amazon Inspector service. The Amazon Inspector SSM plugin calls this API to
+  start a CIS scan session for the scan ID supplied by the service.
   """
   @spec send_cis_session_health(map(), send_cis_session_health_request(), list()) ::
           {:ok, send_cis_session_health_response(), any()}
@@ -7769,10 +8029,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Sends a CIS session telemetry.
 
-  This API is used by the Amazon Inspector SSM plugin to
-  communicate with the Amazon Inspector service. The Amazon Inspector SSM plugin
-  calls
-  this API to start a CIS scan session for the scan ID supplied by the service.
+  This API is used by the Amazon Inspector SSM plugin to communicate with the
+  Amazon Inspector service. The Amazon Inspector SSM plugin calls this API to
+  start a CIS scan session for the scan ID supplied by the service.
   """
   @spec send_cis_session_telemetry(map(), send_cis_session_telemetry_request(), list()) ::
           {:ok, send_cis_session_telemetry_response(), any()}
@@ -7803,10 +8062,9 @@ defmodule AWS.Inspector2 do
   @doc """
   Starts a CIS session.
 
-  This API is used by the Amazon Inspector SSM plugin to
-  communicate with the Amazon Inspector service. The Amazon Inspector SSM plugin
-  calls
-  this API to start a CIS scan session for the scan ID supplied by the service.
+  This API is used by the Amazon Inspector SSM plugin to communicate with the
+  Amazon Inspector service. The Amazon Inspector SSM plugin calls this API to
+  start a CIS scan session for the scan ID supplied by the service.
   """
   @spec start_cis_session(map(), start_cis_session_request(), list()) ::
           {:ok, start_cis_session_response(), any()}
@@ -7864,12 +8122,41 @@ defmodule AWS.Inspector2 do
   end
 
   @doc """
+  Starts an on-demand scan of the specified resource, such as an Amazon Machine
+  Image (AMI).
+  """
+  @spec start_on_demand_scan(map(), start_on_demand_scan_request(), list()) ::
+          {:ok, start_on_demand_scan_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_on_demand_scan_errors()}
+  def start_on_demand_scan(%Client{} = client, input, options \\ []) do
+    url_path = "/ondemand/scan"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Stops a CIS session.
 
-  This API is used by the Amazon Inspector SSM plugin to
-  communicate with the Amazon Inspector service. The Amazon Inspector SSM plugin
-  calls
-  this API to stop a CIS scan session for the scan ID supplied by the service.
+  This API is used by the Amazon Inspector SSM plugin to communicate with the
+  Amazon Inspector service. The Amazon Inspector SSM plugin calls this API to stop
+  a CIS scan session for the scan ID supplied by the service.
   """
   @spec stop_cis_session(map(), stop_cis_session_request(), list()) ::
           {:ok, stop_cis_session_response(), any()}
@@ -7994,8 +8281,8 @@ defmodule AWS.Inspector2 do
 
   After calling the `CreateCodeSecurityIntegration` operation, you complete
   authentication and authorization with your provider. Next you call the
-  `UpdateCodeSecurityIntegration` operation to provide the `details`
-  to complete the integration setup
+  `UpdateCodeSecurityIntegration` operation to provide the `details` to complete
+  the integration setup
   """
   @spec update_code_security_integration(
           map(),
@@ -8063,13 +8350,11 @@ defmodule AWS.Inspector2 do
   @doc """
   Updates the scan configuration for your Amazon Inspector account.
 
-  If you don't specify an
-  `accountId`, this operation updates the delegated administrator's configuration
-  and propagates it to member accounts that have not been individually configured.
-  If you
-  specify an `accountId`, this operation updates that member account's
-  configuration. Only the delegated administrator can specify an `accountId`;
-  member accounts cannot call this operation.
+  If you don't specify an `accountId`, this operation updates the delegated
+  administrator's configuration and propagates it to member accounts that have not
+  been individually configured. If you specify an `accountId`, this operation
+  updates that member account's configuration. Only the delegated administrator
+  can specify an `accountId`; member accounts cannot call this operation.
   """
   @spec update_configuration(map(), update_configuration_request(), list()) ::
           {:ok, update_configuration_response(), any()}
@@ -8198,8 +8483,8 @@ defmodule AWS.Inspector2 do
   @doc """
   Updates an encryption key.
 
-  A `ResourceNotFoundException` means that an
-  Amazon Web Services owned key is being used for encryption.
+  A `ResourceNotFoundException` means that an Amazon Web Services owned key is
+  being used for encryption.
   """
   @spec update_encryption_key(map(), update_encryption_key_request(), list()) ::
           {:ok, update_encryption_key_response(), any()}
@@ -8260,8 +8545,7 @@ defmodule AWS.Inspector2 do
   @doc """
   Updates the Amazon Inspector deep inspection custom paths for your organization.
 
-  You must be an
-  Amazon Inspector delegated administrator to use this API.
+  You must be an Amazon Inspector delegated administrator to use this API.
   """
   @spec update_org_ec2_deep_inspection_configuration(
           map(),

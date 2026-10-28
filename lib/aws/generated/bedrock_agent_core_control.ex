@@ -6638,8 +6638,20 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      on_behalf_of_authentication_config() :: %{
+        "clientAuthenticationMethod" => list(any())
+      }
+
+  """
+  @type on_behalf_of_authentication_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       on_behalf_of_token_exchange_config_type() :: %{
         "grantType" => list(any()),
+        "onBehalfOfAuthenticationConfig" => on_behalf_of_authentication_config(),
         "tokenExchangeGrantTypeConfig" => token_exchange_grant_type_config_type()
       }
 
@@ -7116,6 +7128,30 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type registry_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reset_token_vault_key_material_request() :: %{
+        required("tokenVaultId") => String.t() | atom()
+      }
+
+  """
+  @type reset_token_vault_key_material_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reset_token_vault_key_material_response() :: %{
+        "kmsConfiguration" => kms_configuration(),
+        "lastModifiedDate" => [non_neg_integer()],
+        "tokenVaultId" => String.t() | atom()
+      }
+
+  """
+  @type reset_token_vault_key_material_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9764,6 +9800,7 @@ defmodule AWS.BedrockAgentCoreControl do
           | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type delete_agent_runtime_errors() ::
@@ -10537,6 +10574,15 @@ defmodule AWS.BedrockAgentCoreControl do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type reset_token_vault_key_material_errors() ::
+          validation_exception()
+          | unauthorized_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type rotate_payment_connector_credentials_errors() ::
           validation_exception()
           | throttling_exception()
@@ -10551,6 +10597,7 @@ defmodule AWS.BedrockAgentCoreControl do
           | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
           | concurrent_modification_exception()
           | access_denied_exception()
 
@@ -10838,6 +10885,7 @@ defmodule AWS.BedrockAgentCoreControl do
           | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   def metadata do
@@ -15555,6 +15603,50 @@ defmodule AWS.BedrockAgentCoreControl do
       input,
       options,
       201
+    )
+  end
+
+  @doc """
+  Resets the key material for a token vault whose customer managed KMS key has
+  been deleted, and re-encrypts the token vault with an Amazon Web Services
+  managed key so that you can use the token vault again.
+
+  This operation can't be undone. The reset permanently deletes the OAuth2 access
+  tokens and refresh tokens stored in the token vault, including tokens obtained
+  through all supported flows. After the reset, your agents must complete these
+  flows again to get new tokens, and for user-delegated flows your users must
+  authorize access again. The reset doesn't delete your credential providers or
+  their configuration.
+
+  You can reset a token vault only if its customer managed key has been deleted.
+  If the key still exists, including when it's disabled or scheduled for deletion,
+  this operation returns a `ValidationException`. To use the token vault again,
+  enable the key or cancel its scheduled deletion in KMS. To switch to a different
+  key, use `SetTokenVaultCMK`.
+  """
+  @spec reset_token_vault_key_material(map(), reset_token_vault_key_material_request(), list()) ::
+          {:ok, reset_token_vault_key_material_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, reset_token_vault_key_material_errors()}
+  def reset_token_vault_key_material(%Client{} = client, input, options \\ []) do
+    url_path = "/identities/reset-token-vault-key-material"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 

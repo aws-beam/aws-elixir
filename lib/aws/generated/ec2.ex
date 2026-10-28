@@ -19101,6 +19101,32 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      get_image_findings_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ImageId") => String.t() | atom()
+      }
+      
+  """
+  @type get_image_findings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_image_findings_result() :: %{
+        "ImageFindings" => list(image_finding()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_image_findings_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_instance_metadata_defaults_request() :: %{
         optional("DryRun") => boolean()
       }
@@ -21023,6 +21049,7 @@ defmodule AWS.EC2 do
         "RamdiskId" => String.t() | atom(),
         "RootDeviceName" => String.t() | atom(),
         "RootDeviceType" => list(any()),
+        "ScanResults" => scan_results(),
         "SourceImageId" => String.t() | atom(),
         "SourceImageRegion" => String.t() | atom(),
         "SourceInstanceId" => String.t() | atom(),
@@ -21087,7 +21114,8 @@ defmodule AWS.EC2 do
         "ImageNames" => list(String.t() | atom()),
         "ImageProviders" => list(String.t() | atom()),
         "ImageWatermarks" => list(image_watermark_filter_response()),
-        "MarketplaceProductCodes" => list(String.t() | atom())
+        "MarketplaceProductCodes" => list(String.t() | atom()),
+        "ScanResultCondition" => scan_result_condition()
       }
       
   """
@@ -21103,7 +21131,8 @@ defmodule AWS.EC2 do
         "ImageNames" => list(String.t() | atom()),
         "ImageProviders" => list(String.t() | atom()),
         "ImageWatermarks" => list(image_watermark_filter_request()),
-        "MarketplaceProductCodes" => list(String.t() | atom())
+        "MarketplaceProductCodes" => list(String.t() | atom()),
+        "ScanResultCondition" => scan_result_condition_request()
       }
       
   """
@@ -21124,6 +21153,24 @@ defmodule AWS.EC2 do
       
   """
   @type image_disk_container() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_finding() :: %{
+        "FirstObservedAt" => non_neg_integer(),
+        "FixAvailable" => boolean(),
+        "Paths" => list(String.t() | atom()),
+        "Score" => float(),
+        "SeverityLabel" => list(any()),
+        "SnapshotId" => String.t() | atom(),
+        "Title" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type image_finding() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -31449,6 +31496,57 @@ defmodule AWS.EC2 do
       
   """
   @type s3_storage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scan_result_condition() :: %{
+        "MaxDaysSinceCriticalFixAvailable" => integer(),
+        "MaxDaysSinceHighFixAvailable" => integer(),
+        "MaxDaysSinceInformationalFixAvailable" => integer(),
+        "MaxDaysSinceLastFindingScan" => integer(),
+        "MaxDaysSinceLowFixAvailable" => integer(),
+        "MaxDaysSinceMediumFixAvailable" => integer(),
+        "MaximumSeverityLabel" => list(any())
+      }
+      
+  """
+  @type scan_result_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scan_result_condition_request() :: %{
+        "MaxDaysSinceCriticalFixAvailable" => integer(),
+        "MaxDaysSinceHighFixAvailable" => integer(),
+        "MaxDaysSinceInformationalFixAvailable" => integer(),
+        "MaxDaysSinceLastFindingScan" => integer(),
+        "MaxDaysSinceLowFixAvailable" => integer(),
+        "MaxDaysSinceMediumFixAvailable" => integer(),
+        "MaximumSeverityLabel" => list(any())
+      }
+      
+  """
+  @type scan_result_condition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scan_results() :: %{
+        "CriticalFixAvailableSince" => non_neg_integer(),
+        "FindingScanDate" => non_neg_integer(),
+        "HighFixAvailableSince" => non_neg_integer(),
+        "HighestFindingSeverityLabel" => list(any()),
+        "InformationalFixAvailableSince" => non_neg_integer(),
+        "LowFixAvailableSince" => non_neg_integer(),
+        "MediumFixAvailableSince" => non_neg_integer()
+      }
+      
+  """
+  @type scan_results() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -49897,6 +49995,24 @@ defmodule AWS.EC2 do
       metadata()
 
     Request.request_post(client, meta, "GetImageBlockPublicAccessState", input, options)
+  end
+
+  @doc """
+  Describes the Amazon Inspector vulnerability findings for the specified AMI.
+
+  You can get findings for AMIs that you own, AMIs that are shared with you, and
+  public
+  AMIs. Amazon Inspector returns findings only for AMIs that it has scanned.
+  """
+  @spec get_image_findings(map(), get_image_findings_request(), list()) ::
+          {:ok, get_image_findings_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_image_findings(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetImageFindings", input, options)
   end
 
   @doc """

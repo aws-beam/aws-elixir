@@ -443,6 +443,7 @@ defmodule AWS.ECS do
         "cpu" => String.t() | atom(),
         "exitCode" => integer(),
         "gpuIds" => list(String.t() | atom()),
+        "gpuSharingStrategy" => list(),
         "healthStatus" => list(any()),
         "image" => String.t() | atom(),
         "imageDigest" => String.t() | atom(),
@@ -551,6 +552,7 @@ defmodule AWS.ECS do
         "capacityProviderName" => String.t() | atom(),
         "containerInstanceArn" => String.t() | atom(),
         "ec2InstanceId" => String.t() | atom(),
+        "gpuDevices" => list(gpu_device()),
         "healthStatus" => container_instance_health_status(),
         "pendingTasksCount" => integer(),
         "registeredAt" => non_neg_integer(),
@@ -2892,6 +2894,21 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      gpu_device() :: %{
+        "containerCount" => integer(),
+        "gpuId" => String.t() | atom(),
+        "remainingMemoryInMiB" => integer(),
+        "sharingMode" => list(any()),
+        "totalMemoryInMiB" => integer()
+      }
+      
+  """
+  @type gpu_device() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       health_check() :: %{
         "command" => list(String.t() | atom()),
         "interval" => integer(),
@@ -4089,6 +4106,18 @@ defmodule AWS.ECS do
 
   ## Example:
       
+      nvidia_mps_allocation() :: %{
+        "maxComputePercent" => integer(),
+        "memory" => integer()
+      }
+      
+  """
+  @type nvidia_mps_allocation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       placement_constraint() :: %{
         "expression" => String.t() | atom(),
         "type" => list(any())
@@ -4446,6 +4475,7 @@ defmodule AWS.ECS do
   ## Example:
       
       resource_requirement() :: %{
+        "sharingStrategy" => list(),
         "type" => list(any()),
         "value" => String.t() | atom()
       }

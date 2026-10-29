@@ -401,6 +401,18 @@ defmodule AWS.KafkaConnect do
 
   ## Example:
 
+      custom_plugin_update() :: %{
+        "customPluginArn" => String.t() | atom(),
+        "revision" => float()
+      }
+
+  """
+  @type custom_plugin_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_connector_request() :: %{
         optional("currentVersion") => String.t() | atom()
       }
@@ -892,6 +904,17 @@ defmodule AWS.KafkaConnect do
 
   ## Example:
 
+      plugin_update() :: %{
+        "customPlugin" => custom_plugin_update()
+      }
+
+  """
+  @type plugin_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       provisioned_capacity() :: %{
         "mcuCount" => integer(),
         "workerCount" => integer()
@@ -1178,7 +1201,10 @@ defmodule AWS.KafkaConnect do
       update_connector_request() :: %{
         optional("capacity") => capacity_update(),
         optional("connectorConfiguration") => map(),
+        optional("plugins") => list(plugin_update()),
         optional("skipHealthValidation") => boolean(),
+        optional("useDefaultWorkerConfiguration") => boolean(),
+        optional("workerConfiguration") => worker_configuration_update(),
         required("currentVersion") => String.t() | atom()
       }
 
@@ -1293,6 +1319,18 @@ defmodule AWS.KafkaConnect do
 
   ## Example:
 
+      worker_configuration_update() :: %{
+        "revision" => float(),
+        "workerConfigurationArn" => String.t() | atom()
+      }
+
+  """
+  @type worker_configuration_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       worker_log_delivery() :: %{
         "cloudWatchLogs" => cloud_watch_logs_log_delivery(),
         "firehose" => firehose_log_delivery(),
@@ -1320,7 +1358,10 @@ defmodule AWS.KafkaConnect do
   ## Example:
 
       worker_setting() :: %{
-        "capacity" => capacity_description()
+        "capacity" => capacity_description(),
+        "plugins" => list(plugin_description()),
+        "useDefaultWorkerConfiguration" => boolean(),
+        "workerConfiguration" => worker_configuration_description()
       }
 
   """
@@ -2184,8 +2225,11 @@ defmodule AWS.KafkaConnect do
   @doc """
   Updates the specified connector.
 
-  For request body, specify only one parameter: either `capacity` or
-  `connectorConfiguration`.
+  In the request body, you can update either the connector's worker setting or its
+  connector configuration, but not both in the same request. To update the worker
+  setting, specify one or more of `capacity`, `plugins`, `workerConfiguration`, or
+  `useDefaultWorkerConfiguration`. To update the connector configuration, specify
+  only `connectorConfiguration`.
   """
   @spec update_connector(map(), String.t() | atom(), update_connector_request(), list()) ::
           {:ok, update_connector_response(), any()}

@@ -12,20 +12,13 @@ defmodule AWS.ConnectParticipant do
 
   [Participant Service data types](https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Participant_Service.html)
 
-  Connect Customer is an easy-to-use omnichannel cloud contact center service that
-  enables companies of any size to deliver superior customer service at a lower
-  cost.
-
-  Connect Customer communications capabilities make it easy for companies to
-  deliver
-  personalized interactions across communication channels, including chat.
-
   Use the Connect Customer Participant Service to manage participants (for
   example,
   agents, customers, and managers listening in), and to send messages and events
   within a
-  chat contact. The APIs in the service enable the following: sending chat
-  messages,
+  chat contact.
+
+  The APIs in the service enable the following: sending chat messages,
   attachment sharing, managing a participant's connection state and message
   events, and
   retrieving chat transcripts.
@@ -222,6 +215,7 @@ defmodule AWS.ConnectParticipant do
   ## Example:
 
       get_attachment_request() :: %{
+        optional("UrlContentDisposition") => list(any()),
         optional("UrlExpiryInSeconds") => integer(),
         required("AttachmentId") => String.t() | atom(),
         required("ConnectionToken") => String.t() | atom()

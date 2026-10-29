@@ -162,6 +162,30 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      add_replication_peer_request() :: %{
+        optional("DryRun") => boolean(),
+        required("PeerDomainArn") => String.t() | atom()
+      }
+
+  """
+  @type add_replication_peer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_replication_peer_response() :: %{
+        "DomainArn" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type add_replication_peer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       add_tags_request() :: %{
         required("ARN") => String.t() | atom(),
         required("TagList") => list(tag())
@@ -639,6 +663,23 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      category_diff_result() :: %{
+        "Diverged" => integer(),
+        "InSync" => integer(),
+        "Items" => diff_items(),
+        "SourceOnly" => integer(),
+        "Status" => list(any()),
+        "TargetOnly" => integer(),
+        "Truncated" => boolean()
+      }
+
+  """
+  @type category_diff_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       change_progress_details() :: %{
         "ChangeId" => String.t() | atom(),
         "ConfigChangeStatus" => list(any()),
@@ -769,6 +810,32 @@ defmodule AWS.OpenSearch do
 
   """
   @type cold_storage_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      compare_domain_configuration_request() :: %{
+        required("Categories") => list(String.t() | atom()),
+        required("SourceDomainArn") => String.t() | atom(),
+        required("TargetDomainArn") => String.t() | atom()
+      }
+
+  """
+  @type compare_domain_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      compare_domain_configuration_response() :: %{
+        "Categories" => map(),
+        "SourceDomainArn" => String.t() | atom(),
+        "TargetDomainArn" => String.t() | atom()
+      }
+
+  """
+  @type compare_domain_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1415,6 +1482,28 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      describe_domain_replication_request() :: %{}
+
+  """
+  @type describe_domain_replication_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_domain_replication_response() :: %{
+        "DomainArn" => String.t() | atom(),
+        "Peers" => list(replication_peer()),
+        "Role" => list(any())
+      }
+
+  """
+  @type describe_domain_replication_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_domain_request() :: %{}
 
   """
@@ -1712,6 +1801,19 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      diff_items() :: %{
+        "Diverged" => list(divergent_item()),
+        "SourceOnly" => list(String.t() | atom()),
+        "TargetOnly" => list(String.t() | atom())
+      }
+
+  """
+  @type diff_items() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       direct_query_data_source() :: %{
         "DataSourceArn" => String.t() | atom(),
         "DataSourceName" => String.t() | atom(),
@@ -1777,6 +1879,32 @@ defmodule AWS.OpenSearch do
 
   """
   @type dissociate_packages_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      divergent_field() :: %{
+        "Path" => String.t() | atom(),
+        "Policy" => list(any()),
+        "SourceValue" => String.t() | atom(),
+        "TargetValue" => String.t() | atom()
+      }
+
+  """
+  @type divergent_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      divergent_item() :: %{
+        "Fields" => list(divergent_field()),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type divergent_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2107,6 +2235,30 @@ defmodule AWS.OpenSearch do
 
   """
   @type export_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      failover_replication_request() :: %{
+        required("AllowDataLoss") => boolean(),
+        required("PeerDomainArn") => String.t() | atom()
+      }
+
+  """
+  @type failover_replication_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      failover_replication_response() :: %{
+        "DomainArn" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type failover_replication_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3707,6 +3859,29 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      remove_replication_peer_request() :: %{
+        required("PeerDomainArn") => String.t() | atom()
+      }
+
+  """
+  @type remove_replication_peer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_replication_peer_response() :: %{
+        "DomainArn" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type remove_replication_peer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       remove_tags_request() :: %{
         required("ARN") => String.t() | atom(),
         required("TagKeys") => list(String.t() | atom())
@@ -3714,6 +3889,20 @@ defmodule AWS.OpenSearch do
 
   """
   @type remove_tags_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      replication_peer() :: %{
+        "PeerDomainArn" => String.t() | atom(),
+        "PeerRole" => list(any()),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom()
+      }
+
+  """
+  @type replication_peer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4165,6 +4354,29 @@ defmodule AWS.OpenSearch do
 
   """
   @type storage_type_limit() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      switchover_replication_request() :: %{
+        required("PeerDomainArn") => String.t() | atom()
+      }
+
+  """
+  @type switchover_replication_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      switchover_replication_response() :: %{
+        "DomainArn" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type switchover_replication_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4686,6 +4898,13 @@ defmodule AWS.OpenSearch do
           | disabled_operation_exception()
           | base_exception()
 
+  @type add_replication_peer_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | resource_already_exists_exception()
+          | internal_exception()
+          | disabled_operation_exception()
+
   @type add_tags_errors() ::
           validation_exception()
           | limit_exceeded_exception()
@@ -4736,6 +4955,12 @@ defmodule AWS.OpenSearch do
           | resource_not_found_exception()
           | internal_exception()
           | base_exception()
+
+  @type compare_domain_configuration_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_exception()
+          | disabled_operation_exception()
 
   @type create_application_errors() ::
           validation_exception()
@@ -4900,6 +5125,12 @@ defmodule AWS.OpenSearch do
           | dependency_failure_exception()
           | base_exception()
 
+  @type describe_domain_replication_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_exception()
+          | disabled_operation_exception()
+
   @type describe_domains_errors() ::
           validation_exception() | internal_exception() | base_exception()
 
@@ -4980,6 +5211,12 @@ defmodule AWS.OpenSearch do
           | disabled_operation_exception()
           | conflict_exception()
           | base_exception()
+
+  @type failover_replication_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_exception()
+          | disabled_operation_exception()
 
   @type get_application_errors() ::
           validation_exception()
@@ -5209,6 +5446,12 @@ defmodule AWS.OpenSearch do
   @type reject_inbound_connection_errors() ::
           resource_not_found_exception() | disabled_operation_exception()
 
+  @type remove_replication_peer_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_exception()
+          | disabled_operation_exception()
+
   @type remove_tags_errors() :: validation_exception() | internal_exception() | base_exception()
 
   @type revoke_vpc_endpoint_access_errors() ::
@@ -5245,6 +5488,12 @@ defmodule AWS.OpenSearch do
           | resource_not_found_exception()
           | internal_exception()
           | base_exception()
+
+  @type switchover_replication_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_exception()
+          | disabled_operation_exception()
 
   @type update_application_errors() ::
           validation_exception()
@@ -5428,6 +5677,46 @@ defmodule AWS.OpenSearch do
           | {:error, add_direct_query_data_source_errors()}
   def add_direct_query_data_source(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/directQueryDataSource"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Starts replicating a domain to a peer domain in another AWS Region.
+
+  A domain can have one
+  peer. The domain you call becomes the primary and the peer becomes the
+  secondary, which
+  receives a copy of the primary's indexes and serves read requests.
+
+  Replication is established asynchronously. Use the `DescribeDomainReplication`
+  operation to check whether the
+  relationship has reached the `ACTIVE` state.
+  """
+  @spec add_replication_peer(map(), String.t() | atom(), add_replication_peer_request(), list()) ::
+          {:ok, add_replication_peer_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, add_replication_peer_errors()}
+  def add_replication_peer(%Client{} = client, domain_name, input, options \\ []) do
+    url_path =
+      "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/replication/addPeer"
+
     headers = []
     custom_headers = []
     query_params = []
@@ -5678,6 +5967,46 @@ defmodule AWS.OpenSearch do
           | {:error, cancel_service_software_update_errors()}
   def cancel_service_software_update(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/serviceSoftwareUpdate/cancel"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Compares the metadata of two domains and reports where they differ.
+
+  Use this operation to
+  check that a secondary domain is configured consistently with its primary before
+  you rely on
+  it, because replication copies index data but does not copy domain metadata such
+  as index
+  templates, ingest pipelines, or security roles.
+
+  You choose which categories to compare. The response reports, for each category,
+  how many
+  items match, how many exist on only one domain, and which fields diverge.
+  """
+  @spec compare_domain_configuration(map(), compare_domain_configuration_request(), list()) ::
+          {:ok, compare_domain_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, compare_domain_configuration_errors()}
+  def compare_domain_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/2021-01-01/opensearch/compareDomainConfiguration"
     headers = []
     custom_headers = []
     query_params = []
@@ -6461,6 +6790,30 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
+  Describes the replication arrangement that a domain participates in, including
+  the domain's
+  role and the state of its relationship with each peer.
+
+  A domain that is not replicating is returned with an empty `Peers` list and no
+  `Role`. Returns `ResourceNotFoundException` if the domain does not
+  exist.
+  """
+  @spec describe_domain_replication(map(), String.t() | atom(), list()) ::
+          {:ok, describe_domain_replication_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_domain_replication_errors()}
+  def describe_domain_replication(%Client{} = client, domain_name, options \\ []) do
+    url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/replication"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns domain configuration information about the specified Amazon OpenSearch
   Service
   domains.
@@ -6942,6 +7295,50 @@ defmodule AWS.OpenSearch do
           | {:error, dissociate_packages_errors()}
   def dissociate_packages(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/packages/dissociateMultiple"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Promotes a secondary domain to primary without coordinating with the current
+  primary.
+
+  Use
+  this operation when the primary is unreachable and you cannot wait for it to
+  recover.
+
+  Writes that had not yet replicated when the primary became unreachable are lost.
+  You must
+  set `AllowDataLoss` to acknowledge this. To promote a domain without losing
+  writes,
+  use the `SwitchoverReplication` operation instead.
+
+  Call this operation in the Region of the domain you want to promote.
+  """
+  @spec failover_replication(map(), String.t() | atom(), failover_replication_request(), list()) ::
+          {:ok, failover_replication_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, failover_replication_errors()}
+  def failover_replication(%Client{} = client, domain_name, input, options \\ []) do
+    url_path =
+      "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/replication/failover"
+
     headers = []
     custom_headers = []
     query_params = []
@@ -8157,6 +8554,45 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
+  Stops replicating a domain to its peer.
+
+  Replication ends for both domains, and each domain
+  keeps the data it holds at that point. Neither domain is deleted.
+  """
+  @spec remove_replication_peer(
+          map(),
+          String.t() | atom(),
+          remove_replication_peer_request(),
+          list()
+        ) ::
+          {:ok, remove_replication_peer_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, remove_replication_peer_errors()}
+  def remove_replication_peer(%Client{} = client, domain_name, input, options \\ []) do
+    url_path =
+      "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/replication/removePeer"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Removes the specified set of tags from an Amazon OpenSearch Service domain, data
   source, or application.
 
@@ -8353,6 +8789,52 @@ defmodule AWS.OpenSearch do
           | {:error, start_service_software_update_errors()}
   def start_service_software_update(%Client{} = client, input, options \\ []) do
     url_path = "/2021-01-01/opensearch/serviceSoftwareUpdate/start"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Promotes a secondary domain to primary, coordinating with the current primary so
+  that no
+  writes are lost.
+
+  Use this operation for planned role changes, such as testing your recovery
+  procedure or moving write traffic to another Region.
+
+  Call this operation in the Region of the domain you want to promote. If the
+  current primary
+  is unreachable, use the `FailoverReplication` operation
+  instead.
+  """
+  @spec switchover_replication(
+          map(),
+          String.t() | atom(),
+          switchover_replication_request(),
+          list()
+        ) ::
+          {:ok, switchover_replication_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, switchover_replication_errors()}
+  def switchover_replication(%Client{} = client, domain_name, input, options \\ []) do
+    url_path =
+      "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/replication/switchover"
+
     headers = []
     custom_headers = []
     query_params = []

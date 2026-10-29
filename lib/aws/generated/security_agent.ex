@@ -178,6 +178,7 @@ defmodule AWS.SecurityAgent do
 
       assets() :: %{
         "actors" => list(actor()),
+        "clientCertificates" => list(client_certificate()),
         "documents" => list(document_info()),
         "endpoints" => list(endpoint()),
         "integratedRepositories" => list(integrated_repository()),
@@ -999,6 +1000,19 @@ defmodule AWS.SecurityAgent do
 
   """
   @type ci_cd_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      client_certificate() :: %{
+        "name" => String.t() | atom(),
+        "origins" => list([String.t() | atom()]()),
+        "secretArn" => [String.t() | atom()]
+      }
+
+  """
+  @type client_certificate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3241,6 +3255,7 @@ defmodule AWS.SecurityAgent do
         "allowedDomains" => list(endpoint()),
         "cicdConfiguration" => ci_cd_configuration(),
         "cleanUpStrategy" => list(any()),
+        "clientCertificates" => list(client_certificate()),
         "codeRemediationStrategy" => list(any()),
         "createdAt" => [non_neg_integer()],
         "disableManagedSkills" => list(list(any())()),

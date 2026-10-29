@@ -3294,6 +3294,7 @@ defmodule AWS.Connect do
         optional("ClientToken") => String.t() | atom(),
         optional("Constraints") => task_template_constraints(),
         optional("ContactFlowId") => String.t() | atom(),
+        optional("ContactHooks") => task_template_contact_hooks(),
         optional("Defaults") => task_template_defaults(),
         optional("Description") => String.t() | atom(),
         optional("SelfAssignFlowId") => String.t() | atom(),
@@ -7541,6 +7542,7 @@ defmodule AWS.Connect do
         "Arn" => String.t() | atom(),
         "Constraints" => task_template_constraints(),
         "ContactFlowId" => String.t() | atom(),
+        "ContactHooks" => task_template_contact_hooks(),
         "CreatedTime" => non_neg_integer(),
         "Defaults" => task_template_defaults(),
         "Description" => String.t() | atom(),
@@ -14718,6 +14720,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      task_template_contact_hooks() :: %{
+        "WrapUpFlowId" => String.t() | atom()
+      }
+
+  """
+  @type task_template_contact_hooks() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       task_template_default_field_value() :: %{
         "DefaultValue" => String.t() | atom(),
         "Id" => task_template_field_identifier()
@@ -16111,6 +16124,7 @@ defmodule AWS.Connect do
       update_task_template_request() :: %{
         optional("Constraints") => task_template_constraints(),
         optional("ContactFlowId") => String.t() | atom(),
+        optional("ContactHooks") => task_template_contact_hooks(),
         optional("Defaults") => task_template_defaults(),
         optional("Description") => String.t() | atom(),
         optional("Fields") => list(task_template_field()),
@@ -16130,6 +16144,7 @@ defmodule AWS.Connect do
         "Arn" => String.t() | atom(),
         "Constraints" => task_template_constraints(),
         "ContactFlowId" => String.t() | atom(),
+        "ContactHooks" => task_template_contact_hooks(),
         "CreatedTime" => non_neg_integer(),
         "Defaults" => task_template_defaults(),
         "Description" => String.t() | atom(),

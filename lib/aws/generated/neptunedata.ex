@@ -80,6 +80,28 @@ defmodule AWS.Neptunedata do
 
   ## Example:
 
+      cancel_index_rebuild_input() :: %{}
+
+  """
+  @type cancel_index_rebuild_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_index_rebuild_output() :: %{
+        "concurrency" => integer(),
+        "status" => list(any()),
+        "writeBufferSize" => list(any())
+      }
+
+  """
+  @type cancel_index_rebuild_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       cancel_loader_job_input() :: %{}
 
   """
@@ -187,6 +209,19 @@ defmodule AWS.Neptunedata do
 
   """
   @type cancel_open_cypher_query_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancelled_by_maintenance_exception() :: %{
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
+      }
+
+  """
+  @type cancelled_by_maintenance_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -357,6 +392,18 @@ defmodule AWS.Neptunedata do
 
   """
   @type delete_statistics_value_map() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dictionaries_info() :: %{
+        "blobs" => storage_metrics(),
+        "total" => storage_metrics()
+      }
+
+  """
+  @type dictionaries_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -596,6 +643,34 @@ defmodule AWS.Neptunedata do
 
   """
   @type get_gremlin_query_status_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_index_rebuild_status_input() :: %{}
+
+  """
+  @type get_index_rebuild_status_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_index_rebuild_status_output() :: %{
+        "concurrency" => integer(),
+        "endTime" => [non_neg_integer()],
+        "estimatedEndTime" => [non_neg_integer()],
+        "failureReason" => [String.t() | atom()],
+        "progressPercentage" => [integer()],
+        "scope" => list(any()),
+        "startTime" => [non_neg_integer()],
+        "status" => list(any()),
+        "writeBufferSize" => list(any())
+      }
+
+  """
+  @type get_index_rebuild_status_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -881,6 +956,24 @@ defmodule AWS.Neptunedata do
 
   ## Example:
 
+      get_storage_output() :: %{
+        "dfeStatistics" => storage_metrics(),
+        "dictionaries" => dictionaries_info(),
+        "internals" => storage_metrics(),
+        "quads" => quads_indexes_info(),
+        "schema" => storage_metrics(),
+        "streams" => storage_metrics(),
+        "totalStorageBytesUsed" => [float()],
+        "undoLogs" => undo_logs_metrics()
+      }
+
+  """
+  @type get_storage_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       gremlin_query_status() :: %{
         "queryEvalStats" => query_eval_stats(),
         "queryId" => [String.t() | atom()],
@@ -991,6 +1084,17 @@ defmodule AWS.Neptunedata do
 
   """
   @type list_gremlin_queries_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_index_rebuilds_output() :: %{
+        "rebuildIds" => list([String.t() | atom()]())
+      }
+
+  """
+  @type list_index_rebuilds_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1406,6 +1510,33 @@ defmodule AWS.Neptunedata do
 
   ## Example:
 
+      quads_indexes_info() :: %{
+        "PG" => quads_info(),
+        "RDF" => quads_info()
+      }
+
+  """
+  @type quads_indexes_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      quads_info() :: %{
+        "GPSO" => storage_metrics(),
+        "OSGP" => storage_metrics(),
+        "POGS" => storage_metrics(),
+        "PZSOG" => storage_metrics(),
+        "SPOG" => storage_metrics()
+      }
+
+  """
+  @type quads_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       query_eval_stats() :: %{
         "cancelled" => [boolean()],
         "elapsed" => [integer()],
@@ -1524,6 +1655,19 @@ defmodule AWS.Neptunedata do
 
   ## Example:
 
+      resource_not_found_exception() :: %{
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       s3_exception() :: %{
         "code" => [String.t() | atom()],
         "detailedMessage" => [String.t() | atom()],
@@ -1571,6 +1715,35 @@ defmodule AWS.Neptunedata do
 
   """
   @type sparql_record() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_index_rebuild_input() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        optional("concurrency") => integer(),
+        optional("scope") => list(any()),
+        optional("writeBufferSize") => list(any())
+      }
+
+  """
+  @type start_index_rebuild_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_index_rebuild_output() :: %{
+        "concurrency" => integer(),
+        "rebuildId" => [String.t() | atom()],
+        "scope" => list(any()),
+        "status" => list(any()),
+        "writeBufferSize" => list(any())
+      }
+
+  """
+  @type start_index_rebuild_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1769,6 +1942,18 @@ defmodule AWS.Neptunedata do
 
   ## Example:
 
+      storage_metrics() :: %{
+        "count" => [float()],
+        "sizeInBytes" => [float()]
+      }
+
+  """
+  @type storage_metrics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       stream_records_not_found_exception() :: %{
         "code" => [String.t() | atom()],
         "detailedMessage" => [String.t() | atom()],
@@ -1833,6 +2018,18 @@ defmodule AWS.Neptunedata do
 
   ## Example:
 
+      undo_logs_metrics() :: %{
+        "listSize" => [float()],
+        "sizeInBytes" => [float()]
+      }
+
+  """
+  @type undo_logs_metrics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       unsupported_operation_exception() :: %{
         "code" => [String.t() | atom()],
         "detailedMessage" => [String.t() | atom()],
@@ -1841,6 +2038,19 @@ defmodule AWS.Neptunedata do
 
   """
   @type unsupported_operation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "code" => [String.t() | atom()],
+        "detailedMessage" => [String.t() | atom()],
+        "requestId" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @type cancel_gremlin_query_errors() ::
           unsupported_operation_exception()
@@ -1857,6 +2067,24 @@ defmodule AWS.Neptunedata do
           | concurrent_modification_exception()
           | client_timeout_exception()
           | bad_request_exception()
+
+  @type cancel_index_rebuild_errors() ::
+          validation_exception()
+          | unsupported_operation_exception()
+          | too_many_requests_exception()
+          | server_shutdown_exception()
+          | read_only_violation_exception()
+          | preconditions_failed_exception()
+          | method_not_allowed_exception()
+          | invalid_parameter_exception()
+          | invalid_argument_exception()
+          | internal_failure_exception()
+          | illegal_argument_exception()
+          | constraint_violation_exception()
+          | client_timeout_exception()
+          | cancelled_by_user_exception()
+          | cancelled_by_maintenance_exception()
+          | access_denied_exception()
 
   @type cancel_loader_job_errors() ::
           unsupported_operation_exception()
@@ -2020,6 +2248,7 @@ defmodule AWS.Neptunedata do
           | concurrent_modification_exception()
           | client_timeout_exception()
           | cancelled_by_user_exception()
+          | cancelled_by_maintenance_exception()
           | bad_request_exception()
 
   @type execute_gremlin_profile_query_errors() ::
@@ -2042,6 +2271,7 @@ defmodule AWS.Neptunedata do
           | concurrent_modification_exception()
           | client_timeout_exception()
           | cancelled_by_user_exception()
+          | cancelled_by_maintenance_exception()
           | bad_request_exception()
 
   @type execute_gremlin_query_errors() ::
@@ -2064,6 +2294,7 @@ defmodule AWS.Neptunedata do
           | concurrent_modification_exception()
           | client_timeout_exception()
           | cancelled_by_user_exception()
+          | cancelled_by_maintenance_exception()
           | bad_request_exception()
 
   @type execute_open_cypher_explain_query_errors() ::
@@ -2087,6 +2318,7 @@ defmodule AWS.Neptunedata do
           | concurrent_modification_exception()
           | client_timeout_exception()
           | cancelled_by_user_exception()
+          | cancelled_by_maintenance_exception()
           | bad_request_exception()
 
   @type execute_open_cypher_query_errors() ::
@@ -2110,6 +2342,7 @@ defmodule AWS.Neptunedata do
           | concurrent_modification_exception()
           | client_timeout_exception()
           | cancelled_by_user_exception()
+          | cancelled_by_maintenance_exception()
           | bad_request_exception()
 
   @type get_engine_status_errors() ::
@@ -2138,6 +2371,20 @@ defmodule AWS.Neptunedata do
           | concurrent_modification_exception()
           | client_timeout_exception()
           | bad_request_exception()
+          | access_denied_exception()
+
+  @type get_index_rebuild_status_errors() ::
+          validation_exception()
+          | unsupported_operation_exception()
+          | too_many_requests_exception()
+          | preconditions_failed_exception()
+          | method_not_allowed_exception()
+          | invalid_parameter_exception()
+          | invalid_argument_exception()
+          | internal_failure_exception()
+          | illegal_argument_exception()
+          | constraint_violation_exception()
+          | client_timeout_exception()
           | access_denied_exception()
 
   @type get_loader_job_status_errors() ::
@@ -2314,6 +2561,20 @@ defmodule AWS.Neptunedata do
           | constraint_violation_exception()
           | client_timeout_exception()
 
+  @type get_storage_info_errors() ::
+          unsupported_operation_exception()
+          | too_many_requests_exception()
+          | server_shutdown_exception()
+          | preconditions_failed_exception()
+          | method_not_allowed_exception()
+          | invalid_parameter_exception()
+          | invalid_argument_exception()
+          | internal_failure_exception()
+          | illegal_argument_exception()
+          | constraint_violation_exception()
+          | client_timeout_exception()
+          | access_denied_exception()
+
   @type list_gremlin_queries_errors() ::
           unsupported_operation_exception()
           | too_many_requests_exception()
@@ -2330,6 +2591,19 @@ defmodule AWS.Neptunedata do
           | concurrent_modification_exception()
           | client_timeout_exception()
           | bad_request_exception()
+          | access_denied_exception()
+
+  @type list_index_rebuilds_errors() ::
+          unsupported_operation_exception()
+          | too_many_requests_exception()
+          | preconditions_failed_exception()
+          | method_not_allowed_exception()
+          | invalid_parameter_exception()
+          | invalid_argument_exception()
+          | internal_failure_exception()
+          | illegal_argument_exception()
+          | constraint_violation_exception()
+          | client_timeout_exception()
           | access_denied_exception()
 
   @type list_loader_jobs_errors() ::
@@ -2447,6 +2721,24 @@ defmodule AWS.Neptunedata do
           | bad_request_exception()
           | access_denied_exception()
 
+  @type start_index_rebuild_errors() ::
+          unsupported_operation_exception()
+          | too_many_requests_exception()
+          | server_shutdown_exception()
+          | resource_not_found_exception()
+          | read_only_violation_exception()
+          | preconditions_failed_exception()
+          | method_not_allowed_exception()
+          | memory_limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | invalid_argument_exception()
+          | internal_failure_exception()
+          | illegal_argument_exception()
+          | constraint_violation_exception()
+          | concurrent_modification_exception()
+          | client_timeout_exception()
+          | access_denied_exception()
+
   @type start_loader_job_errors() ::
           unsupported_operation_exception()
           | too_many_requests_exception()
@@ -2547,6 +2839,41 @@ defmodule AWS.Neptunedata do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Cancels an in-progress index rebuild operation.
+
+  When invoking this operation in a Neptune cluster that has IAM authentication
+  enabled, the IAM user or role making the request must have a policy attached
+  that allows the
+  [neptune-db:CancelIndexRebuild](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#cancelindexrebuild)
+  IAM action in that cluster.
+  """
+  @spec cancel_index_rebuild(map(), String.t() | atom(), cancel_index_rebuild_input(), list()) ::
+          {:ok, cancel_index_rebuild_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, cancel_index_rebuild_errors()}
+  def cancel_index_rebuild(%Client{} = client, rebuild_id, input, options \\ []) do
+    url_path = "/storage/indexes/rebuilds/#{AWS.Util.encode_uri(rebuild_id)}/cancel"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -3295,6 +3622,30 @@ defmodule AWS.Neptunedata do
   end
 
   @doc """
+  Retrieves the status of an index rebuild operation.
+
+  When invoking this operation in a Neptune cluster that has IAM authentication
+  enabled, the IAM user or role making the request must have a policy attached
+  that allows the
+  [neptune-db:GetIndexRebuildStatus](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getindexrebuildstatus)
+  IAM action in that cluster.
+  """
+  @spec get_index_rebuild_status(map(), String.t() | atom(), list()) ::
+          {:ok, get_index_rebuild_status_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_index_rebuild_status_errors()}
+  def get_index_rebuild_status(%Client{} = client, rebuild_id, options \\ []) do
+    url_path = "/storage/indexes/rebuilds/#{AWS.Util.encode_uri(rebuild_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets status information about a specified load job.
 
   Neptune keeps track of the most recent 1,024 bulk load jobs, and stores the last
@@ -3844,6 +4195,50 @@ defmodule AWS.Neptunedata do
   end
 
   @doc """
+  Retrieves storage information for the Neptune database instance, including
+  approximate total storage used and per-category size and entry counts.
+
+  Storage categories include:
+
+    * *Quad indexes* - the indexes that store graph data, for both RDF
+  (SPARQL) and Property Graph (Gremlin/openCypher) models.
+
+    * *Dictionaries* - the term dictionaries, including total dictionary
+  storage and the portion used by blob (large value) entries.
+
+    * *Undo logs* - the undo logs, reported as a total size and the
+  number of entries in the undo log list.
+
+    * *Streams* - the change-log streams.
+
+    * *Schema* - the schema.
+
+    * *DFE statistics* - the DFE engine statistics.
+
+    * *System metadata* - internal system metadata.
+
+  When invoking this operation in a Neptune cluster that has IAM authentication
+  enabled, the IAM user or role making the request must have a policy attached
+  that allows the
+  [neptune-db:GetStorageInfo](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#getstorageinfo)
+  IAM action in that cluster.
+  """
+  @spec get_storage_info(map(), list()) ::
+          {:ok, get_storage_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_storage_info_errors()}
+  def get_storage_info(%Client{} = client, options \\ []) do
+    url_path = "/storage/info"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists active Gremlin queries.
 
   See [Gremlin query status API](https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-api-status.html)
@@ -3875,6 +4270,30 @@ defmodule AWS.Neptunedata do
       else
         query_params
       end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves a list of all index rebuild operation identifiers.
+
+  When invoking this operation in a Neptune cluster that has IAM authentication
+  enabled, the IAM user or role making the request must have a policy attached
+  that allows the
+  [neptune-db:ListIndexRebuilds](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#listindexrebuilds)
+  IAM action in that cluster.
+  """
+  @spec list_index_rebuilds(map(), list()) ::
+          {:ok, list_index_rebuilds_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_index_rebuilds_errors()}
+  def list_index_rebuilds(%Client{} = client, options \\ []) do
+    url_path = "/storage/indexes/rebuilds"
+    headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -4212,6 +4631,51 @@ defmodule AWS.Neptunedata do
     headers = []
     custom_headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Initiates an index rebuild operation to optimize storage and improve query
+  performance.
+
+  The rebuild operation reorganizes index to reclaim space and improve efficiency.
+
+  When invoking this operation in a Neptune cluster that has IAM authentication
+  enabled, the IAM user or role making the request must have a policy attached
+  that allows the
+  [neptune-db:StartIndexRebuild](https://docs.aws.amazon.com/neptune/latest/userguide/iam-dp-actions.html#startindexrebuild)
+  IAM action in that cluster.
+  """
+  @spec start_index_rebuild(map(), start_index_rebuild_input(), list()) ::
+          {:ok, start_index_rebuild_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_index_rebuild_errors()}
+  def start_index_rebuild(%Client{} = client, input, options \\ []) do
+    url_path = "/storage/indexes/rebuilds"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"concurrency", "concurrency"},
+        {"scope", "scope"},
+        {"writeBufferSize", "writeBufferSize"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 

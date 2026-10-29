@@ -5718,6 +5718,8 @@ defmodule AWS.MediaLive do
   ## Example:
 
       multicast_source() :: %{
+        "SecondarySourceIp" => String.t() | atom(),
+        "SecondaryUrl" => String.t() | atom(),
         "SourceIp" => String.t() | atom(),
         "Url" => String.t() | atom()
       }
@@ -5730,6 +5732,8 @@ defmodule AWS.MediaLive do
   ## Example:
 
       multicast_source_create_request() :: %{
+        "SecondarySourceIp" => String.t() | atom(),
+        "SecondaryUrl" => String.t() | atom(),
         "SourceIp" => String.t() | atom(),
         "Url" => String.t() | atom()
       }
@@ -5742,6 +5746,8 @@ defmodule AWS.MediaLive do
   ## Example:
 
       multicast_source_update_request() :: %{
+        "SecondarySourceIp" => String.t() | atom(),
+        "SecondaryUrl" => String.t() | atom(),
         "SourceIp" => String.t() | atom(),
         "Url" => String.t() | atom()
       }

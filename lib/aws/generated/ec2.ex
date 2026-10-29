@@ -2818,6 +2818,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      capacity_manager_supportability_score() :: %{
+        "AvailabilityZoneId" => String.t() | atom(),
+        "InstanceType" => String.t() | atom(),
+        "Score" => list(any())
+      }
+      
+  """
+  @type capacity_manager_supportability_score() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       capacity_manager_tag_dimension() :: %{
         "Key" => String.t() | atom(),
         "Value" => String.t() | atom()
@@ -2953,11 +2966,14 @@ defmodule AWS.EC2 do
       
       capacity_reservation_fleet() :: %{
         "AllocationStrategy" => String.t() | atom(),
+        "AvailabilityZone" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom(),
         "CapacityReservationFleetArn" => String.t() | atom(),
         "CapacityReservationFleetId" => String.t() | atom(),
         "CreateTime" => non_neg_integer(),
         "EndDate" => non_neg_integer(),
         "InstanceMatchCriteria" => list(any()),
+        "InstanceRequirements" => instance_requirements_request(),
         "InstanceTypeSpecifications" => list(fleet_capacity_reservation()),
         "State" => list(any()),
         "Tags" => list(tag()),
@@ -4081,10 +4097,13 @@ defmodule AWS.EC2 do
       
       create_capacity_reservation_fleet_request() :: %{
         optional("AllocationStrategy") => String.t() | atom(),
+        optional("AvailabilityZone") => String.t() | atom(),
+        optional("AvailabilityZoneId") => String.t() | atom(),
         optional("ClientToken") => String.t() | atom(),
         optional("DryRun") => boolean(),
         optional("EndDate") => non_neg_integer(),
         optional("InstanceMatchCriteria") => list(any()),
+        optional("InstanceRequirements") => instance_requirements_request(),
         optional("InstanceTypeSpecifications") => list(reservation_fleet_instance_specification()),
         optional("TagSpecifications") => list(tag_specification()),
         optional("Tenancy") => list(any()),
@@ -18707,6 +18726,35 @@ defmodule AWS.EC2 do
       
   """
   @type get_capacity_manager_monitored_tag_keys_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_capacity_manager_supportability_scores_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("InstanceRequirementsWithMetadata") => instance_requirements_with_metadata_request(),
+        optional("InstanceTypes") => list(String.t() | atom()),
+        required("CapacityAmount") => integer(),
+        required("CapacityAvailabilityZoneIds") => list(String.t() | atom()),
+        required("CapacityUnit") => list(any()),
+        required("MarketType") => list(any())
+      }
+      
+  """
+  @type get_capacity_manager_supportability_scores_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_capacity_manager_supportability_scores_result() :: %{
+        "AggregateScore" => list(any()),
+        "CapacityManagerSupportabilityScores" => list(capacity_manager_supportability_score())
+      }
+      
+  """
+  @type get_capacity_manager_supportability_scores_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -49655,6 +49703,39 @@ defmodule AWS.EC2 do
       metadata()
 
     Request.request_post(client, meta, "GetCapacityManagerMonitoredTagKeys", input, options)
+  end
+
+  @doc """
+
+  Scores how well each instance type and Availability Zone combination can support
+  a capacity request, based on current Amazon EC2 capacity.
+
+  The response includes a score for each combination and an aggregate score for
+  all combinations in the request.
+  This action doesn't launch or reserve instances, and a score doesn't guarantee
+  that a later launch will succeed.
+
+  Call this action in the Region where you turned on Capacity Manager. A single
+  request can include Availability Zones in any Region.
+  Real-time supportability checks are available only to Amazon Web Services
+  Support customers on the Unified Operations plan.
+
+  For more information, see [Check supportability](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-manager-supportability.html)
+  in the *Amazon EC2 User Guide*.
+  """
+  @spec get_capacity_manager_supportability_scores(
+          map(),
+          get_capacity_manager_supportability_scores_request(),
+          list()
+        ) ::
+          {:ok, get_capacity_manager_supportability_scores_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_capacity_manager_supportability_scores(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetCapacityManagerSupportabilityScores", input, options)
   end
 
   @doc """

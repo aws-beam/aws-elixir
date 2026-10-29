@@ -944,6 +944,8 @@ defmodule AWS.Ivs do
   ## Example:
 
       insert_ad_break_request() :: %{
+        optional("adBreakId") => String.t() | atom(),
+        optional("targetStartAt") => non_neg_integer(),
         required("channelArn") => String.t() | atom(),
         required("durationSeconds") => integer()
       }
@@ -956,7 +958,8 @@ defmodule AWS.Ivs do
   ## Example:
 
       insert_ad_break_response() :: %{
-        "adBreakId" => String.t() | atom()
+        "adBreakId" => String.t() | atom(),
+        "targetStartAt" => non_neg_integer()
       }
 
   """

@@ -3249,6 +3249,7 @@ defmodule AWS.Lightsail do
   ## Example:
       
       get_instance_request() :: %{
+        optional("includeHealthStatus") => boolean(),
         required("instanceName") => String.t() | atom()
       }
       
@@ -3338,6 +3339,7 @@ defmodule AWS.Lightsail do
   ## Example:
       
       get_instances_request() :: %{
+        optional("includeHealthStatus") => boolean(),
         optional("pageToken") => String.t() | atom()
       }
       
@@ -4075,6 +4077,7 @@ defmodule AWS.Lightsail do
         "bundleId" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "hardware" => instance_hardware(),
+        "instanceStatus" => instance_health_status(),
         "ipAddressType" => list(any()),
         "ipv6Addresses" => list(String.t() | atom()),
         "isStaticIp" => boolean(),
@@ -4088,6 +4091,7 @@ defmodule AWS.Lightsail do
         "sshKeyName" => String.t() | atom(),
         "state" => instance_state(),
         "supportCode" => String.t() | atom(),
+        "systemStatus" => instance_health_status(),
         "tags" => list(tag()),
         "username" => String.t() | atom()
       }
@@ -4154,6 +4158,31 @@ defmodule AWS.Lightsail do
       
   """
   @type instance_hardware() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_health_status() :: %{
+        "details" => list(instance_health_status_detail()),
+        "status" => list(any())
+      }
+      
+  """
+  @type instance_health_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_health_status_detail() :: %{
+        "impairedSince" => non_neg_integer(),
+        "name" => list(any()),
+        "status" => list(any())
+      }
+      
+  """
+  @type instance_health_status_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

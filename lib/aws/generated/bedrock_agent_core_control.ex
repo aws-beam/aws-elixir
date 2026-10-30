@@ -857,6 +857,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       create_agent_runtime_request() :: %{
+        optional("allowedPorts") => list(list()),
         optional("authorizerConfiguration") => list(),
         optional("capacityProviderConfiguration") => capacity_provider_configuration(),
         optional("clientToken") => String.t() | atom(),
@@ -3199,6 +3200,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "agentRuntimeId" => String.t() | atom(),
         "agentRuntimeName" => String.t() | atom(),
         "agentRuntimeVersion" => String.t() | atom(),
+        "allowedPorts" => list(list()),
         "authorizerConfiguration" => list(),
         "capacityProviderConfiguration" => capacity_provider_configuration(),
         "createdAt" => non_neg_integer(),
@@ -6949,6 +6951,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      port_range() :: %{
+        "from" => integer(),
+        "to" => integer()
+      }
+
+  """
+  @type port_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       private_endpoint_override() :: %{
         "domain" => String.t() | atom(),
         "privateEndpoint" => list()
@@ -6976,6 +6990,8 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       protocol_configuration() :: %{
+        "path" => String.t() | atom(),
+        "port" => integer(),
         "serverProtocol" => list(any())
       }
 
@@ -8221,6 +8237,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       update_agent_runtime_request() :: %{
+        optional("allowedPorts") => list(list()),
         optional("authorizerConfiguration") => list(),
         optional("capacityProviderConfiguration") => capacity_provider_configuration(),
         optional("clientToken") => String.t() | atom(),

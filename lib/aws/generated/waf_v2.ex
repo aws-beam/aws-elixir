@@ -203,6 +203,7 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       association_config() :: %{
+        "ChallengeJavascriptSdkInjection" => map(),
         "RequestBody" => map()
       }
       
@@ -368,6 +369,15 @@ defmodule AWS.WAFV2 do
       
   """
   @type challenge_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      challenge_javascript_sdk_injection_config() :: %{}
+      
+  """
+  @type challenge_javascript_sdk_injection_config() :: %{}
 
   @typedoc """
 

@@ -2500,6 +2500,7 @@ defmodule AWS.BedrockAgentCore do
         "mcpSessionId" => String.t() | atom(),
         "response" => binary(),
         "runtimeSessionId" => String.t() | atom(),
+        "sessionEndpointUrl" => [String.t() | atom()],
         "statusCode" => integer(),
         "traceId" => [String.t() | atom()],
         "traceParent" => [String.t() | atom()],
@@ -6561,6 +6562,7 @@ defmodule AWS.BedrockAgentCore do
           {"Mcp-Protocol-Version", "mcpProtocolVersion"},
           {"Mcp-Session-Id", "mcpSessionId"},
           {"X-Amzn-Bedrock-AgentCore-Runtime-Session-Id", "runtimeSessionId"},
+          {"X-Amzn-Bedrock-AgentCore-Runtime-Session-Endpoint-Url", "sessionEndpointUrl"},
           {"X-Amzn-Trace-Id", "traceId"},
           {"traceparent", "traceParent"},
           {"tracestate", "traceState"}

@@ -1841,7 +1841,9 @@ defmodule AWS.Imagebuilder do
 
       image_scanning_configuration() :: %{
         "ecrConfiguration" => ecr_configuration(),
-        "imageScanningEnabled" => boolean()
+        "imageScanningEnabled" => boolean(),
+        "imageScanningTypes" => list(list(any())()),
+        "scanResultCondition" => scan_result_condition()
       }
 
   """
@@ -3423,6 +3425,18 @@ defmodule AWS.Imagebuilder do
 
   """
   @type s3_logs() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scan_result_condition() :: %{
+        "fixAvailable" => boolean(),
+        "maximumSeverityLabel" => list(any())
+      }
+
+  """
+  @type scan_result_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

@@ -4258,7 +4258,8 @@ defmodule AWS.CleanRooms do
 
       protected_job_s3_output_configuration_input() :: %{
         "bucket" => [String.t() | atom()],
-        "keyPrefix" => String.t() | atom()
+        "keyPrefix" => String.t() | atom(),
+        "resultFormat" => list(any())
       }
 
   """

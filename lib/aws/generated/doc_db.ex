@@ -472,6 +472,7 @@ defmodule AWS.DocDB do
         "ReadReplicaIdentifiers" => list(String.t() | atom()),
         "ReaderEndpoint" => String.t() | atom(),
         "ReplicationSourceIdentifier" => String.t() | atom(),
+        "ServerlessV2PlatformVersion" => String.t() | atom(),
         "ServerlessV2ScalingConfiguration" => serverless_v2_scaling_configuration_info(),
         "Status" => String.t() | atom(),
         "StorageEncrypted" => boolean(),
@@ -1374,6 +1375,23 @@ defmodule AWS.DocDB do
       
   """
   @type describe_pending_maintenance_actions_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_serverless_v2_platform_versions_message() :: %{
+        optional("DefaultOnly") => boolean(),
+        optional("Engine") => String.t() | atom(),
+        optional("Filters") => list(filter()),
+        optional("IncludeAll") => boolean(),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer(),
+        optional("ServerlessV2PlatformVersion") => String.t() | atom()
+      }
+      
+  """
+  @type describe_serverless_v2_platform_versions_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2406,6 +2424,34 @@ defmodule AWS.DocDB do
       
   """
   @type serverless_v2_features_support() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      serverless_v2_platform_version_info() :: %{
+        "Engine" => String.t() | atom(),
+        "IsDefault" => boolean(),
+        "ServerlessV2FeaturesSupport" => serverless_v2_features_support(),
+        "ServerlessV2PlatformVersion" => String.t() | atom(),
+        "ServerlessV2PlatformVersionDescription" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type serverless_v2_platform_version_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      serverless_v2_platform_versions_message() :: %{
+        "Marker" => String.t() | atom(),
+        "ServerlessV2PlatformVersions" => list(serverless_v2_platform_version_info())
+      }
+      
+  """
+  @type serverless_v2_platform_versions_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3662,6 +3708,25 @@ defmodule AWS.DocDB do
       metadata()
 
     Request.request_post(client, meta, "DescribePendingMaintenanceActions", input, options)
+  end
+
+  @doc """
+  Describes the properties of specific platform versions for Amazon DocumentDB
+  Serverless v2.
+  """
+  @spec describe_serverless_v2_platform_versions(
+          map(),
+          describe_serverless_v2_platform_versions_message(),
+          list()
+        ) ::
+          {:ok, serverless_v2_platform_versions_message(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_serverless_v2_platform_versions(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeServerlessV2PlatformVersions", input, options)
   end
 
   @doc """

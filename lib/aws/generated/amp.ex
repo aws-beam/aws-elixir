@@ -730,6 +730,19 @@ defmodule AWS.Amp do
 
   ## Example:
 
+      kafka_exporter_configuration() :: %{
+        "clusterArn" => String.t() | atom(),
+        "consumerGroupFilter" => String.t() | atom(),
+        "topicFilter" => String.t() | atom()
+      }
+
+  """
+  @type kafka_exporter_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       limits_per_label_set() :: %{
         "labelSet" => map(),
         "limits" => limits_per_label_set_entry()
@@ -2093,7 +2106,9 @@ defmodule AWS.Amp do
   uses to access the metrics in your source. You must configure this role with a
   policy that allows it to scrape metrics from your source. For Amazon EKS
   sources, see [Configuring your Amazon EKS cluster](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-eks-setup)
-  in the *Amazon Managed Service for Prometheus User Guide*.
+  in the *Amazon Managed Service for Prometheus User Guide*. For a Kafka exporter,
+  grant this role access with a cluster policy on the Amazon MSK cluster instead.
+  For details, see `KafkaExporterConfiguration`.
 
   The `scrapeConfiguration` parameter contains the base-64 encoded YAML
   configuration for the scraper.

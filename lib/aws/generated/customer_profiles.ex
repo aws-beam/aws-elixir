@@ -2206,11 +2206,14 @@ defmodule AWS.CustomerProfiles do
 
       get_profile_object_type_template_response() :: %{
         "AllowProfileCreation" => boolean(),
+        "DefaultMaxProfileObjectCount" => integer(),
+        "DefaultMaxProfileObjectCountEffectiveAfter" => non_neg_integer(),
         "Fields" => map(),
         "Keys" => map(),
         "SourceLastUpdatedTimestampFormat" => String.t() | atom(),
         "SourceName" => String.t() | atom(),
         "SourceObject" => String.t() | atom(),
+        "StoreOnly" => boolean(),
         "TemplateId" => String.t() | atom()
       }
 

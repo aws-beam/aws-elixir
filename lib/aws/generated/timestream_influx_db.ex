@@ -81,6 +81,7 @@ defmodule AWS.TimestreamInfluxDB do
         "dbParameterGroupId" => String.t() | atom(),
         "dbResourceId" => String.t() | atom(),
         "dbStorageType" => list(any()),
+        "deploymentConfiguration" => list(),
         "deploymentType" => list(any()),
         "engineType" => list(any()),
         "expiresAfter" => String.t() | atom(),
@@ -111,8 +112,10 @@ defmodule AWS.TimestreamInfluxDB do
         optional("allocatedStorage") => integer(),
         optional("bucket") => String.t() | atom(),
         optional("dbBackupConfigurations") => list(db_backup_configuration()),
+        optional("dbInstanceType") => list(any()),
         optional("dbParameterGroupIdentifier") => String.t() | atom(),
         optional("dbStorageType") => list(any()),
+        optional("deploymentConfiguration") => list(),
         optional("deploymentType") => list(any()),
         optional("failoverMode") => list(any()),
         optional("kmsKeyId") => String.t() | atom(),
@@ -125,7 +128,6 @@ defmodule AWS.TimestreamInfluxDB do
         optional("publiclyAccessible") => [boolean()],
         optional("tags") => map(),
         optional("username") => String.t() | atom(),
-        required("dbInstanceType") => list(any()),
         required("name") => String.t() | atom(),
         required("vpcSecurityGroupIds") => list(String.t() | atom()),
         required("vpcSubnetIds") => list(String.t() | atom())
@@ -397,6 +399,7 @@ defmodule AWS.TimestreamInfluxDB do
         "dbParameterGroupId" => String.t() | atom(),
         "dbResourceId" => String.t() | atom(),
         "dbStorageType" => list(any()),
+        "deploymentConfiguration" => list(),
         "deploymentType" => list(any()),
         "engineType" => list(any()),
         "expiresAfter" => String.t() | atom(),
@@ -527,6 +530,7 @@ defmodule AWS.TimestreamInfluxDB do
         "dbParameterGroupId" => String.t() | atom(),
         "dbResourceId" => String.t() | atom(),
         "dbStorageType" => list(any()),
+        "deploymentConfiguration" => list(),
         "deploymentType" => list(any()),
         "engineType" => list(any()),
         "expiresAfter" => String.t() | atom(),
@@ -572,6 +576,7 @@ defmodule AWS.TimestreamInfluxDB do
         "dbInstanceType" => list(any()),
         "dbParameterGroupIdentifier" => String.t() | atom(),
         "dbStorageType" => list(any()),
+        "deploymentConfiguration" => list(),
         "deploymentType" => list(any()),
         "effectiveDbParameterGroupIdentifier" => String.t() | atom(),
         "endpoint" => [String.t() | atom()],
@@ -765,6 +770,17 @@ defmodule AWS.TimestreamInfluxDB do
       
   """
   @type influx_dbv3_core_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      influx_dbv3_enterprise_deployment_configuration() :: %{
+        "nodeGroups" => list(node_group())
+      }
+      
+  """
+  @type influx_dbv3_enterprise_deployment_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1016,6 +1032,19 @@ defmodule AWS.TimestreamInfluxDB do
 
   ## Example:
       
+      node_group() :: %{
+        "count" => [integer()],
+        "instanceModes" => list(list(any())()),
+        "instanceType" => list(any())
+      }
+      
+  """
+  @type node_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       reboot_db_cluster_input() :: %{
         optional("instanceIds") => list(String.t() | atom()),
         required("dbClusterId") => String.t() | atom()
@@ -1202,6 +1231,7 @@ defmodule AWS.TimestreamInfluxDB do
         optional("dbBackupConfigurations") => list(db_backup_configuration()),
         optional("dbInstanceType") => list(any()),
         optional("dbParameterGroupIdentifier") => String.t() | atom(),
+        optional("deploymentConfiguration") => list(),
         optional("failoverMode") => list(any()),
         optional("logDeliveryConfiguration") => log_delivery_configuration(),
         optional("maintenanceSchedule") => maintenance_schedule(),

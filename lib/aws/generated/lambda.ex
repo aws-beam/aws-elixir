@@ -18,13 +18,13 @@ defmodule AWS.Lambda do
   see [What is Lambda](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html) in the **Lambda Developer Guide**.
 
   Lambda Event Functions, previously known as Lambda functions, run your code in
-  response to events and API calls. Event Functions is a documentation name only.
-  In this API, the Amazon Web Services SDKs, and the CLI, Event Functions are
-  still called *functions*, for example in `CreateFunction` and `Invoke`. You
-  don't need to change any code.
+  response to events and API calls. In the Lambda API, the Amazon Web Services
+  SDKs, and the CLI, Event Functions are still called *functions*, for example in
+  `CreateFunction` and `Invoke`. You don't need to change any existing code.
 
-  The *Lambda API Reference* provides information about each of the API methods,
-  including details about the parameters in each API request and response.
+  The *Lambda API Reference* provides information about each of the API methods
+  for Lambda Event Functions, including details about the parameters in each API
+  request and response.
 
   You can use Software Development Kits (SDKs), Integrated Development Environment
   (IDE) Toolkits, and command line tools to access the API. For installation
@@ -3631,6 +3631,7 @@ defmodule AWS.Lambda do
 
       self_managed_kafka_event_source_config() :: %{
         "ConsumerGroupId" => String.t() | atom(),
+        "ConsumptionMode" => list(any()),
         "SchemaRegistryConfig" => kafka_schema_registry_config()
       }
 
@@ -5740,7 +5741,7 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Removes a concurrent execution limit from a function.
+  Removes a concurrent execution limit from a Lambda Event Function.
   """
   @spec delete_function_concurrency(
           map(),
@@ -6253,8 +6254,8 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Returns information about the function or function version, with a link to
-  download the deployment package that's valid for 10 minutes.
+  Returns information about a Lambda Event Function or function version, with a
+  link to download the deployment package that's valid for 10 minutes.
 
   If you specify a function version, only details that are specific to that
   version are returned.
@@ -7182,7 +7183,10 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Retrieves a list of configurations for asynchronous invocation for a function.
+  Retrieves a list of configurations for asynchronous invocation for a Lambda
+  Event Function.
+
+  To retrieve more configurations, use the `Marker` parameter.
 
   To configure options for asynchronous invocation, use
   `PutFunctionEventInvokeConfig`.
@@ -7643,8 +7647,8 @@ defmodule AWS.Lambda do
 
   @doc """
   Returns a list of
-  [versions](https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html),
-  with the version-specific configuration of each.
+  [versions](https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html)
+  of a Lambda Event Function, with the version-specific configuration of each.
 
   Lambda returns up to 50 versions per call.
   """
@@ -7728,7 +7732,7 @@ defmodule AWS.Lambda do
   @doc """
   Creates a
   [version](https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html)
-  from the current code and configuration of a function.
+  from the current code and configuration of a Lambda Event Function.
 
   Use versions to create a snapshot of your function code and configuration that
   doesn't change.
@@ -7805,8 +7809,8 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Sets the maximum number of simultaneous executions for a function, and reserves
-  capacity for that concurrency level.
+  Sets the maximum number of simultaneous executions for a Lambda Event Function,
+  and reserves capacity for that concurrency level.
 
   Concurrency settings apply to the function as a whole, including all published
   versions and the unpublished version. Reserving concurrency both ensures that
@@ -7912,8 +7916,8 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Sets your function's [recursive loop detection](https://docs.aws.amazon.com/lambda/latest/dg/invocation-recursion.html)
-  configuration.
+  Sets the [recursive loop detection](https://docs.aws.amazon.com/lambda/latest/dg/invocation-recursion.html)
+  configuration for a Lambda Event Function.
 
   When you configure a Lambda function to output to the same service or resource
   that invokes the function, it's possible to create an infinite recursive loop.
@@ -8813,7 +8817,7 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Updates the configuration for a Lambda function URL.
+  Updates the configuration for a function URL of a Lambda Event Function.
   """
   @spec update_function_url_config(
           map(),

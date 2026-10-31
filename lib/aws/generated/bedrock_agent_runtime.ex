@@ -132,6 +132,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       agentic_retrieve_action() :: %{
+        "codeExecution" => agentic_retrieve_code_execution_details(),
         "fullDocumentExpansion" => agentic_retrieve_full_doc_expansion_details(),
         "memoryRetrieve" => agentic_retrieve_memory_retrieve_details(),
         "retrieve" => agentic_retrieve_action_details()
@@ -223,6 +224,29 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type agentic_retrieve_citation_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agentic_retrieve_code_execution_details() :: %{
+        "documents" => list(agentic_retrieve_code_execution_document())
+      }
+
+  """
+  @type agentic_retrieve_code_execution_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agentic_retrieve_code_execution_document() :: %{
+        "documentId" => [String.t() | atom()],
+        "sourceRetriever" => agentic_retrieve_source_retriever()
+      }
+
+  """
+  @type agentic_retrieve_code_execution_document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

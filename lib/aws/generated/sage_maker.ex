@@ -433,6 +433,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      accelerator_partition_layout() :: %{
+        "AcceleratorPartitionTypes" => list(String.t() | atom())
+      }
+      
+  """
+  @type accelerator_partition_layout() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       action_source() :: %{
         "SourceId" => String.t() | atom(),
         "SourceType" => String.t() | atom(),
@@ -11290,6 +11301,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       inference_component_compute_resource_requirements() :: %{
+        "AcceleratorPartitionType" => String.t() | atom(),
         "MaxMemoryRequiredInMb" => integer(),
         "MinMemoryRequiredInMb" => integer(),
         "NumberOfAcceleratorDevicesRequired" => float(),
@@ -16927,6 +16939,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       pending_production_variant_summary() :: %{
+        "AcceleratorPartitionLayouts" => list(accelerator_partition_layout()),
         "AcceleratorType" => list(any()),
         "CurrentInstanceCount" => integer(),
         "CurrentServerlessConfig" => production_variant_serverless_config(),
@@ -17419,6 +17432,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       production_variant() :: %{
+        "AcceleratorPartitionLayouts" => list(accelerator_partition_layout()),
         "AcceleratorType" => list(any()),
         "CapacityReservationConfig" => production_variant_capacity_reservation_config(),
         "ContainerStartupHealthCheckTimeoutInSeconds" => integer(),
@@ -17566,6 +17580,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       production_variant_summary() :: %{
+        "AcceleratorPartitionLayouts" => list(accelerator_partition_layout()),
         "CapacityReservationConfig" => production_variant_capacity_reservation_summary(),
         "CurrentInstanceCount" => integer(),
         "CurrentServerlessConfig" => production_variant_serverless_config(),

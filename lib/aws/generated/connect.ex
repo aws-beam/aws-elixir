@@ -1521,6 +1521,30 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      categories_attribute_and_condition() :: %{
+        "TagConditions" => list(tag_condition())
+      }
+
+  """
+  @type categories_attribute_and_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      categories_attribute_filter() :: %{
+        "AndCondition" => categories_attribute_and_condition(),
+        "OrConditions" => list(categories_attribute_and_condition()),
+        "TagCondition" => tag_condition()
+      }
+
+  """
+  @type categories_attribute_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       chat_contact_metrics() :: %{
         "AgentFirstResponseTimeInMillis" => float(),
         "AgentFirstResponseTimestamp" => non_neg_integer(),
@@ -9548,6 +9572,7 @@ defmodule AWS.Connect do
   ## Example:
 
       list_realtime_contact_analysis_segments_v2_request() :: %{
+        optional("ListFilter") => real_time_contact_analysis_segments_filter(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
         required("OutputType") => list(any()),
@@ -11731,7 +11756,8 @@ defmodule AWS.Connect do
   ## Example:
 
       real_time_contact_analysis_category_details() :: %{
-        "PointsOfInterest" => list(real_time_contact_analysis_point_of_interest())
+        "PointsOfInterest" => list(real_time_contact_analysis_point_of_interest()),
+        "RuleId" => String.t() | atom()
       }
 
   """
@@ -11889,6 +11915,17 @@ defmodule AWS.Connect do
 
   """
   @type real_time_contact_analysis_segment_transcript() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      real_time_contact_analysis_segments_filter() :: %{
+        "CategoriesAttributeFilter" => categories_attribute_filter()
+      }
+
+  """
+  @type real_time_contact_analysis_segments_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

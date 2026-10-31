@@ -597,12 +597,24 @@ defmodule AWS.CloudWatchLogs do
   ## Example:
       
       delete_account_policy_request() :: %{
+        optional("dryRun") => boolean(),
         required("policyName") => String.t() | atom(),
         required("policyType") => list(any())
       }
       
   """
   @type delete_account_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_account_policy_response() :: %{
+        "dryRunResult" => dry_run_result()
+      }
+      
+  """
+  @type delete_account_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1528,6 +1540,22 @@ defmodule AWS.CloudWatchLogs do
   @type disassociate_source_from_s3_table_integration_response() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+      
+      dry_run_result() :: %{
+        "decreasedRetentionLogGroupCount" => integer(),
+        "failedAnalysisCount" => integer(),
+        "increasedRetentionLogGroupCount" => integer(),
+        "topLogGroupsImpacted" => list(log_group_impact()),
+        "totalMatchedLogGroups" => integer(),
+        "unchangedRetentionLogGroupCount" => integer()
+      }
+      
+  """
+  @type dry_run_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2720,6 +2748,7 @@ defmodule AWS.CloudWatchLogs do
         "logGroupName" => String.t() | atom(),
         "metricFilterCount" => integer(),
         "retentionInDays" => integer(),
+        "retentionPolicyName" => String.t() | atom(),
         "storedBytes" => float()
       }
       
@@ -2737,6 +2766,20 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type log_group_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      log_group_impact() :: %{
+        "currentRetention" => String.t() | atom(),
+        "logGroupName" => String.t() | atom(),
+        "proposedRetention" => String.t() | atom(),
+        "storedBytes" => float()
+      }
+      
+  """
+  @type log_group_impact() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3226,6 +3269,7 @@ defmodule AWS.CloudWatchLogs do
   ## Example:
       
       put_account_policy_request() :: %{
+        optional("dryRun") => boolean(),
         optional("scope") => list(any()),
         optional("selectionCriteria") => String.t() | atom(),
         required("policyDocument") => String.t() | atom(),
@@ -3241,7 +3285,8 @@ defmodule AWS.CloudWatchLogs do
   ## Example:
       
       put_account_policy_response() :: %{
-        "accountPolicy" => account_policy()
+        "accountPolicy" => account_policy(),
+        "dryRunResult" => dry_run_result()
       }
       
   """
@@ -5809,7 +5854,7 @@ defmodule AWS.CloudWatchLogs do
   Insights queries.
   """
   @spec delete_account_policy(map(), delete_account_policy_request(), list()) ::
-          {:ok, nil, any()}
+          {:ok, delete_account_policy_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, delete_account_policy_errors()}

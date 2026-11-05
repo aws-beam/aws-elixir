@@ -74,6 +74,7 @@ defmodule AWS.RolesAnywhere do
   ## Example:
 
       create_trust_anchor_request() :: %{
+        optional("crlDpRevocationEnabled") => [boolean()],
         optional("enabled") => [boolean()],
         optional("notificationSettings") => list(notification_setting()),
         optional("tags") => list(tag()),
@@ -469,6 +470,18 @@ defmodule AWS.RolesAnywhere do
 
   ## Example:
 
+      service_unavailable_exception() :: %{
+        "message" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()]
+      }
+
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       source() :: %{
         "sourceData" => list(),
         "sourceType" => String.t() | atom()
@@ -574,6 +587,7 @@ defmodule AWS.RolesAnywhere do
 
       trust_anchor_detail() :: %{
         "createdAt" => [non_neg_integer()],
+        "crlDpRevocationEnabled" => [boolean()],
         "enabled" => [boolean()],
         "name" => String.t() | atom(),
         "notificationSettings" => list(notification_setting_detail()),
@@ -651,6 +665,7 @@ defmodule AWS.RolesAnywhere do
   ## Example:
 
       update_trust_anchor_request() :: %{
+        optional("crlDpRevocationEnabled") => [boolean()],
         optional("name") => String.t() | atom(),
         optional("source") => source()
       }
@@ -669,80 +684,150 @@ defmodule AWS.RolesAnywhere do
   """
   @type validation_exception() :: %{(String.t() | atom()) => any()}
 
-  @type create_profile_errors() :: validation_exception() | access_denied_exception()
+  @type create_profile_errors() ::
+          validation_exception() | service_unavailable_exception() | access_denied_exception()
 
-  @type create_trust_anchor_errors() :: validation_exception() | access_denied_exception()
+  @type create_trust_anchor_errors() ::
+          validation_exception() | service_unavailable_exception() | access_denied_exception()
 
   @type delete_attribute_mapping_errors() ::
-          validation_exception() | resource_not_found_exception() | access_denied_exception()
+          validation_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
 
-  @type delete_crl_errors() :: resource_not_found_exception() | access_denied_exception()
+  @type delete_crl_errors() ::
+          service_unavailable_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
 
-  @type delete_profile_errors() :: resource_not_found_exception() | access_denied_exception()
+  @type delete_profile_errors() ::
+          service_unavailable_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
 
-  @type delete_trust_anchor_errors() :: resource_not_found_exception() | access_denied_exception()
+  @type delete_trust_anchor_errors() ::
+          service_unavailable_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
 
-  @type disable_crl_errors() :: resource_not_found_exception() | access_denied_exception()
+  @type disable_crl_errors() ::
+          service_unavailable_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
 
-  @type disable_profile_errors() :: resource_not_found_exception() | access_denied_exception()
+  @type disable_profile_errors() ::
+          service_unavailable_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
 
   @type disable_trust_anchor_errors() ::
-          resource_not_found_exception() | access_denied_exception()
+          service_unavailable_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
 
-  @type enable_crl_errors() :: resource_not_found_exception() | access_denied_exception()
+  @type enable_crl_errors() ::
+          service_unavailable_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
 
-  @type enable_profile_errors() :: resource_not_found_exception() | access_denied_exception()
+  @type enable_profile_errors() ::
+          service_unavailable_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
 
-  @type enable_trust_anchor_errors() :: resource_not_found_exception() | access_denied_exception()
+  @type enable_trust_anchor_errors() ::
+          service_unavailable_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
 
-  @type get_crl_errors() :: resource_not_found_exception()
+  @type get_crl_errors() :: service_unavailable_exception() | resource_not_found_exception()
 
-  @type get_profile_errors() :: resource_not_found_exception() | access_denied_exception()
+  @type get_profile_errors() ::
+          service_unavailable_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
 
-  @type get_subject_errors() :: resource_not_found_exception() | access_denied_exception()
+  @type get_subject_errors() ::
+          service_unavailable_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
 
   @type get_trust_anchor_errors() ::
-          validation_exception() | resource_not_found_exception() | access_denied_exception()
+          validation_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
 
-  @type import_crl_errors() :: validation_exception() | access_denied_exception()
+  @type import_crl_errors() ::
+          validation_exception() | service_unavailable_exception() | access_denied_exception()
 
-  @type list_crls_errors() :: validation_exception() | access_denied_exception()
+  @type list_crls_errors() ::
+          validation_exception() | service_unavailable_exception() | access_denied_exception()
 
-  @type list_profiles_errors() :: validation_exception() | access_denied_exception()
+  @type list_profiles_errors() ::
+          validation_exception() | service_unavailable_exception() | access_denied_exception()
 
-  @type list_subjects_errors() :: validation_exception() | access_denied_exception()
+  @type list_subjects_errors() ::
+          validation_exception() | service_unavailable_exception() | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          validation_exception() | resource_not_found_exception() | access_denied_exception()
+          validation_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
 
-  @type list_trust_anchors_errors() :: validation_exception() | access_denied_exception()
+  @type list_trust_anchors_errors() ::
+          validation_exception() | service_unavailable_exception() | access_denied_exception()
 
   @type put_attribute_mapping_errors() ::
-          validation_exception() | resource_not_found_exception() | access_denied_exception()
+          validation_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
 
   @type put_notification_settings_errors() ::
-          validation_exception() | resource_not_found_exception() | access_denied_exception()
+          validation_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
 
   @type reset_notification_settings_errors() ::
-          validation_exception() | resource_not_found_exception() | access_denied_exception()
+          validation_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
 
   @type tag_resource_errors() ::
           validation_exception()
           | too_many_tags_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | access_denied_exception()
 
   @type untag_resource_errors() ::
-          validation_exception() | resource_not_found_exception() | access_denied_exception()
+          validation_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
 
   @type update_crl_errors() ::
-          validation_exception() | resource_not_found_exception() | access_denied_exception()
+          validation_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
 
   @type update_profile_errors() ::
-          validation_exception() | resource_not_found_exception() | access_denied_exception()
+          validation_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
 
   @type update_trust_anchor_errors() ::
-          validation_exception() | resource_not_found_exception() | access_denied_exception()
+          validation_exception()
+          | service_unavailable_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
 
   def metadata do
     %{

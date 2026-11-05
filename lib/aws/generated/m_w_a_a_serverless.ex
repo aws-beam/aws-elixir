@@ -52,6 +52,7 @@ defmodule AWS.MWAAServerless do
         optional("Description") => String.t() | atom(),
         optional("EncryptionConfiguration") => encryption_configuration(),
         optional("EngineVersion") => list(integer()),
+        optional("Environment") => environment(),
         optional("LoggingConfiguration") => logging_configuration(),
         optional("NetworkConfiguration") => network_configuration(),
         optional("Tags") => map(),
@@ -133,6 +134,17 @@ defmodule AWS.MWAAServerless do
 
   ## Example:
       
+      environment() :: %{
+        "Variables" => map()
+      }
+      
+  """
+  @type environment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_task_instance_request() :: %{}
       
   """
@@ -186,6 +198,7 @@ defmodule AWS.MWAAServerless do
         "Description" => String.t() | atom(),
         "EncryptionConfiguration" => encryption_configuration(),
         "EngineVersion" => list(integer()),
+        "Environment" => environment(),
         "LoggingConfiguration" => logging_configuration(),
         "ModifiedAt" => non_neg_integer(),
         "Name" => String.t() | atom(),
@@ -584,6 +597,7 @@ defmodule AWS.MWAAServerless do
         optional("Code") => list(),
         optional("Description") => String.t() | atom(),
         optional("EngineVersion") => list(integer()),
+        optional("Environment") => environment(),
         optional("LoggingConfiguration") => logging_configuration(),
         optional("NetworkConfiguration") => network_configuration(),
         optional("TriggerMode") => String.t() | atom(),

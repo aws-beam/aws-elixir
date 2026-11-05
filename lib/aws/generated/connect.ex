@@ -1506,6 +1506,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      case_entry() :: %{
+        "CaseId" => String.t() | atom(),
+        "CaseReferenceNumber" => String.t() | atom()
+      }
+
+  """
+  @type case_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       case_sla_configuration() :: %{
         "FieldId" => String.t() | atom(),
         "Name" => String.t() | atom(),
@@ -1794,6 +1806,7 @@ defmodule AWS.Connect do
         "Arn" => String.t() | atom(),
         "Attributes" => map(),
         "Campaign" => campaign(),
+        "Cases" => list(case_entry()),
         "Channel" => list(any()),
         "ChatMetrics" => chat_metrics(),
         "ConnectedToSystemTimestamp" => non_neg_integer(),

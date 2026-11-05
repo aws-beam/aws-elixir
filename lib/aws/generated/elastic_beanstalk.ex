@@ -550,6 +550,18 @@ defmodule AWS.ElasticBeanstalk do
 
   ## Example:
       
+      default_ami() :: %{
+        "Architecture" => list(any()),
+        "ImageId" => String.t() | atom()
+      }
+      
+  """
+  @type default_ami() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_application_message() :: %{
         optional("TerminateEnvByForce") => boolean(),
         required("ApplicationName") => String.t() | atom()
@@ -1423,6 +1435,7 @@ defmodule AWS.ElasticBeanstalk do
         "CustomAmiList" => list(custom_ami()),
         "DateCreated" => non_neg_integer(),
         "DateUpdated" => non_neg_integer(),
+        "DefaultAmiList" => list(default_ami()),
         "Description" => String.t() | atom(),
         "Frameworks" => list(platform_framework()),
         "Maintainer" => String.t() | atom(),

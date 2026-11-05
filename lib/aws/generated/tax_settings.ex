@@ -106,6 +106,7 @@ defmodule AWS.TaxSettings do
         "brazilAdditionalInfo" => brazil_additional_info(),
         "canadaAdditionalInfo" => canada_additional_info(),
         "chileAdditionalInfo" => chile_additional_info(),
+        "colombiaAdditionalInfo" => colombia_additional_info(),
         "egyptAdditionalInfo" => egypt_additional_info(),
         "estoniaAdditionalInfo" => estonia_additional_info(),
         "franceAdditionalInfo" => france_additional_info(),
@@ -331,6 +332,19 @@ defmodule AWS.TaxSettings do
 
   """
   @type chile_additional_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      colombia_additional_info() :: %{
+        "issueDate" => String.t() | atom(),
+        "responsibilityCodes" => list(String.t() | atom()),
+        "taxpayerTypeCode" => String.t() | atom()
+      }
+
+  """
+  @type colombia_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1053,6 +1067,7 @@ defmodule AWS.TaxSettings do
         "registrationType" => list(any()),
         "sector" => list(any()),
         "status" => list(any()),
+        "statusReason" => tax_registration_status_reason(),
         "taxDocumentMetadatas" => list(tax_document_metadata())
       }
 
@@ -1105,6 +1120,18 @@ defmodule AWS.TaxSettings do
 
   ## Example:
 
+      tax_registration_status_reason() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type tax_registration_status_reason() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tax_registration_with_jurisdiction() :: %{
         "additionalTaxInformation" => additional_info_response(),
         "certifiedEmailId" => String.t() | atom(),
@@ -1114,6 +1141,7 @@ defmodule AWS.TaxSettings do
         "registrationType" => list(any()),
         "sector" => list(any()),
         "status" => list(any()),
+        "statusReason" => tax_registration_status_reason(),
         "taxDocumentMetadatas" => list(tax_document_metadata())
       }
 
@@ -1362,6 +1390,11 @@ defmodule AWS.TaxSettings do
   To call this API operation for specific countries, see the following
   country-specific requirements.
 
+  ## Argentina
+
+    * `RegistrationType` valid values are `CUIT` (Clave Única de
+  Identificación Tributaria) and `CDI` (Clave de Identificación).
+
   ## Bangladesh
 
     * You must specify the tax registration certificate document in the
@@ -1539,6 +1572,12 @@ defmodule AWS.TaxSettings do
   ## Ukraine
 
     * The sector valid values are `Business` and `Individual`.
+
+  ## Uruguay
+
+    * `RegistrationType` valid values are `RUT` (Registro Único
+  Tributario), `NIE` (Numero de Identificacion del Extranjero), and `CI` (Cedula
+  Identidad).
 
   ## Philippines
 
@@ -1999,6 +2038,11 @@ defmodule AWS.TaxSettings do
   To call this API operation for specific countries, see the following
   country-specific requirements.
 
+  ## Argentina
+
+    * `RegistrationType` valid values are `CUIT` (Clave Única de
+  Identificación Tributaria) and `CDI` (Clave de Identificación).
+
   ## Bangladesh
 
     * You must specify the tax registration certificate document in the
@@ -2176,6 +2220,12 @@ defmodule AWS.TaxSettings do
   ## Ukraine
 
     * The sector valid values are `Business` and `Individual`.
+
+  ## Uruguay
+
+    * `RegistrationType` valid values are `RUT` (Registro Único
+  Tributario), `NIE` (Numero de Identificacion del Extranjero), and `CI` (Cedula
+  Identidad).
 
   ## Philippines
 

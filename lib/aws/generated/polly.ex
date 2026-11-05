@@ -227,6 +227,17 @@ defmodule AWS.Polly do
 
   ## Example:
 
+      invalid_tag_parameter_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_tag_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invalid_task_id_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -359,6 +370,28 @@ defmodule AWS.Polly do
 
   ## Example:
 
+      list_tags_for_resource_input() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+
+  """
+  @type list_tags_for_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_output() :: %{
+        "Tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       marks_not_supported_for_format_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -393,6 +426,7 @@ defmodule AWS.Polly do
   ## Example:
 
       put_lexicon_input() :: %{
+        optional("Tags") => map(),
         required("Content") => String.t() | atom()
       }
 
@@ -407,6 +441,19 @@ defmodule AWS.Polly do
 
   """
   @type put_lexicon_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => list(any())
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -587,6 +634,27 @@ defmodule AWS.Polly do
 
   ## Example:
 
+      tag_resource_input() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("Tags") => map()
+      }
+
+  """
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_output() :: %{}
+
+  """
+  @type tag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       text_event() :: %{
         "FlushStreamConfiguration" => flush_stream_configuration(),
         "Text" => String.t() | atom(),
@@ -635,6 +703,17 @@ defmodule AWS.Polly do
 
   ## Example:
 
+      too_many_tags_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       unsupported_pls_alphabet_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -652,6 +731,27 @@ defmodule AWS.Polly do
 
   """
   @type unsupported_pls_language_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_input() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_output() :: %{}
+
+  """
+  @type untag_resource_output() :: %{}
 
   @typedoc """
 
@@ -711,13 +811,23 @@ defmodule AWS.Polly do
   @type list_speech_synthesis_tasks_errors() ::
           service_failure_exception() | invalid_next_token_exception()
 
+  @type list_tags_for_resource_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_failure_exception()
+          | resource_not_found_exception()
+          | invalid_tag_parameter_exception()
+
   @type put_lexicon_errors() ::
-          unsupported_pls_language_exception()
+          validation_exception()
+          | unsupported_pls_language_exception()
           | unsupported_pls_alphabet_exception()
+          | too_many_tags_exception()
           | service_failure_exception()
           | max_lexicons_number_exceeded_exception()
           | max_lexeme_length_exceeded_exception()
           | lexicon_size_exceeded_exception()
+          | invalid_tag_parameter_exception()
           | invalid_lexicon_exception()
 
   @type start_speech_synthesis_stream_errors() ::
@@ -750,6 +860,21 @@ defmodule AWS.Polly do
           | invalid_ssml_exception()
           | invalid_sample_rate_exception()
           | engine_not_supported_exception()
+
+  @type tag_resource_errors() ::
+          validation_exception()
+          | too_many_tags_exception()
+          | throttling_exception()
+          | service_failure_exception()
+          | resource_not_found_exception()
+          | invalid_tag_parameter_exception()
+
+  @type untag_resource_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_failure_exception()
+          | resource_not_found_exception()
+          | invalid_tag_parameter_exception()
 
   def metadata do
     %{
@@ -1011,6 +1136,31 @@ defmodule AWS.Polly do
   end
 
   @doc """
+  Lists the tags for an Amazon Polly resource.
+  """
+  @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
+          {:ok, list_tags_for_resource_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_tags_for_resource_errors()}
+  def list_tags_for_resource(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/v1/listTagsForResource"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(resource_arn) do
+        [{"arn", resource_arn} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Stores a pronunciation lexicon in an Amazon Web Services Region.
 
   If
@@ -1018,6 +1168,12 @@ defmodule AWS.Polly do
   overwritten by the new lexicon. Lexicon operations have eventual
   consistency, therefore, it might take some time before the lexicon is
   available to the SynthesizeSpeech operation.
+
+  Overwriting a lexicon keeps its existing tags. You can specify tags
+  only when you create a lexicon. If you specify tags for a lexicon that
+  already exists, the request fails with a `ValidationException`.
+  To change the tags of an existing lexicon, use `TagResource`
+  and `UntagResource`.
 
   For more information, see [Managing Lexicons](https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html).
   """
@@ -1166,6 +1322,69 @@ defmodule AWS.Polly do
           {"x-amzn-RequestCharacters", "RequestCharacters"}
         ]
       )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Adds specified tags to a resource with the specified ARN.
+
+  Existing tags
+  on a resource are not changed if they are not specified in the request
+  parameters. If you specify a tag key that already exists on the resource,
+  the value in the request replaces the existing value.
+  """
+  @spec tag_resource(map(), tag_resource_input(), list()) ::
+          {:ok, tag_resource_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, tag_resource_errors()}
+  def tag_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/tagResource"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes specified tags from a resource.
+  """
+  @spec untag_resource(map(), untag_resource_input(), list()) ::
+          {:ok, untag_resource_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, untag_resource_errors()}
+  def untag_resource(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/untagResource"
+    headers = []
+    custom_headers = []
+    query_params = []
 
     meta = metadata()
 

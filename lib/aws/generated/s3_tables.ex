@@ -7,12 +7,11 @@ defmodule AWS.S3Tables do
   [Apache Parquet](https://parquet.apache.org/docs/) format and related metadata.  This data is stored inside an S3 table as a subresource. All tables in a table
   bucket are stored in the [Apache
   Iceberg](https://iceberg.apache.org/docs/latest/) table format. Through
-  integration with the [Amazon Web Services Glue Data Catalog](https://docs.aws.amazon.com/https:/docs.aws.amazon.com/glue/latest/dg/catalog-and-crawler.html)
+  integration with the [Amazon Web Services Glue Data Catalog](https://docs.aws.amazon.com/glue/latest/dg/catalog-and-crawler.html)
   you can interact with your tables using Amazon Web Services analytics services,
-  such as [Amazon Athena](https://docs.aws.amazon.com/https:/docs.aws.amazon.com/athena/) and
-  [Amazon Redshift](https://docs.aws.amazon.com/https:/docs.aws.amazon.com/redshift/).
-  Amazon S3 manages maintenance of your tables through automatic file compaction
-  and snapshot management. For more information, see [Amazon S3 table buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets.html).
+  such as [Amazon Athena](https://docs.aws.amazon.com/athena/) and [Amazon Redshift](https://docs.aws.amazon.com/redshift/). Amazon S3 manages maintenance
+  of your tables through automatic file compaction and snapshot management. For
+  more information, see [Amazon S3 table buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-buckets.html).
   """
 
   alias AWS.Client
@@ -39,6 +38,17 @@ defmodule AWS.S3Tables do
 
   """
   @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      complete_table_migration_request() :: %{
+        required("tableARN") => String.t() | atom()
+      }
+
+  """
+  @type complete_table_migration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -131,6 +141,30 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      data_migration_overview() :: %{
+        "maintenanceSettings" => maintenance_settings(),
+        "migrationPolicies" => migration_policies()
+      }
+
+  """
+  @type data_migration_overview() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_migration_settings() :: %{
+        "maintenanceSettings" => maintenance_settings(),
+        "migrationPolicies" => migration_policies()
+      }
+
+  """
+  @type data_migration_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_namespace_request() :: %{}
 
   """
@@ -215,6 +249,25 @@ defmodule AWS.S3Tables do
 
   """
   @type delete_table_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      destination_table() :: %{
+        "encryptionConfiguration" => encryption_configuration(),
+        "icebergSortOrder" => iceberg_sort_order(),
+        "name" => String.t() | atom(),
+        "namespace" => String.t() | atom(),
+        "properties" => migration_table_properties(),
+        "schema" => iceberg_schema_v2(),
+        "storageClassConfiguration" => storage_class_configuration(),
+        "tableBucketARN" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type destination_table() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -502,6 +555,47 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      get_table_migration_request() :: %{
+        optional("migrationId") => String.t() | atom(),
+        optional("tableARN") => String.t() | atom()
+      }
+
+  """
+  @type get_table_migration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_migration_response() :: %{
+        "createdAt" => [non_neg_integer()],
+        "dataMigration" => data_migration_overview(),
+        "failureReason" => migration_failure_reason(),
+        "hasValidPlan" => [boolean()],
+        "migrationId" => String.t() | atom(),
+        "migrationOutput" => migration_output_overview(),
+        "migrationStats" => migration_stats(),
+        "name" => String.t() | atom(),
+        "namespace" => String.t() | atom(),
+        "planningStats" => planning_stats(),
+        "reviewMigrationPlan" => [boolean()],
+        "roleARN" => String.t() | atom(),
+        "source" => list(),
+        "sourceType" => list(any()),
+        "state" => list(any()),
+        "stateUpdatedAt" => [non_neg_integer()],
+        "tableARN" => String.t() | atom(),
+        "tableBucketARN" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type get_table_migration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_table_policy_request() :: %{}
 
   """
@@ -671,6 +765,19 @@ defmodule AWS.S3Tables do
 
   """
   @type get_table_storage_class_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      glue_table_source() :: %{
+        "catalogId" => [String.t() | atom()],
+        "databaseName" => [String.t() | atom()],
+        "tableName" => [String.t() | atom()]
+      }
+
+  """
+  @type glue_table_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -878,6 +985,36 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      list_table_migrations_request() :: %{
+        optional("hasValidPlan") => [boolean()],
+        optional("maxResults") => integer(),
+        optional("name") => String.t() | atom(),
+        optional("namespace") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("state") => list(any()),
+        optional("tableARN") => String.t() | atom(),
+        optional("tableBucketARN") => String.t() | atom()
+      }
+
+  """
+  @type list_table_migrations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_table_migrations_response() :: %{
+        "migrations" => list(migration_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_table_migrations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_tables_request() :: %{
         optional("continuationToken") => String.t() | atom(),
         optional("maxTables") => integer(),
@@ -924,6 +1061,18 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      maintenance_settings() :: %{
+        "icebergCompaction" => migration_compaction_settings(),
+        "icebergSnapshotManagement" => migration_snapshot_management_settings()
+      }
+
+  """
+  @type maintenance_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       managed_table_information() :: %{
         "replicationInformation" => replication_information()
       }
@@ -941,6 +1090,140 @@ defmodule AWS.S3Tables do
 
   """
   @type method_not_allowed_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      migration_compaction_settings() :: %{
+        "strategy" => list(any()),
+        "targetFileSizeMB" => integer()
+      }
+
+  """
+  @type migration_compaction_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      migration_failure_reason() :: %{
+        "code" => list(any()),
+        "detail" => String.t() | atom()
+      }
+
+  """
+  @type migration_failure_reason() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      migration_output_configuration() :: %{
+        "bucket" => String.t() | atom(),
+        "prefixes" => migration_report_prefixes()
+      }
+
+  """
+  @type migration_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      migration_output_overview() :: %{
+        "bucket" => String.t() | atom(),
+        "objectCompatibilityReport" => report_overview(),
+        "objectMigrationReport" => report_overview(),
+        "tableCompatibilityReport" => report_overview()
+      }
+
+  """
+  @type migration_output_overview() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      migration_policies() :: %{
+        "incompatibleValuesPolicy" => list(any()),
+        "unmatchedSourceFieldsPolicy" => list(any())
+      }
+
+  """
+  @type migration_policies() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      migration_report_prefixes() :: %{
+        "objectCompatibilityReport" => String.t() | atom(),
+        "objectMigrationReport" => String.t() | atom(),
+        "tableCompatibilityReport" => String.t() | atom()
+      }
+
+  """
+  @type migration_report_prefixes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      migration_snapshot_management_settings() :: %{
+        "maxSnapshotAgeHours" => integer(),
+        "minSnapshotsToKeep" => integer()
+      }
+
+  """
+  @type migration_snapshot_management_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      migration_stats() :: %{
+        "objectsFailedMigration" => [float()],
+        "objectsMigrated" => [float()],
+        "objectsPendingMigration" => [float()]
+      }
+
+  """
+  @type migration_stats() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      migration_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "hasValidPlan" => [boolean()],
+        "migrationId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "namespace" => String.t() | atom(),
+        "state" => list(any()),
+        "stateUpdatedAt" => [non_neg_integer()],
+        "tableARN" => String.t() | atom(),
+        "tableBucketARN" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type migration_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      migration_table_properties() :: %{
+        "compressionCodec" => list(any()),
+        "dictionaryEncoding" => [boolean()],
+        "icebergFormatVersion" => [integer()],
+        "writeFormat" => list(any())
+      }
+
+  """
+  @type migration_table_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -968,6 +1251,19 @@ defmodule AWS.S3Tables do
 
   """
   @type not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      planning_stats() :: %{
+        "objectsPlanned" => [float()],
+        "objectsScanned" => [float()],
+        "partitionCount" => [float()]
+      }
+
+  """
+  @type planning_stats() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1160,6 +1456,20 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      report_overview() :: %{
+        "checksumCRC64NVME" => String.t() | atom(),
+        "invalidFindings" => map(),
+        "key" => String.t() | atom(),
+        "prefix" => String.t() | atom()
+      }
+
+  """
+  @type report_overview() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       schema_field() :: %{
         "id" => [integer()],
         "name" => [String.t() | atom()],
@@ -1189,12 +1499,67 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      start_table_migration_request() :: %{
+        optional("dataMigration") => data_migration_settings(),
+        optional("reviewMigrationPlan") => [boolean()],
+        required("destinationTable") => destination_table(),
+        required("migrationOutput") => migration_output_configuration(),
+        required("roleARN") => String.t() | atom(),
+        required("source") => list(),
+        required("sourceType") => list(any())
+      }
+
+  """
+  @type start_table_migration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_table_migration_response() :: %{
+        "migrationId" => String.t() | atom(),
+        "state" => list(any())
+      }
+
+  """
+  @type start_table_migration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       storage_class_configuration() :: %{
         "storageClass" => list(any())
       }
 
   """
   @type storage_class_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sync_table_migration_request() :: %{
+        optional("reviewMigrationPlan") => [boolean()],
+        required("migrationOutput") => migration_output_configuration(),
+        required("roleARN") => String.t() | atom(),
+        required("tableARN") => String.t() | atom()
+      }
+
+  """
+  @type sync_table_migration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sync_table_migration_response() :: %{
+        "migrationId" => String.t() | atom(),
+        "state" => list(any())
+      }
+
+  """
+  @type sync_table_migration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1428,6 +1793,42 @@ defmodule AWS.S3Tables do
   """
   @type update_table_metadata_location_response() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      update_table_migration_request() :: %{
+        optional("migrationId") => String.t() | atom(),
+        optional("tableARN") => String.t() | atom(),
+        optional("updateDescription") => [String.t() | atom()],
+        required("requestedState") => list(any())
+      }
+
+  """
+  @type update_table_migration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_table_migration_response() :: %{
+        "migrationId" => String.t() | atom(),
+        "state" => list(any()),
+        "tableARN" => String.t() | atom()
+      }
+
+  """
+  @type update_table_migration_response() :: %{(String.t() | atom()) => any()}
+
+  @type complete_table_migration_errors() ::
+          too_many_requests_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
+          | access_denied_exception()
+
   @type create_namespace_errors() ::
           too_many_requests_exception()
           | not_found_exception()
@@ -1634,6 +2035,14 @@ defmodule AWS.S3Tables do
           | conflict_exception()
           | bad_request_exception()
 
+  @type get_table_migration_errors() ::
+          too_many_requests_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
+          | access_denied_exception()
+
   @type get_table_policy_errors() ::
           too_many_requests_exception()
           | not_found_exception()
@@ -1698,6 +2107,14 @@ defmodule AWS.S3Tables do
           | internal_server_error_exception()
           | forbidden_exception()
           | conflict_exception()
+          | bad_request_exception()
+          | access_denied_exception()
+
+  @type list_table_migrations_errors() ::
+          too_many_requests_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
           | bad_request_exception()
           | access_denied_exception()
 
@@ -1807,6 +2224,24 @@ defmodule AWS.S3Tables do
           | conflict_exception()
           | bad_request_exception()
 
+  @type start_table_migration_errors() ::
+          too_many_requests_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
+          | access_denied_exception()
+
+  @type sync_table_migration_errors() ::
+          too_many_requests_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
+          | access_denied_exception()
+
   @type tag_resource_errors() ::
           too_many_requests_exception()
           | not_found_exception()
@@ -1831,6 +2266,15 @@ defmodule AWS.S3Tables do
           | conflict_exception()
           | bad_request_exception()
 
+  @type update_table_migration_errors() ::
+          too_many_requests_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
+          | access_denied_exception()
+
   def metadata do
     %{
       api_version: "2018-05-10",
@@ -1845,6 +2289,54 @@ defmodule AWS.S3Tables do
       signing_name: "s3tables",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Completes the migration of a table.
+
+  The table's most recent migration must be in the `succeeded`, `failed` or
+  `cancelled` state. After you complete the migration, you can't sync the table
+  again, and you can write to and maintain the table as you do any other table:
+  compaction starts, and unreferenced file removal follows the table bucket's
+  configuration. You can't undo this operation. Calling it again for the same
+  table returns a `ConflictException`.
+
+  ## Definitions
+
+  ### Permissions
+
+     You must have the `s3tables:CompleteTableMigration` permission to
+  use this operation.
+  """
+  @spec complete_table_migration(map(), complete_table_migration_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, complete_table_migration_errors()}
+  def complete_table_migration(%Client{} = client, input, options \\ []) do
+    url_path = "/complete-table-migration"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"tableARN", "tableARN"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
   end
 
   @doc """
@@ -2871,6 +3363,54 @@ defmodule AWS.S3Tables do
   end
 
   @doc """
+  Gets the details of a migration, including its state, the reason it failed, its
+  statistics and the location of its reports.
+
+  Identify the migration by its `migrationId`, or specify the `tableARN` of a
+  destination table to get that table's most recent migration.
+
+  ## Definitions
+
+  ### Permissions
+
+     You must have the `s3tables:GetTableMigration` permission to use
+  this operation.
+  """
+  @spec get_table_migration(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
+          {:ok, get_table_migration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_table_migration_errors()}
+  def get_table_migration(
+        %Client{} = client,
+        migration_id \\ nil,
+        table_arn \\ nil,
+        options \\ []
+      ) do
+    url_path = "/get-table-migration"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(migration_id) do
+        [{"migrationId", migration_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(table_arn) do
+        [{"tableARN", table_arn} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets details about a table policy.
 
   For more information, see [Viewing a table policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-table-policy.html#table-policy-get)
@@ -3209,6 +3749,119 @@ defmodule AWS.S3Tables do
     query_params =
       if !is_nil(type) do
         [{"type", type} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the migrations whose destination is in a table bucket, a namespace or a
+  table.
+
+  Specify a `tableBucketARN` to list the migrations into a table bucket, and add a
+  `namespace`, or a `namespace` and a `name`, to narrow the list. Or specify a
+  `tableARN` to list the migrations into a table.
+
+  Migrations are listed newest first. Results are paginated: use `maxResults` to
+  set the page size, and pass the `nextToken` from a response to retrieve the next
+  page of results. A page can contain fewer migrations than `maxResults`, or none,
+  and still return a `nextToken`. Continue until a response has no `nextToken`.
+
+  ## Definitions
+
+  ### Permissions
+
+     You must have the `s3tables:ListTableMigrations` permission to use
+  this operation.
+  """
+  @spec list_table_migrations(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_table_migrations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_table_migrations_errors()}
+  def list_table_migrations(
+        %Client{} = client,
+        has_valid_plan \\ nil,
+        max_results \\ nil,
+        name \\ nil,
+        namespace \\ nil,
+        next_token \\ nil,
+        state \\ nil,
+        table_arn \\ nil,
+        table_bucket_arn \\ nil,
+        options \\ []
+      ) do
+    url_path = "/list-table-migrations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(has_valid_plan) do
+        [{"hasValidPlan", has_valid_plan} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(name) do
+        [{"name", name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(namespace) do
+        [{"namespace", namespace} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(state) do
+        [{"state", state} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(table_arn) do
+        [{"tableARN", table_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(table_bucket_arn) do
+        [{"tableBucketARN", table_bucket_arn} | query_params]
       else
         query_params
       end
@@ -3900,6 +4553,124 @@ defmodule AWS.S3Tables do
   end
 
   @doc """
+  Starts migrating an Amazon Web Services Glue Data Catalog table into a new table
+  in a table bucket.
+
+  The migration runs asynchronously: this operation returns the migration ID and
+  its initial state, and you track progress with `GetTableMigration`.
+
+  The namespace must already exist, and a table with the specified name must not.
+  The migration creates the table during planning and commits data to it as it
+  runs. Until you call `CompleteTableMigration`, you can read the table but you
+  can't write to it. If the migration fails or is cancelled, the table and the
+  data already committed to it remain.
+
+  The migration first checks the source and the destination, and writes the table
+  compatibility and object compatibility reports to the bucket that you specify in
+  `migrationOutput`. If you set `reviewMigrationPlan` to `true`, the migration
+  waits in the `pendingReview` state so that you can review the reports, and
+  continues only when you call `UpdateTableMigration` with `requestedState` set to
+  `queued`. If you don't continue or cancel the migration within 30 days, the
+  migration fails. Otherwise it continues to migrate the data, and writes the
+  object migration report when the migration ends. If planning fails, the
+  migration writes no object migration report.
+
+  ## Definitions
+
+  ### Permissions
+
+     You must have the `s3tables:StartTableMigration` permission to use
+  this operation.
+
+     You must have the `iam:PassRole` permission on the role that you
+  specify in `roleARN`, with a condition that allows passing it to
+  `migration.s3tables.amazonaws.com`. The associated resource is the table bucket.
+
+     If `destinationTable` specifies SSE-KMS encryption, you must have
+  the `kms:DescribeKey` and `kms:GenerateDataKey` permissions on the KMS key. You
+  must also grant the S3 Tables maintenance principal access to the key. For more
+  information, see [Permissions requirements for S3 Tables SSE-KMS encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-kms-permissions.html).
+  """
+  @spec start_table_migration(map(), start_table_migration_request(), list()) ::
+          {:ok, start_table_migration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_table_migration_errors()}
+  def start_table_migration(%Client{} = client, input, options \\ []) do
+    url_path = "/start-table-migration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Migrates the changes in the source table since the previous start or sync, such
+  as added and deleted source objects, into the destination table.
+
+  The sync runs asynchronously: this operation returns the migration ID of the
+  sync and its initial state, and you track progress with `GetTableMigration`.
+
+  A sync uses the source, destination and data migration settings of the table's
+  migration, and plans the work and writes its reports in the same way as
+  `StartTableMigration`. You can sync after a start or sync that succeeded, failed
+  or was cancelled, if an earlier start or sync of the table has a valid plan
+  (`hasValidPlan`). You can't sync a table while a start or sync is in progress
+  for it, and you can sync a table until you call `CompleteTableMigration` for it.
+  If a source object that an earlier migration migrated has since been
+  overwritten, the sync fails.
+
+  ## Definitions
+
+  ### Permissions
+
+     You must have the `s3tables:SyncTableMigration` permission to use
+  this operation.
+
+     You must have the `iam:PassRole` permission on the role that you
+  specify in `roleARN`, with a condition that allows passing it to
+  `migration.s3tables.amazonaws.com`. The associated resource is the table.
+  """
+  @spec sync_table_migration(map(), sync_table_migration_request(), list()) ::
+          {:ok, sync_table_migration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, sync_table_migration_errors()}
+  def sync_table_migration(%Client{} = client, input, options \\ []) do
+    url_path = "/sync-table-migration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Applies one or more user-defined tags to an Amazon S3 Tables resource or updates
   existing tags.
 
@@ -4037,6 +4808,59 @@ defmodule AWS.S3Tables do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Requests a state change for a migration.
+
+  Identify the migration by its `migrationId` or by the `tableARN` of its
+  destination table.
+
+  Set `requestedState` to `queued` to continue a migration in the `pendingReview`
+  state; the migration moves to `queued` or `migrating`. Set it to `cancelled` to
+  cancel a migration in the `new`, `planning`, `pendingReview`, `queued` or
+  `migrating` state; the migration moves to `cancelling`, finishes the work in
+  progress, and then ends in the `cancelled` state, or in the `failed` state if
+  any objects failed to migrate. Data that the migration already committed stays
+  in the destination table.
+
+  ## Definitions
+
+  ### Permissions
+
+     You must have the `s3tables:UpdateTableMigration` permission to use
+  this operation.
+  """
+  @spec update_table_migration(map(), update_table_migration_request(), list()) ::
+          {:ok, update_table_migration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_table_migration_errors()}
+  def update_table_migration(%Client{} = client, input, options \\ []) do
+    url_path = "/update-table-migration"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"migrationId", "migrationId"},
+        {"tableARN", "tableARN"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,

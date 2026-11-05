@@ -1267,6 +1267,7 @@ defmodule AWS.ECS do
       
       daemon_volume() :: %{
         "host" => host_volume_properties(),
+        "logDriverVolumeConfiguration" => log_driver_volume_configuration(),
         "name" => String.t() | atom()
       }
       
@@ -3657,6 +3658,17 @@ defmodule AWS.ECS do
       
   """
   @type log_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      log_driver_volume_configuration() :: %{
+        "driver" => list(any())
+      }
+      
+  """
+  @type log_driver_volume_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

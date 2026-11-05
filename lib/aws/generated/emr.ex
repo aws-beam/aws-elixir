@@ -2902,6 +2902,7 @@ defmodule AWS.EMR do
       
       step() :: %{
         "ActionOnFailure" => list(any()),
+        "AdditionalInfo" => step_additional_info(),
         "Config" => hadoop_step_config(),
         "EncryptionKeyArn" => String.t() | atom(),
         "ExecutionRoleArn" => String.t() | atom(),
@@ -2913,6 +2914,18 @@ defmodule AWS.EMR do
       
   """
   @type step() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      step_additional_info() :: %{
+        "ResourceManager" => String.t() | atom(),
+        "ResourceManagerApplicationIds" => list(String.t() | atom())
+      }
+      
+  """
+  @type step_additional_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2998,6 +3011,7 @@ defmodule AWS.EMR do
       
       step_summary() :: %{
         "ActionOnFailure" => list(any()),
+        "AdditionalInfo" => step_additional_info(),
         "Config" => hadoop_step_config(),
         "EncryptionKeyArn" => String.t() | atom(),
         "Id" => String.t() | atom(),

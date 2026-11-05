@@ -11173,6 +11173,88 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      get_software_resources_v2_request() :: %{
+        optional("Filters") => software_filters(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("PackageVersion") => String.t() | atom(),
+        optional("Scopes") => software_scopes(),
+        optional("SortCriteria") => list(sort_criterion()),
+        required("PackageName") => String.t() | atom(),
+        required("PackageType") => String.t() | atom()
+      }
+
+  """
+  @type get_software_resources_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_software_resources_v2_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "SoftwareResources" => list(software_resource_result())
+      }
+
+  """
+  @type get_software_resources_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_software_statistics_v2_request() :: %{
+        optional("MaxStatisticResults") => integer(),
+        optional("Scopes") => software_scopes(),
+        optional("SortOrder") => list(any()),
+        required("GroupByRules") => list(software_group_by_rule())
+      }
+
+  """
+  @type get_software_statistics_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_software_statistics_v2_response() :: %{
+        "GroupByResults" => list(group_by_result())
+      }
+
+  """
+  @type get_software_statistics_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_software_v2_request() :: %{
+        optional("Filters") => software_filters(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Scopes") => software_scopes(),
+        optional("SortCriteria") => list(sort_criterion())
+      }
+
+  """
+  @type get_software_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_software_v2_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Software" => list(software_result())
+      }
+
+  """
+  @type get_software_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       group_by_result() :: %{
         "GroupByField" => String.t() | atom(),
         "GroupByValues" => list(group_by_value())
@@ -13887,6 +13969,43 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      software_composite_filter() :: %{
+        "NestedCompositeFilters" => list(software_composite_filter()),
+        "Operator" => list(any()),
+        "StringFilters" => list(software_string_filter())
+      }
+
+  """
+  @type software_composite_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      software_filters() :: %{
+        "CompositeFilters" => list(software_composite_filter()),
+        "CompositeOperator" => list(any())
+      }
+
+  """
+  @type software_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      software_group_by_rule() :: %{
+        "Filters" => software_filters(),
+        "GroupByField" => list(any())
+      }
+
+  """
+  @type software_group_by_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       software_package() :: %{
         "Architecture" => String.t() | atom(),
         "Epoch" => String.t() | atom(),
@@ -13903,6 +14022,62 @@ defmodule AWS.SecurityHub do
 
   """
   @type software_package() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      software_resource_result() :: %{
+        "AccountId" => String.t() | atom(),
+        "Region" => String.t() | atom(),
+        "ResourceCloudPartition" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceOwnerAccountId" => String.t() | atom(),
+        "ResourceOwnerOrgId" => String.t() | atom(),
+        "ResourceProvider" => String.t() | atom(),
+        "ResourceRegion" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+
+  """
+  @type software_resource_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      software_result() :: %{
+        "PackageName" => String.t() | atom(),
+        "PackageType" => String.t() | atom(),
+        "PackageVersion" => String.t() | atom(),
+        "ResourceCount" => integer()
+      }
+
+  """
+  @type software_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      software_scopes() :: %{
+        "AwsOrganizations" => list(aws_organization_scope())
+      }
+
+  """
+  @type software_scopes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      software_string_filter() :: %{
+        "FieldName" => list(any()),
+        "Filter" => string_filter()
+      }
+
+  """
+  @type software_string_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -15529,6 +15704,36 @@ defmodule AWS.SecurityHub do
           | invalid_input_exception()
           | invalid_access_exception()
           | internal_exception()
+
+  @type get_software_resources_v2_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | organizational_unit_not_found_exception()
+          | organization_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type get_software_statistics_v2_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | organizational_unit_not_found_exception()
+          | organization_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type get_software_v2_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | organizational_unit_not_found_exception()
+          | organization_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type invite_members_errors() ::
           resource_not_found_exception()
@@ -18963,6 +19168,136 @@ defmodule AWS.SecurityHub do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of resources that contain a specific software package.
+
+  You identify the package with `PackageName` and `PackageType`. To narrow the
+  results to one version of the package, include `PackageVersion`.
+
+  You can use the `Scopes` parameter to define the data boundary for the query.
+  Currently, `Scopes` supports `AwsOrganizations`, which lets you retrieve
+  resources from your entire organization or from specific organizational units.
+  Only the delegated administrator account can use `Scopes`.
+
+  You can use the `Filters` parameter to further refine results based on resource
+  attributes, such as `ResourceType` or `Region`.
+  """
+  @spec get_software_resources_v2(map(), get_software_resources_v2_request(), list()) ::
+          {:ok, get_software_resources_v2_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_software_resources_v2_errors()}
+  def get_software_resources_v2(%Client{} = client, input, options \\ []) do
+    url_path = "/softwarev2/resources"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves aggregated counts of software packages installed on your resources,
+  grouped by a field that you specify.
+
+  For example, you can return the most common package types or the accounts with
+  the most installed packages.
+
+  Each count is the number of package-to-resource pairs that match the grouping
+  value. A package installed on three resources contributes three to the count.
+
+  You can use the `Scopes` parameter to define the data boundary for the query.
+  Currently, `Scopes` supports `AwsOrganizations`, which lets you aggregate
+  software from your entire organization or from specific organizational units.
+  Only the delegated administrator account can use `Scopes`.
+
+  This operation doesn't paginate. Use `MaxStatisticResults` to control how many
+  grouping values are returned.
+  """
+  @spec get_software_statistics_v2(map(), get_software_statistics_v2_request(), list()) ::
+          {:ok, get_software_statistics_v2_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_software_statistics_v2_errors()}
+  def get_software_statistics_v2(%Client{} = client, input, options \\ []) do
+    url_path = "/softwarev2/statistics"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns a list of software packages installed on your resources.
+
+  Each result identifies a package by name, version, and type, and includes the
+  number of resources that contain that package.
+
+  You can use the `Scopes` parameter to define the data boundary for the query.
+  Currently, `Scopes` supports `AwsOrganizations`, which lets you retrieve
+  software from your entire organization or from specific organizational units.
+  Only the delegated administrator account can use `Scopes`.
+
+  You can use the `Filters` parameter to refine results based on package and
+  resource attributes. You can use `Scopes` and `Filters` independently or
+  together. When both are provided, `Scopes` narrows the data set first, and then
+  `Filters` refines results within that scoped data set.
+
+  To list the resources that contain a specific package, use
+  `GetSoftwareResourcesV2`. To get counts of software grouped by a field, use
+  `GetSoftwareStatisticsV2`.
+  """
+  @spec get_software_v2(map(), get_software_v2_request(), list()) ::
+          {:ok, get_software_v2_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_software_v2_errors()}
+  def get_software_v2(%Client{} = client, input, options \\ []) do
+    url_path = "/softwarev2"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

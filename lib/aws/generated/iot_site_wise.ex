@@ -1756,6 +1756,7 @@ defmodule AWS.IoTSiteWise do
 
       create_dataset_export_job_request() :: %{
         optional("clientToken") => String.t() | atom(),
+        optional("jobName") => String.t() | atom(),
         required("destinationS3Uri") => String.t() | atom(),
         required("errorReportLocation") => export_error_report_location(),
         required("input") => list()
@@ -2985,6 +2986,7 @@ defmodule AWS.IoTSiteWise do
         "errorReportLocation" => export_error_report_location(),
         "input" => list(),
         "jobId" => String.t() | atom(),
+        "jobName" => String.t() | atom(),
         "startedAt" => [non_neg_integer()],
         "status" => list(any()),
         "workspaceName" => String.t() | atom()
@@ -3742,6 +3744,7 @@ defmodule AWS.IoTSiteWise do
         "completedAt" => [non_neg_integer()],
         "destinationS3Uri" => String.t() | atom(),
         "jobId" => String.t() | atom(),
+        "jobName" => String.t() | atom(),
         "startedAt" => [non_neg_integer()],
         "status" => list(any())
       }

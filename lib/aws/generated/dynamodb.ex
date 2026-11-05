@@ -364,6 +364,120 @@ defmodule AWS.DynamoDB do
 
   ## Example:
       
+      bulk_operation_bytes() :: %{
+        "BulkPutBytes" => float()
+      }
+      
+  """
+  @type bulk_operation_bytes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      bulk_operation_description() :: %{
+        "BulkOperationArn" => String.t() | atom(),
+        "BulkOperationStatus" => list(any()),
+        "BulkOperationUsage" => list(bulk_operation_usage()),
+        "ClientToken" => String.t() | atom(),
+        "EndTime" => non_neg_integer(),
+        "FailedItemCount" => float(),
+        "FailureCode" => String.t() | atom(),
+        "FailureMessage" => String.t() | atom(),
+        "InputS3Configuration" => input_s3_configuration(),
+        "MaxWriteRequestUnits" => float(),
+        "OutputS3Configuration" => output_s3_configuration(),
+        "PerformanceTier" => list(any()),
+        "ProcessedInputBytes" => float(),
+        "ProcessedItemCount" => float(),
+        "StartTime" => non_neg_integer(),
+        "TableDetails" => list(bulk_operation_table_detail()),
+        "TotalInputBytes" => float()
+      }
+      
+  """
+  @type bulk_operation_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      bulk_operation_summary() :: %{
+        "BulkOperationArn" => String.t() | atom(),
+        "BulkOperationStatus" => list(any()),
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer()
+      }
+      
+  """
+  @type bulk_operation_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      bulk_operation_table_detail() :: %{
+        "TableId" => String.t() | atom(),
+        "TableName" => String.t() | atom()
+      }
+      
+  """
+  @type bulk_operation_table_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      bulk_operation_usage() :: %{
+        "BulkPutBytes" => float(),
+        "GlobalSecondaryIndexes" => map(),
+        "LocalSecondaryIndexes" => map(),
+        "Table" => bulk_operation_bytes(),
+        "TableName" => String.t() | atom(),
+        "VectorIndexes" => map()
+      }
+      
+  """
+  @type bulk_operation_usage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      bulk_operation_vector_bytes() :: %{
+        "BulkPutVectorBytes" => float()
+      }
+      
+  """
+  @type bulk_operation_vector_bytes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_bulk_operation_input() :: %{
+        required("BulkOperationArn") => String.t() | atom()
+      }
+      
+  """
+  @type cancel_bulk_operation_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_bulk_operation_output() :: %{
+        "BulkOperationArn" => String.t() | atom(),
+        "BulkOperationStatus" => list(any())
+      }
+      
+  """
+  @type cancel_bulk_operation_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       cancellation_reason() :: %{
         "Code" => String.t() | atom(),
         "Item" => map(),
@@ -852,6 +966,28 @@ defmodule AWS.DynamoDB do
       
   """
   @type describe_backup_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_bulk_operation_input() :: %{
+        required("BulkOperationArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_bulk_operation_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_bulk_operation_output() :: %{
+        "BulkOperationDescription" => bulk_operation_description()
+      }
+      
+  """
+  @type describe_bulk_operation_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1756,6 +1892,21 @@ defmodule AWS.DynamoDB do
 
   ## Example:
       
+      input_s3_configuration() :: %{
+        "InputCompressionType" => list(any()),
+        "InputFormat" => list(any()),
+        "S3Bucket" => String.t() | atom(),
+        "S3BucketOwner" => String.t() | atom(),
+        "S3KeyPrefix" => String.t() | atom()
+      }
+      
+  """
+  @type input_s3_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       internal_server_error() :: %{
         "message" => String.t() | atom()
       }
@@ -1936,6 +2087,30 @@ defmodule AWS.DynamoDB do
       
   """
   @type list_backups_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_bulk_operations_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_bulk_operations_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_bulk_operations_output() :: %{
+        "BulkOperationsSummaryList" => list(bulk_operation_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_bulk_operations_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2149,6 +2324,22 @@ defmodule AWS.DynamoDB do
       
   """
   @type on_demand_throughput_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      output_s3_configuration() :: %{
+        "OutputType" => list(list(any())()),
+        "S3Bucket" => String.t() | atom(),
+        "S3BucketOwner" => String.t() | atom(),
+        "S3KeyPrefix" => String.t() | atom(),
+        "S3SseAlgorithm" => list(any()),
+        "S3SseKmsKeyId" => String.t() | atom()
+      }
+      
+  """
+  @type output_s3_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2927,6 +3118,33 @@ defmodule AWS.DynamoDB do
 
   ## Example:
       
+      start_bulk_put_items_input() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("MaxWriteRequestUnits") => float(),
+        optional("PerformanceTier") => list(any()),
+        required("InputS3Configuration") => input_s3_configuration(),
+        required("OutputS3Configuration") => output_s3_configuration(),
+        required("TableName") => String.t() | atom()
+      }
+      
+  """
+  @type start_bulk_put_items_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_bulk_put_items_output() :: %{
+        "BulkOperationDescription" => bulk_operation_description()
+      }
+      
+  """
+  @type start_bulk_put_items_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       stream_specification() :: %{
         "StreamEnabled" => boolean(),
         "StreamViewType" => list(any())
@@ -3700,6 +3918,9 @@ defmodule AWS.DynamoDB do
           | invalid_endpoint_exception()
           | internal_server_error()
 
+  @type cancel_bulk_operation_errors() ::
+          resource_not_found_exception() | invalid_endpoint_exception()
+
   @type create_backup_errors() ::
           table_not_found_exception()
           | table_in_use_exception()
@@ -3758,6 +3979,9 @@ defmodule AWS.DynamoDB do
 
   @type describe_backup_errors() ::
           invalid_endpoint_exception() | internal_server_error() | backup_not_found_exception()
+
+  @type describe_bulk_operation_errors() ::
+          resource_not_found_exception() | invalid_endpoint_exception()
 
   @type describe_continuous_backups_errors() ::
           table_not_found_exception() | invalid_endpoint_exception() | internal_server_error()
@@ -3856,6 +4080,8 @@ defmodule AWS.DynamoDB do
 
   @type list_backups_errors() :: invalid_endpoint_exception() | internal_server_error()
 
+  @type list_bulk_operations_errors() :: invalid_endpoint_exception()
+
   @type list_contributor_insights_errors() ::
           resource_not_found_exception() | internal_server_error()
 
@@ -3930,6 +4156,13 @@ defmodule AWS.DynamoDB do
           | resource_not_found_exception()
           | request_limit_exceeded()
           | internal_server_error()
+
+  @type start_bulk_put_items_errors() ::
+          resource_not_found_exception()
+          | resource_in_use_exception()
+          | limit_exceeded_exception()
+          | invalid_endpoint_exception()
+          | idempotent_parameter_mismatch_exception()
 
   @type tag_resource_errors() ::
           resource_not_found_exception()
@@ -4289,6 +4522,25 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+  Cancels an in-progress bulk operation asynchronously.
+
+  Cancellation doesn't remove
+  items that the operation has already written. Use `DescribeBulkOperation` to
+  monitor the operation until it reaches a terminal status.
+  """
+  @spec cancel_bulk_operation(map(), cancel_bulk_operation_input(), list()) ::
+          {:ok, cancel_bulk_operation_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, cancel_bulk_operation_errors()}
+  def cancel_bulk_operation(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CancelBulkOperation", input, options)
+  end
+
+  @doc """
   Creates a backup for an existing table.
 
   Each time you create an on-demand backup, the entire table data is backed up.
@@ -4597,6 +4849,21 @@ defmodule AWS.DynamoDB do
       metadata()
 
     Request.request_post(client, meta, "DescribeBackup", input, options)
+  end
+
+  @doc """
+  Describes the specified bulk operation.
+  """
+  @spec describe_bulk_operation(map(), describe_bulk_operation_input(), list()) ::
+          {:ok, describe_bulk_operation_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_bulk_operation_errors()}
+  def describe_bulk_operation(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeBulkOperation", input, options)
   end
 
   @doc """
@@ -5171,6 +5438,27 @@ defmodule AWS.DynamoDB do
   end
 
   @doc """
+  Lists bulk operations that started within the past 90 days for the current
+  Amazon Web Services account and Amazon Web Services Region, with the most recent
+  operations
+  first.
+
+  Results are paginated. Use the `NextToken` parameter to retrieve
+  additional results.
+  """
+  @spec list_bulk_operations(map(), list_bulk_operations_input(), list()) ::
+          {:ok, list_bulk_operations_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_bulk_operations_errors()}
+  def list_bulk_operations(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListBulkOperations", input, options)
+  end
+
+  @doc """
   Returns a list of ContributorInsightsSummary for a table and all its global
   secondary
   indexes.
@@ -5662,6 +5950,23 @@ defmodule AWS.DynamoDB do
       metadata()
 
     Request.request_post(client, meta, "SearchVectors", input, options)
+  end
+
+  @doc """
+  Starts an asynchronous bulk operation that reads items from Amazon S3 and
+  writes them to an existing DynamoDB table, so you can efficiently load or
+  migrate large datasets.
+  """
+  @spec start_bulk_put_items(map(), start_bulk_put_items_input(), list()) ::
+          {:ok, start_bulk_put_items_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_bulk_put_items_errors()}
+  def start_bulk_put_items(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "StartBulkPutItems", input, options)
   end
 
   @doc """

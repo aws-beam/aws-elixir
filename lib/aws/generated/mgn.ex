@@ -302,6 +302,7 @@ defmodule AWS.Mgn do
 
       create_network_migration_definition_request() :: %{
         optional("cidrMappings") => list(cidr_mapping()),
+        optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
         optional("scopeTags") => map(),
         optional("sourceConfigurations") => list(source_configuration()),
@@ -5277,7 +5278,7 @@ defmodule AWS.Mgn do
   dataReplicationInfo.dataReplicationState will be set to DISCONNECTED; The
   totalStorageBytes property for each of dataReplicationInfo.replicatedDisks will
   be set to zero; dataReplicationInfo.lagDuration and
-  dataReplicationInfo.lagDuration will be nullified.
+  dataReplicationInfo.etaDateTime will be nullified.
   """
   @spec disconnect_from_service(map(), disconnect_from_service_request(), list()) ::
           {:ok, source_server(), any()}
@@ -5317,7 +5318,7 @@ defmodule AWS.Mgn do
   DISCONNECTED; The SourceServer.lifeCycle.state will be changed to CUTOVER; The
   totalStorageBytes property for each of dataReplicationInfo.replicatedDisks will
   be set to zero; dataReplicationInfo.lagDuration and
-  dataReplicationInfo.lagDuration will be nullified.
+  dataReplicationInfo.etaDateTime will be nullified.
   """
   @spec finalize_cutover(map(), finalize_cutover_request(), list()) ::
           {:ok, source_server(), any()}

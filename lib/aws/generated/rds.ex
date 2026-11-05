@@ -656,6 +656,7 @@ defmodule AWS.RDS do
         optional("PreSignedUrl") => String.t() | atom(),
         optional("SnapshotAvailabilityZone") => String.t() | atom(),
         optional("SnapshotTarget") => String.t() | atom(),
+        optional("TagSpecifications") => list(tag_specification()),
         optional("Tags") => list(tag()),
         optional("TargetCustomAvailabilityZone") => String.t() | atom(),
         required("SourceDBSnapshotIdentifier") => String.t() | atom(),
@@ -6356,6 +6357,7 @@ defmodule AWS.RDS do
         "Options" => list(option()),
         "SourceAccountId" => String.t() | atom(),
         "SourceOptionGroup" => String.t() | atom(),
+        "SourceRegion" => String.t() | atom(),
         "VpcId" => String.t() | atom()
       }
       
@@ -6402,6 +6404,7 @@ defmodule AWS.RDS do
       
       option_group_option() :: %{
         "CopyableCrossAccount" => boolean(),
+        "CopyableCrossRegion" => boolean(),
         "DefaultPort" => integer(),
         "Description" => String.t() | atom(),
         "EngineName" => String.t() | atom(),

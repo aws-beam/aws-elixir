@@ -58,8 +58,33 @@ defmodule AWS.ConnectContactLens do
 
   ## Example:
 
+      categories_attribute_and_condition() :: %{
+        "TagConditions" => list(tag_condition())
+      }
+
+  """
+  @type categories_attribute_and_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      categories_attribute_filter() :: %{
+        "AndCondition" => categories_attribute_and_condition(),
+        "OrConditions" => list(categories_attribute_and_condition()),
+        "TagCondition" => tag_condition()
+      }
+
+  """
+  @type categories_attribute_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       category_details() :: %{
-        "PointsOfInterest" => list(point_of_interest())
+        "PointsOfInterest" => list(point_of_interest()),
+        "RuleId" => String.t() | atom()
       }
 
   """
@@ -142,6 +167,7 @@ defmodule AWS.ConnectContactLens do
   ## Example:
 
       list_realtime_contact_analysis_segments_request() :: %{
+        optional("ListFilter") => real_time_contact_analysis_segments_filter(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
         required("ContactId") => String.t() | atom(),
@@ -192,6 +218,17 @@ defmodule AWS.ConnectContactLens do
 
   ## Example:
 
+      real_time_contact_analysis_segments_filter() :: %{
+        "CategoriesAttributeFilter" => categories_attribute_filter()
+      }
+
+  """
+  @type real_time_contact_analysis_segments_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       realtime_contact_analysis_segment() :: %{
         "Categories" => categories(),
         "ExtractedInformation" => extracted_information(),
@@ -212,6 +249,19 @@ defmodule AWS.ConnectContactLens do
 
   """
   @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_condition() :: %{
+        "ComparisonType" => list(any()),
+        "TagKey" => String.t() | atom(),
+        "TagValue" => String.t() | atom()
+      }
+
+  """
+  @type tag_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

@@ -2296,6 +2296,18 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
+      group_metadata() :: %{
+        "description" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()]
+      }
+
+  """
+  @type group_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       http_verification() :: %{
         "routePath" => [String.t() | atom()],
         "token" => [String.t() | atom()]
@@ -5701,8 +5713,8 @@ defmodule AWS.SecurityAgent do
   end
 
   @doc """
-  Creates a new membership, granting a user access to an agent space within an
-  application.
+  Creates a new membership, granting a user or group access to an agent space
+  within an application.
   """
   @spec create_membership(map(), create_membership_request(), list()) ::
           {:ok, create_membership_response(), any()}
@@ -6025,7 +6037,7 @@ defmodule AWS.SecurityAgent do
   end
 
   @doc """
-  Deletes a membership, revoking a user's access to an agent space.
+  Deletes a membership, revoking a user's or group's access to an agent space.
   """
   @spec delete_membership(map(), delete_membership_request(), list()) ::
           {:ok, delete_membership_response(), any()}

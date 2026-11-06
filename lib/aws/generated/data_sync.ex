@@ -54,6 +54,30 @@ defmodule AWS.DataSync do
 
   ## Example:
       
+      azure_federated_identity_config() :: %{
+        "AwsIamRole" => String.t() | atom(),
+        "AzureOidc" => azure_oidc_config()
+      }
+      
+  """
+  @type azure_federated_identity_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      azure_oidc_config() :: %{
+        "ClientId" => String.t() | atom(),
+        "TenantId" => String.t() | atom()
+      }
+      
+  """
+  @type azure_oidc_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       cancel_task_execution_request() :: %{
         required("TaskExecutionArn") => String.t() | atom()
       }
@@ -119,6 +143,7 @@ defmodule AWS.DataSync do
         optional("BlobType") => list(any()),
         optional("CmkSecretConfig") => cmk_secret_config(),
         optional("CustomSecretConfig") => custom_secret_config(),
+        optional("FederatedIdentity") => azure_federated_identity_config(),
         optional("SasConfiguration") => azure_blob_sas_configuration(),
         optional("Subdirectory") => String.t() | atom(),
         optional("Tags") => list(tag_list_entry()),
@@ -346,6 +371,7 @@ defmodule AWS.DataSync do
         optional("AgentArns") => list(String.t() | atom()),
         optional("CmkSecretConfig") => cmk_secret_config(),
         optional("CustomSecretConfig") => custom_secret_config(),
+        optional("FederatedIdentity") => object_storage_federated_identity_config(),
         optional("SecretKey") => String.t() | atom(),
         optional("ServerCertificate") => binary(),
         optional("ServerPort") => integer(),
@@ -590,6 +616,7 @@ defmodule AWS.DataSync do
         "CmkSecretConfig" => cmk_secret_config(),
         "CreationTime" => non_neg_integer(),
         "CustomSecretConfig" => custom_secret_config(),
+        "FederatedIdentity" => azure_federated_identity_config(),
         "LocationArn" => String.t() | atom(),
         "LocationUri" => String.t() | atom(),
         "ManagedSecretConfig" => managed_secret_config()
@@ -818,6 +845,7 @@ defmodule AWS.DataSync do
         "CmkSecretConfig" => cmk_secret_config(),
         "CreationTime" => non_neg_integer(),
         "CustomSecretConfig" => custom_secret_config(),
+        "FederatedIdentity" => object_storage_federated_identity_config(),
         "LocationArn" => String.t() | atom(),
         "LocationUri" => String.t() | atom(),
         "ManagedSecretConfig" => managed_secret_config(),
@@ -1083,6 +1111,20 @@ defmodule AWS.DataSync do
 
   ## Example:
       
+      google_oidc_config() :: %{
+        "IdentityPoolName" => String.t() | atom(),
+        "IdentityProviderName" => String.t() | atom(),
+        "ProjectName" => String.t() | atom(),
+        "ProjectNumber" => String.t() | atom()
+      }
+      
+  """
+  @type google_oidc_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       hdfs_name_node() :: %{
         "Hostname" => String.t() | atom(),
         "Port" => integer()
@@ -1299,6 +1341,29 @@ defmodule AWS.DataSync do
       
   """
   @type nfs_mount_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      object_storage_external_identity_config() :: %{
+        "GoogleOidc" => google_oidc_config()
+      }
+      
+  """
+  @type object_storage_external_identity_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      object_storage_federated_identity_config() :: %{
+        "AwsIamRole" => String.t() | atom(),
+        "ExternalIdentity" => object_storage_external_identity_config()
+      }
+      
+  """
+  @type object_storage_federated_identity_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1749,6 +1814,7 @@ defmodule AWS.DataSync do
         optional("BlobType") => list(any()),
         optional("CmkSecretConfig") => cmk_secret_config(),
         optional("CustomSecretConfig") => custom_secret_config(),
+        optional("FederatedIdentity") => azure_federated_identity_config(),
         optional("SasConfiguration") => azure_blob_sas_configuration(),
         optional("Subdirectory") => String.t() | atom(),
         required("LocationArn") => String.t() | atom()
@@ -1948,6 +2014,7 @@ defmodule AWS.DataSync do
         optional("AgentArns") => list(String.t() | atom()),
         optional("CmkSecretConfig") => cmk_secret_config(),
         optional("CustomSecretConfig") => custom_secret_config(),
+        optional("FederatedIdentity") => object_storage_federated_identity_config(),
         optional("SecretKey") => String.t() | atom(),
         optional("ServerCertificate") => binary(),
         optional("ServerHostname") => String.t() | atom(),
@@ -2845,18 +2912,6 @@ defmodule AWS.DataSync do
   a truncated list of agents in a response, the response contains a marker that
   you can specify
   in your next request to fetch the next page of agents.
-
-  `ListAgents` is eventually consistent. This means the result of running the
-  operation might not reflect that you just created or deleted an agent. For
-  example, if you
-  create an agent with
-  [CreateAgent](https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateAgent.html) and then
-  immediately run `ListAgents`, that agent might not show up in the list right
-  away.
-  In situations like this, you can always confirm whether an agent has been
-  created (or deleted)
-  by using
-  [DescribeAgent](https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeAgent.html).
   """
   @spec list_agents(map(), list_agents_request(), list()) ::
           {:ok, list_agents_response(), any()}

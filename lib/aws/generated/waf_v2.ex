@@ -455,6 +455,42 @@ defmodule AWS.WAFV2 do
 
   ## Example:
       
+      connected_account_chain_config() :: %{
+        "Chain" => list(any()),
+        "Prices" => list(connected_account_price())
+      }
+      
+  """
+  @type connected_account_chain_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connected_account_config() :: %{
+        "ConnectedAccountArn" => String.t() | atom(),
+        "PaymentNetworks" => list(connected_account_chain_config())
+      }
+      
+  """
+  @type connected_account_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connected_account_price() :: %{
+        "Amount" => String.t() | atom(),
+        "Currency" => list(any())
+      }
+      
+  """
+  @type connected_account_price() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       cookie_match_pattern() :: %{
         "All" => all(),
         "ExcludedCookies" => list(String.t() | atom()),
@@ -2353,6 +2389,7 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       monetization_config() :: %{
+        "ConnectedAccountConfigs" => list(connected_account_config()),
         "CryptoConfig" => crypto_config(),
         "CurrencyMode" => list(any())
       }

@@ -352,6 +352,20 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      auto_upgrade_metadata() :: %{
+        "AnalysisId" => String.t() | atom(),
+        "SourceVersion" => String.t() | atom(),
+        "Status" => list(any()),
+        "TargetVersion" => String.t() | atom()
+      }
+      
+  """
+  @type auto_upgrade_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       backfill_error() :: %{
         "Code" => list(any()),
         "Partitions" => list(partition_value_list())
@@ -6967,6 +6981,37 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      get_job_upgrade_analysis_request() :: %{
+        required("analysisId") => String.t() | atom(),
+        required("jobName") => String.t() | atom()
+      }
+      
+  """
+  @type get_job_upgrade_analysis_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_job_upgrade_analysis_response() :: %{
+        "analysisId" => String.t() | atom(),
+        "analysisType" => list(any()),
+        "autoUpgradeEligibilitySummary" => [String.t() | atom()],
+        "autoUpgradeEvaluationSummary" => [String.t() | atom()],
+        "errorMessage" => [String.t() | atom()],
+        "jobName" => String.t() | atom(),
+        "sourceVersion" => [String.t() | atom()],
+        "status" => list(any()),
+        "targetVersion" => [String.t() | atom()]
+      }
+      
+  """
+  @type get_job_upgrade_analysis_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_jobs_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
@@ -9026,6 +9071,7 @@ defmodule AWS.Glue do
       
       job() :: %{
         "AllocatedCapacity" => integer(),
+        "AutoUpgradeMetadata" => auto_upgrade_metadata(),
         "CodeGenConfigurationNodes" => map(),
         "Command" => job_command(),
         "Connections" => connections_list(),
@@ -13201,6 +13247,31 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      start_job_upgrade_analysis_request() :: %{
+        optional("analysisId") => String.t() | atom(),
+        optional("upgradeConsent") => list(any()),
+        required("jobName") => String.t() | atom()
+      }
+      
+  """
+  @type start_job_upgrade_analysis_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_job_upgrade_analysis_response() :: %{
+        "analysisId" => String.t() | atom(),
+        "jobName" => String.t() | atom()
+      }
+      
+  """
+  @type start_job_upgrade_analysis_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       start_materialized_view_refresh_task_run_request() :: %{
         optional("FullRefresh") => boolean(),
         required("CatalogId") => String.t() | atom(),
@@ -13515,6 +13586,27 @@ defmodule AWS.Glue do
       
   """
   @type stop_crawler_schedule_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_job_upgrade_analysis_request() :: %{
+        required("analysisId") => String.t() | atom(),
+        required("jobName") => String.t() | atom()
+      }
+      
+  """
+  @type stop_job_upgrade_analysis_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_job_upgrade_analysis_response() :: %{}
+      
+  """
+  @type stop_job_upgrade_analysis_response() :: %{}
 
   @typedoc """
 
@@ -16387,6 +16479,13 @@ defmodule AWS.Glue do
           | internal_service_exception()
           | entity_not_found_exception()
 
+  @type get_job_upgrade_analysis_errors() ::
+          operation_not_supported_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+          | access_denied_exception()
+
   @type get_jobs_errors() ::
           operation_timeout_exception()
           | invalid_input_exception()
@@ -17068,6 +17167,15 @@ defmodule AWS.Glue do
           | entity_not_found_exception()
           | concurrent_runs_exceeded_exception()
 
+  @type start_job_upgrade_analysis_errors() ::
+          validation_exception()
+          | resource_number_limit_exceeded_exception()
+          | operation_not_supported_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+          | access_denied_exception()
+
   @type start_materialized_view_refresh_task_run_errors() ::
           resource_number_limit_exceeded_exception()
           | operation_timeout_exception()
@@ -17127,6 +17235,14 @@ defmodule AWS.Glue do
           | scheduler_not_running_exception()
           | operation_timeout_exception()
           | entity_not_found_exception()
+
+  @type stop_job_upgrade_analysis_errors() ::
+          throttling_exception()
+          | operation_not_supported_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+          | access_denied_exception()
 
   @type stop_materialized_view_refresh_task_run_errors() ::
           operation_timeout_exception()
@@ -20103,6 +20219,21 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Retrieves the current status and results of an upgrade analysis.
+  """
+  @spec get_job_upgrade_analysis(map(), get_job_upgrade_analysis_request(), list()) ::
+          {:ok, get_job_upgrade_analysis_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_job_upgrade_analysis_errors()}
+  def get_job_upgrade_analysis(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetJobUpgradeAnalysis", input, options)
+  end
+
+  @doc """
   Retrieves all current job definitions.
   """
   @spec get_jobs(map(), get_jobs_request(), list()) ::
@@ -22130,6 +22261,21 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Resumes an analysis that is waiting for upgrade consent.
+  """
+  @spec start_job_upgrade_analysis(map(), start_job_upgrade_analysis_request(), list()) ::
+          {:ok, start_job_upgrade_analysis_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_job_upgrade_analysis_errors()}
+  def start_job_upgrade_analysis(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "StartJobUpgradeAnalysis", input, options)
+  end
+
+  @doc """
   Starts a materialized view refresh task run for a specified materialized view.
   """
   @spec start_materialized_view_refresh_task_run(
@@ -22311,6 +22457,21 @@ defmodule AWS.Glue do
       metadata()
 
     Request.request_post(client, meta, "StopCrawlerSchedule", input, options)
+  end
+
+  @doc """
+  Stops an in-progress upgrade analysis.
+  """
+  @spec stop_job_upgrade_analysis(map(), stop_job_upgrade_analysis_request(), list()) ::
+          {:ok, stop_job_upgrade_analysis_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, stop_job_upgrade_analysis_errors()}
+  def stop_job_upgrade_analysis(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "StopJobUpgradeAnalysis", input, options)
   end
 
   @doc """

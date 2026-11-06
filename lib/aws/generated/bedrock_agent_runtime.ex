@@ -1744,6 +1744,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       get_document_content_request() :: %{
+        optional("mediaId") => String.t() | atom(),
         optional("outputFormat") => list(any()),
         optional("userContext") => user_context()
       }
@@ -4995,9 +4996,11 @@ defmodule AWS.BedrockAgentRuntime do
   end
 
   @doc """
-  Retrieves the content of an ingested document from a knowledge base.
+  Retrieves the content of an ingested document from a knowledge base, or of an
+  image embedded in the document.
 
-  Returns a pre-signed URL for secure document access.
+  Returns a pre-signed URL for downloading the content. Use this operation to
+  display the source of a `Retrieve` result.
   """
   @spec get_document_content(
           map(),

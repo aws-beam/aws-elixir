@@ -92,6 +92,7 @@ defmodule AWS.AppIntegrations do
         "CreatedTime" => non_neg_integer(),
         "Id" => String.t() | atom(),
         "IsService" => boolean(),
+        "LastModifiedRegion" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t() | atom(),
         "Namespace" => String.t() | atom()
@@ -468,6 +469,7 @@ defmodule AWS.AppIntegrations do
         "IframeConfig" => iframe_config(),
         "InitializationTimeout" => integer(),
         "IsService" => boolean(),
+        "LastModifiedRegion" => String.t() | atom(),
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t() | atom(),
         "Namespace" => String.t() | atom(),
@@ -1090,18 +1092,23 @@ defmodule AWS.AppIntegrations do
           | resource_not_found_exception()
           | invalid_request_exception()
           | internal_service_error()
+          | access_denied_exception()
 
   @type tag_resource_errors() ::
           throttling_exception()
           | resource_not_found_exception()
           | invalid_request_exception()
           | internal_service_error()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type untag_resource_errors() ::
           throttling_exception()
           | resource_not_found_exception()
           | invalid_request_exception()
           | internal_service_error()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type update_application_errors() ::
           unsupported_operation_exception()

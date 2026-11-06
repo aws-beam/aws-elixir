@@ -926,6 +926,29 @@ defmodule AWS.Route53Domains do
 
   ## Example:
       
+      restore_domain_request() :: %{
+        optional("Consent") => consent(),
+        required("DomainName") => String.t() | atom()
+      }
+      
+  """
+  @type restore_domain_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_domain_response() :: %{
+        "OperationId" => String.t() | atom()
+      }
+      
+  """
+  @type restore_domain_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       retrieve_domain_auth_code_request() :: %{
         required("DomainName") => String.t() | atom()
       }
@@ -1294,6 +1317,9 @@ defmodule AWS.Route53Domains do
           | invalid_input()
 
   @type resend_operation_authorization_errors() :: t_l_d_in_maintenance() | invalid_input()
+
+  @type restore_domain_errors() ::
+          unsupported_t_l_d() | operation_limit_exceeded() | invalid_input() | duplicate_request()
 
   @type retrieve_domain_auth_code_errors() ::
           unsupported_t_l_d() | t_l_d_in_maintenance() | invalid_input()
@@ -2033,6 +2059,51 @@ defmodule AWS.Route53Domains do
       metadata()
 
     Request.request_post(client, meta, "ResendOperationAuthorization", input, options)
+  end
+
+  @doc """
+  Restores a domain that has expired, or was deleted, before it becomes available
+  for others to register.
+
+  The cost of restoring your domain is billed to your Amazon Web Services account.
+
+  Not every TLD registry supports restoring domains, and the period during which a
+  domain can be restored varies by TLD. To find out whether your domain can be
+  restored
+  and the period during which you can restore it, see [Domains that you can register with Amazon Route
+  53](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html)
+  in the *Amazon Route 53 Developer
+  Guide*.
+
+  Restoring a domain typically costs more, and sometimes much more, than
+  registering
+  or renewing a domain. To get the restoration price for a domain before you
+  restore
+  it, use
+  [GetDomainPrices](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetDomainPrices.html). 
+
+  Restoration is asynchronous. The response includes an operation ID that you can
+  use
+  with
+  [GetOperationDetail](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html)
+  to track the progress of the request. When the restoration
+  succeeds, the domain reappears in the response to
+  [ListDomains](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ListDomains.html).   For more information, see [Restoring an
+  expired or deleted
+  domain](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-restore-expired.html)
+  in the *Amazon Route 53 Developer
+  Guide*.
+  """
+  @spec restore_domain(map(), restore_domain_request(), list()) ::
+          {:ok, restore_domain_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, restore_domain_errors()}
+  def restore_domain(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "RestoreDomain", input, options)
   end
 
   @doc """

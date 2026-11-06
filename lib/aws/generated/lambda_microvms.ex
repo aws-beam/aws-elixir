@@ -590,6 +590,7 @@ defmodule AWS.LambdaMicrovms do
         "imageArn" => String.t() | atom(),
         "imageVersion" => String.t() | atom(),
         "status" => list(any()),
+        "supportedCpuConfigurations" => list(cpu_configuration()),
         "updatedAt" => [non_neg_integer()]
       }
 

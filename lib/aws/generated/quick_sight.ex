@@ -8980,6 +8980,29 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      describe_resource_permissions_request() :: %{}
+
+  """
+  @type describe_resource_permissions_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_resource_permissions_response() :: %{
+        "CustomerManagedRoleArn" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "RoleType" => list(any()),
+        "Status" => integer()
+      }
+
+  """
+  @type describe_resource_permissions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_role_custom_permission_request() :: %{}
 
   """
@@ -22579,6 +22602,32 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_resource_permissions_request() :: %{
+        required("CustomerManagedRoleArn") => String.t() | atom(),
+        required("RoleType") => list(any())
+      }
+
+  """
+  @type update_resource_permissions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_resource_permissions_response() :: %{
+        "CustomerManagedRoleArn" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "RoleType" => list(any()),
+        "Status" => integer()
+      }
+
+  """
+  @type update_resource_permissions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_role_custom_permission_request() :: %{
         required("CustomPermissionsName") => String.t() | atom()
       }
@@ -24963,6 +25012,13 @@ defmodule AWS.QuickSight do
           | internal_failure_exception()
           | access_denied_exception()
 
+  @type describe_resource_permissions_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
   @type describe_role_custom_permission_errors() ::
           throttling_exception()
           | resource_unavailable_exception()
@@ -26163,6 +26219,13 @@ defmodule AWS.QuickSight do
           | resource_not_found_exception()
           | precondition_not_met_exception()
           | limit_exceeded_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
+  @type update_resource_permissions_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
           | invalid_parameter_value_exception()
           | internal_failure_exception()
           | access_denied_exception()
@@ -31521,6 +31584,28 @@ defmodule AWS.QuickSight do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/refresh-schedules/#{AWS.Util.encode_uri(schedule_id)}"
 
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Describes the service role configuration for your Amazon Quick Sight account.
+
+  Call this operation in the Amazon Web Services Region where your Amazon Quick
+  Sight account is
+  registered (the home Region).
+  """
+  @spec describe_resource_permissions(map(), String.t() | atom(), list()) ::
+          {:ok, describe_resource_permissions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_resource_permissions_errors()}
+  def describe_resource_permissions(%Client{} = client, aws_account_id, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/account-resource-permissions"
     headers = []
     query_params = []
 
@@ -37775,6 +37860,54 @@ defmodule AWS.QuickSight do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/refresh-schedules"
 
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the service role configuration that Amazon Quick Sight uses to access
+  resources in your
+  Amazon Web Services account.
+
+  To use this operation, you must have the
+  `quicksight:UpdateResourcePermissions` and `iam:PassRole`
+  permissions.
+
+  Call this operation in the Amazon Web Services Region where your Amazon Quick
+  Sight account is
+  registered (the home Region). You can switch from a role managed by Amazon Quick
+  Sight to a
+  customer-managed role, or replace one customer-managed role with another. You
+  can't use
+  this operation to switch back to a role managed by Amazon Quick Sight.
+  """
+  @spec update_resource_permissions(
+          map(),
+          String.t() | atom(),
+          update_resource_permissions_request(),
+          list()
+        ) ::
+          {:ok, update_resource_permissions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_resource_permissions_errors()}
+  def update_resource_permissions(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/account-resource-permissions"
     headers = []
     custom_headers = []
     query_params = []

@@ -59,6 +59,8 @@ defmodule AWS.QConnect do
         "assistantId" => String.t() | atom(),
         "configuration" => list(),
         "description" => String.t() | atom(),
+        "lastModifiedRegion" => String.t() | atom(),
+        "lastModifiedTime" => [non_neg_integer()],
         "modifiedTime" => [non_neg_integer()],
         "name" => String.t() | atom(),
         "origin" => String.t() | atom(),
@@ -82,6 +84,8 @@ defmodule AWS.QConnect do
         "assistantId" => String.t() | atom(),
         "configuration" => list(),
         "description" => String.t() | atom(),
+        "lastModifiedRegion" => String.t() | atom(),
+        "lastModifiedTime" => [non_neg_integer()],
         "modifiedTime" => [non_neg_integer()],
         "name" => String.t() | atom(),
         "origin" => String.t() | atom(),
@@ -153,6 +157,8 @@ defmodule AWS.QConnect do
         "contentPolicyConfig" => a_i_guardrail_content_policy_config(),
         "contextualGroundingPolicyConfig" => a_i_guardrail_contextual_grounding_policy_config(),
         "description" => String.t() | atom(),
+        "lastModifiedRegion" => String.t() | atom(),
+        "lastModifiedTime" => [non_neg_integer()],
         "modifiedTime" => [non_neg_integer()],
         "name" => String.t() | atom(),
         "sensitiveInformationPolicyConfig" => a_i_guardrail_sensitive_information_policy_config(),
@@ -188,6 +194,8 @@ defmodule AWS.QConnect do
         "assistantArn" => String.t() | atom(),
         "assistantId" => String.t() | atom(),
         "description" => String.t() | atom(),
+        "lastModifiedRegion" => String.t() | atom(),
+        "lastModifiedTime" => [non_neg_integer()],
         "modifiedTime" => [non_neg_integer()],
         "name" => String.t() | atom(),
         "status" => String.t() | atom(),
@@ -245,6 +253,8 @@ defmodule AWS.QConnect do
         "assistantId" => String.t() | atom(),
         "description" => String.t() | atom(),
         "inferenceConfiguration" => a_iprompt_inference_configuration(),
+        "lastModifiedRegion" => String.t() | atom(),
+        "lastModifiedTime" => [non_neg_integer()],
         "modelId" => String.t() | atom(),
         "modifiedTime" => [non_neg_integer()],
         "name" => String.t() | atom(),
@@ -285,6 +295,8 @@ defmodule AWS.QConnect do
         "assistantArn" => String.t() | atom(),
         "assistantId" => String.t() | atom(),
         "description" => String.t() | atom(),
+        "lastModifiedRegion" => String.t() | atom(),
+        "lastModifiedTime" => [non_neg_integer()],
         "modelId" => String.t() | atom(),
         "modifiedTime" => [non_neg_integer()],
         "name" => String.t() | atom(),
@@ -421,6 +433,8 @@ defmodule AWS.QConnect do
         "assistantId" => String.t() | atom(),
         "associationData" => list(),
         "associationType" => String.t() | atom(),
+        "lastModifiedRegion" => String.t() | atom(),
+        "lastModifiedTime" => [non_neg_integer()],
         "tags" => map()
       }
 
@@ -438,6 +452,8 @@ defmodule AWS.QConnect do
         "assistantId" => String.t() | atom(),
         "associationData" => list(),
         "associationType" => String.t() | atom(),
+        "lastModifiedRegion" => String.t() | atom(),
+        "lastModifiedTime" => [non_neg_integer()],
         "tags" => map()
       }
 
@@ -462,10 +478,13 @@ defmodule AWS.QConnect do
       assistant_data() :: %{
         "aiAgentConfiguration" => map(),
         "assistantArn" => String.t() | atom(),
+        "assistantGlobalResiliencyStatus" => String.t() | atom(),
         "assistantId" => String.t() | atom(),
         "capabilityConfiguration" => assistant_capability_configuration(),
         "description" => String.t() | atom(),
         "integrationConfiguration" => assistant_integration_configuration(),
+        "lastModifiedRegion" => String.t() | atom(),
+        "lastModifiedTime" => [non_neg_integer()],
         "name" => String.t() | atom(),
         "orchestratorConfigurationList" => list(orchestrator_configuration_entry()),
         "serverSideEncryptionConfiguration" => server_side_encryption_configuration(),
@@ -499,6 +518,8 @@ defmodule AWS.QConnect do
         "capabilityConfiguration" => assistant_capability_configuration(),
         "description" => String.t() | atom(),
         "integrationConfiguration" => assistant_integration_configuration(),
+        "lastModifiedRegion" => String.t() | atom(),
+        "lastModifiedTime" => [non_neg_integer()],
         "name" => String.t() | atom(),
         "orchestratorConfigurationList" => list(orchestrator_configuration_entry()),
         "serverSideEncryptionConfiguration" => server_side_encryption_configuration(),
@@ -681,8 +702,11 @@ defmodule AWS.QConnect do
         "contentArn" => String.t() | atom(),
         "contentId" => String.t() | atom(),
         "contentType" => String.t() | atom(),
+        "fileHash" => String.t() | atom(),
         "knowledgeBaseArn" => String.t() | atom(),
         "knowledgeBaseId" => String.t() | atom(),
+        "lastModifiedRegion" => String.t() | atom(),
+        "lastModifiedTime" => [non_neg_integer()],
         "linkOutUri" => String.t() | atom(),
         "metadata" => map(),
         "name" => String.t() | atom(),
@@ -733,8 +757,11 @@ defmodule AWS.QConnect do
         "contentArn" => String.t() | atom(),
         "contentId" => String.t() | atom(),
         "contentType" => String.t() | atom(),
+        "fileHash" => String.t() | atom(),
         "knowledgeBaseArn" => String.t() | atom(),
         "knowledgeBaseId" => String.t() | atom(),
+        "lastModifiedRegion" => String.t() | atom(),
+        "lastModifiedTime" => [non_neg_integer()],
         "metadata" => map(),
         "name" => String.t() | atom(),
         "revisionId" => String.t() | atom(),
@@ -2469,6 +2496,8 @@ defmodule AWS.QConnect do
         "knowledgeBaseId" => String.t() | atom(),
         "knowledgeBaseType" => String.t() | atom(),
         "lastContentModificationTime" => [non_neg_integer()],
+        "lastModifiedRegion" => String.t() | atom(),
+        "lastModifiedTime" => [non_neg_integer()],
         "name" => String.t() | atom(),
         "renderingConfiguration" => rendering_configuration(),
         "serverSideEncryptionConfiguration" => server_side_encryption_configuration(),
@@ -2490,6 +2519,8 @@ defmodule AWS.QConnect do
         "knowledgeBaseArn" => String.t() | atom(),
         "knowledgeBaseId" => String.t() | atom(),
         "knowledgeBaseType" => String.t() | atom(),
+        "lastModifiedRegion" => String.t() | atom(),
+        "lastModifiedTime" => [non_neg_integer()],
         "name" => String.t() | atom(),
         "renderingConfiguration" => rendering_configuration(),
         "serverSideEncryptionConfiguration" => server_side_encryption_configuration(),
@@ -3203,6 +3234,7 @@ defmodule AWS.QConnect do
         "crossRegionStatus" => String.t() | atom(),
         "displayName" => String.t() | atom(),
         "endOfLifeTimestamp" => [non_neg_integer()],
+        "globalResiliencyStatus" => String.t() | atom(),
         "legacyTimestamp" => [non_neg_integer()],
         "modelId" => String.t() | atom(),
         "modelLifecycle" => String.t() | atom(),
@@ -3579,6 +3611,7 @@ defmodule AWS.QConnect do
         "knowledgeBaseId" => String.t() | atom(),
         "language" => String.t() | atom(),
         "lastModifiedBy" => String.t() | atom(),
+        "lastModifiedRegion" => String.t() | atom(),
         "lastModifiedTime" => [non_neg_integer()],
         "name" => String.t() | atom(),
         "quickResponseArn" => String.t() | atom(),
@@ -3663,6 +3696,7 @@ defmodule AWS.QConnect do
         "knowledgeBaseId" => String.t() | atom(),
         "language" => String.t() | atom(),
         "lastModifiedBy" => String.t() | atom(),
+        "lastModifiedRegion" => String.t() | atom(),
         "lastModifiedTime" => [non_neg_integer()],
         "name" => String.t() | atom(),
         "quickResponseArn" => String.t() | atom(),
@@ -3688,6 +3722,7 @@ defmodule AWS.QConnect do
         "knowledgeBaseArn" => String.t() | atom(),
         "knowledgeBaseId" => String.t() | atom(),
         "lastModifiedBy" => String.t() | atom(),
+        "lastModifiedRegion" => String.t() | atom(),
         "lastModifiedTime" => [non_neg_integer()],
         "name" => String.t() | atom(),
         "quickResponseArn" => String.t() | atom(),
@@ -3741,6 +3776,52 @@ defmodule AWS.QConnect do
 
   """
   @type recommendation_trigger() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_assistant_replica_key_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("replicaKmsKey") => replica_kms_key()
+      }
+
+  """
+  @type register_assistant_replica_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_assistant_replica_key_response() :: %{
+        "assistant" => assistant_data()
+      }
+
+  """
+  @type register_assistant_replica_key_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_knowledge_base_replica_key_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("replicaKmsKey") => replica_kms_key()
+      }
+
+  """
+  @type register_knowledge_base_replica_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_knowledge_base_replica_key_response() :: %{
+        "knowledgeBase" => knowledge_base_data()
+      }
+
+  """
+  @type register_knowledge_base_replica_key_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3816,6 +3897,17 @@ defmodule AWS.QConnect do
 
   """
   @type rendering_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      replica_kms_key() :: %{
+        "arn" => String.t() | atom()
+      }
+
+  """
+  @type replica_kms_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4133,7 +4225,8 @@ defmodule AWS.QConnect do
   ## Example:
 
       server_side_encryption_configuration() :: %{
-        "kmsKeyId" => String.t() | atom()
+        "kmsKeyId" => String.t() | atom(),
+        "replicaKmsKeys" => list(replica_kms_key())
       }
 
   """
@@ -4699,7 +4792,8 @@ defmodule AWS.QConnect do
   ## Example:
 
       unprocessable_content_exception() :: %{
-        "message" => [String.t() | atom()]
+        "message" => [String.t() | atom()],
+        "reason" => String.t() | atom()
       }
 
   """
@@ -5573,10 +5667,27 @@ defmodule AWS.QConnect do
           | request_timeout_exception()
           | access_denied_exception()
 
+  @type register_assistant_replica_key_errors() ::
+          validation_exception()
+          | unauthorized_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type register_knowledge_base_replica_key_errors() ::
+          validation_exception()
+          | unauthorized_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type remove_assistant_a_i_agent_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type remove_knowledge_base_template_uri_errors() ::
@@ -5680,6 +5791,7 @@ defmodule AWS.QConnect do
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type update_content_errors() ::
@@ -8500,6 +8612,85 @@ defmodule AWS.QConnect do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Registers a replica Region KMS key for an Amazon Q in Connect assistant.
+
+  To use this operation, you must have `kms:GenerateDataKey` permission on the
+  replica key.
+  """
+  @spec register_assistant_replica_key(
+          map(),
+          String.t() | atom(),
+          register_assistant_replica_key_request(),
+          list()
+        ) ::
+          {:ok, register_assistant_replica_key_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, register_assistant_replica_key_errors()}
+  def register_assistant_replica_key(%Client{} = client, assistant_id, input, options \\ []) do
+    url_path = "/assistants/#{AWS.Util.encode_uri(assistant_id)}/replicaKey"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Registers a replica Region KMS key for an Amazon Q in Connect knowledge base.
+
+  To use this operation, you must have `kms:GenerateDataKey` permission on the
+  replica key. You must also have `kms:CreateGrant` permission on the primary key.
+  """
+  @spec register_knowledge_base_replica_key(
+          map(),
+          String.t() | atom(),
+          register_knowledge_base_replica_key_request(),
+          list()
+        ) ::
+          {:ok, register_knowledge_base_replica_key_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, register_knowledge_base_replica_key_errors()}
+  def register_knowledge_base_replica_key(
+        %Client{} = client,
+        knowledge_base_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/knowledgeBases/#{AWS.Util.encode_uri(knowledge_base_id)}/replicaKey"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
       url_path,
       query_params,
       custom_headers ++ headers,

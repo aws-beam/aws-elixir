@@ -61,6 +61,7 @@ defmodule AWS.RAM do
 
       associate_resource_share_permission_request() :: %{
         optional("clientToken") => String.t() | atom(),
+        optional("permissionTemplateParameters") => list(permission_template_parameter_input()),
         optional("permissionVersion") => integer(),
         optional("replace") => boolean(),
         required("permissionArn") => String.t() | atom(),
@@ -118,6 +119,7 @@ defmodule AWS.RAM do
         "defaultVersion" => boolean(),
         "featureSet" => list(any()),
         "lastUpdatedTime" => non_neg_integer(),
+        "permissionTemplateParameters" => list(permission_template_parameter()),
         "permissionVersion" => String.t() | atom(),
         "resourceShareArn" => String.t() | atom(),
         "resourceType" => String.t() | atom(),
@@ -150,6 +152,7 @@ defmodule AWS.RAM do
 
       create_permission_request() :: %{
         optional("clientToken") => String.t() | atom(),
+        optional("permissionTemplateParameters") => list(permission_template_parameter_declaration()),
         optional("tags") => list(tag()),
         required("name") => String.t() | atom(),
         required("policyTemplate") => String.t() | atom(),
@@ -177,6 +180,7 @@ defmodule AWS.RAM do
 
       create_permission_version_request() :: %{
         optional("clientToken") => String.t() | atom(),
+        optional("permissionTemplateParameters") => list(permission_template_parameter_declaration()),
         required("permissionArn") => String.t() | atom(),
         required("policyTemplate") => String.t() | atom()
       }
@@ -204,6 +208,7 @@ defmodule AWS.RAM do
         optional("allowExternalPrincipals") => boolean(),
         optional("clientToken") => String.t() | atom(),
         optional("permissionArns") => list(String.t() | atom()),
+        optional("permissionTemplateParameters") => list(permission_arn_and_template_parameters()),
         optional("principals") => list(String.t() | atom()),
         optional("resourceArns") => list(String.t() | atom()),
         optional("resourceShareConfiguration") => resource_share_configuration(),
@@ -379,6 +384,7 @@ defmodule AWS.RAM do
   ## Example:
 
       get_permission_request() :: %{
+        optional("permissionTemplateParameters") => list(permission_template_parameter_input()),
         optional("permissionVersion") => integer(),
         required("permissionArn") => String.t() | atom()
       }
@@ -635,6 +641,8 @@ defmodule AWS.RAM do
         optional("nextToken") => String.t() | atom(),
         optional("permissionArn") => String.t() | atom(),
         optional("permissionVersion") => integer(),
+        optional("resourceOwner") => list(any()),
+        optional("resourceShareArn") => String.t() | atom(),
         optional("resourceType") => String.t() | atom()
       }
 
@@ -685,7 +693,9 @@ defmodule AWS.RAM do
       list_permissions_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
+        optional("permissionStatus") => list(any()),
         optional("permissionType") => list(any()),
+        optional("resourceOwner") => list(any()),
         optional("resourceType") => String.t() | atom()
       }
 
@@ -926,12 +936,63 @@ defmodule AWS.RAM do
 
   ## Example:
 
+      permission_arn_and_template_parameters() :: %{
+        "permissionArn" => String.t() | atom(),
+        "permissionTemplateParameters" => list(permission_template_parameter_input())
+      }
+
+  """
+  @type permission_arn_and_template_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       permission_limit_exceeded_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
   @type permission_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      permission_template_parameter() :: %{
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "type" => list(any()),
+        "values" => list(String.t() | atom())
+      }
+
+  """
+  @type permission_template_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      permission_template_parameter_declaration() :: %{
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type permission_template_parameter_declaration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      permission_template_parameter_input() :: %{
+        "name" => String.t() | atom(),
+        "values" => list(String.t() | atom())
+      }
+
+  """
+  @type permission_template_parameter_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1037,6 +1098,7 @@ defmodule AWS.RAM do
       replace_permission_associations_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("fromPermissionVersion") => integer(),
+        optional("permissionTemplateParameters") => list(permission_template_parameter_input()),
         required("fromPermissionArn") => String.t() | atom(),
         required("toPermissionArn") => String.t() | atom()
       }
@@ -1066,6 +1128,7 @@ defmodule AWS.RAM do
         "fromPermissionVersion" => String.t() | atom(),
         "id" => String.t() | atom(),
         "lastUpdatedTime" => non_neg_integer(),
+        "permissionTemplateParameters" => list(permission_template_parameter()),
         "status" => list(any()),
         "statusMessage" => String.t() | atom(),
         "toPermissionArn" => String.t() | atom(),
@@ -1247,7 +1310,9 @@ defmodule AWS.RAM do
         "lastUpdatedTime" => non_neg_integer(),
         "name" => String.t() | atom(),
         "permission" => String.t() | atom(),
+        "permissionTemplateParameters" => list(permission_template_parameter_declaration()),
         "permissionType" => list(any()),
+        "resourceOwner" => list(any()),
         "resourceType" => String.t() | atom(),
         "status" => list(any()),
         "tags" => list(tag()),
@@ -1269,7 +1334,9 @@ defmodule AWS.RAM do
         "isResourceTypeDefault" => boolean(),
         "lastUpdatedTime" => non_neg_integer(),
         "name" => String.t() | atom(),
+        "permissionTemplateParameters" => list(permission_template_parameter()),
         "permissionType" => list(any()),
+        "resourceOwner" => list(any()),
         "resourceType" => String.t() | atom(),
         "status" => String.t() | atom(),
         "tags" => list(tag()),
@@ -1466,6 +1533,31 @@ defmodule AWS.RAM do
 
   ## Example:
 
+      update_permission_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("permissionArn") => String.t() | atom(),
+        required("status") => list(any())
+      }
+
+  """
+  @type update_permission_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_permission_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "permissionStatus" => list(any())
+      }
+
+  """
+  @type update_permission_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_resource_share_request() :: %{
         optional("allowExternalPrincipals") => boolean(),
         optional("clientToken") => String.t() | atom(),
@@ -1539,6 +1631,7 @@ defmodule AWS.RAM do
           | service_unavailable_exception()
           | server_internal_exception()
           | permission_versions_limit_exceeded_exception()
+          | operation_not_permitted_exception()
           | malformed_policy_template_exception()
           | malformed_arn_exception()
           | invalid_policy_exception()
@@ -1812,6 +1905,17 @@ defmodule AWS.RAM do
           | server_internal_exception()
           | malformed_arn_exception()
           | invalid_parameter_exception()
+
+  @type update_permission_errors() ::
+          unknown_resource_exception()
+          | service_unavailable_exception()
+          | server_internal_exception()
+          | permission_limit_exceeded_exception()
+          | operation_not_permitted_exception()
+          | malformed_arn_exception()
+          | invalid_parameter_exception()
+          | invalid_client_token_exception()
+          | idempotent_parameter_mismatch_exception()
 
   @type update_resource_share_errors() ::
           unknown_resource_exception()
@@ -2313,6 +2417,14 @@ defmodule AWS.RAM do
 
   @doc """
   Retrieves the contents of a managed permission in JSON format.
+
+  If the permission has template parameters, you can include the
+  `permissionTemplateParameters` parameter in your request. The operation then
+  renders the returned policy with the specified values in place of the template
+  parameter
+  placeholders. If you omit `permissionTemplateParameters`, the operation
+  returns the raw policy template with `@{parameterName}` placeholders
+  unchanged.
   """
   @spec get_permission(map(), get_permission_request(), list()) ::
           {:ok, get_permission_response(), any()}
@@ -3164,6 +3276,39 @@ defmodule AWS.RAM do
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
     url_path = "/untagresource"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the status of the specified customer managed permission.
+
+  Setting the status to `DEPRECATED` prevents new resource share associations.
+  Setting it to `ATTACHABLE` restores a previously deprecated permission. Existing
+  resource shares that use the permission continue to function.
+  """
+  @spec update_permission(map(), update_permission_request(), list()) ::
+          {:ok, update_permission_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_permission_errors()}
+  def update_permission(%Client{} = client, input, options \\ []) do
+    url_path = "/updatepermission"
     headers = []
     custom_headers = []
     query_params = []

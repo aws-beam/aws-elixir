@@ -44,7 +44,8 @@ defmodule AWS.EKSAuth do
         "audience" => [String.t() | atom()],
         "credentials" => credentials(),
         "podIdentityAssociation" => pod_identity_association(),
-        "subject" => subject()
+        "subject" => subject(),
+        "workloadIdentityProviderArn" => [String.t() | atom()]
       }
 
   """

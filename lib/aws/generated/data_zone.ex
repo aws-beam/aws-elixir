@@ -679,6 +679,7 @@ defmodule AWS.DataZone do
 
       authentication_configuration_patch() :: %{
         "basicAuthenticationCredentials" => basic_authentication_credentials(),
+        "oAuth2Properties" => o_auth2_properties_patch(),
         "secretArn" => [String.t() | atom()]
       }
 
@@ -7019,6 +7020,20 @@ defmodule AWS.DataZone do
 
   """
   @type o_auth2_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      o_auth2_properties_patch() :: %{
+        "oAuth2ClientApplication" => o_auth2_client_application(),
+        "oAuth2GrantType" => list(any()),
+        "tokenUrl" => [String.t() | atom()],
+        "tokenUrlParametersMap" => map()
+      }
+
+  """
+  @type o_auth2_properties_patch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

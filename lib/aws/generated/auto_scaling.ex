@@ -303,6 +303,7 @@ defmodule AWS.AutoScaling do
         optional("AutoScalingGroupNames") => list(String.t() | atom()),
         optional("Filters") => list(filter()),
         optional("IncludeInstances") => boolean(),
+        optional("IncludeManagedResources") => boolean(),
         optional("MaxRecords") => integer(),
         optional("NextToken") => String.t() | atom()
       }
@@ -815,6 +816,7 @@ defmodule AWS.AutoScaling do
   ## Example:
       
       describe_auto_scaling_instances_type() :: %{
+        optional("IncludeManagedResources") => boolean(),
         optional("InstanceIds") => list(String.t() | atom()),
         optional("MaxRecords") => integer(),
         optional("NextToken") => String.t() | atom()
@@ -974,6 +976,7 @@ defmodule AWS.AutoScaling do
       
       describe_notification_configurations_type() :: %{
         optional("AutoScalingGroupNames") => list(String.t() | atom()),
+        optional("IncludeManagedResources") => boolean(),
         optional("MaxRecords") => integer(),
         optional("NextToken") => String.t() | atom()
       }
@@ -987,6 +990,7 @@ defmodule AWS.AutoScaling do
       
       describe_policies_type() :: %{
         optional("AutoScalingGroupName") => String.t() | atom(),
+        optional("IncludeManagedResources") => boolean(),
         optional("MaxRecords") => integer(),
         optional("NextToken") => String.t() | atom(),
         optional("PolicyNames") => list(String.t() | atom()),
@@ -1005,6 +1009,7 @@ defmodule AWS.AutoScaling do
         optional("AutoScalingGroupName") => String.t() | atom(),
         optional("Filters") => list(filter()),
         optional("IncludeDeletedGroups") => boolean(),
+        optional("IncludeManagedResources") => boolean(),
         optional("MaxRecords") => integer(),
         optional("NextToken") => String.t() | atom()
       }
@@ -1019,6 +1024,7 @@ defmodule AWS.AutoScaling do
       describe_scheduled_actions_type() :: %{
         optional("AutoScalingGroupName") => String.t() | atom(),
         optional("EndTime") => non_neg_integer(),
+        optional("IncludeManagedResources") => boolean(),
         optional("MaxRecords") => integer(),
         optional("NextToken") => String.t() | atom(),
         optional("ScheduledActionNames") => list(String.t() | atom()),
@@ -1034,6 +1040,7 @@ defmodule AWS.AutoScaling do
       
       describe_tags_type() :: %{
         optional("Filters") => list(filter()),
+        optional("IncludeManagedResources") => boolean(),
         optional("MaxRecords") => integer(),
         optional("NextToken") => String.t() | atom()
       }

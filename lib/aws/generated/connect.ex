@@ -5947,6 +5947,15 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      end_associated_emails_action_definition() :: %{}
+
+  """
+  @type end_associated_emails_action_definition() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       end_associated_tasks_action_definition() :: %{}
 
   """
@@ -12500,6 +12509,7 @@ defmodule AWS.Connect do
         "AssignContactCategoryAction" => assign_contact_category_action_definition(),
         "AssignSlaAction" => assign_sla_action_definition(),
         "CreateCaseAction" => create_case_action_definition(),
+        "EndAssociatedEmailsAction" => end_associated_emails_action_definition(),
         "EndAssociatedTasksAction" => end_associated_tasks_action_definition(),
         "EventBridgeAction" => event_bridge_action_definition(),
         "ExtractInformationAction" => extract_information_action_definition(),

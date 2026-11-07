@@ -7,14 +7,14 @@ defmodule AWS.ConnectCases do
 
     * [Cases data types](https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Cases.html)
 
-  With Amazon Connect Cases, your agents can track and manage customer issues that
-  require multiple interactions, follow-up tasks, and teams in your contact
+  With Connect Customer Cases, your agents can track and manage customer issues
+  that require multiple interactions, follow-up tasks, and teams in your contact
   center.
 
   A case represents a customer issue. It records the issue, the steps and
   interactions taken to resolve the issue, and the outcome. For more information,
-  see [Amazon Connect Cases](https://docs.aws.amazon.com/connect/latest/adminguide/cases.html) in the
-  *Amazon Connect Administrator Guide*.
+  see [Connect Customer Cases](https://docs.aws.amazon.com/connect/latest/adminguide/cases.html) in the
+  *Connect Customer Administrator Guide*.
   """
 
   alias AWS.Client
@@ -83,6 +83,70 @@ defmodule AWS.ConnectCases do
 
   """
   @type basic_layout() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_create_related_item_error_entry() :: %{
+        "caseIdentifier" => case_identifier(),
+        "errorCode" => [String.t() | atom()],
+        "errorMessage" => [String.t() | atom()]
+      }
+
+  """
+  @type batch_create_related_item_error_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_create_related_item_identifier() :: %{
+        "caseIdentifier" => list()
+      }
+
+  """
+  @type batch_create_related_item_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_create_related_item_request() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        optional("performedBy") => list(),
+        required("cases") => list(batch_create_related_item_identifier()),
+        required("content") => list(),
+        required("domainId") => String.t() | atom()
+      }
+
+  """
+  @type batch_create_related_item_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_create_related_item_response() :: %{
+        "failedItems" => list(batch_create_related_item_error_entry()),
+        "successfulItems" => list(batch_create_related_item_success_entry())
+      }
+
+  """
+  @type batch_create_related_item_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_create_related_item_success_entry() :: %{
+        "caseIdentifier" => case_identifier(),
+        "relatedItemArn" => String.t() | atom(),
+        "relatedItemId" => String.t() | atom()
+      }
+
+  """
+  @type batch_create_related_item_success_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -157,6 +221,71 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      batch_update_case_error_entry() :: %{
+        "caseIdentifier" => case_identifier(),
+        "errorCode" => [String.t() | atom()],
+        "errorMessage" => [String.t() | atom()]
+      }
+
+  """
+  @type batch_update_case_error_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_case_identifier() :: %{
+        "caseIdentifier" => list()
+      }
+
+  """
+  @type batch_update_case_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_case_request() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        optional("customerId") => String.t() | atom(),
+        optional("performedBy") => list(),
+        optional("status") => String.t() | atom(),
+        optional("title") => String.t() | atom(),
+        required("cases") => list(batch_update_case_identifier()),
+        required("domainId") => String.t() | atom(),
+        required("fields") => list(field_value_input())
+      }
+
+  """
+  @type batch_update_case_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_case_response() :: %{
+        "failedCases" => list(batch_update_case_error_entry()),
+        "successfulCases" => list(batch_update_case_success_entry())
+      }
+
+  """
+  @type batch_update_case_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_case_success_entry() :: %{
+        "caseIdentifier" => case_identifier()
+      }
+
+  """
+  @type batch_update_case_success_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       boolean_operands() :: %{
         "operandOne" => list(),
         "operandTwo" => list(),
@@ -176,6 +305,19 @@ defmodule AWS.ConnectCases do
 
   """
   @type case_event_included_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      case_identifier() :: %{
+        "caseId" => String.t() | atom(),
+        "referenceId" => String.t() | atom(),
+        "referenceNumber" => String.t() | atom()
+      }
+
+  """
+  @type case_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -870,6 +1012,18 @@ defmodule AWS.ConnectCases do
 
   """
   @type field_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      field_value_input() :: %{
+        "fieldIdentifier" => list(),
+        "value" => list()
+      }
+
+  """
+  @type field_value_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1881,6 +2035,15 @@ defmodule AWS.ConnectCases do
   """
   @type validation_exception() :: %{(String.t() | atom()) => any()}
 
+  @type batch_create_related_item_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type batch_get_case_rule_errors() ::
           validation_exception()
           | throttling_exception()
@@ -1901,6 +2064,14 @@ defmodule AWS.ConnectCases do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | access_denied_exception()
+
+  @type batch_update_case_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type create_case_errors() ::
@@ -2224,9 +2395,67 @@ defmodule AWS.ConnectCases do
   end
 
   @doc """
+  Creates a comment and associates it with multiple cases in a single request.
+
+  All cases must belong to the same domain. This operation supports only the
+  Comment related item type.
+
+  Each case is processed independently. If some cases fail, the remaining cases
+  still receive the related item. To determine whether individual items failed,
+  inspect the `failedItems` array in the response.
+
+  The entire request fails, and no related items are created, in the following
+  cases:
+
+    * The specified domain doesn't exist.
+
+    * A reference ID doesn't match any case in the domain.
+
+    * The request contains duplicate case IDs.
+
+    * The content isn't comment content.
+
+  This operation uses the same IAM action as
+  [CreateRelatedItem](https://docs.aws.amazon.com/cases/latest/APIReference/API_CreateRelatedItem.html) (`cases:CreateRelatedItem`). You can use the `cases:IsBatchAction` condition key
+  in IAM policies to allow or deny batch operations independently from single-case
+  operations.
+
+  If you provide a value for `performedBy.userArn`, you must also have
+  [DescribeUser](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html)
+  permission on the ARN of the user that you provide.
+
+  **Endpoints**: See [Connect Customer endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  """
+  @spec batch_create_related_item(map(), batch_create_related_item_request(), list()) ::
+          {:ok, batch_create_related_item_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_create_related_item_errors()}
+  def batch_create_related_item(%Client{} = client, input, options \\ []) do
+    url_path = "/cases:batchCreateRelatedItem"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Gets a batch of case rules.
 
-  In the Amazon Connect admin website, case rules are known as *case field
+  In the Connect Customer admin website, case rules are known as *case field
   conditions*. For more information about case field conditions, see [Add case field conditions to a case
   template](https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html).
   """
@@ -2324,25 +2553,94 @@ defmodule AWS.ConnectCases do
   end
 
   @doc """
-  If you provide a value for `PerformedBy.UserArn` you must also have
+  Updates fields on multiple cases in a single request.
+
+  All cases must belong to the same domain. Set the title, status, and customer ID
+  through the top-level `title`, `status`, and `customerId` parameters, and set
+  other fields through the `fields` array.
+
+  Each case is processed independently. If some cases fail, the remaining cases
+  are still updated. To determine whether individual cases failed, inspect the
+  `failedCases` array in the response.
+
+  The entire request fails, and no cases are updated, in the following cases:
+
+    * The specified domain doesn't exist.
+
+    * A reference ID doesn't match any case in the domain.
+
+    * The request contains duplicate case IDs.
+
+    * The request doesn't specify any update. Provide at least one entry
+  in `fields`, or a `title`, `status`, or `customerId`.
+
+    * A field identifier in `fields` doesn't resolve to a field in the
+  domain, for example, an unknown field name.
+
+    * A field name contains a pipe (`|`) or comma (`,`) character.
+
+    * `fields` includes `title`, `status`, or `customerId`.
+
+  This operation uses the same IAM action as
+  [UpdateCase](https://docs.aws.amazon.com/cases/latest/APIReference/API_UpdateCase.html) (`cases:UpdateCase`). You can use the `cases:IsBatchAction` condition key in IAM
+  policies to allow or deny batch operations independently from single-case
+  operations.
+
+  If you provide a value for `performedBy.userArn`, you must also have
+  [DescribeUser](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html)
+  permission on the ARN of the user that you provide.
+
+  **Endpoints**: See [Connect Customer endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  """
+  @spec batch_update_case(map(), batch_update_case_request(), list()) ::
+          {:ok, batch_update_case_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_update_case_errors()}
+  def batch_update_case(%Client{} = client, input, options \\ []) do
+    url_path = "/cases:batchUpdateCase"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  If you provide a value for `PerformedBy.UserArn`, you must also have the
   [connect:DescribeUser](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html)
-  permission on the User ARN resource that you provide
+  permission on the user ARN that you provide.
 
-  Creates a case in the specified Cases domain.
-
-  Case system and custom fields are taken as an array id/value pairs with a
-  declared data types.
+  Creates a case in the specified Cases domain. Case system and custom fields are
+  taken as an array id/value pairs with a declared data types.
 
   When creating a case from a template that has tag propagation configurations,
   the specified tags are automatically applied to the case.
 
-  The following fields are required when creating a case:
-
-    * `customer_id` - You must provide the full customer profile ARN in
-  this format: `arn:aws:profile:your_AWS_Region:your_AWS_account
-  ID:domains/your_profiles_domain_name/profiles/profile_ID`
+  The following field is always required when creating a case:
 
     * `title`
+
+  The following field may be required depending on the template configuration:
+
+    * `customer_id` - Required only if the template's `requiredFields`
+  list includes `customer_id`. When required, provide the full customer profile
+  ARN in this format:
+  `arn:aws:profile:your_AWS_Region:your_AWS_account_ID:domains/your_profiles_domain_name/profiles/profile_ID`.
+  When not required, the field is optional and can be omitted, added, changed, or
+  removed after case creation.
   """
   @spec create_case(map(), String.t() | atom(), create_case_request(), list()) ::
           {:ok, create_case_response(), any()}
@@ -2373,7 +2671,7 @@ defmodule AWS.ConnectCases do
   @doc """
   Creates a new case rule.
 
-  In the Amazon Connect admin website, case rules are known as *case field
+  In the Connect Customer admin website, case rules are known as *case field
   conditions*. For more information about case field conditions, see [Add case field conditions to a case
   template](https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html).
   """
@@ -2407,10 +2705,10 @@ defmodule AWS.ConnectCases do
   Creates a domain, which is a container for all case data, such as cases, fields,
   templates and layouts.
 
-  Each Amazon Connect instance can be associated with only one Cases domain.
+  Each Connect Customer instance can be associated with only one Cases domain.
 
   This will not associate your connect instance to Cases domain. Instead, use the
-  Amazon Connect
+  Connect Customer
   [CreateIntegrationAssociation](https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateIntegrationAssociation.html) API. You need specific IAM permissions to successfully associate the Cases
   domain. For more information, see [Onboard to
   Cases](https://docs.aws.amazon.com/connect/latest/adminguide/required-permissions-iam-cases.html#onboard-cases-iam).
@@ -2517,7 +2815,7 @@ defmodule AWS.ConnectCases do
   case.
 
   There's a quota for the number of fields allowed in a Custom type related item.
-  See [Amazon Connect Cases quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#cases-quotas).
+  See [Connect Customer Cases quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#cases-quotas).
 
   ## Use cases
 
@@ -2530,7 +2828,7 @@ defmodule AWS.ConnectCases do
 
     * SLAs, to capture target resolution goals
 
-    * Cases, to capture related Amazon Connect Cases
+    * Cases, to capture related Connect Customer Cases
 
     * Files, such as policy documentation or customer-provided
   attachments
@@ -2551,14 +2849,12 @@ defmodule AWS.ConnectCases do
   identifier, the `relatedItemArn`. Examples of related items include `comments`
   and `contacts`.
 
-    * If you provide a value for `performedBy.userArn` you must also
+    * If you provide a value for `performedBy.userArn`, you must also
   have
   [DescribeUser](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html)
   permission on the ARN of the user that you provide.
 
-    * The `type` field is reserved for internal use only.
-
-  **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  **Endpoints**: See [Connect Customer endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
   @spec create_related_item(
           map(),
@@ -2690,7 +2986,7 @@ defmodule AWS.ConnectCases do
   @doc """
   Deletes a case rule.
 
-  In the Amazon Connect admin website, case rules are known as *case field
+  In the Connect Customer admin website, case rules are known as *case field
   conditions*. For more information about case field conditions, see [Add case field conditions to a case
   template](https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html).
   """
@@ -2732,8 +3028,8 @@ defmodule AWS.ConnectCases do
   Deletes a Cases domain.
 
   After deleting your domain you must disassociate the deleted domain from your
-  Amazon Connect instance with another API call before being able to use Cases
-  again with this Amazon Connect instance. See
+  Connect Customer instance with another API call before being able to use Cases
+  again with this Connect Customer instance. See
   [DeleteIntegrationAssociation](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteIntegrationAssociation.html).
   """
   @spec delete_domain(map(), String.t() | atom(), delete_domain_request(), list()) ::
@@ -2763,7 +3059,7 @@ defmodule AWS.ConnectCases do
   end
 
   @doc """
-  Deletes a field from a cases template.
+  Deletes a field from a Cases template.
 
   After a field is deleted:
 
@@ -2838,7 +3134,7 @@ defmodule AWS.ConnectCases do
   end
 
   @doc """
-  Deletes a layout from a cases template.
+  Deletes a layout from a Cases template.
 
   You can delete up to 100 layouts per domain.
 
@@ -2936,11 +3232,11 @@ defmodule AWS.ConnectCases do
   end
 
   @doc """
-  Deletes a cases template.
+  Deletes a Cases template.
 
   You can delete up to 100 templates per domain.
 
-  After a cases template is deleted:
+  After a Cases template is deleted:
 
     * You can still retrieve the template by calling `GetTemplate`.
 
@@ -3195,7 +3491,7 @@ defmodule AWS.ConnectCases do
   @doc """
   Lists all case rules in a Cases domain.
 
-  In the Amazon Connect admin website, case rules are known as *case field
+  In the Connect Customer admin website, case rules are known as *case field
   conditions*. For more information about case field conditions, see [Add case field conditions to a case
   template](https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html).
   """
@@ -3488,7 +3784,7 @@ defmodule AWS.ConnectCases do
   Adds case event publishing configuration.
 
   For a complete list of fields you can add to the event message, see [Create case fields](https://docs.aws.amazon.com/connect/latest/adminguide/case-fields.html)
-  in the *Amazon Connect Administrator Guide*
+  in the *Connect Customer Administrator Guide*.
   """
   @spec put_case_event_configuration(
           map(),
@@ -3554,7 +3850,7 @@ defmodule AWS.ConnectCases do
   Use the
   [SearchCases](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_SearchCases.html) API to search within case field values.
 
-  **Endpoints**: See [Amazon Connect endpoints and
+  **Endpoints**: See [Connect Customer endpoints and
   quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
   @spec search_all_related_items(
@@ -3727,14 +4023,12 @@ defmodule AWS.ConnectCases do
   end
 
   @doc """
-  If you provide a value for `PerformedBy.UserArn` you must also have
+  If you provide a value for `PerformedBy.UserArn`, you must also have the
   [connect:DescribeUser](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html)
-  permission on the User ARN resource that you provide
+  permission on the user ARN that you provide.
 
-  Updates the values of fields on a case.
-
-  Fields to be updated are received as an array of id/value pairs identical to the
-  `CreateCase` input .
+  Updates the values of fields on a case. Fields to be updated are received as an
+  array of id/value pairs identical to the `CreateCase` input.
 
   If the action is successful, the service sends back an HTTP 200 response with an
   empty HTTP body.
@@ -3774,7 +4068,7 @@ defmodule AWS.ConnectCases do
   @doc """
   Updates a case rule.
 
-  In the Amazon Connect admin website, case rules are known as *case field
+  In the Connect Customer admin website, case rules are known as *case field
   conditions*. For more information about case field conditions, see [Add case field conditions to a case
   template](https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html).
   """
@@ -3904,7 +4198,7 @@ defmodule AWS.ConnectCases do
 
     * **Custom** - Update the fields of a custom related item. You can
   add, modify, and remove fields from a custom related item. There's a quota for
-  the number of fields allowed in a Custom type related item. See [Amazon Connect Cases
+  the number of fields allowed in a Custom type related item. See [Connect Customer Cases
   quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#cases-quotas).
 
   ## Important things to know
@@ -3913,7 +4207,7 @@ defmodule AWS.ConnectCases do
   and their associated values should be included in the request. Fields not
   included as part of this request will be removed.
 
-    * If you provide a value for `performedBy.userArn` you must also
+    * If you provide a value for `performedBy.userArn`, you must also
   have
   [DescribeUser](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html) permission on the ARN of the user that you provide.
 
@@ -3921,7 +4215,7 @@ defmodule AWS.ConnectCases do
   fields](https://docs.aws.amazon.com/connect/latest/adminguide/case-fields.html#system-case-fields)
   cannot be used in a custom related item.
 
-  **Endpoints**: See [Amazon Connect endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  **Endpoints**: See [Connect Customer endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
   @spec update_related_item(
           map(),

@@ -11770,6 +11770,7 @@ defmodule AWS.Glue do
   ## Example:
       
       resource_uri() :: %{
+        "LastModified" => non_neg_integer(),
         "ResourceType" => list(any()),
         "Uri" => String.t() | atom()
       }
@@ -15246,12 +15247,14 @@ defmodule AWS.Glue do
   ## Example:
       
       user_defined_function() :: %{
+        "ArtifactLocation" => String.t() | atom(),
         "CatalogId" => String.t() | atom(),
         "ClassName" => String.t() | atom(),
         "CreateTime" => non_neg_integer(),
         "DatabaseName" => String.t() | atom(),
         "FunctionName" => String.t() | atom(),
         "FunctionType" => list(any()),
+        "GovernanceMode" => list(any()),
         "OwnerName" => String.t() | atom(),
         "OwnerType" => list(any()),
         "ResourceUris" => list(resource_uri())
@@ -15265,9 +15268,11 @@ defmodule AWS.Glue do
   ## Example:
       
       user_defined_function_input() :: %{
+        "ArtifactLocation" => String.t() | atom(),
         "ClassName" => String.t() | atom(),
         "FunctionName" => String.t() | atom(),
         "FunctionType" => list(any()),
+        "GovernanceMode" => list(any()),
         "OwnerName" => String.t() | atom(),
         "OwnerType" => list(any()),
         "ResourceUris" => list(resource_uri())

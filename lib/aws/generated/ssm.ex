@@ -1660,6 +1660,24 @@ defmodule AWS.SSM do
 
   ## Example:
       
+      deregister_default_host_management_configuration_request() :: %{}
+      
+  """
+  @type deregister_default_host_management_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      deregister_default_host_management_configuration_result() :: %{}
+      
+  """
+  @type deregister_default_host_management_configuration_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       deregister_managed_instance_request() :: %{
         required("InstanceId") => String.t() | atom()
       }
@@ -6659,6 +6677,34 @@ defmodule AWS.SSM do
 
   ## Example:
       
+      register_default_host_management_configuration_request() :: %{
+        optional("Overwrite") => boolean(),
+        optional("RoleArn") => String.t() | atom(),
+        required("PermissionModel") => list(any())
+      }
+      
+  """
+  @type register_default_host_management_configuration_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      register_default_host_management_configuration_result() :: %{
+        "RoleArn" => String.t() | atom()
+      }
+      
+  """
+  @type register_default_host_management_configuration_result() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       register_default_patch_baseline_request() :: %{
         required("BaselineId") => String.t() | atom()
       }
@@ -8581,6 +8627,8 @@ defmodule AWS.SSM do
           | malformed_resource_policy_document_exception()
           | internal_server_error()
 
+  @type deregister_default_host_management_configuration_errors() :: internal_server_error()
+
   @type deregister_managed_instance_errors() :: invalid_instance_id() | internal_server_error()
 
   @type deregister_patch_baseline_for_patch_group_errors() ::
@@ -8993,6 +9041,8 @@ defmodule AWS.SSM do
           | resource_not_found_exception()
           | malformed_resource_policy_document_exception()
           | internal_server_error()
+
+  @type register_default_host_management_configuration_errors() :: internal_server_error()
 
   @type register_default_patch_baseline_errors() ::
           invalid_resource_id() | internal_server_error() | does_not_exist_exception()
@@ -9791,6 +9841,12 @@ defmodule AWS.SSM do
 
   After deleting a parameter, wait for at least 30 seconds
   to create a parameter with the same name.
+
+  This operation is authorized against the `ssm:DeleteParameter` action. Denying
+  that action alone doesn't restrict `DeleteParameters`, which is authorized
+  against its own action. For more information, see [Restricting access to specific parameters and
+  paths](https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-restrict-parameter-access.html)
+  in the *Amazon Web Services Systems Manager User Guide*.
   """
   @spec delete_parameter(map(), delete_parameter_request(), list()) ::
           {:ok, delete_parameter_result(), any()}
@@ -9809,6 +9865,14 @@ defmodule AWS.SSM do
 
   After deleting a parameter, wait for at least 30 seconds to
   create a parameter with the same name.
+
+  This operation is authorized against the `ssm:DeleteParameters` action, not
+  against `ssm:DeleteParameter`. Denying `ssm:DeleteParameter` for a
+  parameter doesn't prevent a principal from deleting that parameter with this
+  operation. For more
+  information, see [Restricting access to specific parameters and
+  paths](https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-restrict-parameter-access.html)
+  in the *Amazon Web Services Systems Manager User Guide*.
   """
   @spec delete_parameters(map(), delete_parameters_request(), list()) ::
           {:ok, delete_parameters_result(), any()}
@@ -9895,6 +9959,48 @@ defmodule AWS.SSM do
       metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
+  end
+
+  @doc """
+  Removes the Default Host Management Configuration (DHMC) for an Amazon Web
+  Services account and
+  Amazon Web Services Region.
+
+  After you deregister DHMC, Amazon EC2 instances are no longer automatically
+  managed as
+  managed nodes by Amazon Web Services Systems Manager.
+
+  To use this operation, you must have the following permissions:
+
+    *
+  You need the `ssm:GetServiceSetting` and `ssm:ResetServiceSetting`
+  permissions for the `/ssm/managed-instance/default-ec2-instance-management-role`
+  service setting.
+
+  If the registered role is service-managed, you also need the `iam:DeleteRole`
+  permission so that Amazon Web Services Systems Manager can remove the role it
+  created.
+  """
+  @spec deregister_default_host_management_configuration(
+          map(),
+          deregister_default_host_management_configuration_request(),
+          list()
+        ) ::
+          {:ok, deregister_default_host_management_configuration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, deregister_default_host_management_configuration_errors()}
+  def deregister_default_host_management_configuration(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "DeregisterDefaultHostManagementConfiguration",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -11166,6 +11272,14 @@ defmodule AWS.SSM do
   To get information about more than one parameter at a time, use the
   `GetParameters` operation.
 
+  This operation is authorized against the `ssm:GetParameter` action. Denying that
+  action alone doesn't restrict `GetParameters`, `GetParameterHistory`, or
+  `GetParametersByPath`, each of which is
+  authorized against its own action. For more information, see [How Parameter Store
+  authorizes parameter
+  retrieval](https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-retrieval-authorization.html)
+  in the *Amazon Web Services Systems Manager User Guide*.
+
   Parameter Store throughput defines the number of API transactions per second
   (TPS) that
   Systems Manager can process. This applies to `GetParameter`,
@@ -11214,6 +11328,19 @@ defmodule AWS.SSM do
   Otherwise,
   `GetParameterHistory` retrieves whatever the original key alias was
   referencing.
+
+  This operation is authorized against the `ssm:GetParameterHistory` action, not
+  against `ssm:GetParameter`. Because parameter history includes every version of
+  a
+  parameter, including the current one, a principal who is denied
+  `ssm:GetParameter`, `ssm:GetParameters`, and
+  `ssm:GetParametersByPath` but allowed `ssm:GetParameterHistory` can still
+  read the current value. To restrict access to a parameter value, deny every
+  action that can
+  return it. For more information, see
+  [How Parameter Store authorizes parameter
+  retrieval](https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-retrieval-authorization.html)
+  in the *Amazon Web Services Systems Manager User Guide*.
   """
   @spec get_parameter_history(map(), get_parameter_history_request(), list()) ::
           {:ok, get_parameter_history_result(), any()}
@@ -11233,6 +11360,15 @@ defmodule AWS.SSM do
 
   To get information about a single parameter, you can use the `GetParameter`
   operation instead.
+
+  This operation is authorized against the `ssm:GetParameters` action, not against
+  `ssm:GetParameter`. Denying `ssm:GetParameter` for a parameter doesn't
+  prevent a principal from retrieving that parameter with this operation. To
+  restrict access to a
+  parameter value, deny every action that can return it. For more information, see
+  [How Parameter Store authorizes parameter
+  retrieval](https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-retrieval-authorization.html)
+  in the *Amazon Web Services Systems Manager User Guide*.
 
   Parameter names can't contain spaces. The service removes any spaces specified
   for the
@@ -11277,6 +11413,21 @@ defmodule AWS.SSM do
   @doc """
   Retrieve information about one or more parameters under a specified level in a
   hierarchy.
+
+  This operation is authorized against the `ssm:GetParametersByPath` action for
+  the path that you specify in the request. It isn't authorized against the
+  individual parameters
+  that it returns, and it isn't authorized against `ssm:GetParameter`. A principal
+  who
+  is allowed to call this operation for the path `/a` with `Recursive` set
+  to `true` receives every parameter under that path, including `/a/b`,
+  even if a policy explicitly denies access to `/a/b`.
+
+  To prevent a parameter from being returned by this operation, deny the
+  `ssm:GetParametersByPath` action on every ancestor path that could include the
+  parameter in its results. For more information, see [Restricting access to specific parameters and
+  paths](https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-restrict-parameter-access.html)
+  in the *Amazon Web Services Systems Manager User Guide*.
 
   Request results are returned on a best-effort basis. If you specify `MaxResults`
   in the request, the response includes information up to the limit specified. The
@@ -12074,6 +12225,53 @@ defmodule AWS.SSM do
       metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
+  end
+
+  @doc """
+  Enables Default Host Management Configuration (DHMC) for the current Amazon Web
+  Services account and
+  Amazon Web Services Region.
+
+  With DHMC enabled, you don't need to configure additional resources, such as an
+  instance profile, to use your Amazon EC2 instances as managed nodes in Amazon
+  Web Services Systems Manager.
+
+  To use this operation, you must have the following permissions:
+
+    *
+  You need the `ssm:GetServiceSetting` and `ssm:UpdateServiceSetting`
+  permissions for the `/ssm/managed-instance/default-ec2-instance-management-role`
+  service setting.
+
+    *
+  You need the `iam:GetRole` and `iam:PassRole` permissions for the
+  role used for Default Host Management Configuration.
+
+  If `PermissionModel` is `SERVICE_MANAGED`, you also need the
+  `iam:CreateRole` and `iam:AttachRolePolicy` permissions so that Amazon Web
+  Services Systems Manager
+  can create and configure the role on your behalf.
+  """
+  @spec register_default_host_management_configuration(
+          map(),
+          register_default_host_management_configuration_request(),
+          list()
+        ) ::
+          {:ok, register_default_host_management_configuration_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, register_default_host_management_configuration_errors()}
+  def register_default_host_management_configuration(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "RegisterDefaultHostManagementConfiguration",
+      input,
+      options
+    )
   end
 
   @doc """

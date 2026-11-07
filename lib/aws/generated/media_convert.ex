@@ -514,11 +514,13 @@ defmodule AWS.MediaConvert do
   ## Example:
 
       caption_description() :: %{
+        "AudioSourceNames" => list(String.t() | atom()),
         "CaptionSelectorName" => String.t() | atom(),
         "CustomLanguageCode" => String.t() | atom(),
         "DestinationSettings" => caption_destination_settings(),
         "LanguageCode" => list(any()),
-        "LanguageDescription" => String.t() | atom()
+        "LanguageDescription" => String.t() | atom(),
+        "Source" => list(any())
       }
 
   """
@@ -883,6 +885,7 @@ defmodule AWS.MediaConvert do
         optional("AccelerationSettings") => acceleration_settings(),
         optional("BillingTagsSource") => list(any()),
         optional("ClientRequestToken") => String.t() | atom(),
+        optional("ElementalInferenceSettings") => elemental_inference_settings(),
         optional("HopDestinations") => list(hop_destination()),
         optional("JobEngineVersion") => String.t() | atom(),
         optional("JobTemplate") => String.t() | atom(),
@@ -918,6 +921,7 @@ defmodule AWS.MediaConvert do
         optional("AccelerationSettings") => acceleration_settings(),
         optional("Category") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
+        optional("ElementalInferenceSettings") => elemental_inference_settings(),
         optional("HopDestinations") => list(hop_destination()),
         optional("Priority") => integer(),
         optional("Queue") => String.t() | atom(),
@@ -1498,6 +1502,28 @@ defmodule AWS.MediaConvert do
 
   """
   @type elemental_inference_feed() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      elemental_inference_feed_configuration_source() :: %{
+        "FeedArn" => String.t() | atom()
+      }
+
+  """
+  @type elemental_inference_feed_configuration_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      elemental_inference_settings() :: %{
+        "FeedConfigurationSource" => elemental_inference_feed_configuration_source()
+      }
+
+  """
+  @type elemental_inference_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2399,6 +2425,7 @@ defmodule AWS.MediaConvert do
         "CreatedAt" => non_neg_integer(),
         "CurrentPhase" => list(any()),
         "ElementalInferenceConfiguration" => elemental_inference_configuration(),
+        "ElementalInferenceSettings" => elemental_inference_settings(),
         "ErrorCode" => integer(),
         "ErrorMessage" => String.t() | atom(),
         "HopDestinations" => list(hop_destination()),
@@ -2487,6 +2514,7 @@ defmodule AWS.MediaConvert do
         "Category" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t() | atom(),
+        "ElementalInferenceSettings" => elemental_inference_settings(),
         "HopDestinations" => list(hop_destination()),
         "LastUpdated" => non_neg_integer(),
         "Name" => String.t() | atom(),
@@ -4026,6 +4054,7 @@ defmodule AWS.MediaConvert do
         optional("AccelerationSettings") => acceleration_settings(),
         optional("Category") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
+        optional("ElementalInferenceSettings") => elemental_inference_settings(),
         optional("HopDestinations") => list(hop_destination()),
         optional("Priority") => integer(),
         optional("Queue") => String.t() | atom(),

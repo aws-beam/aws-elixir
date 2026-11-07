@@ -2551,6 +2551,7 @@ defmodule AWS.BedrockAgent do
         "knowledgeBaseArn" => String.t() | atom(),
         "knowledgeBaseConfiguration" => knowledge_base_configuration(),
         "knowledgeBaseId" => String.t() | atom(),
+        "metadataConfigurations" => list(metadata_configuration()),
         "name" => String.t() | atom(),
         "roleArn" => String.t() | atom(),
         "status" => list(any()),
@@ -3295,6 +3296,19 @@ defmodule AWS.BedrockAgent do
 
   """
   @type metadata_attribute_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metadata_configuration() :: %{
+        "name" => String.t() | atom(),
+        "searchability" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type metadata_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5055,6 +5069,7 @@ defmodule AWS.BedrockAgent do
 
       update_knowledge_base_request() :: %{
         optional("description") => String.t() | atom(),
+        optional("metadataConfigurations") => list(metadata_configuration()),
         optional("storageConfiguration") => storage_configuration(),
         required("knowledgeBaseConfiguration") => knowledge_base_configuration(),
         required("name") => String.t() | atom(),

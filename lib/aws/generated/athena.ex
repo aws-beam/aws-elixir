@@ -479,6 +479,34 @@ defmodule AWS.Athena do
 
   ## Example:
       
+      create_system_table_configuration_input() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("KmsKeyArn") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("TableName") => list(any())
+      }
+      
+  """
+  @type create_system_table_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_system_table_configuration_output() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "KmsKeyArn" => String.t() | atom(),
+        "LastModifiedAt" => non_neg_integer(),
+        "TableName" => list(any())
+      }
+      
+  """
+  @type create_system_table_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_work_group_input() :: %{
         optional("Configuration") => work_group_configuration(),
         optional("Description") => String.t() | atom(),
@@ -668,6 +696,26 @@ defmodule AWS.Athena do
       
   """
   @type delete_prepared_statement_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_system_table_configuration_input() :: %{
+        required("TableName") => list(any())
+      }
+      
+  """
+  @type delete_system_table_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_system_table_configuration_output() :: %{}
+      
+  """
+  @type delete_system_table_configuration_output() :: %{}
 
   @typedoc """
 
@@ -1186,6 +1234,31 @@ defmodule AWS.Athena do
 
   ## Example:
       
+      get_system_table_configuration_input() :: %{
+        required("TableName") => list(any())
+      }
+      
+  """
+  @type get_system_table_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_system_table_configuration_output() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "KmsKeyArn" => String.t() | atom(),
+        "LastModifiedAt" => non_neg_integer(),
+        "TableName" => list(any())
+      }
+      
+  """
+  @type get_system_table_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_table_metadata_input() :: %{
         optional("WorkGroup") => String.t() | atom(),
         required("CatalogName") => String.t() | atom(),
@@ -1618,6 +1691,30 @@ defmodule AWS.Athena do
       
   """
   @type list_sessions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_system_table_statuses_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_system_table_statuses_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_system_table_statuses_output() :: %{
+        "Items" => list(system_table_status()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_system_table_statuses_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2347,6 +2444,18 @@ defmodule AWS.Athena do
 
   ## Example:
       
+      system_table_status() :: %{
+        "Enabled" => boolean(),
+        "TableName" => list(any())
+      }
+      
+  """
+  @type system_table_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       table_metadata() :: %{
         "Columns" => list(column()),
         "CreateTime" => non_neg_integer(),
@@ -2627,6 +2736,32 @@ defmodule AWS.Athena do
 
   ## Example:
       
+      update_system_table_configuration_input() :: %{
+        optional("KmsKeyArn") => String.t() | atom(),
+        required("TableName") => list(any())
+      }
+      
+  """
+  @type update_system_table_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_system_table_configuration_output() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "KmsKeyArn" => String.t() | atom(),
+        "LastModifiedAt" => non_neg_integer(),
+        "TableName" => list(any())
+      }
+      
+  """
+  @type update_system_table_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_work_group_input() :: %{
         optional("ConfigurationUpdates") => work_group_configuration_updates(),
         optional("Description") => String.t() | atom(),
@@ -2681,7 +2816,8 @@ defmodule AWS.Athena do
         "PublishCloudWatchMetricsEnabled" => boolean(),
         "QueryResultsS3AccessGrantsConfiguration" => query_results_s3_access_grants_configuration(),
         "RequesterPaysEnabled" => boolean(),
-        "ResultConfiguration" => result_configuration()
+        "ResultConfiguration" => result_configuration(),
+        "SystemTableStatuses" => list(system_table_status())
       }
       
   """
@@ -2761,6 +2897,11 @@ defmodule AWS.Athena do
           | invalid_request_exception()
           | internal_server_exception()
 
+  @type create_system_table_configuration_errors() ::
+          too_many_requests_exception()
+          | invalid_request_exception()
+          | internal_server_exception()
+
   @type create_work_group_errors() :: invalid_request_exception() | internal_server_exception()
 
   @type delete_capacity_reservation_errors() ::
@@ -2777,6 +2918,11 @@ defmodule AWS.Athena do
 
   @type delete_prepared_statement_errors() ::
           resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_server_exception()
+
+  @type delete_system_table_configuration_errors() ::
+          too_many_requests_exception()
           | invalid_request_exception()
           | internal_server_exception()
 
@@ -2855,6 +3001,12 @@ defmodule AWS.Athena do
           | invalid_request_exception()
           | internal_server_exception()
 
+  @type get_system_table_configuration_errors() ::
+          too_many_requests_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_server_exception()
+
   @type get_table_metadata_errors() ::
           metadata_exception() | invalid_request_exception() | internal_server_exception()
 
@@ -2910,6 +3062,11 @@ defmodule AWS.Athena do
 
   @type list_sessions_errors() ::
           resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_server_exception()
+
+  @type list_system_table_statuses_errors() ::
+          too_many_requests_exception()
           | invalid_request_exception()
           | internal_server_exception()
 
@@ -2984,6 +3141,12 @@ defmodule AWS.Athena do
 
   @type update_prepared_statement_errors() ::
           resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_server_exception()
+
+  @type update_system_table_configuration_errors() ::
+          too_many_requests_exception()
+          | resource_not_found_exception()
           | invalid_request_exception()
           | internal_server_exception()
 
@@ -3228,6 +3391,29 @@ defmodule AWS.Athena do
   end
 
   @doc """
+  Enables system tables for the current account.
+
+  System tables are enabled or disabled for
+  the entire account: creating this configuration enables them. If a configuration
+  already exists, use `UpdateSystemTableConfiguration` to update it.
+  """
+  @spec create_system_table_configuration(
+          map(),
+          create_system_table_configuration_input(),
+          list()
+        ) ::
+          {:ok, create_system_table_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_system_table_configuration_errors()}
+  def create_system_table_configuration(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateSystemTableConfiguration", input, options)
+  end
+
+  @doc """
   Creates a workgroup with the specified name.
 
   A workgroup can be an Apache Spark
@@ -3329,6 +3515,29 @@ defmodule AWS.Athena do
       metadata()
 
     Request.request_post(client, meta, "DeletePreparedStatement", input, options)
+  end
+
+  @doc """
+  Disables system tables for the current account by deleting the account-level
+  configuration.
+
+  If the configuration doesn't exist, the operation succeeds without making
+  any changes. The system table and previously published data are left intact.
+  """
+  @spec delete_system_table_configuration(
+          map(),
+          delete_system_table_configuration_input(),
+          list()
+        ) ::
+          {:ok, delete_system_table_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_system_table_configuration_errors()}
+  def delete_system_table_configuration(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteSystemTableConfiguration", input, options)
   end
 
   @doc """
@@ -3671,6 +3880,25 @@ defmodule AWS.Athena do
   end
 
   @doc """
+  Returns the account-level system tables configuration.
+
+  Fails with a
+  `ResourceNotFoundException` if system tables are not enabled for the
+  account.
+  """
+  @spec get_system_table_configuration(map(), get_system_table_configuration_input(), list()) ::
+          {:ok, get_system_table_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_system_table_configuration_errors()}
+  def get_system_table_configuration(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetSystemTableConfiguration", input, options)
+  end
+
+  @doc """
   Returns table metadata for the specified catalog, database, and table.
   """
   @spec get_table_metadata(map(), get_table_metadata_input(), list()) ::
@@ -3952,6 +4180,26 @@ defmodule AWS.Athena do
       metadata()
 
     Request.request_post(client, meta, "ListSessions", input, options)
+  end
+
+  @doc """
+  Lists the system tables that the account-level configuration activates, along
+  with
+  whether each is currently enabled.
+
+  Because system tables are enabled at the account
+  level, every entry reflects the same account-wide state.
+  """
+  @spec list_system_table_statuses(map(), list_system_table_statuses_input(), list()) ::
+          {:ok, list_system_table_statuses_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_system_table_statuses_errors()}
+  def list_system_table_statuses(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListSystemTableStatuses", input, options)
   end
 
   @doc """
@@ -4295,6 +4543,29 @@ defmodule AWS.Athena do
       metadata()
 
     Request.request_post(client, meta, "UpdatePreparedStatement", input, options)
+  end
+
+  @doc """
+  Updates the account-level system tables configuration.
+
+  If no configuration exists, use
+  `CreateSystemTableConfiguration` to create one. Fields that you omit
+  retain their current values.
+  """
+  @spec update_system_table_configuration(
+          map(),
+          update_system_table_configuration_input(),
+          list()
+        ) ::
+          {:ok, update_system_table_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_system_table_configuration_errors()}
+  def update_system_table_configuration(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateSystemTableConfiguration", input, options)
   end
 
   @doc """

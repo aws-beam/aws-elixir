@@ -53,6 +53,32 @@ defmodule AWS.Signin do
 
   ## Example:
 
+      create_bearer_token_request() :: %{
+        optional("durationSeconds") => integer(),
+        required("grantType") => String.t() | atom(),
+        required("resource") => String.t() | atom()
+      }
+
+  """
+  @type create_bearer_token_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_bearer_token_response() :: %{
+        "accessToken" => String.t() | atom(),
+        "expiresIn" => integer(),
+        "tokenType" => String.t() | atom()
+      }
+
+  """
+  @type create_bearer_token_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_o_auth2_token_request() :: %{
         required("tokenInput") => create_o_auth2_token_request_body()
       }
@@ -513,6 +539,12 @@ defmodule AWS.Signin do
   """
   @type validation_exception() :: %{(String.t() | atom()) => any()}
 
+  @type create_bearer_token_errors() ::
+          validation_exception()
+          | too_many_requests_error()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type create_o_auth2_token_errors() ::
           validation_exception()
           | too_many_requests_error()
@@ -609,6 +641,38 @@ defmodule AWS.Signin do
       signing_name: "signin",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Creates a bearer token that represents your IAM credentials and can be used to
+  access a supported AWS service.
+
+  By default, the token is valid for 12 hours.
+  """
+  @spec create_bearer_token(map(), create_bearer_token_request(), list()) ::
+          {:ok, create_bearer_token_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_bearer_token_errors()}
+  def create_bearer_token(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/token?x-amz-token-request-type=bearer"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

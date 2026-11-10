@@ -1445,6 +1445,7 @@ defmodule AWS.S3Control do
       get_data_access_request() :: %{
         optional("AuditContext") => String.t() | atom(),
         optional("DurationSeconds") => integer(),
+        optional("InstanceScope") => list(any()),
         optional("Privilege") => list(any()),
         optional("TargetType") => list(any()),
         required("AccountId") => String.t() | atom(),
@@ -1462,7 +1463,8 @@ defmodule AWS.S3Control do
       get_data_access_result() :: %{
         "Credentials" => credentials(),
         "Grantee" => grantee(),
-        "MatchedGrantTarget" => String.t() | atom()
+        "MatchedGrantTarget" => String.t() | atom(),
+        "MatchedInstanceArn" => String.t() | atom()
       }
 
   """
@@ -2235,6 +2237,7 @@ defmodule AWS.S3Control do
   ## Example:
 
       list_caller_access_grants_entry() :: %{
+        "AccessGrantsInstanceArn" => String.t() | atom(),
         "ApplicationArn" => String.t() | atom(),
         "GrantScope" => String.t() | atom(),
         "Permission" => list(any())
@@ -2250,6 +2253,7 @@ defmodule AWS.S3Control do
       list_caller_access_grants_request() :: %{
         optional("AllowedByApplication") => boolean(),
         optional("GrantScope") => String.t() | atom(),
+        optional("InstanceScope") => list(any()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
         required("AccountId") => String.t() | atom()
@@ -7072,7 +7076,11 @@ defmodule AWS.S3Control do
   client application.
 
   The [temporary credential](https://docs.aws.amazon.com/STS/latest/APIReference/API_Credentials.html)
-  is an Amazon Web Services STS token that grants them access to the S3 data.
+  is an Amazon Web Services STS token that grants them access to the S3 data. By
+  default, S3 Access Grants searches for a matching grant in the instance of the
+  Amazon Web Services account ID in the request. To also search instances shared
+  with the caller through Amazon Web Services Resource Access Manager (RAM), set
+  the `InstanceScope` parameter to `ALL`.
 
   ## Definitions
 
@@ -7091,6 +7099,7 @@ defmodule AWS.S3Control do
           map(),
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
           String.t() | atom(),
           String.t() | atom() | nil,
           String.t() | atom(),
@@ -7105,6 +7114,7 @@ defmodule AWS.S3Control do
         %Client{} = client,
         audit_context \\ nil,
         duration_seconds \\ nil,
+        instance_scope \\ nil,
         permission,
         privilege \\ nil,
         target,
@@ -7134,6 +7144,13 @@ defmodule AWS.S3Control do
     query_params =
       if !is_nil(duration_seconds) do
         [{"durationSeconds", duration_seconds} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(instance_scope) do
+        [{"instanceScope", instance_scope} | query_params]
       else
         query_params
       end
@@ -8099,13 +8116,16 @@ defmodule AWS.S3Control do
   The caller (grantee) can be an Identity and Access Management (IAM) identity or
   Amazon Web Services Identity Center corporate directory identity. You must pass
   the Amazon Web Services account of the S3 data owner (grantor) in the request.
-  You can, optionally, narrow the results by `GrantScope`, using a fragment of the
-  data's S3 path, and S3 Access Grants will return only the grants with a path
-  that contains the path fragment. You can also pass the `AllowedByApplication`
-  filter in the request, which returns only the grants authorized for
-  applications, whether the application is the caller's Identity Center
-  application or any other application (`ALL`). For more information, see [List the caller's access
-  grants](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-list-grants.html)
+  By default, S3 Access Grants returns grants from the instance of the Amazon Web
+  Services account ID in the request. To return grants from all instances shared
+  with the caller's account through Amazon Web Services Resource Access Manager
+  (RAM), set the `InstanceScope` parameter to `ALL`. You can, optionally, narrow
+  the results by `GrantScope`, using a fragment of the data's S3 path, and S3
+  Access Grants will return only the grants with a path that contains the path
+  fragment. You can also pass the `AllowedByApplication` filter in the request,
+  which returns only the grants authorized for applications, whether the
+  application is the caller's Identity Center application or any other application
+  (`ALL`). For more information, see [List the caller's access grants](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-list-grants.html)
   in the *Amazon S3 User Guide*.
 
   ## Definitions
@@ -8120,6 +8140,7 @@ defmodule AWS.S3Control do
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
           String.t() | atom(),
           list()
         ) ::
@@ -8130,6 +8151,7 @@ defmodule AWS.S3Control do
         %Client{} = client,
         allowed_by_application \\ nil,
         grant_scope \\ nil,
+        instance_scope \\ nil,
         max_results \\ nil,
         next_token \\ nil,
         account_id,
@@ -8157,6 +8179,13 @@ defmodule AWS.S3Control do
     query_params =
       if !is_nil(grant_scope) do
         [{"grantscope", grant_scope} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(instance_scope) do
+        [{"instanceScope", instance_scope} | query_params]
       else
         query_params
       end

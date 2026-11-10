@@ -1302,6 +1302,18 @@ defmodule AWS.Batch do
 
   ## Example:
 
+      eks_container_linux_capabilities() :: %{
+        "add" => list(String.t() | atom()),
+        "drop" => list(String.t() | atom())
+      }
+
+  """
+  @type eks_container_linux_capabilities() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       eks_container_override() :: %{
         "args" => list(String.t() | atom()),
         "command" => list(String.t() | atom()),
@@ -1332,11 +1344,13 @@ defmodule AWS.Batch do
 
       eks_container_security_context() :: %{
         "allowPrivilegeEscalation" => boolean(),
+        "capabilities" => eks_container_linux_capabilities(),
         "privileged" => boolean(),
         "readOnlyRootFilesystem" => boolean(),
         "runAsGroup" => float(),
         "runAsNonRoot" => boolean(),
-        "runAsUser" => float()
+        "runAsUser" => float(),
+        "seccompProfile" => eks_seccomp_profile()
       }
 
   """
@@ -1415,6 +1429,7 @@ defmodule AWS.Batch do
         "imagePullSecrets" => list(image_pull_secret()),
         "initContainers" => list(eks_container()),
         "metadata" => eks_metadata(),
+        "securityContext" => eks_pod_security_context(),
         "serviceAccountName" => String.t() | atom(),
         "shareProcessNamespace" => boolean(),
         "volumes" => list(eks_volume())
@@ -1436,6 +1451,7 @@ defmodule AWS.Batch do
         "metadata" => eks_metadata(),
         "nodeName" => String.t() | atom(),
         "podName" => String.t() | atom(),
+        "securityContext" => eks_pod_security_context(),
         "serviceAccountName" => String.t() | atom(),
         "shareProcessNamespace" => boolean(),
         "volumes" => list(eks_volume())
@@ -1456,6 +1472,21 @@ defmodule AWS.Batch do
 
   """
   @type eks_pod_properties_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      eks_pod_security_context() :: %{
+        "fsGroup" => float(),
+        "runAsGroup" => float(),
+        "runAsNonRoot" => boolean(),
+        "runAsUser" => float(),
+        "seccompProfile" => eks_seccomp_profile()
+      }
+
+  """
+  @type eks_pod_security_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1489,6 +1520,18 @@ defmodule AWS.Batch do
 
   """
   @type eks_properties_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      eks_seccomp_profile() :: %{
+        "localhostProfile" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type eks_seccomp_profile() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

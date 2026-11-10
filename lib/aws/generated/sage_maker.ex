@@ -707,6 +707,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      alias_operations() :: %{
+        "Add" => list(String.t() | atom()),
+        "Remove" => list(String.t() | atom())
+      }
+      
+  """
+  @type alias_operations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       amazon_q_settings() :: %{
         "QProfileArn" => String.t() | atom(),
         "Status" => list(any())
@@ -3451,6 +3463,33 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      create_cluster_extension_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("ConfigurationValues") => String.t() | atom(),
+        optional("ExtensionVersion") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("ClusterArn") => String.t() | atom(),
+        required("ExtensionName") => String.t() | atom()
+      }
+      
+  """
+  @type create_cluster_extension_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_cluster_extension_response() :: %{
+        "ExtensionArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_cluster_extension_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_cluster_request() :: %{
         optional("AutoScaling") => cluster_auto_scaling_config(),
         optional("ClusterRole") => String.t() | atom(),
@@ -4731,6 +4770,7 @@ defmodule AWS.SageMaker do
         optional("PipelineDefinitionS3Location") => pipeline_definition_s3_location(),
         optional("PipelineDescription") => String.t() | atom(),
         optional("PipelineDisplayName") => String.t() | atom(),
+        optional("PipelineVersionAliases") => list(String.t() | atom()),
         optional("Tags") => list(tag()),
         required("ClientRequestToken") => String.t() | atom(),
         required("PipelineName") => String.t() | atom(),
@@ -5698,6 +5738,29 @@ defmodule AWS.SageMaker do
       
   """
   @type delete_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_cluster_extension_request() :: %{
+        required("ClusterArn") => String.t() | atom(),
+        required("ExtensionArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_cluster_extension_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_cluster_extension_response() :: %{
+        "ExtensionArn" => String.t() | atom()
+      }
+      
+  """
+  @type delete_cluster_extension_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6976,6 +7039,30 @@ defmodule AWS.SageMaker do
       
   """
   @type describe_cluster_event_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_cluster_extension_request() :: %{
+        required("ClusterArn") => String.t() | atom(),
+        required("ExtensionArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_cluster_extension_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_cluster_extension_response() :: %{
+        "ExtensionDetails" => extension_details(),
+        "NodeSummary" => extension_node_summary()
+      }
+      
+  """
+  @type describe_cluster_extension_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8652,7 +8739,9 @@ defmodule AWS.SageMaker do
         "PipelineExecutionDisplayName" => String.t() | atom(),
         "PipelineExecutionStatus" => list(any()),
         "PipelineExperimentConfig" => pipeline_experiment_config(),
+        "PipelineVersionAliases" => list(String.t() | atom()),
         "PipelineVersionId" => float(),
+        "RoleArn" => String.t() | atom(),
         "SelectiveExecutionConfig" => selective_execution_config()
       }
       
@@ -8664,6 +8753,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       describe_pipeline_request() :: %{
+        optional("PipelineVersionAlias") => String.t() | atom(),
         optional("PipelineVersionId") => float(),
         required("PipelineName") => String.t() | atom()
       }
@@ -8688,6 +8778,7 @@ defmodule AWS.SageMaker do
         "PipelineDisplayName" => String.t() | atom(),
         "PipelineName" => String.t() | atom(),
         "PipelineStatus" => list(any()),
+        "PipelineVersionAliases" => list(String.t() | atom()),
         "PipelineVersionDescription" => String.t() | atom(),
         "PipelineVersionDisplayName" => String.t() | atom(),
         "RoleArn" => String.t() | atom()
@@ -10194,6 +10285,51 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      extension_details() :: %{
+        "ClusterArn" => String.t() | atom(),
+        "ConfigurationValues" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "ExtensionArn" => String.t() | atom(),
+        "ExtensionName" => String.t() | atom(),
+        "ExtensionVersion" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type extension_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      extension_node_summary() :: %{
+        "ActiveCount" => integer(),
+        "TotalCount" => integer()
+      }
+      
+  """
+  @type extension_node_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      extension_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "ExtensionArn" => String.t() | atom(),
+        "ExtensionName" => String.t() | atom(),
+        "ExtensionVersion" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type extension_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       f_sx_lustre_config() :: %{
         "PerUnitStorageThroughput" => integer(),
         "SizeInGiB" => integer()
@@ -10742,6 +10878,18 @@ defmodule AWS.SageMaker do
       
   """
   @type hub_content_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      hub_content_step_metadata() :: %{
+        "HubArn" => String.t() | atom(),
+        "HubContentArn" => String.t() | atom()
+      }
+      
+  """
+  @type hub_content_step_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12670,6 +12818,33 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      list_cluster_extensions_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ClusterArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_cluster_extensions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_cluster_extensions_response() :: %{
+        "Extensions" => list(extension_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_cluster_extensions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_cluster_nodes_request() :: %{
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
@@ -14345,6 +14520,7 @@ defmodule AWS.SageMaker do
         optional("CreatedBefore") => non_neg_integer(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
+        optional("PipelineVersionAlias") => String.t() | atom(),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
         required("PipelineName") => String.t() | atom()
@@ -14425,6 +14601,7 @@ defmodule AWS.SageMaker do
       list_pipelines_request() :: %{
         optional("CreatedAfter") => non_neg_integer(),
         optional("CreatedBefore") => non_neg_integer(),
+        optional("ManagedBy") => list(any()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
         optional("PipelineNamePrefix") => String.t() | atom(),
@@ -17077,6 +17254,7 @@ defmodule AWS.SageMaker do
         "EndpointConfig" => endpoint_config_step_metadata(),
         "Fail" => fail_step_metadata(),
         "ForEach" => for_each_step_metadata(),
+        "HubContent" => hub_content_step_metadata(),
         "InferenceComponent" => inference_component_metadata(),
         "Job" => job_step_metadata(),
         "Lambda" => lambda_step_metadata(),
@@ -17103,6 +17281,7 @@ defmodule AWS.SageMaker do
         "PipelineExecutionDisplayName" => String.t() | atom(),
         "PipelineExecutionFailureReason" => String.t() | atom(),
         "PipelineExecutionStatus" => list(any()),
+        "PipelineVersionAliases" => list(String.t() | atom()),
         "StartTime" => non_neg_integer()
       }
       
@@ -17152,6 +17331,7 @@ defmodule AWS.SageMaker do
         "LastModifiedBy" => user_context(),
         "LastModifiedTime" => non_neg_integer(),
         "PipelineArn" => String.t() | atom(),
+        "PipelineVersionAliases" => list(String.t() | atom()),
         "PipelineVersionDescription" => String.t() | atom(),
         "PipelineVersionDisplayName" => String.t() | atom(),
         "PipelineVersionId" => float()
@@ -17168,6 +17348,7 @@ defmodule AWS.SageMaker do
         "CreationTime" => non_neg_integer(),
         "LastExecutionPipelineExecutionArn" => String.t() | atom(),
         "PipelineArn" => String.t() | atom(),
+        "PipelineVersionAliases" => list(String.t() | atom()),
         "PipelineVersionDescription" => String.t() | atom(),
         "PipelineVersionDisplayName" => String.t() | atom(),
         "PipelineVersionId" => float()
@@ -19207,7 +19388,9 @@ defmodule AWS.SageMaker do
         optional("PipelineExecutionDescription") => String.t() | atom(),
         optional("PipelineExecutionDisplayName") => String.t() | atom(),
         optional("PipelineParameters") => list(parameter()),
+        optional("PipelineVersionAlias") => String.t() | atom(),
         optional("PipelineVersionId") => float(),
+        optional("RoleArn") => String.t() | atom(),
         optional("SelectiveExecutionConfig") => selective_execution_config(),
         required("ClientRequestToken") => String.t() | atom(),
         required("PipelineName") => String.t() | atom()
@@ -20817,6 +21000,32 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      update_cluster_extension_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("ConfigurationValues") => String.t() | atom(),
+        optional("ExtensionVersion") => String.t() | atom(),
+        required("ClusterArn") => String.t() | atom(),
+        required("ExtensionArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_cluster_extension_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_cluster_extension_response() :: %{
+        "ExtensionArn" => String.t() | atom()
+      }
+      
+  """
+  @type update_cluster_extension_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_cluster_request() :: %{
         optional("AutoScaling") => cluster_auto_scaling_config(),
         optional("ClusterRole") => String.t() | atom(),
@@ -21661,6 +21870,7 @@ defmodule AWS.SageMaker do
         optional("PipelineDefinitionS3Location") => pipeline_definition_s3_location(),
         optional("PipelineDescription") => String.t() | atom(),
         optional("PipelineDisplayName") => String.t() | atom(),
+        optional("PipelineVersionAliases") => list(String.t() | atom()),
         optional("RoleArn") => String.t() | atom(),
         required("PipelineName") => String.t() | atom()
       }
@@ -21685,6 +21895,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       update_pipeline_version_request() :: %{
+        optional("PipelineVersionAliasOperations") => alias_operations(),
         optional("PipelineVersionDescription") => String.t() | atom(),
         optional("PipelineVersionDisplayName") => String.t() | atom(),
         required("PipelineArn") => String.t() | atom(),
@@ -22186,6 +22397,9 @@ defmodule AWS.SageMaker do
 
   @type create_cluster_errors() :: resource_limit_exceeded() | resource_in_use()
 
+  @type create_cluster_extension_errors() ::
+          resource_not_found() | resource_in_use() | conflict_exception()
+
   @type create_cluster_scheduler_config_errors() ::
           resource_limit_exceeded() | conflict_exception()
 
@@ -22338,6 +22552,9 @@ defmodule AWS.SageMaker do
 
   @type delete_cluster_errors() :: resource_not_found() | conflict_exception()
 
+  @type delete_cluster_extension_errors() ::
+          resource_not_found() | resource_in_use() | conflict_exception()
+
   @type delete_cluster_scheduler_config_errors() :: resource_not_found()
 
   @type delete_compilation_job_errors() :: resource_not_found()
@@ -22443,6 +22660,8 @@ defmodule AWS.SageMaker do
   @type describe_cluster_errors() :: resource_not_found()
 
   @type describe_cluster_event_errors() :: resource_not_found()
+
+  @type describe_cluster_extension_errors() :: resource_not_found()
 
   @type describe_cluster_node_errors() :: resource_not_found()
 
@@ -22573,6 +22792,8 @@ defmodule AWS.SageMaker do
 
   @type list_cluster_events_errors() :: resource_not_found()
 
+  @type list_cluster_extensions_errors() :: resource_not_found()
+
   @type list_cluster_nodes_errors() :: resource_not_found()
 
   @type list_contexts_errors() :: resource_not_found()
@@ -22689,6 +22910,8 @@ defmodule AWS.SageMaker do
 
   @type update_cluster_errors() ::
           resource_not_found() | resource_limit_exceeded() | conflict_exception()
+
+  @type update_cluster_extension_errors() :: resource_not_found() | conflict_exception()
 
   @type update_cluster_scheduler_config_errors() ::
           resource_not_found() | resource_limit_exceeded() | conflict_exception()
@@ -23322,6 +23545,26 @@ defmodule AWS.SageMaker do
       metadata()
 
     Request.request_post(client, meta, "CreateCluster", input, options)
+  end
+
+  @doc """
+  Installs an extension, such as `sagemaker-observability`, on a SageMaker
+  HyperPod cluster orchestrated by Slurm.
+
+  The cluster must have `NodeProvisioningMode` set to `Continuous` and can have
+  only one extension with a given name. To track the installation, call
+  `DescribeClusterExtension`.
+  """
+  @spec create_cluster_extension(map(), create_cluster_extension_request(), list()) ::
+          {:ok, create_cluster_extension_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_cluster_extension_errors()}
+  def create_cluster_extension(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateClusterExtension", input, options)
   end
 
   @doc """
@@ -25222,6 +25465,31 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Deletes an extension from a SageMaker HyperPod cluster.
+
+  SageMaker HyperPod removes the extension's software from every node in the
+  cluster. While SageMaker HyperPod removes the extension, its status is
+  `Deleting`. After SageMaker HyperPod removes the extension from all nodes, it no
+  longer appears in `ListClusterExtensions`, and `DescribeClusterExtension`
+  returns a `ResourceNotFound` error.
+
+  Deleting an extension doesn't delete data that the extension sent to other
+  Amazon Web Services services, such as metrics in Amazon CloudWatch or Amazon
+  Managed Service for Prometheus.
+  """
+  @spec delete_cluster_extension(map(), delete_cluster_extension_request(), list()) ::
+          {:ok, delete_cluster_extension_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_cluster_extension_errors()}
+  def delete_cluster_extension(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteClusterExtension", input, options)
+  end
+
+  @doc """
   Deletes the cluster policy of the cluster.
   """
   @spec delete_cluster_scheduler_config(map(), delete_cluster_scheduler_config_request(), list()) ::
@@ -26411,6 +26679,26 @@ defmodule AWS.SageMaker do
       metadata()
 
     Request.request_post(client, meta, "DescribeClusterEvent", input, options)
+  end
+
+  @doc """
+  Retrieves information about an extension installed on a SageMaker HyperPod
+  cluster.
+
+  The information includes the extension's version, configuration, and status, and
+  a summary of how many cluster nodes are running the current version and
+  configuration of the extension.
+  """
+  @spec describe_cluster_extension(map(), describe_cluster_extension_request(), list()) ::
+          {:ok, describe_cluster_extension_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_cluster_extension_errors()}
+  def describe_cluster_extension(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeClusterExtension", input, options)
   end
 
   @doc """
@@ -27966,6 +28254,21 @@ defmodule AWS.SageMaker do
       metadata()
 
     Request.request_post(client, meta, "ListClusterEvents", input, options)
+  end
+
+  @doc """
+  Lists the extensions installed on a SageMaker HyperPod cluster.
+  """
+  @spec list_cluster_extensions(map(), list_cluster_extensions_request(), list()) ::
+          {:ok, list_cluster_extensions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_cluster_extensions_errors()}
+  def list_cluster_extensions(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListClusterExtensions", input, options)
   end
 
   @doc """
@@ -29999,6 +30302,36 @@ defmodule AWS.SageMaker do
       metadata()
 
     Request.request_post(client, meta, "UpdateCluster", input, options)
+  end
+
+  @doc """
+  Updates the configuration or the version of an extension installed on a
+  SageMaker HyperPod cluster.
+
+  SageMaker HyperPod applies the change to every node in the cluster. You can
+  change the configuration, the version, or both in one request.
+
+    * **Configuration:** You can change settings by sending
+  `ConfigurationValues`. Settings that you include are changed. Settings that you
+  omit keep their current values. A setting with the value `null` is removed and
+  returns to its default value.
+
+    * **Version:** You can update to a later version. You can't update
+  to an earlier version. To use an earlier version, delete the extension and
+  create it again with that version.
+
+  You can't update an extension while it is being deleted.
+  """
+  @spec update_cluster_extension(map(), update_cluster_extension_request(), list()) ::
+          {:ok, update_cluster_extension_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_cluster_extension_errors()}
+  def update_cluster_extension(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateClusterExtension", input, options)
   end
 
   @doc """

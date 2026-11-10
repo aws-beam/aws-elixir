@@ -1009,6 +1009,18 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      domain_filter() :: %{
+        "exclude" => list(String.t() | atom()),
+        "include" => list(String.t() | atom())
+      }
+
+  """
+  @type domain_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       duplicate_id_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -2604,6 +2616,30 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      invoke_web_search_input() :: %{
+        optional("filters") => web_search_filters(),
+        optional("maxResults") => [integer()],
+        required("searchQuery") => [String.t() | atom()]
+      }
+
+  """
+  @type invoke_web_search_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_web_search_output() :: %{
+        "results" => list(web_search_result())
+      }
+
+  """
+  @type invoke_web_search_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       key_press_arguments() :: %{
         "key" => [String.t() | atom()],
         "presses" => [integer()]
@@ -3495,6 +3531,18 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      published_date_filter() :: %{
+        "publishedAfter" => non_neg_integer(),
+        "publishedBefore" => non_neg_integer()
+      }
+
+  """
+  @type published_date_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       recommendation_evaluation_config() :: %{
         "evaluators" => list(recommendation_evaluator_reference())
       }
@@ -3843,6 +3891,18 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_exception() :: %{
+        "message" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()]
+      }
+
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4691,6 +4751,32 @@ defmodule AWS.BedrockAgentCore do
   """
   @type view_port() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      web_search_filters() :: %{
+        "domainFilter" => domain_filter(),
+        "publishedDateFilter" => published_date_filter()
+      }
+
+  """
+  @type web_search_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      web_search_result() :: %{
+        "publishedAt" => non_neg_integer(),
+        "text" => [String.t() | atom()],
+        "title" => [String.t() | atom()],
+        "url" => [String.t() | atom()]
+      }
+
+  """
+  @type web_search_result() :: %{(String.t() | atom()) => any()}
+
   @type batch_create_memory_records_errors() ::
           validation_exception()
           | throttled_exception()
@@ -5021,6 +5107,14 @@ defmodule AWS.BedrockAgentCore do
           | throttling_exception()
           | service_quota_exceeded_exception()
           | runtime_client_error()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type invoke_web_search_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
           | resource_not_found_exception()
           | internal_server_exception()
           | access_denied_exception()
@@ -6827,6 +6921,43 @@ defmodule AWS.BedrockAgentCore do
         {"qualifier", "qualifier"}
       ]
       |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Searches the web and returns a ranked list of results.
+
+  Each result includes a text extract from the page.
+
+  You can filter the results by domain and by publication date.
+
+  To use this operation, you must have the `bedrock-agentcore:InvokeWebSearch`
+  permission on the resource
+  `arn:${Partition}:bedrock-agentcore:${Region}:aws:tool/web-search.v1`.
+  """
+  @spec invoke_web_search(map(), String.t() | atom(), invoke_web_search_input(), list()) ::
+          {:ok, invoke_web_search_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, invoke_web_search_errors()}
+  def invoke_web_search(%Client{} = client, web_search_id, input, options \\ []) do
+    url_path = "/web-search/#{AWS.Util.encode_uri(web_search_id)}/invoke"
+    headers = []
+    custom_headers = []
+    query_params = []
 
     meta = metadata()
 

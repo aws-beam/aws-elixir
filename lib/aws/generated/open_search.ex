@@ -714,6 +714,7 @@ defmodule AWS.OpenSearch do
         "AcceptedWarnings" => list(String.t() | atom()),
         "ChangeId" => String.t() | atom(),
         "ChangeProgressStages" => list(change_progress_stage()),
+        "ClonedBlueGreenUpgradeDetails" => cloned_blue_green_upgrade_details(),
         "CompletedProperties" => list(String.t() | atom()),
         "ConfigChangeStatus" => list(any()),
         "InitiatedBy" => list(any()),
@@ -727,6 +728,42 @@ defmodule AWS.OpenSearch do
 
   """
   @type change_progress_status_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloned_blue_green_options() :: %{
+        "RetentionOptions" => list()
+      }
+
+  """
+  @type cloned_blue_green_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloned_blue_green_scheduled_action() :: %{
+        "Action" => list(any()),
+        "ScheduledTime" => non_neg_integer()
+      }
+
+  """
+  @type cloned_blue_green_scheduled_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloned_blue_green_upgrade_details() :: %{
+        "RetentionInHours" => integer(),
+        "ScheduledAction" => cloned_blue_green_scheduled_action(),
+        "TrafficSplit" => traffic_percents()
+      }
+
+  """
+  @type cloned_blue_green_upgrade_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1077,6 +1114,29 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      cutover_options() :: %{
+        "Status" => list(any()),
+        "Target" => list(any())
+      }
+
+  """
+  @type cutover_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cutover_request_options() :: %{
+        "Target" => list(any())
+      }
+
+  """
+  @type cutover_request_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       data_source() :: %{
         "dataSourceArn" => String.t() | atom(),
         "dataSourceDescription" => String.t() | atom(),
@@ -1313,6 +1373,18 @@ defmodule AWS.OpenSearch do
 
   """
   @type deployment_strategy_options_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deployment_strategy_override_options() :: %{
+        "ClonedBlueGreenOptions" => cloned_blue_green_options(),
+        "DeploymentStrategy" => list(any())
+      }
+
+  """
+  @type deployment_strategy_override_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4405,6 +4477,43 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      traffic_percents() :: %{
+        "CloneReadTrafficPercent" => integer(),
+        "PrimaryReadTrafficPercent" => integer()
+      }
+
+  """
+  @type traffic_percents() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      traffic_split_options() :: %{
+        "Current" => traffic_percents(),
+        "Status" => list(any()),
+        "Target" => traffic_percents()
+      }
+
+  """
+  @type traffic_split_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      traffic_split_request_options() :: %{
+        "CloneReadTrafficPercent" => integer(),
+        "Strategy" => list(any())
+      }
+
+  """
+  @type traffic_split_request_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_application_request() :: %{
         optional("appConfigs") => list(app_config()),
         optional("dataSources") => list(data_source()),
@@ -4431,6 +4540,34 @@ defmodule AWS.OpenSearch do
 
   """
   @type update_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_clone_request() :: %{
+        optional("CutoverOptions") => cutover_request_options(),
+        optional("RetentionOptions") => list(),
+        optional("TrafficSplitOptions") => traffic_split_request_options()
+      }
+
+  """
+  @type update_clone_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_clone_response() :: %{
+        "ChangeId" => String.t() | atom(),
+        "CutoverOptions" => cutover_options(),
+        "DomainName" => String.t() | atom(),
+        "RetentionOptions" => list(),
+        "TrafficSplitOptions" => traffic_split_options()
+      }
+
+  """
+  @type update_clone_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4658,6 +4795,7 @@ defmodule AWS.OpenSearch do
 
       upgrade_domain_request() :: %{
         optional("AdvancedOptions") => map(),
+        optional("DeploymentStrategyOptions") => deployment_strategy_override_options(),
         optional("PerformCheckOnly") => boolean(),
         required("DomainName") => String.t() | atom(),
         required("TargetVersion") => String.t() | atom()
@@ -4673,6 +4811,7 @@ defmodule AWS.OpenSearch do
       upgrade_domain_response() :: %{
         "AdvancedOptions" => map(),
         "ChangeProgressDetails" => change_progress_details(),
+        "DeploymentStrategyOptions" => deployment_strategy_override_options(),
         "DomainName" => String.t() | atom(),
         "PerformCheckOnly" => boolean(),
         "TargetVersion" => String.t() | atom(),
@@ -5503,6 +5642,13 @@ defmodule AWS.OpenSearch do
           | conflict_exception()
           | base_exception()
           | access_denied_exception()
+
+  @type update_clone_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | internal_exception()
+          | disabled_operation_exception()
+          | base_exception()
 
   @type update_data_source_errors() ::
           validation_exception()
@@ -8874,6 +9020,40 @@ defmodule AWS.OpenSearch do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Manages a cloned blue/green upgrade that is in progress on a domain.
+
+  Use it to shift a percentage of search traffic to the cloned cluster, to cut
+  over to the cloned cluster or back to the primary cluster, or to change the
+  retention period. Specify exactly one of `TrafficSplitOptions`,
+  `CutoverOptions`, or `RetentionOptions` in each request.
+  """
+  @spec update_clone(map(), String.t() | atom(), update_clone_request(), list()) ::
+          {:ok, update_clone_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_clone_errors()}
+  def update_clone(%Client{} = client, domain_name, input, options \\ []) do
+    url_path = "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/clone"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,

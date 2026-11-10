@@ -2525,6 +2525,44 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      create_data_quality_evaluation_config_request() :: %{
+        optional("AdditionalDataSources") => map(),
+        optional("AdditionalRunOptions") => data_quality_evaluation_config_additional_run_options(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("EndAt") => non_neg_integer(),
+        optional("ManagedRulesetName") => list(any()),
+        optional("NumberOfWorkers") => integer(),
+        optional("RulesetName") => String.t() | atom(),
+        optional("ScheduleExpression") => String.t() | atom(),
+        optional("StartAt") => non_neg_integer(),
+        optional("Tags") => map(),
+        optional("Timeout") => integer(),
+        optional("Triggers") => list(list(any())()),
+        required("DataSource") => data_quality_evaluation_config_data_source(),
+        required("Level") => list(any()),
+        required("Name") => String.t() | atom(),
+        required("Role") => String.t() | atom()
+      }
+      
+  """
+  @type create_data_quality_evaluation_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_data_quality_evaluation_config_response() :: %{
+        "EvaluationRunMode" => list(any()),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type create_data_quality_evaluation_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_data_quality_ruleset_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         optional("DataQualitySecurityConfiguration") => String.t() | atom(),
@@ -3528,6 +3566,98 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      data_quality_evaluation_config_additional_run_options() :: %{
+        "CloudWatchMetricsEnabled" => boolean(),
+        "CompositeRuleEvaluationMethod" => list(any()),
+        "CustomLogGroupPrefix" => String.t() | atom(),
+        "DataQualityRuleResults" => data_quality_rule_results_options(),
+        "ObservationMode" => list(any()),
+        "ObservationResults" => observation_results_options(),
+        "ObservationScope" => list(any()),
+        "ProfilingResults" => profiling_results_options(),
+        "ResultsS3Prefix" => String.t() | atom(),
+        "RowLevelResults" => row_level_results_options()
+      }
+      
+  """
+  @type data_quality_evaluation_config_additional_run_options() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      data_quality_evaluation_config_data_source() :: %{
+        "GlueTables" => data_quality_evaluation_config_glue_tables()
+      }
+      
+  """
+  @type data_quality_evaluation_config_data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_quality_evaluation_config_glue_tables() :: %{
+        "AdditionalOptions" => map(),
+        "CatalogId" => String.t() | atom(),
+        "ConnectionName" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
+        "PreProcessingQuery" => String.t() | atom(),
+        "TableNamePattern" => String.t() | atom()
+      }
+      
+  """
+  @type data_quality_evaluation_config_glue_tables() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_quality_evaluation_config_list_data_source() :: %{
+        "GlueTables" => data_quality_evaluation_config_list_glue_tables()
+      }
+      
+  """
+  @type data_quality_evaluation_config_list_data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_quality_evaluation_config_list_details() :: %{
+        "CreatedOn" => non_neg_integer(),
+        "DataSource" => data_quality_evaluation_config_list_data_source(),
+        "EvaluationRunMode" => list(any()),
+        "LastModifiedOn" => non_neg_integer(),
+        "Level" => list(any()),
+        "ManagedRulesetName" => list(any()),
+        "Name" => String.t() | atom(),
+        "PauseRuns" => boolean(),
+        "RulesetName" => String.t() | atom()
+      }
+      
+  """
+  @type data_quality_evaluation_config_list_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_quality_evaluation_config_list_glue_tables() :: %{
+        "CatalogId" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
+        "TableNamePattern" => String.t() | atom()
+      }
+      
+  """
+  @type data_quality_evaluation_config_list_glue_tables() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       data_quality_evaluation_run_additional_run_options() :: %{
         "CloudWatchMetricsEnabled" => boolean(),
         "CompositeRuleEvaluationMethod" => list(any()),
@@ -3594,8 +3724,10 @@ defmodule AWS.Glue do
         "AggregatedMetrics" => data_quality_aggregated_metrics(),
         "AnalyzerResults" => list(data_quality_analyzer_result()),
         "CompletedOn" => non_neg_integer(),
+        "DataQualityEvaluationConfig" => String.t() | atom(),
         "DataSource" => data_source(),
         "EvaluationContext" => String.t() | atom(),
+        "EvaluationRunMode" => list(any()),
         "JobName" => String.t() | atom(),
         "JobRunId" => String.t() | atom(),
         "Observations" => list(data_quality_observation()),
@@ -3616,7 +3748,9 @@ defmodule AWS.Glue do
   ## Example:
       
       data_quality_result_description() :: %{
+        "DataQualityEvaluationConfig" => String.t() | atom(),
         "DataSource" => data_source(),
+        "EvaluationRunMode" => list(any()),
         "JobName" => String.t() | atom(),
         "JobRunId" => String.t() | atom(),
         "ResultId" => String.t() | atom(),
@@ -3631,7 +3765,9 @@ defmodule AWS.Glue do
   ## Example:
       
       data_quality_result_filter_criteria() :: %{
+        "DataQualityEvaluationConfig" => String.t() | atom(),
         "DataSource" => data_source(),
+        "EvaluationRunMode" => list(any()),
         "JobName" => String.t() | atom(),
         "JobRunId" => String.t() | atom(),
         "StartedAfter" => non_neg_integer(),
@@ -3648,10 +3784,12 @@ defmodule AWS.Glue do
       data_quality_result_v2_item() :: %{
         "AggregatedMetrics" => data_quality_aggregated_metrics(),
         "AnalyzerResults" => list(data_quality_analyzer_result()),
+        "DataQualityEvaluationConfig" => String.t() | atom(),
         "DataSource" => data_source(),
         "Descriptors" => map(),
         "Dimensions" => map(),
         "EvaluationContext" => String.t() | atom(),
+        "EvaluationRunMode" => list(any()),
         "ExecutionCompletedOn" => non_neg_integer(),
         "ExecutionStartedOn" => non_neg_integer(),
         "Observations" => list(data_quality_observation()),
@@ -3671,10 +3809,12 @@ defmodule AWS.Glue do
   ## Example:
       
       data_quality_results_v2_description() :: %{
+        "DataQualityEvaluationConfig" => String.t() | atom(),
         "DataSource" => data_source(),
         "Descriptors" => map(),
         "Dimensions" => map(),
         "EvaluationContext" => String.t() | atom(),
+        "EvaluationRunMode" => list(any()),
         "ResultId" => String.t() | atom(),
         "ResultPublishedOn" => non_neg_integer()
       }
@@ -3687,9 +3827,11 @@ defmodule AWS.Glue do
   ## Example:
       
       data_quality_results_v2_filter_criteria() :: %{
+        "DataQualityEvaluationConfig" => String.t() | atom(),
         "DataSource" => data_source(),
         "Dimensions" => map(),
         "EvaluationContext" => String.t() | atom(),
+        "EvaluationRunMode" => list(any()),
         "PublishedAfter" => non_neg_integer(),
         "PublishedBefore" => non_neg_integer()
       }
@@ -3874,12 +4016,12 @@ defmodule AWS.Glue do
   ## Example:
       
       data_quality_telemetry() :: %{
-        optional("Engine") => list(any()),
-        optional("FlagsEnabled") => map(),
-        optional("HostRuntimeVersion") => String.t() | atom(),
-        optional("LibraryVersion") => String.t() | atom(),
-        optional("SparkVersion") => String.t() | atom(),
-        optional("VcpuHours") => float()
+        "Engine" => list(any()),
+        "FlagsEnabled" => map(),
+        "HostRuntimeVersion" => String.t() | atom(),
+        "LibraryVersion" => String.t() | atom(),
+        "SparkVersion" => String.t() | atom(),
+        "VcpuHours" => float()
       }
       
   """
@@ -4285,6 +4427,26 @@ defmodule AWS.Glue do
       
   """
   @type delete_custom_entity_type_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_data_quality_evaluation_config_request() :: %{
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type delete_data_quality_evaluation_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_data_quality_evaluation_config_response() :: %{}
+      
+  """
+  @type delete_data_quality_evaluation_config_response() :: %{}
 
   @typedoc """
 
@@ -6369,6 +6531,45 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      get_data_quality_evaluation_config_request() :: %{
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type get_data_quality_evaluation_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_data_quality_evaluation_config_response() :: %{
+        "AdditionalDataSources" => map(),
+        "AdditionalRunOptions" => data_quality_evaluation_config_additional_run_options(),
+        "CreatedOn" => non_neg_integer(),
+        "DataSource" => data_quality_evaluation_config_data_source(),
+        "EndAt" => non_neg_integer(),
+        "EvaluationRunMode" => list(any()),
+        "LastModifiedOn" => non_neg_integer(),
+        "Level" => list(any()),
+        "ManagedRulesetName" => list(any()),
+        "Name" => String.t() | atom(),
+        "NumberOfWorkers" => integer(),
+        "PauseRuns" => boolean(),
+        "Role" => String.t() | atom(),
+        "RulesetName" => String.t() | atom(),
+        "ScheduleExpression" => String.t() | atom(),
+        "StartAt" => non_neg_integer(),
+        "Timeout" => integer(),
+        "Triggers" => list(list(any())())
+      }
+      
+  """
+  @type get_data_quality_evaluation_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_data_quality_model_request() :: %{
         optional("StatisticId") => String.t() | atom(),
         required("ProfileId") => String.t() | atom()
@@ -6434,8 +6635,10 @@ defmodule AWS.Glue do
         "AggregatedMetrics" => data_quality_aggregated_metrics(),
         "AnalyzerResults" => list(data_quality_analyzer_result()),
         "CompletedOn" => non_neg_integer(),
+        "DataQualityEvaluationConfig" => String.t() | atom(),
         "DataSource" => data_source(),
         "EvaluationContext" => String.t() | atom(),
+        "EvaluationRunMode" => list(any()),
         "JobName" => String.t() | atom(),
         "JobRunId" => String.t() | atom(),
         "Observations" => list(data_quality_observation()),
@@ -6469,10 +6672,12 @@ defmodule AWS.Glue do
       get_data_quality_result_v2_response() :: %{
         "AggregatedMetrics" => data_quality_aggregated_metrics(),
         "AnalyzerResults" => list(data_quality_analyzer_result()),
+        "DataQualityEvaluationConfig" => String.t() | atom(),
         "DataSource" => data_source(),
         "Descriptors" => map(),
         "Dimensions" => map(),
         "EvaluationContext" => String.t() | atom(),
+        "EvaluationRunMode" => list(any()),
         "ExecutionCompletedOn" => non_neg_integer(),
         "ExecutionStartedOn" => non_neg_integer(),
         "Observations" => list(data_quality_observation()),
@@ -9592,6 +9797,31 @@ defmodule AWS.Glue do
       
   """
   @type list_custom_entity_types_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_data_quality_evaluation_configs_request() :: %{
+        optional("Level") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_data_quality_evaluation_configs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_data_quality_evaluation_configs_response() :: %{
+        "DataQualityEvaluationConfigs" => list(data_quality_evaluation_config_list_details()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_data_quality_evaluation_configs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14608,6 +14838,58 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      update_data_quality_evaluation_config_request() :: %{
+        optional("AdditionalDataSources") => map(),
+        optional("AdditionalRunOptions") => data_quality_evaluation_config_additional_run_options(),
+        optional("DataSource") => data_quality_evaluation_config_data_source(),
+        optional("EndAt") => non_neg_integer(),
+        optional("ManagedRulesetName") => list(any()),
+        optional("NumberOfWorkers") => integer(),
+        optional("PauseRuns") => boolean(),
+        optional("Role") => String.t() | atom(),
+        optional("RulesetName") => String.t() | atom(),
+        optional("ScheduleExpression") => String.t() | atom(),
+        optional("StartAt") => non_neg_integer(),
+        optional("Timeout") => integer(),
+        optional("Triggers") => list(list(any())()),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type update_data_quality_evaluation_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_data_quality_evaluation_config_response() :: %{
+        "AdditionalDataSources" => map(),
+        "AdditionalRunOptions" => data_quality_evaluation_config_additional_run_options(),
+        "CreatedOn" => non_neg_integer(),
+        "DataSource" => data_quality_evaluation_config_data_source(),
+        "EndAt" => non_neg_integer(),
+        "EvaluationRunMode" => list(any()),
+        "LastModifiedOn" => non_neg_integer(),
+        "Level" => list(any()),
+        "ManagedRulesetName" => list(any()),
+        "Name" => String.t() | atom(),
+        "NumberOfWorkers" => integer(),
+        "PauseRuns" => boolean(),
+        "Role" => String.t() | atom(),
+        "RulesetName" => String.t() | atom(),
+        "ScheduleExpression" => String.t() | atom(),
+        "StartAt" => non_neg_integer(),
+        "Timeout" => integer(),
+        "Triggers" => list(list(any())())
+      }
+      
+  """
+  @type update_data_quality_evaluation_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_data_quality_ruleset_request() :: %{
         optional("Description") => String.t() | atom(),
         optional("Ruleset") => String.t() | atom(),
@@ -15679,6 +15961,16 @@ defmodule AWS.Glue do
           | already_exists_exception()
           | access_denied_exception()
 
+  @type create_data_quality_evaluation_config_errors() ::
+          resource_number_limit_exceeded_exception()
+          | operation_timeout_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | idempotent_parameter_mismatch_exception()
+          | entity_not_found_exception()
+          | already_exists_exception()
+          | access_denied_exception()
+
   @type create_data_quality_ruleset_errors() ::
           resource_number_limit_exceeded_exception()
           | operation_timeout_exception()
@@ -15968,6 +16260,13 @@ defmodule AWS.Glue do
           | crawler_running_exception()
 
   @type delete_custom_entity_type_errors() ::
+          operation_timeout_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+          | access_denied_exception()
+
+  @type delete_data_quality_evaluation_config_errors() ::
           operation_timeout_exception()
           | invalid_input_exception()
           | internal_service_exception()
@@ -16329,6 +16628,13 @@ defmodule AWS.Glue do
           | invalid_input_exception()
           | internal_service_exception()
           | entity_not_found_exception()
+
+  @type get_data_quality_evaluation_config_errors() ::
+          operation_timeout_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+          | access_denied_exception()
 
   @type get_data_quality_model_errors() ::
           operation_timeout_exception()
@@ -16810,6 +17116,12 @@ defmodule AWS.Glue do
 
   @type list_custom_entity_types_errors() ::
           operation_timeout_exception() | invalid_input_exception() | internal_service_exception()
+
+  @type list_data_quality_evaluation_configs_errors() ::
+          operation_timeout_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | access_denied_exception()
 
   @type list_data_quality_results_errors() ::
           operation_timeout_exception() | invalid_input_exception() | internal_service_exception()
@@ -17373,6 +17685,14 @@ defmodule AWS.Glue do
           | operation_timeout_exception()
           | invalid_input_exception()
           | entity_not_found_exception()
+
+  @type update_data_quality_evaluation_config_errors() ::
+          operation_timeout_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+          | concurrent_modification_exception()
+          | access_denied_exception()
 
   @type update_data_quality_ruleset_errors() ::
           resource_number_limit_exceeded_exception()
@@ -18168,6 +18488,35 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Creates a data quality evaluation configuration, which evaluates the data
+  quality of a collection of tables in the Glue Data Catalog once, on a schedule,
+  or when table metadata changes.
+
+  A configuration applies to a catalog, a database, or a single table, and
+  evaluates every table in scope, including tables added later, without per-table
+  setup.
+
+  When configurations at more than one level apply to the same table, the most
+  specific configuration applies. Each table is evaluated at most once an hour,
+  whichever triggers you choose.
+  """
+  @spec create_data_quality_evaluation_config(
+          map(),
+          create_data_quality_evaluation_config_request(),
+          list()
+        ) ::
+          {:ok, create_data_quality_evaluation_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_data_quality_evaluation_config_errors()}
+  def create_data_quality_evaluation_config(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateDataQualityEvaluationConfig", input, options)
+  end
+
+  @doc """
   Creates a data quality ruleset with DQDL rules applied to a specified Glue
   table.
 
@@ -18831,6 +19180,25 @@ defmodule AWS.Glue do
       metadata()
 
     Request.request_post(client, meta, "DeleteCustomEntityType", input, options)
+  end
+
+  @doc """
+  Deletes a data quality evaluation configuration.
+  """
+  @spec delete_data_quality_evaluation_config(
+          map(),
+          delete_data_quality_evaluation_config_request(),
+          list()
+        ) ::
+          {:ok, delete_data_quality_evaluation_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_data_quality_evaluation_config_errors()}
+  def delete_data_quality_evaluation_config(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteDataQualityEvaluationConfig", input, options)
   end
 
   @doc """
@@ -19808,6 +20176,25 @@ defmodule AWS.Glue do
       metadata()
 
     Request.request_post(client, meta, "GetDataCatalogExportConfiguration", input, options)
+  end
+
+  @doc """
+  Retrieves a data quality evaluation configuration.
+  """
+  @spec get_data_quality_evaluation_config(
+          map(),
+          get_data_quality_evaluation_config_request(),
+          list()
+        ) ::
+          {:ok, get_data_quality_evaluation_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_data_quality_evaluation_config_errors()}
+  def get_data_quality_evaluation_config(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetDataQualityEvaluationConfig", input, options)
   end
 
   @doc """
@@ -21131,6 +21518,26 @@ defmodule AWS.Glue do
       metadata()
 
     Request.request_post(client, meta, "ListCustomEntityTypes", input, options)
+  end
+
+  @doc """
+  Lists the data quality evaluation configurations in your account, optionally
+  filtered by level.
+  """
+  @spec list_data_quality_evaluation_configs(
+          map(),
+          list_data_quality_evaluation_configs_request(),
+          list()
+        ) ::
+          {:ok, list_data_quality_evaluation_configs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_data_quality_evaluation_configs_errors()}
+  def list_data_quality_evaluation_configs(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListDataQualityEvaluationConfigs", input, options)
   end
 
   @doc """
@@ -22773,6 +23180,27 @@ defmodule AWS.Glue do
       metadata()
 
     Request.request_post(client, meta, "UpdateCrawlerSchedule", input, options)
+  end
+
+  @doc """
+  Updates a data quality evaluation configuration.
+
+  Fields that you don't specify keep their current values.
+  """
+  @spec update_data_quality_evaluation_config(
+          map(),
+          update_data_quality_evaluation_config_request(),
+          list()
+        ) ::
+          {:ok, update_data_quality_evaluation_config_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_data_quality_evaluation_config_errors()}
+  def update_data_quality_evaluation_config(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateDataQualityEvaluationConfig", input, options)
   end
 
   @doc """

@@ -12449,7 +12449,8 @@ defmodule AWS.DataZone do
   @doc """
   Creates a new user-defined designation with a Cedar permit policy.
 
-  The designation defines a named role that can be assigned to project members.
+  The designation defines a named role that can be assigned to project members
+  through `CreateProjectMembership` or granted through `AddPolicyGrant`.
   """
   @spec create_designation(map(), String.t() | atom(), create_designation_input(), list()) ::
           {:ok, create_designation_output(), any()}
@@ -13564,10 +13565,11 @@ defmodule AWS.DataZone do
   end
 
   @doc """
-  Deletes a designation.
+  Deletes a user-created designation.
 
-  Managed designations cannot be deleted.
-  This operation is idempotent.
+  Managed designations cannot be deleted. The call fails if the designation has
+  `deletionProtection` enabled or if any project member still holds it. This
+  operation is idempotent.
   """
   @spec delete_designation(
           map(),
@@ -14921,7 +14923,10 @@ defmodule AWS.DataZone do
   end
 
   @doc """
-  Gets the details of a designation, including its Cedar policy.
+  Gets the details of a designation, including its Cedar permit policy.
+
+  Returns the full designation record for both system-managed and user-created
+  designations.
   """
   @spec get_designation(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_designation_output(), any()}
@@ -16440,8 +16445,9 @@ defmodule AWS.DataZone do
   @doc """
   Lists the designations in a domain.
 
-  Returns system-managed designations
-  first, followed by user-created designations sorted alphabetically by name.
+  The response returns system-managed designations first, followed by user-created
+  designations in alphabetical order by name. Results are paginated. Use
+  `nextToken` to retrieve additional pages of results.
   """
   @spec list_designations(
           map(),
@@ -19701,9 +19707,10 @@ defmodule AWS.DataZone do
   end
 
   @doc """
-  Updates an existing designation.
+  Updates an existing user-created designation.
 
-  Managed designations cannot be modified.
+  Managed designations cannot be modified. Omit a field to leave its current value
+  unchanged.
   """
   @spec update_designation(
           map(),

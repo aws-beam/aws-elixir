@@ -3039,6 +3039,7 @@ defmodule AWS.ECS do
         "localStorageConfiguration" => managed_instances_local_storage_configuration(),
         "monitoring" => list(any()),
         "networkConfiguration" => managed_instances_network_configuration(),
+        "nitroEnclavesEnabled" => boolean(),
         "storageConfiguration" => managed_instances_storage_configuration()
       }
       
@@ -4401,6 +4402,7 @@ defmodule AWS.ECS do
         optional("runtimePlatform") => runtime_platform(),
         optional("tags") => list(tag()),
         optional("taskRoleArn") => String.t() | atom(),
+        optional("trustedExecutionConfiguration") => trusted_execution_configuration(),
         optional("volumes") => list(volume()),
         required("containerDefinitions") => list(container_definition()),
         required("family") => String.t() | atom()
@@ -5357,6 +5359,7 @@ defmodule AWS.ECS do
         "tags" => list(tag()),
         "taskArn" => String.t() | atom(),
         "taskDefinitionArn" => String.t() | atom(),
+        "trustedExecutionSummary" => trusted_execution_summary(),
         "version" => float()
       }
       
@@ -5393,6 +5396,7 @@ defmodule AWS.ECS do
         "status" => list(any()),
         "taskDefinitionArn" => String.t() | atom(),
         "taskRoleArn" => String.t() | atom(),
+        "trustedExecutionConfiguration" => trusted_execution_configuration(),
         "volumes" => list(volume())
       }
       
@@ -5579,6 +5583,30 @@ defmodule AWS.ECS do
       
   """
   @type total_local_storage_g_b_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      trusted_execution_configuration() :: %{
+        "attestationPolicy" => String.t() | atom(),
+        "isolationMode" => list(any())
+      }
+      
+  """
+  @type trusted_execution_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      trusted_execution_summary() :: %{
+        "attestationPolicyStatus" => list(any()),
+        "isolationMode" => list(any())
+      }
+      
+  """
+  @type trusted_execution_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

@@ -399,6 +399,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      build_lifecycle_hooks() :: %{
+        "warmup" => lifecycle_hook()
+      }
+
+  """
+  @type build_lifecycle_hooks() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       capacity_provider_configuration() :: %{
         "capacityProviderArn" => String.t() | atom()
       }
@@ -864,11 +875,13 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("description") => String.t() | atom(),
         optional("environmentVariables") => map(),
         optional("filesystemConfigurations") => list(list()),
+        optional("hooksConfiguration") => runtime_hooks_configuration(),
         optional("lifecycleConfiguration") => lifecycle_configuration(),
         optional("networkConfiguration") => network_configuration(),
         optional("platformVersion") => String.t() | atom(),
         optional("protocolConfiguration") => protocol_configuration(),
         optional("requestHeaderConfiguration") => list(),
+        optional("resourceConfigurations") => list(resource_configuration()),
         optional("tags") => map(),
         required("agentRuntimeArtifact") => list(),
         required("agentRuntimeName") => String.t() | atom(),
@@ -1249,6 +1262,7 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("authorizerConfiguration") => list(),
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
+        optional("domainOverride") => domain_override(),
         optional("exceptionLevel") => list(any()),
         optional("interceptorConfigurations") => list(gateway_interceptor_configuration()),
         optional("kmsKeyArn") => String.t() | atom(),
@@ -1274,6 +1288,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "createdAt" => non_neg_integer(),
         "customTransformConfiguration" => custom_transform_configuration(),
         "description" => String.t() | atom(),
+        "domainOverride" => domain_override(),
         "exceptionLevel" => list(any()),
         "gatewayArn" => String.t() | atom(),
         "gatewayId" => String.t() | atom(),
@@ -2684,6 +2699,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      domain_override() :: %{
+        "alternateDomains" => list(String.t() | atom()),
+        "defaultDomain" => String.t() | atom()
+      }
+
+  """
+  @type domain_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       ebs_volume_configuration() :: %{
         "encrypted" => [boolean()],
         "iops" => integer(),
@@ -3208,6 +3235,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "environmentVariables" => map(),
         "failureReason" => [String.t() | atom()],
         "filesystemConfigurations" => list(list()),
+        "hooksConfiguration" => runtime_hooks_configuration(),
         "lastUpdatedAt" => non_neg_integer(),
         "lifecycleConfiguration" => lifecycle_configuration(),
         "metadataConfiguration" => runtime_metadata_configuration(),
@@ -3215,6 +3243,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "platformVersion" => String.t() | atom(),
         "protocolConfiguration" => protocol_configuration(),
         "requestHeaderConfiguration" => list(),
+        "resourceConfigurations" => list(resource_configuration()),
         "roleArn" => String.t() | atom(),
         "status" => list(any()),
         "workloadIdentityDetails" => workload_identity_details()
@@ -3585,6 +3614,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "createdAt" => non_neg_integer(),
         "customTransformConfiguration" => custom_transform_configuration(),
         "description" => String.t() | atom(),
+        "domainOverride" => domain_override(),
         "exceptionLevel" => list(any()),
         "gatewayArn" => String.t() | atom(),
         "gatewayId" => String.t() | atom(),
@@ -4770,6 +4800,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      http_post_lifecycle_hook_action() :: %{
+        "path" => String.t() | atom(),
+        "port" => integer()
+      }
+
+  """
+  @type http_post_lifecycle_hook_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       iam_credential_provider() :: %{
         "region" => [String.t() | atom()],
         "service" => [String.t() | atom()]
@@ -5106,6 +5148,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type lifecycle_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lifecycle_hook() :: %{
+        "action" => list()
+      }
+
+  """
+  @type lifecycle_hook() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7173,6 +7226,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      resource_configuration() :: %{
+        "minimumMemoryInMiB" => [integer()]
+      }
+
+  """
+  @type resource_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       resource_limit_exceeded_exception() :: %{
         "message" => [String.t() | atom()]
       }
@@ -7256,6 +7320,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      runtime_hooks_configuration() :: %{
+        "build" => build_lifecycle_hooks()
+      }
+
+  """
+  @type runtime_hooks_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8244,12 +8319,14 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("description") => String.t() | atom(),
         optional("environmentVariables") => map(),
         optional("filesystemConfigurations") => list(list()),
+        optional("hooksConfiguration") => runtime_hooks_configuration(),
         optional("lifecycleConfiguration") => lifecycle_configuration(),
         optional("metadataConfiguration") => runtime_metadata_configuration(),
         optional("networkConfiguration") => network_configuration(),
         optional("platformVersion") => String.t() | atom(),
         optional("protocolConfiguration") => protocol_configuration(),
         optional("requestHeaderConfiguration") => list(),
+        optional("resourceConfigurations") => list(resource_configuration()),
         required("agentRuntimeArtifact") => list(),
         required("roleArn") => String.t() | atom()
       }
@@ -8521,6 +8598,7 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("authorizerConfiguration") => list(),
         optional("customTransformConfiguration") => custom_transform_configuration(),
         optional("description") => String.t() | atom(),
+        optional("domainOverride") => domain_override(),
         optional("exceptionLevel") => list(any()),
         optional("interceptorConfigurations") => list(gateway_interceptor_configuration()),
         optional("kmsKeyArn") => String.t() | atom(),
@@ -8546,6 +8624,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "createdAt" => non_neg_integer(),
         "customTransformConfiguration" => custom_transform_configuration(),
         "description" => String.t() | atom(),
+        "domainOverride" => domain_override(),
         "exceptionLevel" => list(any()),
         "gatewayArn" => String.t() | atom(),
         "gatewayId" => String.t() | atom(),

@@ -1121,6 +1121,19 @@ defmodule AWS.ARCRegionswitch do
 
   ## Example:
       
+      retryable_conflict_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+      
+  """
+  @type retryable_conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       route53_health_check() :: %{
         "healthCheckId" => String.t() | atom(),
         "hostedZoneId" => String.t() | atom(),
@@ -1548,7 +1561,7 @@ defmodule AWS.ARCRegionswitch do
 
   @type untag_resource_errors() :: resource_not_found_exception() | internal_server_exception()
 
-  @type update_plan_errors() :: resource_not_found_exception()
+  @type update_plan_errors() :: retryable_conflict_exception() | resource_not_found_exception()
 
   @type update_plan_execution_errors() ::
           resource_not_found_exception() | illegal_state_exception() | access_denied_exception()

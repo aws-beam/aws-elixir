@@ -3,9 +3,8 @@
 
 defmodule AWS.Route53Profiles do
   @moduledoc """
-
   With Amazon Route 53 Profiles you can share Route 53 configurations with VPCs
-  and AWS accounts
+  and Amazon Web Services accounts
   """
 
   alias AWS.Client
@@ -27,6 +26,7 @@ defmodule AWS.Route53Profiles do
   ## Example:
 
       associate_profile_request() :: %{
+        optional("Priority") => integer(),
         optional("Tags") => list(tag()),
         required("Name") => String.t() | atom(),
         required("ProfileId") => String.t() | atom(),
@@ -306,6 +306,7 @@ defmodule AWS.Route53Profiles do
       list_profile_resource_associations_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
+        optional("ResourceArn") => String.t() | atom(),
         optional("ResourceType") => String.t() | atom()
       }
 
@@ -398,6 +399,7 @@ defmodule AWS.Route53Profiles do
         "ModificationTime" => non_neg_integer(),
         "Name" => String.t() | atom(),
         "OwnerId" => String.t() | atom(),
+        "Priority" => integer(),
         "ProfileId" => String.t() | atom(),
         "ResourceId" => String.t() | atom(),
         "Status" => list(any()),
@@ -528,6 +530,29 @@ defmodule AWS.Route53Profiles do
 
   """
   @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_profile_association_request() :: %{
+        optional("Name") => String.t() | atom(),
+        optional("Priority") => integer()
+      }
+
+  """
+  @type update_profile_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_profile_association_response() :: %{
+        "ProfileAssociation" => profile_association()
+      }
+
+  """
+  @type update_profile_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -677,6 +702,16 @@ defmodule AWS.Route53Profiles do
           | conflict_exception()
           | access_denied_exception()
 
+  @type update_profile_association_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_service_error_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type update_profile_resource_association_errors() ::
           validation_exception()
           | throttling_exception()
@@ -704,13 +739,36 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Associates a Route 53 Profiles profile with a VPC.
 
-  A VPC can have only one Profile associated with it, but a Profile can be
-  associated with 1000 of VPCs (and you can request a higher quota).
-  For more information, see
-  [https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-entities](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-entities).
+  A VPC can have up to two Profile associations. A Profile can be associated with
+  up to 1,000 VPCs, and you can request a higher quota for the number of VPCs. For
+  more information, see [Quotas on Route 53 Profiles](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-entities-route53-profiles).
+
+  Route 53 VPC Resolver evaluates the Profile associations for a VPC in priority
+  order, starting with the lowest `Priority` value. If the VPC has no other
+  Profile associations, you can omit `Priority`, and the association gets priority
+  100. When the VPC already has a Profile association, you must specify a
+  `Priority`, and each Profile association for the VPC must have a unique
+  priority. To change the priority of an existing association, use
+  `UpdateProfileAssociation`.
+
+  The request fails with a `ValidationException` in these cases:
+
+    * You omit `Priority`, and the VPC already has a Profile
+  association.
+
+    * Another Profile association for the VPC already uses the priority
+  that you specify.
+
+    * The priority is outside the range 100–9900.
+
+    * The Profile is already associated with the VPC, and you specify a
+  different `Name` or `Priority`. To change the priority, use
+  [UpdateProfileAssociation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53profiles_UpdateProfileAssociation.html).
+
+  The request fails with a `LimitExceededException` if the VPC already has the
+  maximum number of Profile associations.
   """
   @spec associate_profile(map(), associate_profile_request(), list()) ::
           {:ok, associate_profile_response(), any()}
@@ -739,8 +797,7 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
-  Associates a DNS reource configuration to a Route 53 Profile.
+  Associates a DNS resource configuration to a Route 53 Profile.
   """
   @spec associate_resource_to_profile(map(), associate_resource_to_profile_request(), list()) ::
           {:ok, associate_resource_to_profile_response(), any()}
@@ -769,7 +826,6 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Creates an empty Route 53 Profile.
   """
   @spec create_profile(map(), create_profile_request(), list()) ::
@@ -799,7 +855,6 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Deletes the specified Route 53 Profile.
 
   Before you can delete a profile, you must first disassociate it from all VPCs.
@@ -831,7 +886,6 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Dissociates a specified Route 53 Profile from the specified VPC.
   """
   @spec disassociate_profile(
@@ -869,7 +923,6 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Dissoaciated a specified resource, from the Route 53 Profile.
   """
   @spec disassociate_resource_from_profile(
@@ -913,7 +966,6 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Returns information about a specified Route 53 Profile, such as whether whether
   the Profile is shared, and the current status of the Profile.
   """
@@ -933,11 +985,10 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Retrieves a Route 53 Profile association for a VPC.
 
-  A VPC can have only one Profile association, but a Profile can be associated
-  with up to 5000 VPCs.
+  A VPC can have up to two Profile associations, and a Profile can be associated
+  with up to 1,000 VPCs.
   """
   @spec get_profile_association(map(), String.t() | atom(), list()) ::
           {:ok, get_profile_association_response(), any()}
@@ -955,7 +1006,6 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Returns information about a specified Route 53 Profile resource association.
   """
   @spec get_profile_resource_association(map(), String.t() | atom(), list()) ::
@@ -980,7 +1030,6 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Lists all the VPCs that the specified Route 53 Profile is associated with.
   """
   @spec list_profile_associations(
@@ -1041,12 +1090,12 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Lists all the resource associations for the specified Route 53 Profile.
   """
   @spec list_profile_resource_associations(
           map(),
           String.t() | atom(),
+          String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
@@ -1061,6 +1110,7 @@ defmodule AWS.Route53Profiles do
         profile_id,
         max_results \\ nil,
         next_token \\ nil,
+        resource_arn \\ nil,
         resource_type \\ nil,
         options \\ []
       ) do
@@ -1083,6 +1133,13 @@ defmodule AWS.Route53Profiles do
       end
 
     query_params =
+      if !is_nil(resource_arn) do
+        [{"resourceArn", resource_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
       if !is_nil(resource_type) do
         [{"resourceType", resource_type} | query_params]
       else
@@ -1095,7 +1152,6 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Lists all the Route 53 Profiles associated with your Amazon Web Services
   account.
   """
@@ -1129,7 +1185,6 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Lists the tags that you associated with the specified resource.
   """
   @spec list_tags_for_resource(map(), String.t() | atom(), list()) ::
@@ -1148,7 +1203,6 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Adds one or more tags to a specified resource.
   """
   @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
@@ -1178,7 +1232,6 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
-
   Removes one or more tags from a specified resource.
   """
   @spec untag_resource(map(), String.t() | atom(), untag_resource_request(), list()) ::
@@ -1213,7 +1266,59 @@ defmodule AWS.Route53Profiles do
   end
 
   @doc """
+  Updates the name or priority of the specified Route 53 Profile association with
+  a VPC.
 
+  Route 53 VPC Resolver evaluates the Profile associations for a VPC in priority
+  order, starting with the lowest value. Only the account that created the
+  association can update it.
+
+  When you change the priority, the association status is `UPDATING` until the
+  change propagates, and then `COMPLETE`. While the status is `UPDATING`, Route 53
+  VPC Resolver might still use the previous priority for some queries. When the
+  status is `COMPLETE`, the new priority applies to all queries from the VPC.
+
+  The request fails with a `ValidationException` if another Profile association
+  for the VPC already uses the priority that you specify, or if the priority is
+  outside the range 100–9900.
+
+  You can update an association whose status is `CREATING`, `UPDATING`, or
+  `COMPLETE`. The request fails with a `ConflictException` if the association
+  status is `DELETING`, `DELETED`, or `FAILED`, or if the account that owns the
+  association is inactive.
+  """
+  @spec update_profile_association(
+          map(),
+          String.t() | atom(),
+          update_profile_association_request(),
+          list()
+        ) ::
+          {:ok, update_profile_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_profile_association_errors()}
+  def update_profile_association(%Client{} = client, profile_association_id, input, options \\ []) do
+    url_path = "/profileassociation/#{AWS.Util.encode_uri(profile_association_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates the specified Route 53 Profile resourse association.
   """
   @spec update_profile_resource_association(

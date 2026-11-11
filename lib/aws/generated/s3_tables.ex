@@ -341,6 +341,26 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      get_table_bucket_logging_request() :: %{}
+
+  """
+  @type get_table_bucket_logging_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_table_bucket_logging_response() :: %{
+        "tableBucketLoggingStatus" => table_bucket_logging_status()
+      }
+
+  """
+  @type get_table_bucket_logging_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_table_bucket_maintenance_configuration_request() :: %{}
 
   """
@@ -1061,6 +1081,19 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      logging_enabled() :: %{
+        "targetBucket" => String.t() | atom(),
+        "targetObjectKeyFormat" => target_object_key_format(),
+        "targetPrefix" => String.t() | atom()
+      }
+
+  """
+  @type logging_enabled() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       maintenance_settings() :: %{
         "icebergCompaction" => migration_compaction_settings(),
         "icebergSnapshotManagement" => migration_snapshot_management_settings()
@@ -1256,6 +1289,17 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      partitioned_prefix() :: %{
+        "partitionDateSource" => list(any())
+      }
+
+  """
+  @type partitioned_prefix() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       planning_stats() :: %{
         "objectsPlanned" => [float()],
         "objectsScanned" => [float()],
@@ -1275,6 +1319,17 @@ defmodule AWS.S3Tables do
 
   """
   @type put_table_bucket_encryption_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_table_bucket_logging_request() :: %{
+        required("tableBucketLoggingStatus") => table_bucket_logging_status()
+      }
+
+  """
+  @type put_table_bucket_logging_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1565,6 +1620,17 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      table_bucket_logging_status() :: %{
+        "loggingEnabled" => logging_enabled()
+      }
+
+  """
+  @type table_bucket_logging_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       table_bucket_maintenance_configuration_value() :: %{
         "settings" => list(),
         "status" => list(any())
@@ -1734,6 +1800,17 @@ defmodule AWS.S3Tables do
 
   """
   @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      target_object_key_format() :: %{
+        "partitionedPrefix" => partitioned_prefix()
+      }
+
+  """
+  @type target_object_key_format() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1962,6 +2039,14 @@ defmodule AWS.S3Tables do
           | bad_request_exception()
           | access_denied_exception()
 
+  @type get_table_bucket_logging_errors() ::
+          too_many_requests_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
+
   @type get_table_bucket_maintenance_configuration_errors() ::
           too_many_requests_exception()
           | not_found_exception()
@@ -2135,6 +2220,14 @@ defmodule AWS.S3Tables do
           | bad_request_exception()
 
   @type put_table_bucket_encryption_errors() ::
+          too_many_requests_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
+
+  @type put_table_bucket_logging_errors() ::
           too_many_requests_exception()
           | not_found_exception()
           | internal_server_error_exception()
@@ -3048,6 +3141,34 @@ defmodule AWS.S3Tables do
           | {:error, get_table_bucket_encryption_errors()}
   def get_table_bucket_encryption(%Client{} = client, table_bucket_arn, options \\ []) do
     url_path = "/buckets/#{AWS.Util.encode_uri(table_bucket_arn)}/encryption"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets the server access logging configuration for a table bucket.
+
+  For more information, see [Server access logging for table buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-server-logs.html)
+  in the *Amazon Simple Storage Service User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:GetTableBucketLogging` permission to use this
+  operation.
+  """
+  @spec get_table_bucket_logging(map(), String.t() | atom(), list()) ::
+          {:ok, get_table_bucket_logging_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_table_bucket_logging_errors()}
+  def get_table_bucket_logging(%Client{} = client, table_bucket_arn, options \\ []) do
+    url_path = "/buckets/#{AWS.Util.encode_uri(table_bucket_arn)}/logging"
     headers = []
     query_params = []
 
@@ -4016,6 +4137,55 @@ defmodule AWS.S3Tables do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Sets, updates, or removes the server access logging configuration for a table
+  bucket.
+
+  When logging is enabled, Amazon S3 delivers a record of the requests made to the
+  table bucket and its tables to the target general purpose bucket that you
+  specify. To disable logging, call this operation with an empty
+  `tableBucketLoggingStatus`. For more information, see [Server access logging for table
+  buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-server-logs.html)
+  in the *Amazon Simple Storage Service User Guide*.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:PutTableBucketLogging` permission to use this
+  operation.
+  """
+  @spec put_table_bucket_logging(
+          map(),
+          String.t() | atom(),
+          put_table_bucket_logging_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_table_bucket_logging_errors()}
+  def put_table_bucket_logging(%Client{} = client, table_bucket_arn, input, options \\ []) do
+    url_path = "/buckets/#{AWS.Util.encode_uri(table_bucket_arn)}/logging"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
     )
   end
 

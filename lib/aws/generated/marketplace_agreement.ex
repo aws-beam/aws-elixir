@@ -187,6 +187,7 @@ defmodule AWS.MarketplaceAgreement do
         "endTimeBehaviorReasonCode" => list(any()),
         "endTimeBehaviorType" => list(any()),
         "entitlements" => list(entitlement()),
+        "freeTrialEndTime" => non_neg_integer(),
         "initialAgreementId" => String.t() | atom(),
         "lastUpdateTime" => non_neg_integer(),
         "proposalSummary" => proposal_summary(),
@@ -529,6 +530,7 @@ defmodule AWS.MarketplaceAgreement do
         "endTime" => non_neg_integer(),
         "endTimeBehavior" => end_time_behavior(),
         "estimatedCharges" => estimated_charges(),
+        "freeTrialSummary" => free_trial_summary(),
         "initialAgreementId" => String.t() | atom(),
         "proposalSummary" => proposal_summary(),
         "proposer" => proposer(),
@@ -680,6 +682,17 @@ defmodule AWS.MarketplaceAgreement do
       
   """
   @type free_trial_pricing_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      free_trial_summary() :: %{
+        "trialEndTime" => non_neg_integer()
+      }
+      
+  """
+  @type free_trial_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

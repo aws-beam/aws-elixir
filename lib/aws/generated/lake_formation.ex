@@ -84,6 +84,18 @@ defmodule AWS.LakeFormation do
 
   ## Example:
 
+      any_resource() :: %{
+        "CatalogId" => String.t() | atom(),
+        "ResourceType" => list(any())
+      }
+
+  """
+  @type any_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       assume_decorated_role_with_saml_request() :: %{
         optional("DurationSeconds") => integer(),
         required("PrincipalArn") => String.t() | atom(),
@@ -1050,6 +1062,30 @@ defmodule AWS.LakeFormation do
 
   ## Example:
 
+      get_glue_function_session_context_request() :: %{
+        optional("DurationSeconds") => integer(),
+        required("UserDefinedFunctionArns") => list(String.t() | atom())
+      }
+
+  """
+  @type get_glue_function_session_context_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_glue_function_session_context_response() :: %{
+        "Expiration" => non_neg_integer(),
+        "SessionContextId" => String.t() | atom()
+      }
+
+  """
+  @type get_glue_function_session_context_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_l_f_tag_expression_request() :: %{
         optional("CatalogId") => String.t() | atom(),
         required("Name") => String.t() | atom()
@@ -1248,6 +1284,32 @@ defmodule AWS.LakeFormation do
 
   """
   @type get_temporary_data_location_credentials_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_temporary_glue_function_credentials_request() :: %{
+        optional("AuditContext") => audit_context(),
+        required("UserDefinedFunctionArn") => String.t() | atom()
+      }
+
+  """
+  @type get_temporary_glue_function_credentials_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_temporary_glue_function_credentials_response() :: %{
+        "AccessKeyId" => String.t() | atom(),
+        "Expiration" => non_neg_integer(),
+        "SecretAccessKey" => String.t() | atom(),
+        "SessionToken" => String.t() | atom()
+      }
+
+  """
+  @type get_temporary_glue_function_credentials_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2033,6 +2095,7 @@ defmodule AWS.LakeFormation do
   ## Example:
 
       resource() :: %{
+        "AnyResource" => any_resource(),
         "Catalog" => catalog_resource(),
         "DataCellsFilter" => data_cells_filter_resource(),
         "DataLocation" => data_location_resource(),
@@ -2042,7 +2105,8 @@ defmodule AWS.LakeFormation do
         "LFTagPolicy" => l_f_tag_policy_resource(),
         "RLSPolicy" => r_l_s_policy_resource(),
         "Table" => table_resource(),
-        "TableWithColumns" => table_with_columns_resource()
+        "TableWithColumns" => table_with_columns_resource(),
+        "UserDefinedFunction" => user_defined_function_resource()
       }
 
   """
@@ -2587,6 +2651,29 @@ defmodule AWS.LakeFormation do
 
   ## Example:
 
+      user_defined_function_resource() :: %{
+        "CatalogId" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "UserDefinedFunctionWildcard" => user_defined_function_wildcard()
+      }
+
+  """
+  @type user_defined_function_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      user_defined_function_wildcard() :: %{}
+
+  """
+  @type user_defined_function_wildcard() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       virtual_object() :: %{
         "ETag" => String.t() | atom(),
         "Uri" => String.t() | atom()
@@ -2846,6 +2933,13 @@ defmodule AWS.LakeFormation do
           | internal_service_exception()
           | entity_not_found_exception()
 
+  @type get_glue_function_session_context_errors() ::
+          operation_timeout_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | entity_not_found_exception()
+          | access_denied_exception()
+
   @type get_l_f_tag_errors() ::
           operation_timeout_exception()
           | invalid_input_exception()
@@ -2902,6 +2996,14 @@ defmodule AWS.LakeFormation do
           | glue_encryption_exception()
           | entity_not_found_exception()
           | conflict_exception()
+          | access_denied_exception()
+
+  @type get_temporary_glue_function_credentials_errors() ::
+          operation_timeout_exception()
+          | invalid_input_exception()
+          | internal_service_exception()
+          | glue_encryption_exception()
+          | entity_not_found_exception()
           | access_denied_exception()
 
   @type get_temporary_glue_partition_credentials_errors() ::
@@ -4130,6 +4232,52 @@ defmodule AWS.LakeFormation do
   end
 
   @doc """
+  Returns a session context for one or more user-defined functions that an
+  integrated analytics engine runs
+  together in a job.
+
+  You must have the `EXECUTE` permission on every function in the list.
+
+  While the session context is in use, if you don't have full `SELECT` permission
+  on a table, the
+  job can read the table only if every function in the session has the `SELECT`
+  permission on it.
+  Lake Formation enforces this check.
+
+  To use this operation, you must have the `lakeformation:GetDataAccess`
+  permission.
+  """
+  @spec get_glue_function_session_context(
+          map(),
+          get_glue_function_session_context_request(),
+          list()
+        ) ::
+          {:ok, get_glue_function_session_context_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_glue_function_session_context_errors()}
+  def get_glue_function_session_context(%Client{} = client, input, options \\ []) do
+    url_path = "/GetGlueFunctionSessionContext"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Returns an LF-tag definition.
   """
   @spec get_l_f_tag(map(), get_l_f_tag_request(), list()) ::
@@ -4388,6 +4536,48 @@ defmodule AWS.LakeFormation do
           | {:error, get_temporary_data_location_credentials_errors()}
   def get_temporary_data_location_credentials(%Client{} = client, input, options \\ []) do
     url_path = "/GetTemporaryDataLocationCredentials"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns temporary credentials that you can use to download the artifacts of a
+  user-defined function whose
+  `GovernanceMode` is `LAKE_FORMATION`.
+
+  Lake Formation assumes the role that you
+  registered for the function's `ArtifactLocation`. The credentials have read-only
+  access to that location in
+  Amazon S3.
+
+  To use this operation, you must have the `EXECUTE` permission on the function.
+  """
+  @spec get_temporary_glue_function_credentials(
+          map(),
+          get_temporary_glue_function_credentials_request(),
+          list()
+        ) ::
+          {:ok, get_temporary_glue_function_credentials_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_temporary_glue_function_credentials_errors()}
+  def get_temporary_glue_function_credentials(%Client{} = client, input, options \\ []) do
+    url_path = "/GetTemporaryGlueFunctionCredentials"
     headers = []
     custom_headers = []
     query_params = []

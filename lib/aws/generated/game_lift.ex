@@ -729,6 +729,7 @@ defmodule AWS.GameLift do
         optional("CustomEventData") => String.t() | atom(),
         optional("Destinations") => list(game_session_queue_destination()),
         optional("FilterConfiguration") => filter_configuration(),
+        optional("LogConfiguration") => game_session_queue_log_configuration(),
         optional("NotificationTarget") => String.t() | atom(),
         optional("PlayerLatencyPolicies") => list(player_latency_policy()),
         optional("PriorityConfiguration") => priority_configuration(),
@@ -2519,6 +2520,7 @@ defmodule AWS.GameLift do
         "Destinations" => list(game_session_queue_destination()),
         "FilterConfiguration" => filter_configuration(),
         "GameSessionQueueArn" => String.t() | atom(),
+        "LogConfiguration" => game_session_queue_log_configuration(),
         "Name" => String.t() | atom(),
         "NotificationTarget" => String.t() | atom(),
         "PlayerLatencyPolicies" => list(player_latency_policy()),
@@ -2539,6 +2541,17 @@ defmodule AWS.GameLift do
       
   """
   @type game_session_queue_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      game_session_queue_log_configuration() :: %{
+        "DeliveryDestinations" => list(log_delivery_destination())
+      }
+      
+  """
+  @type game_session_queue_log_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3228,6 +3241,18 @@ defmodule AWS.GameLift do
       
   """
   @type log_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      log_delivery_destination() :: %{
+        "DestinationArn" => String.t() | atom(),
+        "LogDestination" => list(any())
+      }
+      
+  """
+  @type log_delivery_destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4456,12 +4481,14 @@ defmodule AWS.GameLift do
   ## Example:
       
       update_game_session_queue_input() :: %{
+        optional("AddLogDeliveryDestinations") => list(log_delivery_destination()),
         optional("CustomEventData") => String.t() | atom(),
         optional("Destinations") => list(game_session_queue_destination()),
         optional("FilterConfiguration") => filter_configuration(),
         optional("NotificationTarget") => String.t() | atom(),
         optional("PlayerLatencyPolicies") => list(player_latency_policy()),
         optional("PriorityConfiguration") => priority_configuration(),
+        optional("RemoveLogDeliveryDestinations") => list(log_delivery_destination()),
         optional("TimeoutInSeconds") => integer(),
         required("Name") => String.t() | atom()
       }
@@ -6336,10 +6363,9 @@ defmodule AWS.GameLift do
 
   Creates a placement queue that processes requests for new game sessions.
 
-  A queue uses
-  FleetIQ algorithms to locate the best available placement locations for a new
-  game
-  session, and then prompts the game server process to start a new game session.
+  A queue
+  finds the best available game server, then prompts it to start a new game
+  session.
 
   A game session queue is configured with a set of destinations (Amazon GameLift
   Servers fleets or
@@ -6411,6 +6437,18 @@ defmodule AWS.GameLift do
       *
 
   `PlayerLatencyPolicies`
+
+    *
+  Create a queue that delivers game session placement insight logs to one or
+  more log destinations.
+
+      *
+  Required parameters `Name` and
+  `Destinations`
+
+      *
+
+  `LogConfiguration`
 
   ## Results
 

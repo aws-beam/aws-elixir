@@ -1813,6 +1813,7 @@ defmodule AWS.Connect do
         "ContactAssociationId" => String.t() | atom(),
         "ContactDetails" => contact_details(),
         "ContactEvaluations" => map(),
+        "ContactLens" => contact_lens(),
         "Customer" => customer(),
         "CustomerEndpoint" => endpoint_info(),
         "CustomerId" => String.t() | atom(),
@@ -1880,6 +1881,18 @@ defmodule AWS.Connect do
 
   """
   @type contact_analysis_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      contact_analysis_reference_state() :: %{
+        "Status" => String.t() | atom(),
+        "StatusReason" => String.t() | atom()
+      }
+
+  """
+  @type contact_analysis_reference_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2281,6 +2294,64 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      contact_lens() :: %{
+        "ConversationalAnalytics" => conversational_analytics()
+      }
+
+  """
+  @type contact_lens() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      contact_lens_channel_configuration() :: %{
+        "AnalyticsModes" => list(String.t() | atom())
+      }
+
+  """
+  @type contact_lens_channel_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      contact_lens_redaction_configuration() :: %{
+        "Behavior" => String.t() | atom(),
+        "Entities" => list(String.t() | atom()),
+        "MaskMode" => String.t() | atom(),
+        "Policy" => String.t() | atom()
+      }
+
+  """
+  @type contact_lens_redaction_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      contact_lens_sentiment_configuration() :: %{
+        "Behavior" => String.t() | atom()
+      }
+
+  """
+  @type contact_lens_sentiment_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      contact_lens_summary_configuration() :: %{
+        "SummaryModes" => list(String.t() | atom())
+      }
+
+  """
+  @type contact_lens_summary_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       contact_metric_info() :: %{
         "Name" => list(any())
       }
@@ -2448,6 +2519,35 @@ defmodule AWS.Connect do
 
   """
   @type control_plane_user_attribute_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conversational_analytics() :: %{
+        "Configuration" => conversational_analytics_configuration(),
+        "ContactAnalysisReferenceState" => contact_analysis_reference_state()
+      }
+
+  """
+  @type conversational_analytics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conversational_analytics_configuration() :: %{
+        "ChannelConfiguration" => contact_lens_channel_configuration(),
+        "Enabled" => boolean(),
+        "LanguageLocale" => String.t() | atom(),
+        "LanguageLocales" => list(String.t() | atom()),
+        "RedactionConfiguration" => contact_lens_redaction_configuration(),
+        "SentimentConfiguration" => contact_lens_sentiment_configuration(),
+        "SummaryConfiguration" => contact_lens_summary_configuration()
+      }
+
+  """
+  @type conversational_analytics_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -32187,7 +32287,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Allows pausing an ongoing task contact.
+  Pauses an ongoing task or email contact.
   """
   @spec pause_contact(map(), pause_contact_request(), list()) ::
           {:ok, pause_contact_response(), any()}
@@ -32364,7 +32464,7 @@ defmodule AWS.Connect do
   end
 
   @doc """
-  Allows resuming a task contact in a paused state.
+  Resumes a task or email contact in a paused state.
   """
   @spec resume_contact(map(), resume_contact_request(), list()) ::
           {:ok, resume_contact_response(), any()}

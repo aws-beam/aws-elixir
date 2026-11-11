@@ -509,6 +509,34 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      create_firewall_policy_v2_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("EncryptionConfiguration") => encryption_configuration(),
+        optional("Tags") => list(tag()),
+        required("FirewallPolicyV2") => firewall_policy_v2(),
+        required("FirewallPolicyV2Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_firewall_policy_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_firewall_policy_v2_response() :: %{
+        "FirewallPolicyV2Response" => firewall_policy_v2_response(),
+        "UpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type create_firewall_policy_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_firewall_request() :: %{
         optional("AvailabilityZoneChangeProtection") => boolean(),
         optional("AvailabilityZoneMappings") => list(availability_zone_mapping()),
@@ -690,6 +718,8 @@ defmodule AWS.NetworkFirewall do
         optional("Description") => String.t() | atom(),
         optional("DryRun") => boolean(),
         optional("EncryptionConfiguration") => encryption_configuration(),
+        optional("FirewallRuleGroup") => firewall_rule_group(),
+        optional("IpsRuleGroup") => ips_rule_group(),
         optional("RuleGroup") => rule_group(),
         optional("Rules") => String.t() | atom(),
         optional("SourceMetadata") => source_metadata(),
@@ -828,6 +858,29 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type delete_firewall_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_firewall_policy_v2_request() :: %{
+        optional("FirewallPolicyV2Arn") => String.t() | atom(),
+        optional("FirewallPolicyV2Name") => String.t() | atom()
+      }
+      
+  """
+  @type delete_firewall_policy_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_firewall_policy_v2_response() :: %{
+        "FirewallPolicyV2Response" => firewall_policy_v2_response()
+      }
+      
+  """
+  @type delete_firewall_policy_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1156,6 +1209,32 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      describe_firewall_policy_v2_request() :: %{
+        optional("FirewallPolicyV2Arn") => String.t() | atom(),
+        optional("FirewallPolicyV2Name") => String.t() | atom(),
+        optional("RuleOutputFormat") => list(any())
+      }
+      
+  """
+  @type describe_firewall_policy_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_firewall_policy_v2_response() :: %{
+        "FirewallPolicyV2" => firewall_policy_v2(),
+        "FirewallPolicyV2Response" => firewall_policy_v2_response(),
+        "UpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_firewall_policy_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_firewall_request() :: %{
         optional("FirewallArn") => String.t() | atom(),
         optional("FirewallName") => String.t() | atom()
@@ -1426,6 +1505,7 @@ defmodule AWS.NetworkFirewall do
         optional("AnalyzeRuleGroup") => boolean(),
         optional("RuleGroupArn") => String.t() | atom(),
         optional("RuleGroupName") => String.t() | atom(),
+        optional("RuleOutputFormat") => list(any()),
         optional("Type") => list(any())
       }
       
@@ -1437,6 +1517,8 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       describe_rule_group_response() :: %{
+        "FirewallRuleGroup" => firewall_rule_group(),
+        "IpsRuleGroup" => ips_rule_group(),
         "RuleGroup" => rule_group(),
         "RuleGroupResponse" => rule_group_response(),
         "UpdateToken" => String.t() | atom()
@@ -1746,6 +1828,122 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      firewall_policy_v2() :: %{
+        "FirewallDefaultAction" => list(any()),
+        "FirewallRuleGroupEntries" => list(firewall_rule_group_entry()),
+        "IpsRuleGroupEntries" => list(ips_rule_group_entry()),
+        "PolicyMode" => list(any()),
+        "PolicyVariables" => policy_variables(),
+        "Route53ResolvedIPValidation" => route53_resolved_ip_validation(),
+        "StatefulEngineOptions" => stateful_engine_options_v2(),
+        "TLSInspectionConfigurationArn" => String.t() | atom()
+      }
+      
+  """
+  @type firewall_policy_v2() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      firewall_policy_v2_metadata() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type firewall_policy_v2_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      firewall_policy_v2_response() :: %{
+        "ConsumedFirewallRuleCapacity" => integer(),
+        "ConsumedIpsDomainCapacity" => integer(),
+        "ConsumedIpsRuleCapacity" => integer(),
+        "Description" => String.t() | atom(),
+        "EncryptionConfiguration" => encryption_configuration(),
+        "Errors" => list(firewall_policy_error()),
+        "FirewallPolicyV2Arn" => String.t() | atom(),
+        "FirewallPolicyV2Id" => String.t() | atom(),
+        "FirewallPolicyV2Name" => String.t() | atom(),
+        "FirewallPolicyV2Status" => list(any()),
+        "LastModifiedTime" => non_neg_integer(),
+        "NumberOfAssociations" => integer(),
+        "StatusMessage" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type firewall_policy_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      firewall_rule() :: %{
+        "AcceptPriorHooks" => boolean(),
+        "Action" => list(any()),
+        "ActionScope" => list(any()),
+        "AlertEnabled" => boolean(),
+        "BypassIPSEnabled" => boolean(),
+        "DestIPs" => String.t() | atom(),
+        "DestPorts" => String.t() | atom(),
+        "Hook" => list(any()),
+        "Protocol" => list(any()),
+        "RuleMetadata" => rule_metadata(),
+        "RuleOptions" => list(rule_option()),
+        "SourceIPs" => String.t() | atom(),
+        "SourcePorts" => String.t() | atom()
+      }
+      
+  """
+  @type firewall_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      firewall_rule_group() :: %{
+        "ReferenceSets" => reference_sets(),
+        "RuleVariables" => rule_variables(),
+        "RulesSource" => firewall_rules_source()
+      }
+      
+  """
+  @type firewall_rule_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      firewall_rule_group_entry() :: %{
+        "InlineRuleGroup" => firewall_rule_group(),
+        "Priority" => integer(),
+        "ResourceArn" => String.t() | atom()
+      }
+      
+  """
+  @type firewall_rule_group_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      firewall_rules_source() :: %{
+        "FirewallRules" => list(firewall_rule()),
+        "RulesSourceList" => rules_source_list(),
+        "RulesString" => String.t() | atom()
+      }
+      
+  """
+  @type firewall_rules_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       firewall_status() :: %{
         "CapacityUsageSummary" => capacity_usage_summary(),
         "ConfigurationSyncStateSummary" => list(any()),
@@ -1989,6 +2187,54 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      ips_rule_group() :: %{
+        "ReferenceSets" => reference_sets(),
+        "RuleVariables" => rule_variables(),
+        "RulesSource" => ips_rules_source()
+      }
+      
+  """
+  @type ips_rule_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ips_rule_group_entry() :: %{
+        "InlineRuleGroup" => ips_rule_group(),
+        "Override" => ips_rule_group_override(),
+        "ResourceArn" => String.t() | atom()
+      }
+      
+  """
+  @type ips_rule_group_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ips_rule_group_override() :: %{
+        "Action" => list(any())
+      }
+      
+  """
+  @type ips_rule_group_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ips_rules_source() :: %{
+        "RulesString" => String.t() | atom()
+      }
+      
+  """
+  @type ips_rules_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       limit_exceeded_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -2069,6 +2315,30 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type list_firewall_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_firewall_policies_v2_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_firewall_policies_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_firewall_policies_v2_response() :: %{
+        "FirewallPoliciesV2" => list(firewall_policy_v2_metadata()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_firewall_policies_v2_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2882,6 +3152,18 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      rule_metadata() :: %{
+        "RuleDescription" => String.t() | atom(),
+        "RuleEnabled" => boolean()
+      }
+      
+  """
+  @type rule_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       rule_option() :: %{
         "Keyword" => String.t() | atom(),
         "Settings" => list(String.t() | atom())
@@ -3090,6 +3372,18 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type stateful_engine_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stateful_engine_options_v2() :: %{
+        "FlowTimeouts" => flow_timeouts(),
+        "StreamExceptionPolicy" => list(any())
+      }
+      
+  """
+  @type stateful_engine_options_v2() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3653,6 +3947,35 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      update_firewall_policy_v2_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("EncryptionConfiguration") => encryption_configuration(),
+        optional("FirewallPolicyV2Arn") => String.t() | atom(),
+        optional("FirewallPolicyV2Name") => String.t() | atom(),
+        required("FirewallPolicyV2") => firewall_policy_v2(),
+        required("UpdateToken") => String.t() | atom()
+      }
+      
+  """
+  @type update_firewall_policy_v2_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_firewall_policy_v2_response() :: %{
+        "FirewallPolicyV2Response" => firewall_policy_v2_response(),
+        "UpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type update_firewall_policy_v2_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_logging_configuration_request() :: %{
         optional("EnableMonitoringDashboard") => boolean(),
         optional("FirewallArn") => String.t() | atom(),
@@ -3856,6 +4179,8 @@ defmodule AWS.NetworkFirewall do
         optional("Description") => String.t() | atom(),
         optional("DryRun") => boolean(),
         optional("EncryptionConfiguration") => encryption_configuration(),
+        optional("FirewallRuleGroup") => firewall_rule_group(),
+        optional("IpsRuleGroup") => ips_rule_group(),
         optional("RuleGroup") => rule_group(),
         optional("RuleGroupArn") => String.t() | atom(),
         optional("RuleGroupName") => String.t() | atom(),
@@ -4050,6 +4375,14 @@ defmodule AWS.NetworkFirewall do
           | internal_server_error()
           | insufficient_capacity_exception()
 
+  @type create_firewall_policy_v2_errors() ::
+          throttling_exception()
+          | limit_exceeded_exception()
+          | invalid_request_exception()
+          | invalid_operation_exception()
+          | internal_server_error()
+          | insufficient_capacity_exception()
+
   @type create_proxy_errors() ::
           unsupported_operation_exception()
           | throttling_exception()
@@ -4113,6 +4446,14 @@ defmodule AWS.NetworkFirewall do
           | internal_server_error()
 
   @type delete_firewall_policy_errors() ::
+          unsupported_operation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | invalid_operation_exception()
+          | internal_server_error()
+
+  @type delete_firewall_policy_v2_errors() ::
           unsupported_operation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -4199,6 +4540,12 @@ defmodule AWS.NetworkFirewall do
           | internal_server_error()
 
   @type describe_firewall_policy_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_server_error()
+
+  @type describe_firewall_policy_v2_errors() ::
           throttling_exception()
           | resource_not_found_exception()
           | invalid_request_exception()
@@ -4314,6 +4661,9 @@ defmodule AWS.NetworkFirewall do
           throttling_exception() | invalid_request_exception() | internal_server_error()
 
   @type list_firewall_policies_errors() ::
+          throttling_exception() | invalid_request_exception() | internal_server_error()
+
+  @type list_firewall_policies_v2_errors() ::
           throttling_exception() | invalid_request_exception() | internal_server_error()
 
   @type list_firewalls_errors() ::
@@ -4464,6 +4814,14 @@ defmodule AWS.NetworkFirewall do
           | resource_not_found_exception()
           | invalid_token_exception()
           | invalid_request_exception()
+          | internal_server_error()
+
+  @type update_firewall_policy_v2_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_token_exception()
+          | invalid_request_exception()
+          | invalid_operation_exception()
           | internal_server_error()
 
   @type update_logging_configuration_errors() ::
@@ -4768,6 +5126,27 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+  Creates a Next Generation policy according to the specifications.
+
+  A Next Generation policy defines the behavior of a firewall in a collection of
+  firewall engine and IPS engine rule groups and other settings. You can use one
+  firewall policy for multiple firewalls. For more information, see [Next Generation
+  policies](https://docs.aws.amazon.com/network-firewall/latest/developerguide/firewall-policies-v2.html)
+  in the *Network Firewall Developer Guide*.
+  """
+  @spec create_firewall_policy_v2(map(), create_firewall_policy_v2_request(), list()) ::
+          {:ok, create_firewall_policy_v2_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_firewall_policy_v2_errors()}
+  def create_firewall_policy_v2(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateFirewallPolicyV2", input, options)
+  end
+
+  @doc """
   Creates an Network Firewall `Proxy`
 
   Attaches a Proxy configuration to a NAT Gateway.
@@ -5020,6 +5399,21 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+  Deletes the specified `FirewallPolicyV2`.
+  """
+  @spec delete_firewall_policy_v2(map(), delete_firewall_policy_v2_request(), list()) ::
+          {:ok, delete_firewall_policy_v2_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_firewall_policy_v2_errors()}
+  def delete_firewall_policy_v2(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteFirewallPolicyV2", input, options)
+  end
+
+  @doc """
   Deletes a transit gateway attachment from a Network Firewall.
 
   Either the firewall owner or the transit gateway owner can delete the
@@ -5251,6 +5645,21 @@ defmodule AWS.NetworkFirewall do
       metadata()
 
     Request.request_post(client, meta, "DescribeFirewallPolicy", input, options)
+  end
+
+  @doc """
+  Returns the data objects for the specified Next Generation policy.
+  """
+  @spec describe_firewall_policy_v2(map(), describe_firewall_policy_v2_request(), list()) ::
+          {:ok, describe_firewall_policy_v2_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_firewall_policy_v2_errors()}
+  def describe_firewall_policy_v2(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeFirewallPolicyV2", input, options)
   end
 
   @doc """
@@ -5596,6 +6005,24 @@ defmodule AWS.NetworkFirewall do
       metadata()
 
     Request.request_post(client, meta, "ListFirewallPolicies", input, options)
+  end
+
+  @doc """
+  Retrieves the metadata for the Next Generation policies that you have defined.
+
+  Depending on your setting for max results and the number of firewall policies, a
+  single call might not return the full list.
+  """
+  @spec list_firewall_policies_v2(map(), list_firewall_policies_v2_request(), list()) ::
+          {:ok, list_firewall_policies_v2_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_firewall_policies_v2_errors()}
+  def list_firewall_policies_v2(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListFirewallPoliciesV2", input, options)
   end
 
   @doc """
@@ -6199,6 +6626,21 @@ defmodule AWS.NetworkFirewall do
       metadata()
 
     Request.request_post(client, meta, "UpdateFirewallPolicyChangeProtection", input, options)
+  end
+
+  @doc """
+  Updates the properties of the specified Next Generation policy.
+  """
+  @spec update_firewall_policy_v2(map(), update_firewall_policy_v2_request(), list()) ::
+          {:ok, update_firewall_policy_v2_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_firewall_policy_v2_errors()}
+  def update_firewall_policy_v2(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateFirewallPolicyV2", input, options)
   end
 
   @doc """

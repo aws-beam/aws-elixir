@@ -166,13 +166,16 @@ defmodule AWS.PCS do
         "iamInstanceProfileArn" => String.t() | atom(),
         "id" => [String.t() | atom()],
         "instanceConfigs" => list(instance_config()),
+        "launchTemplateMode" => list(any()),
         "modifiedAt" => [non_neg_integer()],
         "name" => String.t() | atom(),
         "nodeLifecycleActions" => node_lifecycle_actions(),
         "purchaseOption" => list(any()),
         "scalingConfiguration" => scaling_configuration(),
+        "securityGroupIds" => list(String.t() | atom()),
         "slurmConfiguration" => compute_node_group_slurm_configuration(),
         "spotOptions" => spot_options(),
+        "sshKeyName" => String.t() | atom(),
         "status" => list(any()),
         "subnetIds" => list(String.t() | atom())
       }
@@ -282,14 +285,17 @@ defmodule AWS.PCS do
       create_compute_node_group_request() :: %{
         optional("amiId") => String.t() | atom(),
         optional("clientToken") => String.t() | atom(),
+        optional("customLaunchTemplate") => custom_launch_template(),
+        optional("launchTemplateMode") => list(any()),
         optional("nodeLifecycleActions") => node_lifecycle_actions_request(),
         optional("purchaseOption") => list(any()),
+        optional("securityGroupIds") => list(String.t() | atom()),
         optional("slurmConfiguration") => compute_node_group_slurm_configuration_request(),
         optional("spotOptions") => spot_options(),
+        optional("sshKeyName") => String.t() | atom(),
         optional("tags") => map(),
         required("clusterIdentifier") => String.t() | atom(),
         required("computeNodeGroupName") => String.t() | atom(),
-        required("customLaunchTemplate") => custom_launch_template(),
         required("iamInstanceProfileArn") => String.t() | atom(),
         required("instanceConfigs") => list(instance_config()),
         required("scalingConfiguration") => scaling_configuration_request(),
@@ -1089,11 +1095,14 @@ defmodule AWS.PCS do
         optional("clientToken") => String.t() | atom(),
         optional("customLaunchTemplate") => custom_launch_template(),
         optional("iamInstanceProfileArn") => String.t() | atom(),
+        optional("launchTemplateMode") => list(any()),
         optional("nodeLifecycleActions") => update_node_lifecycle_actions_request(),
         optional("purchaseOption") => list(any()),
         optional("scalingConfiguration") => scaling_configuration_request(),
+        optional("securityGroupIds") => list(String.t() | atom()),
         optional("slurmConfiguration") => update_compute_node_group_slurm_configuration_request(),
         optional("spotOptions") => spot_options(),
+        optional("sshKeyName") => String.t() | atom(),
         optional("subnetIds") => list([String.t() | atom()]()),
         required("clusterIdentifier") => String.t() | atom(),
         required("computeNodeGroupIdentifier") => String.t() | atom()
@@ -1408,10 +1417,14 @@ defmodule AWS.PCS do
   the compute properties and lifecycle management. PCS uses the information you
   provide to this API action to launch compute nodes in your account. You can only
   specify subnets in the same Amazon VPC as your cluster. You receive billing
-  charges for the compute nodes that PCS launches in your account. You must
-  already have a launch template before you call this API. For more information,
-  see [Launch an instance from a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html)
-  in the *Amazon Elastic Compute Cloud User Guide for Linux Instances*.
+  charges for the compute nodes that PCS launches in your account. You can
+  configure common instance settings, such as the AMI, security groups, and SSH
+  key pair, directly on the compute node group, or you can provide a custom EC2
+  launch template. To use a launch template that PCS manages, set
+  `launchTemplateMode` to `MANAGED` and don't provide `customLaunchTemplate`. In
+  this case, you must specify `amiId` and `securityGroupIds`. For more
+  information, see [Configuring instance settings for compute node groups in PCS](https://docs.aws.amazon.com/pcs/latest/userguide/working-with_cng_instance-settings.html)
+  in the *PCS User Guide*.
   """
   @spec create_compute_node_group(map(), create_compute_node_group_request(), list()) ::
           {:ok, create_compute_node_group_response(), any()}

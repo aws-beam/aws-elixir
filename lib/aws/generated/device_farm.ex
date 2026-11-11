@@ -2226,6 +2226,7 @@ defmodule AWS.DeviceFarm do
         "started" => non_neg_integer(),
         "status" => list(any()),
         "stopped" => non_neg_integer(),
+        "testPackageArn" => String.t() | atom(),
         "testSpecArn" => String.t() | atom(),
         "totalJobs" => integer(),
         "type" => list(any()),

@@ -1179,7 +1179,7 @@ defmodule AWS.ACMPCA do
 
   def metadata do
     %{
-      api_version: nil,
+      api_version: "2017-08-22",
       content_type: "application/x-amz-json-1.1",
       credential_scope: nil,
       endpoint_prefix: "acm-pca",

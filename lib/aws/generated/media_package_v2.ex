@@ -217,6 +217,7 @@ defmodule AWS.MediaPackageV2 do
       create_dash_manifest_configuration() :: %{
         "AudioTimelinePattern" => list(any()),
         "AvailabilityStartTimeConfiguration" => list(),
+        "BandwidthReportingMode" => list(any()),
         "BaseUrls" => list(dash_base_url()),
         "Compactness" => list(any()),
         "DrmSignaling" => list(any()),
@@ -747,6 +748,7 @@ defmodule AWS.MediaPackageV2 do
       get_dash_manifest_configuration() :: %{
         "AudioTimelinePattern" => list(any()),
         "AvailabilityStartTimeConfiguration" => list(),
+        "BandwidthReportingMode" => list(any()),
         "BaseUrls" => list(dash_base_url()),
         "Compactness" => list(any()),
         "DrmSignaling" => list(any()),

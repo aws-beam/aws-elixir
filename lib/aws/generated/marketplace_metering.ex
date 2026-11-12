@@ -355,6 +355,7 @@ defmodule AWS.MarketplaceMetering do
         optional("DryRun") => boolean(),
         optional("UsageAllocations") => list(usage_allocation()),
         optional("UsageQuantity") => integer(),
+        optional("UsageQuantityAsDecimal") => String.t() | atom(),
         required("ProductCode") => String.t() | atom(),
         required("Timestamp") => non_neg_integer(),
         required("UsageDimension") => String.t() | atom()
@@ -476,6 +477,7 @@ defmodule AWS.MarketplaceMetering do
       
       usage_allocation() :: %{
         "AllocatedUsageQuantity" => integer(),
+        "AllocatedUsageQuantityAsDecimal" => String.t() | atom(),
         "Tags" => list(tag())
       }
       
@@ -492,6 +494,7 @@ defmodule AWS.MarketplaceMetering do
         "Dimension" => String.t() | atom(),
         "LicenseArn" => String.t() | atom(),
         "Quantity" => integer(),
+        "QuantityAsDecimal" => String.t() | atom(),
         "Timestamp" => non_neg_integer(),
         "UsageAllocations" => list(usage_allocation())
       }
@@ -641,6 +644,9 @@ defmodule AWS.MarketplaceMetering do
   in the
   *Amazon Web Services Marketplace Seller Guide*.
 
+  To report fractional usage, use `QuantityAsDecimal` instead of
+  `Quantity` in each `UsageRecord`.
+
   `BatchMeterUsage` returns a list of
   `UsageRecordResult` objects, which have each
   `UsageRecord`. It also returns a list of
@@ -729,6 +735,9 @@ defmodule AWS.MarketplaceMetering do
 
   If you submit records more than six hours after events occur, the records won't
   be accepted. The timestamp in your request determines when an event is recorded.
+
+  To report fractional usage, use `UsageQuantityAsDecimal` instead of
+  `UsageQuantity`.
 
   You can optionally include multiple usage allocations, to provide customers with
   usage data split into buckets by tags that you define or allow the customer to

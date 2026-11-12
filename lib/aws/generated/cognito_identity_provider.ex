@@ -600,6 +600,31 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      admin_list_user_sessions_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom(),
+        required("Username") => String.t() | atom()
+      }
+      
+  """
+  @type admin_list_user_sessions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_list_user_sessions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Sessions" => list(session_description_type())
+      }
+      
+  """
+  @type admin_list_user_sessions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       admin_remove_user_from_group_request() :: %{
         required("GroupName") => String.t() | atom(),
         required("UserPoolId") => String.t() | atom(),
@@ -663,6 +688,29 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type admin_respond_to_auth_challenge_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_revoke_user_session_request() :: %{
+        optional("RevokeAssociatedSessions") => list(any()),
+        required("SessionId") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom(),
+        required("Username") => String.t() | atom()
+      }
+      
+  """
+  @type admin_revoke_user_session_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_revoke_user_session_response() :: %{}
+      
+  """
+  @type admin_revoke_user_session_response() :: %{}
 
   @typedoc """
 
@@ -1003,6 +1051,17 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type client_authentication_result_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      client_s_s_o_session_config_type() :: %{
+        "MaxValidityMinutes" => integer()
+      }
+      
+  """
+  @type client_s_s_o_session_config_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2578,6 +2637,31 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      get_user_pool_client_session_configuration_request() :: %{
+        required("ClientId") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type get_user_pool_client_session_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_user_pool_client_session_configuration_response() :: %{
+        "ClientId" => String.t() | atom(),
+        "SSOSession" => client_s_s_o_session_config_type(),
+        "UserPoolId" => String.t() | atom()
+      }
+      
+  """
+  @type get_user_pool_client_session_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_user_pool_mfa_config_request() :: %{
         required("UserPoolId") => String.t() | atom()
       }
@@ -2599,6 +2683,30 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type get_user_pool_mfa_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_user_pool_session_configuration_request() :: %{
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type get_user_pool_session_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_user_pool_session_configuration_response() :: %{
+        "TokenSession" => user_pool_token_session_config_type(),
+        "UserPoolId" => String.t() | atom(),
+        "UserSessionTracking" => list(any())
+      }
+      
+  """
+  @type get_user_pool_session_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3218,6 +3326,30 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      list_user_sessions_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("AccessToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_user_sessions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_user_sessions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Sessions" => list(session_description_type())
+      }
+      
+  """
+  @type list_user_sessions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_users_in_group_request() :: %{
         optional("Limit") => integer(),
         optional("NextToken") => String.t() | atom(),
@@ -3684,6 +3816,7 @@ defmodule AWS.CognitoIdentityProvider do
       
       revoke_token_request() :: %{
         optional("ClientSecret") => String.t() | atom(),
+        optional("RevokeAssociatedSessions") => list(any()),
         required("ClientId") => String.t() | atom(),
         required("Token") => String.t() | atom()
       }
@@ -3699,6 +3832,28 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type revoke_token_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      revoke_user_session_request() :: %{
+        optional("RevokeAssociatedSessions") => list(any()),
+        required("AccessToken") => String.t() | atom(),
+        required("SessionId") => String.t() | atom()
+      }
+      
+  """
+  @type revoke_user_session_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      revoke_user_session_response() :: %{}
+      
+  """
+  @type revoke_user_session_response() :: %{}
 
   @typedoc """
 
@@ -3788,6 +3943,38 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      session_description_type() :: %{
+        "ClientId" => String.t() | atom(),
+        "CreateDate" => non_neg_integer(),
+        "DeviceType" => String.t() | atom(),
+        "IsCurrentSession" => boolean(),
+        "LastActiveDate" => non_neg_integer(),
+        "LastIPAddress" => String.t() | atom(),
+        "LastLocation" => session_location_type(),
+        "OriginSessionId" => String.t() | atom(),
+        "SessionId" => String.t() | atom(),
+        "SessionType" => list(any())
+      }
+      
+  """
+  @type session_description_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      session_location_type() :: %{
+        "City" => String.t() | atom(),
+        "Country" => String.t() | atom()
+      }
+      
+  """
+  @type session_location_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3891,6 +4078,32 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      set_user_pool_client_session_configuration_request() :: %{
+        required("ClientId") => String.t() | atom(),
+        required("SSOSession") => client_s_s_o_session_config_type(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type set_user_pool_client_session_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_user_pool_client_session_configuration_response() :: %{
+        "ClientId" => String.t() | atom(),
+        "SSOSession" => client_s_s_o_session_config_type(),
+        "UserPoolId" => String.t() | atom()
+      }
+      
+  """
+  @type set_user_pool_client_session_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       set_user_pool_mfa_config_request() :: %{
         optional("EmailMfaConfiguration") => email_mfa_config_type(),
         optional("MfaConfiguration") => list(any()),
@@ -3917,6 +4130,32 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type set_user_pool_mfa_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_user_pool_session_configuration_request() :: %{
+        required("TokenSession") => user_pool_token_session_config_type(),
+        required("UserPoolId") => String.t() | atom(),
+        required("UserSessionTracking") => list(any())
+      }
+      
+  """
+  @type set_user_pool_session_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_user_pool_session_configuration_response() :: %{
+        "TokenSession" => user_pool_token_session_config_type(),
+        "UserPoolId" => String.t() | atom(),
+        "UserSessionTracking" => list(any())
+      }
+      
+  """
+  @type set_user_pool_session_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4935,6 +5174,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      user_pool_token_session_config_type() :: %{
+        "MaxPerUser" => integer()
+      }
+      
+  """
+  @type user_pool_token_session_config_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       user_pool_type() :: %{
         "AccountRecoverySetting" => account_recovery_setting_type(),
         "AcrConfiguration" => map(),
@@ -5410,6 +5660,15 @@ defmodule AWS.CognitoIdentityProvider do
           | invalid_parameter_exception()
           | internal_error_exception()
 
+  @type admin_list_user_sessions_errors() ::
+          user_not_found_exception()
+          | too_many_requests_exception()
+          | resource_not_found_exception()
+          | operation_not_enabled_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
+
   @type admin_remove_user_from_group_errors() ::
           user_not_found_exception()
           | too_many_requests_exception()
@@ -5459,6 +5718,15 @@ defmodule AWS.CognitoIdentityProvider do
           | expired_code_exception()
           | code_mismatch_exception()
           | alias_exists_exception()
+
+  @type admin_revoke_user_session_errors() ::
+          user_not_found_exception()
+          | too_many_requests_exception()
+          | resource_not_found_exception()
+          | operation_not_enabled_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
 
   @type admin_set_user_mfa_preference_errors() ::
           user_not_found_exception()
@@ -6105,9 +6373,25 @@ defmodule AWS.CognitoIdentityProvider do
           | internal_error_exception()
           | forbidden_exception()
 
+  @type get_user_pool_client_session_configuration_errors() ::
+          too_many_requests_exception()
+          | resource_not_found_exception()
+          | operation_not_enabled_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
+
   @type get_user_pool_mfa_config_errors() ::
           too_many_requests_exception()
           | resource_not_found_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
+
+  @type get_user_pool_session_configuration_errors() ::
+          too_many_requests_exception()
+          | resource_not_found_exception()
+          | operation_not_enabled_exception()
           | not_authorized_exception()
           | invalid_parameter_exception()
           | internal_error_exception()
@@ -6233,6 +6517,18 @@ defmodule AWS.CognitoIdentityProvider do
           | invalid_parameter_exception()
           | internal_error_exception()
 
+  @type list_user_sessions_errors() ::
+          user_not_found_exception()
+          | user_not_confirmed_exception()
+          | too_many_requests_exception()
+          | resource_not_found_exception()
+          | password_reset_required_exception()
+          | operation_not_enabled_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
+          | forbidden_exception()
+
   @type list_users_errors() ::
           too_many_requests_exception()
           | resource_not_found_exception()
@@ -6313,6 +6609,18 @@ defmodule AWS.CognitoIdentityProvider do
           | internal_error_exception()
           | forbidden_exception()
 
+  @type revoke_user_session_errors() ::
+          user_not_found_exception()
+          | user_not_confirmed_exception()
+          | too_many_requests_exception()
+          | resource_not_found_exception()
+          | password_reset_required_exception()
+          | operation_not_enabled_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
+          | forbidden_exception()
+
   @type set_log_delivery_configuration_errors() ::
           too_many_requests_exception()
           | resource_not_found_exception()
@@ -6351,6 +6659,16 @@ defmodule AWS.CognitoIdentityProvider do
           | internal_error_exception()
           | forbidden_exception()
 
+  @type set_user_pool_client_session_configuration_errors() ::
+          too_many_requests_exception()
+          | resource_not_found_exception()
+          | operation_not_enabled_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
+          | feature_unavailable_in_tier_exception()
+          | concurrent_modification_exception()
+
   @type set_user_pool_mfa_config_errors() ::
           too_many_requests_exception()
           | resource_not_found_exception()
@@ -6358,6 +6676,16 @@ defmodule AWS.CognitoIdentityProvider do
           | not_authorized_exception()
           | invalid_sms_role_trust_relationship_exception()
           | invalid_sms_role_access_policy_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
+          | feature_unavailable_in_tier_exception()
+          | concurrent_modification_exception()
+
+  @type set_user_pool_session_configuration_errors() ::
+          too_many_requests_exception()
+          | resource_not_found_exception()
+          | operation_not_enabled_exception()
+          | not_authorized_exception()
           | invalid_parameter_exception()
           | internal_error_exception()
           | feature_unavailable_in_tier_exception()
@@ -7436,6 +7764,30 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+  Lists the active sessions for a specified user as an administrator.
+
+  The response
+  includes both token sessions and SSO sessions. Only active sessions are
+  returned;
+  revoked and expired sessions aren't included. Amazon Cognito returns all of a
+  user's sessions in
+  a single page of up to 125 sessions. The results are eventually consistent, and
+  new
+  sessions are typically included within a few seconds.
+  """
+  @spec admin_list_user_sessions(map(), admin_list_user_sessions_request(), list()) ::
+          {:ok, admin_list_user_sessions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, admin_list_user_sessions_errors()}
+  def admin_list_user_sessions(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "AdminListUserSessions", input, options)
+  end
+
+  @doc """
   Given a username and a group name, removes them from the group.
 
   User pool groups are
@@ -7607,6 +7959,28 @@ defmodule AWS.CognitoIdentityProvider do
       metadata()
 
     Request.request_post(client, meta, "AdminRespondToAuthChallenge", input, options)
+  end
+
+  @doc """
+  Revokes a specific user session as an administrator.
+
+  Amazon Cognito revokes all refresh and
+  access tokens that are associated with the session and deletes the session
+  record. You
+  can revoke either a token session or an SSO session, and you can optionally
+  cascade the
+  revocation to linked sessions.
+  """
+  @spec admin_revoke_user_session(map(), admin_revoke_user_session_request(), list()) ::
+          {:ok, admin_revoke_user_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, admin_revoke_user_session_errors()}
+  def admin_revoke_user_session(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "AdminRevokeUserSession", input, options)
   end
 
   @doc """
@@ -9782,6 +10156,30 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+  Retrieves the session configuration for a user pool app client.
+
+  If you have never
+  called `SetUserPoolClientSessionConfiguration` for the app client, this
+  operation returns the default SSO session maximum validity of `60`
+  minutes.
+  """
+  @spec get_user_pool_client_session_configuration(
+          map(),
+          get_user_pool_client_session_configuration_request(),
+          list()
+        ) ::
+          {:ok, get_user_pool_client_session_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_user_pool_client_session_configuration_errors()}
+  def get_user_pool_client_session_configuration(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetUserPoolClientSessionConfiguration", input, options)
+  end
+
+  @doc """
   Given a user pool ID, returns configuration for sign-in with WebAuthn
   authenticators
   and for multi-factor authentication (MFA).
@@ -9828,6 +10226,33 @@ defmodule AWS.CognitoIdentityProvider do
       metadata()
 
     Request.request_post(client, meta, "GetUserPoolMfaConfig", input, options)
+  end
+
+  @doc """
+  Retrieves the session tracking configuration for a user pool, including whether
+  session
+  tracking is enabled and the pool-wide maximum number of active token sessions
+  for
+  each user.
+
+  If you have never called `SetUserPoolSessionConfiguration` for the
+  user pool, this operation returns the default values: `UserSessionTracking` as
+  `DISABLED` and a `MaxPerUser` value of `20`.
+  """
+  @spec get_user_pool_session_configuration(
+          map(),
+          get_user_pool_session_configuration_request(),
+          list()
+        ) ::
+          {:ok, get_user_pool_session_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_user_pool_session_configuration_errors()}
+  def get_user_pool_session_configuration(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetUserPoolSessionConfiguration", input, options)
   end
 
   @doc """
@@ -10279,6 +10704,29 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+  Lists the active sessions for the currently signed-in user.
+
+  Amazon Cognito authorizes this
+  operation with the user's access token and returns all of the user's active
+  sessions
+  across every app client in the user pool, including both token sessions and SSO
+  sessions. The `IsCurrentSession` field identifies the session that the
+  calling access token belongs to. The results are eventually consistent, and new
+  sessions are typically included within a few seconds.
+  """
+  @spec list_user_sessions(map(), list_user_sessions_request(), list()) ::
+          {:ok, list_user_sessions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_user_sessions_errors()}
+  def list_user_sessions(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListUserSessions", input, options)
+  end
+
+  @doc """
   Given a user pool ID, returns a list of users and their basic details in a user
   pool.
 
@@ -10523,6 +10971,28 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+  Revokes a specific session for the currently signed-in user.
+
+  Amazon Cognito authorizes this
+  operation with the user's access token, revokes all refresh and access tokens
+  that are
+  associated with the session, and deletes the session record. You can't revoke
+  the
+  session that the calling access token belongs to.
+  """
+  @spec revoke_user_session(map(), revoke_user_session_request(), list()) ::
+          {:ok, revoke_user_session_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, revoke_user_session_errors()}
+  def revoke_user_session(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "RevokeUserSession", input, options)
+  end
+
+  @doc """
   Sets up or modifies the logging configuration of a user pool.
 
   User pools can export
@@ -10675,6 +11145,36 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+  Sets the session configuration for a user pool app client.
+
+  The configurable
+  client-level setting is the maximum validity period for silent reuse of an SSO
+  session.
+  This operation performs a full replacement of the client-level session
+  configuration;
+  every request parameter is required, and session tracking must be enabled for
+  the user
+  pool. The user pool must be in the Essentials or Plus tier. Otherwise, this
+  operation
+  returns a `FeatureUnavailableInTierException`.
+  """
+  @spec set_user_pool_client_session_configuration(
+          map(),
+          set_user_pool_client_session_configuration_request(),
+          list()
+        ) ::
+          {:ok, set_user_pool_client_session_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, set_user_pool_client_session_configuration_errors()}
+  def set_user_pool_client_session_configuration(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "SetUserPoolClientSessionConfiguration", input, options)
+  end
+
+  @doc """
   Sets user pool multi-factor authentication (MFA) and passkey configuration.
 
   For more
@@ -10717,6 +11217,33 @@ defmodule AWS.CognitoIdentityProvider do
       metadata()
 
     Request.request_post(client, meta, "SetUserPoolMfaConfig", input, options)
+  end
+
+  @doc """
+  Enables or disables session tracking for a user pool, and sets the pool-wide
+  maximum
+  number of active token sessions that each user can have.
+
+  This operation performs a
+  full replacement of the pool-level session configuration; every request
+  parameter is
+  required. The user pool must be in the Essentials or Plus tier. Otherwise, this
+  operation returns a `FeatureUnavailableInTierException`.
+  """
+  @spec set_user_pool_session_configuration(
+          map(),
+          set_user_pool_session_configuration_request(),
+          list()
+        ) ::
+          {:ok, set_user_pool_session_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, set_user_pool_session_configuration_errors()}
+  def set_user_pool_session_configuration(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "SetUserPoolSessionConfiguration", input, options)
   end
 
   @doc """

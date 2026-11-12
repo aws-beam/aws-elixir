@@ -49974,7 +49974,9 @@ defmodule AWS.EC2 do
   Create a set of named queries in Athena that you can use to get started quickly
 
   `GetFlowLogsIntegrationTemplate` does not support integration between
-  Amazon Web Services Transit Gateway Flow Logs and Amazon Athena.
+  Amazon Web Services Transit Gateway Flow Logs or Amazon Web Services Cloud WAN
+  Flow Logs
+  and Amazon Athena.
   """
   @spec get_flow_logs_integration_template(
           map(),

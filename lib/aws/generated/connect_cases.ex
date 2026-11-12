@@ -38,6 +38,7 @@ defmodule AWS.ConnectCases do
       audit_event() :: %{
         "eventId" => String.t() | atom(),
         "fields" => list(audit_event_field()),
+        "mergeMetadata" => audit_merge_metadata(),
         "performedBy" => audit_event_performed_by(),
         "performedTime" => non_neg_integer(),
         "relatedItemType" => String.t() | atom(),
@@ -71,6 +72,19 @@ defmodule AWS.ConnectCases do
 
   """
   @type audit_event_performed_by() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audit_merge_metadata() :: %{
+        "mergeEventId" => [String.t() | atom()],
+        "primaryCaseId" => String.t() | atom(),
+        "secondaryCaseId" => String.t() | atom()
+      }
+
+  """
+  @type audit_merge_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1029,6 +1043,18 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      fields_configuration() :: %{
+        "fieldIds" => list(field_identifier()),
+        "sourceCaseId" => String.t() | atom()
+      }
+
+  """
+  @type fields_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       file_content() :: %{
         "fileArn" => String.t() | atom()
       }
@@ -1208,6 +1234,28 @@ defmodule AWS.ConnectCases do
 
   """
   @type get_layout_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_merge_cases_status_request() :: %{}
+
+  """
+  @type get_merge_cases_status_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_merge_cases_status_response() :: %{
+        "primaryCaseId" => String.t() | atom(),
+        "secondaryCaseIds" => list(String.t() | atom()),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type get_merge_cases_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1538,6 +1586,20 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      related_items_configuration() :: %{
+        "comment" => [boolean()],
+        "connectCase" => [boolean()],
+        "contact" => [boolean()],
+        "custom" => [boolean()]
+      }
+
+  """
+  @type related_items_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       required_case_rule() :: %{
         "conditions" => list(list()),
         "defaultValue" => [boolean()]
@@ -1786,6 +1848,29 @@ defmodule AWS.ConnectCases do
 
   """
   @type sort() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_merge_cases_request() :: %{
+        optional("fieldsConfiguration") => list(fields_configuration()),
+        optional("performedBy") => list(),
+        optional("relatedItemsConfiguration") => related_items_configuration(),
+        required("secondaryCaseIds") => list(String.t() | atom())
+      }
+
+  """
+  @type start_merge_cases_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_merge_cases_response() :: %{}
+
+  """
+  @type start_merge_cases_response() :: %{}
 
   @typedoc """
 
@@ -2123,6 +2208,7 @@ defmodule AWS.ConnectCases do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type create_template_errors() ::
@@ -2139,6 +2225,7 @@ defmodule AWS.ConnectCases do
           | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type delete_case_rule_errors() ::
@@ -2178,6 +2265,7 @@ defmodule AWS.ConnectCases do
           | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type delete_template_errors() ::
@@ -2217,6 +2305,13 @@ defmodule AWS.ConnectCases do
           | access_denied_exception()
 
   @type get_layout_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_merge_cases_status_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -2314,6 +2409,15 @@ defmodule AWS.ConnectCases do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type start_merge_cases_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type tag_resource_errors() ::
           validation_exception()
           | throttling_exception()
@@ -2333,6 +2437,7 @@ defmodule AWS.ConnectCases do
           | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type update_case_rule_errors() ::
@@ -2367,6 +2472,7 @@ defmodule AWS.ConnectCases do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type update_template_errors() ::
@@ -2854,7 +2960,12 @@ defmodule AWS.ConnectCases do
   [DescribeUser](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html)
   permission on the ARN of the user that you provide.
 
-  **Endpoints**: See [Connect Customer endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+    * If the case is the secondary case of a merge that is running, the
+  request fails with a `ConflictException`. For more information, see
+  [StartMergeCases](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_StartMergeCases.html). 
+
+  **Endpoints**: See [Connect Customer endpoints and
+  quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
   @spec create_related_item(
           map(),
@@ -2947,6 +3058,11 @@ defmodule AWS.ConnectCases do
     * Access audit history
 
     * Perform any operations that require the CaseID
+
+  You can't delete a case while it's part of a merge that is running, as either
+  the primary or the secondary case. The request fails with a `ConflictException`.
+  For more information, see
+  [StartMergeCases](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_StartMergeCases.html).
 
   This action is irreversible. After you delete a case, you cannot recover its
   data.
@@ -3186,8 +3302,11 @@ defmodule AWS.ConnectCases do
 
   This API cannot be used on a FILE type related attachment. To delete this type
   of file, use the
-  [DeleteAttachedFile](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteAttachedFile.html)
-  API
+  [DeleteAttachedFile](https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteAttachedFile.html) API
+
+  If the case is the secondary case of a merge that is running, the request fails
+  with a `ConflictException`. For more information, see
+  [StartMergeCases](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_StartMergeCases.html).
   """
   @spec delete_related_item(
           map(),
@@ -3421,6 +3540,60 @@ defmodule AWS.ConnectCases do
   def get_layout(%Client{} = client, domain_id, layout_id, input, options \\ []) do
     url_path =
       "/domains/#{AWS.Util.encode_uri(domain_id)}/layouts/#{AWS.Util.encode_uri(layout_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns the merge status of a case.
+
+  Use this operation to track a merge that you started with
+  [StartMergeCases](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_StartMergeCases.html), or to check whether a case is part of a merge before you modify it.
+
+  The operation returns the following, depending on the case:
+
+    * For the primary case or the secondary case of a merge that is
+  running, it returns `IN_PROGRESS`.
+
+    * For a case that was merged into another case as the secondary
+  case, it returns `COMPLETED`.
+
+    * For any other case, it returns a `ResourceNotFoundException`. This
+  includes the primary case after its merge finishes.
+
+  **Endpoints**: See [Connect Customer endpoints and
+  quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  """
+  @spec get_merge_cases_status(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          get_merge_cases_status_request(),
+          list()
+        ) ::
+          {:ok, get_merge_cases_status_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_merge_cases_status_errors()}
+  def get_merge_cases_status(%Client{} = client, case_id, domain_id, input, options \\ []) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}/merge-status"
 
     headers = []
     custom_headers = []
@@ -3960,6 +4133,90 @@ defmodule AWS.ConnectCases do
   end
 
   @doc """
+  Merges a secondary case into a primary case.
+
+  The primary case, which you specify in the request URI, remains active. Both
+  cases must belong to the same domain.
+
+  The merge runs asynchronously. To track its progress, call
+  [GetMergeCasesStatus](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_GetMergeCasesStatus.html). When the merge finishes, the selected field values and related items from the
+  secondary case are on the primary case, the two cases are linked, and the
+  secondary case is closed. Both cases record the merge in their audit history.
+  For more information, see
+  [GetCaseAuditEvents](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_GetCaseAuditEvents.html).
+
+  ## Important things to know
+
+    * Both cases must have the same customer, or at least one of them
+  must have no customer.
+
+    * While the merge runs, you can't modify the secondary case or its
+  related items, and you can't delete the primary case. These requests return a
+  `ConflictException`.
+
+    * After the merge, the secondary case can be reopened, updated, and
+  deleted, but it can't be merged again.
+
+  The request fails with a `ValidationException`, and no merge starts, if:
+
+    * The primary case and the secondary case are the same case.
+
+    * Either case is closed.
+
+    * Both cases have a customer, and the customers are different.
+
+    * `fieldsConfiguration` selects a field that can't be merged, or a
+  field that the secondary case doesn't have.
+
+    * After the merge, the primary case would have more than 500 field
+  values, or would exceed the maximum case size.
+
+  The request fails with a `ServiceQuotaExceededException` if, after the merge,
+  either case would exceed the quota for related items per case. For the primary
+  case, the count is its existing related items, plus the related items moved from
+  the secondary case, plus the new case link. See [Connect Customer Cases quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#cases-quotas).
+
+  The request fails with a `ConflictException` if either case is already part of a
+  merge that is running, or was previously merged into another case as the
+  secondary case.
+
+  **Endpoints**: See [Connect Customer endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+  """
+  @spec start_merge_cases(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          start_merge_cases_request(),
+          list()
+        ) ::
+          {:ok, start_merge_cases_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_merge_cases_errors()}
+  def start_merge_cases(%Client{} = client, case_id, domain_id, input, options \\ []) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_id)}/cases/#{AWS.Util.encode_uri(case_id)}/merge"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Adds tags to a resource.
   """
   @spec tag_resource(map(), String.t() | atom(), tag_resource_request(), list()) ::
@@ -4024,11 +4281,14 @@ defmodule AWS.ConnectCases do
 
   @doc """
   If you provide a value for `PerformedBy.UserArn`, you must also have the
-  [connect:DescribeUser](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html)
-  permission on the user ARN that you provide.
+  [connect:DescribeUser](https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html) permission on the user ARN that you provide.
 
   Updates the values of fields on a case. Fields to be updated are received as an
   array of id/value pairs identical to the `CreateCase` input.
+
+  If the case is the secondary case of a merge that is running, the request fails
+  with a `ConflictException`. For more information, see
+  [StartMergeCases](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_StartMergeCases.html).
 
   If the action is successful, the service sends back an HTTP 200 response with an
   empty HTTP body.
@@ -4215,7 +4475,12 @@ defmodule AWS.ConnectCases do
   fields](https://docs.aws.amazon.com/connect/latest/adminguide/case-fields.html#system-case-fields)
   cannot be used in a custom related item.
 
-  **Endpoints**: See [Connect Customer endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
+    * If the case is the secondary case of a merge that is running, the
+  request fails with a `ConflictException`. For more information, see
+  [StartMergeCases](https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_StartMergeCases.html). 
+
+  **Endpoints**: See [Connect Customer endpoints and
+  quotas](https://docs.aws.amazon.com/general/latest/gr/connect_region.html).
   """
   @spec update_related_item(
           map(),

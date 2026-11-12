@@ -369,6 +369,18 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
+      application_operation_description() :: %{
+        "ApplicationName" => String.t() | atom(),
+        "ApplicationOperationId" => String.t() | atom()
+      }
+      
+  """
+  @type application_operation_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       application_operation_info() :: %{
         "EndTime" => non_neg_integer(),
         "Operation" => String.t() | atom(),
@@ -402,6 +414,7 @@ defmodule AWS.KinesisAnalyticsV2 do
       
       application_restore_configuration() :: %{
         "ApplicationRestoreType" => list(any()),
+        "SnapshotArn" => String.t() | atom(),
         "SnapshotName" => String.t() | atom()
       }
       
@@ -413,6 +426,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   ## Example:
       
       application_snapshot_configuration() :: %{
+        "SnapshotMode" => list(any()),
         "SnapshotsEnabled" => boolean()
       }
       
@@ -424,6 +438,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   ## Example:
       
       application_snapshot_configuration_description() :: %{
+        "SnapshotMode" => list(any()),
         "SnapshotsEnabled" => boolean()
       }
       
@@ -435,6 +450,7 @@ defmodule AWS.KinesisAnalyticsV2 do
   ## Example:
       
       application_snapshot_configuration_update() :: %{
+        "SnapshotModeUpdate" => list(any()),
         "SnapshotsEnabledUpdate" => boolean()
       }
       
@@ -767,6 +783,34 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
+      create_snapshot_request() :: %{
+        optional("SnapshotDescription") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("ApplicationName") => String.t() | atom(),
+        required("SnapshotName") => String.t() | atom()
+      }
+      
+  """
+  @type create_snapshot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_snapshot_response() :: %{
+        "SnapshotArn" => String.t() | atom(),
+        "SnapshotOperationId" => String.t() | atom(),
+        "SnapshotOperationStatus" => list(any()),
+        "SnapshotStatus" => list(any())
+      }
+      
+  """
+  @type create_snapshot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       csv_mapping_parameters() :: %{
         "RecordColumnDelimiter" => String.t() | atom(),
         "RecordRowDelimiter" => String.t() | atom()
@@ -986,6 +1030,32 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
+      delete_snapshot_request() :: %{
+        required("SnapshotCreationTimestamp") => non_neg_integer(),
+        required("SnapshotName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_snapshot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_snapshot_response() :: %{
+        "SnapshotArn" => String.t() | atom(),
+        "SnapshotOperationId" => String.t() | atom(),
+        "SnapshotOperationStatus" => list(any()),
+        "SnapshotStatus" => list(any())
+      }
+      
+  """
+  @type delete_snapshot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       deploy_as_application_configuration() :: %{
         "S3ContentLocation" => s3_content_base_location()
       }
@@ -1111,6 +1181,51 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
+      describe_snapshot_operation_request() :: %{
+        required("SnapshotName") => String.t() | atom(),
+        required("SnapshotOperationId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_snapshot_operation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_snapshot_operation_response() :: %{
+        "SnapshotOperationInfoDetails" => snapshot_operation_info_details()
+      }
+      
+  """
+  @type describe_snapshot_operation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_snapshot_request() :: %{
+        required("SnapshotName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_snapshot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_snapshot_response() :: %{
+        "SnapshotInfoDetails" => snapshot_info_details()
+      }
+      
+  """
+  @type describe_snapshot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       destination_schema() :: %{
         "RecordFormatType" => list(any())
       }
@@ -1146,6 +1261,18 @@ defmodule AWS.KinesisAnalyticsV2 do
       
   """
   @type discover_input_schema_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      encryption_configuration_description() :: %{
+        "KeyId" => String.t() | atom(),
+        "KeyType" => list(any())
+      }
+      
+  """
+  @type encryption_configuration_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1190,6 +1317,44 @@ defmodule AWS.KinesisAnalyticsV2 do
       
   """
   @type error_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_destination_configuration() :: %{
+        "DestinationEncryptionConfiguration" => snapshot_encryption_configuration(),
+        "DestinationS3PrefixLocation" => s3_prefix_location(),
+        "DestinationType" => list(any()),
+        "ExportRoleArn" => String.t() | atom()
+      }
+      
+  """
+  @type export_destination_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_snapshot_request() :: %{
+        required("ExportDestinationConfiguration") => export_destination_configuration(),
+        required("SnapshotName") => String.t() | atom()
+      }
+      
+  """
+  @type export_snapshot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      export_snapshot_response() :: %{
+        "SnapshotOperationId" => String.t() | atom(),
+        "SnapshotOperationStatus" => list(any())
+      }
+      
+  """
+  @type export_snapshot_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1274,6 +1439,50 @@ defmodule AWS.KinesisAnalyticsV2 do
       
   """
   @type glue_data_catalog_configuration_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_snapshot_request() :: %{
+        optional("DestinationEncryptionConfiguration") => snapshot_encryption_configuration(),
+        optional("SnapshotDescription") => String.t() | atom(),
+        optional("SnapshotFormat") => list(any()),
+        optional("Tags") => list(tag()),
+        required("ImportSourceConfiguration") => import_source_configuration(),
+        required("SnapshotName") => String.t() | atom()
+      }
+      
+  """
+  @type import_snapshot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_snapshot_response() :: %{
+        "SnapshotArn" => String.t() | atom(),
+        "SnapshotOperationId" => String.t() | atom(),
+        "SnapshotOperationStatus" => list(any()),
+        "SnapshotStatus" => list(any())
+      }
+      
+  """
+  @type import_snapshot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      import_source_configuration() :: %{
+        "ImportRoleArn" => String.t() | atom(),
+        "SourceEncryptionConfiguration" => snapshot_encryption_configuration(),
+        "SourceS3PrefixLocation" => s3_prefix_location(),
+        "SourceType" => list(any())
+      }
+      
+  """
+  @type import_source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1770,6 +1979,61 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
+      list_snapshot_operations_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SnapshotOperation") => list(any()),
+        optional("SnapshotOperationStatus") => list(any()),
+        required("SnapshotName") => String.t() | atom()
+      }
+      
+  """
+  @type list_snapshot_operations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_snapshot_operations_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "SnapshotOperationInfoList" => list(snapshot_operation_info())
+      }
+      
+  """
+  @type list_snapshot_operations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_snapshots_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SnapshotInitiator") => list(any()),
+        optional("SnapshotInitiatorOperation") => list(any()),
+        optional("SnapshotStatus") => list(any()),
+        optional("SourceApplicationName") => String.t() | atom()
+      }
+      
+  """
+  @type list_snapshots_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_snapshots_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "SnapshotInfoList" => list(snapshot_info())
+      }
+      
+  """
+  @type list_snapshots_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_tags_for_resource_request() :: %{
         required("ResourceARN") => String.t() | atom()
       }
@@ -2217,6 +2481,18 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   ## Example:
       
+      s3_prefix_location() :: %{
+        "BucketARN" => String.t() | atom(),
+        "KeyPrefix" => String.t() | atom()
+      }
+      
+  """
+  @type s3_prefix_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       s3_reference_data_source() :: %{
         "BucketARN" => String.t() | atom(),
         "FileKey" => String.t() | atom()
@@ -2276,6 +2552,168 @@ defmodule AWS.KinesisAnalyticsV2 do
       
   """
   @type snapshot_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapshot_encryption_configuration() :: %{
+        "KeyId" => String.t() | atom(),
+        "KeyType" => list(any())
+      }
+      
+  """
+  @type snapshot_encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapshot_error_info() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "ErrorString" => String.t() | atom()
+      }
+      
+  """
+  @type snapshot_error_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapshot_info() :: %{
+        "SnapshotArn" => String.t() | atom(),
+        "SnapshotCreationTimestamp" => non_neg_integer(),
+        "SnapshotFormat" => list(any()),
+        "SnapshotInitiator" => list(any()),
+        "SnapshotInitiatorOperation" => list(any()),
+        "SnapshotName" => String.t() | atom(),
+        "SnapshotStatus" => list(any()),
+        "SourceApplicationName" => String.t() | atom()
+      }
+      
+  """
+  @type snapshot_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapshot_info_details() :: %{
+        "RuntimeEnvironment" => list(any()),
+        "SnapshotArn" => String.t() | atom(),
+        "SnapshotCreationTimestamp" => non_neg_integer(),
+        "SnapshotDescription" => String.t() | atom(),
+        "SnapshotEncryptionConfigurationDescription" => snapshot_encryption_configuration(),
+        "SnapshotFormat" => list(any()),
+        "SnapshotInitiator" => list(any()),
+        "SnapshotInitiatorOperation" => list(any()),
+        "SnapshotName" => String.t() | atom(),
+        "SnapshotSizeInBytes" => float(),
+        "SnapshotSourceDescription" => snapshot_source_description(),
+        "SnapshotStatus" => list(any())
+      }
+      
+  """
+  @type snapshot_info_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapshot_operation_failure_details() :: %{
+        "ErrorInfo" => snapshot_error_info()
+      }
+      
+  """
+  @type snapshot_operation_failure_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapshot_operation_info() :: %{
+        "EndTime" => non_neg_integer(),
+        "SnapshotOperation" => list(any()),
+        "SnapshotOperationId" => String.t() | atom(),
+        "SnapshotOperationStatus" => list(any()),
+        "StartTime" => non_neg_integer()
+      }
+      
+  """
+  @type snapshot_operation_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapshot_operation_info_details() :: %{
+        "ApplicationOperationDescription" => application_operation_description(),
+        "DestinationEncryptionConfigurationDescription" => encryption_configuration_description(),
+        "EndTime" => non_neg_integer(),
+        "SnapshotArn" => String.t() | atom(),
+        "SnapshotDestinationLocationDescription" => snapshot_operation_location_description(),
+        "SnapshotOperation" => list(any()),
+        "SnapshotOperationFailureDetails" => snapshot_operation_failure_details(),
+        "SnapshotOperationId" => String.t() | atom(),
+        "SnapshotOperationStatus" => list(any()),
+        "SnapshotSourceLocationDescription" => snapshot_operation_location_description(),
+        "SourceEncryptionConfigurationDescription" => encryption_configuration_description(),
+        "StartTime" => non_neg_integer()
+      }
+      
+  """
+  @type snapshot_operation_info_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapshot_operation_location_description() :: %{
+        "LocationType" => list(any()),
+        "S3PrefixLocation" => snapshot_operation_s3_prefix_location()
+      }
+      
+  """
+  @type snapshot_operation_location_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapshot_operation_s3_prefix_location() :: %{
+        "BucketARN" => String.t() | atom(),
+        "ExportedPrefix" => String.t() | atom(),
+        "KeyPrefix" => String.t() | atom()
+      }
+      
+  """
+  @type snapshot_operation_s3_prefix_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapshot_source_description() :: %{
+        "S3PrefixLocation" => s3_prefix_location(),
+        "SourceApplicationDescription" => source_application_description()
+      }
+      
+  """
+  @type snapshot_source_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      source_application_description() :: %{
+        "ApplicationCreationTimestamp" => non_neg_integer(),
+        "ApplicationName" => String.t() | atom(),
+        "ApplicationVersionId" => float()
+      }
+      
+  """
+  @type source_application_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2716,6 +3154,15 @@ defmodule AWS.KinesisAnalyticsV2 do
           | invalid_argument_exception()
           | invalid_application_configuration_exception()
 
+  @type create_snapshot_errors() ::
+          unsupported_operation_exception()
+          | too_many_tags_exception()
+          | resource_in_use_exception()
+          | limit_exceeded_exception()
+          | invalid_argument_exception()
+          | invalid_application_configuration_exception()
+          | concurrent_modification_exception()
+
   @type delete_application_errors() ::
           resource_not_found_exception()
           | resource_in_use_exception()
@@ -2768,6 +3215,13 @@ defmodule AWS.KinesisAnalyticsV2 do
           | invalid_application_configuration_exception()
           | concurrent_modification_exception()
 
+  @type delete_snapshot_errors() ::
+          unsupported_operation_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+          | invalid_argument_exception()
+          | concurrent_modification_exception()
+
   @type describe_application_errors() ::
           resource_not_found_exception()
           | invalid_request_exception()
@@ -2788,6 +3242,16 @@ defmodule AWS.KinesisAnalyticsV2 do
           | resource_not_found_exception()
           | invalid_argument_exception()
 
+  @type describe_snapshot_errors() ::
+          unsupported_operation_exception()
+          | resource_not_found_exception()
+          | invalid_argument_exception()
+
+  @type describe_snapshot_operation_errors() ::
+          unsupported_operation_exception()
+          | resource_not_found_exception()
+          | invalid_argument_exception()
+
   @type discover_input_schema_errors() ::
           unsupported_operation_exception()
           | unable_to_detect_schema_exception()
@@ -2795,6 +3259,22 @@ defmodule AWS.KinesisAnalyticsV2 do
           | resource_provisioned_throughput_exceeded_exception()
           | invalid_request_exception()
           | invalid_argument_exception()
+
+  @type export_snapshot_errors() ::
+          unsupported_operation_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+          | limit_exceeded_exception()
+          | invalid_argument_exception()
+          | concurrent_modification_exception()
+
+  @type import_snapshot_errors() ::
+          unsupported_operation_exception()
+          | too_many_tags_exception()
+          | resource_in_use_exception()
+          | limit_exceeded_exception()
+          | invalid_argument_exception()
+          | concurrent_modification_exception()
 
   @type list_application_operations_errors() ::
           unsupported_operation_exception()
@@ -2811,6 +3291,14 @@ defmodule AWS.KinesisAnalyticsV2 do
 
   @type list_applications_errors() :: invalid_request_exception()
 
+  @type list_snapshot_operations_errors() ::
+          unsupported_operation_exception()
+          | resource_not_found_exception()
+          | invalid_argument_exception()
+
+  @type list_snapshots_errors() ::
+          unsupported_operation_exception() | invalid_argument_exception()
+
   @type list_tags_for_resource_errors() ::
           resource_not_found_exception()
           | invalid_argument_exception()
@@ -2825,7 +3313,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | concurrent_modification_exception()
 
   @type start_application_errors() ::
-          resource_not_found_exception()
+          unsupported_operation_exception()
+          | resource_not_found_exception()
           | resource_in_use_exception()
           | invalid_request_exception()
           | invalid_argument_exception()
@@ -2854,7 +3343,8 @@ defmodule AWS.KinesisAnalyticsV2 do
           | concurrent_modification_exception()
 
   @type update_application_errors() ::
-          resource_not_found_exception()
+          unsupported_operation_exception()
+          | resource_not_found_exception()
           | resource_in_use_exception()
           | limit_exceeded_exception()
           | invalid_request_exception()
@@ -3139,6 +3629,33 @@ defmodule AWS.KinesisAnalyticsV2 do
   end
 
   @doc """
+  Creates an enhanced snapshot of the state data of a running Managed Service for
+  Apache Flink application.
+
+  The application must be in the `RUNNING` status, use Apache Flink version 1.20
+  or later, and use the `ENHANCED_SNAPSHOTS` snapshot mode.
+
+  This operation is asynchronous. The response returns the snapshot ARN with the
+  `CREATING` status. To check the status of the snapshot, use `DescribeSnapshot`.
+  To track the progress of the operation, use `DescribeSnapshotOperation`.
+
+  An application can have only one `CreateSnapshot` operation in progress at a
+  time. For information about limits, see [Managed Service for Apache Flink Quotas](https://docs.aws.amazon.com/managed-flink/latest/java/limits.html). For
+  more information about snapshots, see [Enhanced Snapshots](https://docs.aws.amazon.com/managed-flink/latest/java/how-snapshots.html).
+  """
+  @spec create_snapshot(map(), create_snapshot_request(), list()) ::
+          {:ok, create_snapshot_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_snapshot_errors()}
+  def create_snapshot(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateSnapshot", input, options)
+  end
+
+  @doc """
   Deletes the specified application.
 
   Managed Service for Apache Flink halts application execution and deletes the
@@ -3279,6 +3796,33 @@ defmodule AWS.KinesisAnalyticsV2 do
   end
 
   @doc """
+  Deletes an enhanced snapshot.
+
+  Snapshots are not scoped to an application, so you can delete a snapshot
+  independently of the application that it was created from.
+
+  This operation is asynchronous. The response returns the snapshot ARN with the
+  `DELETING` status. To track the progress of the operation, use
+  `DescribeSnapshotOperation`.
+
+  You can delete a snapshot in the `READY` or `FAILED` status. If a snapshot
+  operation, such as an export, uses the snapshot, Managed Service for Apache
+  Flink waits for that operation to finish before it deletes the snapshot. For a
+  snapshot in any other status, `ResourceInUseException` is returned.
+  """
+  @spec delete_snapshot(map(), delete_snapshot_request(), list()) ::
+          {:ok, delete_snapshot_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_snapshot_errors()}
+  def delete_snapshot(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteSnapshot", input, options)
+  end
+
+  @doc """
   Returns information about a specific Managed Service for Apache Flink
   application.
 
@@ -3353,6 +3897,43 @@ defmodule AWS.KinesisAnalyticsV2 do
   end
 
   @doc """
+  Returns information about an enhanced snapshot.
+
+  To see a list of the snapshots in your account, use `ListSnapshots`.
+  """
+  @spec describe_snapshot(map(), describe_snapshot_request(), list()) ::
+          {:ok, describe_snapshot_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_snapshot_errors()}
+  def describe_snapshot(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeSnapshot", input, options)
+  end
+
+  @doc """
+  Provides a detailed description of a specified operation that was performed on
+  an enhanced snapshot.
+
+  To see a list of the operations of a snapshot, use `ListSnapshotOperations`.
+
+  Snapshot operations are available for 90 days after they are created.
+  """
+  @spec describe_snapshot_operation(map(), describe_snapshot_operation_request(), list()) ::
+          {:ok, describe_snapshot_operation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_snapshot_operation_errors()}
+  def describe_snapshot_operation(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeSnapshotOperation", input, options)
+  end
+
+  @doc """
   Infers a schema for a SQL-based Kinesis Data Analytics application by evaluating
   sample records on the specified streaming source (Kinesis data stream or Kinesis
   Data Firehose
@@ -3377,6 +3958,58 @@ defmodule AWS.KinesisAnalyticsV2 do
       metadata()
 
     Request.request_post(client, meta, "DiscoverInputSchema", input, options)
+  end
+
+  @doc """
+  Exports the data of an enhanced snapshot to an Amazon S3 location.
+
+  Managed Service for Apache Flink assumes the IAM role that you specify in
+  `ExportDestinationConfiguration` to write the snapshot data. The snapshot must
+  be in the `READY` status.
+
+  This operation is asynchronous. To track the progress of the export, use
+  `DescribeSnapshotOperation`.
+
+  A snapshot can have only one export in progress at a time. If an export of the
+  snapshot is already in progress, `LimitExceededException` is returned.
+
+  For more information, see [Import and export](https://docs.aws.amazon.com/managed-flink/latest/java/snapshots-import-export.html).
+  """
+  @spec export_snapshot(map(), export_snapshot_request(), list()) ::
+          {:ok, export_snapshot_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, export_snapshot_errors()}
+  def export_snapshot(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ExportSnapshot", input, options)
+  end
+
+  @doc """
+  Imports an Apache Flink savepoint from an Amazon S3 location as an enhanced
+  snapshot.
+
+  Managed Service for Apache Flink assumes the IAM role that you specify in
+  `ImportSourceConfiguration` to read the savepoint data.
+
+  This operation is asynchronous. The response returns the snapshot ARN with the
+  `CREATING` status. To track the progress of the import, use
+  `DescribeSnapshotOperation`.
+
+  For more information, see [Import and export](https://docs.aws.amazon.com/managed-flink/latest/java/snapshots-import-export.html).
+  """
+  @spec import_snapshot(map(), import_snapshot_request(), list()) ::
+          {:ok, import_snapshot_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, import_snapshot_errors()}
+  def import_snapshot(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ImportSnapshot", input, options)
   end
 
   @doc """
@@ -3462,6 +4095,58 @@ defmodule AWS.KinesisAnalyticsV2 do
       metadata()
 
     Request.request_post(client, meta, "ListApplications", input, options)
+  end
+
+  @doc """
+  Lists the operations that were performed on the specified enhanced snapshot,
+  such as `CreateSnapshot`, `ImportSnapshot`, and `ExportSnapshot`.
+
+  The response includes a summary of each operation.
+
+  You can specify only one of the `SnapshotOperation` or `SnapshotOperationStatus`
+  filters in a request. If you specify both, `InvalidArgumentException` is
+  returned.
+
+  To get the complete description of a specific operation, use
+  `DescribeSnapshotOperation`. Snapshot operations are available for 90 days after
+  they are created.
+  """
+  @spec list_snapshot_operations(map(), list_snapshot_operations_request(), list()) ::
+          {:ok, list_snapshot_operations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_snapshot_operations_errors()}
+  def list_snapshot_operations(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListSnapshotOperations", input, options)
+  end
+
+  @doc """
+  Lists the enhanced snapshots in your account.
+
+  Snapshots are not scoped to an application. To list the snapshots that were
+  created from a specific application, use the `SourceApplicationName` parameter.
+
+  You can specify only one of the following filters in a request:
+  `SourceApplicationName`, `SnapshotInitiator`, `SnapshotInitiatorOperation`, or
+  `SnapshotStatus`. If you specify more than one filter,
+  `InvalidArgumentException` is returned.
+
+  The results are sorted in descending order of snapshot creation timestamp. To
+  get detailed information about a specific snapshot, use `DescribeSnapshot`.
+  """
+  @spec list_snapshots(map(), list_snapshots_request(), list()) ::
+          {:ok, list_snapshots_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_snapshots_errors()}
+  def list_snapshots(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListSnapshots", input, options)
   end
 
   @doc """

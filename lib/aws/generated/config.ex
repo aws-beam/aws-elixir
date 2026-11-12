@@ -847,7 +847,8 @@ defmodule AWS.Config do
   ## Example:
       
       connector_configuration() :: %{
-        "azure" => azure_connector_configuration()
+        "azure" => azure_connector_configuration(),
+        "gcp" => gcp_connector_configuration()
       }
       
   """
@@ -872,8 +873,10 @@ defmodule AWS.Config do
       connector_summary() :: %{
         "arn" => String.t() | atom(),
         "createdTime" => non_neg_integer(),
+        "gcpOrganizationId" => String.t() | atom(),
         "name" => String.t() | atom(),
         "provider" => list(any()),
+        "serviceAccountEmail" => String.t() | atom(),
         "tenantIdentifier" => String.t() | atom()
       }
       
@@ -2038,6 +2041,19 @@ defmodule AWS.Config do
       
   """
   @type field_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      gcp_connector_configuration() :: %{
+        "gcpOrganizationId" => String.t() | atom(),
+        "serviceAccountEmail" => String.t() | atom(),
+        "workloadIdentityPoolProvider" => String.t() | atom()
+      }
+      
+  """
+  @type gcp_connector_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

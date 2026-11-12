@@ -2114,6 +2114,7 @@ defmodule AWS.BedrockAgentCore do
 
       harness_remote_mcp_config() :: %{
         "headers" => map(),
+        "outboundAuth" => list(),
         "url" => String.t() | atom()
       }
 
@@ -2282,6 +2283,18 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type harness_tool_use_block_start() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      iam_credential_provider() :: %{
+        "region" => [String.t() | atom()],
+        "service" => [String.t() | atom()]
+      }
+
+  """
+  @type iam_credential_provider() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

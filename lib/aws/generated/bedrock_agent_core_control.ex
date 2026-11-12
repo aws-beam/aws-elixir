@@ -1860,6 +1860,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "allowedClients" => list(String.t() | atom()),
         "allowedScopes" => list(String.t() | atom()),
         "allowedWorkloadConfiguration" => allowed_workload_configuration(),
+        "certificateConfigurations" => list(list()),
         "customClaims" => list(custom_claim_validation_type()),
         "discoveryUrl" => String.t() | atom(),
         "privateEndpoint" => list(),
@@ -1891,6 +1892,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       custom_oauth2_provider_config_input() :: %{
+        "certificateConfigurations" => list(list()),
         "clientAuthenticationMethod" => list(any()),
         "clientId" => String.t() | atom(),
         "clientSecret" => String.t() | atom(),
@@ -1911,6 +1913,7 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       custom_oauth2_provider_config_output() :: %{
+        "certificateConfigurations" => list(list()),
         "clientAuthenticationMethod" => list(any()),
         "clientId" => String.t() | atom(),
         "oauthDiscovery" => list(),
@@ -4614,6 +4617,7 @@ defmodule AWS.BedrockAgentCoreControl do
 
       harness_remote_mcp_config() :: %{
         "headers" => map(),
+        "outboundAuth" => list(),
         "url" => String.t() | atom()
       }
 

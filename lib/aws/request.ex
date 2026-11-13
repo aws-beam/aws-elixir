@@ -310,8 +310,10 @@ defmodule AWS.Request do
   end
 
   defp merge_body_with_response_headers(body, response, response_header_parameters) do
+    headers = Enum.map(response.headers, fn {name, value} -> {String.downcase(name), value} end)
+
     Enum.reduce(response_header_parameters, body, fn {header_name, key}, acc ->
-      case List.keyfind(response.headers, header_name, 0) do
+      case List.keyfind(headers, String.downcase(header_name), 0) do
         nil -> acc
         {_header_name, value} -> Map.put(acc, key, value)
       end

@@ -597,6 +597,31 @@ defmodule AWS.Lightsail do
 
   ## Example:
       
+      check_subdomain_availability_request() :: %{
+        optional("reserve") => boolean(),
+        required("subdomainName") => String.t() | atom()
+      }
+      
+  """
+  @type check_subdomain_availability_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      check_subdomain_availability_result() :: %{
+        "available" => boolean(),
+        "reservationExpiresAt" => non_neg_integer(),
+        "subdomainName" => String.t() | atom()
+      }
+      
+  """
+  @type check_subdomain_availability_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       close_instance_public_ports_request() :: %{
         required("instanceName") => String.t() | atom(),
         required("portInfo") => port_info()
@@ -1204,6 +1229,7 @@ defmodule AWS.Lightsail do
         optional("enablePrivateOriginAccess") => boolean(),
         optional("enableWaf") => boolean(),
         optional("ipAddressType") => list(any()),
+        optional("subdomainName") => String.t() | atom(),
         optional("tags") => list(tag()),
         optional("viewerMinimumTlsProtocolVersion") => list(any()),
         optional("wafRules") => list(waf_rule()),
@@ -1556,6 +1582,30 @@ defmodule AWS.Lightsail do
       
   """
   @type create_relational_database_snapshot_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_subdomain_request() :: %{
+        optional("tags") => list(tag()),
+        required("subdomainName") => String.t() | atom()
+      }
+      
+  """
+  @type create_subdomain_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_subdomain_result() :: %{
+        "operation" => operation(),
+        "subdomain" => subdomain()
+      }
+      
+  """
+  @type create_subdomain_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2019,6 +2069,29 @@ defmodule AWS.Lightsail do
       
   """
   @type delete_relational_database_snapshot_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_subdomain_request() :: %{
+        required("subdomainName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_subdomain_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_subdomain_result() :: %{
+        "operation" => operation(),
+        "subdomain" => subdomain()
+      }
+      
+  """
+  @type delete_subdomain_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4002,6 +4075,30 @@ defmodule AWS.Lightsail do
 
   ## Example:
       
+      get_subdomains_request() :: %{
+        optional("pageToken") => String.t() | atom(),
+        optional("subdomainName") => String.t() | atom()
+      }
+      
+  """
+  @type get_subdomains_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_subdomains_result() :: %{
+        "nextPageToken" => String.t() | atom(),
+        "subdomains" => list(subdomain())
+      }
+      
+  """
+  @type get_subdomains_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       header_object() :: %{
         "headersAllowList" => list(list(any())()),
         "option" => list(any())
@@ -4389,6 +4486,7 @@ defmodule AWS.Lightsail do
         "originPublicDNS" => String.t() | atom(),
         "resourceType" => list(any()),
         "status" => String.t() | atom(),
+        "subdomain" => lightsail_distribution_subdomain(),
         "supportCode" => String.t() | atom(),
         "tags" => list(tag()),
         "viewerMinimumTlsProtocolVersion" => String.t() | atom(),
@@ -4397,6 +4495,20 @@ defmodule AWS.Lightsail do
       
   """
   @type lightsail_distribution() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lightsail_distribution_subdomain() :: %{
+        "errorCode" => String.t() | atom(),
+        "errorDetails" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "state" => list(any())
+      }
+      
+  """
+  @type lightsail_distribution_subdomain() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5618,6 +5730,41 @@ defmodule AWS.Lightsail do
 
   ## Example:
       
+      subdomain() :: %{
+        "arn" => String.t() | atom(),
+        "attachedResource" => subdomain_attachable_resource(),
+        "attachingResource" => subdomain_attachable_resource(),
+        "children" => list(subdomain()),
+        "createdAt" => non_neg_integer(),
+        "depth" => integer(),
+        "fqdn" => String.t() | atom(),
+        "location" => resource_location(),
+        "parentFqdn" => String.t() | atom(),
+        "state" => list(any()),
+        "subdomainName" => String.t() | atom(),
+        "tags" => list(tag())
+      }
+      
+  """
+  @type subdomain() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      subdomain_attachable_resource() :: %{
+        "arn" => String.t() | atom(),
+        "attachedAt" => non_neg_integer(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type subdomain_attachable_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       tag() :: %{
         "key" => String.t() | atom(),
         "value" => String.t() | atom()
@@ -6009,6 +6156,31 @@ defmodule AWS.Lightsail do
 
   ## Example:
       
+      update_subdomain_association_request() :: %{
+        optional("targetResourceArn") => String.t() | atom(),
+        required("action") => list(any()),
+        required("subdomainName") => String.t() | atom()
+      }
+      
+  """
+  @type update_subdomain_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_subdomain_association_result() :: %{
+        "operation" => operation(),
+        "subdomain" => subdomain()
+      }
+      
+  """
+  @type update_subdomain_association_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       waf_acfp_config() :: %{
         "creationPath" => String.t() | atom(),
         "payloadType" => list(any()),
@@ -6139,6 +6311,13 @@ defmodule AWS.Lightsail do
           | not_found_exception()
           | invalid_input_exception()
           | account_setup_in_progress_exception()
+          | access_denied_exception()
+
+  @type check_subdomain_availability_errors() ::
+          unauthenticated_exception()
+          | service_exception()
+          | operation_failure_exception()
+          | invalid_input_exception()
           | access_denied_exception()
 
   @type close_instance_public_ports_errors() ::
@@ -6383,6 +6562,14 @@ defmodule AWS.Lightsail do
           | account_setup_in_progress_exception()
           | access_denied_exception()
 
+  @type create_subdomain_errors() ::
+          unauthenticated_exception()
+          | service_exception()
+          | operation_failure_exception()
+          | not_found_exception()
+          | invalid_input_exception()
+          | access_denied_exception()
+
   @type delete_alarm_errors() ::
           unauthenticated_exception()
           | service_exception()
@@ -6576,6 +6763,14 @@ defmodule AWS.Lightsail do
           | not_found_exception()
           | invalid_input_exception()
           | account_setup_in_progress_exception()
+          | access_denied_exception()
+
+  @type delete_subdomain_errors() ::
+          unauthenticated_exception()
+          | service_exception()
+          | operation_failure_exception()
+          | not_found_exception()
+          | invalid_input_exception()
           | access_denied_exception()
 
   @type detach_certificate_from_distribution_errors() ::
@@ -7267,6 +7462,13 @@ defmodule AWS.Lightsail do
           | account_setup_in_progress_exception()
           | access_denied_exception()
 
+  @type get_subdomains_errors() ::
+          unauthenticated_exception()
+          | service_exception()
+          | not_found_exception()
+          | invalid_input_exception()
+          | access_denied_exception()
+
   @type import_key_pair_errors() ::
           unauthenticated_exception()
           | service_exception()
@@ -7592,6 +7794,14 @@ defmodule AWS.Lightsail do
           | account_setup_in_progress_exception()
           | access_denied_exception()
 
+  @type update_subdomain_association_errors() ::
+          unauthenticated_exception()
+          | service_exception()
+          | operation_failure_exception()
+          | not_found_exception()
+          | invalid_input_exception()
+          | access_denied_exception()
+
   def metadata do
     %{
       api_version: "2016-11-28",
@@ -7764,6 +7974,26 @@ defmodule AWS.Lightsail do
       metadata()
 
     Request.request_post(client, meta, "AttachStaticIp", input, options)
+  end
+
+  @doc """
+  Checks whether a Lightsail subdomain is available to create.
+
+  Optionally, reserves the
+  subdomain for your account for 15 minutes.
+
+  If you don't reserve the subdomain, another account can create it before you do.
+  """
+  @spec check_subdomain_availability(map(), check_subdomain_availability_request(), list()) ::
+          {:ok, check_subdomain_availability_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, check_subdomain_availability_errors()}
+  def check_subdomain_availability(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CheckSubdomainAvailability", input, options)
   end
 
   @doc """
@@ -8501,6 +8731,38 @@ defmodule AWS.Lightsail do
   end
 
   @doc """
+  Creates a Lightsail subdomain, such as `mysite`, with the web address
+  `mysite.amazonlightsail.com`.
+
+  After the subdomain is created, use the
+  `UpdateSubdomainAssociation` action to associate it with a Lightsail
+  resource.
+
+  When you create a nested subdomain, such as `blog.mysite`, and you don't
+  already have the top-level subdomain (`mysite`), Lightsail adds the top-level
+  subdomain to your account in the `IMPLICIT` state.
+
+  You can have up to 30 subdomains in your account. Nested subdomains, subdomains
+  in the
+  `CREATE_FAILED` state, and deleted subdomains that other accounts can't create
+  yet
+  count toward this quota. Subdomains in the `IMPLICIT` state don't count toward
+  this
+  quota.
+  """
+  @spec create_subdomain(map(), create_subdomain_request(), list()) ::
+          {:ok, create_subdomain_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_subdomain_errors()}
+  def create_subdomain(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateSubdomain", input, options)
+  end
+
+  @doc """
   Deletes an alarm.
 
   An alarm is used to monitor a single metric for one of your resources. When a
@@ -8960,6 +9222,35 @@ defmodule AWS.Lightsail do
       metadata()
 
     Request.request_post(client, meta, "DeleteRelationalDatabaseSnapshot", input, options)
+  end
+
+  @doc """
+  Deletes a Lightsail subdomain.
+
+  The subdomain must be in the `UNATTACHED` or `CREATE_FAILED`
+  state. To delete a subdomain that's associated with a resource, first
+  disassociate it by using
+  the `UpdateSubdomainAssociation` action.
+
+  When you delete a top-level subdomain that has nested subdomains, the nested
+  subdomains
+  continue to work, and the top-level subdomain changes to the `IMPLICIT`
+  state.
+
+  After you delete a subdomain that was associated with a resource, the subdomain
+  isn't
+  available to other accounts for at least 30 days.
+  """
+  @spec delete_subdomain(map(), delete_subdomain_request(), list()) ::
+          {:ok, delete_subdomain_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_subdomain_errors()}
+  def delete_subdomain(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteSubdomain", input, options)
   end
 
   @doc """
@@ -9751,6 +10042,11 @@ defmodule AWS.Lightsail do
   Returns information about one or more of your Amazon Lightsail content delivery
   network
   (CDN) distributions.
+
+  The `defaultRootObject` and `customErrorResponses` values are
+  returned only when you specify `distributionName` to retrieve a single
+  distribution. When you call `GetDistributions` without a distribution name to
+  list all distributions, these two fields aren't included in the response.
   """
   @spec get_distributions(map(), get_distributions_request(), list()) ::
           {:ok, get_distributions_result(), any()}
@@ -10482,6 +10778,28 @@ defmodule AWS.Lightsail do
       metadata()
 
     Request.request_post(client, meta, "GetStaticIps", input, options)
+  end
+
+  @doc """
+  Returns information about one or more of your Lightsail subdomains.
+
+  When you don't specify a subdomain, the response lists your top-level
+  subdomains, and
+  each top-level subdomain includes its nested subdomains.
+
+  The results are paginated. To get the next page of results, use the `pageToken`
+  parameter.
+  """
+  @spec get_subdomains(map(), get_subdomains_request(), list()) ::
+          {:ok, get_subdomains_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_subdomains_errors()}
+  def get_subdomains(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetSubdomains", input, options)
   end
 
   @doc """
@@ -11313,5 +11631,42 @@ defmodule AWS.Lightsail do
       metadata()
 
     Request.request_post(client, meta, "UpdateRelationalDatabaseParameters", input, options)
+  end
+
+  @doc """
+  Associates a Lightsail subdomain with a resource, disassociates it from a
+  resource, or
+  moves it from one resource to another resource.
+
+  Currently, you can associate a subdomain only with a Lightsail content delivery
+  network
+  (CDN) distribution. A resource can be associated with only one subdomain at a
+  time.
+
+  When you associate a subdomain with a distribution, Lightsail attaches the
+  subdomain's
+  certificate to the distribution. You can't associate a subdomain with a
+  distribution that uses
+  a custom domain, which is a distribution that has a Lightsail certificate
+  attached.
+
+  You can transfer each subdomain to another resource only once in a 24-hour
+  period.
+
+  The update is asynchronous. The response returns the subdomain in the
+  `ATTACHING`, `DETACHING`, or `TRANSFERRING` state, and an
+  operation. To check when the update is complete, use the `GetSubdomains`
+  action.
+  """
+  @spec update_subdomain_association(map(), update_subdomain_association_request(), list()) ::
+          {:ok, update_subdomain_association_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_subdomain_association_errors()}
+  def update_subdomain_association(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateSubdomainAssociation", input, options)
   end
 end

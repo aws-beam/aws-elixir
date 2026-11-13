@@ -462,6 +462,7 @@ defmodule AWS.GameLiftStreams do
         "AdditionalEnvironmentVariables" => map(),
         "AdditionalLaunchArgs" => list([String.t() | atom()]()),
         "ApplicationArn" => String.t() | atom(),
+        "ApplicationStartedAt" => [non_neg_integer()],
         "Arn" => String.t() | atom(),
         "ConnectionTimeoutSeconds" => integer(),
         "CreatedAt" => [non_neg_integer()],
@@ -480,6 +481,8 @@ defmodule AWS.GameLiftStreams do
         "Status" => list(any()),
         "StatusReason" => list(any()),
         "StreamGroupId" => String.t() | atom(),
+        "StreamingEndedAt" => [non_neg_integer()],
+        "StreamingStartedAt" => [non_neg_integer()],
         "UserId" => String.t() | atom(),
         "WebSdkProtocolUrl" => String.t() | atom()
       }
@@ -879,6 +882,7 @@ defmodule AWS.GameLiftStreams do
         "AdditionalEnvironmentVariables" => map(),
         "AdditionalLaunchArgs" => list([String.t() | atom()]()),
         "ApplicationArn" => String.t() | atom(),
+        "ApplicationStartedAt" => [non_neg_integer()],
         "Arn" => String.t() | atom(),
         "ConnectionTimeoutSeconds" => integer(),
         "CreatedAt" => [non_neg_integer()],
@@ -897,6 +901,8 @@ defmodule AWS.GameLiftStreams do
         "Status" => list(any()),
         "StatusReason" => list(any()),
         "StreamGroupId" => String.t() | atom(),
+        "StreamingEndedAt" => [non_neg_integer()],
+        "StreamingStartedAt" => [non_neg_integer()],
         "UserId" => String.t() | atom(),
         "WebSdkProtocolUrl" => String.t() | atom()
       }

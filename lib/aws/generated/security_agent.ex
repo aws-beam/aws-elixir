@@ -1432,6 +1432,7 @@ defmodule AWS.SecurityAgent do
       create_pentest_input() :: %{
         optional("assets") => assets(),
         optional("cicdConfiguration") => ci_cd_configuration(),
+        optional("cleanUpStrategy") => list(any()),
         optional("codeRemediationStrategy") => list(any()),
         optional("disableManagedSkills") => list(list(any())()),
         optional("excludeRiskTypes") => list(list(any())()),
@@ -4272,6 +4273,7 @@ defmodule AWS.SecurityAgent do
       update_pentest_input() :: %{
         optional("assets") => assets(),
         optional("cicdConfiguration") => ci_cd_configuration(),
+        optional("cleanUpStrategy") => list(any()),
         optional("codeRemediationStrategy") => list(any()),
         optional("disableManagedSkills") => list(list(any())()),
         optional("excludeRiskTypes") => list(list(any())()),

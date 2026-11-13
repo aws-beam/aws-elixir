@@ -4156,7 +4156,8 @@ defmodule AWS.CleanRooms do
 
       protected_job_error() :: %{
         "code" => [String.t() | atom()],
-        "message" => [String.t() | atom()]
+        "message" => [String.t() | atom()],
+        "retry" => retry_info()
       }
 
   """
@@ -4382,7 +4383,8 @@ defmodule AWS.CleanRooms do
 
       protected_query_error() :: %{
         "code" => [String.t() | atom()],
-        "message" => [String.t() | atom()]
+        "message" => [String.t() | atom()],
+        "retry" => retry_info()
       }
 
   """
@@ -4546,6 +4548,17 @@ defmodule AWS.CleanRooms do
 
   """
   @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retry_info() :: %{
+        "retryable" => [boolean()]
+      }
+
+  """
+  @type retry_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

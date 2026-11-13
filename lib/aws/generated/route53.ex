@@ -517,6 +517,26 @@ defmodule AWS.Route53 do
 
   ## Example:
 
+      create_resource_record_set_protections_request() :: %{
+        required("Protections") => list(resource_record_set_protection_config())
+      }
+
+  """
+  @type create_resource_record_set_protections_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_resource_record_set_protections_response() :: %{}
+
+  """
+  @type create_resource_record_set_protections_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       create_reusable_delegation_set_request() :: %{
         optional("HostedZoneId") => String.t() | atom(),
         required("CallerReference") => String.t() | atom()
@@ -817,6 +837,26 @@ defmodule AWS.Route53 do
 
   """
   @type delete_query_logging_config_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_record_set_protections_request() :: %{
+        required("Protections") => list(resource_record_set_protection_key())
+      }
+
+  """
+  @type delete_resource_record_set_protections_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_record_set_protections_response() :: %{}
+
+  """
+  @type delete_resource_record_set_protections_response() :: %{}
 
   @typedoc """
 
@@ -1752,6 +1792,18 @@ defmodule AWS.Route53 do
 
   ## Example:
 
+      invalid_resource_record_set_protection_batch() :: %{
+        "Errors" => list(protection_error()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_resource_record_set_protection_batch() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       invalid_signing_status() :: %{
         "message" => String.t() | atom()
       }
@@ -2125,6 +2177,32 @@ defmodule AWS.Route53 do
 
   """
   @type list_query_logging_configs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resource_record_set_protections_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t() | atom(),
+        optional("StartRecordName") => String.t() | atom(),
+        optional("StartRecordType") => list(any())
+      }
+
+  """
+  @type list_resource_record_set_protections_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resource_record_set_protections_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ResourceRecordSetProtections" => list(resource_record_set_protection())
+      }
+
+  """
+  @type list_resource_record_set_protections_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2566,6 +2644,32 @@ defmodule AWS.Route53 do
 
   ## Example:
 
+      protection_already_exists() :: %{
+        "Errors" => list(protection_error()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type protection_already_exists() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      protection_error() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "RecordName" => String.t() | atom(),
+        "RecordType" => list(any())
+      }
+
+  """
+  @type protection_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       public_zone_vpc_association() :: %{
         "message" => String.t() | atom()
       }
@@ -2632,6 +2736,44 @@ defmodule AWS.Route53 do
 
   """
   @type resource_record_set() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_record_set_protection() :: %{
+        "Comment" => String.t() | atom(),
+        "RecordName" => String.t() | atom(),
+        "RecordType" => list(any())
+      }
+
+  """
+  @type resource_record_set_protection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_record_set_protection_config() :: %{
+        "Comment" => String.t() | atom(),
+        "RecordName" => String.t() | atom(),
+        "RecordType" => list(any())
+      }
+
+  """
+  @type resource_record_set_protection_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_record_set_protection_key() :: %{
+        "RecordName" => String.t() | atom(),
+        "RecordType" => list(any())
+      }
+
+  """
+  @type resource_record_set_protection_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3124,6 +3266,14 @@ defmodule AWS.Route53 do
           | insufficient_cloud_watch_logs_resource_policy()
           | concurrent_modification()
 
+  @type create_resource_record_set_protections_errors() ::
+          protection_already_exists()
+          | prior_request_not_complete()
+          | no_such_hosted_zone()
+          | limits_exceeded()
+          | invalid_resource_record_set_protection_batch()
+          | invalid_input()
+
   @type create_reusable_delegation_set_errors() ::
           limits_exceeded()
           | invalid_input()
@@ -3195,6 +3345,12 @@ defmodule AWS.Route53 do
 
   @type delete_query_logging_config_errors() ::
           no_such_query_logging_config() | invalid_input() | concurrent_modification()
+
+  @type delete_resource_record_set_protections_errors() ::
+          prior_request_not_complete()
+          | no_such_hosted_zone()
+          | invalid_resource_record_set_protection_batch()
+          | invalid_input()
 
   @type delete_reusable_delegation_set_errors() ::
           no_such_delegation_set()
@@ -3301,6 +3457,9 @@ defmodule AWS.Route53 do
   @type list_hosted_zones_by_vpc_errors() :: invalid_pagination_token() | invalid_input()
 
   @type list_query_logging_configs_errors() ::
+          no_such_hosted_zone() | invalid_pagination_token() | invalid_input()
+
+  @type list_resource_record_set_protections_errors() ::
           no_such_hosted_zone() | invalid_pagination_token() | invalid_input()
 
   @type list_resource_record_sets_errors() :: no_such_hosted_zone() | invalid_input()
@@ -3585,6 +3744,21 @@ defmodule AWS.Route53 do
 
   If you try to delete the same resource record set more than once in a single
   change batch, Route 53 returns an `InvalidChangeBatch` error.
+
+  ## Protected Resource Record Sets
+
+  If a resource record set protection exists for a name and type, Route 53 rejects
+  any
+  change in the change batch that creates, updates, or deletes a resource record
+  set with
+  that name and type. Because change batches are transactional, Route 53 rejects
+  the
+  entire request and returns an `InvalidChangeBatch` error. Route 53 identifies
+  each protected resource record set in the error message and includes the
+  protection's
+  comment, if any. To make the change, first delete the protection by using
+  `DeleteResourceRecordSetProtections`. To see which resource record sets
+  are protected, use `ListResourceRecordSetProtections`.
 
   ## Traffic Flow
 
@@ -4204,6 +4378,80 @@ defmodule AWS.Route53 do
   end
 
   @doc """
+  Creates one or more resource record set protections in a hosted zone.
+
+  A protection applies to every resource record set in the hosted zone that has
+  the specified name and type. While a protection exists, Route 53 rejects any
+  `ChangeResourceRecordSets` request that creates, updates, or deletes a resource
+  record set with that name and type, and returns an `InvalidChangeBatch` error.
+  To change a protected resource record set, first delete its protection by using
+  `DeleteResourceRecordSetProtections`.
+
+  You can create a protection for a name and type that doesn't have a resource
+  record set yet. In that case, Route 53 also rejects requests to create that
+  resource record set.
+
+  You can't delete a hosted zone that has protections. To delete the hosted zone,
+  first delete all of its protections by using
+  `DeleteResourceRecordSetProtections`.
+
+  The request is atomic. Route 53 either creates all of the protections in the
+  request or none of them. If one or more entries fail, the response is an error
+  that lists the failing entries and the reason that each one failed. Route 53
+  checks for invalid entries before it checks for existing protections, so if any
+  entry is invalid, the error lists only the invalid entries.
+
+  The error that Route 53 returns depends on the failures:
+
+    *
+  If every entry already has a protection, Route 53 returns a
+  `ProtectionAlreadyExists` error.
+
+    *
+  For any other combination of failures, Route 53 returns an
+  `InvalidResourceRecordSetProtectionBatch` error.
+
+  You can specify up to 100 protections in one request. The number of protections
+  that you can have in a hosted zone is limited by a quota. If the request would
+  exceed that quota, Route 53 returns a `LimitsExceeded` error.
+  """
+  @spec create_resource_record_set_protections(
+          map(),
+          String.t() | atom(),
+          create_resource_record_set_protections_request(),
+          list()
+        ) ::
+          {:ok, create_resource_record_set_protections_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_resource_record_set_protections_errors()}
+  def create_resource_record_set_protections(
+        %Client{} = client,
+        hosted_zone_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/rrsetprotection"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a delegation set (a group of four name servers) that can be reused by
   multiple
   hosted zones that were created by the same Amazon Web Services account.
@@ -4684,6 +4932,11 @@ defmodule AWS.Route53 do
   `HostedZoneNotEmpty` error. For information about deleting records, see
   [ChangeResourceRecordSets](https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html).
 
+  You also can't delete a hosted zone that has resource record set protections. To
+  see
+  the protections in a hosted zone, use `ListResourceRecordSetProtections`. To
+  delete them, use `DeleteResourceRecordSetProtections`.
+
   To verify that the hosted zone has been deleted, do one of the following:
 
     *
@@ -4803,6 +5056,58 @@ defmodule AWS.Route53 do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes one or more resource record set protections from a hosted zone.
+
+  After a protection is deleted, you can change the resource record sets that have
+  that name and type by using `ChangeResourceRecordSets`.
+
+  The request is atomic. Route 53 either deletes all of the protections in the
+  request or none of them. If one or more entries fail, for example because no
+  protection exists for the specified name and type, Route 53 returns an
+  `InvalidResourceRecordSetProtectionBatch` error that lists the failing entries
+  and the reason that each one failed.
+
+  You can specify up to 100 protections in one request.
+  """
+  @spec delete_resource_record_set_protections(
+          map(),
+          String.t() | atom(),
+          delete_resource_record_set_protections_request(),
+          list()
+        ) ::
+          {:ok, delete_resource_record_set_protections_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_resource_record_set_protections_errors()}
+  def delete_resource_record_set_protections(
+        %Client{} = client,
+        hosted_zone_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/rrsetprotection/delete"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -6245,6 +6550,75 @@ defmodule AWS.Route53 do
     query_params =
       if !is_nil(next_token) do
         [{"nexttoken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the resource record set protections in a hosted zone.
+
+  We recommend using pagination to ensure that the operation returns quickly and
+  successfully.
+
+  If the response includes a `NextToken` element, there are more protections to
+  list. To get the next page of results, submit another request and specify the
+  value of `NextToken` in the `NextToken` parameter.
+  """
+  @spec list_resource_record_set_protections(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_resource_record_set_protections_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_resource_record_set_protections_errors()}
+  def list_resource_record_set_protections(
+        %Client{} = client,
+        hosted_zone_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        start_record_name \\ nil,
+        start_record_type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/rrsetprotection"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxresults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nexttoken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_record_name) do
+        [{"name", start_record_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_record_type) do
+        [{"type", start_record_type} | query_params]
       else
         query_params
       end

@@ -143,6 +143,32 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      account_affected_resource() :: %{
+        "FindingCount" => integer(),
+        "Identifier" => String.t() | atom(),
+        "Type" => list(any())
+      }
+
+  """
+  @type account_affected_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      account_analysis() :: %{
+        "AffectedResources" => list(account_affected_resource()),
+        "FindingsSummary" => findings_summary(),
+        "TacticCoverage" => list(tactic_coverage())
+      }
+
+  """
+  @type account_analysis() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       account_detail() :: %{
         "AccountId" => String.t() | atom(),
         "Email" => String.t() | atom()
@@ -179,6 +205,25 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      account_overview() :: %{
+        "AccountId" => String.t() | atom(),
+        "AccountRankings" => list(member_account_ranking()),
+        "AccountStatus" => String.t() | atom(),
+        "AffectedAccountCount" => float(),
+        "DelegatedAdminAccountId" => String.t() | atom(),
+        "DetectorId" => String.t() | atom(),
+        "Region" => String.t() | atom(),
+        "TotalFindings" => float(),
+        "TotalMemberAccounts" => float()
+      }
+
+  """
+  @type account_overview() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       account_statistics() :: %{
         "AccountId" => String.t() | atom(),
         "LastGeneratedAt" => non_neg_integer(),
@@ -187,6 +232,18 @@ defmodule AWS.GuardDuty do
 
   """
   @type account_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      account_summary() :: %{
+        "AccountId" => String.t() | atom(),
+        "FindingCount" => integer()
+      }
+
+  """
+  @type account_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -219,6 +276,18 @@ defmodule AWS.GuardDuty do
 
   """
   @type activity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      activity_window() :: %{
+        "FirstSeenAt" => non_neg_integer(),
+        "LastSeenAt" => non_neg_integer()
+      }
+
+  """
+  @type activity_window() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -301,12 +370,42 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      affected_resource() :: %{
+        "Arn" => String.t() | atom(),
+        "Identifier" => String.t() | atom(),
+        "Type" => list(any())
+      }
+
+  """
+  @type affected_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       agent_details() :: %{
         "Version" => String.t() | atom()
       }
 
   """
   @type agent_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      analysis_record() :: %{
+        "AccountAnalysis" => investigation_account_analysis(),
+        "AnalysisType" => list(any()),
+        "Indicators" => list(investigation_indicator()),
+        "KubernetesPolicyViolation" => kubernetes_policy_violation(),
+        "Processes" => list(process()),
+        "S3Analysis" => s3_analysis(),
+        "ThreatAssessment" => investigation_threat_assessment()
+      }
+
+  """
+  @type analysis_record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -357,6 +456,20 @@ defmodule AWS.GuardDuty do
 
   """
   @type api_call() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      archive_distribution() :: %{
+        "ArchivedCount" => float(),
+        "ArchivedPercentage" => float(),
+        "UnarchivedCount" => float(),
+        "UnarchivedPercentage" => float()
+      }
+
+  """
+  @type archive_distribution() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -417,6 +530,33 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      attack() :: %{
+        "Findings" => list(finding_reference()),
+        "Tactic" => threat_reference(),
+        "Technique" => threat_reference(),
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type attack() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attack_phase() :: %{
+        "Attacks" => list(attack()),
+        "Description" => String.t() | atom(),
+        "Phase" => list(any())
+      }
+
+  """
+  @type attack_phase() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       autonomous_system() :: %{
         "Name" => String.t() | atom(),
         "Number" => integer()
@@ -466,6 +606,19 @@ defmodule AWS.GuardDuty do
 
   """
   @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      baseline() :: %{
+        "AnomalousFindings" => list(finding_type_classification()),
+        "BaselineFindings" => list(finding_type_classification()),
+        "TotalFindings" => float()
+      }
+
+  """
+  @type baseline() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -694,6 +847,55 @@ defmodule AWS.GuardDuty do
 
   """
   @type continuous_scan_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      correlated_finding() :: %{
+        "CorrelationReasons" => list(list(any())()),
+        "Count" => float(),
+        "FindingIds" => list(String.t() | atom()),
+        "FindingType" => String.t() | atom(),
+        "SeverityMax" => float(),
+        "SharedBehaviors" => list(shared_behavior()),
+        "SharedResources" => list(shared_resource())
+      }
+
+  """
+  @type correlated_finding() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      countermeasure() :: %{
+        "Actions" => list(countermeasure_action()),
+        "DefenseTactic" => list(any()),
+        "Description" => String.t() | atom()
+      }
+
+  """
+  @type countermeasure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      countermeasure_action() :: %{
+        "AffectedResources" => list(affected_resource()),
+        "CliCommands" => list(String.t() | atom()),
+        "DefenseTechnique" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Disposition" => list(any()),
+        "DispositionId" => integer(),
+        "Mitigates" => list(String.t() | atom()),
+        "Priority" => list(any()),
+        "Title" => String.t() | atom()
+      }
+
+  """
+  @type countermeasure_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1642,6 +1844,20 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      detection_coverage() :: %{
+        "CoverageGaps" => String.t() | atom(),
+        "FoundationalDataSources" => list(list(any())()),
+        "KeyObservation" => String.t() | atom(),
+        "ProtectionPlans" => list(protection_plan())
+      }
+
+  """
+  @type detection_coverage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       detection_rule_ec2_requirements() :: %{
         "MinAgentVersion" => String.t() | atom()
       }
@@ -1875,6 +2091,37 @@ defmodule AWS.GuardDuty do
 
   """
   @type disassociate_members_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      distribution() :: %{
+        "Archive" => archive_distribution(),
+        "AttackVectors" => list(tactic_coverage()),
+        "Dimension" => list(any()),
+        "FindingTypes" => list(type_distribution()),
+        "Resources" => list(resource_distribution()),
+        "SeverityBreakdown" => severity_breakdown(),
+        "TopFindingTypes" => list(finding_type_count()),
+        "TotalFindings" => float()
+      }
+
+  """
+  @type distribution() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dns_context() :: %{
+        "DomainSuffix" => String.t() | atom(),
+        "OtherDomains" => String.t() | atom(),
+        "ResolverHistory" => String.t() | atom()
+      }
+
+  """
+  @type dns_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2176,6 +2423,20 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      enrichment() :: %{
+        "AsnOrg" => String.t() | atom(),
+        "CountryName" => String.t() | atom(),
+        "ThreatListName" => String.t() | atom(),
+        "ThreatName" => String.t() | atom()
+      }
+
+  """
+  @type enrichment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       evidence() :: %{
         "ThreatIntelligenceDetails" => list(threat_intelligence_detail())
       }
@@ -2194,6 +2455,77 @@ defmodule AWS.GuardDuty do
 
   """
   @type fargate_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fetch_criterion() :: %{
+        "Condition" => list(any()),
+        "Field" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+
+  """
+  @type fetch_criterion() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fetch_query() :: %{
+        "AccountId" => String.t() | atom(),
+        "Criteria" => list(fetch_criterion()),
+        "FindingId" => String.t() | atom(),
+        "FindingType" => String.t() | atom(),
+        "Indicator" => String.t() | atom(),
+        "IndicatorType" => list(any()),
+        "RowLimit" => integer(),
+        "TimeWindow" => fetch_time_window()
+      }
+
+  """
+  @type fetch_query() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fetch_record() :: %{
+        "FetchType" => list(any()),
+        "Query" => fetch_query(),
+        "Result" => fetch_result()
+      }
+
+  """
+  @type fetch_record() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fetch_result() :: %{
+        "Documentation" => finding_type_documentation(),
+        "Features" => list(investigation_detector_feature_configuration()),
+        "ItemIds" => list(String.t() | atom()),
+        "TotalCount" => float(),
+        "Verdict" => list(any())
+      }
+
+  """
+  @type fetch_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fetch_time_window() :: %{
+        "DurationInMinutes" => integer(),
+        "StartedAt" => non_neg_integer()
+      }
+
+  """
+  @type fetch_time_window() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2273,6 +2605,34 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      finding_detail() :: %{
+        "AccountId" => String.t() | atom(),
+        "ActivityWindow" => activity_window(),
+        "FindingId" => String.t() | atom(),
+        "FindingType" => String.t() | atom(),
+        "Region" => String.t() | atom(),
+        "Severity" => String.t() | atom()
+      }
+
+  """
+  @type finding_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      finding_reference() :: %{
+        "FindingType" => String.t() | atom(),
+        "Uid" => String.t() | atom()
+      }
+
+  """
+  @type finding_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       finding_statistics() :: %{
         "CountBySeverity" => map(),
         "GroupedByAccount" => list(account_statistics()),
@@ -2289,6 +2649,49 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      finding_type_classification() :: %{
+        "Classification" => String.t() | atom(),
+        "Count" => float(),
+        "Description" => String.t() | atom(),
+        "FindingType" => String.t() | atom(),
+        "Percentage" => float()
+      }
+
+  """
+  @type finding_type_classification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      finding_type_count() :: %{
+        "Count" => integer(),
+        "FindingType" => String.t() | atom()
+      }
+
+  """
+  @type finding_type_count() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      finding_type_documentation() :: %{
+        "Description" => String.t() | atom(),
+        "Feature" => String.t() | atom(),
+        "FullDescription" => String.t() | atom(),
+        "LearnMoreLinks" => list(String.t() | atom()),
+        "Remediation" => String.t() | atom(),
+        "Severity" => String.t() | atom()
+      }
+
+  """
+  @type finding_type_documentation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       finding_type_statistics() :: %{
         "FindingType" => String.t() | atom(),
         "LastGeneratedAt" => non_neg_integer(),
@@ -2297,6 +2700,20 @@ defmodule AWS.GuardDuty do
 
   """
   @type finding_type_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      findings_summary() :: %{
+        "ByTimeWindow" => list(time_window_group()),
+        "SeverityBreakdown" => severity_breakdown(),
+        "TopFindingTypes" => list(finding_type_count()),
+        "TotalFindings" => integer()
+      }
+
+  """
+  @type findings_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2550,10 +2967,12 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
-      get_investigation_request() :: %{}
+      get_investigation_request() :: %{
+        optional("SummaryFormat") => list(any())
+      }
 
   """
-  @type get_investigation_request() :: %{}
+  @type get_investigation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3052,15 +3471,182 @@ defmodule AWS.GuardDuty do
         "Metadata" => investigation_metadata(),
         "Risk" => String.t() | atom(),
         "RiskLevel" => list(any()),
+        "Scope" => investigation_scope(),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
         "Summary" => String.t() | atom(),
+        "SummaryData" => investigation_summary_data(),
         "TriggerPrompt" => String.t() | atom(),
         "TriggeredBy" => String.t() | atom()
       }
 
   """
   @type investigation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      investigation_account_analysis() :: %{
+        "Baseline" => baseline(),
+        "Trend" => trend()
+      }
+
+  """
+  @type investigation_account_analysis() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      investigation_actor() :: %{
+        "AccessKeyId" => String.t() | atom(),
+        "PrincipalId" => String.t() | atom(),
+        "UserAgent" => String.t() | atom(),
+        "UserName" => String.t() | atom(),
+        "UserType" => String.t() | atom()
+      }
+
+  """
+  @type investigation_actor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      investigation_detector_feature_configuration() :: %{
+        "Name" => list(any()),
+        "Status" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type investigation_detector_feature_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      investigation_ec2_instance() :: %{
+        "AvailabilityZone" => String.t() | atom(),
+        "ImageId" => String.t() | atom(),
+        "InstanceId" => String.t() | atom(),
+        "InstanceState" => String.t() | atom(),
+        "InstanceType" => String.t() | atom(),
+        "LaunchedAt" => non_neg_integer(),
+        "PrivateIpAddress" => String.t() | atom(),
+        "PublicIp" => String.t() | atom(),
+        "SubnetId" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
+      }
+
+  """
+  @type investigation_ec2_instance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      investigation_ecs_cluster() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type investigation_ecs_cluster() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      investigation_eks_cluster() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
+      }
+
+  """
+  @type investigation_eks_cluster() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      investigation_filter_condition() :: %{
+        "Equals" => list(String.t() | atom()),
+        "NotEquals" => list(String.t() | atom())
+      }
+
+  """
+  @type investigation_filter_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      investigation_filter_criteria() :: %{
+        "Criterion" => map()
+      }
+
+  """
+  @type investigation_filter_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      investigation_indicator() :: %{
+        "Type" => list(any()),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type investigation_indicator() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      investigation_kubernetes_workload() :: %{
+        "Containers" => String.t() | atom(),
+        "SecurityContext" => String.t() | atom(),
+        "Volumes" => String.t() | atom(),
+        "WorkloadName" => String.t() | atom(),
+        "WorkloadType" => String.t() | atom()
+      }
+
+  """
+  @type investigation_kubernetes_workload() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      investigation_malware_scan() :: %{
+        "EngineSources" => String.t() | atom(),
+        "FilesScanned" => float(),
+        "GigabytesScanned" => float(),
+        "HighestSeverity" => String.t() | atom(),
+        "HighestSeverityThreatName" => String.t() | atom(),
+        "InfectedFileCount" => float(),
+        "ResourceIdentifier" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "ScanCategory" => list(any()),
+        "ScanCompletedAt" => non_neg_integer(),
+        "ScanId" => String.t() | atom(),
+        "ScanStartedAt" => non_neg_integer(),
+        "ScanType" => list(any()),
+        "Threats" => list(malware_threat()),
+        "TotalInfectedItems" => float(),
+        "TriggerFindingId" => String.t() | atom(),
+        "UniqueThreatCount" => float(),
+        "VolumesScanned" => float()
+      }
+
+  """
+  @type investigation_malware_scan() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3073,6 +3659,67 @@ defmodule AWS.GuardDuty do
 
   """
   @type investigation_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      investigation_record() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Narrative" => String.t() | atom(),
+        "RecordId" => String.t() | atom(),
+        "SupportingData" => list(),
+        "Title" => String.t() | atom(),
+        "Type" => list(any())
+      }
+
+  """
+  @type investigation_record() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      investigation_resource() :: %{
+        "Data" => investigation_resource_data(),
+        "Name" => String.t() | atom(),
+        "ResourceType" => list(any()),
+        "Uid" => String.t() | atom()
+      }
+
+  """
+  @type investigation_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      investigation_resource_data() :: %{
+        "Ec2Instance" => investigation_ec2_instance(),
+        "EcsCluster" => investigation_ecs_cluster(),
+        "EksCluster" => investigation_eks_cluster(),
+        "LambdaFunction" => lambda_function(),
+        "RdsDbInstance" => rds_db_instance(),
+        "RdsDbUser" => rds_db_user()
+      }
+
+  """
+  @type investigation_resource_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      investigation_scope() :: %{
+        "AccountId" => String.t() | atom(),
+        "AdminAccountId" => String.t() | atom(),
+        "FindingId" => String.t() | atom(),
+        "InvestigationType" => list(any()),
+        "QueryTimeWindow" => query_time_window()
+      }
+
+  """
+  @type investigation_scope() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3092,9 +3739,12 @@ defmodule AWS.GuardDuty do
 
       investigation_summary() :: %{
         "AccountId" => String.t() | atom(),
+        "AdminAccountId" => String.t() | atom(),
         "Confidence" => list(any()),
         "EndTime" => non_neg_integer(),
+        "FindingId" => String.t() | atom(),
         "InvestigationId" => String.t() | atom(),
+        "InvestigationType" => list(any()),
         "RiskLevel" => list(any()),
         "StartTime" => non_neg_integer(),
         "Status" => list(any()),
@@ -3104,6 +3754,41 @@ defmodule AWS.GuardDuty do
 
   """
   @type investigation_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      investigation_summary_data() :: %{
+        "AccountAnalysis" => account_analysis(),
+        "Countermeasures" => list(countermeasure()),
+        "FindingType" => String.t() | atom(),
+        "KeyObservations" => key_observations(),
+        "OrganizationAnalysis" => organization_analysis(),
+        "Recommendations" => list(recommendation()),
+        "ThreatAssessment" => threat_assessment()
+      }
+
+  """
+  @type investigation_summary_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      investigation_threat_assessment() :: %{
+        "Assessment" => String.t() | atom(),
+        "AuthenticationContext" => String.t() | atom(),
+        "Classification" => String.t() | atom(),
+        "CredentialCompromise" => String.t() | atom(),
+        "IpAccountActivity" => String.t() | atom(),
+        "RdsControlPlaneActivity" => String.t() | atom(),
+        "Reputation" => reputation(),
+        "ThreatConfidence" => list(any())
+      }
+
+  """
+  @type investigation_threat_assessment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3168,6 +3853,70 @@ defmodule AWS.GuardDuty do
 
   """
   @type item_path() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      key_observations() :: %{
+        "Narrative" => String.t() | atom(),
+        "Observations" => list(String.t() | atom()),
+        "Title" => String.t() | atom()
+      }
+
+  """
+  @type key_observations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kubernetes_activity() :: %{
+        "Anomaly" => kubernetes_anomaly(),
+        "ApiCall" => kubernetes_api_call(),
+        "Enrichment" => enrichment(),
+        "Workload" => investigation_kubernetes_workload()
+      }
+
+  """
+  @type kubernetes_activity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kubernetes_anomaly() :: %{
+        "AnomalyScore" => String.t() | atom(),
+        "BaselineContext" => String.t() | atom(),
+        "TrainingPeriod" => String.t() | atom(),
+        "UnusualBehavior" => String.t() | atom()
+      }
+
+  """
+  @type kubernetes_anomaly() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kubernetes_api_call() :: %{
+        "ClusterName" => String.t() | atom(),
+        "EventCount" => float(),
+        "Namespace" => String.t() | atom(),
+        "RequestUri" => String.t() | atom(),
+        "ResourceName" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "SourceIps" => String.t() | atom(),
+        "StatusCode" => integer(),
+        "UserAgent" => String.t() | atom(),
+        "UserGroups" => String.t() | atom(),
+        "UserId" => String.t() | atom(),
+        "Username" => String.t() | atom(),
+        "Verb" => String.t() | atom()
+      }
+
+  """
+  @type kubernetes_api_call() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3275,6 +4024,22 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      kubernetes_policy_violation() :: %{
+        "AffectedResource" => String.t() | atom(),
+        "ExposureVector" => String.t() | atom(),
+        "GrantedAccess" => String.t() | atom(),
+        "MisconfigurationImpact" => String.t() | atom(),
+        "Subject" => String.t() | atom(),
+        "ViolationType" => String.t() | atom()
+      }
+
+  """
+  @type kubernetes_policy_violation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       kubernetes_role_binding_details() :: %{
         "Kind" => String.t() | atom(),
         "Name" => String.t() | atom(),
@@ -3365,6 +4130,24 @@ defmodule AWS.GuardDuty do
 
   """
   @type lambda_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_function() :: %{
+        "Description" => String.t() | atom(),
+        "FunctionArn" => String.t() | atom(),
+        "FunctionName" => String.t() | atom(),
+        "FunctionVersion" => String.t() | atom(),
+        "RevisionId" => String.t() | atom(),
+        "Role" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer(),
+        "VpcConfigurationSummary" => String.t() | atom()
+      }
+
+  """
+  @type lambda_function() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3569,7 +4352,36 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      list_investigation_records_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("RecordTypes") => list(list(any())()),
+        required("InvestigationId") => String.t() | atom()
+      }
+
+  """
+  @type list_investigation_records_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_investigation_records_response() :: %{
+        "InvestigationId" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "Records" => list(investigation_record()),
+        "Status" => list(any())
+      }
+
+  """
+  @type list_investigation_records_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_investigations_request() :: %{
+        optional("FilterCriteria") => investigation_filter_criteria(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
         optional("SortCriteria") => investigation_sort_criteria()
@@ -4042,6 +4854,20 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      malware_threat() :: %{
+        "InfectedFileCount" => float(),
+        "Name" => String.t() | atom(),
+        "SampleFiles" => String.t() | atom(),
+        "Severity" => String.t() | atom()
+      }
+
+  """
+  @type malware_threat() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       master() :: %{
         "AccountId" => String.t() | atom(),
         "InvitationId" => String.t() | atom(),
@@ -4069,6 +4895,21 @@ defmodule AWS.GuardDuty do
 
   """
   @type member() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      member_account_ranking() :: %{
+        "AccountId" => String.t() | atom(),
+        "FindingCount" => float(),
+        "Rank" => integer(),
+        "RiskLevel" => list(any()),
+        "RiskRationale" => String.t() | atom()
+      }
+
+  """
+  @type member_account_ranking() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4141,12 +4982,62 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      metadata_record() :: %{
+        "TotalTimeMilliseconds" => float()
+      }
+
+  """
+  @type metadata_record() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       model_detail() :: %{
         "ModelId" => String.t() | atom()
       }
 
   """
   @type model_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_activity() :: %{
+        "Anomaly" => network_anomaly(),
+        "Blocked" => String.t() | atom(),
+        "Counts" => network_counts(),
+        "Direction" => String.t() | atom(),
+        "Dns" => dns_context(),
+        "Enrichment" => enrichment(),
+        "Method" => String.t() | atom(),
+        "Platform" => String.t() | atom(),
+        "Ports" => network_ports(),
+        "Protocol" => String.t() | atom(),
+        "Traffic" => network_traffic()
+      }
+
+  """
+  @type network_activity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_anomaly() :: %{
+        "BaselineBytes" => String.t() | atom(),
+        "Deviation" => String.t() | atom(),
+        "Duration" => String.t() | atom(),
+        "ProfileAgeDays" => integer(),
+        "RemoteRegion" => String.t() | atom(),
+        "RemoteService" => String.t() | atom(),
+        "ResetRatio" => String.t() | atom(),
+        "TargetHostCount" => float()
+      }
+
+  """
+  @type network_anomaly() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4176,6 +5067,20 @@ defmodule AWS.GuardDuty do
 
   """
   @type network_connection_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_counts() :: %{
+        "RequestCount" => float(),
+        "ResetAttempts" => float(),
+        "SuspiciousAttempts" => float(),
+        "TotalAttempts" => float()
+      }
+
+  """
+  @type network_counts() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4232,6 +5137,60 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      network_ports() :: %{
+        "PortCount" => float(),
+        "Ports" => String.t() | atom(),
+        "PortsUsed" => String.t() | atom(),
+        "RemotePort" => String.t() | atom(),
+        "ResolverPort" => String.t() | atom(),
+        "TargetPort" => String.t() | atom()
+      }
+
+  """
+  @type network_ports() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_traffic() :: %{
+        "BytesReceived" => float(),
+        "BytesSent" => float()
+      }
+
+  """
+  @type network_traffic() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      observation_record() :: %{
+        "AccountOverview" => account_overview(),
+        "DetectionCoverage" => detection_coverage(),
+        "Distribution" => distribution(),
+        "FindingDetail" => finding_detail(),
+        "Indicators" => list(investigation_indicator()),
+        "KubernetesActivity" => kubernetes_activity(),
+        "MalwareScan" => investigation_malware_scan(),
+        "NetworkActivity" => network_activity(),
+        "ObservationType" => list(any()),
+        "RdsLoginActivity" => rds_login_activity(),
+        "Recommendations" => list(recommendation()),
+        "RelatedFindings" => related_findings(),
+        "RepresentativeResources" => list(representative_finding()),
+        "Resource" => investigation_resource(),
+        "RuntimeSignals" => runtime_signals(),
+        "S3Activity" => s3_activity()
+      }
+
+  """
+  @type observation_record() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       observations() :: %{
         "Number" => list(float()),
         "Text" => list(String.t() | atom())
@@ -4239,6 +5198,20 @@ defmodule AWS.GuardDuty do
 
   """
   @type observations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      observed_finding_type() :: %{
+        "Count" => float(),
+        "FindingType" => String.t() | atom(),
+        "SeverityMax" => float(),
+        "SharedResources" => list(shared_resource())
+      }
+
+  """
+  @type observed_finding_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4277,6 +5250,18 @@ defmodule AWS.GuardDuty do
 
   """
   @type organization_additional_configuration_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      organization_analysis() :: %{
+        "AccountBreakdown" => list(account_summary()),
+        "FindingsSummary" => organization_findings_summary()
+      }
+
+  """
+  @type organization_analysis() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4390,6 +5375,22 @@ defmodule AWS.GuardDuty do
   @type organization_feature_statistics_additional_configuration() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      organization_findings_summary() :: %{
+        "AffectedAccountCount" => integer(),
+        "ByTimeWindow" => list(time_window_group()),
+        "SeverityBreakdown" => severity_breakdown(),
+        "TopFindingTypes" => list(finding_type_count()),
+        "TotalAccountCount" => integer(),
+        "TotalFindings" => integer()
+      }
+
+  """
+  @type organization_findings_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4584,6 +5585,21 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      process() :: %{
+        "Findings" => list(finding_reference()),
+        "Name" => String.t() | atom(),
+        "ParentUuid" => String.t() | atom(),
+        "Path" => String.t() | atom(),
+        "Uuid" => String.t() | atom()
+      }
+
+  """
+  @type process() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       process_details() :: %{
         "Euid" => integer(),
         "ExecutablePath" => String.t() | atom(),
@@ -4631,6 +5647,18 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      protection_plan() :: %{
+        "Name" => list(any()),
+        "Status" => list(any())
+      }
+
+  """
+  @type protection_plan() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       public_access() :: %{
         "EffectivePermission" => String.t() | atom(),
         "PermissionConfiguration" => permission_configuration()
@@ -4657,6 +5685,34 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      query_time_window() :: %{
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer()
+      }
+
+  """
+  @type query_time_window() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rds_db_instance() :: %{
+        "DbClusterIdentifier" => String.t() | atom(),
+        "DbInstanceArn" => String.t() | atom(),
+        "DbInstanceIdentifier" => String.t() | atom(),
+        "DbiResourceId" => String.t() | atom(),
+        "Engine" => String.t() | atom(),
+        "EngineVersion" => String.t() | atom()
+      }
+
+  """
+  @type rds_db_instance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       rds_db_instance_details() :: %{
         "DbClusterIdentifier" => String.t() | atom(),
         "DbInstanceArn" => String.t() | atom(),
@@ -4669,6 +5725,21 @@ defmodule AWS.GuardDuty do
 
   """
   @type rds_db_instance_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rds_db_user() :: %{
+        "Application" => String.t() | atom(),
+        "AuthMethod" => String.t() | atom(),
+        "Database" => String.t() | atom(),
+        "Ssl" => String.t() | atom(),
+        "User" => String.t() | atom()
+      }
+
+  """
+  @type rds_db_user() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4706,6 +5777,22 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      rds_login_activity() :: %{
+        "ActivityWindow" => activity_window(),
+        "AnomalyContext" => String.t() | atom(),
+        "Enrichment" => enrichment(),
+        "LoginCount" => float(),
+        "Outcome" => String.t() | atom(),
+        "Rate" => String.t() | atom()
+      }
+
+  """
+  @type rds_login_activity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       rds_login_attempt_action() :: %{
         "LoginAttributes" => list(login_attribute()),
         "RemoteIpDetails" => remote_ip_details()
@@ -4713,6 +5800,21 @@ defmodule AWS.GuardDuty do
 
   """
   @type rds_login_attempt_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recommendation() :: %{
+        "Category" => list(any()),
+        "CliCommands" => list(String.t() | atom()),
+        "Priority" => list(any()),
+        "Rationale" => String.t() | atom(),
+        "Title" => String.t() | atom()
+      }
+
+  """
+  @type recommendation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4738,6 +5840,18 @@ defmodule AWS.GuardDuty do
 
   """
   @type recovery_point_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      related_findings() :: %{
+        "Correlated" => list(correlated_finding()),
+        "Observed" => list(observed_finding_type())
+      }
+
+  """
+  @type related_findings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4779,6 +5893,35 @@ defmodule AWS.GuardDuty do
 
   """
   @type remote_port_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      representative_finding() :: %{
+        "FindingCount" => float(),
+        "FindingId" => String.t() | atom(),
+        "Identifier" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "RiskLevel" => list(any()),
+        "RiskRationale" => String.t() | atom()
+      }
+
+  """
+  @type representative_finding() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reputation() :: %{
+        "CurrentDisposition" => String.t() | atom(),
+        "FindingTimeDisposition" => String.t() | atom(),
+        "ReputationComparison" => String.t() | atom()
+      }
+
+  """
+  @type reputation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4845,6 +5988,19 @@ defmodule AWS.GuardDuty do
 
   """
   @type resource_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_distribution() :: %{
+        "Count" => float(),
+        "Identifier" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+
+  """
+  @type resource_distribution() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5000,6 +6156,60 @@ defmodule AWS.GuardDuty do
 
   """
   @type runtime_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      runtime_signals() :: %{
+        "KeyObservation" => String.t() | atom(),
+        "SignalGroups" => list(signal_group())
+      }
+
+  """
+  @type runtime_signals() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_activity() :: %{
+        "ActivityWindow" => activity_window(),
+        "Actor" => investigation_actor(),
+        "AffectedBucket" => String.t() | atom(),
+        "Api" => String.t() | atom(),
+        "Enrichment" => enrichment(),
+        "EventCount" => float(),
+        "NonS3Activity" => String.t() | atom(),
+        "OtherS3Activity" => String.t() | atom(),
+        "SessionAssessment" => String.t() | atom(),
+        "SourceIp" => String.t() | atom()
+      }
+
+  """
+  @type s3_activity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_analysis() :: %{
+        "ActorAssessment" => String.t() | atom(),
+        "AuthorizationAssessment" => String.t() | atom(),
+        "BlockPublicAccessSettings" => String.t() | atom(),
+        "EffectivePermission" => String.t() | atom(),
+        "Exposure" => String.t() | atom(),
+        "FindingSubtype" => String.t() | atom(),
+        "IpReputation" => String.t() | atom(),
+        "S3ApiActivity" => String.t() | atom(),
+        "SourceContext" => String.t() | atom(),
+        "SourceIp" => String.t() | atom(),
+        "UserAgent" => String.t() | atom(),
+        "UserAgentClassification" => String.t() | atom()
+      }
+
+  """
+  @type s3_analysis() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5449,6 +6659,21 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      severity_breakdown() :: %{
+        "Critical" => integer(),
+        "High" => integer(),
+        "Info" => integer(),
+        "Low" => integer(),
+        "Medium" => integer()
+      }
+
+  """
+  @type severity_breakdown() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       severity_statistics() :: %{
         "LastGeneratedAt" => non_neg_integer(),
         "Severity" => float(),
@@ -5457,6 +6682,30 @@ defmodule AWS.GuardDuty do
 
   """
   @type severity_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      shared_behavior() :: %{
+        "Path" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type shared_behavior() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      shared_resource() :: %{
+        "Identifier" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+
+  """
+  @type shared_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5482,6 +6731,19 @@ defmodule AWS.GuardDuty do
 
   """
   @type signal() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      signal_group() :: %{
+        "Count" => float(),
+        "FindingType" => String.t() | atom(),
+        "Severity" => float()
+      }
+
+  """
+  @type signal_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5580,6 +6842,20 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      tactic_coverage() :: %{
+        "FindingCount" => integer(),
+        "FindingTypes" => list(String.t() | atom()),
+        "Phase" => list(any()),
+        "Techniques" => list(technique_coverage())
+      }
+
+  """
+  @type tactic_coverage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag() :: %{
         "Key" => String.t() | atom(),
         "Value" => String.t() | atom()
@@ -5612,6 +6888,19 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      technique_coverage() :: %{
+        "FindingCount" => integer(),
+        "FindingTypes" => list(String.t() | atom()),
+        "Technique" => threat_reference()
+      }
+
+  """
+  @type technique_coverage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       threat() :: %{
         "Count" => float(),
         "Hash" => String.t() | atom(),
@@ -5623,6 +6912,18 @@ defmodule AWS.GuardDuty do
 
   """
   @type threat() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      threat_assessment() :: %{
+        "AttackProgression" => list(attack_phase()),
+        "ThreatActorProfile" => String.t() | atom()
+      }
+
+  """
+  @type threat_assessment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5655,12 +6956,37 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      threat_reference() :: %{
+        "Name" => String.t() | atom(),
+        "Uid" => String.t() | atom()
+      }
+
+  """
+  @type threat_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       threats_detected_item_count() :: %{
         "Files" => integer()
       }
 
   """
   @type threats_detected_item_count() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      time_window_group() :: %{
+        "EndTime" => non_neg_integer(),
+        "FindingCount" => integer(),
+        "StartTime" => non_neg_integer()
+      }
+
+  """
+  @type time_window_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5678,6 +7004,21 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      trend() :: %{
+        "ByTimeWindow" => list(time_window_group()),
+        "EndedAt" => non_neg_integer(),
+        "Granularity" => list(any()),
+        "StartedAt" => non_neg_integer(),
+        "TotalFindings" => float()
+      }
+
+  """
+  @type trend() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       trigger_details() :: %{
         "Description" => String.t() | atom(),
         "GuardDutyFindingId" => String.t() | atom(),
@@ -5686,6 +7027,20 @@ defmodule AWS.GuardDuty do
 
   """
   @type trigger_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      type_distribution() :: %{
+        "Count" => float(),
+        "DominantSeverity" => String.t() | atom(),
+        "FindingType" => String.t() | atom(),
+        "Percentage" => float()
+      }
+
+  """
+  @type type_distribution() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6473,6 +7828,12 @@ defmodule AWS.GuardDuty do
   @type list_filters_errors() :: internal_server_error_exception() | bad_request_exception()
 
   @type list_findings_errors() :: internal_server_error_exception() | bad_request_exception()
+
+  @type list_investigation_records_errors() ::
+          resource_not_found_exception()
+          | internal_server_error_exception()
+          | bad_request_exception()
+          | access_denied_exception()
 
   @type list_investigations_errors() ::
           internal_server_error_exception() | bad_request_exception() | access_denied_exception()
@@ -8350,20 +9711,44 @@ defmodule AWS.GuardDuty do
 
   Retrieves the results and status of a specific GuardDuty investigation.
 
+  GuardDuty returns the results, including the summary and the scope of the
+  investigation, only when the investigation status is `COMPLETED`. By default,
+  GuardDuty returns the summary as text in `Summary`. To return a typed summary in
+  `SummaryData` instead, set `SummaryFormat` to `STRUCTURED`.
+
   An administrator account can retrieve any investigation within the organization.
   Member accounts can only retrieve investigations that belong to them.
   """
-  @spec get_investigation(map(), String.t() | atom(), String.t() | atom(), list()) ::
+  @spec get_investigation(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, get_investigation_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_investigation_errors()}
-  def get_investigation(%Client{} = client, detector_id, investigation_id, options \\ []) do
+  def get_investigation(
+        %Client{} = client,
+        detector_id,
+        investigation_id,
+        summary_format \\ nil,
+        options \\ []
+      ) do
     url_path =
       "/detector/#{AWS.Util.encode_uri(detector_id)}/investigation/#{AWS.Util.encode_uri(investigation_id)}"
 
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(summary_format) do
+        [{"summaryFormat", summary_format} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -9084,8 +10469,57 @@ defmodule AWS.GuardDuty do
   (Frankfurt), Europe (Ireland), Europe (London), Europe (Paris), Europe
   (Stockholm), and Asia Pacific (Tokyo).
 
+  Returns the records for a specific GuardDuty investigation. Each record is one
+  step in the reasoning that GuardDuty followed to reach the results of the
+  investigation.
+
+  An administrator account can list the records of any investigation within the
+  organization. Member accounts can only list the records of investigations that
+  belong to them.
+  """
+  @spec list_investigation_records(
+          map(),
+          String.t() | atom(),
+          list_investigation_records_request(),
+          list()
+        ) ::
+          {:ok, list_investigation_records_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_investigation_records_errors()}
+  def list_investigation_records(%Client{} = client, detector_id, input, options \\ []) do
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/investigation/records"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  This API is currently available as a preview.
+
+  This feature is available in the following Amazon Web Services Regions: US East
+  (N. Virginia), US East (Ohio), US West (Oregon), Canada (Central), Europe
+  (Frankfurt), Europe (Ireland), Europe (London), Europe (Paris), Europe
+  (Stockholm), and Asia Pacific (Tokyo).
+
   Returns a list of investigations associated with the specified GuardDuty
-  detector.
+  detector. You can filter the investigations by status, risk level, confidence,
+  finding ID, and investigation type, and sort them by start time, end time,
+  status, risk level, or confidence.
 
   An administrator account sees all investigations across the organization. Member
   accounts see only the investigations that belong to them.

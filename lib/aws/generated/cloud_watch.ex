@@ -439,6 +439,26 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
+      delete_metric_data_query_definition_input() :: %{
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type delete_metric_data_query_definition_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_metric_data_query_definition_output() :: %{}
+      
+  """
+  @type delete_metric_data_query_definition_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_metric_stream_input() :: %{
         required("Name") => String.t() | atom()
       }
@@ -924,6 +944,34 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
+      get_metric_data_query_definition_input() :: %{
+        required("Id") => String.t() | atom()
+      }
+      
+  """
+  @type get_metric_data_query_definition_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_metric_data_query_definition_output() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Expression" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Path" => String.t() | atom(),
+        "Type" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type get_metric_data_query_definition_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_metric_statistics_input() :: %{
         optional("Dimensions") => list(dimension()),
         optional("ExtendedStatistics") => list(String.t() | atom()),
@@ -1312,6 +1360,30 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
+      list_metric_data_query_definitions_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_metric_data_query_definitions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_metric_data_query_definitions_output() :: %{
+        "Items" => list(metric_data_query_definition_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_metric_data_query_definitions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_metric_streams_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
@@ -1552,6 +1624,20 @@ defmodule AWS.CloudWatch do
       
   """
   @type metric_data_query() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      metric_data_query_definition_summary() :: %{
+        "Id" => String.t() | atom(),
+        "Path" => String.t() | atom(),
+        "Type" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type metric_data_query_definition_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1929,6 +2015,38 @@ defmodule AWS.CloudWatch do
       
   """
   @type put_metric_data_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_metric_data_query_definition_input() :: %{
+        optional("Id") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("Expression") => String.t() | atom(),
+        required("Path") => String.t() | atom(),
+        required("Type") => list(any())
+      }
+      
+  """
+  @type put_metric_data_query_definition_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_metric_data_query_definition_output() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Expression" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Path" => String.t() | atom(),
+        "Type" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type put_metric_data_query_definition_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2433,6 +2551,8 @@ defmodule AWS.CloudWatch do
 
   @type get_metric_data_errors() :: invalid_next_token()
 
+  @type get_metric_data_query_definition_errors() :: resource_not_found_exception()
+
   @type get_metric_statistics_errors() ::
           missing_required_parameter_exception()
           | invalid_parameter_value_exception()
@@ -2501,6 +2621,9 @@ defmodule AWS.CloudWatch do
           | invalid_parameter_value_exception()
           | invalid_parameter_combination_exception()
           | internal_service_fault()
+
+  @type put_metric_data_query_definition_errors() ::
+          resource_not_found_exception() | limit_exceeded_exception() | conflict_exception()
 
   @type put_metric_stream_errors() ::
           missing_required_parameter_exception()
@@ -2828,6 +2951,35 @@ defmodule AWS.CloudWatch do
       metadata()
 
     Request.request_post(client, meta, "DeleteInsightRules", input, options)
+  end
+
+  @doc """
+  Deletes a metric data query definition.
+
+  This operation is idempotent. If the definition doesn't exist, the operation
+  succeeds
+  without returning an error.
+
+  ## Permissions
+
+  To delete a definition, you need the
+  `cloudwatch:DeleteMetricDataQueryDefinition` permission on the metric
+  data query definition resource. You can use the `aws:ResourceTag/${TagKey}`
+  condition key to control access based on the tags of the definition.
+  """
+  @spec delete_metric_data_query_definition(
+          map(),
+          delete_metric_data_query_definition_input(),
+          list()
+        ) ::
+          {:ok, delete_metric_data_query_definition_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def delete_metric_data_query_definition(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteMetricDataQueryDefinition", input, options)
   end
 
   @doc """
@@ -3412,6 +3564,28 @@ defmodule AWS.CloudWatch do
   end
 
   @doc """
+  Returns a metric data query definition, including its expression.
+
+  ## Permissions
+
+  To get a definition, you need the
+  `cloudwatch:GetMetricDataQueryDefinition` permission on the metric data
+  query definition resource. You can use the `aws:ResourceTag/${TagKey}`
+  condition key to control access based on the tags of the definition.
+  """
+  @spec get_metric_data_query_definition(map(), get_metric_data_query_definition_input(), list()) ::
+          {:ok, get_metric_data_query_definition_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_metric_data_query_definition_errors()}
+  def get_metric_data_query_definition(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetMetricDataQueryDefinition", input, options)
+  end
+
+  @doc """
   Gets statistics for the specified metric.
 
   The maximum number of data points returned from a single call is 1,440. If you
@@ -3690,6 +3864,38 @@ defmodule AWS.CloudWatch do
       metadata()
 
     Request.request_post(client, meta, "ListManagedInsightRules", input, options)
+  end
+
+  @doc """
+  Lists the metric data query definitions in your account and Region.
+
+  The results are summaries that don't include the expression. To get the full
+  definition, call `GetMetricDataQueryDefinition` with its ID.
+
+  This operation supports pagination. Use the `MaxResults` and
+  `NextToken` parameters to retrieve results in multiple calls.
+
+  ## Permissions
+
+  To list definitions, you need the
+  `cloudwatch:ListMetricDataQueryDefinitions` permission. This permission
+  applies to all definitions in the account and Region. The results aren't
+  filtered by
+  tags.
+  """
+  @spec list_metric_data_query_definitions(
+          map(),
+          list_metric_data_query_definitions_input(),
+          list()
+        ) ::
+          {:ok, list_metric_data_query_definitions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def list_metric_data_query_definitions(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListMetricDataQueryDefinitions", input, options)
   end
 
   @doc """
@@ -4231,6 +4437,51 @@ defmodule AWS.CloudWatch do
       metadata()
 
     Request.request_post(client, meta, "PutMetricData", input, options)
+  end
+
+  @doc """
+  Creates or updates a metric data query definition.
+
+  A metric data query definition saves a metric query so that you can reuse it
+  later.
+  It includes the query expression, the query language, and a path that names the
+  definition and can organize it into folders. When you save a definition,
+  CloudWatch doesn't validate or run its expression.
+
+  To create a definition, omit `Id`. CloudWatch generates the ID and
+  returns it. To update a definition, specify its `Id`. An update replaces the
+  path, expression, and type, and keeps the creation time.
+
+  The path must be unique in your account and Region. If another definition
+  already
+  uses the path, the request fails with a `ConflictException`.
+
+  You can have up to 1,000 metric data query definitions in each Region of your
+  account. A request that would create more fails with a
+  `LimitExceededException`.
+
+  ## Permissions
+
+  To create or update a definition, you need the
+  `cloudwatch:PutMetricDataQueryDefinition` permission on the metric data
+  query definition resource. The resource ARN has the format
+  `arn:aws:cloudwatch:Region:account-id:metric-query-definition/Id`.
+
+  To add tags when you create a definition, you also need the
+  `cloudwatch:TagResource` permission. You can use the
+  `aws:RequestTag/${TagKey}` and `aws:TagKeys` condition keys
+  to control which tags can be added.
+  """
+  @spec put_metric_data_query_definition(map(), put_metric_data_query_definition_input(), list()) ::
+          {:ok, put_metric_data_query_definition_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_metric_data_query_definition_errors()}
+  def put_metric_data_query_definition(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "PutMetricDataQueryDefinition", input, options)
   end
 
   @doc """

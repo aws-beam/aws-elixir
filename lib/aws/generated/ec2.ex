@@ -412,8 +412,10 @@ defmodule AWS.EC2 do
   ## Example:
       
       account_vpc_encryption_control_exclusions() :: %{
+        "ApiGatewayV2" => list(any()),
         "EgressOnlyInternetGateway" => list(any()),
         "ElasticFileSystem" => list(any()),
+        "GlobalAccelerator" => list(any()),
         "InternetGateway" => list(any()),
         "Lambda" => list(any()),
         "NatGateway" => list(any()),
@@ -5401,6 +5403,31 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      create_metric_category_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("TagSpecifications") => list(tag_specification()),
+        required("Metrics") => list(String.t() | atom())
+      }
+      
+  """
+  @type create_metric_category_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_metric_category_result() :: %{
+        "MetricCategory" => metric_category()
+      }
+      
+  """
+  @type create_metric_category_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_nat_gateway_request() :: %{
         optional("AllocationId") => String.t() | atom(),
         optional("AvailabilityMode") => list(any()),
@@ -8385,6 +8412,29 @@ defmodule AWS.EC2 do
       
   """
   @type delete_managed_prefix_list_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_metric_category_request() :: %{
+        optional("DryRun") => boolean(),
+        required("MetricCategoryId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_metric_category_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_metric_category_result() :: %{
+        "MetricCategoryId" => String.t() | atom()
+      }
+      
+  """
+  @type delete_metric_category_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12725,6 +12775,33 @@ defmodule AWS.EC2 do
       
   """
   @type describe_managed_prefix_lists_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_metric_categories_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("MetricCategoryIds") => list(String.t() | atom()),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_metric_categories_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_metric_categories_result() :: %{
+        "MetricCategories" => list(metric_category()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_metric_categories_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -24629,7 +24706,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       launch_templates_monitoring() :: %{
-        "Enabled" => boolean()
+        "Enabled" => boolean(),
+        "MetricCategoryIds" => list(String.t() | atom())
       }
       
   """
@@ -24640,7 +24718,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       launch_templates_monitoring_request() :: %{
-        "Enabled" => boolean()
+        "Enabled" => boolean(),
+        "MetricCategoryIds" => list(String.t() | atom())
       }
       
   """
@@ -25195,6 +25274,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      metric_category() :: %{
+        "MetricCategoryId" => String.t() | atom(),
+        "Metrics" => list(String.t() | atom()),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type metric_category() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       metric_data_result() :: %{
         "Dimension" => capacity_manager_dimension(),
         "MetricValues" => list(metric_value()),
@@ -25273,9 +25365,11 @@ defmodule AWS.EC2 do
   ## Example:
       
       modify_account_vpc_encryption_control_request() :: %{
+        optional("ApiGatewayV2") => list(any()),
         optional("DryRun") => boolean(),
         optional("EgressOnlyInternetGateway") => list(any()),
         optional("ElasticFileSystem") => list(any()),
+        optional("GlobalAccelerator") => list(any()),
         optional("InternetGateway") => list(any()),
         optional("Lambda") => list(any()),
         optional("Mode") => list(any()),
@@ -26402,6 +26496,30 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      modify_metric_category_request() :: %{
+        optional("DryRun") => boolean(),
+        required("MetricCategoryId") => String.t() | atom(),
+        required("Metrics") => list(String.t() | atom())
+      }
+      
+  """
+  @type modify_metric_category_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_metric_category_result() :: %{
+        "MetricCategory" => metric_category()
+      }
+      
+  """
+  @type modify_metric_category_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_network_interface_attribute_request() :: %{
         optional("AssociatePublicIpAddress") => boolean(),
         optional("AssociatedSubnetIds") => list(String.t() | atom()),
@@ -27347,9 +27465,11 @@ defmodule AWS.EC2 do
   ## Example:
       
       modify_vpc_encryption_control_request() :: %{
+        optional("ApiGatewayV2Exclusion") => list(any()),
         optional("DryRun") => boolean(),
         optional("EgressOnlyInternetGatewayExclusion") => list(any()),
         optional("ElasticFileSystemExclusion") => list(any()),
+        optional("GlobalAcceleratorExclusion") => list(any()),
         optional("InternetGatewayExclusion") => list(any()),
         optional("LambdaExclusion") => list(any()),
         optional("Mode") => list(any()),
@@ -27740,6 +27860,7 @@ defmodule AWS.EC2 do
       
       monitor_instances_request() :: %{
         optional("DryRun") => boolean(),
+        optional("MetricCategoryIds") => list(String.t() | atom()),
         required("InstanceIds") => list(String.t() | atom())
       }
       
@@ -27762,6 +27883,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       monitoring() :: %{
+        "MetricCategoryIds" => list(String.t() | atom()),
         "State" => list(any())
       }
       
@@ -31432,7 +31554,8 @@ defmodule AWS.EC2 do
   ## Example:
       
       run_instances_monitoring_enabled() :: %{
-        "Enabled" => boolean()
+        "Enabled" => boolean(),
+        "MetricCategoryIds" => list(String.t() | atom())
       }
       
   """
@@ -34494,6 +34617,7 @@ defmodule AWS.EC2 do
       
       unmonitor_instances_request() :: %{
         optional("DryRun") => boolean(),
+        optional("MetricCategoryIds") => list(String.t() | atom()),
         required("InstanceIds") => list(String.t() | atom())
       }
       
@@ -35650,8 +35774,10 @@ defmodule AWS.EC2 do
   ## Example:
       
       vpc_encryption_control_configuration() :: %{
+        "ApiGatewayV2Exclusion" => list(any()),
         "EgressOnlyInternetGatewayExclusion" => list(any()),
         "ElasticFileSystemExclusion" => list(any()),
+        "GlobalAcceleratorExclusion" => list(any()),
         "InternetGatewayExclusion" => list(any()),
         "LambdaExclusion" => list(any()),
         "Mode" => list(any()),
@@ -35681,8 +35807,10 @@ defmodule AWS.EC2 do
   ## Example:
       
       vpc_encryption_control_exclusions() :: %{
+        "ApiGatewayV2" => vpc_encryption_control_exclusion(),
         "EgressOnlyInternetGateway" => vpc_encryption_control_exclusion(),
         "ElasticFileSystem" => vpc_encryption_control_exclusion(),
+        "GlobalAccelerator" => vpc_encryption_control_exclusion(),
         "InternetGateway" => vpc_encryption_control_exclusion(),
         "Lambda" => vpc_encryption_control_exclusion(),
         "NatGateway" => vpc_encryption_control_exclusion(),
@@ -38551,7 +38679,9 @@ defmodule AWS.EC2 do
   The report
   provides visibility into which accounts are using the specified image, and how
   many resources
-  (EC2 instances or launch templates) are referencing it.
+  (EC2 instances, EC2 launch templates, Image Builder image recipes, or Image
+  Builder container
+  recipes) are referencing it.
 
   For more information, see [View your AMI usage](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/your-ec2-ami-usage.html)
   in the
@@ -39274,6 +39404,26 @@ defmodule AWS.EC2 do
       metadata()
 
     Request.request_post(client, meta, "CreateManagedPrefixList", input, options)
+  end
+
+  @doc """
+  Creates a metric category.
+
+  A metric category is a set of additional metrics that you
+  can associate with an instance that has detailed monitoring enabled.
+
+  For more information, see [Use metric categories for additional metrics](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-detailed-monitoring.html#detailed-monitoring-metric-categories)
+  in the *Amazon EC2 User Guide*.
+  """
+  @spec create_metric_category(map(), create_metric_category_request(), list()) ::
+          {:ok, create_metric_category_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def create_metric_category(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateMetricCategory", input, options)
   end
 
   @doc """
@@ -41721,6 +41871,26 @@ defmodule AWS.EC2 do
       metadata()
 
     Request.request_post(client, meta, "DeleteManagedPrefixList", input, options)
+  end
+
+  @doc """
+  Deletes the specified metric category.
+
+  Associations between the metric category and
+  your instances are removed asynchronously.
+
+  For more information, see [Use metric categories for additional metrics](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-detailed-monitoring.html#detailed-monitoring-metric-categories)
+  in the *Amazon EC2 User Guide*.
+  """
+  @spec delete_metric_category(map(), delete_metric_category_request(), list()) ::
+          {:ok, delete_metric_category_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def delete_metric_category(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteMetricCategory", input, options)
   end
 
   @doc """
@@ -45497,6 +45667,23 @@ defmodule AWS.EC2 do
       metadata()
 
     Request.request_post(client, meta, "DescribeManagedPrefixLists", input, options)
+  end
+
+  @doc """
+  Describes the specified metric categories, or all of your metric categories.
+
+  For more information, see [Use metric categories for additional metrics](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-detailed-monitoring.html#detailed-monitoring-metric-categories)
+  in the *Amazon EC2 User Guide*.
+  """
+  @spec describe_metric_categories(map(), describe_metric_categories_request(), list()) ::
+          {:ok, describe_metric_categories_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_metric_categories(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeMetricCategories", input, options)
   end
 
   @doc """
@@ -49974,9 +50161,7 @@ defmodule AWS.EC2 do
   Create a set of named queries in Athena that you can use to get started quickly
 
   `GetFlowLogsIntegrationTemplate` does not support integration between
-  Amazon Web Services Transit Gateway Flow Logs or Amazon Web Services Cloud WAN
-  Flow Logs
-  and Amazon Athena.
+  Amazon Web Services Transit Gateway Flow Logs and Amazon Athena.
   """
   @spec get_flow_logs_integration_template(
           map(),
@@ -52725,6 +52910,29 @@ defmodule AWS.EC2 do
       metadata()
 
     Request.request_post(client, meta, "ModifyManagedResourceVisibility", input, options)
+  end
+
+  @doc """
+  Modifies the metrics in the specified metric category.
+
+  The metrics that you specify
+  replace the existing metrics.
+
+  Instances that are associated with the metric category are updated
+  asynchronously.
+
+  For more information, see [Use metric categories for additional metrics](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-detailed-monitoring.html#detailed-monitoring-metric-categories)
+  in the *Amazon EC2 User Guide*.
+  """
+  @spec modify_metric_category(map(), modify_metric_category_request(), list()) ::
+          {:ok, modify_metric_category_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def modify_metric_category(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ModifyMetricCategory", input, options)
   end
 
   @doc """

@@ -324,6 +324,7 @@ defmodule AWS.MediaConnect do
         "RemoteId" => [String.t() | atom()],
         "RouterIntegrationState" => list(any()),
         "RouterIntegrationTransitEncryption" => flow_transit_encryption(),
+        "RtmpPushSettings" => rtmp_push_output_settings(),
         "SenderControlPort" => [integer()],
         "SmoothingLatency" => [integer()],
         "StreamId" => [String.t() | atom()],
@@ -348,6 +349,18 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      auto_pid_map_configuration() :: %{
+        "PidsPerProgram" => [integer()],
+        "StartPid" => integer()
+      }
+
+  """
+  @type auto_pid_map_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       automatic_encryption_key_configuration() :: %{}
 
   """
@@ -361,6 +374,15 @@ defmodule AWS.MediaConnect do
 
   """
   @type automatic_endpoint_encryption_configuration() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      automatic_rtmp_push_naming_configuration() :: %{}
+
+  """
+  @type automatic_rtmp_push_naming_configuration() :: %{}
 
   @typedoc """
 
@@ -942,6 +964,7 @@ defmodule AWS.MediaConnect do
         optional("ClientToken") => String.t() | atom(),
         optional("FabricConfiguration") => fabric_configuration(),
         optional("MaintenanceConfiguration") => list(),
+        optional("Processors") => router_output_processors(),
         optional("RegionName") => [String.t() | atom()],
         optional("Tags") => map(),
         required("Configuration") => list(),
@@ -1224,6 +1247,7 @@ defmodule AWS.MediaConnect do
         "FlowArn" => [String.t() | atom()],
         "Messages" => list(message_detail()),
         "NdiInfo" => ndi_source_metadata_info(),
+        "RtmpInfo" => rtmp_source_metadata_info(),
         "Timestamp" => [non_neg_integer()],
         "TransportMediaInfo" => transport_media_info()
       }
@@ -1563,7 +1587,9 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       fabric_configuration() :: %{
-        "RecoveryLatencyMode" => list(any())
+        "RecoveryLatencyMode" => list(any()),
+        "SwitchingConfiguration" => list(),
+        "SwitchingMode" => list(any())
       }
 
   """
@@ -1602,6 +1628,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       failover_router_input_indexed_stream_details() :: %{
+        "RtmpPush" => rtmp_push_stream_details(),
         "SourceIndex" => [integer()],
         "SourceIpAddress" => [String.t() | atom()]
       }
@@ -1999,6 +2026,15 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      immediate_fabric_switching_configuration() :: %{}
+
+  """
+  @type immediate_fabric_switching_configuration() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       ingress_gateway_bridge() :: %{
         "InstanceId" => [String.t() | atom()],
         "MaxBitrate" => [integer()],
@@ -2065,6 +2101,17 @@ defmodule AWS.MediaConnect do
 
   """
   @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      key_frame_fabric_switching_configuration() :: %{
+        "KeyFrameWaitMilliseconds" => [float()]
+      }
+
+  """
+  @type key_frame_fabric_switching_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2620,6 +2667,18 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      manual_rtmp_push_naming_configuration() :: %{
+        "ApplicationName" => [String.t() | atom()],
+        "StreamName" => [String.t() | atom()]
+      }
+
+  """
+  @type manual_rtmp_push_naming_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       media_connect_flow_router_input_configuration() :: %{
         "FlowArn" => String.t() | atom(),
         "FlowOutputArn" => String.t() | atom(),
@@ -3061,6 +3120,27 @@ defmodule AWS.MediaConnect do
 
   """
   @type owned_resource_share_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      passthrough() :: %{}
+
+  """
+  @type passthrough() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      pid_map_rule() :: %{
+        "Action" => String.t() | atom(),
+        "MatchExpression" => [String.t() | atom()]
+      }
+
+  """
+  @type pid_map_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3702,6 +3782,7 @@ defmodule AWS.MediaConnect do
         "Messages" => list(router_output_message()),
         "Name" => [String.t() | atom()],
         "OutputType" => list(any()),
+        "Processors" => router_output_processors(),
         "RegionName" => [String.t() | atom()],
         "RoutedInputArn" => String.t() | atom(),
         "RoutedState" => list(any()),
@@ -3727,6 +3808,17 @@ defmodule AWS.MediaConnect do
 
   """
   @type router_output_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      router_output_processors() :: %{
+        "SingleProgramTransportStreamPidMap" => single_program_transport_stream_pid_map_configuration()
+      }
+
+  """
+  @type router_output_processors() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3783,6 +3875,64 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      rtmp_media_info() :: %{
+        "Streams" => list(rtmp_media_stream_info())
+      }
+
+  """
+  @type rtmp_media_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rtmp_media_stream_info() :: %{
+        "Channels" => [integer()],
+        "Codec" => [String.t() | atom()],
+        "Color" => color_information(),
+        "FrameRate" => [String.t() | atom()],
+        "FrameResolution" => frame_resolution(),
+        "Language" => [String.t() | atom()],
+        "SampleRate" => [integer()],
+        "SampleSize" => [integer()],
+        "ScanMode" => list(any()),
+        "StreamId" => [integer()],
+        "StreamType" => list(any())
+      }
+
+  """
+  @type rtmp_media_stream_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rtmp_push_output_settings() :: %{
+        "ApplicationName" => [String.t() | atom()],
+        "StreamName" => [String.t() | atom()],
+        "TlsEncryption" => tls_encryption()
+      }
+
+  """
+  @type rtmp_push_output_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rtmp_push_router_input_configuration() :: %{
+        "NamingConfiguration" => list(),
+        "NamingType" => list(any()),
+        "Port" => [integer()]
+      }
+
+  """
+  @type rtmp_push_router_input_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       rtmp_push_router_output_configuration() :: %{
         "ApplicationName" => [String.t() | atom()],
         "DestinationAddress" => [String.t() | atom()],
@@ -3793,6 +3943,44 @@ defmodule AWS.MediaConnect do
 
   """
   @type rtmp_push_router_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rtmp_push_source_settings() :: %{
+        "ApplicationName" => [String.t() | atom()],
+        "NamingType" => list(any()),
+        "StreamName" => [String.t() | atom()]
+      }
+
+  """
+  @type rtmp_push_source_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rtmp_push_stream_details() :: %{
+        "ApplicationName" => [String.t() | atom()],
+        "StreamName" => [String.t() | atom()]
+      }
+
+  """
+  @type rtmp_push_stream_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rtmp_source_metadata_info() :: %{
+        "ApplicationName" => [String.t() | atom()],
+        "MediaInfo" => rtmp_media_info(),
+        "StreamName" => [String.t() | atom()]
+      }
+
+  """
+  @type rtmp_source_metadata_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3895,6 +4083,17 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      set_rtmp_push_source_settings() :: %{
+        "NamingConfiguration" => list()
+      }
+
+  """
+  @type set_rtmp_push_source_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       set_source_request() :: %{
         "Decryption" => encryption(),
         "Description" => [String.t() | atom()],
@@ -3911,6 +4110,7 @@ defmodule AWS.MediaConnect do
         "Protocol" => list(any()),
         "RouterIntegrationState" => list(any()),
         "RouterIntegrationTransitDecryption" => flow_transit_encryption(),
+        "RtmpPushSettings" => set_rtmp_push_source_settings(),
         "SenderControlPort" => [integer()],
         "SenderIpAddress" => [String.t() | atom()],
         "SourceListenerAddress" => [String.t() | atom()],
@@ -3947,6 +4147,25 @@ defmodule AWS.MediaConnect do
 
   """
   @type silent_audio_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      single_program_transport_stream_pid_map_configuration() :: %{
+        "Auto" => auto_pid_map_configuration(),
+        "DefaultAction" => String.t() | atom(),
+        "ProgramClockReferencePid" => list(),
+        "ProgramMapTablePid" => list(),
+        "ProgramNumber" => list(),
+        "Rules" => list(pid_map_rule()),
+        "TransportStreamId" => list()
+      }
+
+  """
+  @type single_program_transport_stream_pid_map_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -4261,6 +4480,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       standard_router_input_stream_details() :: %{
+        "RtmpPush" => rtmp_push_stream_details(),
         "SourceIpAddress" => [String.t() | atom()]
       }
 
@@ -4567,6 +4787,8 @@ defmodule AWS.MediaConnect do
         "NdiSpeedHqQuality" => [integer()],
         "Protocol" => list(any()),
         "RemoteId" => [String.t() | atom()],
+        "RtmpPushOutputSettings" => rtmp_push_output_settings(),
+        "RtmpPushSourceSettings" => rtmp_push_source_settings(),
         "SenderControlPort" => [integer()],
         "SenderIpAddress" => [String.t() | atom()],
         "SmoothingLatency" => [integer()],
@@ -4600,9 +4822,11 @@ defmodule AWS.MediaConnect do
         "Color" => color_information(),
         "FrameRate" => [String.t() | atom()],
         "FrameResolution" => frame_resolution(),
+        "Language" => [String.t() | atom()],
         "Pid" => [integer()],
         "SampleRate" => [integer()],
         "SampleSize" => [integer()],
+        "ScanMode" => list(any()),
         "StreamType" => [String.t() | atom()]
       }
 
@@ -4924,6 +5148,7 @@ defmodule AWS.MediaConnect do
         optional("RemoteId") => [String.t() | atom()],
         optional("RouterIntegrationState") => list(any()),
         optional("RouterIntegrationTransitEncryption") => flow_transit_encryption(),
+        optional("RtmpPushSettings") => rtmp_push_output_settings(),
         optional("SenderControlPort") => [integer()],
         optional("SenderIpAddress") => [String.t() | atom()],
         optional("SmoothingLatency") => [integer()],
@@ -4992,6 +5217,7 @@ defmodule AWS.MediaConnect do
         optional("Protocol") => list(any()),
         optional("RouterIntegrationState") => list(any()),
         optional("RouterIntegrationTransitDecryption") => flow_transit_encryption(),
+        optional("RtmpPushSettings") => set_rtmp_push_source_settings(),
         optional("SenderControlPort") => [integer()],
         optional("SenderIpAddress") => [String.t() | atom()],
         optional("SourceListenerAddress") => [String.t() | atom()],
@@ -5138,6 +5364,7 @@ defmodule AWS.MediaConnect do
         optional("MaintenanceConfiguration") => list(),
         optional("MaximumBitrate") => [float()],
         optional("Name") => [String.t() | atom()],
+        optional("Processors") => router_output_processors(),
         optional("RoutingScope") => list(any()),
         optional("Tier") => list(any())
       }

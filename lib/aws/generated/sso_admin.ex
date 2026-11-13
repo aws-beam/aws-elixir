@@ -928,6 +928,7 @@ defmodule AWS.SSOAdmin do
         "IdentityStoreId" => String.t() | atom(),
         "InstanceArn" => String.t() | atom(),
         "Name" => String.t() | atom(),
+        "NetworkConfigurationDetails" => network_configuration_info(),
         "OwnerAccountId" => String.t() | atom(),
         "PermissionSetsEnabled" => [boolean()],
         "PrimaryRegion" => String.t() | atom(),
@@ -1949,6 +1950,20 @@ defmodule AWS.SSOAdmin do
 
   ## Example:
       
+      network_configuration_info() :: %{
+        "AllowSourceIps" => list(String.t() | atom()),
+        "ExcludeApplicationArns" => list(String.t() | atom()),
+        "RestrictSourceVpcs" => list(String.t() | atom()),
+        "VpceAccessRequired" => [boolean()]
+      }
+      
+  """
+  @type network_configuration_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       oidc_jwt_configuration() :: %{
         "ClaimAttributePath" => String.t() | atom(),
         "IdentityStoreAttributePath" => String.t() | atom(),
@@ -2473,6 +2488,7 @@ defmodule AWS.SSOAdmin do
       update_instance_request() :: %{
         optional("EncryptionConfiguration") => encryption_configuration(),
         optional("Name") => String.t() | atom(),
+        optional("NetworkConfiguration") => network_configuration_info(),
         optional("PermissionSetsEnabled") => [boolean()],
         required("InstanceArn") => String.t() | atom()
       }
@@ -4769,10 +4785,13 @@ defmodule AWS.SSOAdmin do
     * Enable permission sets for the instance by specifying
   `PermissionSetsEnabled`.
 
-  If you specify both `EncryptionConfiguration` and `PermissionSetsEnabled` in a
-  request, the request returns a `ValidationException`. To perform both
-  operations, call `UpdateInstance` separately for each. You can make the two
-  calls in parallel.
+    * Update the network configuration of the instance by specifying
+  `NetworkConfiguration`.
+
+  A request that specifies more than one of `EncryptionConfiguration`,
+  `PermissionSetsEnabled`, and `NetworkConfiguration` returns a
+  `ValidationException`. To perform more than one of these operations, call
+  `UpdateInstance` separately for each. The calls can be made in parallel.
   """
   @spec update_instance(map(), update_instance_request(), list()) ::
           {:ok, update_instance_response(), any()}

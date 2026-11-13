@@ -105,6 +105,35 @@ defmodule AWS.Odb do
 
   ## Example:
       
+      associate_virtual_machines_to_cloud_vm_cluster_input() :: %{
+        required("dbServers") => list([String.t() | atom()]())
+      }
+      
+  """
+  @type associate_virtual_machines_to_cloud_vm_cluster_input() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_virtual_machines_to_cloud_vm_cluster_output() :: %{
+        "cloudVmClusterId" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type associate_virtual_machines_to_cloud_vm_cluster_output() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       associate_virtual_machines_to_exadb_vm_cluster_input() :: %{
         required("desiredNodeCount") => [integer()],
         required("exadbVmClusterId") => String.t() | atom()
@@ -613,6 +642,7 @@ defmodule AWS.Odb do
         "ociResourceAnchorName" => [String.t() | atom()],
         "ociUrl" => [String.t() | atom()],
         "ocid" => [String.t() | atom()],
+        "ocpusLowestScaledValue" => [integer()],
         "odbNetworkArn" => String.t() | atom(),
         "odbNetworkId" => String.t() | atom(),
         "percentProgress" => [float()],
@@ -687,6 +717,7 @@ defmodule AWS.Odb do
         "ociResourceAnchorName" => [String.t() | atom()],
         "ociUrl" => [String.t() | atom()],
         "ocid" => [String.t() | atom()],
+        "ocpusLowestScaledValue" => [integer()],
         "odbNetworkArn" => String.t() | atom(),
         "odbNetworkId" => String.t() | atom(),
         "percentProgress" => [float()],
@@ -1902,6 +1933,35 @@ defmodule AWS.Odb do
       
   """
   @type disassociate_iam_role_from_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_virtual_machines_from_cloud_vm_cluster_input() :: %{
+        required("dbServers") => list([String.t() | atom()]())
+      }
+      
+  """
+  @type disassociate_virtual_machines_from_cloud_vm_cluster_input() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_virtual_machines_from_cloud_vm_cluster_output() :: %{
+        "cloudVmClusterId" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type disassociate_virtual_machines_from_cloud_vm_cluster_output() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -3972,8 +4032,42 @@ defmodule AWS.Odb do
 
   ## Example:
       
+      update_cloud_autonomous_vm_cluster_input() :: %{
+        optional("autonomousDataStorageSizeInTBs") => [float()],
+        optional("cpuCoreCountPerNode") => [integer()],
+        optional("description") => [String.t() | atom()],
+        optional("displayName") => String.t() | atom(),
+        optional("licenseModel") => list(any()),
+        optional("maintenanceWindow") => maintenance_window(),
+        optional("totalContainerDatabases") => [integer()]
+      }
+      
+  """
+  @type update_cloud_autonomous_vm_cluster_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_cloud_autonomous_vm_cluster_output() :: %{
+        "cloudAutonomousVmClusterId" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type update_cloud_autonomous_vm_cluster_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_cloud_exadata_infrastructure_input() :: %{
-        optional("maintenanceWindow") => maintenance_window()
+        optional("computeCount") => [integer()],
+        optional("displayName") => String.t() | atom(),
+        optional("maintenanceWindow") => maintenance_window(),
+        optional("storageCount") => [integer()]
       }
       
   """
@@ -3992,6 +4086,64 @@ defmodule AWS.Odb do
       
   """
   @type update_cloud_exadata_infrastructure_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_cloud_exadata_infrastructure_storage_capacity_input() :: %{}
+      
+  """
+  @type update_cloud_exadata_infrastructure_storage_capacity_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_cloud_exadata_infrastructure_storage_capacity_output() :: %{
+        "cloudExadataInfrastructureId" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type update_cloud_exadata_infrastructure_storage_capacity_output() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      update_cloud_vm_cluster_input() :: %{
+        optional("cpuCoreCount") => [integer()],
+        optional("dataCollectionOptions") => data_collection_options(),
+        optional("dataStorageSizeInTBs") => [float()],
+        optional("dbNodeStorageSizeInGBs") => [integer()],
+        optional("displayName") => String.t() | atom(),
+        optional("licenseModel") => list(any()),
+        optional("memorySizeInGBs") => [integer()],
+        optional("sshPublicKeys") => list([String.t() | atom()]()),
+        optional("storageSizeInGBs") => [integer()]
+      }
+      
+  """
+  @type update_cloud_vm_cluster_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_cloud_vm_cluster_output() :: %{
+        "cloudVmClusterId" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type update_cloud_vm_cluster_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4212,6 +4364,14 @@ defmodule AWS.Odb do
           | conflict_exception()
           | access_denied_exception()
 
+  @type associate_virtual_machines_to_cloud_vm_cluster_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type associate_virtual_machines_to_exadb_vm_cluster_errors() ::
           validation_exception()
           | throttling_exception()
@@ -4375,6 +4535,14 @@ defmodule AWS.Odb do
           | access_denied_exception()
 
   @type disassociate_iam_role_from_resource_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type disassociate_virtual_machines_from_cloud_vm_cluster_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -4731,7 +4899,31 @@ defmodule AWS.Odb do
           | conflict_exception()
           | access_denied_exception()
 
+  @type update_cloud_autonomous_vm_cluster_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type update_cloud_exadata_infrastructure_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type update_cloud_exadata_infrastructure_storage_capacity_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type update_cloud_vm_cluster_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -4826,6 +5018,25 @@ defmodule AWS.Odb do
       metadata()
 
     Request.request_post(client, meta, "AssociateIamRoleToResource", input, options)
+  end
+
+  @doc """
+  Adds virtual machines to the specified VM cluster.
+  """
+  @spec associate_virtual_machines_to_cloud_vm_cluster(
+          map(),
+          associate_virtual_machines_to_cloud_vm_cluster_input(),
+          list()
+        ) ::
+          {:ok, associate_virtual_machines_to_cloud_vm_cluster_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, associate_virtual_machines_to_cloud_vm_cluster_errors()}
+  def associate_virtual_machines_to_cloud_vm_cluster(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "AssociateVirtualMachinesToCloudVmCluster", input, options)
   end
 
   @doc """
@@ -5191,6 +5402,35 @@ defmodule AWS.Odb do
       metadata()
 
     Request.request_post(client, meta, "DisassociateIamRoleFromResource", input, options)
+  end
+
+  @doc """
+  Removes virtual machines from the specified VM cluster.
+  """
+  @spec disassociate_virtual_machines_from_cloud_vm_cluster(
+          map(),
+          disassociate_virtual_machines_from_cloud_vm_cluster_input(),
+          list()
+        ) ::
+          {:ok, disassociate_virtual_machines_from_cloud_vm_cluster_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disassociate_virtual_machines_from_cloud_vm_cluster_errors()}
+  def disassociate_virtual_machines_from_cloud_vm_cluster(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    meta =
+      metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "DisassociateVirtualMachinesFromCloudVmCluster",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -6044,6 +6284,25 @@ defmodule AWS.Odb do
   end
 
   @doc """
+  Updates the properties of the specified Autonomous VM cluster.
+  """
+  @spec update_cloud_autonomous_vm_cluster(
+          map(),
+          update_cloud_autonomous_vm_cluster_input(),
+          list()
+        ) ::
+          {:ok, update_cloud_autonomous_vm_cluster_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_cloud_autonomous_vm_cluster_errors()}
+  def update_cloud_autonomous_vm_cluster(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateCloudAutonomousVmCluster", input, options)
+  end
+
+  @doc """
   Updates the properties of an Exadata infrastructure resource.
   """
   @spec update_cloud_exadata_infrastructure(
@@ -6060,6 +6319,50 @@ defmodule AWS.Odb do
       metadata()
 
     Request.request_post(client, meta, "UpdateCloudExadataInfrastructure", input, options)
+  end
+
+  @doc """
+  Adds storage capacity to the specified Exadata infrastructure.
+  """
+  @spec update_cloud_exadata_infrastructure_storage_capacity(
+          map(),
+          update_cloud_exadata_infrastructure_storage_capacity_input(),
+          list()
+        ) ::
+          {:ok, update_cloud_exadata_infrastructure_storage_capacity_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_cloud_exadata_infrastructure_storage_capacity_errors()}
+  def update_cloud_exadata_infrastructure_storage_capacity(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    meta =
+      metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "UpdateCloudExadataInfrastructureStorageCapacity",
+      input,
+      options
+    )
+  end
+
+  @doc """
+  Updates the properties of the specified VM cluster.
+  """
+  @spec update_cloud_vm_cluster(map(), update_cloud_vm_cluster_input(), list()) ::
+          {:ok, update_cloud_vm_cluster_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_cloud_vm_cluster_errors()}
+  def update_cloud_vm_cluster(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateCloudVmCluster", input, options)
   end
 
   @doc """

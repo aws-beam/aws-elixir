@@ -1040,6 +1040,7 @@ defmodule AWS.MediaTailor do
         "Description" => String.t() | atom(),
         "FunctionId" => String.t() | atom(),
         "FunctionType" => list(any()),
+        "HlsTagProcessorConfiguration" => hls_tag_processor_configuration(),
         "HttpRequestConfiguration" => http_request_configuration(),
         "SequentialExecutorConfiguration" => sequential_executor_configuration(),
         "Tags" => map(),
@@ -1148,6 +1149,20 @@ defmodule AWS.MediaTailor do
 
   """
   @type hls_playlist_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hls_tag_processor_configuration() :: %{
+        "Output" => map(),
+        "RunCondition" => String.t() | atom(),
+        "Runtime" => list(any()),
+        "TagFilter" => list(list(any())())
+      }
+
+  """
+  @type hls_tag_processor_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1535,6 +1550,7 @@ defmodule AWS.MediaTailor do
         "Description" => String.t() | atom(),
         "FunctionId" => String.t() | atom(),
         "FunctionType" => list(any()),
+        "HlsTagProcessorConfiguration" => hls_tag_processor_configuration(),
         "HttpRequestConfiguration" => http_request_configuration(),
         "SequentialExecutorConfiguration" => sequential_executor_configuration(),
         "Tags" => map(),
@@ -1682,6 +1698,7 @@ defmodule AWS.MediaTailor do
         optional("ConcurrentExecutorConfiguration") => concurrent_executor_configuration(),
         optional("CustomOutputConfiguration") => custom_output_configuration(),
         optional("Description") => String.t() | atom(),
+        optional("HlsTagProcessorConfiguration") => hls_tag_processor_configuration(),
         optional("HttpRequestConfiguration") => http_request_configuration(),
         optional("SequentialExecutorConfiguration") => sequential_executor_configuration(),
         optional("Tags") => map(),
@@ -1704,6 +1721,7 @@ defmodule AWS.MediaTailor do
         "Description" => String.t() | atom(),
         "FunctionId" => String.t() | atom(),
         "FunctionType" => list(any()),
+        "HlsTagProcessorConfiguration" => hls_tag_processor_configuration(),
         "HttpRequestConfiguration" => http_request_configuration(),
         "SequentialExecutorConfiguration" => sequential_executor_configuration(),
         "Tags" => map(),

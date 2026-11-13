@@ -46,6 +46,32 @@ defmodule AWS.MWAAServerless do
 
   ## Example:
       
+      create_airflow_ui_url_request() :: %{
+        optional("ExpiresInSeconds") => integer(),
+        optional("SessionDurationInSeconds") => integer()
+      }
+      
+  """
+  @type create_airflow_ui_url_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_airflow_ui_url_response() :: %{
+        "AuthorizedUrl" => String.t() | atom(),
+        "SessionExpiresAt" => non_neg_integer(),
+        "SessionId" => String.t() | atom(),
+        "UrlExpiresAt" => non_neg_integer()
+      }
+      
+  """
+  @type create_airflow_ui_url_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_workflow_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         optional("Code") => list(),
@@ -720,6 +746,14 @@ defmodule AWS.MWAAServerless do
   """
   @type workflow_version_summary() :: %{(String.t() | atom()) => any()}
 
+  @type create_airflow_ui_url_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | operation_timeout_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type create_workflow_errors() ::
           validation_exception()
           | throttling_exception()
@@ -855,6 +889,34 @@ defmodule AWS.MWAAServerless do
       signing_name: "airflow-serverless",
       target_prefix: "AmazonMWAAServerless"
     }
+  end
+
+  @doc """
+  Creates a launch URL that opens the Apache Airflow UI for your workflows in
+  Amazon Managed Workflows for Apache Airflow Serverless.
+
+  The UI shows the workflows in your account in the current AWS Region. To start a
+  UI session, open the URL in a browser before it expires.
+
+  The UI runs with the permissions of the IAM identity that you use to call this
+  operation. You see only the workflows, workflow runs, and logs that the identity
+  can read, and you can start a workflow run only if the identity has permission
+  to start one.
+
+  The UI session uses the caller's permissions. The session works only from the
+  network address that opened the URL. It ends at `SessionExpiresAt` or when you
+  sign out from the UI.
+  """
+  @spec create_airflow_ui_url(map(), create_airflow_ui_url_request(), list()) ::
+          {:ok, create_airflow_ui_url_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_airflow_ui_url_errors()}
+  def create_airflow_ui_url(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateAirflowUiUrl", input, options)
   end
 
   @doc """

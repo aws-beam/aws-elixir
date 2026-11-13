@@ -7724,6 +7724,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       describe_hub_content_response() :: %{
+        "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
         "DocumentSchemaVersion" => String.t() | atom(),
         "FailureReason" => String.t() | atom(),
@@ -7740,6 +7741,7 @@ defmodule AWS.SageMaker do
         "HubContentType" => list(any()),
         "HubContentVersion" => String.t() | atom(),
         "HubName" => String.t() | atom(),
+        "LastModifiedBy" => user_context(),
         "LastModifiedTime" => non_neg_integer(),
         "ReferenceMinVersion" => String.t() | atom(),
         "SageMakerPublicHubContentArn" => String.t() | atom(),
@@ -7765,6 +7767,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       describe_hub_response() :: %{
+        "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
         "FailureReason" => String.t() | atom(),
         "HubArn" => String.t() | atom(),
@@ -7773,6 +7776,7 @@ defmodule AWS.SageMaker do
         "HubName" => String.t() | atom(),
         "HubSearchKeywords" => list(String.t() | atom()),
         "HubStatus" => list(any()),
+        "LastModifiedBy" => user_context(),
         "LastModifiedTime" => non_neg_integer(),
         "S3StorageConfig" => hub_s3_storage_config()
       }
@@ -10818,6 +10822,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       hub_content() :: %{
+        "CreatedBy" => user_context(),
         "CreationTime" => non_neg_integer(),
         "DocumentSchemaVersion" => String.t() | atom(),
         "FailureReason" => String.t() | atom(),
@@ -10834,6 +10839,7 @@ defmodule AWS.SageMaker do
         "HubContentType" => list(any()),
         "HubContentVersion" => String.t() | atom(),
         "HubName" => String.t() | atom(),
+        "LastModifiedBy" => user_context(),
         "LastModifiedTime" => non_neg_integer(),
         "ReferenceMinVersion" => String.t() | atom(),
         "SageMakerPublicHubContentArn" => String.t() | atom(),

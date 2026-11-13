@@ -98,6 +98,7 @@ defmodule AWS.MWAA do
         "EndpointManagement" => String.t() | atom(),
         "EnvironmentClass" => String.t() | atom(),
         "ExecutionRoleArn" => String.t() | atom(),
+        "IdentityCenterConfiguration" => identity_center_configuration(),
         "KmsKey" => String.t() | atom(),
         "LoggingConfiguration" => logging_configuration_input(),
         "MaxWebservers" => integer(),
@@ -114,6 +115,7 @@ defmodule AWS.MWAA do
         "StartupScriptS3ObjectVersion" => String.t() | atom(),
         "StartupScriptS3Path" => String.t() | atom(),
         "Tags" => map(),
+        "Teams" => map(),
         "WebserverAccessMode" => String.t() | atom(),
         "WeeklyMaintenanceWindowStart" => String.t() | atom()
       }
@@ -200,6 +202,7 @@ defmodule AWS.MWAA do
         "EndpointManagement" => String.t() | atom(),
         "EnvironmentClass" => String.t() | atom(),
         "ExecutionRoleArn" => String.t() | atom(),
+        "IdentityCenterConfiguration" => identity_center_configuration(),
         "KmsKey" => String.t() | atom(),
         "LastUpdate" => last_update(),
         "LoggingConfiguration" => logging_configuration(),
@@ -220,6 +223,7 @@ defmodule AWS.MWAA do
         "StartupScriptS3Path" => [String.t() | atom()],
         "Status" => String.t() | atom(),
         "Tags" => map(),
+        "Teams" => map(),
         "WebserverAccessMode" => String.t() | atom(),
         "WebserverUrl" => String.t() | atom(),
         "WebserverVpcEndpointService" => String.t() | atom(),
@@ -248,6 +252,18 @@ defmodule AWS.MWAA do
 
   """
   @type get_environment_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      identity_center_configuration() :: %{
+        "IdentityStoreId" => String.t() | atom(),
+        "StartUrl" => String.t() | atom()
+      }
+
+  """
+  @type identity_center_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -532,6 +548,18 @@ defmodule AWS.MWAA do
 
   ## Example:
 
+      team_config() :: %{
+        "DagS3Path" => String.t() | atom(),
+        "SourceBucketArn" => String.t() | atom()
+      }
+
+  """
+  @type team_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       untag_resource_input() :: %{
         required("tagKeys") => list(String.t() | atom())
       }
@@ -558,6 +586,7 @@ defmodule AWS.MWAA do
         optional("DagS3Path") => String.t() | atom(),
         optional("EnvironmentClass") => String.t() | atom(),
         optional("ExecutionRoleArn") => String.t() | atom(),
+        optional("IdentityCenterConfiguration") => identity_center_configuration(),
         optional("LoggingConfiguration") => logging_configuration_input(),
         optional("MaxWebservers") => integer(),
         optional("MaxWorkers") => integer(),
@@ -572,6 +601,7 @@ defmodule AWS.MWAA do
         optional("SourceBucketArn") => String.t() | atom(),
         optional("StartupScriptS3ObjectVersion") => String.t() | atom(),
         optional("StartupScriptS3Path") => String.t() | atom(),
+        optional("Teams") => update_teams_input(),
         optional("WebserverAccessMode") => String.t() | atom(),
         optional("WeeklyMaintenanceWindowStart") => String.t() | atom(),
         optional("WorkerReplacementStrategy") => String.t() | atom()
@@ -613,6 +643,18 @@ defmodule AWS.MWAA do
 
   """
   @type update_network_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_teams_input() :: %{
+        "AddOrUpdate" => map(),
+        "Remove" => list(String.t() | atom())
+      }
+
+  """
+  @type update_teams_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

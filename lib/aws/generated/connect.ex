@@ -8316,6 +8316,8 @@ defmodule AWS.Connect do
         "IntegrationAssociationArn" => String.t() | atom(),
         "IntegrationAssociationId" => String.t() | atom(),
         "IntegrationType" => list(any()),
+        "LastModifiedRegion" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
         "SourceApplicationName" => String.t() | atom(),
         "SourceApplicationUrl" => String.t() | atom(),
         "SourceType" => list(any())

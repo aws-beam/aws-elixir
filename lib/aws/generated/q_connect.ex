@@ -1261,6 +1261,7 @@ defmodule AWS.QConnect do
         "businessEmailAddress" => String.t() | atom(),
         "businessName" => String.t() | atom(),
         "businessPhoneNumber" => String.t() | atom(),
+        "calculatedAttributes" => map(),
         "city" => String.t() | atom(),
         "country" => String.t() | atom(),
         "county" => String.t() | atom(),
@@ -1288,6 +1289,7 @@ defmodule AWS.QConnect do
         "profileARN" => String.t() | atom(),
         "profileId" => String.t() | atom(),
         "province" => String.t() | atom(),
+        "recommendations" => list(profile_recommendation()),
         "shippingAddress1" => String.t() | atom(),
         "shippingAddress2" => String.t() | atom(),
         "shippingAddress3" => String.t() | atom(),
@@ -3065,6 +3067,7 @@ defmodule AWS.QConnect do
 
       message_template_attributes() :: %{
         "agentAttributes" => agent_attributes(),
+        "caseAttributes" => map(),
         "customAttributes" => map(),
         "customerProfileAttributes" => customer_profile_attributes(),
         "systemAttributes" => system_attributes()
@@ -3402,6 +3405,41 @@ defmodule AWS.QConnect do
 
   """
   @type proactive_recommendation_data_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      profile_catalog_item() :: %{
+        "additionalInformation" => String.t() | atom(),
+        "attributes" => map(),
+        "category" => String.t() | atom(),
+        "code" => String.t() | atom(),
+        "createdAt" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "imageLink" => String.t() | atom(),
+        "link" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "price" => String.t() | atom(),
+        "type" => String.t() | atom(),
+        "updatedAt" => String.t() | atom()
+      }
+
+  """
+  @type profile_catalog_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      profile_recommendation() :: %{
+        "catalogItem" => profile_catalog_item(),
+        "score" => float()
+      }
+
+  """
+  @type profile_recommendation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

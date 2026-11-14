@@ -3,13 +3,12 @@
 
 defmodule AWS.Scheduler do
   @moduledoc """
-
   Amazon EventBridge Scheduler is a serverless scheduler that allows you to
   create, run, and manage tasks from one central, managed service.
 
   EventBridge Scheduler delivers your tasks reliably, with built-in mechanisms
-  that adjust your schedules based on the availability of downstream targets.
-  The following reference lists the available API actions, and data types for
+  that adjust your schedules based on the availability of downstream targets. The
+  following reference lists the available API actions, and data types for
   EventBridge Scheduler.
   """
 
@@ -196,6 +195,29 @@ defmodule AWS.Scheduler do
 
   """
   @type event_bridge_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_bridge_put_events_v2_parameters() :: %{
+        "DetailType" => String.t() | atom(),
+        "Source" => String.t() | atom()
+      }
+
+  """
+  @type event_bridge_put_events_v2_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_bridge_put_raw_events_parameters() :: %{
+        "Metadata" => map()
+      }
+
+  """
+  @type event_bridge_put_raw_events_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -539,6 +561,8 @@ defmodule AWS.Scheduler do
         "DeadLetterConfig" => dead_letter_config(),
         "EcsParameters" => ecs_parameters(),
         "EventBridgeParameters" => event_bridge_parameters(),
+        "EventBridgePutEventsV2Parameters" => event_bridge_put_events_v2_parameters(),
+        "EventBridgePutRawEventsParameters" => event_bridge_put_raw_events_parameters(),
         "Input" => String.t() | atom(),
         "KinesisParameters" => kinesis_parameters(),
         "RetryPolicy" => retry_policy(),
@@ -654,6 +678,7 @@ defmodule AWS.Scheduler do
   @type delete_schedule_errors() ::
           validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
@@ -668,6 +693,7 @@ defmodule AWS.Scheduler do
   @type get_schedule_errors() ::
           validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
 
@@ -709,6 +735,7 @@ defmodule AWS.Scheduler do
   @type update_schedule_errors() ::
           validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
@@ -826,12 +853,11 @@ defmodule AWS.Scheduler do
   Deletes the specified schedule group.
 
   Deleting a schedule group results in EventBridge Scheduler deleting all
-  schedules associated with the group.
-  When you delete a group, it remains in a `DELETING` state until all of its
-  associated schedules are deleted.
-  Schedules associated with the group that are set to run while the schedule group
-  is in the process of being deleted might continue to invoke their targets
-  until the schedule group and its associated schedules are deleted.
+  schedules associated with the group. When you delete a group, it remains in a
+  `DELETING` state until all of its associated schedules are deleted. Schedules
+  associated with the group that are set to run while the schedule group is in the
+  process of being deleted might continue to invoke their targets until the
+  schedule group and its associated schedules are deleted.
 
   This operation is eventually consistent.
   """
@@ -1115,18 +1141,16 @@ defmodule AWS.Scheduler do
   end
 
   @doc """
-
   Updates the specified schedule.
 
   When you call `UpdateSchedule`, EventBridge Scheduler uses all values, including
-  empty values, specified in the request and
-  overrides the existing schedule. This is by design. This means that if you do
-  not set an optional field in your request, that field will be set to
-  its system-default value after the update.
+  empty values, specified in the request and overrides the existing schedule. This
+  is by design. This means that if you do not set an optional field in your
+  request, that field will be set to its system-default value after the update.
 
   Before calling this operation, we recommend that you call the `GetSchedule` API
-  operation and make a note of all optional parameters
-  for your `UpdateSchedule` call.
+  operation and make a note of all optional parameters for your `UpdateSchedule`
+  call.
   """
   @spec update_schedule(map(), String.t() | atom(), update_schedule_input(), list()) ::
           {:ok, update_schedule_output(), any()}

@@ -849,6 +849,7 @@ defmodule AWS.Lambda do
         optional("Publish") => boolean(),
         optional("PublishTo") => list(any()),
         optional("Runtime") => list(any()),
+        optional("RuntimeConfig") => function_runtime_config(),
         optional("SnapStart") => snap_start(),
         optional("Tags") => map(),
         optional("TenancyConfig") => tenancy_config(),
@@ -1624,6 +1625,7 @@ defmodule AWS.Lambda do
         "RevisionId" => String.t() | atom(),
         "Role" => String.t() | atom(),
         "Runtime" => list(any()),
+        "RuntimeConfig" => function_runtime_config(),
         "RuntimeVersionConfig" => runtime_version_config(),
         "SigningJobArn" => String.t() | atom(),
         "SigningProfileVersionArn" => String.t() | atom(),
@@ -1655,6 +1657,18 @@ defmodule AWS.Lambda do
 
   """
   @type function_event_invoke_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      function_runtime_config() :: %{
+        "RuntimeAlias" => String.t() | atom(),
+        "RuntimeArn" => String.t() | atom()
+      }
+
+  """
+  @type function_runtime_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3536,6 +3550,18 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      runtime_alias_deleted_exception() :: %{
+        "Type" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type runtime_alias_deleted_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       runtime_version_config() :: %{
         "Error" => runtime_version_error(),
         "RuntimeVersionArn" => String.t() | atom()
@@ -3543,6 +3569,18 @@ defmodule AWS.Lambda do
 
   """
   @type runtime_version_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      runtime_version_deleted_exception() :: %{
+        "Type" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type runtime_version_deleted_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4159,6 +4197,7 @@ defmodule AWS.Lambda do
         optional("RevisionId") => String.t() | atom(),
         optional("Role") => String.t() | atom(),
         optional("Runtime") => list(any()),
+        optional("RuntimeConfig") => function_runtime_config(),
         optional("SnapStart") => snap_start(),
         optional("Timeout") => integer(),
         optional("TracingConfig") => tracing_config(),
@@ -4613,6 +4652,8 @@ defmodule AWS.Lambda do
           | s3_files_mount_timeout_exception()
           | s3_files_mount_failure_exception()
           | s3_files_mount_connectivity_exception()
+          | runtime_version_deleted_exception()
+          | runtime_alias_deleted_exception()
           | resource_not_ready_exception()
           | resource_not_found_exception()
           | resource_conflict_exception()
@@ -4689,6 +4730,8 @@ defmodule AWS.Lambda do
           | s3_files_mount_timeout_exception()
           | s3_files_mount_failure_exception()
           | s3_files_mount_connectivity_exception()
+          | runtime_version_deleted_exception()
+          | runtime_alias_deleted_exception()
           | resource_not_ready_exception()
           | resource_not_found_exception()
           | resource_conflict_exception()
@@ -4881,6 +4924,7 @@ defmodule AWS.Lambda do
           too_many_requests_exception()
           | service_exception()
           | resource_not_found_exception()
+          | resource_conflict_exception()
           | precondition_failed_exception()
           | invalid_parameter_value_exception()
 

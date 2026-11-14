@@ -3132,6 +3132,10 @@ defmodule AWS.Organizations do
 
   [GUARDDUTY_POLICY](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_guardduty.html)
 
+    *
+
+  [SECURITYHUB_CSPM_POLICY](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_security_hub_cspm.html)
+
   You can only call this operation from the management account or a member account
   that is a delegated administrator.
   """

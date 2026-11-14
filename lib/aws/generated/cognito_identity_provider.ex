@@ -1538,6 +1538,7 @@ defmodule AWS.CognitoIdentityProvider do
         optional("AdminCreateUserConfig") => admin_create_user_config_type(),
         optional("AliasAttributes") => list(list(any())()),
         optional("AutoVerifiedAttributes") => list(list(any())()),
+        optional("DcrConfiguration") => dcr_configuration_type(),
         optional("DeletionProtection") => list(any()),
         optional("DeviceConfiguration") => device_configuration_type(),
         optional("EmailConfiguration") => email_configuration_type(),
@@ -1611,6 +1612,21 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type custom_sms_lambda_version_config_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dcr_configuration_type() :: %{
+        "AllowedScopes" => list(String.t() | atom()),
+        "AuthenticatedGrantTypes" => list(list(any())()),
+        "EnableStatus" => list(any()),
+        "OpenDcrEnabled" => boolean(),
+        "OpenDcrGrantTypes" => list(list(any())())
+      }
+      
+  """
+  @type dcr_configuration_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3254,6 +3270,7 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       list_user_pool_clients_request() :: %{
+        optional("ClientType") => list(any()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
         required("UserPoolId") => String.t() | atom()
@@ -3770,6 +3787,7 @@ defmodule AWS.CognitoIdentityProvider do
       
       resource_server_type() :: %{
         "Identifier" => String.t() | atom(),
+        "ManagedBy" => list(any()),
         "Name" => String.t() | atom(),
         "Scopes" => list(resource_server_scope_type()),
         "UserPoolId" => String.t() | atom()
@@ -4919,6 +4937,7 @@ defmodule AWS.CognitoIdentityProvider do
         optional("AcrConfiguration") => map(),
         optional("AdminCreateUserConfig") => admin_create_user_config_type(),
         optional("AutoVerifiedAttributes") => list(list(any())()),
+        optional("DcrConfiguration") => dcr_configuration_type(),
         optional("DeletionProtection") => list(any()),
         optional("DeviceConfiguration") => device_configuration_type(),
         optional("EmailConfiguration") => email_configuration_type(),
@@ -5095,6 +5114,7 @@ defmodule AWS.CognitoIdentityProvider do
         "ClientId" => String.t() | atom(),
         "ClientName" => String.t() | atom(),
         "ClientSecret" => String.t() | atom(),
+        "ClientType" => list(any()),
         "CreationDate" => non_neg_integer(),
         "DefaultRedirectURI" => String.t() | atom(),
         "EnablePropagateAdditionalUserContextData" => boolean(),
@@ -5194,6 +5214,7 @@ defmodule AWS.CognitoIdentityProvider do
         "AutoVerifiedAttributes" => list(list(any())()),
         "CreationDate" => non_neg_integer(),
         "CustomDomain" => String.t() | atom(),
+        "DcrConfiguration" => dcr_configuration_type(),
         "DeletionProtection" => list(any()),
         "DeviceConfiguration" => device_configuration_type(),
         "Domain" => String.t() | atom(),

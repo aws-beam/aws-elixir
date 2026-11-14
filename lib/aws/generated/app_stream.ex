@@ -68,6 +68,8 @@ defmodule AWS.AppStream do
   ## Example:
       
       agent_access_config() :: %{
+        "KmsKeyArn" => String.t() | atom(),
+        "ReplaySessionEnabled" => boolean(),
         "S3BucketArn" => String.t() | atom(),
         "ScreenImageFormat" => list(any()),
         "ScreenResolution" => list(any()),
@@ -84,6 +86,8 @@ defmodule AWS.AppStream do
   ## Example:
       
       agent_access_config_for_update() :: %{
+        "KmsKeyArn" => String.t() | atom(),
+        "ReplaySessionEnabled" => boolean(),
         "S3BucketArn" => String.t() | atom(),
         "ScreenImageFormat" => list(any()),
         "ScreenResolution" => list(any()),
@@ -747,6 +751,7 @@ defmodule AWS.AppStream do
       
       create_image_builder_request() :: %{
         optional("AccessEndpoints") => list(access_endpoint()),
+        optional("AgentAccessConfig") => image_builder_agent_access_config(),
         optional("AppstreamAgentVersion") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
         optional("DisableIMDSV1") => boolean(),
@@ -2193,6 +2198,7 @@ defmodule AWS.AppStream do
       
       image_builder() :: %{
         "AccessEndpoints" => list(access_endpoint()),
+        "AgentAccessConfig" => image_builder_agent_access_config(),
         "AppstreamAgentVersion" => String.t() | atom(),
         "Arn" => String.t() | atom(),
         "CreatedTime" => non_neg_integer(),
@@ -2217,6 +2223,38 @@ defmodule AWS.AppStream do
       
   """
   @type image_builder() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_builder_agent_access_config() :: %{
+        "S3BucketArn" => String.t() | atom(),
+        "ScreenImageFormat" => list(any()),
+        "ScreenResolution" => list(any()),
+        "ScreenshotsUploadEnabled" => boolean(),
+        "Settings" => list(agent_access_setting()),
+        "UserControlMode" => list(any())
+      }
+      
+  """
+  @type image_builder_agent_access_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_builder_agent_access_config_for_update() :: %{
+        "S3BucketArn" => String.t() | atom(),
+        "ScreenImageFormat" => list(any()),
+        "ScreenResolution" => list(any()),
+        "ScreenshotsUploadEnabled" => boolean(),
+        "Settings" => list(agent_access_setting()),
+        "UserControlMode" => list(any())
+      }
+      
+  """
+  @type image_builder_agent_access_config_for_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3089,6 +3127,32 @@ defmodule AWS.AppStream do
 
   ## Example:
       
+      update_image_builder_request() :: %{
+        optional("AgentAccessConfig") => image_builder_agent_access_config_for_update(),
+        optional("AttributesToDelete") => list(list(any())()),
+        optional("Description") => String.t() | atom(),
+        optional("DisplayName") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type update_image_builder_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_image_builder_result() :: %{
+        "ImageBuilder" => image_builder()
+      }
+      
+  """
+  @type update_image_builder_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_image_permissions_request() :: %{
         required("ImagePermissions") => image_permissions(),
         required("Name") => String.t() | atom(),
@@ -3724,6 +3788,15 @@ defmodule AWS.AppStream do
           | operation_not_permitted_exception()
           | limit_exceeded_exception()
           | invalid_role_exception()
+          | invalid_parameter_combination_exception()
+          | invalid_account_status_exception()
+          | incompatible_image_exception()
+          | concurrent_modification_exception()
+
+  @type update_image_builder_errors() ::
+          resource_not_found_exception()
+          | request_limit_exceeded_exception()
+          | operation_not_permitted_exception()
           | invalid_parameter_combination_exception()
           | invalid_account_status_exception()
           | incompatible_image_exception()
@@ -4626,6 +4699,9 @@ defmodule AWS.AppStream do
   image builder names are provided.
 
   Otherwise, all image builders in the account are described.
+
+  The description of each image builder includes its agent access configuration,
+  if agent access is enabled.
   """
   @spec describe_image_builders(map(), describe_image_builders_request(), list()) ::
           {:ok, describe_image_builders_result(), any()}
@@ -5335,6 +5411,23 @@ defmodule AWS.AppStream do
       metadata()
 
     Request.request_post(client, meta, "UpdateFleet", input, options)
+  end
+
+  @doc """
+  Updates the specified fields for the specified image builder.
+
+  The image builder must be in the STOPPED state.
+  """
+  @spec update_image_builder(map(), update_image_builder_request(), list()) ::
+          {:ok, update_image_builder_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_image_builder_errors()}
+  def update_image_builder(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateImageBuilder", input, options)
   end
 
   @doc """

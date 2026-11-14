@@ -2636,6 +2636,17 @@ defmodule AWS.CloudFormation do
 
   ## Example:
       
+      remove_alias_input() :: %{
+        required("AliasName") => String.t() | atom()
+      }
+      
+  """
+  @type remove_alias_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       required_activated_type() :: %{
         "OriginalTypeName" => String.t() | atom(),
         "PublisherId" => String.t() | atom(),
@@ -2937,6 +2948,18 @@ defmodule AWS.CloudFormation do
 
   ## Example:
       
+      set_alias_input() :: %{
+        required("AliasName") => String.t() | atom(),
+        required("StackName") => String.t() | atom()
+      }
+      
+  """
+  @type set_alias_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       set_stack_policy_input() :: %{
         optional("StackPolicyBody") => String.t() | atom(),
         optional("StackPolicyURL") => String.t() | atom(),
@@ -3014,6 +3037,7 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       stack() :: %{
+        "AliasName" => String.t() | atom(),
         "Capabilities" => list(list(any())()),
         "ChangeSetId" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
@@ -4242,6 +4266,8 @@ defmodule AWS.CloudFormation do
   @type register_type_errors() :: c_f_n_registry_exception()
 
   @type rollback_stack_errors() :: token_already_exists_exception()
+
+  @type set_alias_errors() :: limit_exceeded_exception() | already_exists_exception()
 
   @type set_type_configuration_errors() :: type_not_found_exception() | c_f_n_registry_exception()
 
@@ -6183,6 +6209,23 @@ defmodule AWS.CloudFormation do
   end
 
   @doc """
+  Removes an alias from a stack.
+
+  After the alias is removed successfully, it can no longer be used to
+  reference the stack in API calls.
+  """
+  @spec remove_alias(map(), remove_alias_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def remove_alias(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "RemoveAlias", input, options)
+  end
+
+  @doc """
   When specifying `RollbackStack`, you preserve the state of previously
   provisioned resources when an operation fails.
 
@@ -6227,6 +6270,37 @@ defmodule AWS.CloudFormation do
       metadata()
 
     Request.request_post(client, meta, "RollbackStack", input, options)
+  end
+
+  @doc """
+  Assigns an alias to an existing stack.
+
+  An alias is an alternative name for a stack that
+  can be used in place of the stack name in any CloudFormation API call that
+  accepts the
+  `StackName` parameter. This enables you to effectively rename a stack without
+  recreating it.
+
+  After setting an alias, both the original stack name and the alias resolve to
+  the same
+  stack. Setting an alias does not change the stack's ARN, physical resource IDs,
+  or any
+  deployed resources.
+
+  Each stack can have at most one alias. To change a stack's alias, first remove
+  the
+  existing alias using `RemoveAlias`, then set a new one.
+  """
+  @spec set_alias(map(), set_alias_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, set_alias_errors()}
+  def set_alias(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "SetAlias", input, options)
   end
 
   @doc """

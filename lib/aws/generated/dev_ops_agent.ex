@@ -1937,6 +1937,18 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      m_s_teams_bidirectional_configuration() :: %{
+        "enabled" => [boolean()],
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type m_s_teams_bidirectional_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       m_s_teams_channel() :: %{
         "channelId" => String.t() | atom(),
         "channelName" => [String.t() | atom()]
@@ -1950,6 +1962,7 @@ defmodule AWS.DevOpsAgent do
   ## Example:
 
       m_s_teams_configuration() :: %{
+        "bidirectional" => m_s_teams_bidirectional_configuration(),
         "teamId" => String.t() | atom(),
         "teamName" => [String.t() | atom()],
         "transmissionTarget" => m_s_teams_transmission_target()

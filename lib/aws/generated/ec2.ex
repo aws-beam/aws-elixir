@@ -1402,6 +1402,37 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      associate_networking_flex_cost_allocation_policy_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("NetworkResourceIds") => list(String.t() | atom()),
+        optional("NetworkResourceScope") => flex_cost_allocation_network_resource_scope(),
+        required("FcaPolicyId") => String.t() | atom()
+      }
+      
+  """
+  @type associate_networking_flex_cost_allocation_policy_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_networking_flex_cost_allocation_policy_result() :: %{
+        "FcaPolicyAssociationFailures" => list(flex_cost_allocation_operation_failure()),
+        "FcaPolicyAssociations" => list(flex_cost_allocation_policy_association_description())
+      }
+      
+  """
+  @type associate_networking_flex_cost_allocation_policy_result() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       associate_route_server_request() :: %{
         optional("DryRun") => boolean(),
         required("RouteServerId") => String.t() | atom(),
@@ -5635,6 +5666,43 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      create_networking_flex_cost_allocation_policy_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("InstanceFcaPolicyDocument") => instance_flex_cost_allocation_policy_document(),
+        optional("NatFcaPolicyDocument") => nat_flex_cost_allocation_policy_document(),
+        optional("PcxFcaPolicyDocument") => pcx_flex_cost_allocation_policy_document(),
+        optional("ShowBackEnabled") => boolean(),
+        optional("TagSpecifications") => list(tag_specification()),
+        required("NetworkResourceType") => list(any())
+      }
+      
+  """
+  @type create_networking_flex_cost_allocation_policy_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      create_networking_flex_cost_allocation_policy_result() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "ExpectedEffectiveAt" => non_neg_integer(),
+        "FcaPolicyArn" => String.t() | atom(),
+        "FcaPolicyId" => String.t() | atom()
+      }
+      
+  """
+  @type create_networking_flex_cost_allocation_policy_result() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       create_placement_group_request() :: %{
         optional("DryRun") => boolean(),
         optional("GroupName") => String.t() | atom(),
@@ -8616,6 +8684,34 @@ defmodule AWS.EC2 do
       
   """
   @type delete_network_interface_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_networking_flex_cost_allocation_policies_request() :: %{
+        optional("DryRun") => boolean(),
+        required("FcaPolicyIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type delete_networking_flex_cost_allocation_policies_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_networking_flex_cost_allocation_policies_result() :: %{
+        "Failed" => list(flex_cost_allocation_operation_failure()),
+        "Successful" => list(String.t() | atom())
+      }
+      
+  """
+  @type delete_networking_flex_cost_allocation_policies_result() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -13089,6 +13185,68 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_networking_flex_cost_allocation_policies_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("FcaPolicyIds") => list(String.t() | atom()),
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_networking_flex_cost_allocation_policies_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_networking_flex_cost_allocation_policies_result() :: %{
+        "FlexCostAllocationPolicies" => list(flex_cost_allocation_policy_description()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_networking_flex_cost_allocation_policies_result() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_networking_flex_cost_allocation_policy_associations_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("FcaPolicyAssociationIds") => list(String.t() | atom()),
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_networking_flex_cost_allocation_policy_associations_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_networking_flex_cost_allocation_policy_associations_result() :: %{
+        "FcaPolicyAssociations" => list(flex_cost_allocation_policy_association_description()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_networking_flex_cost_allocation_policy_associations_result() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       describe_outpost_lags_request() :: %{
         optional("DryRun") => boolean(),
         optional("Filters") => list(filter()),
@@ -16351,6 +16509,34 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      disassociate_networking_flex_cost_allocation_policy_request() :: %{
+        optional("DryRun") => boolean(),
+        required("FcaPolicyAssociationIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type disassociate_networking_flex_cost_allocation_policy_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_networking_flex_cost_allocation_policy_result() :: %{
+        "FcaPolicyDisassociationFailures" => list(flex_cost_allocation_operation_failure()),
+        "FcaPolicyDisassociations" => list(String.t() | atom())
+      }
+      
+  """
+  @type disassociate_networking_flex_cost_allocation_policy_result() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       disassociate_route_server_request() :: %{
         optional("DryRun") => boolean(),
         required("RouteServerId") => String.t() | atom(),
@@ -18450,6 +18636,118 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      flex_cost_allocation_cidr_mapping() :: %{
+        "CidrLabel" => String.t() | atom(),
+        "CidrRange" => String.t() | atom()
+      }
+      
+  """
+  @type flex_cost_allocation_cidr_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      flex_cost_allocation_cidr_range_specifications() :: %{
+        "Prefixes" => list(flex_cost_allocation_cidr_mapping()),
+        "PrefixesType" => String.t() | atom()
+      }
+      
+  """
+  @type flex_cost_allocation_cidr_range_specifications() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      flex_cost_allocation_network_resource_scope() :: %{
+        "ResourceIds" => list(String.t() | atom()),
+        "ResourceType" => list(any())
+      }
+      
+  """
+  @type flex_cost_allocation_network_resource_scope() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      flex_cost_allocation_operation_failure() :: %{
+        "FailureCode" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
+        "ResourceId" => String.t() | atom()
+      }
+      
+  """
+  @type flex_cost_allocation_operation_failure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      flex_cost_allocation_policy_association_description() :: %{
+        "AssociatedAt" => non_neg_integer(),
+        "AssociationMode" => list(any()),
+        "ExpectedEffectiveAt" => non_neg_integer(),
+        "FcaPolicyAssociationId" => String.t() | atom(),
+        "FcaPolicyId" => String.t() | atom(),
+        "ManagedBy" => list(any()),
+        "NetworkResourceId" => String.t() | atom(),
+        "OwnerAccount" => String.t() | atom()
+      }
+      
+  """
+  @type flex_cost_allocation_policy_association_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      flex_cost_allocation_policy_description() :: %{
+        "Description" => String.t() | atom(),
+        "FcaPolicyArn" => String.t() | atom(),
+        "FcaPolicyId" => String.t() | atom(),
+        "InstanceFcaPolicyDocument" => instance_flex_cost_allocation_policy_document(),
+        "LatestVersion" => integer(),
+        "ManagedBy" => list(any()),
+        "NatFcaPolicyDocument" => nat_flex_cost_allocation_policy_document(),
+        "NetworkResourceType" => list(any()),
+        "OwnerAccount" => String.t() | atom(),
+        "PcxFcaPolicyDocument" => pcx_flex_cost_allocation_policy_document(),
+        "PolicyCreatedAt" => non_neg_integer(),
+        "ShowBackEnabled" => boolean(),
+        "Tags" => list(tag()),
+        "UpdatedAt" => non_neg_integer(),
+        "VersionExpectedEffectiveAt" => non_neg_integer()
+      }
+      
+  """
+  @type flex_cost_allocation_policy_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      flex_cost_allocation_policy_version() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "ExpectedEffectiveAt" => non_neg_integer(),
+        "FcaPolicyId" => String.t() | atom(),
+        "InstanceFcaPolicyDocument" => instance_flex_cost_allocation_policy_document(),
+        "NatFcaPolicyDocument" => nat_flex_cost_allocation_policy_document(),
+        "NetworkResourceType" => list(any()),
+        "PcxFcaPolicyDocument" => pcx_flex_cost_allocation_policy_document(),
+        "ShowBackEnabled" => boolean(),
+        "Version" => integer()
+      }
+      
+  """
+  @type flex_cost_allocation_policy_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       flow_log() :: %{
         "CreationTime" => non_neg_integer(),
         "DeliverCrossAccountRole" => String.t() | atom(),
@@ -20047,6 +20345,34 @@ defmodule AWS.EC2 do
       
   """
   @type get_network_insights_access_scope_content_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_networking_flex_cost_allocation_policy_versions_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("VersionsToInclude") => list(integer()),
+        required("FcaPolicyId") => String.t() | atom()
+      }
+      
+  """
+  @type get_networking_flex_cost_allocation_policy_versions_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      get_networking_flex_cost_allocation_policy_versions_result() :: %{
+        "FcaPolicyVersions" => list(flex_cost_allocation_policy_version())
+      }
+      
+  """
+  @type get_networking_flex_cost_allocation_policy_versions_result() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -22201,6 +22527,19 @@ defmodule AWS.EC2 do
       
   """
   @type instance_family_credit_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_flex_cost_allocation_policy_document() :: %{
+        "CidrRangeSpecifications" => flex_cost_allocation_cidr_range_specifications(),
+        "Dimensions" => list(list(any())()),
+        "ReportingGranularity" => list(list(any())())
+      }
+      
+  """
+  @type instance_flex_cost_allocation_policy_document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -26541,6 +26880,42 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      modify_networking_flex_cost_allocation_policy_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("InstanceFcaPolicyDocument") => instance_flex_cost_allocation_policy_document(),
+        optional("NatFcaPolicyDocument") => nat_flex_cost_allocation_policy_document(),
+        optional("PcxFcaPolicyDocument") => pcx_flex_cost_allocation_policy_document(),
+        optional("ShowBackEnabled") => boolean(),
+        required("FcaPolicyId") => String.t() | atom()
+      }
+      
+  """
+  @type modify_networking_flex_cost_allocation_policy_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_networking_flex_cost_allocation_policy_result() :: %{
+        "FcaPolicyId" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer(),
+        "Version" => integer(),
+        "VersionExpectedEffectiveAt" => non_neg_integer()
+      }
+      
+  """
+  @type modify_networking_flex_cost_allocation_policy_result() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       modify_private_dns_name_options_request() :: %{
         optional("DryRun") => boolean(),
         optional("EnableResourceNameDnsAAAARecord") => boolean(),
@@ -27983,6 +28358,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      nat_flex_cost_allocation_policy_document() :: %{
+        "CidrRangeSpecifications" => flex_cost_allocation_cidr_range_specifications(),
+        "Dimensions" => list(list(any())()),
+        "ReportingGranularity" => list(list(any())())
+      }
+      
+  """
+  @type nat_flex_cost_allocation_policy_document() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       nat_gateway() :: %{
         "AttachedAppliances" => list(nat_gateway_attached_appliance()),
         "AutoProvisionZones" => list(any()),
@@ -28757,6 +29145,19 @@ defmodule AWS.EC2 do
       
   """
   @type pci_id() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pcx_flex_cost_allocation_policy_document() :: %{
+        "CidrRangeSpecifications" => flex_cost_allocation_cidr_range_specifications(),
+        "Dimensions" => list(list(any())()),
+        "ReportingGranularity" => list(list(any())())
+      }
+      
+  """
+  @type pcx_flex_cost_allocation_policy_document() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -36988,6 +37389,49 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Associates a flex cost allocation policy with one or more network resources.
+
+  You can
+  associate the policy directly with specific resources by resource ID, or you can
+  associate it with
+  a scope of resources in an account, Amazon VPC, or subnet.
+
+  The following limits apply:
+
+    *
+  A request can associate up to 20 resources.
+
+    *
+  A policy can have up to 100 active associations.
+
+    *
+  A network resource can have only one active association, across all policies. If
+  a resource
+  is already associated, the response includes it in the failures with the code
+  `ResourceAlreadyAssociated`.
+  """
+  @spec associate_networking_flex_cost_allocation_policy(
+          map(),
+          associate_networking_flex_cost_allocation_policy_request(),
+          list()
+        ) ::
+          {:ok, associate_networking_flex_cost_allocation_policy_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def associate_networking_flex_cost_allocation_policy(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "AssociateNetworkingFlexCostAllocationPolicy",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Associates a route server with a VPC to enable dynamic route updates.
 
   A route server association is the connection established between a route server
@@ -39618,6 +40062,40 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Creates a flex cost allocation policy for Networking Flexible Cost Allocation
+  (FCA), a feature of
+  Amazon Virtual Private Cloud (Amazon VPC).
+
+  The policy allocates the charges of a shared networking
+  resource at the reporting granularity that you specify. You can create a policy
+  for one of the following
+  resource types: NAT gateways, Amazon VPC peering connections, or EC2 instances.
+  Policies can
+  allocate data transfer charges for all three types, and data processing charges
+  for NAT gateways.
+
+  You can have up to 100 policies per account in each Amazon Web Services Region,
+  plus one additional
+  policy per network resource type created by a declarative policy, for a maximum
+  of 103 policies in an
+  Amazon Web Services Region.
+  """
+  @spec create_networking_flex_cost_allocation_policy(
+          map(),
+          create_networking_flex_cost_allocation_policy_request(),
+          list()
+        ) ::
+          {:ok, create_networking_flex_cost_allocation_policy_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def create_networking_flex_cost_allocation_policy(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateNetworkingFlexCostAllocationPolicy", input, options)
+  end
+
+  @doc """
   Creates a placement group in which to launch instances.
 
   The strategy of the placement
@@ -42051,6 +42529,30 @@ defmodule AWS.EC2 do
       metadata()
 
     Request.request_post(client, meta, "DeleteNetworkInterfacePermission", input, options)
+  end
+
+  @doc """
+  Deletes one or more flex cost allocation policies.
+  """
+  @spec delete_networking_flex_cost_allocation_policies(
+          map(),
+          delete_networking_flex_cost_allocation_policies_request(),
+          list()
+        ) ::
+          {:ok, delete_networking_flex_cost_allocation_policies_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def delete_networking_flex_cost_allocation_policies(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "DeleteNetworkingFlexCostAllocationPolicies",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -45864,8 +46366,8 @@ defmodule AWS.EC2 do
 
   If you have a large number of network interfaces, the operation fails unless you
   use
-  pagination or one of the following filters: `group-id`,
-  `mac-address`, `private-dns-name`,
+  pagination or one of the following filters: `attachment.instance-id`,
+  `group-id`, `mac-address`, `private-dns-name`,
   `private-ip-address`, `subnet-id`, or
   `vpc-id`.
 
@@ -45881,6 +46383,66 @@ defmodule AWS.EC2 do
       metadata()
 
     Request.request_post(client, meta, "DescribeNetworkInterfaces", input, options)
+  end
+
+  @doc """
+  Describes one or more of your flex cost allocation policies.
+
+  We recommend using
+  pagination to ensure that the operation returns quickly and successfully.
+  """
+  @spec describe_networking_flex_cost_allocation_policies(
+          map(),
+          describe_networking_flex_cost_allocation_policies_request(),
+          list()
+        ) ::
+          {:ok, describe_networking_flex_cost_allocation_policies_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_networking_flex_cost_allocation_policies(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "DescribeNetworkingFlexCostAllocationPolicies",
+      input,
+      options
+    )
+  end
+
+  @doc """
+  Describes the associations between your flex cost allocation policies and
+  network
+  resources.
+
+  We recommend using pagination to ensure that the operation returns quickly and
+  successfully.
+  """
+  @spec describe_networking_flex_cost_allocation_policy_associations(
+          map(),
+          describe_networking_flex_cost_allocation_policy_associations_request(),
+          list()
+        ) ::
+          {:ok, describe_networking_flex_cost_allocation_policy_associations_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_networking_flex_cost_allocation_policy_associations(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    meta =
+      metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "DescribeNetworkingFlexCostAllocationPolicyAssociations",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -48735,6 +49297,34 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Disassociates a flex cost allocation policy from one or more network resources.
+  """
+  @spec disassociate_networking_flex_cost_allocation_policy(
+          map(),
+          disassociate_networking_flex_cost_allocation_policy_request(),
+          list()
+        ) ::
+          {:ok, disassociate_networking_flex_cost_allocation_policy_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def disassociate_networking_flex_cost_allocation_policy(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    meta =
+      metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "DisassociateNetworkingFlexCostAllocationPolicy",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Disassociates a route server from a VPC.
 
   A route server association is the connection established between a route server
@@ -50161,7 +50751,9 @@ defmodule AWS.EC2 do
   Create a set of named queries in Athena that you can use to get started quickly
 
   `GetFlowLogsIntegrationTemplate` does not support integration between
-  Amazon Web Services Transit Gateway Flow Logs and Amazon Athena.
+  Amazon Web Services Transit Gateway Flow Logs or Amazon Web Services Cloud WAN
+  Flow Logs
+  and Amazon Athena.
   """
   @spec get_flow_logs_integration_template(
           map(),
@@ -50948,6 +51540,34 @@ defmodule AWS.EC2 do
       metadata()
 
     Request.request_post(client, meta, "GetNetworkInsightsAccessScopeContent", input, options)
+  end
+
+  @doc """
+  Retrieves the versions of a flex cost allocation policy.
+  """
+  @spec get_networking_flex_cost_allocation_policy_versions(
+          map(),
+          get_networking_flex_cost_allocation_policy_versions_request(),
+          list()
+        ) ::
+          {:ok, get_networking_flex_cost_allocation_policy_versions_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def get_networking_flex_cost_allocation_policy_versions(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    meta =
+      metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "GetNetworkingFlexCostAllocationPolicyVersions",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -52956,6 +53576,35 @@ defmodule AWS.EC2 do
       metadata()
 
     Request.request_post(client, meta, "ModifyNetworkInterfaceAttribute", input, options)
+  end
+
+  @doc """
+  Modifies a flex cost allocation policy.
+
+  Changing a policy document or
+  `ShowBackEnabled` creates a new version of the policy. Changing only the
+  description doesn't
+  create a new version.
+
+  A policy can have up to 100 versions. Versions are never removed, so after a
+  policy reaches 100
+  versions, you can't change its policy document or `ShowBackEnabled`. Policies
+  that are managed
+  by a declarative policy aren't subject to this limit.
+  """
+  @spec modify_networking_flex_cost_allocation_policy(
+          map(),
+          modify_networking_flex_cost_allocation_policy_request(),
+          list()
+        ) ::
+          {:ok, modify_networking_flex_cost_allocation_policy_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def modify_networking_flex_cost_allocation_policy(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ModifyNetworkingFlexCostAllocationPolicy", input, options)
   end
 
   @doc """

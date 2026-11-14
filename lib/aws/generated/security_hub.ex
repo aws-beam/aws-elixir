@@ -19177,12 +19177,15 @@ defmodule AWS.SecurityHub do
   results to one version of the package, include `PackageVersion`.
 
   You can use the `Scopes` parameter to define the data boundary for the query.
-  Currently, `Scopes` supports `AwsOrganizations`, which lets you retrieve
-  resources from your entire organization or from specific organizational units.
-  Only the delegated administrator account can use `Scopes`.
+  Currently, `Scopes` supports `AwsOrganizations`. With `AwsOrganizations`, you
+  can retrieve resources from your entire organization or from specific
+  organizational units. Only the delegated administrator account can use `Scopes`.
 
   You can use the `Filters` parameter to further refine results based on resource
   attributes, such as `ResourceType` or `Region`.
+
+  This operation returns paginated results. To retrieve additional results, use
+  the `NextToken` value from the previous response.
   """
   @spec get_software_resources_v2(map(), get_software_resources_v2_request(), list()) ::
           {:ok, get_software_resources_v2_response(), any()}
@@ -19221,9 +19224,9 @@ defmodule AWS.SecurityHub do
   value. A package installed on three resources contributes three to the count.
 
   You can use the `Scopes` parameter to define the data boundary for the query.
-  Currently, `Scopes` supports `AwsOrganizations`, which lets you aggregate
-  software from your entire organization or from specific organizational units.
-  Only the delegated administrator account can use `Scopes`.
+  Currently, `Scopes` supports `AwsOrganizations`. With `AwsOrganizations`, you
+  can aggregate software from your entire organization or from specific
+  organizational units. Only the delegated administrator account can use `Scopes`.
 
   This operation doesn't paginate. Use `MaxStatisticResults` to control how many
   grouping values are returned.
@@ -19261,9 +19264,9 @@ defmodule AWS.SecurityHub do
   number of resources that contain that package.
 
   You can use the `Scopes` parameter to define the data boundary for the query.
-  Currently, `Scopes` supports `AwsOrganizations`, which lets you retrieve
-  software from your entire organization or from specific organizational units.
-  Only the delegated administrator account can use `Scopes`.
+  Currently, `Scopes` supports `AwsOrganizations`. With `AwsOrganizations`, you
+  can retrieve software from your entire organization or from specific
+  organizational units. Only the delegated administrator account can use `Scopes`.
 
   You can use the `Filters` parameter to refine results based on package and
   resource attributes. You can use `Scopes` and `Filters` independently or
@@ -19273,6 +19276,9 @@ defmodule AWS.SecurityHub do
   To list the resources that contain a specific package, use
   `GetSoftwareResourcesV2`. To get counts of software grouped by a field, use
   `GetSoftwareStatisticsV2`.
+
+  This operation returns paginated results. To retrieve additional results, use
+  the `NextToken` value from the previous response.
   """
   @spec get_software_v2(map(), get_software_v2_request(), list()) ::
           {:ok, get_software_v2_response(), any()}

@@ -56,6 +56,7 @@ defmodule AWS.RolesAnywhere do
 
       create_profile_request() :: %{
         optional("acceptRoleSessionName") => [boolean()],
+        optional("aliasName") => String.t() | atom(),
         optional("durationSeconds") => [integer()],
         optional("enabled") => [boolean()],
         optional("managedPolicyArns") => list([String.t() | atom()]()),
@@ -74,6 +75,7 @@ defmodule AWS.RolesAnywhere do
   ## Example:
 
       create_trust_anchor_request() :: %{
+        optional("aliasName") => String.t() | atom(),
         optional("crlDpRevocationEnabled") => [boolean()],
         optional("enabled") => [boolean()],
         optional("notificationSettings") => list(notification_setting()),
@@ -106,13 +108,16 @@ defmodule AWS.RolesAnywhere do
   ## Example:
 
       crl_detail() :: %{
+        "aliasArn" => String.t() | atom(),
+        "aliasName" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
-        "crlArn" => [String.t() | atom()],
+        "crlArn" => String.t() | atom(),
         "crlData" => [binary()],
         "crlId" => String.t() | atom(),
         "enabled" => [boolean()],
         "name" => [String.t() | atom()],
-        "trustAnchorArn" => [String.t() | atom()],
+        "previousAliasName" => String.t() | atom(),
+        "trustAnchorArn" => String.t() | atom(),
         "updatedAt" => [non_neg_integer()]
       }
 
@@ -158,6 +163,7 @@ defmodule AWS.RolesAnywhere do
   ## Example:
 
       import_crl_request() :: %{
+        optional("aliasName") => String.t() | atom(),
         optional("enabled") => [boolean()],
         optional("tags") => list(tag()),
         required("crlData") => [binary()],
@@ -321,6 +327,8 @@ defmodule AWS.RolesAnywhere do
 
       profile_detail() :: %{
         "acceptRoleSessionName" => [boolean()],
+        "aliasArn" => String.t() | atom(),
+        "aliasName" => String.t() | atom(),
         "attributeMappings" => list(attribute_mapping()),
         "createdAt" => [non_neg_integer()],
         "createdBy" => [String.t() | atom()],
@@ -328,6 +336,7 @@ defmodule AWS.RolesAnywhere do
         "enabled" => [boolean()],
         "managedPolicyArns" => list([String.t() | atom()]()),
         "name" => String.t() | atom(),
+        "previousAliasName" => String.t() | atom(),
         "profileArn" => String.t() | atom(),
         "profileId" => String.t() | atom(),
         "requireInstanceProperties" => [boolean()],
@@ -586,13 +595,16 @@ defmodule AWS.RolesAnywhere do
   ## Example:
 
       trust_anchor_detail() :: %{
+        "aliasArn" => String.t() | atom(),
+        "aliasName" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
         "crlDpRevocationEnabled" => [boolean()],
         "enabled" => [boolean()],
         "name" => String.t() | atom(),
         "notificationSettings" => list(notification_setting_detail()),
+        "previousAliasName" => String.t() | atom(),
         "source" => source(),
-        "trustAnchorArn" => [String.t() | atom()],
+        "trustAnchorArn" => String.t() | atom(),
         "trustAnchorId" => String.t() | atom(),
         "updatedAt" => [non_neg_integer()]
       }
@@ -637,6 +649,7 @@ defmodule AWS.RolesAnywhere do
   ## Example:
 
       update_crl_request() :: %{
+        optional("aliasName") => String.t() | atom(),
         optional("crlData") => [binary()],
         optional("name") => String.t() | atom()
       }
@@ -650,6 +663,7 @@ defmodule AWS.RolesAnywhere do
 
       update_profile_request() :: %{
         optional("acceptRoleSessionName") => [boolean()],
+        optional("aliasName") => String.t() | atom(),
         optional("durationSeconds") => [integer()],
         optional("managedPolicyArns") => list([String.t() | atom()]()),
         optional("name") => String.t() | atom(),
@@ -665,6 +679,7 @@ defmodule AWS.RolesAnywhere do
   ## Example:
 
       update_trust_anchor_request() :: %{
+        optional("aliasName") => String.t() | atom(),
         optional("crlDpRevocationEnabled") => [boolean()],
         optional("name") => String.t() | atom(),
         optional("source") => source()

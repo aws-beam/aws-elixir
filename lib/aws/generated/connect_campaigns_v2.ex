@@ -69,6 +69,7 @@ defmodule AWS.ConnectCampaignsV2 do
         "connectInstanceId" => String.t() | atom(),
         "entryLimitsConfig" => entry_limits_config(),
         "id" => String.t() | atom(),
+        "lastModifiedTime" => non_neg_integer(),
         "name" => String.t() | atom(),
         "schedule" => schedule(),
         "source" => list(),
@@ -101,6 +102,7 @@ defmodule AWS.ConnectCampaignsV2 do
         "connectInstanceId" => String.t() | atom(),
         "entryLimitsConfig" => entry_limits_config(),
         "id" => String.t() | atom(),
+        "lastModifiedTime" => non_neg_integer(),
         "name" => String.t() | atom(),
         "schedule" => schedule(),
         "type" => String.t() | atom()

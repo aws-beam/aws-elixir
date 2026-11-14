@@ -551,6 +551,7 @@ defmodule AWS.SSM do
         "TargetMaps" => list(map()),
         "TargetParameterName" => String.t() | atom(),
         "Targets" => list(target()),
+        "TargetsSummary" => targets_summary(),
         "TriggeredAlarms" => list(alarm_state_information()),
         "Variables" => map(),
         "WarningMessage" => String.t() | atom()
@@ -784,9 +785,11 @@ defmodule AWS.SSM do
       
       cloud_connector_summary() :: %{
         "CloudConnectorId" => String.t() | atom(),
+        "ConfigConnectorArn" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t() | atom(),
         "DisplayName" => String.t() | atom(),
+        "Provider" => list(any()),
         "RoleArn" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer()
       }
@@ -1140,9 +1143,9 @@ defmodule AWS.SSM do
   ## Example:
       
       create_cloud_connector_request() :: %{
+        optional("ConfigConnectorArn") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
         optional("Tags") => list(tag()),
-        required("ConfigConnectorArn") => String.t() | atom(),
         required("Configuration") => list(),
         required("DisplayName") => String.t() | atom(),
         required("RoleArn") => String.t() | atom()
@@ -3005,6 +3008,32 @@ defmodule AWS.SSM do
       
   """
   @type feature_not_available_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      gcp_configuration() :: %{
+        "OrganizationId" => String.t() | atom(),
+        "ServiceAccountEmail" => String.t() | atom(),
+        "Targets" => list(),
+        "WorkloadIdentityPoolProvider" => String.t() | atom()
+      }
+      
+  """
+  @type gcp_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      gcp_project() :: %{
+        "ProjectDisplayName" => String.t() | atom(),
+        "ProjectId" => String.t() | atom()
+      }
+      
+  """
+  @type gcp_project() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7764,6 +7793,21 @@ defmodule AWS.SSM do
 
   ## Example:
       
+      targets_summary() :: %{
+        "CompletedCount" => integer(),
+        "FailedCount" => integer(),
+        "StartedCount" => integer(),
+        "SuccessfulCount" => integer(),
+        "TotalCount" => integer()
+      }
+      
+  """
+  @type targets_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       terminate_session_request() :: %{
         required("SessionId") => String.t() | atom()
       }
@@ -9168,7 +9212,10 @@ defmodule AWS.SSM do
           | association_does_not_exist()
 
   @type update_cloud_connector_errors() ::
-          resource_not_found_exception() | internal_server_error() | conflict_exception()
+          service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_error()
+          | conflict_exception()
 
   @type update_document_errors() ::
           max_document_size_exceeded()

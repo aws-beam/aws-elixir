@@ -288,6 +288,7 @@ defmodule AWS.NetworkFirewall do
       associate_subnets_request() :: %{
         optional("FirewallArn") => String.t() | atom(),
         optional("FirewallName") => String.t() | atom(),
+        optional("NatGatewayCreateMappings") => list(nat_gateway_create_mapping()),
         optional("UpdateToken") => String.t() | atom(),
         required("SubnetMappings") => list(subnet_mapping())
       }
@@ -308,32 +309,6 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type associate_subnets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      attach_rule_groups_to_proxy_configuration_request() :: %{
-        optional("ProxyConfigurationArn") => String.t() | atom(),
-        optional("ProxyConfigurationName") => String.t() | atom(),
-        required("RuleGroups") => list(proxy_rule_group_attachment()),
-        required("UpdateToken") => String.t() | atom()
-      }
-      
-  """
-  @type attach_rule_groups_to_proxy_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      attach_rule_groups_to_proxy_configuration_response() :: %{
-        "ProxyConfiguration" => proxy_configuration(),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type attach_rule_groups_to_proxy_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -545,13 +520,13 @@ defmodule AWS.NetworkFirewall do
         optional("EnabledAnalysisTypes") => list(list(any())()),
         optional("EncryptionConfiguration") => encryption_configuration(),
         optional("FirewallPolicyChangeProtection") => boolean(),
-        optional("NatGatewayMappings") => list(nat_gateway_mapping()),
-        optional("NoSourcePreservation") => boolean(),
+        optional("NatGatewayCreateMappings") => list(nat_gateway_create_mapping()),
         optional("ProxySettings") => proxy_settings(),
         optional("SubnetChangeProtection") => boolean(),
         optional("SubnetMappings") => list(subnet_mapping()),
         optional("Tags") => list(tag()),
         optional("TransitGatewayId") => String.t() | atom(),
+        optional("TransparentFilteringNatScope") => list(any()),
         optional("VpcEndpoint") => vpc_endpoint(),
         optional("VpcId") => String.t() | atom(),
         required("FirewallName") => String.t() | atom(),
@@ -572,142 +547,6 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type create_firewall_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_proxy_configuration_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("RuleGroupArns") => list(String.t() | atom()),
-        optional("RuleGroupNames") => list(String.t() | atom()),
-        optional("Tags") => list(tag()),
-        required("DefaultRulePhaseActions") => proxy_config_default_rule_phase_actions_request(),
-        required("ProxyConfigurationName") => String.t() | atom()
-      }
-      
-  """
-  @type create_proxy_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_proxy_configuration_response() :: %{
-        "ProxyConfiguration" => proxy_configuration(),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type create_proxy_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_proxy_request() :: %{
-        optional("ListenerProperties") => list(listener_property_request()),
-        optional("ProxyConfigurationArn") => String.t() | atom(),
-        optional("ProxyConfigurationName") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("NatGatewayId") => String.t() | atom(),
-        required("ProxyName") => String.t() | atom(),
-        required("TlsInterceptProperties") => tls_intercept_properties_request()
-      }
-      
-  """
-  @type create_proxy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_proxy_response() :: %{
-        "Proxy" => proxy(),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type create_proxy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_proxy_rule() :: %{
-        "Action" => list(any()),
-        "Conditions" => list(proxy_rule_condition()),
-        "Description" => String.t() | atom(),
-        "InsertPosition" => integer(),
-        "ProxyRuleName" => String.t() | atom()
-      }
-      
-  """
-  @type create_proxy_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_proxy_rule_group_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Rules") => proxy_rules_by_request_phase(),
-        optional("Tags") => list(tag()),
-        required("ProxyRuleGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type create_proxy_rule_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_proxy_rule_group_response() :: %{
-        "ProxyRuleGroup" => proxy_rule_group(),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type create_proxy_rule_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_proxy_rules_by_request_phase() :: %{
-        "PostRESPONSE" => list(create_proxy_rule()),
-        "PreDNS" => list(create_proxy_rule()),
-        "PreREQUEST" => list(create_proxy_rule())
-      }
-      
-  """
-  @type create_proxy_rules_by_request_phase() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_proxy_rules_request() :: %{
-        optional("ProxyRuleGroupArn") => String.t() | atom(),
-        optional("ProxyRuleGroupName") => String.t() | atom(),
-        required("Rules") => create_proxy_rules_by_request_phase()
-      }
-      
-  """
-  @type create_proxy_rules_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_proxy_rules_response() :: %{
-        "ProxyRuleGroup" => proxy_rule_group(),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type create_proxy_rules_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -887,6 +726,7 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       delete_firewall_request() :: %{
+        optional("DeleteAssociatedNatGateways") => boolean(),
         optional("FirewallArn") => String.t() | atom(),
         optional("FirewallName") => String.t() | atom()
       }
@@ -937,30 +777,6 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
-      delete_proxy_configuration_request() :: %{
-        optional("ProxyConfigurationArn") => String.t() | atom(),
-        optional("ProxyConfigurationName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_proxy_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_proxy_configuration_response() :: %{
-        "ProxyConfigurationArn" => String.t() | atom(),
-        "ProxyConfigurationName" => String.t() | atom()
-      }
-      
-  """
-  @type delete_proxy_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       delete_proxy_request() :: %{
         optional("ProxyArn") => String.t() | atom(),
         optional("ProxyName") => String.t() | atom(),
@@ -982,54 +798,6 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type delete_proxy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_proxy_rule_group_request() :: %{
-        optional("ProxyRuleGroupArn") => String.t() | atom(),
-        optional("ProxyRuleGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_proxy_rule_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_proxy_rule_group_response() :: %{
-        "ProxyRuleGroupArn" => String.t() | atom(),
-        "ProxyRuleGroupName" => String.t() | atom()
-      }
-      
-  """
-  @type delete_proxy_rule_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_proxy_rules_request() :: %{
-        optional("ProxyRuleGroupArn") => String.t() | atom(),
-        optional("ProxyRuleGroupName") => String.t() | atom(),
-        required("Rules") => list(String.t() | atom())
-      }
-      
-  """
-  @type delete_proxy_rules_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_proxy_rules_response() :: %{
-        "ProxyRuleGroup" => proxy_rule_group()
-      }
-      
-  """
-  @type delete_proxy_rules_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1322,30 +1090,6 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
-      describe_proxy_configuration_request() :: %{
-        optional("ProxyConfigurationArn") => String.t() | atom(),
-        optional("ProxyConfigurationName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_proxy_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_proxy_configuration_response() :: %{
-        "ProxyConfiguration" => proxy_configuration(),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_proxy_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       describe_proxy_request() :: %{
         optional("ProxyArn") => String.t() | atom(),
         optional("ProxyName") => String.t() | atom()
@@ -1392,55 +1136,6 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type describe_proxy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_proxy_rule_group_request() :: %{
-        optional("ProxyRuleGroupArn") => String.t() | atom(),
-        optional("ProxyRuleGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_proxy_rule_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_proxy_rule_group_response() :: %{
-        "ProxyRuleGroup" => proxy_rule_group(),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_proxy_rule_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_proxy_rule_request() :: %{
-        optional("ProxyRuleGroupArn") => String.t() | atom(),
-        optional("ProxyRuleGroupName") => String.t() | atom(),
-        required("ProxyRuleName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_proxy_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_proxy_rule_response() :: %{
-        "ProxyRule" => proxy_rule(),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_proxy_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1605,35 +1300,6 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
-      detach_rule_groups_from_proxy_configuration_request() :: %{
-        optional("ProxyConfigurationArn") => String.t() | atom(),
-        optional("ProxyConfigurationName") => String.t() | atom(),
-        optional("RuleGroupArns") => list(String.t() | atom()),
-        optional("RuleGroupNames") => list(String.t() | atom()),
-        required("UpdateToken") => String.t() | atom()
-      }
-      
-  """
-  @type detach_rule_groups_from_proxy_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      detach_rule_groups_from_proxy_configuration_response() :: %{
-        "ProxyConfiguration" => proxy_configuration(),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type detach_rule_groups_from_proxy_configuration_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
       dimension() :: %{
         "Value" => String.t() | atom()
       }
@@ -1701,6 +1367,17 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      domain_match() :: %{
+        "Domains" => list(String.t() | atom())
+      }
+      
+  """
+  @type domain_match() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       encryption_configuration() :: %{
         "KeyId" => String.t() | atom(),
         "Type" => list(any())
@@ -1725,8 +1402,7 @@ defmodule AWS.NetworkFirewall do
         "FirewallName" => String.t() | atom(),
         "FirewallPolicyArn" => String.t() | atom(),
         "FirewallPolicyChangeProtection" => boolean(),
-        "NatGatewayMappings" => list(nat_gateway_mapping()),
-        "NoSourcePreservation" => boolean(),
+        "NatGatewayCreateMappings" => list(nat_gateway_create_mapping()),
         "NumberOfAssociations" => integer(),
         "ProxySettings" => proxy_settings(),
         "SubnetChangeProtection" => boolean(),
@@ -1734,6 +1410,7 @@ defmodule AWS.NetworkFirewall do
         "Tags" => list(tag()),
         "TransitGatewayId" => String.t() | atom(),
         "TransitGatewayOwnerAccountId" => String.t() | atom(),
+        "TransparentFilteringNatScope" => list(any()),
         "VpcEndpoint" => vpc_endpoint(),
         "VpcId" => String.t() | atom()
       }
@@ -2438,78 +2115,6 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
-      list_proxies_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_proxies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_proxies_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Proxies" => list(proxy_metadata())
-      }
-      
-  """
-  @type list_proxies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_proxy_configurations_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_proxy_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_proxy_configurations_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ProxyConfigurations" => list(proxy_configuration_metadata())
-      }
-      
-  """
-  @type list_proxy_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_proxy_rule_groups_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_proxy_rule_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_proxy_rule_groups_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ProxyRuleGroups" => list(proxy_rule_group_metadata())
-      }
-      
-  """
-  @type list_proxy_rule_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       list_rule_groups_request() :: %{
         optional("ManagedType") => list(any()),
         optional("MaxResults") => integer(),
@@ -2624,18 +2229,6 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
-      listener_property_request() :: %{
-        "Port" => integer(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type listener_property_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       log_destination_config() :: %{
         "LogDestination" => map(),
         "LogDestinationType" => list(any()),
@@ -2701,12 +2294,14 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
-      nat_gateway_mapping() :: %{
-        "NatGatewayId" => String.t() | atom()
+      nat_gateway_create_mapping() :: %{
+        "AllocationIds" => list(String.t() | atom()),
+        "PrivateIps" => list(String.t() | atom()),
+        "SubnetId" => String.t() | atom()
       }
       
   """
-  @type nat_gateway_mapping() :: %{(String.t() | atom()) => any()}
+  @type nat_gateway_create_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2758,218 +2353,9 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
-      proxy() :: %{
-        "CreateTime" => non_neg_integer(),
-        "DeleteTime" => non_neg_integer(),
-        "FailureCode" => String.t() | atom(),
-        "FailureMessage" => String.t() | atom(),
-        "ListenerProperties" => list(listener_property()),
-        "NatGatewayId" => String.t() | atom(),
-        "ProxyArn" => String.t() | atom(),
-        "ProxyConfigurationArn" => String.t() | atom(),
-        "ProxyConfigurationName" => String.t() | atom(),
-        "ProxyModifyState" => list(any()),
-        "ProxyName" => String.t() | atom(),
-        "ProxyState" => list(any()),
-        "Tags" => list(tag()),
-        "TlsInterceptProperties" => tls_intercept_properties(),
-        "UpdateTime" => non_neg_integer()
-      }
-      
-  """
-  @type proxy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      proxy_config_default_rule_phase_actions_request() :: %{
-        "PostRESPONSE" => list(any()),
-        "PreDNS" => list(any()),
-        "PreREQUEST" => list(any())
-      }
-      
-  """
-  @type proxy_config_default_rule_phase_actions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      proxy_config_rule_group() :: %{
-        "Priority" => integer(),
-        "ProxyRuleGroupArn" => String.t() | atom(),
-        "ProxyRuleGroupName" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-      
-  """
-  @type proxy_config_rule_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      proxy_configuration() :: %{
-        "CreateTime" => non_neg_integer(),
-        "DefaultRulePhaseActions" => proxy_config_default_rule_phase_actions_request(),
-        "DeleteTime" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "ProxyConfigurationArn" => String.t() | atom(),
-        "ProxyConfigurationName" => String.t() | atom(),
-        "RuleGroups" => list(proxy_config_rule_group()),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type proxy_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      proxy_configuration_metadata() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type proxy_configuration_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      proxy_metadata() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type proxy_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      proxy_rule() :: %{
-        "Action" => list(any()),
-        "Conditions" => list(proxy_rule_condition()),
-        "Description" => String.t() | atom(),
-        "ProxyRuleName" => String.t() | atom()
-      }
-      
-  """
-  @type proxy_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      proxy_rule_condition() :: %{
-        "ConditionKey" => String.t() | atom(),
-        "ConditionOperator" => String.t() | atom(),
-        "ConditionValues" => list(String.t() | atom())
-      }
-      
-  """
-  @type proxy_rule_condition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      proxy_rule_group() :: %{
-        "CreateTime" => non_neg_integer(),
-        "DeleteTime" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "ProxyRuleGroupArn" => String.t() | atom(),
-        "ProxyRuleGroupName" => String.t() | atom(),
-        "Rules" => proxy_rules_by_request_phase(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type proxy_rule_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      proxy_rule_group_attachment() :: %{
-        "InsertPosition" => integer(),
-        "ProxyRuleGroupName" => String.t() | atom()
-      }
-      
-  """
-  @type proxy_rule_group_attachment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      proxy_rule_group_metadata() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type proxy_rule_group_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      proxy_rule_group_priority() :: %{
-        "NewPosition" => integer(),
-        "ProxyRuleGroupName" => String.t() | atom()
-      }
-      
-  """
-  @type proxy_rule_group_priority() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      proxy_rule_group_priority_result() :: %{
-        "Priority" => integer(),
-        "ProxyRuleGroupName" => String.t() | atom()
-      }
-      
-  """
-  @type proxy_rule_group_priority_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      proxy_rule_priority() :: %{
-        "NewPosition" => integer(),
-        "ProxyRuleName" => String.t() | atom()
-      }
-      
-  """
-  @type proxy_rule_priority() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      proxy_rules_by_request_phase() :: %{
-        "PostRESPONSE" => list(proxy_rule()),
-        "PreDNS" => list(proxy_rule()),
-        "PreREQUEST" => list(proxy_rule())
-      }
-      
-  """
-  @type proxy_rules_by_request_phase() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       proxy_settings() :: %{
+        "CertificateArn" => String.t() | atom(),
+        "DomainName" => String.t() | atom(),
         "ListenerProperties" => list(listener_property())
       }
       
@@ -3242,6 +2628,7 @@ defmodule AWS.NetworkFirewall do
       server_certificate_configuration() :: %{
         "CertificateAuthorityArn" => String.t() | atom(),
         "CheckCertificateRevocationStatus" => check_certificate_revocation_status_actions(),
+        "DefaultDecryptionBehavior" => list(any()),
         "Scopes" => list(server_certificate_scope()),
         "ServerCertificates" => list(server_certificate())
       }
@@ -3254,8 +2641,11 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       server_certificate_scope() :: %{
+        "DecryptionAction" => list(any()),
+        "DeploymentMode" => list(any()),
         "DestinationPorts" => list(port_range()),
         "Destinations" => list(address()),
+        "DomainMatch" => domain_match(),
         "Protocols" => list(integer()),
         "SourcePorts" => list(port_range()),
         "Sources" => list(address())
@@ -3647,18 +3037,6 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
-      tls_intercept_properties_request() :: %{
-        "PcaArn" => String.t() | atom(),
-        "TlsInterceptMode" => list(any())
-      }
-      
-  """
-  @type tls_intercept_properties_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       transit_gateway_attachment_sync_state() :: %{
         "AttachmentId" => String.t() | atom(),
         "StatusMessage" => String.t() | atom(),
@@ -4004,148 +3382,6 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
-      update_proxy_configuration_request() :: %{
-        optional("ProxyConfigurationArn") => String.t() | atom(),
-        optional("ProxyConfigurationName") => String.t() | atom(),
-        required("DefaultRulePhaseActions") => proxy_config_default_rule_phase_actions_request(),
-        required("UpdateToken") => String.t() | atom()
-      }
-      
-  """
-  @type update_proxy_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_proxy_configuration_response() :: %{
-        "ProxyConfiguration" => proxy_configuration(),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type update_proxy_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_proxy_request() :: %{
-        optional("ListenerPropertiesToAdd") => list(listener_property_request()),
-        optional("ListenerPropertiesToRemove") => list(listener_property_request()),
-        optional("ProxyArn") => String.t() | atom(),
-        optional("ProxyName") => String.t() | atom(),
-        optional("TlsInterceptProperties") => tls_intercept_properties_request(),
-        required("NatGatewayId") => String.t() | atom(),
-        required("UpdateToken") => String.t() | atom()
-      }
-      
-  """
-  @type update_proxy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_proxy_response() :: %{
-        "Proxy" => proxy(),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type update_proxy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_proxy_rule_group_priorities_request() :: %{
-        optional("ProxyConfigurationArn") => String.t() | atom(),
-        optional("ProxyConfigurationName") => String.t() | atom(),
-        required("RuleGroups") => list(proxy_rule_group_priority()),
-        required("UpdateToken") => String.t() | atom()
-      }
-      
-  """
-  @type update_proxy_rule_group_priorities_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_proxy_rule_group_priorities_response() :: %{
-        "ProxyRuleGroups" => list(proxy_rule_group_priority_result()),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type update_proxy_rule_group_priorities_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_proxy_rule_priorities_request() :: %{
-        optional("ProxyRuleGroupArn") => String.t() | atom(),
-        optional("ProxyRuleGroupName") => String.t() | atom(),
-        required("RuleGroupRequestPhase") => list(any()),
-        required("Rules") => list(proxy_rule_priority()),
-        required("UpdateToken") => String.t() | atom()
-      }
-      
-  """
-  @type update_proxy_rule_priorities_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_proxy_rule_priorities_response() :: %{
-        "ProxyRuleGroupArn" => String.t() | atom(),
-        "ProxyRuleGroupName" => String.t() | atom(),
-        "RuleGroupRequestPhase" => list(any()),
-        "Rules" => list(proxy_rule_priority()),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type update_proxy_rule_priorities_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_proxy_rule_request() :: %{
-        optional("Action") => list(any()),
-        optional("AddConditions") => list(proxy_rule_condition()),
-        optional("Description") => String.t() | atom(),
-        optional("ProxyRuleGroupArn") => String.t() | atom(),
-        optional("ProxyRuleGroupName") => String.t() | atom(),
-        optional("RemoveConditions") => list(proxy_rule_condition()),
-        required("ProxyRuleName") => String.t() | atom(),
-        required("UpdateToken") => String.t() | atom()
-      }
-      
-  """
-  @type update_proxy_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_proxy_rule_response() :: %{
-        "ProxyRule" => proxy_rule(),
-        "RemovedConditions" => list(proxy_rule_condition()),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type update_proxy_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       update_proxy_settings_request() :: %{
         optional("FirewallArn") => String.t() | atom(),
         optional("FirewallName") => String.t() | atom(),
@@ -4346,12 +3582,6 @@ defmodule AWS.NetworkFirewall do
           | internal_server_error()
           | insufficient_capacity_exception()
 
-  @type attach_rule_groups_to_proxy_configuration_errors() ::
-          throttling_exception()
-          | resource_not_found_exception()
-          | invalid_request_exception()
-          | internal_server_error()
-
   @type create_container_association_errors() ::
           throttling_exception()
           | limit_exceeded_exception()
@@ -4382,30 +3612,6 @@ defmodule AWS.NetworkFirewall do
           | invalid_operation_exception()
           | internal_server_error()
           | insufficient_capacity_exception()
-
-  @type create_proxy_errors() ::
-          unsupported_operation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
-          | limit_exceeded_exception()
-          | invalid_request_exception()
-          | internal_server_error()
-
-  @type create_proxy_configuration_errors() ::
-          throttling_exception()
-          | resource_not_found_exception()
-          | limit_exceeded_exception()
-          | invalid_request_exception()
-          | internal_server_error()
-
-  @type create_proxy_rule_group_errors() ::
-          throttling_exception()
-          | limit_exceeded_exception()
-          | invalid_request_exception()
-          | internal_server_error()
-
-  @type create_proxy_rules_errors() ::
-          throttling_exception() | invalid_request_exception() | internal_server_error()
 
   @type create_rule_group_errors() ::
           throttling_exception()
@@ -4470,24 +3676,6 @@ defmodule AWS.NetworkFirewall do
   @type delete_proxy_errors() ::
           unsupported_operation_exception()
           | throttling_exception()
-          | resource_not_found_exception()
-          | invalid_request_exception()
-          | internal_server_error()
-
-  @type delete_proxy_configuration_errors() ::
-          throttling_exception()
-          | resource_not_found_exception()
-          | invalid_request_exception()
-          | internal_server_error()
-
-  @type delete_proxy_rule_group_errors() ::
-          throttling_exception()
-          | resource_not_found_exception()
-          | invalid_request_exception()
-          | internal_server_error()
-
-  @type delete_proxy_rules_errors() ::
-          throttling_exception()
           | resource_not_found_exception()
           | invalid_request_exception()
           | internal_server_error()
@@ -4569,24 +3757,6 @@ defmodule AWS.NetworkFirewall do
           | invalid_request_exception()
           | internal_server_error()
 
-  @type describe_proxy_configuration_errors() ::
-          throttling_exception()
-          | resource_not_found_exception()
-          | invalid_request_exception()
-          | internal_server_error()
-
-  @type describe_proxy_rule_errors() ::
-          throttling_exception()
-          | resource_not_found_exception()
-          | invalid_request_exception()
-          | internal_server_error()
-
-  @type describe_proxy_rule_group_errors() ::
-          throttling_exception()
-          | resource_not_found_exception()
-          | invalid_request_exception()
-          | internal_server_error()
-
   @type describe_resource_policy_errors() ::
           throttling_exception()
           | resource_not_found_exception()
@@ -4618,12 +3788,6 @@ defmodule AWS.NetworkFirewall do
           | internal_server_error()
 
   @type describe_vpc_endpoint_association_errors() ::
-          throttling_exception()
-          | resource_not_found_exception()
-          | invalid_request_exception()
-          | internal_server_error()
-
-  @type detach_rule_groups_from_proxy_configuration_errors() ::
           throttling_exception()
           | resource_not_found_exception()
           | invalid_request_exception()
@@ -4676,21 +3840,6 @@ defmodule AWS.NetworkFirewall do
           | internal_server_error()
 
   @type list_flow_operations_errors() ::
-          throttling_exception()
-          | resource_not_found_exception()
-          | invalid_request_exception()
-          | internal_server_error()
-
-  @type list_proxies_errors() ::
-          throttling_exception() | invalid_request_exception() | internal_server_error()
-
-  @type list_proxy_configurations_errors() ::
-          throttling_exception()
-          | resource_not_found_exception()
-          | invalid_request_exception()
-          | internal_server_error()
-
-  @type list_proxy_rule_groups_errors() ::
           throttling_exception()
           | resource_not_found_exception()
           | invalid_request_exception()
@@ -4829,37 +3978,6 @@ defmodule AWS.NetworkFirewall do
           | resource_not_found_exception()
           | log_destination_permission_exception()
           | invalid_token_exception()
-          | invalid_request_exception()
-          | internal_server_error()
-
-  @type update_proxy_errors() ::
-          unsupported_operation_exception()
-          | throttling_exception()
-          | resource_not_found_exception()
-          | invalid_request_exception()
-          | internal_server_error()
-
-  @type update_proxy_configuration_errors() ::
-          throttling_exception()
-          | resource_not_found_exception()
-          | invalid_request_exception()
-          | internal_server_error()
-
-  @type update_proxy_rule_errors() ::
-          throttling_exception()
-          | resource_not_found_exception()
-          | invalid_request_exception()
-          | internal_server_error()
-
-  @type update_proxy_rule_group_priorities_errors() ::
-          throttling_exception()
-          | resource_not_found_exception()
-          | invalid_request_exception()
-          | internal_server_error()
-
-  @type update_proxy_rule_priorities_errors() ::
-          throttling_exception()
-          | resource_not_found_exception()
           | invalid_request_exception()
           | internal_server_error()
 
@@ -5009,6 +4127,16 @@ defmodule AWS.NetworkFirewall do
   subnet's Availability Zone, to redirect the traffic that's coming into and going
   out of the
   zone through the firewall endpoint.
+
+  For a proxy mode firewall, use this operation to add Availability Zones to the
+  firewall. For each subnet, specify a NAT gateway in `NatGatewayCreateMappings`
+  in the same Availability Zone. You can't add an Availability Zone that the
+  firewall already uses. The firewall keeps working in its other Availability
+  Zones while Network Firewall sets up the new one. If Network Firewall can't set
+  up the new Availability Zone, it removes the Availability Zone from the
+  firewall. It also deletes the NAT gateway that it created there. The
+  Availability Zone's `Attachment` status shows the reason. You can then add the
+  Availability Zone again.
   """
   @spec associate_subnets(map(), associate_subnets_request(), list()) ::
           {:ok, associate_subnets_response(), any()}
@@ -5020,31 +4148,6 @@ defmodule AWS.NetworkFirewall do
       metadata()
 
     Request.request_post(client, meta, "AssociateSubnets", input, options)
-  end
-
-  @doc """
-  Attaches `ProxyRuleGroup` resources to a `ProxyConfiguration`
-
-  A Proxy Configuration defines the monitoring and protection behavior for a
-  Proxy.
-
-  The details of the behavior are defined in the rule groups that you add to your
-  configuration.
-  """
-  @spec attach_rule_groups_to_proxy_configuration(
-          map(),
-          attach_rule_groups_to_proxy_configuration_request(),
-          list()
-        ) ::
-          {:ok, attach_rule_groups_to_proxy_configuration_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, attach_rule_groups_to_proxy_configuration_errors()}
-  def attach_rule_groups_to_proxy_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
-
-    Request.request_post(client, meta, "AttachRuleGroupsToProxyConfiguration", input, options)
   end
 
   @doc """
@@ -5091,6 +4194,16 @@ defmodule AWS.NetworkFirewall do
 
   To generate a report on the last 30 days of traffic monitored by a firewall, use
   `StartAnalysisReport`.
+
+  To create a proxy mode firewall, specify `VpcEndpoint` and
+  `NatGatewayCreateMappings` instead of `VpcId` and `SubnetMappings`. A proxy mode
+  firewall is an explicit forward proxy. Your clients send HTTP and HTTPS proxy
+  requests to the firewall's proxy DNS name, which `DescribeFirewall` returns in
+  each Availability Zone's `Attachment`. The firewall evaluates proxy traffic with
+  the stateful rules in its firewall policy, and sends allowed traffic out through
+  the NAT gateway in the same Availability Zone. Your clients don't need route
+  table changes. In each Availability Zone, the firewall has one endpoint and one
+  NAT gateway, which Network Firewall creates for you.
   """
   @spec create_firewall(map(), create_firewall_request(), list()) ::
           {:ok, create_firewall_response(), any()}
@@ -5144,106 +4257,6 @@ defmodule AWS.NetworkFirewall do
       metadata()
 
     Request.request_post(client, meta, "CreateFirewallPolicyV2", input, options)
-  end
-
-  @doc """
-  Creates an Network Firewall `Proxy`
-
-  Attaches a Proxy configuration to a NAT Gateway.
-
-  To manage a proxy's tags, use the standard Amazon Web Services resource tagging
-  operations, `ListTagsForResource`, `TagResource`, and `UntagResource`.
-
-  To retrieve information about proxies, use `ListProxies` and `DescribeProxy`.
-  """
-  @spec create_proxy(map(), create_proxy_request(), list()) ::
-          {:ok, create_proxy_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, create_proxy_errors()}
-  def create_proxy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
-
-    Request.request_post(client, meta, "CreateProxy", input, options)
-  end
-
-  @doc """
-  Creates an Network Firewall `ProxyConfiguration`
-
-  A Proxy Configuration defines the monitoring and protection behavior for a
-  Proxy.
-
-  The details of the behavior are defined in the rule groups that you add to your
-  configuration.
-
-  To manage a proxy configuration's tags, use the standard Amazon Web Services
-  resource tagging operations, `ListTagsForResource`, `TagResource`, and
-  `UntagResource`.
-
-  To retrieve information about proxies, use `ListProxyConfigurations` and
-  `DescribeProxyConfiguration`.
-  """
-  @spec create_proxy_configuration(map(), create_proxy_configuration_request(), list()) ::
-          {:ok, create_proxy_configuration_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, create_proxy_configuration_errors()}
-  def create_proxy_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
-
-    Request.request_post(client, meta, "CreateProxyConfiguration", input, options)
-  end
-
-  @doc """
-  Creates an Network Firewall `ProxyRuleGroup`
-
-  Collections of related proxy filtering rules.
-
-  Rule groups help you manage and reuse sets of rules across multiple proxy
-  configurations.
-
-  To manage a proxy rule group's tags, use the standard Amazon Web Services
-  resource tagging operations, `ListTagsForResource`, `TagResource`, and
-  `UntagResource`.
-
-  To retrieve information about proxy rule groups, use `ListProxyRuleGroups` and
-  `DescribeProxyRuleGroup`.
-
-  To retrieve information about individual proxy rules, use
-  `DescribeProxyRuleGroup` and `DescribeProxyRule`.
-  """
-  @spec create_proxy_rule_group(map(), create_proxy_rule_group_request(), list()) ::
-          {:ok, create_proxy_rule_group_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, create_proxy_rule_group_errors()}
-  def create_proxy_rule_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
-
-    Request.request_post(client, meta, "CreateProxyRuleGroup", input, options)
-  end
-
-  @doc """
-  Creates Network Firewall `ProxyRule` resources.
-
-  Attaches new proxy rule(s) to an existing proxy rule group.
-
-  To retrieve information about individual proxy rules, use
-  `DescribeProxyRuleGroup` and `DescribeProxyRule`.
-  """
-  @spec create_proxy_rules(map(), create_proxy_rules_request(), list()) ::
-          {:ok, create_proxy_rules_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, create_proxy_rules_errors()}
-  def create_proxy_rules(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
-
-    Request.request_post(client, meta, "CreateProxyRules", input, options)
   end
 
   @doc """
@@ -5370,6 +4383,10 @@ defmodule AWS.NetworkFirewall do
   To delete a firewall, remove the delete protection if you need to using
   `UpdateFirewallDeleteProtection`,
   then delete the firewall by calling `DeleteFirewall`.
+
+  Deleting a proxy mode firewall detaches its NAT gateways. To also delete the NAT
+  gateways that Network Firewall created for the firewall, specify
+  `DeleteAssociatedNatGateways`.
   """
   @spec delete_firewall(map(), delete_firewall_request(), list()) ::
           {:ok, delete_firewall_response(), any()}
@@ -5448,7 +4465,7 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
-  Deletes the specified `Proxy`.
+  Deletes the specified proxy.
 
   Detaches a Proxy configuration from a NAT Gateway.
   """
@@ -5462,53 +4479,6 @@ defmodule AWS.NetworkFirewall do
       metadata()
 
     Request.request_post(client, meta, "DeleteProxy", input, options)
-  end
-
-  @doc """
-  Deletes the specified `ProxyConfiguration`.
-  """
-  @spec delete_proxy_configuration(map(), delete_proxy_configuration_request(), list()) ::
-          {:ok, delete_proxy_configuration_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, delete_proxy_configuration_errors()}
-  def delete_proxy_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
-
-    Request.request_post(client, meta, "DeleteProxyConfiguration", input, options)
-  end
-
-  @doc """
-  Deletes the specified `ProxyRuleGroup`.
-  """
-  @spec delete_proxy_rule_group(map(), delete_proxy_rule_group_request(), list()) ::
-          {:ok, delete_proxy_rule_group_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, delete_proxy_rule_group_errors()}
-  def delete_proxy_rule_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
-
-    Request.request_post(client, meta, "DeleteProxyRuleGroup", input, options)
-  end
-
-  @doc """
-  Deletes the specified `ProxyRule`(s).
-
-  currently attached to a `ProxyRuleGroup`
-  """
-  @spec delete_proxy_rules(map(), delete_proxy_rules_request(), list()) ::
-          {:ok, delete_proxy_rules_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, delete_proxy_rules_errors()}
-  def delete_proxy_rules(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
-
-    Request.request_post(client, meta, "DeleteProxyRules", input, options)
   end
 
   @doc """
@@ -5708,52 +4678,6 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
-  Returns the data objects for the specified proxy configuration.
-  """
-  @spec describe_proxy_configuration(map(), describe_proxy_configuration_request(), list()) ::
-          {:ok, describe_proxy_configuration_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, describe_proxy_configuration_errors()}
-  def describe_proxy_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
-
-    Request.request_post(client, meta, "DescribeProxyConfiguration", input, options)
-  end
-
-  @doc """
-  Returns the data objects for the specified proxy configuration for the specified
-  proxy rule group.
-  """
-  @spec describe_proxy_rule(map(), describe_proxy_rule_request(), list()) ::
-          {:ok, describe_proxy_rule_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, describe_proxy_rule_errors()}
-  def describe_proxy_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
-
-    Request.request_post(client, meta, "DescribeProxyRule", input, options)
-  end
-
-  @doc """
-  Returns the data objects for the specified proxy rule group.
-  """
-  @spec describe_proxy_rule_group(map(), describe_proxy_rule_group_request(), list()) ::
-          {:ok, describe_proxy_rule_group_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, describe_proxy_rule_group_errors()}
-  def describe_proxy_rule_group(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
-
-    Request.request_post(client, meta, "DescribeProxyRuleGroup", input, options)
-  end
-
-  @doc """
   Retrieves a resource policy that you created in a `PutResourcePolicy` request.
   """
   @spec describe_resource_policy(map(), describe_resource_policy_request(), list()) ::
@@ -5865,31 +4789,6 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
-  Detaches `ProxyRuleGroup` resources from a `ProxyConfiguration`
-
-  A Proxy Configuration defines the monitoring and protection behavior for a
-  Proxy.
-
-  The details of the behavior are defined in the rule groups that you add to your
-  configuration.
-  """
-  @spec detach_rule_groups_from_proxy_configuration(
-          map(),
-          detach_rule_groups_from_proxy_configuration_request(),
-          list()
-        ) ::
-          {:ok, detach_rule_groups_from_proxy_configuration_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, detach_rule_groups_from_proxy_configuration_errors()}
-  def detach_rule_groups_from_proxy_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
-
-    Request.request_post(client, meta, "DetachRuleGroupsFromProxyConfiguration", input, options)
-  end
-
-  @doc """
   Removes the specified Availability Zone associations from a transit
   gateway-attached firewall.
 
@@ -5922,6 +4821,12 @@ defmodule AWS.NetworkFirewall do
   firewall endpoints from the subnets and removes any network filtering
   protections that the endpoints
   were providing.
+
+  For a proxy mode firewall, this also removes the firewall's proxy DNS record in
+  the Availability Zone and detaches the Availability Zone's NAT gateway from the
+  firewall. Network Firewall keeps the NAT gateway. You can't remove the
+  firewall's last Availability Zone. To do that, delete the firewall. If a VPC
+  endpoint association exists in the Availability Zone, delete it first.
   """
   @spec disassociate_subnets(map(), disassociate_subnets_request(), list()) ::
           {:ok, disassociate_subnets_response(), any()}
@@ -6094,65 +4999,6 @@ defmodule AWS.NetworkFirewall do
       metadata()
 
     Request.request_post(client, meta, "ListFlowOperations", input, options)
-  end
-
-  @doc """
-  Retrieves the metadata for the proxies that you have defined.
-
-  Depending on
-  your setting for max results and the number of proxies, a single call might not
-  return the full list.
-  """
-  @spec list_proxies(map(), list_proxies_request(), list()) ::
-          {:ok, list_proxies_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, list_proxies_errors()}
-  def list_proxies(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
-
-    Request.request_post(client, meta, "ListProxies", input, options)
-  end
-
-  @doc """
-  Retrieves the metadata for the proxy configuration that you have defined.
-
-  Depending on
-  your setting for max results and the number of proxy configurations, a single
-  call might not
-  return the full list.
-  """
-  @spec list_proxy_configurations(map(), list_proxy_configurations_request(), list()) ::
-          {:ok, list_proxy_configurations_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, list_proxy_configurations_errors()}
-  def list_proxy_configurations(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
-
-    Request.request_post(client, meta, "ListProxyConfigurations", input, options)
-  end
-
-  @doc """
-  Retrieves the metadata for the proxy rule groups that you have defined.
-
-  Depending on
-  your setting for max results and the number of proxy rule groups, a single call
-  might not
-  return the full list.
-  """
-  @spec list_proxy_rule_groups(map(), list_proxy_rule_groups_request(), list()) ::
-          {:ok, list_proxy_rule_groups_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, list_proxy_rule_groups_errors()}
-  def list_proxy_rule_groups(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
-
-    Request.request_post(client, meta, "ListProxyRuleGroups", input, options)
   end
 
   @doc """
@@ -6688,90 +5534,16 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
-  Updates the properties of the specified proxy.
-  """
-  @spec update_proxy(map(), update_proxy_request(), list()) ::
-          {:ok, update_proxy_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, update_proxy_errors()}
-  def update_proxy(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
+  Modifies the proxy settings of a proxy mode firewall.
 
-    Request.request_post(client, meta, "UpdateProxy", input, options)
-  end
+  Use this operation to change the ports and protocols on which the firewall's
+  proxy listens for traffic. The new listeners take effect without recreating the
+  firewall.
 
-  @doc """
-  Updates the properties of the specified proxy configuration.
-  """
-  @spec update_proxy_configuration(map(), update_proxy_configuration_request(), list()) ::
-          {:ok, update_proxy_configuration_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, update_proxy_configuration_errors()}
-  def update_proxy_configuration(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
-
-    Request.request_post(client, meta, "UpdateProxyConfiguration", input, options)
-  end
-
-  @doc """
-  Updates the properties of the specified proxy rule.
-  """
-  @spec update_proxy_rule(map(), update_proxy_rule_request(), list()) ::
-          {:ok, update_proxy_rule_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, update_proxy_rule_errors()}
-  def update_proxy_rule(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
-
-    Request.request_post(client, meta, "UpdateProxyRule", input, options)
-  end
-
-  @doc """
-  Updates proxy rule group priorities within a proxy configuration.
-  """
-  @spec update_proxy_rule_group_priorities(
-          map(),
-          update_proxy_rule_group_priorities_request(),
-          list()
-        ) ::
-          {:ok, update_proxy_rule_group_priorities_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, update_proxy_rule_group_priorities_errors()}
-  def update_proxy_rule_group_priorities(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
-
-    Request.request_post(client, meta, "UpdateProxyRuleGroupPriorities", input, options)
-  end
-
-  @doc """
-  Updates proxy rule priorities within a proxy rule group.
-  """
-  @spec update_proxy_rule_priorities(map(), update_proxy_rule_priorities_request(), list()) ::
-          {:ok, update_proxy_rule_priorities_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, update_proxy_rule_priorities_errors()}
-  def update_proxy_rule_priorities(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
-
-    Request.request_post(client, meta, "UpdateProxyRulePriorities", input, options)
-  end
-
-  @doc """
-  Modifies the proxy listener configuration of a proxy mode firewall.
-
-  Proxy mode firewalls are created with `NoSourcePreservation` set to `TRUE`. Use
-  this operation to change the ports and protocols on which the firewall's proxy
-  listens for traffic.
+  The `ProxySettings` that you provide replace the firewall's current proxy
+  settings. If you created the firewall with your own `CertificateArn` and
+  `DomainName`, you must specify the same values in every request. You can't
+  change or remove them.
   """
   @spec update_proxy_settings(map(), update_proxy_settings_request(), list()) ::
           {:ok, update_proxy_settings_response(), any()}

@@ -2204,6 +2204,8 @@ defmodule AWS.SageMaker do
       
       cluster_auto_patch_config() :: %{
         "DeploymentConfig" => deployment_configuration(),
+        "DrainPolicy" => cluster_drain_policy(),
+        "IdleWaitWindowInSeconds" => integer(),
         "PatchSchedule" => cluster_patch_schedule(),
         "PatchingStrategy" => list(any())
       }
@@ -2219,6 +2221,8 @@ defmodule AWS.SageMaker do
         "CurrentPatchSchedule" => cluster_patch_schedule_details(),
         "DeploymentConfig" => deployment_configuration(),
         "DesiredPatchSchedule" => cluster_patch_schedule_details(),
+        "DrainPolicy" => cluster_drain_policy(),
+        "IdleWaitWindowInSeconds" => integer(),
         "PatchingStrategy" => list(any())
       }
       
@@ -2267,6 +2271,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      cluster_drain_policy() :: %{
+        "DrainTimeoutInSeconds" => integer(),
+        "OnDrainTimeout" => list(any())
+      }
+      
+  """
+  @type cluster_drain_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       cluster_ebs_volume_config() :: %{
         "RootVolume" => boolean(),
         "VolumeKmsKeyId" => String.t() | atom(),
@@ -2290,6 +2306,7 @@ defmodule AWS.SageMaker do
         "EventTime" => non_neg_integer(),
         "InstanceGroupName" => String.t() | atom(),
         "InstanceId" => [String.t() | atom()],
+        "OperationId" => String.t() | atom(),
         "ResourceType" => list(any())
       }
       
@@ -2309,6 +2326,7 @@ defmodule AWS.SageMaker do
         "EventTime" => non_neg_integer(),
         "InstanceGroupName" => String.t() | atom(),
         "InstanceId" => [String.t() | atom()],
+        "OperationId" => String.t() | atom(),
         "ResourceType" => list(any())
       }
       
@@ -2635,6 +2653,48 @@ defmodule AWS.SageMaker do
       
   """
   @type cluster_on_demand_options() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_operation_scaling_configuration() :: %{
+        "CurrentCount" => integer(),
+        "MinCount" => integer(),
+        "TargetCount" => integer()
+      }
+      
+  """
+  @type cluster_operation_scaling_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_operation_scaling_details() :: %{
+        "Desired" => cluster_operation_scaling_configuration(),
+        "InstanceGroupName" => [String.t() | atom()],
+        "Original" => cluster_operation_scaling_configuration(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type cluster_operation_scaling_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_operation_summary() :: %{
+        "ClusterArn" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "OperationId" => String.t() | atom(),
+        "Status" => list(any()),
+        "Type" => list(any())
+      }
+      
+  """
+  @type cluster_operation_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7058,6 +7118,7 @@ defmodule AWS.SageMaker do
       
       describe_cluster_extension_response() :: %{
         "ExtensionDetails" => extension_details(),
+        "Health" => extension_health(),
         "NodeSummary" => extension_node_summary()
       }
       
@@ -7087,6 +7148,35 @@ defmodule AWS.SageMaker do
       
   """
   @type describe_cluster_node_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_cluster_operation_request() :: %{
+        required("ClusterName") => String.t() | atom(),
+        required("OperationId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_cluster_operation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_cluster_operation_response() :: %{
+        "ClusterArn" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "DeepHealthCheckDetails" => list(instance_group_health_check_configuration()),
+        "OperationId" => String.t() | atom(),
+        "ScalingDetails" => list(cluster_operation_scaling_details()),
+        "Status" => list(any()),
+        "Type" => list(any())
+      }
+      
+  """
+  @type describe_cluster_operation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10307,6 +10397,30 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      extension_health() :: %{
+        "Issues" => list(extension_health_issue())
+      }
+      
+  """
+  @type extension_health() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      extension_health_issue() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom(),
+        "NodeCount" => integer()
+      }
+      
+  """
+  @type extension_health_issue() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       extension_node_summary() :: %{
         "ActiveCount" => integer(),
         "TotalCount" => integer()
@@ -10329,6 +10443,17 @@ defmodule AWS.SageMaker do
       
   """
   @type extension_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      extension_version_summary() :: %{
+        "ExtensionVersion" => String.t() | atom()
+      }
+      
+  """
+  @type extension_version_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12799,6 +12924,7 @@ defmodule AWS.SageMaker do
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
         optional("NodeId") => String.t() | atom(),
+        optional("OperationId") => String.t() | atom(),
         optional("ResourceType") => list(any()),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any()),
@@ -12819,6 +12945,31 @@ defmodule AWS.SageMaker do
       
   """
   @type list_cluster_events_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_cluster_extension_versions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ExtensionName") => String.t() | atom()
+      }
+      
+  """
+  @type list_cluster_extension_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_cluster_extension_versions_response() :: %{
+        "ExtensionVersions" => list(extension_version_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_cluster_extension_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12877,6 +13028,37 @@ defmodule AWS.SageMaker do
       
   """
   @type list_cluster_nodes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_cluster_operations_request() :: %{
+        optional("CreationTimeAfter") => non_neg_integer(),
+        optional("CreationTimeBefore") => non_neg_integer(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("Status") => list(any()),
+        optional("Type") => list(any()),
+        required("ClusterName") => String.t() | atom()
+      }
+      
+  """
+  @type list_cluster_operations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_cluster_operations_response() :: %{
+        "ClusterOperationSummaries" => list(cluster_operation_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_cluster_operations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -22671,6 +22853,8 @@ defmodule AWS.SageMaker do
 
   @type describe_cluster_node_errors() :: resource_not_found()
 
+  @type describe_cluster_operation_errors() :: resource_not_found()
+
   @type describe_cluster_scheduler_config_errors() :: resource_not_found()
 
   @type describe_compilation_job_errors() :: resource_not_found()
@@ -22801,6 +22985,8 @@ defmodule AWS.SageMaker do
   @type list_cluster_extensions_errors() :: resource_not_found()
 
   @type list_cluster_nodes_errors() :: resource_not_found()
+
+  @type list_cluster_operations_errors() :: resource_not_found()
 
   @type list_contexts_errors() :: resource_not_found()
 
@@ -26693,7 +26879,8 @@ defmodule AWS.SageMaker do
 
   The information includes the extension's version, configuration, and status, and
   a summary of how many cluster nodes are running the current version and
-  configuration of the extension.
+  configuration of the extension. If the extension has problems on some nodes, the
+  response also lists the problems and how many nodes each one affects.
   """
   @spec describe_cluster_extension(map(), describe_cluster_extension_request(), list()) ::
           {:ok, describe_cluster_extension_response(), any()}
@@ -26721,6 +26908,25 @@ defmodule AWS.SageMaker do
       metadata()
 
     Request.request_post(client, meta, "DescribeClusterNode", input, options)
+  end
+
+  @doc """
+  Retrieves detailed information about a specific operation for a given HyperPod
+  cluster, such as a scaling operation or a deep health check.
+
+  Use the `OperationId` returned by the `ListClusterOperations` operation to
+  identify the operation to describe.
+  """
+  @spec describe_cluster_operation(map(), describe_cluster_operation_request(), list()) ::
+          {:ok, describe_cluster_operation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_cluster_operation_errors()}
+  def describe_cluster_operation(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeClusterOperation", input, options)
   end
 
   @doc """
@@ -28263,6 +28469,29 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Lists the versions of an extension that you can install on a SageMaker HyperPod
+  cluster, from the highest version to the lowest.
+
+  Use a version from this list as the `ExtensionVersion` in
+  `CreateClusterExtension` or `UpdateClusterExtension`.
+
+  The list contains only versions that you can install. Versions that SageMaker
+  HyperPod no longer offers for new installations don't appear. If SageMaker
+  HyperPod doesn't offer an extension with the name that you specify, the response
+  contains an empty list.
+  """
+  @spec list_cluster_extension_versions(map(), list_cluster_extension_versions_request(), list()) ::
+          {:ok, list_cluster_extension_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def list_cluster_extension_versions(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListClusterExtensionVersions", input, options)
+  end
+
+  @doc """
   Lists the extensions installed on a SageMaker HyperPod cluster.
   """
   @spec list_cluster_extensions(map(), list_cluster_extensions_request(), list()) ::
@@ -28291,6 +28520,24 @@ defmodule AWS.SageMaker do
       metadata()
 
     Request.request_post(client, meta, "ListClusterNodes", input, options)
+  end
+
+  @doc """
+  Retrieves a list of operation summaries for a specified HyperPod cluster, such
+  as scaling operations and deep health checks.
+
+  The operation supports filtering, sorting, and pagination of results.
+  """
+  @spec list_cluster_operations(map(), list_cluster_operations_request(), list()) ::
+          {:ok, list_cluster_operations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_cluster_operations_errors()}
+  def list_cluster_operations(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListClusterOperations", input, options)
   end
 
   @doc """
@@ -30325,6 +30572,11 @@ defmodule AWS.SageMaker do
     * **Version:** You can update to a later version. You can't update
   to an earlier version. To use an earlier version, delete the extension and
   create it again with that version.
+
+  To retry the operation on nodes where it failed, fix the cause that
+  `DescribeClusterExtension` reports in `Health`, and then send an
+  `UpdateClusterExtension` request that doesn't change the version or the
+  configuration.
 
   You can't update an extension while it is being deleted.
   """

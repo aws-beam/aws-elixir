@@ -1,4 +1,8 @@
 # Change Log
+
+## [v1.0.16] - 2026-11-16
+- fix: Response header parameters dropped by case-sensitive matching
+
 ## [v1.0.15] - 2026-08-07
 - Fix codegen generating faulty code
 

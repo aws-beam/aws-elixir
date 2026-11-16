@@ -97,6 +97,36 @@ defmodule AWS.ProtocolTests.RestJSONTest do
     end
   end
 
+  describe "response header parameters" do
+    test "mapped ignoring case", %{client: client, metadata: metadata} do
+      bypass = Bypass.open()
+      client = %{client | port: bypass.port}
+
+      Bypass.expect(bypass, fn conn ->
+        conn = Plug.Conn.put_resp_header(conn, "blobheader", "aGVsbG8=")
+
+        Plug.Conn.resp(conn, 200, "{}")
+      end)
+
+      {:ok, body, _} =
+        Request.request_rest(
+          client,
+          metadata,
+          :post,
+          "",
+          %{},
+          [],
+          %{},
+          [response_header_parameters: [{"BlobHeader", "BlobHeader"}]],
+          200
+        )
+
+      assert body == %{"BlobHeader" => "aGVsbG8="}
+
+      Bypass.down(bypass)
+    end
+  end
+
   describe "request with body without encoding" do
     test "case #1", %{client: client, metadata: metadata} do
       file = File.read!("./test/fixtures/sample.png")

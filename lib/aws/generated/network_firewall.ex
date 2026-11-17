@@ -423,6 +423,53 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      context_filters() :: %{
+        "Region" => String.t() | atom(),
+        "ResourceType" => list(any())
+      }
+      
+  """
+  @type context_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      context_set() :: %{
+        "Definition" => list(String.t() | atom())
+      }
+      
+  """
+  @type context_set() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      context_store() :: %{
+        "ContextStoreId" => String.t() | atom(),
+        "ContextStoreOwnerAccountId" => String.t() | atom()
+      }
+      
+  """
+  @type context_store() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      context_store_sync_state() :: %{
+        "StatusMessage" => String.t() | atom(),
+        "SyncStatus" => list(any())
+      }
+      
+  """
+  @type context_store_sync_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_container_association_request() :: %{
         optional("Description") => String.t() | atom(),
         optional("Tags") => list(tag()),
@@ -1393,6 +1440,8 @@ defmodule AWS.NetworkFirewall do
       firewall() :: %{
         "AvailabilityZoneChangeProtection" => boolean(),
         "AvailabilityZoneMappings" => list(availability_zone_mapping()),
+        "ContextStoreId" => String.t() | atom(),
+        "ContextStoreOwnerAccountId" => String.t() | atom(),
         "DeleteProtection" => boolean(),
         "Description" => String.t() | atom(),
         "EnabledAnalysisTypes" => list(list(any())()),
@@ -1624,6 +1673,7 @@ defmodule AWS.NetworkFirewall do
       firewall_status() :: %{
         "CapacityUsageSummary" => capacity_usage_summary(),
         "ConfigurationSyncStateSummary" => list(any()),
+        "ContextStoreSyncState" => context_store_sync_state(),
         "Status" => list(any()),
         "SyncStates" => map(),
         "TransitGatewayAttachmentSyncState" => transit_gateway_attachment_sync_state()
@@ -1973,6 +2023,30 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      list_context_stores_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_context_stores_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_context_stores_response() :: %{
+        "ContextStores" => list(context_store()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_context_stores_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_firewall_policies_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
@@ -2110,6 +2184,32 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type list_flow_operations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resources_in_context_store_request() :: %{
+        optional("Filters") => context_filters(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ContextStoreId") => String.t() | atom()
+      }
+      
+  """
+  @type list_resources_in_context_store_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resources_in_context_store_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ResourceContexts" => list(resource_context())
+      }
+      
+  """
+  @type list_resources_in_context_store_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2436,6 +2536,21 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      resource_context() :: %{
+        "AttachmentType" => String.t() | atom(),
+        "AvailabilityZone" => String.t() | atom(),
+        "ContextType" => list(any()),
+        "PublicId" => String.t() | atom(),
+        "Region" => String.t() | atom()
+      }
+      
+  """
+  @type resource_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       resource_not_found_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -2576,6 +2691,7 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       rule_variables() :: %{
+        "ContextSets" => map(),
         "IPSets" => map(),
         "PortSets" => map()
       }
@@ -3824,6 +3940,9 @@ defmodule AWS.NetworkFirewall do
   @type list_container_associations_errors() ::
           throttling_exception() | invalid_request_exception() | internal_server_error()
 
+  @type list_context_stores_errors() ::
+          throttling_exception() | invalid_request_exception() | internal_server_error()
+
   @type list_firewall_policies_errors() ::
           throttling_exception() | invalid_request_exception() | internal_server_error()
 
@@ -3840,6 +3959,12 @@ defmodule AWS.NetworkFirewall do
           | internal_server_error()
 
   @type list_flow_operations_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | internal_server_error()
+
+  @type list_resources_in_context_store_errors() ::
           throttling_exception()
           | resource_not_found_exception()
           | invalid_request_exception()
@@ -4893,6 +5018,32 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+  Lists the active context stores that are associated with your firewalls.
+
+  A context store records network resources that can be used to evaluate
+  context-aware rules.
+  You can list the following resource types: VPCs, subnets, security groups, and
+  transit gateway attachments.
+
+  When using a small page size, a single call might not return the full list. A
+  response can contain fewer than `MaxResults`
+  results, or none, and still include a `NextToken`. Keep making requests until
+  the response does not include a
+  `NextToken`.
+  """
+  @spec list_context_stores(map(), list_context_stores_request(), list()) ::
+          {:ok, list_context_stores_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_context_stores_errors()}
+  def list_context_stores(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListContextStores", input, options)
+  end
+
+  @doc """
   Retrieves the metadata for the firewall policies that you have defined.
 
   Depending on
@@ -4999,6 +5150,31 @@ defmodule AWS.NetworkFirewall do
       metadata()
 
     Request.request_post(client, meta, "ListFlowOperations", input, options)
+  end
+
+  @doc """
+  Lists the resources that a context store records.
+
+  The context store must be associated with a transit gateway that your firewall
+  is attached to.
+  You can filter the results by Region, resource type, or both.
+
+  When using a small page size, a single call might not return the full list. A
+  response can contain fewer than `MaxResults`
+  results, or none, and still include a `NextToken`. Keep making requests until
+  the response does not include a
+  `NextToken`.
+  """
+  @spec list_resources_in_context_store(map(), list_resources_in_context_store_request(), list()) ::
+          {:ok, list_resources_in_context_store_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_resources_in_context_store_errors()}
+  def list_resources_in_context_store(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListResourcesInContextStore", input, options)
   end
 
   @doc """

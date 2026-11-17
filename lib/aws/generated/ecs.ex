@@ -2647,6 +2647,7 @@ defmodule AWS.ECS do
   ## Example:
       
       gateway_connector() :: %{
+        "deregistrationDelay" => gateway_connector_deregistration_delay(),
         "filters" => gateway_connector_filters(),
         "healthCheck" => gateway_connector_health_check(),
         "portName" => String.t() | atom()
@@ -2654,6 +2655,17 @@ defmodule AWS.ECS do
       
   """
   @type gateway_connector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      gateway_connector_deregistration_delay() :: %{
+        "timeoutSeconds" => integer()
+      }
+      
+  """
+  @type gateway_connector_deregistration_delay() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

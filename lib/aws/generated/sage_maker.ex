@@ -3861,6 +3861,7 @@ defmodule AWS.SageMaker do
       
       create_endpoint_config_input() :: %{
         optional("AsyncInferenceConfig") => async_inference_config(),
+        optional("CrossRegionTrafficConfig") => cross_region_traffic_config(),
         optional("DataCaptureConfig") => data_capture_config(),
         optional("EnableNetworkIsolation") => boolean(),
         optional("ExecutionRoleArn") => String.t() | atom(),
@@ -4278,6 +4279,31 @@ defmodule AWS.SageMaker do
       
   """
   @type create_inference_recommendations_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_inference_router_input() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("InferenceRouterName") => String.t() | atom(),
+        required("RoutingTargets") => list(routing_target())
+      }
+      
+  """
+  @type create_inference_router_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_inference_router_output() :: %{
+        "InferenceRouterArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_inference_router_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5356,6 +5382,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      cross_region_traffic_config() :: %{
+        "MaxCrossRegionPercentPerEndpoint" => integer(),
+        "MaxInvocationsPerSecondPerInstance" => integer()
+      }
+      
+  """
+  @type cross_region_traffic_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       custom_image() :: %{
         "AppImageConfigName" => String.t() | atom(),
         "ImageName" => String.t() | atom(),
@@ -5993,6 +6031,26 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      delete_endpoint_policy_request() :: %{
+        required("EndpointName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_endpoint_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_endpoint_policy_response() :: %{}
+      
+  """
+  @type delete_endpoint_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_experiment_request() :: %{
         required("ExperimentName") => String.t() | atom()
       }
@@ -6185,6 +6243,17 @@ defmodule AWS.SageMaker do
       
   """
   @type delete_inference_experiment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_inference_router_input() :: %{
+        required("InferenceRouterName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_inference_router_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7612,6 +7681,7 @@ defmodule AWS.SageMaker do
       describe_endpoint_config_output() :: %{
         "AsyncInferenceConfig" => async_inference_config(),
         "CreationTime" => non_neg_integer(),
+        "CrossRegionTrafficConfig" => cross_region_traffic_config(),
         "DataCaptureConfig" => data_capture_config(),
         "EnableNetworkIsolation" => boolean(),
         "EndpointConfigArn" => String.t() | atom(),
@@ -7646,6 +7716,7 @@ defmodule AWS.SageMaker do
       describe_endpoint_output() :: %{
         "AsyncInferenceConfig" => async_inference_config(),
         "CreationTime" => non_neg_integer(),
+        "CrossRegionTrafficConfig" => cross_region_traffic_config(),
         "DataCaptureConfig" => data_capture_config_summary(),
         "EndpointArn" => String.t() | atom(),
         "EndpointConfigName" => String.t() | atom(),
@@ -8113,6 +8184,34 @@ defmodule AWS.SageMaker do
       
   """
   @type describe_inference_recommendations_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_inference_router_input() :: %{
+        required("InferenceRouterName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_inference_router_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_inference_router_output() :: %{
+        "CreationTime" => non_neg_integer(),
+        "InferenceRouterArn" => String.t() | atom(),
+        "InferenceRouterName" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "RoutingTargets" => list(routing_target()),
+        "Status" => list(any()),
+        "StatusReason" => String.t() | atom()
+      }
+      
+  """
+  @type describe_inference_router_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9433,6 +9532,18 @@ defmodule AWS.SageMaker do
       
   """
   @type desired_weight_and_capacity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      destination() :: %{
+        "ResourceArn" => String.t() | atom(),
+        "RoutingStatus" => list(any())
+      }
+      
+  """
+  @type destination() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10766,6 +10877,30 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      get_endpoint_policy_request() :: %{
+        required("EndpointName") => String.t() | atom()
+      }
+      
+  """
+  @type get_endpoint_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_endpoint_policy_response() :: %{
+        "EndpointArn" => String.t() | atom(),
+        "EndpointName" => String.t() | atom(),
+        "ResourcePolicy" => String.t() | atom()
+      }
+      
+  """
+  @type get_endpoint_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_lineage_group_policy_request() :: %{
         required("LineageGroupName") => String.t() | atom()
       }
@@ -11922,6 +12057,20 @@ defmodule AWS.SageMaker do
       
   """
   @type inference_recommendations_job_step() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      inference_router_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "InferenceRouterArn" => String.t() | atom(),
+        "InferenceRouterName" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer()
+      }
+      
+  """
+  @type inference_router_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13913,6 +14062,30 @@ defmodule AWS.SageMaker do
       
   """
   @type list_inference_recommendations_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_inference_routers_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_inference_routers_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_inference_routers_output() :: %{
+        "InferenceRouters" => list(inference_router_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_inference_routers_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -18116,6 +18289,29 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      put_endpoint_policy_request() :: %{
+        required("EndpointName") => String.t() | atom(),
+        required("ResourcePolicy") => String.t() | atom()
+      }
+      
+  """
+  @type put_endpoint_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_endpoint_policy_response() :: %{
+        "EndpointArn" => String.t() | atom()
+      }
+      
+  """
+  @type put_endpoint_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       put_model_package_group_policy_input() :: %{
         required("ModelPackageGroupName") => String.t() | atom(),
         required("ResourcePolicy") => String.t() | atom()
@@ -18612,6 +18808,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      resource_already_exists() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_already_exists() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       resource_catalog() :: %{
         "CreationTime" => non_neg_integer(),
         "Description" => String.t() | atom(),
@@ -18812,6 +19019,69 @@ defmodule AWS.SageMaker do
       
   """
   @type rolling_update_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      routing_target() :: %{
+        "AsyncInferenceConfig" => routing_target_async_inference_config(),
+        "Destinations" => list(destination()),
+        "Name" => String.t() | atom(),
+        "RoutingPreference" => list(any())
+      }
+      
+  """
+  @type routing_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      routing_target_async_inference_client_config() :: %{
+        "MaxTimeInBacklogSeconds" => integer()
+      }
+      
+  """
+  @type routing_target_async_inference_client_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      routing_target_async_inference_config() :: %{
+        "ClientConfig" => routing_target_async_inference_client_config(),
+        "OutputConfig" => routing_target_async_inference_output_config()
+      }
+      
+  """
+  @type routing_target_async_inference_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      routing_target_async_inference_notification_config() :: %{
+        "ErrorTopic" => String.t() | atom(),
+        "SuccessTopic" => String.t() | atom()
+      }
+      
+  """
+  @type routing_target_async_inference_notification_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      routing_target_async_inference_output_config() :: %{
+        "KmsKeyId" => String.t() | atom(),
+        "NotificationConfig" => routing_target_async_inference_notification_config(),
+        "S3FailurePath" => String.t() | atom(),
+        "S3OutputPath" => String.t() | atom()
+      }
+      
+  """
+  @type routing_target_async_inference_output_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -21776,6 +22046,29 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      update_inference_router_input() :: %{
+        required("InferenceRouterName") => String.t() | atom(),
+        required("RoutingTargets") => list(routing_target())
+      }
+      
+  """
+  @type update_inference_router_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_inference_router_output() :: %{
+        "InferenceRouterArn" => String.t() | atom()
+      }
+      
+  """
+  @type update_inference_router_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_mlflow_app_request() :: %{
         optional("AccountDefaultStatus") => list(any()),
         optional("ArtifactStoreUri") => String.t() | atom(),
@@ -22642,6 +22935,9 @@ defmodule AWS.SageMaker do
   @type create_inference_recommendations_job_errors() ::
           resource_limit_exceeded() | resource_in_use()
 
+  @type create_inference_router_errors() ::
+          resource_limit_exceeded() | resource_already_exists() | conflict_exception()
+
   @type create_job_errors() ::
           resource_not_found() | resource_limit_exceeded() | resource_in_use()
 
@@ -22761,6 +23057,8 @@ defmodule AWS.SageMaker do
 
   @type delete_edge_deployment_stage_errors() :: resource_in_use()
 
+  @type delete_endpoint_policy_errors() :: resource_not_found()
+
   @type delete_experiment_errors() :: resource_not_found()
 
   @type delete_feature_group_errors() :: resource_not_found()
@@ -22780,6 +23078,8 @@ defmodule AWS.SageMaker do
   @type delete_image_version_errors() :: resource_not_found() | resource_in_use()
 
   @type delete_inference_experiment_errors() :: resource_not_found() | conflict_exception()
+
+  @type delete_inference_router_errors() :: resource_not_found() | conflict_exception()
 
   @type delete_job_errors() :: resource_not_found() | resource_in_use()
 
@@ -22899,6 +23199,8 @@ defmodule AWS.SageMaker do
 
   @type describe_inference_recommendations_job_errors() :: resource_not_found()
 
+  @type describe_inference_router_errors() :: resource_not_found()
+
   @type describe_job_errors() :: resource_not_found()
 
   @type describe_job_schema_version_errors() :: resource_not_found()
@@ -22963,6 +23265,8 @@ defmodule AWS.SageMaker do
 
   @type extend_training_plan_errors() :: resource_not_found()
 
+  @type get_endpoint_policy_errors() :: resource_not_found()
+
   @type get_lineage_group_policy_errors() :: resource_not_found()
 
   @type get_scaling_configuration_recommendation_errors() :: resource_not_found()
@@ -23025,6 +23329,8 @@ defmodule AWS.SageMaker do
   @type list_trials_errors() :: resource_not_found()
 
   @type list_ultra_servers_by_reserved_capacity_errors() :: resource_not_found()
+
+  @type put_endpoint_policy_errors() :: resource_not_found()
 
   @type put_model_package_group_policy_errors() :: conflict_exception()
 
@@ -23147,6 +23453,9 @@ defmodule AWS.SageMaker do
   @type update_inference_component_runtime_config_errors() :: resource_limit_exceeded()
 
   @type update_inference_experiment_errors() :: resource_not_found() | conflict_exception()
+
+  @type update_inference_router_errors() ::
+          resource_not_found() | resource_limit_exceeded() | conflict_exception()
 
   @type update_mlflow_app_errors() :: resource_not_found() | conflict_exception()
 
@@ -24476,6 +24785,41 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Creates an inference router.
+
+  An inference router is a Regional SageMaker AI resource that sends each
+  inference request to one of the endpoints or inference components that you list
+  for a routing target. These destinations can be in any Amazon Web Services
+  account, and in any Amazon Web Services Region in the same partition as the
+  router.
+
+  The router's status is `Creating` until it's ready to use. SageMaker AI checks
+  that each endpoint is a real-time or asynchronous endpoint, as the routing
+  target requires, and rejects one of the wrong type. It checks endpoints in other
+  accounts with your credentials, so the endpoint policy must allow
+  `sagemaker:DescribeEndpoint`. SageMaker AI accepts an endpoint that it can't
+  check, for example one that doesn't exist. Requests to it fail if it's the wrong
+  type or doesn't exist. To see the status of each destination, call
+  [DescribeInferenceRouter](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeInferenceRouter.html) and see the `RoutingStatus` of each destination.
+
+  To invoke the router, use `InvokeInferenceRouter` or
+  `InvokeInferenceRouterAsync`. For information about inference routers, see
+  [Route requests across Regions with inference
+  routers](https://docs.aws.amazon.com/sagemaker/latest/dg/inference-router.html).
+  """
+  @spec create_inference_router(map(), create_inference_router_input(), list()) ::
+          {:ok, create_inference_router_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_inference_router_errors()}
+  def create_inference_router(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateInferenceRouter", input, options)
+  end
+
+  @doc """
   Creates a model customization job in Amazon SageMaker.
 
   A job runs a workload based on the job category and configuration you provide.
@@ -24483,10 +24827,35 @@ defmodule AWS.SageMaker do
   IAM role that grants Amazon SageMaker permission to access resources on your
   behalf.
 
-  Use the `AgentRFT` category to fine-tune a model using multi-turn reinforcement
-  learning with reward signals. Use the `AgentRFTEvaluation` category to evaluate
-  a fine-tuned or base model by running multi-turn rollouts against a held-out
-  prompt dataset and computing metrics such as pass@k and mean reward.
+  Specify one of the following job categories, which determines the type of
+  workload that the job runs:
+
+  ## Definitions
+
+  ### AgentRFT
+
+  Fine-tune a model using multi-turn reinforcement learning with reward signals.
+
+  ### AgentRFTEvaluation
+
+  Evaluate a fine-tuned or base model by running multi-turn rollouts against a
+  held-out prompt dataset. This category computes metrics such as pass@k and mean
+  reward.
+
+  ### DataQualityEvaluation
+
+  Evaluate the quality of a generated or bring-your-own dataset using quality
+  metrics or your own specification.
+
+  ### DataTransformation
+
+  Transform datasets into the format you need, for example for model
+  customization.
+
+  ### SyntheticDataGeneration
+
+  Generate synthetic training and testing datasets from your context data and
+  specifications.
 
   Before creating a job, call `ListJobSchemaVersions` and
   `DescribeJobSchemaVersion` to retrieve the configuration schema for your job
@@ -25903,6 +26272,31 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Deletes the resource-based policy that is attached to an endpoint.
+
+  After you delete the policy, other accounts can no longer send requests to the
+  endpoint through an inference router. The endpoint continues to serve requests
+  from your account. If the endpoint doesn't have a policy, the operation
+  succeeds.
+
+  The change typically takes effect within 30 seconds, and can take up to 5
+  minutes. To revoke access for one account only, use
+  [PutEndpointPolicy](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_PutEndpointPolicy.html)
+  to replace the policy with one that doesn't include that account.
+  """
+  @spec delete_endpoint_policy(map(), delete_endpoint_policy_request(), list()) ::
+          {:ok, delete_endpoint_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_endpoint_policy_errors()}
+  def delete_endpoint_policy(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteEndpointPolicy", input, options)
+  end
+
+  @doc """
   Deletes an SageMaker experiment.
 
   All trials associated with the experiment must be deleted first. Use the
@@ -26115,6 +26509,27 @@ defmodule AWS.SageMaker do
       metadata()
 
     Request.request_post(client, meta, "DeleteInferenceExperiment", input, options)
+  end
+
+  @doc """
+  Deletes an inference router.
+
+  The endpoints and inference components that the router sends requests to aren't
+  deleted.
+
+  If the router is being created, updated, or deleted, you get a
+  `ConflictException`.
+  """
+  @spec delete_inference_router(map(), delete_inference_router_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_inference_router_errors()}
+  def delete_inference_router(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteInferenceRouter", input, options)
   end
 
   @doc """
@@ -27351,6 +27766,27 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Returns information about an inference router, including the routing status of
+  each destination.
+
+  SageMaker AI checks each destination with your permissions when you call this
+  operation, so callers with different permissions can see a different
+  `RoutingStatus`. To get the router's tags, use
+  [ListTags](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListTags.html).
+  """
+  @spec describe_inference_router(map(), describe_inference_router_input(), list()) ::
+          {:ok, describe_inference_router_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_inference_router_errors()}
+  def describe_inference_router(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeInferenceRouter", input, options)
+  end
+
+  @doc """
   Returns detailed information about a job, including its current status,
   secondary status, configuration, and timestamps.
 
@@ -28148,6 +28584,23 @@ defmodule AWS.SageMaker do
       metadata()
 
     Request.request_post(client, meta, "GetDeviceFleetReport", input, options)
+  end
+
+  @doc """
+  Returns the resource-based policy that is attached to an endpoint.
+
+  If the endpoint doesn't have a policy, you get a `ValidationException`.
+  """
+  @spec get_endpoint_policy(map(), get_endpoint_policy_request(), list()) ::
+          {:ok, get_endpoint_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_endpoint_policy_errors()}
+  def get_endpoint_policy(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetEndpointPolicy", input, options)
   end
 
   @doc """
@@ -28972,6 +29425,23 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Lists the inference routers in your account in the current Amazon Web Services
+  Region.
+
+  A router that you just created might not appear in the list right away.
+  """
+  @spec list_inference_routers(map(), list_inference_routers_input(), list()) ::
+          {:ok, list_inference_routers_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def list_inference_routers(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListInferenceRouters", input, options)
+  end
+
+  @doc """
   Lists available configuration schema versions for a specified job category.
 
   Use the schema versions with `DescribeJobSchemaVersion` to retrieve the full
@@ -29787,6 +30257,34 @@ defmodule AWS.SageMaker do
       metadata()
 
     Request.request_post(client, meta, "ListWorkteams", input, options)
+  end
+
+  @doc """
+  Attaches a resource-based policy to an endpoint.
+
+  With an endpoint policy, you can allow other Amazon Web Services accounts to
+  send requests to your endpoint, or to inference components on it, through an
+  inference router. The policy that you specify replaces the endpoint's existing
+  policy, if it has one.
+
+  You can't attach a policy to an endpoint whose status is `Deleting` or `Failed`.
+  SageMaker AI rejects a policy that doesn't follow the endpoint policy rules. For
+  information about the policy rules, see [Use destinations in other accounts](https://docs.aws.amazon.com/sagemaker/latest/dg/inference-router-cross-account.html).
+
+  Policy changes typically take effect within 30 seconds, and can take up to 5
+  minutes. If you delete the endpoint, its policy is also deleted, and a new
+  endpoint with the same name has no policy.
+  """
+  @spec put_endpoint_policy(map(), put_endpoint_policy_request(), list()) ::
+          {:ok, put_endpoint_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_endpoint_policy_errors()}
+  def put_endpoint_policy(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "PutEndpointPolicy", input, options)
   end
 
   @doc """
@@ -31007,6 +31505,34 @@ defmodule AWS.SageMaker do
       metadata()
 
     Request.request_post(client, meta, "UpdateInferenceExperiment", input, options)
+  end
+
+  @doc """
+  Updates the routing targets of an inference router.
+
+  The routing targets that you specify replace all of the router's existing
+  routing targets. To change one routing target, call
+  [DescribeInferenceRouter](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeInferenceRouter.html),
+  edit the routing targets, and send all of them.
+
+  The update is applied in full or not at all, and each request uses either the
+  previous configuration or the new one. Updates typically take effect within
+  about 2 minutes.
+
+  If the router is being created, updated, or deleted, or another request changes
+  it at the same time, you get a `ConflictException`. Describe the router, and
+  then send your update again.
+  """
+  @spec update_inference_router(map(), update_inference_router_input(), list()) ::
+          {:ok, update_inference_router_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_inference_router_errors()}
+  def update_inference_router(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateInferenceRouter", input, options)
   end
 
   @doc """

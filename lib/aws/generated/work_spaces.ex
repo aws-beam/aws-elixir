@@ -2541,6 +2541,7 @@ defmodule AWS.WorkSpaces do
         optional("UserIdentityType") => list(any()),
         optional("WorkspaceDirectoryDescription") => String.t() | atom(),
         optional("WorkspaceDirectoryName") => String.t() | atom(),
+        optional("WorkspaceOsUserMode") => list(any()),
         optional("WorkspaceType") => list(any())
       }
       
@@ -3394,6 +3395,7 @@ defmodule AWS.WorkSpaces do
         "WorkspaceCreationProperties" => default_workspace_creation_properties(),
         "WorkspaceDirectoryDescription" => String.t() | atom(),
         "WorkspaceDirectoryName" => String.t() | atom(),
+        "WorkspaceOsUserMode" => list(any()),
         "WorkspaceSecurityGroupId" => String.t() | atom(),
         "WorkspaceType" => list(any()),
         "ipGroupIds" => list(String.t() | atom())

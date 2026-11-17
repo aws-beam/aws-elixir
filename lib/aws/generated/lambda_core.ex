@@ -287,6 +287,17 @@ defmodule AWS.LambdaCore do
 
   ## Example:
 
+      elastic_ip_configuration() :: %{
+        "Type" => list(any())
+      }
+
+  """
+  @type elastic_ip_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_network_connector_request() :: %{}
 
   """
@@ -595,6 +606,7 @@ defmodule AWS.LambdaCore do
 
       network_connector_vpc_egress_configuration() :: %{
         "AssociatedComputeResourceTypes" => list(list(any())()),
+        "ElasticIpConfiguration" => elastic_ip_configuration(),
         "NetworkProtocol" => list(any()),
         "SecurityGroupIds" => list(String.t() | atom()),
         "SubnetIds" => list(String.t() | atom())

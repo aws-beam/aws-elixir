@@ -82,6 +82,28 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
+      associate_context_store_request() :: %{
+        optional("TransitGatewayArn") => String.t() | atom()
+      }
+
+  """
+  @type associate_context_store_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_context_store_response() :: %{
+        "ContextStoreAssociation" => context_store_association()
+      }
+
+  """
+  @type associate_context_store_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       associate_customer_gateway_request() :: %{
         optional("LinkId") => String.t() | atom(),
         required("CustomerGatewayArn") => String.t() | atom(),
@@ -427,6 +449,66 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
+      context_change() :: %{
+        "ChangeType" => list(any()),
+        "Context" => context_entry()
+      }
+
+  """
+  @type context_change() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      context_entry() :: %{
+        "AttachmentType" => String.t() | atom(),
+        "AvailabilityZone" => String.t() | atom(),
+        "ContextId" => String.t() | atom(),
+        "ContextType" => String.t() | atom(),
+        "PublicId" => String.t() | atom(),
+        "Region" => String.t() | atom(),
+        "SegmentType" => String.t() | atom()
+      }
+
+  """
+  @type context_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      context_store() :: %{
+        "ContextStoreArn" => String.t() | atom(),
+        "ContextStoreId" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "GlobalNetworkId" => String.t() | atom(),
+        "State" => list(any()),
+        "Tags" => list(tag())
+      }
+
+  """
+  @type context_store() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      context_store_association() :: %{
+        "ContextStoreId" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "State" => list(any()),
+        "TransitGatewayArn" => String.t() | atom()
+      }
+
+  """
+  @type context_store_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       core_network() :: %{
         "CoreNetworkArn" => String.t() | atom(),
         "CoreNetworkId" => String.t() | atom(),
@@ -762,6 +844,30 @@ defmodule AWS.NetworkManager do
 
   """
   @type create_connection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_context_store_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => list(tag())
+      }
+
+  """
+  @type create_context_store_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_context_store_response() :: %{
+        "ContextStore" => context_store()
+      }
+
+  """
+  @type create_context_store_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1145,6 +1251,26 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
+      delete_context_store_request() :: %{}
+
+  """
+  @type delete_context_store_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_context_store_response() :: %{
+        "ContextStore" => context_store()
+      }
+
+  """
+  @type delete_context_store_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_core_network_policy_version_request() :: %{}
 
   """
@@ -1427,6 +1553,26 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
+      disassociate_context_store_request() :: %{}
+
+  """
+  @type disassociate_context_store_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_context_store_response() :: %{
+        "ContextStoreAssociation" => context_store_association()
+      }
+
+  """
+  @type disassociate_context_store_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       disassociate_customer_gateway_request() :: %{}
 
   """
@@ -1606,6 +1752,66 @@ defmodule AWS.NetworkManager do
 
   """
   @type get_connections_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_context_store_association_request() :: %{}
+
+  """
+  @type get_context_store_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_context_store_association_response() :: %{
+        "ContextStoreAssociation" => context_store_association()
+      }
+
+  """
+  @type get_context_store_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_context_store_request() :: %{}
+
+  """
+  @type get_context_store_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_context_store_response() :: %{
+        "ContextStore" => context_store()
+      }
+
+  """
+  @type get_context_store_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_context_version_request() :: %{}
+
+  """
+  @type get_context_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_context_version_response() :: %{
+        "VersionId" => String.t() | atom()
+      }
+
+  """
+  @type get_context_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2345,6 +2551,107 @@ defmodule AWS.NetworkManager do
 
   """
   @type list_connect_peers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_context_changes_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("FromVersionId") => String.t() | atom()
+      }
+
+  """
+  @type list_context_changes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_context_changes_response() :: %{
+        "ContextChanges" => list(context_change()),
+        "FromVersionId" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "ToVersionId" => String.t() | atom()
+      }
+
+  """
+  @type list_context_changes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_context_store_associations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_context_store_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_context_store_associations_response() :: %{
+        "ContextStoreAssociations" => list(context_store_association()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_context_store_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_context_stores_request() :: %{
+        optional("GlobalNetworkId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_context_stores_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_context_stores_response() :: %{
+        "ContextStores" => list(context_store()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_context_stores_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_contexts_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_contexts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_contexts_response() :: %{
+        "Contexts" => list(context_entry()),
+        "NextToken" => String.t() | atom(),
+        "VersionId" => String.t() | atom()
+      }
+
+  """
+  @type list_contexts_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3388,6 +3695,28 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
+      update_context_store_request() :: %{
+        optional("Description") => String.t() | atom()
+      }
+
+  """
+  @type update_context_store_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_context_store_response() :: %{
+        "ContextStore" => context_store()
+      }
+
+  """
+  @type update_context_store_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_core_network_request() :: %{
         optional("Description") => String.t() | atom()
       }
@@ -3666,6 +3995,14 @@ defmodule AWS.NetworkManager do
           | conflict_exception()
           | access_denied_exception()
 
+  @type associate_context_store_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type associate_customer_gateway_errors() ::
           validation_exception()
           | throttling_exception()
@@ -3713,6 +4050,15 @@ defmodule AWS.NetworkManager do
           validation_exception()
           | throttling_exception()
           | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type create_context_store_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
           | access_denied_exception()
@@ -3834,6 +4180,14 @@ defmodule AWS.NetworkManager do
           | conflict_exception()
           | access_denied_exception()
 
+  @type delete_context_store_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type delete_core_network_errors() ::
           validation_exception()
           | throttling_exception()
@@ -3929,6 +4283,14 @@ defmodule AWS.NetworkManager do
           | conflict_exception()
           | access_denied_exception()
 
+  @type disassociate_context_store_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type disassociate_customer_gateway_errors() ::
           validation_exception()
           | throttling_exception()
@@ -3984,6 +4346,27 @@ defmodule AWS.NetworkManager do
           | access_denied_exception()
 
   @type get_connections_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_context_store_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_context_store_association_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_context_version_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -4177,6 +4560,34 @@ defmodule AWS.NetworkManager do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type list_context_changes_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_context_store_associations_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_context_stores_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_contexts_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type list_core_network_policy_versions_errors() ::
           validation_exception()
           | throttling_exception()
@@ -4326,6 +4737,14 @@ defmodule AWS.NetworkManager do
           | conflict_exception()
           | access_denied_exception()
 
+  @type update_context_store_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type update_core_network_errors() ::
           validation_exception()
           | throttling_exception()
@@ -4464,6 +4883,47 @@ defmodule AWS.NetworkManager do
     url_path =
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/connect-peer-associations"
 
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Associates a transit gateway with a context store.
+
+  The transit gateway must be registered with the global network of the context
+  store, and can't be associated with more than one context store. The context
+  store must be in the `AVAILABLE` state.
+
+  The association is in the `ASSOCIATING` state when it's created, and changes to
+  `ASSOCIATED` when it's complete.
+  """
+  @spec associate_context_store(
+          map(),
+          String.t() | atom(),
+          associate_context_store_request(),
+          list()
+        ) ::
+          {:ok, associate_context_store_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, associate_context_store_errors()}
+  def associate_context_store(%Client{} = client, context_store_id, input, options \\ []) do
+    url_path = "/context-stores/#{AWS.Util.encode_uri(context_store_id)}/associations"
     headers = []
     custom_headers = []
     query_params = []
@@ -4705,6 +5165,42 @@ defmodule AWS.NetworkManager do
           | {:error, create_connection_errors()}
   def create_connection(%Client{} = client, global_network_id, input, options \\ []) do
     url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/connections"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a context store in a global network.
+
+  A context store maintains context entries, such as security groups, subnets, and
+  attachments, for the resources connected to the transit gateways that you
+  associate with it.
+
+  The context store is in the `PENDING` state when it's created, and changes to
+  `AVAILABLE` when it's ready to use.
+  """
+  @spec create_context_store(map(), String.t() | atom(), create_context_store_request(), list()) ::
+          {:ok, create_context_store_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_context_store_errors()}
+  def create_context_store(%Client{} = client, global_network_id, input, options \\ []) do
+    url_path = "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/context-stores"
     headers = []
     custom_headers = []
     query_params = []
@@ -5150,6 +5646,38 @@ defmodule AWS.NetworkManager do
     url_path =
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/connections/#{AWS.Util.encode_uri(connection_id)}"
 
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a context store.
+
+  The context store must be in the `AVAILABLE` state. You must disassociate all
+  transit gateways from the context store before you can delete it.
+  """
+  @spec delete_context_store(map(), String.t() | atom(), delete_context_store_request(), list()) ::
+          {:ok, delete_context_store_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_context_store_errors()}
+  def delete_context_store(%Client{} = client, context_store_id, input, options \\ []) do
+    url_path = "/context-stores/#{AWS.Util.encode_uri(context_store_id)}"
     headers = []
     custom_headers = []
     query_params = []
@@ -5653,6 +6181,52 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
+  Disassociates a transit gateway from a context store.
+
+  The association must be in the `ASSOCIATED` or `FAILED` state. The association
+  stays in the `DISASSOCIATING` state until the disassociation completes.
+  """
+  @spec disassociate_context_store(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          disassociate_context_store_request(),
+          list()
+        ) ::
+          {:ok, disassociate_context_store_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disassociate_context_store_errors()}
+  def disassociate_context_store(
+        %Client{} = client,
+        context_store_id,
+        transit_gateway_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/context-stores/#{AWS.Util.encode_uri(context_store_id)}/associations/#{AWS.Util.encode_uri(transit_gateway_arn)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Disassociates a customer gateway from a device and a link.
   """
   @spec disassociate_customer_gateway(
@@ -5968,6 +6542,70 @@ defmodule AWS.NetworkManager do
       else
         query_params
       end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns information about a context store.
+  """
+  @spec get_context_store(map(), String.t() | atom(), list()) ::
+          {:ok, get_context_store_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_context_store_errors()}
+  def get_context_store(%Client{} = client, context_store_id, options \\ []) do
+    url_path = "/context-stores/#{AWS.Util.encode_uri(context_store_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns information about the association between a context store and a transit
+  gateway.
+  """
+  @spec get_context_store_association(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_context_store_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_context_store_association_errors()}
+  def get_context_store_association(
+        %Client{} = client,
+        context_store_id,
+        transit_gateway_arn,
+        options \\ []
+      ) do
+    url_path =
+      "/context-stores/#{AWS.Util.encode_uri(context_store_id)}/associations/#{AWS.Util.encode_uri(transit_gateway_arn)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns the current version of the context entries of a context store.
+
+  The context store must be in the `AVAILABLE` state.
+  """
+  @spec get_context_version(map(), String.t() | atom(), list()) ::
+          {:ok, get_context_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_context_version_errors()}
+  def get_context_version(%Client{} = client, context_store_id, options \\ []) do
+    url_path = "/context-stores/#{AWS.Util.encode_uri(context_store_id)}/context-version"
+    headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -7306,6 +7944,208 @@ defmodule AWS.NetworkManager do
   end
 
   @doc """
+  Returns the context entries that were added to or removed from a context store
+  after the specified version.
+
+  The context store must be in the `AVAILABLE` state.
+  """
+  @spec list_context_changes(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_context_changes_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_context_changes_errors()}
+  def list_context_changes(
+        %Client{} = client,
+        context_store_id,
+        from_version_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/context-stores/#{AWS.Util.encode_uri(context_store_id)}/context-changes"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(from_version_id) do
+        [{"fromVersionId", from_version_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns the transit gateway associations of a context store.
+  """
+  @spec list_context_store_associations(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_context_store_associations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_context_store_associations_errors()}
+  def list_context_store_associations(
+        %Client{} = client,
+        context_store_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/context-stores/#{AWS.Util.encode_uri(context_store_id)}/associations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns the context stores in your account.
+
+  You can optionally return only the context stores in a specific global network.
+  """
+  @spec list_context_stores(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_context_stores_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_context_stores_errors()}
+  def list_context_stores(
+        %Client{} = client,
+        global_network_id \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/context-stores"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(global_network_id) do
+        [{"globalNetworkId", global_network_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns the context entries of a context store, and the version of the context
+  entries.
+
+  To get the context entries that were added or removed after this version,
+  specify the returned `VersionId` in a `ListContextChanges` request. The context
+  store must be in the `AVAILABLE` state.
+  """
+  @spec list_contexts(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_contexts_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_contexts_errors()}
+  def list_contexts(
+        %Client{} = client,
+        context_store_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/context-stores/#{AWS.Util.encode_uri(context_store_id)}/contexts"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns a list of core network policy versions.
   """
   @spec list_core_network_policy_versions(
@@ -8087,6 +8927,37 @@ defmodule AWS.NetworkManager do
     url_path =
       "/global-networks/#{AWS.Util.encode_uri(global_network_id)}/connections/#{AWS.Util.encode_uri(connection_id)}"
 
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the description of a context store.
+
+  The context store must be in the `AVAILABLE` state.
+  """
+  @spec update_context_store(map(), String.t() | atom(), update_context_store_request(), list()) ::
+          {:ok, update_context_store_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_context_store_errors()}
+  def update_context_store(%Client{} = client, context_store_id, input, options \\ []) do
+    url_path = "/context-stores/#{AWS.Util.encode_uri(context_store_id)}"
     headers = []
     custom_headers = []
     query_params = []

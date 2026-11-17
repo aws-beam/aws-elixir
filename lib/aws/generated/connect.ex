@@ -4141,6 +4141,28 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      delete_all_entity_sessions_request() :: %{
+        required("EntityId") => String.t() | atom(),
+        required("EntityType") => list(any()),
+        required("InstanceId") => String.t() | atom()
+      }
+
+  """
+  @type delete_all_entity_sessions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_all_entity_sessions_response() :: %{}
+
+  """
+  @type delete_all_entity_sessions_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_attached_file_request() :: %{
         required("AssociatedResourceArn") => String.t() | atom()
       }
@@ -18088,6 +18110,14 @@ defmodule AWS.Connect do
           | invalid_parameter_exception()
           | internal_service_exception()
 
+  @type delete_all_entity_sessions_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_request_exception()
+          | invalid_parameter_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+
   @type delete_attached_file_errors() ::
           throttling_exception()
           | resource_not_found_exception()
@@ -23826,6 +23856,43 @@ defmodule AWS.Connect do
     url_path =
       "/evaluation-forms/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(evaluation_form_id)}/deactivate"
 
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes all active sessions for the specified entity in the specified Connect
+  Customer instance.
+
+  The
+  operation supports only the `USER` entity type, so you can use it to sign out
+  all of a user's active
+  sessions. Use it when you need to end a user's access right away, for example
+  when they leave your organization or
+  you suspect that their credentials are compromised.
+  """
+  @spec delete_all_entity_sessions(map(), delete_all_entity_sessions_request(), list()) ::
+          {:ok, delete_all_entity_sessions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_all_entity_sessions_errors()}
+  def delete_all_entity_sessions(%Client{} = client, input, options \\ []) do
+    url_path = "/auth/sessions/delete-all-entity-sessions"
     headers = []
     custom_headers = []
     query_params = []

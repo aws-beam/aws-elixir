@@ -258,6 +258,17 @@ defmodule AWS.EMRServerless do
 
   ## Example:
 
+      flex_execution() :: %{
+        "enabled" => [boolean()]
+      }
+
+  """
+  @type flex_execution() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_application_request() :: %{}
 
   """
@@ -515,6 +526,7 @@ defmodule AWS.EMRServerless do
         "executionIamPolicy" => job_run_execution_iam_policy(),
         "executionRole" => String.t() | atom(),
         "executionTimeoutMinutes" => float(),
+        "flexExecution" => flex_execution(),
         "imageConfiguration" => image_configuration(),
         "jobDriver" => list(),
         "jobRunId" => String.t() | atom(),
@@ -548,6 +560,7 @@ defmodule AWS.EMRServerless do
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
         "executionRole" => String.t() | atom(),
+        "flexExecution" => flex_execution(),
         "id" => String.t() | atom(),
         "jobCreatedAt" => non_neg_integer(),
         "mode" => String.t() | atom(),
@@ -587,6 +600,7 @@ defmodule AWS.EMRServerless do
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
         "executionRole" => String.t() | atom(),
+        "flexExecution" => flex_execution(),
         "id" => String.t() | atom(),
         "mode" => String.t() | atom(),
         "name" => String.t() | atom(),
@@ -959,6 +973,7 @@ defmodule AWS.EMRServerless do
         optional("configurationOverrides") => configuration_overrides(),
         optional("executionIamPolicy") => job_run_execution_iam_policy(),
         optional("executionTimeoutMinutes") => float(),
+        optional("flexExecution") => flex_execution(),
         optional("jobDriver") => list(),
         optional("mode") => String.t() | atom(),
         optional("name") => String.t() | atom(),

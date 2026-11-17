@@ -5,25 +5,35 @@ defmodule AWS.WellArchitected do
   @moduledoc """
   Amazon Web Services Well-Architected
 
+  This is the *Amazon Web Services Well-Architected API Reference*.
+
   Amazon Web Services Well-Architected helps you evaluate your architectures
   against Amazon Web Services best practices across operational excellence,
   security, reliability, performance efficiency, cost optimization, and
   sustainability.
 
-  The service includes the Amazon Web Services Well-Architected Agent for
-  AI-powered recommendations tailored to your specific environment, and the
-  [Well-Architected Tool](http://aws.amazon.com/well-architected-tool) for conducting reviews and tracking improvements.
+  To view API actions organized by service, see [API actions](https://docs.aws.amazon.com/wellarchitected/latest/userguide/wa-api-actions.html).
 
-  This is the *Amazon Web Services Well-Architected API Reference*. Through this
-  API, you can programmatically access personalized recommendations and automation
-  scripts from the Amazon Web Services Well-Architected Agent, and create and
-  manage workloads, conduct lens reviews, track milestones, manage custom lenses,
-  share workloads across accounts, and manage profiles with the Well-Architected
-  Tool.
+  ## Amazon Web Services Well-Architected Agent (preview)
 
-  For more information about the service, see the [Amazon Web Services
-  Well-Architected User
-  Guide](https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html).
+  Describes the API operations for managing optimization profiles, goals,
+  application context, and recommendations in the Amazon Web Services
+  Well-Architected Agent. Through this API, you can create and configure agent
+  profiles that define the scope of your Amazon Web Services environment to
+  analyze, set optimization goals across cost, security, performance, and
+  resilience pillars, start recommendation generation, retrieve prioritized
+  recommendations with ready-to-deploy remediation scripts, and provide feedback
+  to improve future recommendations.
+
+  For more information, see [What is Amazon Web Services Well-Architected Agent?](https://docs.aws.amazon.com/wellarchitected/latest/userguide/agent.html)
+
+  ## Well-Architected Tool
+
+  Describes the API operations for creating and managing workloads, conducting
+  lens reviews, tracking milestones, managing custom lenses, sharing workloads
+  across accounts, and managing profiles with the Well-Architected Tool.
+
+  For more information, see [What is Well-Architected Tool?](https://docs.aws.amazon.com/wellarchitected/latest/userguide/tool.html)
   """
 
   alias AWS.Client
@@ -102,8 +112,9 @@ defmodule AWS.WellArchitected do
         "lastModifiedAt" => [non_neg_integer()],
         "lastModifiedBy" => [String.t() | atom()],
         "name" => [String.t() | atom()],
+        "organizationalAggregationConfiguration" => organizational_aggregation_configuration(),
         "pillars" => list(list(any())()),
-        "tags" => list(tag())
+        "profileType" => list(any())
       }
 
   """
@@ -116,12 +127,17 @@ defmodule AWS.WellArchitected do
       agent_recommendation_generation_summary() :: %{
         "createdAt" => [non_neg_integer()],
         "createdBy" => [String.t() | atom()],
+        "endedAt" => [non_neg_integer()],
+        "errorDetails" => error_details(),
         "estimatedCompletionTime" => [non_neg_integer()],
+        "generationRecommendationTypes" => list(list(any())()),
+        "generationType" => list(any()),
         "id" => String.t() | atom(),
         "lastModifiedAt" => [non_neg_integer()],
         "lastModifiedBy" => [String.t() | atom()],
         "name" => [String.t() | atom()],
         "profileArn" => String.t() | atom(),
+        "startedAt" => [non_neg_integer()],
         "status" => list(any())
       }
 
@@ -133,6 +149,7 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       agent_recommendation_item_summary() :: %{
+        "autoRemediation" => auto_remediation(),
         "createdAt" => [non_neg_integer()],
         "createdBy" => [String.t() | atom()],
         "id" => [String.t() | atom()],
@@ -276,6 +293,18 @@ defmodule AWS.WellArchitected do
 
   """
   @type associate_profiles_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auto_remediation() :: %{
+        "cliCommand" => [String.t() | atom()],
+        "deepLink" => [String.t() | atom()]
+      }
+
+  """
+  @type auto_remediation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -458,6 +487,7 @@ defmodule AWS.WellArchitected do
         "awsServices" => list([String.t() | atom()]()),
         "criticality" => list(any()),
         "industry" => String.t() | atom(),
+        "organizationalUnitIds" => list([String.t() | atom()]()),
         "regions" => list([String.t() | atom()]()),
         "resourceTags" => list(context_resource_tag()),
         "resourceTypes" => list([String.t() | atom()]())
@@ -498,6 +528,52 @@ defmodule AWS.WellArchitected do
 
   """
   @type context_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      coverage_summary() :: %{
+        "accountsWithProfile" => [float()],
+        "accountsWithoutProfile" => [float()],
+        "failedAccountCount" => [float()],
+        "failedAccounts" => list(failed_account()),
+        "failedOrganizationalUnits" => list(failed_organizational_unit()),
+        "recommendationCountByPillar" => list(pillar_count()),
+        "recommendationCountByPriority" => list(priority_count()),
+        "totalAccountsInScope" => [float()],
+        "totalProfiles" => [float()],
+        "totalRecommendations" => [float()]
+      }
+
+  """
+  @type coverage_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_agent_basic_profile_request() :: %{
+        optional("tags") => list(tag())
+      }
+
+  """
+  @type create_agent_basic_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_agent_basic_profile_response() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => [String.t() | atom()],
+        "lastModifiedAt" => [non_neg_integer()],
+        "lastModifiedBy" => [String.t() | atom()]
+      }
+
+  """
+  @type create_agent_basic_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -548,6 +624,77 @@ defmodule AWS.WellArchitected do
 
   """
   @type create_agent_goal_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_agent_organizational_profile_request() :: %{
+        optional("businessOverview") => String.t() | atom(),
+        optional("clientToken") => [String.t() | atom()],
+        optional("deletionProtection") => [boolean()],
+        optional("description") => String.t() | atom(),
+        optional("displayName") => String.t() | atom(),
+        optional("organizationalAggregationConfiguration") => organizational_aggregation_configuration(),
+        optional("tags") => list(tag()),
+        required("name") => [String.t() | atom()],
+        required("pillars") => list(list(any())())
+      }
+
+  """
+  @type create_agent_organizational_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_agent_organizational_profile_response() :: %{
+        "arn" => String.t() | atom(),
+        "businessOverview" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => [String.t() | atom()],
+        "deletionProtection" => [boolean()],
+        "description" => String.t() | atom(),
+        "displayName" => String.t() | atom(),
+        "eligibleForArchitectureGeneration" => [boolean()],
+        "eligibleForScheduledGeneration" => [boolean()],
+        "fieldErrors" => map(),
+        "lastModifiedAt" => [non_neg_integer()],
+        "lastModifiedBy" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "organizationId" => [String.t() | atom()],
+        "organizationalAggregationConfiguration" => organizational_aggregation_configuration(),
+        "pillars" => list(list(any())()),
+        "tags" => list(tag())
+      }
+
+  """
+  @type create_agent_organizational_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_agent_organizational_report_request() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        optional("filters") => organizational_report_filters(),
+        optional("label") => String.t() | atom()
+      }
+
+  """
+  @type create_agent_organizational_report_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_agent_organizational_report_response() :: %{
+        "reportId" => String.t() | atom(),
+        "state" => list(any())
+      }
+
+  """
+  @type create_agent_organizational_report_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -891,6 +1038,42 @@ defmodule AWS.WellArchitected do
 
   ## Example:
 
+      delete_agent_organizational_report_request() :: %{}
+
+  """
+  @type delete_agent_organizational_report_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_agent_organizational_report_response() :: %{}
+
+  """
+  @type delete_agent_organizational_report_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_agent_profile_policy_request() :: %{}
+
+  """
+  @type delete_agent_profile_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_agent_profile_policy_response() :: %{}
+
+  """
+  @type delete_agent_profile_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_agent_profile_request() :: %{}
 
   """
@@ -904,6 +1087,24 @@ defmodule AWS.WellArchitected do
 
   """
   @type delete_agent_profile_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_agent_recommendation_policy_request() :: %{}
+
+  """
+  @type delete_agent_recommendation_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_agent_recommendation_policy_response() :: %{}
+
+  """
+  @type delete_agent_recommendation_policy_response() :: %{}
 
   @typedoc """
 
@@ -1054,6 +1255,30 @@ defmodule AWS.WellArchitected do
 
   ## Example:
 
+      failed_account() :: %{
+        "accountId" => String.t() | atom(),
+        "reason" => [String.t() | atom()]
+      }
+
+  """
+  @type failed_account() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      failed_organizational_unit() :: %{
+        "organizationalUnitId" => String.t() | atom(),
+        "reason" => [String.t() | atom()]
+      }
+
+  """
+  @type failed_organizational_unit() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_agent_context_request() :: %{}
 
   """
@@ -1094,6 +1319,97 @@ defmodule AWS.WellArchitected do
 
   ## Example:
 
+      get_agent_organizational_report_data_request() :: %{
+        required("format") => list(any())
+      }
+
+  """
+  @type get_agent_organizational_report_data_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_agent_organizational_report_data_response() :: %{
+        "downloadUrl" => [String.t() | atom()],
+        "expiresAt" => [non_neg_integer()]
+      }
+
+  """
+  @type get_agent_organizational_report_data_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_agent_organizational_report_request() :: %{}
+
+  """
+  @type get_agent_organizational_report_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_agent_organizational_report_response() :: %{
+        "coverageSummary" => coverage_summary(),
+        "createdAt" => [non_neg_integer()],
+        "filters" => organizational_report_filters(),
+        "label" => String.t() | atom(),
+        "organizationId" => [String.t() | atom()],
+        "ownerAccountId" => String.t() | atom(),
+        "reportId" => String.t() | atom(),
+        "state" => list(any())
+      }
+
+  """
+  @type get_agent_organizational_report_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_agent_preferences_request() :: %{}
+
+  """
+  @type get_agent_preferences_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_agent_preferences_response() :: %{
+        "preferences" => list(preference_entry())
+      }
+
+  """
+  @type get_agent_preferences_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_agent_profile_policy_request() :: %{}
+
+  """
+  @type get_agent_profile_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_agent_profile_policy_response() :: %{
+        "policy" => String.t() | atom(),
+        "profileArn" => String.t() | atom()
+      }
+
+  """
+  @type get_agent_profile_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_agent_profile_request() :: %{}
 
   """
@@ -1119,7 +1435,9 @@ defmodule AWS.WellArchitected do
         "lastModifiedAt" => [non_neg_integer()],
         "lastModifiedBy" => [String.t() | atom()],
         "name" => [String.t() | atom()],
+        "organizationalAggregationConfiguration" => organizational_aggregation_configuration(),
         "pillars" => list(list(any())()),
+        "profileType" => list(any()),
         "tags" => list(tag())
       }
 
@@ -1140,12 +1458,14 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       get_agent_recommendation_generation_response() :: %{
-        "additionalContext" => [any()],
+        "additionalContext" => any(),
         "createdAt" => [non_neg_integer()],
         "createdBy" => [String.t() | atom()],
         "endedAt" => [non_neg_integer()],
         "errorDetails" => error_details(),
         "estimatedCompletionTime" => [non_neg_integer()],
+        "generationRecommendationTypes" => list(list(any())()),
+        "generationType" => list(any()),
         "id" => String.t() | atom(),
         "lastModifiedAt" => [non_neg_integer()],
         "lastModifiedBy" => [String.t() | atom()],
@@ -1159,6 +1479,27 @@ defmodule AWS.WellArchitected do
 
   """
   @type get_agent_recommendation_generation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_agent_recommendation_policy_request() :: %{}
+
+  """
+  @type get_agent_recommendation_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_agent_recommendation_policy_response() :: %{
+        "policy" => String.t() | atom(),
+        "recommendationArn" => String.t() | atom()
+      }
+
+  """
+  @type get_agent_recommendation_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1820,6 +2161,31 @@ defmodule AWS.WellArchitected do
 
   ## Example:
 
+      list_agent_organizational_reports_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("state") => list(any())
+      }
+
+  """
+  @type list_agent_organizational_reports_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_agent_organizational_reports_response() :: %{
+        "items" => list(organizational_report_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_agent_organizational_reports_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_agent_profiles_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
@@ -2465,6 +2831,88 @@ defmodule AWS.WellArchitected do
 
   ## Example:
 
+      organizational_account_entry() :: %{
+        "accountId" => String.t() | atom(),
+        "regions" => list(String.t() | atom())
+      }
+
+  """
+  @type organizational_account_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      organizational_aggregation_configuration() :: %{
+        "accounts" => list(organizational_account_entry()),
+        "organizationalUnits" => list(organizational_unit_entry())
+      }
+
+  """
+  @type organizational_aggregation_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      organizational_report_filters() :: %{
+        "accountIds" => list(String.t() | atom()),
+        "createdAtRange" => time_window(),
+        "organizationalUnitIds" => list(String.t() | atom()),
+        "pillars" => list(list(any())()),
+        "priorities" => list(list(any())()),
+        "recommendationTypes" => list(list(any())()),
+        "statuses" => list(list(any())()),
+        "updatedAtRange" => time_window()
+      }
+
+  """
+  @type organizational_report_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      organizational_report_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "label" => String.t() | atom(),
+        "organizationId" => [String.t() | atom()],
+        "ownerAccountId" => String.t() | atom(),
+        "reportId" => String.t() | atom(),
+        "state" => list(any())
+      }
+
+  """
+  @type organizational_report_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      organizational_unit_entry() :: %{
+        "organizationalUnitId" => String.t() | atom(),
+        "regions" => list(String.t() | atom())
+      }
+
+  """
+  @type organizational_unit_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pillar_count() :: %{
+        "count" => [float()],
+        "pillar" => list(any())
+      }
+
+  """
+  @type pillar_count() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       pillar_difference() :: %{
         "DifferenceStatus" => list(any()),
         "PillarId" => String.t() | atom(),
@@ -2514,6 +2962,43 @@ defmodule AWS.WellArchitected do
 
   """
   @type pillar_review_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      preference_entry() :: %{
+        "detail" => [String.t() | atom()],
+        "key" => list(any()),
+        "status" => list(any())
+      }
+
+  """
+  @type preference_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      preference_update() :: %{
+        "key" => list(any()),
+        "state" => list(any())
+      }
+
+  """
+  @type preference_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      priority_count() :: %{
+        "count" => [float()],
+        "priority" => list(any())
+      }
+
+  """
+  @type priority_count() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2685,8 +3170,48 @@ defmodule AWS.WellArchitected do
 
   ## Example:
 
+      put_agent_preferences_request() :: %{
+        required("preferences") => list(preference_update())
+      }
+
+  """
+  @type put_agent_preferences_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_agent_preferences_response() :: %{}
+
+  """
+  @type put_agent_preferences_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_agent_profile_policy_request() :: %{
+        required("policy") => String.t() | atom()
+      }
+
+  """
+  @type put_agent_profile_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_agent_profile_policy_response() :: %{}
+
+  """
+  @type put_agent_profile_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       put_agent_recommendation_feedback_request() :: %{
-        optional("comments") => [String.t() | atom()],
+        optional("comments") => String.t() | atom(),
         optional("feedbackCategory") => list(any()),
         required("type") => list(any())
       }
@@ -2702,6 +3227,26 @@ defmodule AWS.WellArchitected do
 
   """
   @type put_agent_recommendation_feedback_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_agent_recommendation_policy_request() :: %{
+        required("policy") => String.t() | atom()
+      }
+
+  """
+  @type put_agent_recommendation_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_agent_recommendation_policy_response() :: %{}
+
+  """
+  @type put_agent_recommendation_policy_response() :: %{}
 
   @typedoc """
 
@@ -2946,6 +3491,32 @@ defmodule AWS.WellArchitected do
 
   ## Example:
 
+      send_agent_organizational_report_data_to_s3_request() :: %{
+        required("bucketArn") => String.t() | atom(),
+        required("format") => list(any()),
+        required("objectKey") => String.t() | atom()
+      }
+
+  """
+  @type send_agent_organizational_report_data_to_s3_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_agent_organizational_report_data_to_s3_response() :: %{
+        "deliveredTo" => [String.t() | atom()]
+      }
+
+  """
+  @type send_agent_organizational_report_data_to_s3_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
       service_quota_exceeded_exception() :: %{
         "Message" => String.t() | atom(),
         "QuotaCode" => String.t() | atom(),
@@ -3002,9 +3573,9 @@ defmodule AWS.WellArchitected do
   ## Example:
 
       start_agent_recommendation_generation_request() :: %{
-        optional("additionalContext") => [any()],
+        optional("additionalContext") => any(),
         optional("name") => [String.t() | atom()],
-        required("scope") => scope(),
+        optional("scope") => scope(),
         required("types") => list(list(any())())
       }
 
@@ -3088,6 +3659,18 @@ defmodule AWS.WellArchitected do
 
   """
   @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      time_window() :: %{
+        "from" => [non_neg_integer()],
+        "to" => [non_neg_integer()]
+      }
+
+  """
+  @type time_window() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3178,6 +3761,49 @@ defmodule AWS.WellArchitected do
 
   ## Example:
 
+      update_agent_organizational_profile_request() :: %{
+        optional("businessOverview") => String.t() | atom(),
+        optional("clientToken") => [String.t() | atom()],
+        optional("deletionProtection") => [boolean()],
+        optional("description") => String.t() | atom(),
+        optional("displayName") => String.t() | atom(),
+        optional("organizationalAggregationConfiguration") => organizational_aggregation_configuration(),
+        optional("pillars") => list(list(any())())
+      }
+
+  """
+  @type update_agent_organizational_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_agent_organizational_profile_response() :: %{
+        "arn" => String.t() | atom(),
+        "businessOverview" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => [String.t() | atom()],
+        "deletionProtection" => [boolean()],
+        "description" => String.t() | atom(),
+        "displayName" => String.t() | atom(),
+        "eligibleForArchitectureGeneration" => [boolean()],
+        "eligibleForScheduledGeneration" => [boolean()],
+        "fieldErrors" => map(),
+        "lastModifiedAt" => [non_neg_integer()],
+        "lastModifiedBy" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "organizationId" => [String.t() | atom()],
+        "organizationalAggregationConfiguration" => organizational_aggregation_configuration(),
+        "pillars" => list(list(any())())
+      }
+
+  """
+  @type update_agent_organizational_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_agent_profile_request() :: %{
         optional("aggregationConfiguration") => list(aggregation_configuration()),
         optional("businessOverview") => String.t() | atom(),
@@ -3212,8 +3838,7 @@ defmodule AWS.WellArchitected do
         "lastModifiedAt" => [non_neg_integer()],
         "lastModifiedBy" => [String.t() | atom()],
         "name" => [String.t() | atom()],
-        "pillars" => list(list(any())()),
-        "tags" => list(tag())
+        "pillars" => list(list(any())())
       }
 
   """
@@ -3731,6 +4356,14 @@ defmodule AWS.WellArchitected do
           | conflict_exception()
           | access_denied_exception()
 
+  @type create_agent_basic_profile_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type create_agent_context_errors() ::
           validation_exception()
           | throttling_exception()
@@ -3745,6 +4378,23 @@ defmodule AWS.WellArchitected do
           | throttling_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type create_agent_organizational_profile_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type create_agent_organizational_report_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | internal_server_exception()
           | conflict_exception()
           | access_denied_exception()
@@ -3851,12 +4501,33 @@ defmodule AWS.WellArchitected do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type delete_agent_organizational_report_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type delete_agent_profile_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
+          | access_denied_exception()
+
+  @type delete_agent_profile_policy_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type delete_agent_recommendation_policy_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | access_denied_exception()
 
   @type delete_lens_errors() ::
@@ -3960,7 +4631,34 @@ defmodule AWS.WellArchitected do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type get_agent_organizational_report_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_agent_organizational_report_data_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_agent_preferences_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type get_agent_profile_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_agent_profile_policy_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -3975,6 +4673,13 @@ defmodule AWS.WellArchitected do
           | access_denied_exception()
 
   @type get_agent_recommendation_generation_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_agent_recommendation_policy_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -4094,6 +4799,12 @@ defmodule AWS.WellArchitected do
           | access_denied_exception()
 
   @type list_agent_goals_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_agent_organizational_reports_errors() ::
           validation_exception()
           | throttling_exception()
           | internal_server_exception()
@@ -4248,7 +4959,35 @@ defmodule AWS.WellArchitected do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type put_agent_preferences_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type put_agent_profile_policy_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type put_agent_recommendation_feedback_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type put_agent_recommendation_policy_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type send_agent_organizational_report_data_to_s3_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -4281,9 +5020,17 @@ defmodule AWS.WellArchitected do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type update_agent_organizational_profile_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type update_agent_profile_errors() ::
           validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
           | access_denied_exception()
@@ -4493,6 +5240,40 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
+  Creates a Basic profile for the calling account.
+
+  No configuration input is required because the account and region are inferred
+  from the caller. The profile uses the reserved name `basic`. This operation is
+  idempotent. Calling it twice returns the same ARN. Each account can have at most
+  one Basic profile.
+  """
+  @spec create_agent_basic_profile(map(), create_agent_basic_profile_request(), list()) ::
+          {:ok, create_agent_basic_profile_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_agent_basic_profile_errors()}
+  def create_agent_basic_profile(%Client{} = client, input, options \\ []) do
+    url_path = "/api/v1/agent-basic-profile"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Creates a context associated with an optimization profile.
 
   Contexts provide application and environment information used during
@@ -4552,6 +5333,84 @@ defmodule AWS.WellArchitected do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Creates an Organizational Profile for use with AWS Organizations integration.
+
+  Organizational Profiles are scoped to an AWS Organization and do not require an
+  execution role or aggregation configuration. The organization is inferred from
+  the caller's identity.
+  """
+  @spec create_agent_organizational_profile(
+          map(),
+          create_agent_organizational_profile_request(),
+          list()
+        ) ::
+          {:ok, create_agent_organizational_profile_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_agent_organizational_profile_errors()}
+  def create_agent_organizational_profile(%Client{} = client, input, options \\ []) do
+    url_path = "/api/v1/agent-organizational-profiles"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates an Organizational Report, which is an asynchronously-materialized,
+  point-in-time snapshot of recommendations across all Agent Profiles within the
+  caller's AWS Organization.
+
+  You can optionally narrow the scope with filters. The operation is idempotent on
+  the caller-supplied clientToken. The AWS Organization the report belongs to is
+  inferred from the caller's authorization context. Reports are retained for 90
+  days from creation, after which they are automatically deleted. Use
+  DeleteAgentOrganizationalReport to delete a report earlier.
+  """
+  @spec create_agent_organizational_report(
+          map(),
+          create_agent_organizational_report_request(),
+          list()
+        ) ::
+          {:ok, create_agent_organizational_report_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_agent_organizational_report_errors()}
+  def create_agent_organizational_report(%Client{} = client, input, options \\ []) do
+    url_path = "/api/v1/agent-organizational-reports"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 
@@ -5011,6 +5870,43 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
+  Deletes an Organizational Report and its associated artifacts.
+
+  The operation is idempotent, so repeated calls for a report that has already
+  been deleted return success.
+  """
+  @spec delete_agent_organizational_report(
+          map(),
+          String.t() | atom(),
+          delete_agent_organizational_report_request(),
+          list()
+        ) ::
+          {:ok, delete_agent_organizational_report_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_agent_organizational_report_errors()}
+  def delete_agent_organizational_report(%Client{} = client, report_id, input, options \\ []) do
+    url_path = "/api/v1/agent-organizational-reports/#{AWS.Util.encode_uri(report_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Deletes an optimization profile and its associated configuration.
 
   This action cannot be undone.
@@ -5038,6 +5934,86 @@ defmodule AWS.WellArchitected do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Removes the resource-based policy from an Agent Profile.
+
+  This revokes all cross-account access previously granted by the policy. Only the
+  profile owner can call this operation.
+  """
+  @spec delete_agent_profile_policy(
+          map(),
+          String.t() | atom(),
+          delete_agent_profile_policy_request(),
+          list()
+        ) ::
+          {:ok, delete_agent_profile_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_agent_profile_policy_errors()}
+  def delete_agent_profile_policy(%Client{} = client, profile_arn, input, options \\ []) do
+    url_path = "/api/v1/agent-profiles/#{AWS.Util.encode_uri(profile_arn)}/policy"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Removes the resource-based policy from an individual Agent Recommendation.
+
+  This revokes all cross-account access previously granted by the policy. The
+  recommendation owner or any principal with profile write access on the parent
+  profile can call this operation.
+  """
+  @spec delete_agent_recommendation_policy(
+          map(),
+          String.t() | atom(),
+          delete_agent_recommendation_policy_request(),
+          list()
+        ) ::
+          {:ok, delete_agent_recommendation_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_agent_recommendation_policy_errors()}
+  def delete_agent_recommendation_policy(
+        %Client{} = client,
+        recommendation_arn,
+        input,
+        options \\ []
+      ) do
+    url_path = "/api/v1/agent-recommendations/#{AWS.Util.encode_uri(recommendation_arn)}/policy"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
     )
   end
 
@@ -5534,6 +6510,81 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
+  Retrieves metadata and current state for a single Organizational Report.
+
+  The coverageSummary is populated once the report reaches COMPLETED and is absent
+  for reports still in progress or in a failed state.
+  """
+  @spec get_agent_organizational_report(map(), String.t() | atom(), list()) ::
+          {:ok, get_agent_organizational_report_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_agent_organizational_report_errors()}
+  def get_agent_organizational_report(%Client{} = client, report_id, options \\ []) do
+    url_path = "/api/v1/agent-organizational-reports/#{AWS.Util.encode_uri(report_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the data artifact for a completed Organizational Report as a
+  short-lived presigned S3 URL.
+
+  The response contains the URL in downloadUrl and its expiration in expiresAt. To
+  have the service write the artifact directly into a caller-owned bucket instead,
+  use SendAgentOrganizationalReportDataToS3.
+  """
+  @spec get_agent_organizational_report_data(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, get_agent_organizational_report_data_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_agent_organizational_report_data_errors()}
+  def get_agent_organizational_report_data(%Client{} = client, report_id, format, options \\ []) do
+    url_path = "/api/v1/agent-organizational-reports/#{AWS.Util.encode_uri(report_id)}/data"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(format) do
+        [{"format", format} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns the caller's complete set of Well-Architected Agent preferences with
+  their current states.
+  """
+  @spec get_agent_preferences(map(), list()) ::
+          {:ok, get_agent_preferences_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_agent_preferences_errors()}
+  def get_agent_preferences(%Client{} = client, options \\ []) do
+    url_path = "/api/v1/agent-preferences"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves detailed information about an optimization profile, including its
   configuration and metadata.
   """
@@ -5553,6 +6604,33 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
+  Retrieves the resource-based policy attached to an Agent Profile.
+
+  Only the profile owner can call this operation.
+  """
+  @spec get_agent_profile_policy(map(), String.t() | atom(), list()) ::
+          {:ok, get_agent_profile_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_agent_profile_policy_errors()}
+  def get_agent_profile_policy(%Client{} = client, profile_arn, options \\ []) do
+    url_path = "/api/v1/agent-profiles/#{AWS.Util.encode_uri(profile_arn)}/policy"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Application-level recommendations are a new recommendation format currently in
+  beta.
+
+  We are actively seeking customer feedback to improve their quality and
+  relevance. As with any AI-generated content, please thoroughly review each
+  recommendation before taking any action based on it.
+
   Retrieves detailed information about a specific optimization recommendation,
   including its impact analysis, content, and implementation guidance.
   """
@@ -5584,12 +6662,18 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
-  Retrieves information about a recommendation generation process, including its
-  status, progress, and results.
+  Application-level recommendations are a new recommendation format currently in
+  beta.
 
-  Recommendation generation is asynchronous: poll this operation until status
-  reaches a terminal value of COMPLETED (results are ready) or ERROR (see
-  errorDetails). Intermediate values are QUEUED and IN_PROGRESS.
+  We are actively seeking customer feedback to improve their quality and
+  relevance. As with any AI-generated content, please thoroughly review each
+  recommendation before taking any action based on it.
+
+  Retrieves information about a recommendation generation process, including its
+  status, progress, and results. Recommendation generation is asynchronous: poll
+  this operation until status reaches a terminal value of COMPLETED (results are
+  ready) or ERROR (see errorDetails). Intermediate values are QUEUED and
+  IN_PROGRESS.
   """
   @spec get_agent_recommendation_generation(
           map(),
@@ -5610,6 +6694,28 @@ defmodule AWS.WellArchitected do
     url_path =
       "/api/v1/agent-profiles/#{AWS.Util.encode_uri(profile_arn)}/generations/#{AWS.Util.encode_uri(generation_id)}"
 
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the resource-based policy attached to an individual Agent
+  Recommendation.
+
+  The recommendation owner or any principal with profile write access on the
+  parent profile can call this operation.
+  """
+  @spec get_agent_recommendation_policy(map(), String.t() | atom(), list()) ::
+          {:ok, get_agent_recommendation_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_agent_recommendation_policy_errors()}
+  def get_agent_recommendation_policy(%Client{} = client, recommendation_arn, options \\ []) do
+    url_path = "/api/v1/agent-recommendations/#{AWS.Util.encode_uri(recommendation_arn)}/policy"
     headers = []
     query_params = []
 
@@ -6178,6 +7284,60 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
+  Lists Organizational Reports owned by the caller's account within the caller's
+  AWS Organization, ordered by most recently created first.
+
+  Supports pagination and an optional state filter.
+  """
+  @spec list_agent_organizational_reports(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_agent_organizational_reports_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_agent_organizational_reports_errors()}
+  def list_agent_organizational_reports(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        state \\ nil,
+        options \\ []
+      ) do
+    url_path = "/api/v1/agent-organizational-reports"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(state) do
+        [{"state", state} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists optimization profiles in your account.
 
   Profiles define the scope and configuration for generating optimization
@@ -6218,6 +7378,13 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
+  Application-level recommendations are a new recommendation format currently in
+  beta.
+
+  We are actively seeking customer feedback to improve their quality and
+  relevance. As with any AI-generated content, please thoroughly review each
+  recommendation before taking any action based on it.
+
   Lists recommendation generation processes for a specified profile.
   """
   @spec list_agent_recommendation_generations(
@@ -6271,10 +7438,15 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
-  Lists recommendation items for a specific recommendation.
+  Application-level recommendations are a new recommendation format currently in
+  beta.
 
-  Recommendation items provide detailed information about individual optimization
-  opportunities.
+  We are actively seeking customer feedback to improve their quality and
+  relevance. As with any AI-generated content, please thoroughly review each
+  recommendation before taking any action based on it.
+
+  Lists recommendation items for a specific recommendation. Recommendation items
+  provide detailed information about individual optimization opportunities.
   """
   @spec list_agent_recommendation_items(
           map(),
@@ -6327,6 +7499,13 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
+  Application-level recommendations are a new recommendation format currently in
+  beta.
+
+  We are actively seeking customer feedback to improve their quality and
+  relevance. As with any AI-generated content, please thoroughly review each
+  recommendation before taking any action based on it.
+
   Lists active optimization recommendations for a specified profile with optional
   filtering by state.
   """
@@ -7373,6 +8552,82 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
+  Creates or replaces the caller's Well-Architected Agent preferences.
+
+  Each supplied update sets the desired state of one preference. Preferences not
+  named in the request are left unchanged. Enabling or disabling is performed
+  synchronously, so a failure to reach the requested state is returned as a
+  modeled exception rather than a FAILED status. On success the operation returns
+  an empty response. Call GetAgentPreferences to read the resulting state. The
+  account the preferences belong to is inferred from the caller's authorization
+  context.
+  """
+  @spec put_agent_preferences(map(), put_agent_preferences_request(), list()) ::
+          {:ok, put_agent_preferences_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_agent_preferences_errors()}
+  def put_agent_preferences(%Client{} = client, input, options \\ []) do
+    url_path = "/api/v1/agent-preferences"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Attaches or replaces a resource-based policy on an Agent Profile.
+
+  The policy controls cross-account access to the profile and its child resources
+  such as recommendations, goals, and contexts. Only the profile owner can call
+  this operation. The policy must be valid IAM JSON with Allow-only statements and
+  no negation condition operators.
+  """
+  @spec put_agent_profile_policy(
+          map(),
+          String.t() | atom(),
+          put_agent_profile_policy_request(),
+          list()
+        ) ::
+          {:ok, put_agent_profile_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_agent_profile_policy_errors()}
+  def put_agent_profile_policy(%Client{} = client, profile_arn, input, options \\ []) do
+    url_path = "/api/v1/agent-profiles/#{AWS.Util.encode_uri(profile_arn)}/policy"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Submits user feedback on a recommendation to help improve future optimization
   suggestions and track implementation outcomes.
   """
@@ -7413,12 +8668,115 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
-  Initiates a new recommendation generation process for the specified optimization
-  profile.
+  Attaches or replaces a resource-based policy on an individual Agent
+  Recommendation.
 
-  This asynchronous operation analyzes your Amazon Web Services resources and
-  generates optimization recommendations based on the configured pillars and
-  scope. Use GetAgentRecommendationGeneration to check status.
+  The policy controls cross-account access to the recommendation and its child
+  resources such as items and remediations. The recommendation owner or any
+  principal with profile write access on the parent profile can call this
+  operation. The policy must be valid IAM JSON with Allow-only statements and no
+  negation condition operators.
+  """
+  @spec put_agent_recommendation_policy(
+          map(),
+          String.t() | atom(),
+          put_agent_recommendation_policy_request(),
+          list()
+        ) ::
+          {:ok, put_agent_recommendation_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_agent_recommendation_policy_errors()}
+  def put_agent_recommendation_policy(
+        %Client{} = client,
+        recommendation_arn,
+        input,
+        options \\ []
+      ) do
+    url_path = "/api/v1/agent-recommendations/#{AWS.Util.encode_uri(recommendation_arn)}/policy"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Writes the data artifact for a completed Organizational Report directly into a
+  caller-owned S3 bucket.
+
+  The artifact is written in the requested format to the supplied bucketArn and
+  objectKey, and the resulting S3 location is returned in deliveredTo. This
+  operation creates an S3 object and should not be retried indiscriminately. To
+  download the artifact through a short-lived presigned URL instead, use
+  GetAgentOrganizationalReportData.
+  """
+  @spec send_agent_organizational_report_data_to_s3(
+          map(),
+          String.t() | atom(),
+          send_agent_organizational_report_data_to_s3_request(),
+          list()
+        ) ::
+          {:ok, send_agent_organizational_report_data_to_s3_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, send_agent_organizational_report_data_to_s3_errors()}
+  def send_agent_organizational_report_data_to_s3(
+        %Client{} = client,
+        report_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/api/v1/agent-organizational-reports/#{AWS.Util.encode_uri(report_id)}/send-to-s3"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Starts a recommendation generation process for the specified agent profile.
+
+  This asynchronous operation returns immediately. Use
+  `GetAgentRecommendationGeneration` to check the status of the generation.
+
+  Currently, only the `ARCHITECTURE` recommendation type is supported. `RESOURCE`
+  and `APPLICATION` recommendations are generated only by the scheduled generation
+  cycle and cannot be started with this operation.
+
+  For the `ARCHITECTURE` type, the generation analyzes the infrastructure as code
+  (IaC) template that you specify in `additionalContext`, and returns updated
+  templates with best practice fixes applied. You must specify `scope` and
+  `additionalContext`. You can optionally specify `name`.
+
+  Architecture review generations are subject to a daily quota for each profile.
+  For more information, see [Quotas and limits](https://docs.aws.amazon.com/wellarchitected/latest/userguide/agent-quotas.html)
+  in the Amazon Web Services Well-Architected User Guide.
   """
   @spec start_agent_recommendation_generation(
           map(),
@@ -7599,8 +8957,77 @@ defmodule AWS.WellArchitected do
   end
 
   @doc """
+  Updates an Organizational Profile.
+
+  Organizational Profiles are specific to Profiles created using AWS Organizations
+  integration. Include only the fields you want to change; any field you omit from
+  the request keeps its current value.
+
+  To clear an optional text field, supply an empty string for it; the field is
+  then unset, and a subsequent read omits it rather than returning an empty
+  string. Omitting the field from the request leaves the stored value in place.
+  `description` and `businessOverview` can be cleared this way. `displayName`
+  cannot be cleared because a display name is required, though you can change it.
+  `pillars` cannot be cleared because a profile must target at least one pillar.
+
+  `organizationalAggregationConfiguration` behaves differently because it is a
+  structure rather than a text field. Supplying it with both its
+  `organizationalUnits` and `accounts` lists empty removes every monitored
+  organizational unit and account, but the field itself remains set: a subsequent
+  read returns the structure with two empty lists rather than omitting it.
+  Omitting the field from the request keeps the stored boundary.
+  """
+  @spec update_agent_organizational_profile(
+          map(),
+          String.t() | atom(),
+          update_agent_organizational_profile_request(),
+          list()
+        ) ::
+          {:ok, update_agent_organizational_profile_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_agent_organizational_profile_errors()}
+  def update_agent_organizational_profile(%Client{} = client, profile_arn, input, options \\ []) do
+    url_path = "/api/v1/agent-organizational-profiles/#{AWS.Util.encode_uri(profile_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates an existing optimization profile's configuration, including its pillars,
   execution role, and aggregation settings.
+
+  Include only the fields you want to change. Any field you omit from the request
+  keeps its current value, so you do not need to retrieve the profile first and
+  resend the fields you are not changing.
+
+  To clear an optional text field, supply an empty string for it; the field is
+  then unset, and a subsequent read omits it rather than returning an empty
+  string. Omitting the field from the request leaves the stored value in place.
+  `description` and `businessOverview` can be cleared this way. `displayName`
+  cannot be cleared because a display name is required, though you can change it.
+  `pillars` cannot be cleared because a profile must target at least one pillar.
+
+  `aggregationConfiguration` behaves differently because it is a list of
+  per-account configurations rather than a text field. Supplying an empty list
+  removes every account entry, but the field itself remains set: a subsequent read
+  returns an empty list rather than omitting the field. Omitting it from the
+  request keeps the stored entries.
   """
   @spec update_agent_profile(map(), String.t() | atom(), update_agent_profile_request(), list()) ::
           {:ok, update_agent_profile_response(), any()}

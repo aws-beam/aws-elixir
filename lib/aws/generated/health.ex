@@ -10,11 +10,15 @@ defmodule AWS.Health do
   the API operations to get information about events that might affect your Amazon
   Web Services services and resources.
 
-  You must have a Business, Enterprise On-Ramp, or Enterprise Support plan from
-  [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/) to use the
-  Health API. If you call the Health API from an
-  Amazon Web Services account that doesn't have a Business, Enterprise On-Ramp, or
-  Enterprise Support plan, you receive a
+  You must have an Amazon Web Services Business Support+, Amazon Web Services
+  Enterprise Support, or Amazon Web Services Unified Operations plan from [Amazon
+  Web Services Support](http://aws.amazon.com/premiumsupport/) to use the Health
+  API. If you're in an Amazon Web Services Region that doesn't offer one of these
+  Amazon Web Services Support plans, or if you haven't transitioned to one of
+  these plans, you can use the Health API with a Business, Enterprise On-Ramp, or
+  Enterprise Support plan. If you call the Health API from an
+  Amazon Web Services account that isn't enrolled in one of these plans, then you
+  receive a
   `SubscriptionRequiredException` error.
 
   For API access, you need an access key ID and a secret access key. Use temporary
@@ -76,6 +80,18 @@ defmodule AWS.Health do
 
   ## Example:
       
+      account_entity() :: %{
+        "accountId" => String.t() | atom(),
+        "accountTags" => map()
+      }
+      
+  """
+  @type account_entity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       account_entity_aggregate() :: %{
         "accountId" => String.t() | atom(),
         "count" => integer(),
@@ -89,7 +105,33 @@ defmodule AWS.Health do
 
   ## Example:
       
+      account_tag() :: %{
+        "key" => String.t() | atom(),
+        "type" => list(any()),
+        "value" => String.t() | atom()
+      }
+      
+  """
+  @type account_tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      affected_account_filter() :: %{
+        "eventArn" => String.t() | atom(),
+        "tags" => map()
+      }
+      
+  """
+  @type affected_account_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       affected_entity() :: %{
+        "accountTags" => map(),
         "awsAccountId" => String.t() | atom(),
         "entityArn" => String.t() | atom(),
         "entityMetadata" => map(),
@@ -97,6 +139,7 @@ defmodule AWS.Health do
         "entityValue" => String.t() | atom(),
         "eventArn" => String.t() | atom(),
         "lastUpdatedTime" => non_neg_integer(),
+        "resourceTags" => map(),
         "statusCode" => list(any()),
         "tags" => map()
       }
@@ -119,6 +162,50 @@ defmodule AWS.Health do
 
   ## Example:
       
+      configure_tags_for_organization_request() :: %{
+        required("tagKeys") => list(tag_key_for_organization())
+      }
+      
+  """
+  @type configure_tags_for_organization_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      configure_tags_for_organization_response() :: %{
+        "configuredTagKeys" => list(tag_key_for_organization())
+      }
+      
+  """
+  @type configure_tags_for_organization_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      configure_tags_request() :: %{
+        required("tagKeys") => list(resource_tag_key())
+      }
+      
+  """
+  @type configure_tags_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      configure_tags_response() :: %{
+        "configuredTagKeys" => list(resource_tag_key())
+      }
+      
+  """
+  @type configure_tags_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       date_time_range() :: %{
         "from" => non_neg_integer(),
         "to" => non_neg_integer()
@@ -132,6 +219,7 @@ defmodule AWS.Health do
   ## Example:
       
       describe_affected_accounts_for_organization_request() :: %{
+        optional("filter") => affected_account_filter(),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
         required("eventArn") => String.t() | atom()
@@ -145,6 +233,7 @@ defmodule AWS.Health do
   ## Example:
       
       describe_affected_accounts_for_organization_response() :: %{
+        "affectedAccountEntities" => list(account_entity()),
         "affectedAccounts" => list(String.t() | atom()),
         "eventScopeCode" => list(any()),
         "nextToken" => String.t() | atom()
@@ -217,6 +306,7 @@ defmodule AWS.Health do
       
       describe_entity_aggregates_for_organization_request() :: %{
         optional("awsAccountIds") => list(String.t() | atom()),
+        optional("filter") => organization_entity_aggregate_filter(),
         required("eventArns") => list(String.t() | atom())
       }
       
@@ -241,7 +331,8 @@ defmodule AWS.Health do
   ## Example:
       
       describe_entity_aggregates_request() :: %{
-        optional("eventArns") => list(String.t() | atom())
+        optional("eventArns") => list(String.t() | atom()),
+        optional("filter") => entity_aggregate_filter()
       }
       
   """
@@ -452,10 +543,117 @@ defmodule AWS.Health do
 
   ## Example:
       
+      describe_tag_keys_for_organization_response() :: %{
+        "keys" => list(organization_tag_key())
+      }
+      
+  """
+  @type describe_tag_keys_for_organization_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_tag_keys_response() :: %{
+        "keys" => list(resource_tag_key())
+      }
+      
+  """
+  @type describe_tag_keys_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_tags_for_organization_filter() :: %{
+        "tagTypes" => list(list(any())())
+      }
+      
+  """
+  @type describe_tags_for_organization_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_tags_for_organization_request() :: %{
+        optional("filter") => describe_tags_for_organization_filter(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_tags_for_organization_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_tags_for_organization_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "tags" => list(organization_tag())
+      }
+      
+  """
+  @type describe_tags_for_organization_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_tags_onboarding_status_for_organization_response() :: %{
+        "status" => list(any())
+      }
+      
+  """
+  @type describe_tags_onboarding_status_for_organization_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_tags_onboarding_status_response() :: %{
+        "status" => list(any())
+      }
+      
+  """
+  @type describe_tags_onboarding_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_tags_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_tags_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_tags_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "tags" => list(account_tag())
+      }
+      
+  """
+  @type describe_tags_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       entity_account_filter() :: %{
         "awsAccountId" => String.t() | atom(),
         "eventArn" => String.t() | atom(),
-        "statusCodes" => list(list(any())())
+        "statusCodes" => list(list(any())()),
+        "tags" => map()
       }
       
   """
@@ -478,13 +676,24 @@ defmodule AWS.Health do
 
   ## Example:
       
+      entity_aggregate_filter() :: %{
+        "tags" => map()
+      }
+      
+  """
+  @type entity_aggregate_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       entity_filter() :: %{
         "entityArns" => list(String.t() | atom()),
         "entityValues" => list(String.t() | atom()),
         "eventArns" => list(String.t() | atom()),
         "lastUpdatedTimes" => list(date_time_range()),
         "statusCodes" => list(list(any())()),
-        "tags" => list(map())
+        "tags" => map()
       }
       
   """
@@ -593,7 +802,7 @@ defmodule AWS.Health do
         "regions" => list(String.t() | atom()),
         "services" => list(String.t() | atom()),
         "startTimes" => list(date_time_range()),
-        "tags" => list(map())
+        "tags" => map()
       }
       
   """
@@ -687,6 +896,17 @@ defmodule AWS.Health do
 
   ## Example:
       
+      organization_entity_aggregate_filter() :: %{
+        "tags" => map()
+      }
+      
+  """
+  @type organization_entity_aggregate_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       organization_event() :: %{
         "actionability" => list(any()),
         "arn" => String.t() | atom(),
@@ -750,11 +970,51 @@ defmodule AWS.Health do
         "personas" => list(list(any())()),
         "regions" => list(String.t() | atom()),
         "services" => list(String.t() | atom()),
-        "startTime" => date_time_range()
+        "startTime" => date_time_range(),
+        "tags" => map()
       }
       
   """
   @type organization_event_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      organization_tag() :: %{
+        "key" => String.t() | atom(),
+        "type" => list(any()),
+        "value" => String.t() | atom()
+      }
+      
+  """
+  @type organization_tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      organization_tag_key() :: %{
+        "enabledForEventBridge" => boolean(),
+        "key" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type organization_tag_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_tag_key() :: %{
+        "enabledForEventBridge" => boolean(),
+        "key" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type resource_tag_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -781,6 +1041,18 @@ defmodule AWS.Health do
       
   """
   @type service_lifecycle_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_key_for_organization() :: %{
+        "enabledForEventBridge" => boolean(),
+        "key" => String.t() | atom()
+      }
+      
+  """
+  @type tag_key_for_organization() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -815,6 +1087,10 @@ defmodule AWS.Health do
 
   @type describe_service_lifecycle_errors() :: invalid_pagination_token()
 
+  @type describe_tags_errors() :: invalid_pagination_token()
+
+  @type describe_tags_for_organization_errors() :: invalid_pagination_token()
+
   @type disable_health_service_access_for_organization_errors() ::
           concurrent_modification_exception()
 
@@ -835,6 +1111,42 @@ defmodule AWS.Health do
       signing_name: "health",
       target_prefix: "AWSHealth_20160804"
     }
+  end
+
+  @doc """
+  Configures which resource tag keys are tracked by Health for your account.
+
+  This operation replaces the existing configuration with the specified tag keys.
+  Only configured tag keys will appear in Health event data.
+  """
+  @spec configure_tags(map(), configure_tags_request(), list()) ::
+          {:ok, configure_tags_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def configure_tags(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ConfigureTags", input, options)
+  end
+
+  @doc """
+  Configures which tag keys are tracked by Health for all accounts in your
+  organization.
+
+  This operation replaces the existing configuration with the specified tag keys.
+  Only configured tag keys will appear in Health event data across the
+  organization.
+  """
+  @spec configure_tags_for_organization(map(), configure_tags_for_organization_request(), list()) ::
+          {:ok, configure_tags_for_organization_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def configure_tags_for_organization(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ConfigureTagsForOrganization", input, options)
   end
 
   @doc """
@@ -1267,6 +1579,106 @@ defmodule AWS.Health do
   end
 
   @doc """
+  Returns the list of resource tag keys configured for Health event tracking in
+  your account.
+  """
+  @spec describe_tag_keys(map(), %{}, list()) ::
+          {:ok, describe_tag_keys_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_tag_keys(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeTagKeys", input, options)
+  end
+
+  @doc """
+  Returns the list of tag keys configured for Health event tracking across your
+  organization.
+  """
+  @spec describe_tag_keys_for_organization(map(), %{}, list()) ::
+          {:ok, describe_tag_keys_for_organization_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_tag_keys_for_organization(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeTagKeysForOrganization", input, options)
+  end
+
+  @doc """
+  Returns the resource tags associated with Health events for your account.
+
+  Use this operation to retrieve the actual tag key-value pairs attached to
+  affected entities.
+  """
+  @spec describe_tags(map(), describe_tags_request(), list()) ::
+          {:ok, describe_tags_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_tags_errors()}
+  def describe_tags(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeTags", input, options)
+  end
+
+  @doc """
+  Returns the tags associated with Health events across all accounts in your
+  organization.
+  """
+  @spec describe_tags_for_organization(map(), describe_tags_for_organization_request(), list()) ::
+          {:ok, describe_tags_for_organization_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_tags_for_organization_errors()}
+  def describe_tags_for_organization(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeTagsForOrganization", input, options)
+  end
+
+  @doc """
+  Returns the current onboarding status of the Health tags feature for your
+  account.
+  """
+  @spec describe_tags_onboarding_status(map(), %{}, list()) ::
+          {:ok, describe_tags_onboarding_status_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_tags_onboarding_status(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeTagsOnboardingStatus", input, options)
+  end
+
+  @doc """
+  Returns the current onboarding status of the Health tags feature for your
+  organization.
+  """
+  @spec describe_tags_onboarding_status_for_organization(map(), %{}, list()) ::
+          {:ok, describe_tags_onboarding_status_for_organization_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_tags_onboarding_status_for_organization(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "DescribeTagsOnboardingStatusForOrganization",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Disables Health from working with Organizations.
 
   To call this operation, you must sign
@@ -1311,6 +1723,37 @@ defmodule AWS.Health do
   end
 
   @doc """
+  Disables the Health tags feature for your account.
+
+  After disabling, Health events will no longer include resource tag information.
+  Previously configured tag keys are discarded.
+  """
+  @spec disable_tags(map(), %{}, list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def disable_tags(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DisableTags", input, options)
+  end
+
+  @doc """
+  Disables the Health tags feature for all accounts in your organization.
+  """
+  @spec disable_tags_for_organization(map(), %{}, list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def disable_tags_for_organization(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DisableTagsForOrganization", input, options)
+  end
+
+  @doc """
   Enables Health to work with Organizations.
 
   You can use the organizational view feature
@@ -1324,17 +1767,18 @@ defmodule AWS.Health do
   To call this operation, you must meet the following requirements:
 
     
-  You must have a Business, Enterprise On-Ramp, or Enterprise Support plan from
-  [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/) to use the Health API. If you call
+  You must have a Amazon Web Services Business Support+, Amazon Web Services
+  Enterprise Support, or Amazon Web Services Unified Operations plan from [Amazon Web Services Support](http://aws.amazon.com/premiumsupport/) to use the Health
+  API. If you call
   the Health API from an Amazon Web Services account that doesn't have a
-  Business, Enterprise On-Ramp, or Enterprise Support plan, you receive a
+  Amazon Web Services Business Support+, Amazon Web Services Enterprise Support,
+  or Amazon Web Services Unified Operations plan, you receive a
   `SubscriptionRequiredException`
   error.
 
     
   You must have permission to call this operation from the organization's
-  management account. For example IAM policies, see [Health
-  identity-based policy
+  management account. For example IAM policies, see [Health identity-based policy
   examples](https://docs.aws.amazon.com/health/latest/ug/security_iam_id-based-policy-examples.html).
 
   If you don't have the required support plan, you can instead use the Health
@@ -1354,5 +1798,39 @@ defmodule AWS.Health do
       metadata()
 
     Request.request_post(client, meta, "EnableHealthServiceAccessForOrganization", input, options)
+  end
+
+  @doc """
+  Enables the Health tags feature for your account.
+
+  Once enabled, Health events will include resource tag information for affected
+  entities. If the feature is already enabled, this operation has no effect.
+  """
+  @spec enable_tags(map(), %{}, list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def enable_tags(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "EnableTags", input, options)
+  end
+
+  @doc """
+  Enables the Health tags feature for all accounts in your organization.
+
+  Once enabled, Health events will include resource tag information for affected
+  entities across your organization.
+  """
+  @spec enable_tags_for_organization(map(), %{}, list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def enable_tags_for_organization(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "EnableTagsForOrganization", input, options)
   end
 end

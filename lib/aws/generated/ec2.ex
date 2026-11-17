@@ -288,6 +288,7 @@ defmodule AWS.EC2 do
       
       accept_vpc_endpoint_connections_request() :: %{
         optional("DryRun") => boolean(),
+        optional("TransitGatewayAttachmentIds") => list(String.t() | atom()),
         required("ServiceId") => String.t() | atom(),
         required("VpcEndpointIds") => list(String.t() | atom())
       }
@@ -499,6 +500,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       added_principal() :: %{
+        "PermissionType" => list(any()),
         "Principal" => String.t() | atom(),
         "PrincipalType" => list(any()),
         "ServiceId" => String.t() | atom(),
@@ -713,6 +715,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       allowed_principal() :: %{
+        "PermissionType" => list(any()),
         "Principal" => String.t() | atom(),
         "PrincipalType" => list(any()),
         "ServiceId" => String.t() | atom(),
@@ -1374,6 +1377,30 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      associate_kms_key_id_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("SnapshotId") => String.t() | atom(),
+        required("KmsKeyId") => String.t() | atom()
+      }
+      
+  """
+  @type associate_kms_key_id_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_kms_key_id_result() :: %{
+        "Return" => boolean()
+      }
+      
+  """
+  @type associate_kms_key_id_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       associate_nat_gateway_address_request() :: %{
         optional("AvailabilityZone") => String.t() | atom(),
         optional("AvailabilityZoneId") => String.t() | atom(),
@@ -1663,6 +1690,17 @@ defmodule AWS.EC2 do
       
   """
   @type associate_vpc_cidr_block_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associated_kms_key() :: %{
+        "KmsKeyId" => String.t() | atom()
+      }
+      
+  """
+  @type associated_kms_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6520,6 +6558,37 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      create_transit_gateway_network_function_attachment_request() :: %{
+        optional("AvailabilityZoneIds") => list(String.t() | atom()),
+        optional("AvailabilityZones") => list(String.t() | atom()),
+        optional("DryRun") => boolean(),
+        optional("TagSpecifications") => list(tag_specification()),
+        required("ServiceName") => String.t() | atom(),
+        required("TransitGatewayId") => String.t() | atom()
+      }
+      
+  """
+  @type create_transit_gateway_network_function_attachment_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      create_transit_gateway_network_function_attachment_result() :: %{
+        "TransitGatewayNetworkFunctionAttachment" => transit_gateway_network_function_attachment()
+      }
+      
+  """
+  @type create_transit_gateway_network_function_attachment_result() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       create_transit_gateway_peering_attachment_request() :: %{
         optional("DryRun") => boolean(),
         optional("Options") => create_transit_gateway_peering_attachment_request_options(),
@@ -9273,6 +9342,33 @@ defmodule AWS.EC2 do
       
   """
   @type delete_transit_gateway_multicast_domain_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_transit_gateway_network_function_attachment_request() :: %{
+        optional("DryRun") => boolean(),
+        required("TransitGatewayAttachmentId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_transit_gateway_network_function_attachment_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_transit_gateway_network_function_attachment_result() :: %{
+        "TransitGatewayNetworkFunctionAttachment" => transit_gateway_network_function_attachment()
+      }
+      
+  """
+  @type delete_transit_gateway_network_function_attachment_result() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -14517,6 +14613,37 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_transit_gateway_network_function_attachments_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("TransitGatewayAttachmentIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_transit_gateway_network_function_attachments_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_transit_gateway_network_function_attachments_result() :: %{
+        "NextToken" => String.t() | atom(),
+        "TransitGatewayNetworkFunctionAttachments" => list(transit_gateway_network_function_attachment())
+      }
+      
+  """
+  @type describe_transit_gateway_network_function_attachments_result() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       describe_transit_gateway_peering_attachments_request() :: %{
         optional("DryRun") => boolean(),
         optional("Filters") => list(filter()),
@@ -16478,6 +16605,30 @@ defmodule AWS.EC2 do
       
   """
   @type disassociate_ipam_resource_discovery_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_kms_key_id_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("SnapshotId") => String.t() | atom(),
+        required("KmsKeyId") => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_kms_key_id_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_kms_key_id_result() :: %{
+        "Return" => boolean()
+      }
+      
+  """
+  @type disassociate_kms_key_id_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -27281,6 +27432,37 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      modify_transit_gateway_network_function_attachment_request() :: %{
+        optional("AddAvailabilityZoneIds") => list(String.t() | atom()),
+        optional("AddAvailabilityZones") => list(String.t() | atom()),
+        optional("DryRun") => boolean(),
+        optional("RemoveAvailabilityZoneIds") => list(String.t() | atom()),
+        optional("RemoveAvailabilityZones") => list(String.t() | atom()),
+        required("TransitGatewayAttachmentId") => String.t() | atom()
+      }
+      
+  """
+  @type modify_transit_gateway_network_function_attachment_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_transit_gateway_network_function_attachment_result() :: %{
+        "TransitGatewayNetworkFunctionAttachment" => transit_gateway_network_function_attachment()
+      }
+      
+  """
+  @type modify_transit_gateway_network_function_attachment_result() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       modify_transit_gateway_options() :: %{
         "AddTransitGatewayCidrBlocks" => list(String.t() | atom()),
         "AmazonSideAsn" => float(),
@@ -28025,6 +28207,7 @@ defmodule AWS.EC2 do
       modify_vpc_endpoint_service_permissions_request() :: %{
         optional("AddAllowedPrincipals") => list(String.t() | atom()),
         optional("DryRun") => boolean(),
+        optional("PermissionType") => list(any()),
         optional("RemoveAllowedPrincipals") => list(String.t() | atom()),
         required("ServiceId") => String.t() | atom()
       }
@@ -30384,6 +30567,7 @@ defmodule AWS.EC2 do
       
       reject_vpc_endpoint_connections_request() :: %{
         optional("DryRun") => boolean(),
+        optional("TransitGatewayAttachmentIds") => list(String.t() | atom()),
         required("ServiceId") => String.t() | atom(),
         required("VpcEndpointIds") => list(String.t() | atom())
       }
@@ -32844,6 +33028,7 @@ defmodule AWS.EC2 do
   ## Example:
       
       snapshot() :: %{
+        "AssociatedKmsKeys" => list(associated_kms_key()),
         "AvailabilityZone" => String.t() | atom(),
         "CompletionDurationMinutes" => integer(),
         "CompletionTime" => non_neg_integer(),
@@ -34513,6 +34698,26 @@ defmodule AWS.EC2 do
       
   """
   @type transit_gateway_nat_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      transit_gateway_network_function_attachment() :: %{
+        "AvailabilityZoneIds" => list(String.t() | atom()),
+        "AvailabilityZones" => list(String.t() | atom()),
+        "CreationTime" => non_neg_integer(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceOwnerId" => String.t() | atom(),
+        "State" => list(any()),
+        "Tags" => list(tag()),
+        "TransitGatewayAttachmentId" => String.t() | atom(),
+        "TransitGatewayId" => String.t() | atom(),
+        "TransitGatewayOwnerId" => String.t() | atom()
+      }
+      
+  """
+  @type transit_gateway_network_function_attachment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -36308,6 +36513,8 @@ defmodule AWS.EC2 do
         "PayerResponsibilities" => list(payer_responsibility_entry()),
         "ServiceId" => String.t() | atom(),
         "Tags" => list(tag()),
+        "TransitGatewayAttachmentId" => String.t() | atom(),
+        "TransitGatewayAttachmentOwner" => String.t() | atom(),
         "VpcEndpointConnectionId" => String.t() | atom(),
         "VpcEndpointId" => String.t() | atom(),
         "VpcEndpointOwner" => String.t() | atom(),
@@ -37351,6 +37558,31 @@ defmodule AWS.EC2 do
       metadata()
 
     Request.request_post(client, meta, "AssociateIpamResourceDiscovery", input, options)
+  end
+
+  @doc """
+  Associates an additional KMS key with an encrypted Amazon EBS snapshot.
+
+  With the
+  associated key, you have a second, independent way to access the snapshot's
+  data, in
+  addition to the key the snapshot is already encrypted under. Associating a key
+  doesn't
+  re-encrypt the snapshot or grant access to its original key.
+
+  For more information, see [Associated KMS
+  keys](https://docs.aws.amazon.com/ebs/latest/userguide/associated-kms-keys.html)
+  in the *Amazon EBS User Guide*.
+  """
+  @spec associate_kms_key_id(map(), associate_kms_key_id_request(), list()) ::
+          {:ok, associate_kms_key_id_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def associate_kms_key_id(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "AssociateKmsKeyId", input, options)
   end
 
   @doc """
@@ -40978,6 +41210,41 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Creates a network function attachment that connects the specified transit
+  gateway to a Gateway Load Balancer endpoint service.
+
+  Traffic that you route to the attachment is sent to the network function
+  appliances behind the endpoint service.
+  To use this operation, you must be the owner of the transit gateway.
+
+  You can create one network function attachment for each combination of transit
+  gateway and endpoint service.
+  The attachment remains in the `pendingAcceptance` state until the endpoint
+  service owner
+  accepts the endpoint connection.
+  """
+  @spec create_transit_gateway_network_function_attachment(
+          map(),
+          create_transit_gateway_network_function_attachment_request(),
+          list()
+        ) ::
+          {:ok, create_transit_gateway_network_function_attachment_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def create_transit_gateway_network_function_attachment(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "CreateTransitGatewayNetworkFunctionAttachment",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Requests a transit gateway peering attachment between the specified transit
   gateway
   (requester) and a peer transit gateway (accepter).
@@ -43071,6 +43338,32 @@ defmodule AWS.EC2 do
       metadata()
 
     Request.request_post(client, meta, "DeleteTransitGatewayMulticastDomain", input, options)
+  end
+
+  @doc """
+  Deletes the specified network function attachment.
+
+  The attachment must be in the `available` or `pendingAcceptance` state.
+  """
+  @spec delete_transit_gateway_network_function_attachment(
+          map(),
+          delete_transit_gateway_network_function_attachment_request(),
+          list()
+        ) ::
+          {:ok, delete_transit_gateway_network_function_attachment_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def delete_transit_gateway_network_function_attachment(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "DeleteTransitGatewayNetworkFunctionAttachment",
+      input,
+      options
+    )
   end
 
   @doc """
@@ -47555,6 +47848,37 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Describes one or more network function attachments.
+
+  You can describe attachments that you own or that are attached to a transit
+  gateway that you own.
+  """
+  @spec describe_transit_gateway_network_function_attachments(
+          map(),
+          describe_transit_gateway_network_function_attachments_request(),
+          list()
+        ) ::
+          {:ok, describe_transit_gateway_network_function_attachments_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_transit_gateway_network_function_attachments(
+        %Client{} = client,
+        input,
+        options \\ []
+      ) do
+    meta =
+      metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "DescribeTransitGatewayNetworkFunctionAttachments",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Describes your transit gateway peering attachments.
   """
   @spec describe_transit_gateway_peering_attachments(
@@ -49259,6 +49583,25 @@ defmodule AWS.EC2 do
       metadata()
 
     Request.request_post(client, meta, "DisassociateIpamResourceDiscovery", input, options)
+  end
+
+  @doc """
+  Removes an associated KMS key from an Amazon EBS snapshot.
+
+  After you disassociate the
+  key, it can no longer be used to access the snapshot's data. The snapshot's
+  original
+  encryption key is unaffected.
+  """
+  @spec disassociate_kms_key_id(map(), disassociate_kms_key_id_request(), list()) ::
+          {:ok, disassociate_kms_key_id_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def disassociate_kms_key_id(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DisassociateKmsKeyId", input, options)
   end
 
   @doc """
@@ -54009,6 +54352,41 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Adds Availability Zones to or removes Availability Zones from the specified
+  network function attachment.
+
+  The attachment must be in the `available` state. You must specify at least one
+  Availability Zone to add or remove,
+  and the attachment must keep at least one Availability Zone.
+
+  Adding an Availability Zone provisions a new Gateway Load Balancer endpoint in
+  that Availability Zone. If the endpoint service
+  doesn't automatically accept connection requests, the endpoint service owner
+  must accept the endpoint connection for
+  each Availability Zone that you add.
+  """
+  @spec modify_transit_gateway_network_function_attachment(
+          map(),
+          modify_transit_gateway_network_function_attachment_request(),
+          list()
+        ) ::
+          {:ok, modify_transit_gateway_network_function_attachment_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def modify_transit_gateway_network_function_attachment(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "ModifyTransitGatewayNetworkFunctionAttachment",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Modifies the specified transit gateway policy table entry.
   """
   @spec modify_transit_gateway_policy_table_entry(
@@ -54463,6 +54841,15 @@ defmodule AWS.EC2 do
   public service can send a request to attach an endpoint. If the service does not
   require manual approval,
   attachments are automatically approved.
+
+  By default, principals that you grant permissions to can create VPC endpoints
+  that connect to
+  your endpoint service. For Gateway Load Balancer endpoint services, you can
+  instead grant permissions so that
+  principals can create transit gateway attachments that connect to your endpoint
+  service. To do so,
+  specify `transit-gateway-attachment` for `PermissionType`. The two permission
+  types are independent. A principal can have either or both.
   """
   @spec modify_vpc_endpoint_service_permissions(
           map(),

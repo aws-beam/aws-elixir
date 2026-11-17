@@ -69,6 +69,30 @@ defmodule AWS.ConnectHealth do
 
   ## Example:
 
+      checklist() :: %{
+        "checklistId" => String.t() | atom(),
+        "items" => list(checklist_item())
+      }
+
+  """
+  @type checklist() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      checklist_item() :: %{
+        "itemKey" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type checklist_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       clinical_note_generation_result() :: %{
         "afterVisitSummaryResult" => artifact_details(),
         "noteResult" => artifact_details(),
@@ -110,6 +134,34 @@ defmodule AWS.ConnectHealth do
 
   """
   @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dataset_input() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        required("config") => list(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_dataset_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dataset_output() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "datasetId" => String.t() | atom(),
+        "status" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type create_dataset_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -211,6 +263,24 @@ defmodule AWS.ConnectHealth do
 
   ## Example:
 
+      dataset_summary() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "datasetId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "statusDetails" => String.t() | atom(),
+        "type" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type dataset_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       deactivate_subscription_input() :: %{}
 
   """
@@ -226,6 +296,28 @@ defmodule AWS.ConnectHealth do
 
   """
   @type deactivate_subscription_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dataset_input() :: %{}
+
+  """
+  @type delete_dataset_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dataset_output() :: %{
+        "arn" => String.t() | atom(),
+        "datasetId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_dataset_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -269,6 +361,7 @@ defmodule AWS.ConnectHealth do
   ## Example:
 
       encounter_context() :: %{
+        "medicalCodingContext" => medical_coding_context(),
         "unstructuredContext" => String.t() | atom()
       }
 
@@ -303,6 +396,35 @@ defmodule AWS.ConnectHealth do
 
   ## Example:
 
+      get_dataset_input() :: %{}
+
+  """
+  @type get_dataset_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_dataset_output() :: %{
+        "arn" => String.t() | atom(),
+        "artifacts" => list(),
+        "config" => list(),
+        "createdAt" => [non_neg_integer()],
+        "datasetId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "statusDetails" => String.t() | atom(),
+        "type" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type get_dataset_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_domain_input() :: %{}
 
   """
@@ -327,6 +449,37 @@ defmodule AWS.ConnectHealth do
 
   """
   @type get_domain_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_medical_coding_job_request() :: %{}
+
+  """
+  @type get_medical_coding_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_medical_coding_job_response() :: %{
+        "creationTime" => [non_neg_integer()],
+        "datasetId" => String.t() | atom(),
+        "encounterContext" => medical_codes_encounter_context(),
+        "jobArn" => String.t() | atom(),
+        "jobId" => String.t() | atom(),
+        "jobStatus" => list(any()),
+        "medicalCodingOutput" => medical_coding_output(),
+        "outputDataConfig" => medical_coding_output_data_config(),
+        "patientContext" => medical_codes_patient_context(),
+        "statusDetails" => String.t() | atom(),
+        "text" => String.t() | atom(),
+        "updatedTime" => [non_neg_integer()]
+      }
+
+  """
+  @type get_medical_coding_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -449,6 +602,31 @@ defmodule AWS.ConnectHealth do
 
   ## Example:
 
+      list_datasets_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()],
+        optional("type") => list(any())
+      }
+
+  """
+  @type list_datasets_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_datasets_output() :: %{
+        "items" => list(dataset_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_datasets_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_domains_input() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => [String.t() | atom()],
@@ -540,6 +718,131 @@ defmodule AWS.ConnectHealth do
 
   ## Example:
 
+      medical_code_generation_result() :: %{
+        "jobId" => String.t() | atom(),
+        "medicalCodesResult" => artifact_details()
+      }
+
+  """
+  @type medical_code_generation_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_code_generation_settings() :: %{
+        "enabled" => [boolean()]
+      }
+
+  """
+  @type medical_code_generation_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_code_generation_settings_response() :: %{
+        "enabled" => boolean()
+      }
+
+  """
+  @type medical_code_generation_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_codes_encounter_context() :: %{
+        "afterHours" => [boolean()],
+        "encounterDate" => String.t() | atom(),
+        "encounterDurationMinutes" => integer(),
+        "encounterReason" => String.t() | atom(),
+        "encounterType" => list(any())
+      }
+
+  """
+  @type medical_codes_encounter_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_codes_patient_context() :: %{
+        "dateOfBirth" => String.t() | atom(),
+        "insurance" => String.t() | atom(),
+        "sex" => list(any()),
+        "status" => list(any())
+      }
+
+  """
+  @type medical_codes_patient_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_coding_context() :: %{
+        "afterHours" => [boolean()],
+        "dateOfBirth" => String.t() | atom(),
+        "encounterDate" => String.t() | atom(),
+        "encounterReason" => String.t() | atom(),
+        "encounterType" => list(any()),
+        "sex" => list(any()),
+        "status" => list(any())
+      }
+
+  """
+  @type medical_coding_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_coding_dataset_artifacts() :: %{
+        "evaluationS3Uri" => String.t() | atom()
+      }
+
+  """
+  @type medical_coding_dataset_artifacts() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_coding_dataset_config() :: %{
+        "s3InputPath" => String.t() | atom(),
+        "s3OutputPath" => String.t() | atom()
+      }
+
+  """
+  @type medical_coding_dataset_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_coding_output() :: %{
+        "uri" => String.t() | atom()
+      }
+
+  """
+  @type medical_coding_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      medical_coding_output_data_config() :: %{
+        "s3OutputPath" => String.t() | atom()
+      }
+
+  """
+  @type medical_coding_output_data_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       medical_scribe_audio_event() :: %{
         "audioChunk" => binary()
       }
@@ -574,6 +877,18 @@ defmodule AWS.ConnectHealth do
 
   ## Example:
 
+      medical_scribe_checklist_event() :: %{
+        "checklists" => list(checklist()),
+        "snapshotVersion" => [float()]
+      }
+
+  """
+  @type medical_scribe_checklist_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       medical_scribe_configuration_event() :: %{
         "channelDefinitions" => list(medical_scribe_channel_definition()),
         "encounterContext" => encounter_context(),
@@ -594,6 +909,7 @@ defmodule AWS.ConnectHealth do
         "languageCode" => list(any()),
         "mediaEncoding" => list(any()),
         "mediaSampleRateHertz" => integer(),
+        "medicalCodingContextProvided" => boolean(),
         "postStreamActionResult" => medical_scribe_post_stream_actions_result(),
         "postStreamActionSettings" => medical_scribe_post_stream_action_settings_response(),
         "sessionId" => String.t() | atom(),
@@ -610,8 +926,22 @@ defmodule AWS.ConnectHealth do
 
   ## Example:
 
+      medical_scribe_periodontal_chart_event() :: %{
+        "reviewItems" => list(periodontal_review()),
+        "snapshotVersion" => [float()],
+        "teeth" => list(periodontal_tooth())
+      }
+
+  """
+  @type medical_scribe_periodontal_chart_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       medical_scribe_post_stream_action_settings() :: %{
         "clinicalNoteGenerationSettings" => clinical_note_generation_settings(),
+        "medicalCodeGenerationSettings" => medical_code_generation_settings(),
         "outputS3Uri" => String.t() | atom()
       }
 
@@ -624,6 +954,7 @@ defmodule AWS.ConnectHealth do
 
       medical_scribe_post_stream_action_settings_response() :: %{
         "clinicalNoteGenerationSettings" => clinical_note_generation_settings_response(),
+        "medicalCodeGenerationSettings" => medical_code_generation_settings_response(),
         "outputS3Uri" => String.t() | atom()
       }
 
@@ -635,7 +966,8 @@ defmodule AWS.ConnectHealth do
   ## Example:
 
       medical_scribe_post_stream_actions_result() :: %{
-        "clinicalNoteGenerationResult" => clinical_note_generation_result()
+        "clinicalNoteGenerationResult" => clinical_note_generation_result(),
+        "medicalCodeGenerationResult" => medical_code_generation_result()
       }
 
   """
@@ -718,6 +1050,49 @@ defmodule AWS.ConnectHealth do
 
   ## Example:
 
+      periodontal_review() :: %{
+        "reason" => list(any()),
+        "sites" => list(list(any())()),
+        "toothNumber" => integer()
+      }
+
+  """
+  @type periodontal_review() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      periodontal_site() :: %{
+        "bleeding" => [boolean()],
+        "probingDepth" => integer(),
+        "recession" => integer(),
+        "site" => list(any()),
+        "suppuration" => [boolean()]
+      }
+
+  """
+  @type periodontal_site() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      periodontal_tooth() :: %{
+        "furcation" => integer(),
+        "missing" => [boolean()],
+        "mobility" => integer(),
+        "sites" => list(periodontal_site()),
+        "toothNumber" => integer()
+      }
+
+  """
+  @type periodontal_tooth() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       resource_not_found_exception() :: %{
         "message" => [String.t() | atom()]
       }
@@ -746,6 +1121,35 @@ defmodule AWS.ConnectHealth do
 
   """
   @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_medical_coding_job_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("datasetId") => String.t() | atom(),
+        optional("encounterContext") => medical_codes_encounter_context(),
+        optional("patientContext") => medical_codes_patient_context(),
+        required("outputDataConfig") => medical_coding_output_data_config(),
+        required("text") => String.t() | atom()
+      }
+
+  """
+  @type start_medical_coding_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_medical_coding_job_response() :: %{
+        "creationTime" => [non_neg_integer()],
+        "jobArn" => String.t() | atom(),
+        "jobId" => String.t() | atom()
+      }
+
+  """
+  @type start_medical_coding_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -811,6 +1215,32 @@ defmodule AWS.ConnectHealth do
 
   """
   @type start_patient_insights_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      submit_feedback_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("comments") => String.t() | atom(),
+        optional("generatedArtifactS3Uri") => String.t() | atom(),
+        optional("subscriptionId") => String.t() | atom(),
+        required("artifactSourceId") => String.t() | atom(),
+        required("artifactType") => list(any()),
+        required("signedArtifactS3Uri") => String.t() | atom()
+      }
+
+  """
+  @type submit_feedback_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      submit_feedback_response() :: %{}
+
+  """
+  @type submit_feedback_response() :: %{}
 
   @typedoc """
 
@@ -918,6 +1348,15 @@ defmodule AWS.ConnectHealth do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type create_dataset_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type create_domain_errors() :: service_quota_exceeded_exception()
 
   @type create_subscription_errors() ::
@@ -933,9 +1372,31 @@ defmodule AWS.ConnectHealth do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type delete_dataset_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type delete_domain_errors() :: resource_not_found_exception()
 
+  @type get_dataset_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type get_domain_errors() :: resource_not_found_exception()
+
+  @type get_medical_coding_job_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type get_medical_scribe_listening_session_errors() ::
           throttling_exception()
@@ -957,10 +1418,25 @@ defmodule AWS.ConnectHealth do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type list_datasets_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type list_subscriptions_errors() ::
           validation_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | access_denied_exception()
+
+  @type start_medical_coding_job_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type start_medical_scribe_listening_session_errors() ::
@@ -977,6 +1453,13 @@ defmodule AWS.ConnectHealth do
           | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
+          | access_denied_exception()
+
+  @type submit_feedback_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | access_denied_exception()
 
   def metadata do
@@ -1029,6 +1512,52 @@ defmodule AWS.ConnectHealth do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Creates a Dataset in a Domain and starts building it.
+
+  A new dataset has the status CREATING. When it's ready to use, its status
+  changes to ACTIVE, or to CREATE_FAILED if it fails to build. To check the
+  status, call GetDataset.
+
+  This operation is idempotent: if you retry a request with the same clientToken,
+  it returns the dataset that the first request created.
+
+  For a medical coding dataset, Amazon Connect Health uses the coded examples that
+  are in the s3InputPath when you create the dataset, and writes evaluation scores
+  to the s3OutputPath. Later changes to the s3InputPath don't change the dataset.
+  To use this operation, you must have s3:GetObject and s3:ListBucket permissions
+  for the input location and s3:PutObject permission for the output location, and
+  kms:Decrypt and kms:GenerateDataKey permissions if you encrypt the locations
+  with an AWS KMS key.
+
+  Datasets are in preview release and are subject to change.
+  """
+  @spec create_dataset(map(), String.t() | atom(), create_dataset_input(), list()) ::
+          {:ok, create_dataset_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_dataset_errors()}
+  def create_dataset(%Client{} = client, domain_id, input, options \\ []) do
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/datasets"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
     )
   end
 
@@ -1134,6 +1663,53 @@ defmodule AWS.ConnectHealth do
   end
 
   @doc """
+  Starts deleting a Dataset and the resources that Amazon Connect Health built for
+  it.
+
+  You can delete a dataset whose status is ACTIVE, CREATE_FAILED, or
+  DELETE_FAILED. The dataset moves to DELETING, and then to DELETED. If the delete
+  fails, the dataset moves to DELETE_FAILED, and you can call DeleteDataset again.
+
+  Medical coding jobs that already use the dataset finish. Amazon Connect Health
+  rejects new requests that specify the dataset.
+
+  Datasets are in preview release and are subject to change.
+  """
+  @spec delete_dataset(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_dataset_input(),
+          list()
+        ) ::
+          {:ok, delete_dataset_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_dataset_errors()}
+  def delete_dataset(%Client{} = client, dataset_id, domain_id, input, options \\ []) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_id)}/datasets/#{AWS.Util.encode_uri(dataset_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Deletes a Domain and all associated resources.
   """
   @spec delete_domain(map(), String.t() | atom(), delete_domain_input(), list()) ::
@@ -1163,6 +1739,31 @@ defmodule AWS.ConnectHealth do
   end
 
   @doc """
+  Retrieves information about a Dataset, including its status and, after it is
+  built, its results.
+
+  A dataset whose status is DELETED returns ResourceNotFoundException.
+
+  Datasets are in preview release and are subject to change.
+  """
+  @spec get_dataset(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_dataset_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_dataset_errors()}
+  def get_dataset(%Client{} = client, dataset_id, domain_id, options \\ []) do
+    url_path =
+      "/domains/#{AWS.Util.encode_uri(domain_id)}/datasets/#{AWS.Util.encode_uri(dataset_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves information about a Domain.
   """
   @spec get_domain(map(), String.t() | atom(), list()) ::
@@ -1176,6 +1777,29 @@ defmodule AWS.ConnectHealth do
     query_params = []
 
     meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about a medical coding job, including its status and, when
+  it succeeds, the location of its results.
+
+  Medical coding jobs are in preview release and are subject to change.
+  """
+  @spec get_medical_coding_job(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_medical_coding_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_medical_coding_job_errors()}
+  def get_medical_coding_job(%Client{} = client, domain_id, job_id, options \\ []) do
+    url_path =
+      "/domain/#{AWS.Util.encode_uri(domain_id)}/medical-coding-job/#{AWS.Util.encode_uri(job_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "runtime.")
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
@@ -1246,6 +1870,66 @@ defmodule AWS.ConnectHealth do
 
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the Datasets in a Domain.
+
+  You can list only the datasets of one type. The operation doesn't return
+  datasets whose status is DELETED, and the order of the results isn't specified.
+  We recommend using pagination to ensure that the operation returns quickly and
+  successfully.
+
+  Datasets are in preview release and are subject to change.
+  """
+  @spec list_datasets(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_datasets_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_datasets_errors()}
+  def list_datasets(
+        %Client{} = client,
+        domain_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/domains/#{AWS.Util.encode_uri(domain_id)}/datasets"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(type) do
+        [{"type", type} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -1364,6 +2048,50 @@ defmodule AWS.ConnectHealth do
   end
 
   @doc """
+  Starts an asynchronous job that generates medical codes (ICD-10 and CPT) for
+  clinical text.
+
+  Call GetMedicalCodingJob to check the status of the job. When the job succeeds,
+  Amazon Connect Health writes the results to the output Amazon S3 location.
+
+  To tailor the codes to your organization, specify an ACTIVE medical coding
+  dataset in the Domain. If you don't specify a dataset, the job uses the general
+  medical coding knowledge base.
+
+  Medical coding jobs are in preview release and are subject to change.
+  """
+  @spec start_medical_coding_job(
+          map(),
+          String.t() | atom(),
+          start_medical_coding_job_request(),
+          list()
+        ) ::
+          {:ok, start_medical_coding_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_medical_coding_job_errors()}
+  def start_medical_coding_job(%Client{} = client, domain_id, input, options \\ []) do
+    url_path = "/domain/#{AWS.Util.encode_uri(domain_id)}/medical-coding-job"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "runtime.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Starts a new Medical Scribe listening session for real-time audio transcription
   """
   @spec start_medical_scribe_listening_session(
@@ -1453,6 +2181,36 @@ defmodule AWS.ConnectHealth do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Submits feedback on a clinical document or a set of medical codes that Amazon
+  Connect Health generated.
+  """
+  @spec submit_feedback(map(), String.t() | atom(), submit_feedback_request(), list()) ::
+          {:ok, submit_feedback_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, submit_feedback_errors()}
+  def submit_feedback(%Client{} = client, domain_id, input, options \\ []) do
+    url_path = "/domain/#{AWS.Util.encode_uri(domain_id)}/feedback"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "runtime.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 

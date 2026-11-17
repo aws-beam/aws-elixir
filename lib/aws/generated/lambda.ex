@@ -87,6 +87,17 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      accelerator_config() :: %{
+        "AcceleratorMemorySize" => list(integer())
+      }
+
+  """
+  @type accelerator_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       account_limit() :: %{
         "CodeSizeUnzipped" => float(),
         "CodeSizeZipped" => float(),
@@ -830,6 +841,7 @@ defmodule AWS.Lambda do
   ## Example:
 
       create_function_request() :: %{
+        optional("AcceleratorConfig") => accelerator_config(),
         optional("Architectures") => list(list(any())()),
         optional("CapacityProviderConfig") => capacity_provider_config(),
         optional("CodeSigningConfigArn") => String.t() | atom(),
@@ -1597,6 +1609,7 @@ defmodule AWS.Lambda do
   ## Example:
 
       function_configuration() :: %{
+        "AcceleratorConfig" => accelerator_config(),
         "Architectures" => list(list(any())()),
         "CapacityProviderConfig" => capacity_provider_config(),
         "CodeSha256" => String.t() | atom(),
@@ -4181,6 +4194,7 @@ defmodule AWS.Lambda do
   ## Example:
 
       update_function_configuration_request() :: %{
+        optional("AcceleratorConfig") => accelerator_config(),
         optional("CapacityProviderConfig") => capacity_provider_config(),
         optional("DeadLetterConfig") => dead_letter_config(),
         optional("Description") => String.t() | atom(),

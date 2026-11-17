@@ -427,6 +427,17 @@ defmodule AWS.ECR do
 
   ## Example:
       
+      delete_replication() :: %{
+        "enabled" => boolean()
+      }
+      
+  """
+  @type delete_replication() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_repository_creation_template_request() :: %{
         required("prefix") => String.t() | atom()
       }
@@ -2234,6 +2245,7 @@ defmodule AWS.ECR do
   ## Example:
       
       replication_rule() :: %{
+        "deleteReplication" => delete_replication(),
         "destinations" => list(replication_destination()),
         "repositoryFilters" => list(repository_filter())
       }

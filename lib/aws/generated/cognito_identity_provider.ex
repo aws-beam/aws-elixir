@@ -2420,6 +2420,43 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      get_derived_token_request() :: %{
+        optional("ActorToken") => String.t() | atom(),
+        optional("ActorTokenProviderName") => String.t() | atom(),
+        optional("ActorTokenType") => list(any()),
+        optional("Audiences") => list(String.t() | atom()),
+        optional("ClientSecret") => String.t() | atom(),
+        optional("RequestedTokenType") => list(any()),
+        optional("Resources") => list(String.t() | atom()),
+        optional("Scopes") => list(String.t() | atom()),
+        optional("SubjectTokenProviderName") => String.t() | atom(),
+        required("ClientId") => String.t() | atom(),
+        required("SubjectToken") => String.t() | atom(),
+        required("SubjectTokenType") => list(any())
+      }
+      
+  """
+  @type get_derived_token_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_derived_token_response() :: %{
+        "ExpiresIn" => integer(),
+        "IssuedToken" => String.t() | atom(),
+        "IssuedTokenType" => list(any()),
+        "Scopes" => list(String.t() | atom()),
+        "TokenType" => list(any())
+      }
+      
+  """
+  @type get_derived_token_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_device_request() :: %{
         optional("AccessToken") => String.t() | atom(),
         required("DeviceKey") => String.t() | atom()
@@ -6280,6 +6317,19 @@ defmodule AWS.CognitoIdentityProvider do
           | invalid_parameter_exception()
           | internal_error_exception()
 
+  @type get_derived_token_errors() ::
+          user_not_found_exception()
+          | user_lambda_validation_exception()
+          | unexpected_lambda_exception()
+          | too_many_requests_exception()
+          | resource_not_found_exception()
+          | operation_not_enabled_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | invalid_lambda_response_exception()
+          | internal_error_exception()
+          | forbidden_exception()
+
   @type get_device_errors() ::
           user_not_found_exception()
           | user_not_confirmed_exception()
@@ -9817,6 +9867,48 @@ defmodule AWS.CognitoIdentityProvider do
       metadata()
 
     Request.request_post(client, meta, "GetCSVHeader", input, options)
+  end
+
+  @doc """
+  Exchanges an existing token for a new token that is scoped and audience-bound
+  for a
+  specific downstream service, following the OAuth 2.0 Token Exchange grant type.
+
+  For
+  more information about the OAuth 2.0 Token Exchange grant type, see
+  [RFC 8693 - OAuth 2.0 Token Exchange](https://tools.ietf.org/html/rfc8693) on the IETF website. Present a
+  `SubjectToken`, the
+  credential that you already hold, to receive a new token appropriate for calling
+  a
+  specific resource server or audience.
+
+  If you also present an `ActorToken` that identifies an intermediary
+  service, the issued token carries an `act` claim that identifies the
+  intermediary, and downstream services can distinguish a user acting directly
+  from an
+  intermediary acting on the user's behalf. If you don't present an
+  `ActorToken`, the issued token appears as if the user acted
+  directly.
+
+  To use this operation, you must have IAM credentials, or you must present the
+  requesting app client's `ClientId` and, if the client has a secret,
+  `ClientSecret`, in the request.
+
+  The requesting app client must have `ALLOW_TOKEN_EXCHANGE_IMPERSONATION`
+  or `ALLOW_TOKEN_EXCHANGE_DELEGATION` in its `ExplicitAuthFlows`
+  (depending on whether you include an `ActorToken`), or the request
+  fails.
+  """
+  @spec get_derived_token(map(), get_derived_token_request(), list()) ::
+          {:ok, get_derived_token_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_derived_token_errors()}
+  def get_derived_token(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetDerivedToken", input, options)
   end
 
   @doc """

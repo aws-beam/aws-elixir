@@ -64,6 +64,7 @@ defmodule AWS.DSQL do
         optional("clientToken") => String.t() | atom(),
         optional("deletionProtectionEnabled") => boolean(),
         optional("kmsEncryptionKey") => String.t() | atom(),
+        optional("metricGroups") => list(metric_group_request()),
         optional("multiRegionProperties") => multi_region_properties(),
         optional("policy") => String.t() | atom(),
         optional("tags") => map()
@@ -83,6 +84,7 @@ defmodule AWS.DSQL do
         "encryptionDetails" => encryption_details(),
         "endpoint" => String.t() | atom(),
         "identifier" => String.t() | atom(),
+        "metricGroups" => list(metric_group_response()),
         "multiRegionProperties" => multi_region_properties(),
         "status" => list(any())
       }
@@ -229,6 +231,7 @@ defmodule AWS.DSQL do
         "encryptionDetails" => encryption_details(),
         "endpoint" => String.t() | atom(),
         "identifier" => String.t() | atom(),
+        "metricGroups" => list(metric_group_response()),
         "multiRegionProperties" => multi_region_properties(),
         "status" => list(any()),
         "tags" => map()
@@ -404,6 +407,28 @@ defmodule AWS.DSQL do
 
   ## Example:
 
+      metric_group_request() :: %{
+        "metricGroup" => list(any())
+      }
+
+  """
+  @type metric_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_group_response() :: %{
+        "metricGroup" => list(any())
+      }
+
+  """
+  @type metric_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       multi_region_properties() :: %{
         "clusters" => list(String.t() | atom()),
         "witnessRegion" => String.t() | atom()
@@ -536,6 +561,7 @@ defmodule AWS.DSQL do
         optional("clientToken") => String.t() | atom(),
         optional("deletionProtectionEnabled") => boolean(),
         optional("kmsEncryptionKey") => String.t() | atom(),
+        optional("metricGroups") => list(metric_group_request()),
         optional("multiRegionProperties") => multi_region_properties()
       }
 

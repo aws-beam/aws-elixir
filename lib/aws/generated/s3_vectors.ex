@@ -33,6 +33,18 @@ defmodule AWS.S3Vectors do
 
   ## Example:
 
+      bm25_score() :: %{
+        "metadataKey" => String.t() | atom(),
+        "score" => [float()]
+      }
+
+  """
+  @type bm25_score() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       conflict_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -513,11 +525,34 @@ defmodule AWS.S3Vectors do
   ## Example:
 
       metadata_configuration() :: %{
-        "nonFilterableMetadataKeys" => list(String.t() | atom())
+        "nonFilterableMetadataKeys" => list(String.t() | atom()),
+        "textSearchConfigurations" => list(text_search_configuration())
       }
 
   """
   @type metadata_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metadata_configuration_add() :: %{
+        "textSearchConfigurations" => list(text_search_configuration())
+      }
+
+  """
+  @type metadata_configuration_add() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metadata_configuration_delete() :: %{
+        "textSearchConfigurations" => list(text_search_configuration_key())
+      }
+
+  """
+  @type metadata_configuration_delete() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -617,11 +652,37 @@ defmodule AWS.S3Vectors do
       query_output_vector() :: %{
         "distance" => [float()],
         "key" => String.t() | atom(),
-        "metadata" => any()
+        "metadata" => any(),
+        "scores" => query_scores()
       }
 
   """
   @type query_output_vector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_scores() :: %{
+        "bm25Scores" => list(bm25_score()),
+        "fused" => [float()],
+        "vectorDistance" => [float()]
+      }
+
+  """
+  @type query_scores() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_text() :: %{
+        "metadataKey" => String.t() | atom(),
+        "text" => String.t() | atom()
+      }
+
+  """
+  @type query_text() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -633,10 +694,12 @@ defmodule AWS.S3Vectors do
         optional("indexName") => String.t() | atom(),
         optional("nextToken") => String.t() | atom(),
         optional("queryMode") => list(any()),
+        optional("queryTexts") => list(query_text()),
+        optional("queryVector") => list(),
         optional("returnDistance") => [boolean()],
         optional("returnMetadata") => [boolean()],
+        optional("returnScores") => [boolean()],
         optional("vectorBucketName") => String.t() | atom(),
-        required("queryVector") => list(),
         required("topK") => integer()
       }
 
@@ -713,6 +776,30 @@ defmodule AWS.S3Vectors do
 
   ## Example:
 
+      text_search_configuration() :: %{
+        "language" => list(any()),
+        "metadataKey" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type text_search_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      text_search_configuration_key() :: %{
+        "metadataKey" => String.t() | atom()
+      }
+
+  """
+  @type text_search_configuration_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       too_many_requests_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -762,6 +849,32 @@ defmodule AWS.S3Vectors do
 
   """
   @type update_index_mode_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_metadata_configuration_input() :: %{
+        optional("add") => metadata_configuration_add(),
+        optional("delete") => metadata_configuration_delete(),
+        optional("indexArn") => String.t() | atom(),
+        optional("indexName") => String.t() | atom(),
+        optional("vectorBucketName") => String.t() | atom()
+      }
+
+  """
+  @type update_metadata_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_metadata_configuration_output() :: %{
+        "indexArn" => String.t() | atom()
+      }
+
+  """
+  @type update_metadata_configuration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -898,6 +1011,9 @@ defmodule AWS.S3Vectors do
           service_unavailable_exception() | not_found_exception() | conflict_exception()
 
   @type update_index_mode_errors() :: service_unavailable_exception() | not_found_exception()
+
+  @type update_metadata_configuration_errors() ::
+          service_unavailable_exception() | not_found_exception() | conflict_exception()
 
   def metadata do
     %{
@@ -1598,12 +1714,19 @@ defmodule AWS.S3Vectors do
   end
 
   @doc """
-  Performs an approximate nearest neighbor search query in a vector index using a
-  query vector.
+  Returns matching vector keys from a vector index ranked by vector similarity,
+  full-text relevance, or both.
 
-  By default, it returns the keys of approximate nearest neighbors. You can
-  optionally include the computed distance (between the query vector and each
-  vector in the response) and metadata of each vector in the response.
+  Specify `queryVector` to perform a vector search, specify `queryTexts` to
+  perform a full-text search, or specify both to perform a hybrid search.
+  Full-text search ranks results using BM25. Hybrid search combines the vector and
+  full-text rankings using Reciprocal Rank Fusion (RRF).
+
+  Amazon S3 Vectors ranks results by distance for a vector-only search, by BM25
+  score for a full-text-only search, and by RRF score for a hybrid search. You can
+  optionally include computed distances, relevance scores, and vector metadata in
+  the response. Full-text and hybrid searches require a vector index in `ENHANCED`
+  mode.
 
   To specify the vector index, you can either use both the vector bucket name and
   the vector index name, or use the vector index Amazon Resource Name (ARN).
@@ -1617,14 +1740,15 @@ defmodule AWS.S3Vectors do
 
      With only `s3vectors:QueryVectors` permission, you can retrieve
   vector keys of approximate nearest neighbors and computed distances between
-  these vectors. This permission is sufficient only when you don't set any
-  metadata filters and don't request metadata (by keeping the `returnMetadata`
-  parameter set to `false` or not specified).
+  these vectors. This permission is sufficient only when you don't set
+  `queryTexts`, don't set any metadata filters, and don't request metadata (by
+  keeping the `returnMetadata` parameter set to `false` or not specified).
 
-     If you specify a metadata filter or set `returnMetadata` to true,
-  you must have both `s3vectors:QueryVectors` and `s3vectors:GetVectors`
-  permissions. The request fails with a `403 Forbidden error` if you request
-  metadata filtering or metadata without the `s3vectors:GetVectors` permission.
+     To use `queryTexts`, a metadata filter, or `returnMetadata` set to
+  `true` with this operation, you must have both the `s3vectors:QueryVectors` and
+  `s3vectors:GetVectors` permissions. If you use any of these options without the
+  `s3vectors:GetVectors` permission, Amazon S3 Vectors returns an
+  `AccessDeniedException`.
   """
   @spec query_vectors(map(), query_vectors_input(), list()) ::
           {:ok, query_vectors_output(), any()}
@@ -1765,6 +1889,45 @@ defmodule AWS.S3Vectors do
           | {:error, update_index_mode_errors()}
   def update_index_mode(%Client{} = client, input, options \\ []) do
     url_path = "/UpdateIndexMode"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Adds or deletes text search configurations on a vector index.
+
+  Specify either `add` or `delete`, but not both. The vector index must be in
+  `ENHANCED` mode.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3vectors:UpdateMetadataConfiguration` permission to use this
+  operation.
+  """
+  @spec update_metadata_configuration(map(), update_metadata_configuration_input(), list()) ::
+          {:ok, update_metadata_configuration_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_metadata_configuration_errors()}
+  def update_metadata_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateMetadataConfiguration"
     headers = []
     custom_headers = []
     query_params = []

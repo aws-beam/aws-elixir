@@ -1468,6 +1468,7 @@ defmodule AWS.Athena do
   ## Example:
       
       list_databases_input() :: %{
+        optional("AttributesToGet") => list(list(any())()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
         optional("WorkGroup") => String.t() | atom(),
@@ -1721,6 +1722,7 @@ defmodule AWS.Athena do
   ## Example:
       
       list_table_metadata_input() :: %{
+        optional("AttributesToGet") => list(list(any())()),
         optional("Expression") => String.t() | atom(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),

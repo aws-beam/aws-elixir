@@ -42,6 +42,44 @@ defmodule AWS.NetworkFlowMonitor do
 
   ## Example:
 
+      account_to_add() :: %{
+        "accountId" => String.t() | atom(),
+        "membership" => list(any()),
+        "region" => String.t() | atom()
+      }
+
+  """
+  @type account_to_add() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      additional_flow_info() :: %{
+        "clientLocation" => client_location(),
+        "network" => network()
+      }
+
+  """
+  @type additional_flow_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      client_location() :: %{
+        "city" => [String.t() | atom()],
+        "country" => [String.t() | atom()],
+        "subdivision" => [String.t() | atom()]
+      }
+
+  """
+  @type client_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       conflict_exception() :: %{
         "message" => [String.t() | atom()]
       }
@@ -82,6 +120,39 @@ defmodule AWS.NetworkFlowMonitor do
 
   """
   @type create_monitor_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_performance_monitor_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("scopeArn") => String.t() | atom(),
+        optional("tags") => map(),
+        required("monitorName") => String.t() | atom(),
+        required("targets") => list(performance_monitor_target())
+      }
+
+  """
+  @type create_performance_monitor_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_performance_monitor_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "modifiedAt" => non_neg_integer(),
+        "monitorArn" => String.t() | atom(),
+        "monitorName" => String.t() | atom(),
+        "monitorStatus" => list(any()),
+        "monitorType" => list(any()),
+        "tags" => map(),
+        "targets" => list(performance_monitor_target())
+      }
+
+  """
+  @type create_performance_monitor_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -132,6 +203,24 @@ defmodule AWS.NetworkFlowMonitor do
 
   ## Example:
 
+      delete_performance_monitor_input() :: %{}
+
+  """
+  @type delete_performance_monitor_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_performance_monitor_output() :: %{}
+
+  """
+  @type delete_performance_monitor_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_scope_input() :: %{}
 
   """
@@ -145,6 +234,19 @@ defmodule AWS.NetworkFlowMonitor do
 
   """
   @type delete_scope_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      filter_parameter() :: %{
+        "field" => [String.t() | atom()],
+        "operator" => list(any()),
+        "values" => list([String.t() | atom()]())
+      }
+
+  """
+  @type filter_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -177,6 +279,60 @@ defmodule AWS.NetworkFlowMonitor do
 
   ## Example:
 
+      get_monitor_scope_suggestions_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => [String.t() | atom()],
+        required("monitorArn") => String.t() | atom()
+      }
+
+  """
+  @type get_monitor_scope_suggestions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_monitor_scope_suggestions_output() :: %{
+        "accountsToAdd" => list(account_to_add()),
+        "nextToken" => [String.t() | atom()],
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_monitor_scope_suggestions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_performance_monitor_input() :: %{}
+
+  """
+  @type get_performance_monitor_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_performance_monitor_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "modifiedAt" => non_neg_integer(),
+        "monitorArn" => String.t() | atom(),
+        "monitorName" => String.t() | atom(),
+        "monitorStatus" => list(any()),
+        "monitorType" => list(any()),
+        "tags" => map(),
+        "targets" => list(performance_monitor_target())
+      }
+
+  """
+  @type get_performance_monitor_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_query_results_monitor_top_contributors_input() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => [String.t() | atom()]
@@ -197,6 +353,31 @@ defmodule AWS.NetworkFlowMonitor do
 
   """
   @type get_query_results_monitor_top_contributors_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_query_results_performance_monitor_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type get_query_results_performance_monitor_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_query_results_performance_monitor_output() :: %{
+        "data" => list(list([String.t() | atom()]())()),
+        "fields" => list(query_field()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type get_query_results_performance_monitor_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -274,6 +455,26 @@ defmodule AWS.NetworkFlowMonitor do
 
   """
   @type get_query_status_monitor_top_contributors_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_query_status_performance_monitor_input() :: %{}
+
+  """
+  @type get_query_status_performance_monitor_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_query_status_performance_monitor_output() :: %{
+        "status" => list(any())
+      }
+
+  """
+  @type get_query_status_performance_monitor_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -399,6 +600,32 @@ defmodule AWS.NetworkFlowMonitor do
 
   ## Example:
 
+      list_performance_monitors_input() :: %{
+        optional("maxResults") => integer(),
+        optional("monitorStatus") => list(any()),
+        optional("monitorType") => list(any()),
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_performance_monitors_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_performance_monitors_output() :: %{
+        "monitors" => list(performance_monitor_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_performance_monitors_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_scopes_input() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => [String.t() | atom()]
@@ -481,6 +708,7 @@ defmodule AWS.NetworkFlowMonitor do
   ## Example:
 
       monitor_top_contributors_row() :: %{
+        "additionalFlowInfo" => additional_flow_info(),
         "destinationCategory" => list(any()),
         "dnatIp" => [String.t() | atom()],
         "kubernetesMetadata" => kubernetes_metadata(),
@@ -510,6 +738,57 @@ defmodule AWS.NetworkFlowMonitor do
 
   """
   @type monitor_top_contributors_row() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network() :: %{
+        "asName" => [String.t() | atom()],
+        "asNumber" => [float()]
+      }
+
+  """
+  @type network() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      performance_monitor_summary() :: %{
+        "monitorArn" => String.t() | atom(),
+        "monitorName" => String.t() | atom(),
+        "monitorStatus" => list(any()),
+        "monitorType" => list(any()),
+        "targets" => list(performance_monitor_target())
+      }
+
+  """
+  @type performance_monitor_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      performance_monitor_target() :: %{
+        "identifier" => [String.t() | atom()],
+        "type" => list(any())
+      }
+
+  """
+  @type performance_monitor_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_field() :: %{
+        "name" => [String.t() | atom()],
+        "type" => [String.t() | atom()]
+      }
+
+  """
+  @type query_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -571,6 +850,32 @@ defmodule AWS.NetworkFlowMonitor do
 
   """
   @type start_query_monitor_top_contributors_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_query_performance_monitor_input() :: %{
+        optional("filterParameters") => list(filter_parameter()),
+        optional("limit") => integer(),
+        required("endTime") => [non_neg_integer()],
+        required("queryType") => list(any()),
+        required("startTime") => [non_neg_integer()]
+      }
+
+  """
+  @type start_query_performance_monitor_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_query_performance_monitor_output() :: %{
+        "queryId" => [String.t() | atom()]
+      }
+
+  """
+  @type start_query_performance_monitor_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -648,6 +953,24 @@ defmodule AWS.NetworkFlowMonitor do
 
   """
   @type stop_query_monitor_top_contributors_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_query_performance_monitor_input() :: %{}
+
+  """
+  @type stop_query_performance_monitor_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_query_performance_monitor_output() :: %{}
+
+  """
+  @type stop_query_performance_monitor_output() :: %{}
 
   @typedoc """
 
@@ -811,6 +1134,37 @@ defmodule AWS.NetworkFlowMonitor do
 
   ## Example:
 
+      update_performance_monitor_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("targetsToAdd") => list(performance_monitor_target()),
+        optional("targetsToRemove") => list(performance_monitor_target())
+      }
+
+  """
+  @type update_performance_monitor_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_performance_monitor_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "modifiedAt" => non_neg_integer(),
+        "monitorArn" => String.t() | atom(),
+        "monitorName" => String.t() | atom(),
+        "monitorStatus" => list(any()),
+        "monitorType" => list(any()),
+        "tags" => map(),
+        "targets" => list(performance_monitor_target())
+      }
+
+  """
+  @type update_performance_monitor_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_scope_input() :: %{
         optional("resourcesToAdd") => list(target_resource()),
         optional("resourcesToDelete") => list(target_resource())
@@ -884,6 +1238,14 @@ defmodule AWS.NetworkFlowMonitor do
           | conflict_exception()
           | access_denied_exception()
 
+  @type create_performance_monitor_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type create_scope_errors() ::
           validation_exception()
           | throttling_exception()
@@ -893,6 +1255,14 @@ defmodule AWS.NetworkFlowMonitor do
           | access_denied_exception()
 
   @type delete_monitor_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type delete_performance_monitor_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -916,7 +1286,29 @@ defmodule AWS.NetworkFlowMonitor do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type get_monitor_scope_suggestions_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_performance_monitor_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type get_query_results_monitor_top_contributors_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_query_results_performance_monitor_errors() ::
           validation_exception()
           | throttling_exception()
           | service_quota_exceeded_exception()
@@ -944,6 +1336,14 @@ defmodule AWS.NetworkFlowMonitor do
           validation_exception()
           | throttling_exception()
           | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_query_status_performance_monitor_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
           | access_denied_exception()
 
@@ -975,6 +1375,12 @@ defmodule AWS.NetworkFlowMonitor do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type list_performance_monitors_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type list_scopes_errors() ::
           validation_exception()
           | throttling_exception()
@@ -997,6 +1403,14 @@ defmodule AWS.NetworkFlowMonitor do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type start_query_performance_monitor_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type start_query_workload_insights_top_contributors_errors() ::
           validation_exception()
           | throttling_exception()
@@ -1015,6 +1429,14 @@ defmodule AWS.NetworkFlowMonitor do
           validation_exception()
           | throttling_exception()
           | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type stop_query_performance_monitor_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
           | access_denied_exception()
 
@@ -1053,6 +1475,15 @@ defmodule AWS.NetworkFlowMonitor do
           | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | access_denied_exception()
+
+  @type update_performance_monitor_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type update_scope_errors() ::
@@ -1113,6 +1544,40 @@ defmodule AWS.NetworkFlowMonitor do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Create a performance monitor to monitor the traffic of the Amazon Virtual
+  Private Clouds (VPCs) that you specify as targets, to determine whether the
+  Amazon Web Services network is causing issues for your workloads.
+
+  With a performance monitor, you can identify network degradation across paths
+  between Availability Zones and across Amazon Web Services Regions.
+  """
+  @spec create_performance_monitor(map(), create_performance_monitor_input(), list()) ::
+          {:ok, create_performance_monitor_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_performance_monitor_errors()}
+  def create_performance_monitor(%Client{} = client, input, options \\ []) do
+    url_path = "/performance-monitors"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
     )
   end
 
@@ -1197,6 +1662,43 @@ defmodule AWS.NetworkFlowMonitor do
   end
 
   @doc """
+  Delete a performance monitor.
+
+  Network Flow Monitor stops tracking network performance for the resources that
+  the monitor included.
+  """
+  @spec delete_performance_monitor(
+          map(),
+          String.t() | atom(),
+          delete_performance_monitor_input(),
+          list()
+        ) ::
+          {:ok, delete_performance_monitor_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_performance_monitor_errors()}
+  def delete_performance_monitor(%Client{} = client, monitor_name, input, options \\ []) do
+    url_path = "/performance-monitors/#{AWS.Util.encode_uri(monitor_name)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Deletes a scope that has been defined.
   """
   @spec delete_scope(map(), String.t() | atom(), delete_scope_input(), list()) ::
@@ -1248,6 +1750,81 @@ defmodule AWS.NetworkFlowMonitor do
   end
 
   @doc """
+  Returns the accounts that are sending traffic to, or receiving traffic from,
+  resources in a monitor, but that aren't included in the monitoring scope for the
+  monitor.
+
+  By adding the suggested accounts to your scope, you enable Network Flow Monitor
+  to resolve the network paths for that traffic.
+  """
+  @spec get_monitor_scope_suggestions(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, get_monitor_scope_suggestions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_monitor_scope_suggestions_errors()}
+  def get_monitor_scope_suggestions(
+        %Client{} = client,
+        max_results \\ nil,
+        monitor_arn,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/monitor-scope-suggestions"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(monitor_arn) do
+        [{"monitorArn", monitor_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns information about a performance monitor, including the resources that it
+  monitors, its status, and the tags for the monitor.
+  """
+  @spec get_performance_monitor(map(), String.t() | atom(), list()) ::
+          {:ok, get_performance_monitor_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_performance_monitor_errors()}
+  def get_performance_monitor(%Client{} = client, monitor_name, options \\ []) do
+    url_path = "/performance-monitors/#{AWS.Util.encode_uri(monitor_name)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Return the data for a query with the Network Flow Monitor query interface.
 
   You specify the query that you want to return results for by providing a query
@@ -1285,6 +1862,61 @@ defmodule AWS.NetworkFlowMonitor do
       ) do
     url_path =
       "/monitors/#{AWS.Util.encode_uri(monitor_name)}/topContributorsQueries/#{AWS.Util.encode_uri(query_id)}/results"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns the results of a query for the Network Flow Monitor query interface, for
+  a specified query ID and performance monitor.
+
+  This call returns the top paths for a performance monitor.
+
+  Create a query with [
+  StartQueryPerformanceMonitor](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_StartQueryPerformanceMonitor.html),
+  and then use the query ID with this call to return the results.
+  """
+  @spec get_query_results_performance_monitor(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, get_query_results_performance_monitor_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_query_results_performance_monitor_errors()}
+  def get_query_results_performance_monitor(
+        %Client{} = client,
+        monitor_name,
+        query_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/performance-monitors/#{AWS.Util.encode_uri(monitor_name)}/queries/#{AWS.Util.encode_uri(query_id)}/results"
 
     headers = []
     query_params = []
@@ -1483,6 +2115,44 @@ defmodule AWS.NetworkFlowMonitor do
   end
 
   @doc """
+  Returns the current status of a query for the Network Flow Monitor query
+  interface, for a specified query ID and performance monitor.
+
+  This call returns the query status for the top paths for a performance monitor.
+
+  When you run a query, use this call to check the status of the query to make
+  sure that the query has `SUCCEEDED` before you review the results. Use the same
+  query ID that you used for the corresponding API call to start (create) the
+  query, `StartQueryPerformanceMonitor`.
+  """
+  @spec get_query_status_performance_monitor(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, get_query_status_performance_monitor_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_query_status_performance_monitor_errors()}
+  def get_query_status_performance_monitor(
+        %Client{} = client,
+        monitor_name,
+        query_id,
+        options \\ []
+      ) do
+    url_path =
+      "/performance-monitors/#{AWS.Util.encode_uri(monitor_name)}/queries/#{AWS.Util.encode_uri(query_id)}/status"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Return the data for a query with the Network Flow Monitor query interface.
 
   Specify the query that you want to return results for by providing a query ID
@@ -1649,6 +2319,71 @@ defmodule AWS.NetworkFlowMonitor do
   end
 
   @doc """
+  Returns a list of the performance monitors in an account.
+
+  You can optionally return only the monitors that have a specific status or type.
+
+  Results are paginated. Use the `nextToken` parameter to return additional
+  results.
+  """
+  @spec list_performance_monitors(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_performance_monitors_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_performance_monitors_errors()}
+  def list_performance_monitors(
+        %Client{} = client,
+        max_results \\ nil,
+        monitor_status \\ nil,
+        monitor_type \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/performance-monitors"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(monitor_status) do
+        [{"monitorStatus", monitor_status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(monitor_type) do
+        [{"monitorType", monitor_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   List all the scopes for an account.
   """
   @spec list_scopes(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
@@ -1725,6 +2460,52 @@ defmodule AWS.NetworkFlowMonitor do
           | {:error, start_query_monitor_top_contributors_errors()}
   def start_query_monitor_top_contributors(%Client{} = client, monitor_name, input, options \\ []) do
     url_path = "/monitors/#{AWS.Util.encode_uri(monitor_name)}/topContributorsQueries"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Create a query that you can use with the Network Flow Monitor query interface to
+  return the top paths for a performance monitor.
+
+  Specify the performance monitor that you want to create the query for.
+
+  The call returns a query ID that you can use with [
+  GetQueryResultsPerformanceMonitor](https://docs.aws.amazon.com/networkflowmonitor/2.0/APIReference/API_GetQueryResultsPerformanceMonitor.html)
+  to return the results of the query.
+
+  Top paths in Network Flow Monitor are the network paths used by the traffic for
+  the resources that a performance monitor tracks, ranked by impact score and then
+  by traffic volume. Each path includes the traffic and round-trip time for the
+  path, together with a breakdown of the subnet pairs that the path includes.
+  """
+  @spec start_query_performance_monitor(
+          map(),
+          String.t() | atom(),
+          start_query_performance_monitor_input(),
+          list()
+        ) ::
+          {:ok, start_query_performance_monitor_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_query_performance_monitor_errors()}
+  def start_query_performance_monitor(%Client{} = client, monitor_name, input, options \\ []) do
+    url_path = "/performance-monitors/#{AWS.Util.encode_uri(monitor_name)}/queries"
     headers = []
     custom_headers = []
     query_params = []
@@ -1879,6 +2660,53 @@ defmodule AWS.NetworkFlowMonitor do
       ) do
     url_path =
       "/monitors/#{AWS.Util.encode_uri(monitor_name)}/topContributorsQueries/#{AWS.Util.encode_uri(query_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Stop a query for the Network Flow Monitor query interface, for a specified query
+  ID and performance monitor.
+
+  Use the same query ID that you used for the corresponding API call to start the
+  query, `StartQueryPerformanceMonitor`.
+  """
+  @spec stop_query_performance_monitor(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          stop_query_performance_monitor_input(),
+          list()
+        ) ::
+          {:ok, stop_query_performance_monitor_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, stop_query_performance_monitor_errors()}
+  def stop_query_performance_monitor(
+        %Client{} = client,
+        monitor_name,
+        query_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/performance-monitors/#{AWS.Util.encode_uri(monitor_name)}/queries/#{AWS.Util.encode_uri(query_id)}"
 
     headers = []
     custom_headers = []
@@ -2072,6 +2900,41 @@ defmodule AWS.NetworkFlowMonitor do
           | {:error, update_monitor_errors()}
   def update_monitor(%Client{} = client, monitor_name, input, options \\ []) do
     url_path = "/monitors/#{AWS.Util.encode_uri(monitor_name)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Update a performance monitor, to add or remove the resources that the monitor
+  tracks network performance for.
+  """
+  @spec update_performance_monitor(
+          map(),
+          String.t() | atom(),
+          update_performance_monitor_input(),
+          list()
+        ) ::
+          {:ok, update_performance_monitor_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_performance_monitor_errors()}
+  def update_performance_monitor(%Client{} = client, monitor_name, input, options \\ []) do
+    url_path = "/performance-monitors/#{AWS.Util.encode_uri(monitor_name)}"
     headers = []
     custom_headers = []
     query_params = []

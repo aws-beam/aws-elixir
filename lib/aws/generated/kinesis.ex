@@ -5,9 +5,9 @@ defmodule AWS.Kinesis do
   @moduledoc """
   Amazon Kinesis Data Streams Service API Reference
 
-  Amazon Kinesis Data Streams is a managed service that scales elastically for
-  real-time
-  processing of streaming big data.
+  Amazon Kinesis Data Streams is a serverless data streaming service that ingests
+  data
+  once and fans it out to multiple consumer applications for real-time processing.
   """
 
   alias AWS.Client
@@ -23,6 +23,124 @@ defmodule AWS.Kinesis do
       
   """
   @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      acknowledge_dead_letter_queue_records_error_entry() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "ReceiptHandle" => String.t() | atom()
+      }
+      
+  """
+  @type acknowledge_dead_letter_queue_records_error_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      acknowledge_dead_letter_queue_records_input() :: %{
+        required("Entries") => list(acknowledge_dead_letter_queue_records_request_entry()),
+        required("QueueARN") => String.t() | atom()
+      }
+      
+  """
+  @type acknowledge_dead_letter_queue_records_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      acknowledge_dead_letter_queue_records_output() :: %{
+        "Failed" => list(acknowledge_dead_letter_queue_records_error_entry()),
+        "Successful" => list(acknowledge_dead_letter_queue_records_result_entry())
+      }
+      
+  """
+  @type acknowledge_dead_letter_queue_records_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      acknowledge_dead_letter_queue_records_request_entry() :: %{
+        "ReceiptHandle" => String.t() | atom()
+      }
+      
+  """
+  @type acknowledge_dead_letter_queue_records_request_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      acknowledge_dead_letter_queue_records_result_entry() :: %{
+        "ReceiptHandle" => String.t() | atom()
+      }
+      
+  """
+  @type acknowledge_dead_letter_queue_records_result_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      acknowledge_queue_records_error_entry() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "ReceiptHandle" => String.t() | atom()
+      }
+      
+  """
+  @type acknowledge_queue_records_error_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      acknowledge_queue_records_input() :: %{
+        required("Entries") => list(acknowledge_queue_records_request_entry()),
+        required("QueueARN") => String.t() | atom()
+      }
+      
+  """
+  @type acknowledge_queue_records_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      acknowledge_queue_records_output() :: %{
+        "Failed" => list(acknowledge_queue_records_error_entry()),
+        "Successful" => list(acknowledge_queue_records_result_entry())
+      }
+      
+  """
+  @type acknowledge_queue_records_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      acknowledge_queue_records_request_entry() :: %{
+        "ReceiptHandle" => String.t() | atom()
+      }
+      
+  """
+  @type acknowledge_queue_records_request_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      acknowledge_queue_records_result_entry() :: %{
+        "ReceiptHandle" => String.t() | atom()
+      }
+      
+  """
+  @type acknowledge_queue_records_result_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -250,6 +368,31 @@ defmodule AWS.Kinesis do
 
   ## Example:
       
+      create_queue_input() :: %{
+        optional("QueueAttributes") => queue_attributes(),
+        optional("Tags") => map(),
+        required("QueueName") => String.t() | atom(),
+        required("StreamConfigurationList") => list(queue_stream_configuration())
+      }
+      
+  """
+  @type create_queue_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_queue_output() :: %{
+        "QueueDescription" => queue_description()
+      }
+      
+  """
+  @type create_queue_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_stream_input() :: %{
         optional("MaxRecordSizeInKiB") => integer(),
         optional("RecordDistributionStrategy") => list(any()),
@@ -262,6 +405,18 @@ defmodule AWS.Kinesis do
       
   """
   @type create_stream_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dead_letter_configuration() :: %{
+        "MaxReceiveCount" => integer(),
+        "TargetType" => list(any())
+      }
+      
+  """
+  @type dead_letter_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -300,6 +455,17 @@ defmodule AWS.Kinesis do
       
   """
   @type delete_channel_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_queue_input() :: %{
+        required("QueueARN") => String.t() | atom()
+      }
+      
+  """
+  @type delete_queue_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -407,6 +573,28 @@ defmodule AWS.Kinesis do
       
   """
   @type describe_limits_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_queue_input() :: %{
+        required("QueueARN") => String.t() | atom()
+      }
+      
+  """
+  @type describe_queue_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_queue_output() :: %{
+        "QueueDescription" => queue_description()
+      }
+      
+  """
+  @type describe_queue_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -819,6 +1007,31 @@ defmodule AWS.Kinesis do
 
   ## Example:
       
+      list_queues_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StreamFilter") => list(queue_stream_filter())
+      }
+      
+  """
+  @type list_queues_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_queues_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "QueueSummaries" => list(queue_summary())
+      }
+      
+  """
+  @type list_queues_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_shards_input() :: %{
         optional("ExclusiveStartShardId") => String.t() | atom(),
         optional("MaxResults") => integer(),
@@ -1126,6 +1339,164 @@ defmodule AWS.Kinesis do
 
   ## Example:
       
+      queue_attributes() :: %{
+        "DeadLetterConfiguration" => dead_letter_configuration(),
+        "VisibilityTimeoutSeconds" => integer()
+      }
+      
+  """
+  @type queue_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      queue_description() :: %{
+        "QueueARN" => String.t() | atom(),
+        "QueueAttributes" => queue_attributes(),
+        "QueueCreationTimestamp" => non_neg_integer(),
+        "QueueName" => String.t() | atom(),
+        "QueueStatus" => list(any()),
+        "StreamConfigurationList" => list(queue_stream_configuration())
+      }
+      
+  """
+  @type queue_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      queue_record() :: %{
+        "ApproximateArrivalTimestamp" => non_neg_integer(),
+        "Data" => binary(),
+        "FirstReceiveTimestamp" => non_neg_integer(),
+        "PartitionKey" => String.t() | atom(),
+        "ReceiptHandle" => String.t() | atom(),
+        "ReceiveCount" => integer(),
+        "RecordId" => String.t() | atom()
+      }
+      
+  """
+  @type queue_record() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      queue_starting_position() :: %{
+        "Timestamp" => non_neg_integer(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type queue_starting_position() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      queue_stream_configuration() :: %{
+        "StartingPosition" => queue_starting_position(),
+        "StreamARN" => String.t() | atom()
+      }
+      
+  """
+  @type queue_stream_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      queue_stream_filter() :: %{
+        "StreamARN" => String.t() | atom(),
+        "StreamCreationTimestamp" => non_neg_integer()
+      }
+      
+  """
+  @type queue_stream_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      queue_stream_identifier() :: %{
+        "StreamARN" => String.t() | atom(),
+        "StreamCreationTimestamp" => non_neg_integer()
+      }
+      
+  """
+  @type queue_stream_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      queue_summary() :: %{
+        "QueueARN" => String.t() | atom(),
+        "QueueCreationTimestamp" => non_neg_integer(),
+        "QueueName" => String.t() | atom(),
+        "QueueStatus" => list(any()),
+        "Streams" => list(queue_stream_identifier())
+      }
+      
+  """
+  @type queue_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      receive_dead_letter_queue_records_input() :: %{
+        optional("Limit") => integer(),
+        optional("VisibilityTimeoutSeconds") => integer(),
+        optional("WaitTimeSeconds") => integer(),
+        required("QueueARN") => String.t() | atom()
+      }
+      
+  """
+  @type receive_dead_letter_queue_records_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      receive_dead_letter_queue_records_output() :: %{
+        "QueueRecords" => list(queue_record())
+      }
+      
+  """
+  @type receive_dead_letter_queue_records_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      receive_queue_records_input() :: %{
+        optional("Limit") => integer(),
+        optional("VisibilityTimeoutSeconds") => integer(),
+        optional("WaitTimeSeconds") => integer(),
+        required("QueueARN") => String.t() | atom()
+      }
+      
+  """
+  @type receive_queue_records_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      receive_queue_records_output() :: %{
+        "QueueRecords" => list(queue_record())
+      }
+      
+  """
+  @type receive_queue_records_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       record_configuration() :: %{
         "GSRSchemaARN" => String.t() | atom(),
         "RecordFormatType" => list(any())
@@ -1194,6 +1565,65 @@ defmodule AWS.Kinesis do
       
   """
   @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_dead_letter_queue_records_error_entry() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "ReceiptHandle" => String.t() | atom()
+      }
+      
+  """
+  @type restore_dead_letter_queue_records_error_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_dead_letter_queue_records_input() :: %{
+        required("Entries") => list(restore_dead_letter_queue_records_request_entry()),
+        required("QueueARN") => String.t() | atom()
+      }
+      
+  """
+  @type restore_dead_letter_queue_records_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_dead_letter_queue_records_output() :: %{
+        "Failed" => list(restore_dead_letter_queue_records_error_entry()),
+        "Successful" => list(restore_dead_letter_queue_records_result_entry())
+      }
+      
+  """
+  @type restore_dead_letter_queue_records_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_dead_letter_queue_records_request_entry() :: %{
+        "ReceiptHandle" => String.t() | atom()
+      }
+      
+  """
+  @type restore_dead_letter_queue_records_request_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_dead_letter_queue_records_result_entry() :: %{
+        "ReceiptHandle" => String.t() | atom()
+      }
+      
+  """
+  @type restore_dead_letter_queue_records_result_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1430,6 +1860,7 @@ defmodule AWS.Kinesis do
         "KeyId" => String.t() | atom(),
         "MaxRecordSizeInKiB" => integer(),
         "OpenShardCount" => integer(),
+        "QueueCount" => integer(),
         "RecordDistributionStrategy" => list(any()),
         "RetentionPeriodHours" => integer(),
         "StreamARN" => String.t() | atom(),
@@ -1551,6 +1982,17 @@ defmodule AWS.Kinesis do
 
   ## Example:
       
+      throttling_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       untag_resource_input() :: %{
         optional("StreamId") => String.t() | atom(),
         required("ResourceARN") => String.t() | atom(),
@@ -1611,6 +2053,72 @@ defmodule AWS.Kinesis do
 
   ## Example:
       
+      update_dead_letter_queue_records_visibility_error_entry() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "ReceiptHandle" => String.t() | atom()
+      }
+      
+  """
+  @type update_dead_letter_queue_records_visibility_error_entry() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      update_dead_letter_queue_records_visibility_input() :: %{
+        required("Entries") => list(update_dead_letter_queue_records_visibility_request_entry()),
+        required("QueueARN") => String.t() | atom()
+      }
+      
+  """
+  @type update_dead_letter_queue_records_visibility_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_dead_letter_queue_records_visibility_output() :: %{
+        "Failed" => list(update_dead_letter_queue_records_visibility_error_entry()),
+        "Successful" => list(update_dead_letter_queue_records_visibility_result_entry())
+      }
+      
+  """
+  @type update_dead_letter_queue_records_visibility_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_dead_letter_queue_records_visibility_request_entry() :: %{
+        "ReceiptHandle" => String.t() | atom(),
+        "VisibilityTimeoutSeconds" => integer()
+      }
+      
+  """
+  @type update_dead_letter_queue_records_visibility_request_entry() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      update_dead_letter_queue_records_visibility_result_entry() :: %{
+        "ReceiptHandle" => String.t() | atom()
+      }
+      
+  """
+  @type update_dead_letter_queue_records_visibility_result_entry() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
       update_max_record_size_input() :: %{
         optional("StreamARN") => String.t() | atom(),
         optional("StreamId") => String.t() | atom(),
@@ -1619,6 +2127,89 @@ defmodule AWS.Kinesis do
       
   """
   @type update_max_record_size_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_queue_input() :: %{
+        required("QueueARN") => String.t() | atom(),
+        required("QueueAttributes") => queue_attributes()
+      }
+      
+  """
+  @type update_queue_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_queue_output() :: %{
+        "QueueDescription" => queue_description()
+      }
+      
+  """
+  @type update_queue_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_queue_records_visibility_error_entry() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "ReceiptHandle" => String.t() | atom()
+      }
+      
+  """
+  @type update_queue_records_visibility_error_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_queue_records_visibility_input() :: %{
+        required("Entries") => list(update_queue_records_visibility_request_entry()),
+        required("QueueARN") => String.t() | atom()
+      }
+      
+  """
+  @type update_queue_records_visibility_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_queue_records_visibility_output() :: %{
+        "Failed" => list(update_queue_records_visibility_error_entry()),
+        "Successful" => list(update_queue_records_visibility_result_entry())
+      }
+      
+  """
+  @type update_queue_records_visibility_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_queue_records_visibility_request_entry() :: %{
+        "ReceiptHandle" => String.t() | atom(),
+        "VisibilityTimeoutSeconds" => integer()
+      }
+      
+  """
+  @type update_queue_records_visibility_request_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_queue_records_visibility_result_entry() :: %{
+        "ReceiptHandle" => String.t() | atom()
+      }
+      
+  """
+  @type update_queue_records_visibility_result_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1726,6 +2317,20 @@ defmodule AWS.Kinesis do
   """
   @type warm_throughput_object() :: %{(String.t() | atom()) => any()}
 
+  @type acknowledge_dead_letter_queue_records_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_argument_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
+  @type acknowledge_queue_records_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_argument_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
   @type add_tags_to_stream_errors() ::
           resource_not_found_exception()
           | resource_in_use_exception()
@@ -1745,6 +2350,15 @@ defmodule AWS.Kinesis do
           | kms_disabled_exception()
           | kms_access_denied_exception()
           | invalid_argument_exception()
+          | access_denied_exception()
+
+  @type create_queue_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+          | limit_exceeded_exception()
+          | invalid_argument_exception()
+          | internal_failure_exception()
           | access_denied_exception()
 
   @type create_stream_errors() ::
@@ -1767,11 +2381,21 @@ defmodule AWS.Kinesis do
           | invalid_argument_exception()
           | access_denied_exception()
 
+  @type delete_queue_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | invalid_argument_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
   @type delete_resource_policy_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | resource_in_use_exception()
           | limit_exceeded_exception()
           | invalid_argument_exception()
+          | internal_failure_exception()
           | access_denied_exception()
 
   @type delete_stream_errors() ::
@@ -1796,6 +2420,14 @@ defmodule AWS.Kinesis do
           | access_denied_exception()
 
   @type describe_limits_errors() :: limit_exceeded_exception()
+
+  @type describe_queue_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | invalid_argument_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
 
   @type describe_stream_errors() ::
           resource_not_found_exception()
@@ -1844,10 +2476,12 @@ defmodule AWS.Kinesis do
           | access_denied_exception()
 
   @type get_resource_policy_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | resource_in_use_exception()
           | limit_exceeded_exception()
           | invalid_argument_exception()
+          | internal_failure_exception()
           | access_denied_exception()
 
   @type get_shard_iterator_errors() ::
@@ -1872,6 +2506,14 @@ defmodule AWS.Kinesis do
           | expired_next_token_exception()
           | access_denied_exception()
 
+  @type list_queues_errors() ::
+          validation_exception()
+          | limit_exceeded_exception()
+          | invalid_argument_exception()
+          | internal_failure_exception()
+          | expired_next_token_exception()
+          | access_denied_exception()
+
   @type list_shards_errors() ::
           resource_not_found_exception()
           | resource_in_use_exception()
@@ -1893,10 +2535,12 @@ defmodule AWS.Kinesis do
           | expired_next_token_exception()
 
   @type list_tags_for_resource_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | resource_in_use_exception()
           | limit_exceeded_exception()
           | invalid_argument_exception()
+          | internal_failure_exception()
           | access_denied_exception()
 
   @type list_tags_for_stream_errors() ::
@@ -1942,10 +2586,38 @@ defmodule AWS.Kinesis do
           | access_denied_exception()
 
   @type put_resource_policy_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | resource_in_use_exception()
           | limit_exceeded_exception()
           | invalid_argument_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
+  @type receive_dead_letter_queue_records_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | kms_throttling_exception()
+          | kms_opt_in_required()
+          | kms_not_found_exception()
+          | kms_invalid_state_exception()
+          | kms_disabled_exception()
+          | kms_access_denied_exception()
+          | invalid_argument_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
+  @type receive_queue_records_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | kms_throttling_exception()
+          | kms_opt_in_required()
+          | kms_not_found_exception()
+          | kms_invalid_state_exception()
+          | kms_disabled_exception()
+          | kms_access_denied_exception()
+          | invalid_argument_exception()
+          | internal_failure_exception()
           | access_denied_exception()
 
   @type register_stream_consumer_errors() ::
@@ -1959,6 +2631,13 @@ defmodule AWS.Kinesis do
           | resource_in_use_exception()
           | limit_exceeded_exception()
           | invalid_argument_exception()
+          | access_denied_exception()
+
+  @type restore_dead_letter_queue_records_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_argument_exception()
+          | internal_failure_exception()
           | access_denied_exception()
 
   @type split_shard_errors() ::
@@ -1998,17 +2677,21 @@ defmodule AWS.Kinesis do
           | access_denied_exception()
 
   @type tag_resource_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | resource_in_use_exception()
           | limit_exceeded_exception()
           | invalid_argument_exception()
+          | internal_failure_exception()
           | access_denied_exception()
 
   @type untag_resource_errors() ::
-          resource_not_found_exception()
+          validation_exception()
+          | resource_not_found_exception()
           | resource_in_use_exception()
           | limit_exceeded_exception()
           | invalid_argument_exception()
+          | internal_failure_exception()
           | access_denied_exception()
 
   @type update_account_settings_errors() ::
@@ -2022,12 +2705,35 @@ defmodule AWS.Kinesis do
           | invalid_argument_exception()
           | access_denied_exception()
 
+  @type update_dead_letter_queue_records_visibility_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_argument_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
   @type update_max_record_size_errors() ::
           validation_exception()
           | resource_not_found_exception()
           | resource_in_use_exception()
           | limit_exceeded_exception()
           | invalid_argument_exception()
+          | access_denied_exception()
+
+  @type update_queue_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
+          | limit_exceeded_exception()
+          | invalid_argument_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
+  @type update_queue_records_visibility_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_argument_exception()
+          | internal_failure_exception()
           | access_denied_exception()
 
   @type update_shard_count_errors() ::
@@ -2075,6 +2781,71 @@ defmodule AWS.Kinesis do
       signing_name: "kinesis",
       target_prefix: "Kinesis_20131202"
     }
+  end
+
+  @doc """
+  Acknowledges up to 10 dead-letter records in the specified queue, so the
+  queue doesn't return them again.
+
+  The result for each entry is reported individually
+  in the response.
+
+  Acknowledging a record does not affect the record in the data stream. That
+  record remains available to stream consumers and to other queues on the same
+  stream for the rest of its retention period.
+
+  Because the request can result in a combination of successful and unsuccessful
+  entries, check the `Failed` list even when the call returns an HTTP status code
+  of `200`.
+  """
+  @spec acknowledge_dead_letter_queue_records(
+          map(),
+          acknowledge_dead_letter_queue_records_input(),
+          list()
+        ) ::
+          {:ok, acknowledge_dead_letter_queue_records_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, acknowledge_dead_letter_queue_records_errors()}
+  def acknowledge_dead_letter_queue_records(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "AcknowledgeDeadLetterQueueRecords", input, options)
+  end
+
+  @doc """
+  Acknowledges up to 10 records from the specified queue.
+
+  After a record is acknowledged,
+  the queue does not deliver it again. The result for each entry is reported
+  individually in
+  the response.
+
+  Acknowledging a record does not affect the record in the data stream. That
+  record remains available to stream consumers and to other queues on the same
+  stream for the rest of its retention period.
+
+  Because the request can result in a combination of successful and unsuccessful
+  entries, check the `Failed` list even when the call returns an HTTP status code
+  of `200`.
+
+  On rare occasions, you can receive a record again after you acknowledge it.
+  Design your
+  queue consumer to be idempotent, so that processing the same record more than
+  once is
+  safe.
+  """
+  @spec acknowledge_queue_records(map(), acknowledge_queue_records_input(), list()) ::
+          {:ok, acknowledge_queue_records_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, acknowledge_queue_records_errors()}
+  def acknowledge_queue_records(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "AcknowledgeQueueRecords", input, options)
   end
 
   @doc """
@@ -2143,6 +2914,67 @@ defmodule AWS.Kinesis do
       metadata()
 
     Request.request_post(client, meta, "CreateChannel", input, options)
+  end
+
+  @doc """
+  Creates a queue on the specified data stream.
+
+  A queue delivers records from the stream to
+  a queue consumer, tracks the delivery state of each record, and redelivers any
+  record that
+  is not acknowledged before its visibility timeout expires.
+
+  A queue does not extend how long the stream keeps a record. When a record
+  reaches the
+  end of the data stream's retention period, the queue stops delivering it.
+
+  Your queue consumer calls `ReceiveQueueRecords` to receive up to 10
+  records at a time. After it processes records, it calls
+  `AcknowledgeQueueRecords` so the queue does not deliver them
+  again.
+
+  Queues are supported only on data streams in on-demand capacity mode.
+
+  Creating a queue does not change how producers write to the stream, and it does
+  not change
+  how existing stream consumers read from it. A queue counts as a registered
+  consumer on the
+  stream and shares the stream's registered consumer limit with enhanced fan-out
+  consumers: 20 on On-demand Standard and 50 on On-demand Advantage.
+
+  Use `StartingPosition` to set the position in the stream where delivery
+  begins. The default is `LATEST`.
+
+  `CreateQueue` is an asynchronous operation. Upon receiving a
+  `CreateQueue` request, Amazon Kinesis Data Streams immediately returns a queue
+  description with a `QueueStatus` of `CREATING`. After the queue is
+  created, Kinesis Data Streams sets the `QueueStatus` to `ACTIVE`.
+  You can begin receiving records after the queue is `ACTIVE`. Use
+  `DescribeQueue` to check the status of the queue.
+
+  Each queue has built-in dead-letter handling. When a record has been received
+  `MaxReceiveCount` times without being acknowledged, it becomes a dead-letter
+  record, and `ReceiveQueueRecords` no longer returns it. You work with
+  dead-letter records through a separate set of operations that use the same queue
+  ARN: `ReceiveDeadLetterQueueRecords`,
+  `AcknowledgeDeadLetterQueueRecords`,
+  `UpdateDeadLetterQueueRecordsVisibility`, and
+  `RestoreDeadLetterQueueRecords`.
+
+  Dead-letter handling is enabled by default, with a `MaxReceiveCount` of 6. To
+  use a different value, or to turn dead-letter handling off, specify
+  `DeadLetterConfiguration` in `QueueAttributes`.
+  """
+  @spec create_queue(map(), create_queue_input(), list()) ::
+          {:ok, create_queue_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_queue_errors()}
+  def create_queue(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateQueue", input, options)
   end
 
   @doc """
@@ -2284,7 +3116,40 @@ defmodule AWS.Kinesis do
   end
 
   @doc """
-  Delete a policy for the specified data stream or consumer.
+  Deletes the specified queue.
+
+  Records that are in flight when you delete the queue are not
+  delivered again, and receipt handles issued by the queue stop being valid.
+
+  Deleting a queue does not delete the data stream the queue was created on, and
+  does not
+  delete any records in that stream. Those records remain available to stream
+  consumers and
+  to other queues on the same stream for the rest of their retention period.
+
+  `DeleteQueue` is an asynchronous operation. Upon receiving a
+  `DeleteQueue` request, Amazon Kinesis Data Streams sets the
+  `QueueStatus` to `DELETING`. The queue is deleted when the operation
+  completes. A queue in the `DELETING` state does not deliver records.
+
+  You must delete every queue on a data stream before you can delete the stream,
+  or switch
+  it from on-demand to provisioned capacity mode.
+  """
+  @spec delete_queue(map(), delete_queue_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_queue_errors()}
+  def delete_queue(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteQueue", input, options)
+  end
+
+  @doc """
+  Delete a policy for the specified data stream, consumer, or queue.
 
   Request patterns can be one of the following:
 
@@ -2294,6 +3159,9 @@ defmodule AWS.Kinesis do
     *
   Consumer pattern:
   `^(arn):aws.*:kinesis:.*:\d{12}:.*stream\/[a-zA-Z0-9_.-]+\/consumer\/[a-zA-Z0-9_.-]+:[0-9]+`
+
+    *
+  Queue pattern: `arn:aws.*:kinesis:.*:\d{12}:queue/\S+`
   """
   @spec delete_resource_policy(map(), delete_resource_policy_input(), list()) ::
           {:ok, nil, any()}
@@ -2333,6 +3201,9 @@ defmodule AWS.Kinesis do
   When you delete a stream, any shards in that stream are also deleted, and any
   tags are
   dissociated from the stream.
+
+  Before you can delete a data stream that has queues, you must delete every queue
+  on the stream with `DeleteQueue`.
 
   You can use the `DescribeStreamSummary` operation to check the state
   of the stream, which is returned in `StreamStatus`.
@@ -2442,6 +3313,23 @@ defmodule AWS.Kinesis do
       metadata()
 
     Request.request_post(client, meta, "DescribeLimits", input, options)
+  end
+
+  @doc """
+  Returns a description of the specified queue, including its status, the data
+  stream it
+  delivers records from, and its configuration attributes.
+  """
+  @spec describe_queue(map(), describe_queue_input(), list()) ::
+          {:ok, describe_queue_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_queue_errors()}
+  def describe_queue(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeQueue", input, options)
   end
 
   @doc """
@@ -2696,7 +3584,7 @@ defmodule AWS.Kinesis do
   end
 
   @doc """
-  Returns a policy attached to the specified data stream or consumer.
+  Returns a policy attached to the specified data stream, consumer, or queue.
 
   Request patterns can be one of the following:
 
@@ -2706,6 +3594,9 @@ defmodule AWS.Kinesis do
     *
   Consumer pattern:
   `^(arn):aws.*:kinesis:.*:\d{12}:.*stream\/[a-zA-Z0-9_.-]+\/consumer\/[a-zA-Z0-9_.-]+:[0-9]+`
+
+    *
+  Queue pattern: `arn:aws.*:kinesis:.*:\d{12}:queue/\S+`
   """
   @spec get_resource_policy(map(), get_resource_policy_input(), list()) ::
           {:ok, get_resource_policy_output(), any()}
@@ -2849,6 +3740,29 @@ defmodule AWS.Kinesis do
   end
 
   @doc """
+  Returns a summary of each queue in the Amazon Web Services account and Region
+  used by the
+  request.
+
+  Use `StreamFilter` to list only the queues on a particular data
+  stream.
+
+  If the response contains a `NextToken`, more queues are available. Call
+  `ListQueues` again with that value to retrieve the next page.
+  """
+  @spec list_queues(map(), list_queues_input(), list()) ::
+          {:ok, list_queues_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_queues_errors()}
+  def list_queues(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListQueues", input, options)
+  end
+
+  @doc """
   Lists the shards in a stream and provides information about each shard.
 
   This operation
@@ -2939,6 +3853,9 @@ defmodule AWS.Kinesis do
 
   Each tag is a label consisting of a user-defined key and value. Tags can help
   you manage, identify, organize, search for, and filter resources.
+
+  The Kinesis resource can be a data stream, a queue, or an enhanced fan-out
+  consumer.
 
   For more information about tagging Kinesis resources, see [Tag your Amazon Kinesis Data Streams
   resources](https://docs.aws.amazon.com/streams/latest/dev/tagging.html).
@@ -3228,7 +4145,8 @@ defmodule AWS.Kinesis do
   end
 
   @doc """
-  Attaches a resource-based policy to a data stream or registered consumer.
+  Attaches a resource-based policy to a data stream, a queue, or an enhanced
+  fan-out consumer.
 
   If you are using an identity other than the root user of
   the Amazon Web Services account that owns the resource, the calling identity
@@ -3249,6 +4167,9 @@ defmodule AWS.Kinesis do
   Consumer pattern:
   `^(arn):aws.*:kinesis:.*:\d{12}:.*stream\/[a-zA-Z0-9_.-]+\/consumer\/[a-zA-Z0-9_.-]+:[0-9]+` 
 
+    *
+  Queue pattern: `arn:aws.*:kinesis:.*:\d{12}:queue/\S+`
+
   For more information, see [Controlling Access to Amazon Kinesis Data Streams
   Resources Using
   IAM](https://docs.aws.amazon.com/streams/latest/dev/controlling-access.html).
@@ -3263,6 +4184,95 @@ defmodule AWS.Kinesis do
       metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
+  end
+
+  @doc """
+  Receives up to 10 dead-letter records from the specified queue.
+
+  Each queue has built-in
+  dead-letter handling: when a record has been received `MaxReceiveCount` times
+  without being acknowledged, it becomes a dead-letter record, which usually means
+  your queue
+  consumer could not process it. The dead-letter record stays in the same queue,
+  and
+  `ReceiveQueueRecords` no longer returns it.
+
+  Dead-letter records carry the same data and partition key as when
+  they were first delivered, and are returned with a receipt handle. Use the
+  receipt
+  handle to acknowledge the record with
+  `AcknowledgeDeadLetterQueueRecords`, which discards it, to change its
+  visibility with `UpdateDeadLetterQueueRecordsVisibility`, or to restore
+  it with `RestoreDeadLetterQueueRecords`, which returns it to the normal
+  receive path so that `ReceiveQueueRecords` can return it again.
+
+  Use this operation to inspect the records your queue consumer could not process,
+  so you
+  can correct the cause and then either acknowledge or restore them.
+
+  A queue delivers dead-letter records while it is in the `ACTIVE`
+  state.
+  """
+  @spec receive_dead_letter_queue_records(
+          map(),
+          receive_dead_letter_queue_records_input(),
+          list()
+        ) ::
+          {:ok, receive_dead_letter_queue_records_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, receive_dead_letter_queue_records_errors()}
+  def receive_dead_letter_queue_records(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ReceiveDeadLetterQueueRecords", input, options)
+  end
+
+  @doc """
+  Receives up to 10 records from the specified queue.
+
+  Each record is returned with a
+  receipt handle, which is the identifier you use to acknowledge the record or
+  change its
+  visibility.
+
+  A record returned by `ReceiveQueueRecords` becomes in flight: it is not visible
+  to any consumer instance for the duration of its visibility timeout, so
+  subsequent
+  receive requests do not return it while your queue consumer processes it.
+  Acknowledge the record with
+  `AcknowledgeQueueRecords` when you finish processing it. A record that is
+  not acknowledged before its visibility timeout expires becomes visible in the
+  queue again
+  and can be received by any consumer instance.
+
+  Use `WaitTimeSeconds` to control how long the call waits for a record to
+  become visible before returning. If a record becomes visible sooner, the call
+  returns
+  sooner. If the wait time expires and no records are visible, the call returns an
+  empty
+  list of records.
+
+  Records are not necessarily received in the order they were written to the data
+  stream.
+
+  A queue delivers records while it is in the `ACTIVE` state.
+
+  On rare occasions, a queue can deliver a record more than once. Design your
+  queue consumer to be idempotent, so that processing the same record more than
+  once is safe.
+  """
+  @spec receive_queue_records(map(), receive_queue_records_input(), list()) ::
+          {:ok, receive_queue_records_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, receive_queue_records_errors()}
+  def receive_queue_records(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ReceiveQueueRecords", input, options)
   end
 
   @doc """
@@ -3284,13 +4294,17 @@ defmodule AWS.Kinesis do
   status of the consumer.
 
   With On-demand Advantage streams, you can register up to 50 consumers per stream
-  to use Enhanced Fan-out. With On-demand Standard and Provisioned streams, you
-  can register up to 20 consumers per stream to use Enhanced Fan-out. A given
-  consumer can only be
-  registered with one stream at a time.
+  to use
+  enhanced fan-out. With On-demand Standard and Provisioned streams, you can
+  register up
+  to 20 consumers per stream to use enhanced fan-out. Queues share this limit with
+  enhanced fan-out consumers: both count as registered consumers on the stream. A
+  given
+  consumer can only be registered with one stream at a time.
 
-  For an example of how to use this operation, see [Enhanced Fan-Out Using the Kinesis Data Streams
-  API](https://docs.aws.amazon.com/streams/latest/dev/building-enhanced-consumers-api.html).
+  For an example of how to use this operation, see [Develop enhanced fan-out consumers
+  with the Amazon Web Services SDK for
+  Java](https://docs.aws.amazon.com/streams/latest/dev/building-enhanced-consumers-api.html).
 
   The use of this operation has a limit of five transactions per second per
   account.
@@ -3337,6 +4351,39 @@ defmodule AWS.Kinesis do
       metadata()
 
     Request.request_post(client, meta, "RemoveTagsFromStream", input, options)
+  end
+
+  @doc """
+  Restores up to 10 dead-letter records in the specified queue.
+
+  Restoring a record clears
+  its dead-letter state and resets its receive count, so
+  `ReceiveQueueRecords` can return it again, up to `MaxReceiveCount` times before
+  it becomes a dead-letter record
+  again. The result for each entry is reported individually in the response.
+
+  Restore records after you have corrected the condition that prevented your queue
+  consumer
+  from processing them.
+
+  Because the request can result in a combination of successful and unsuccessful
+  entries, check the `Failed` list even when the call returns an HTTP status code
+  of `200`.
+  """
+  @spec restore_dead_letter_queue_records(
+          map(),
+          restore_dead_letter_queue_records_input(),
+          list()
+        ) ::
+          {:ok, restore_dead_letter_queue_records_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, restore_dead_letter_queue_records_errors()}
+  def restore_dead_letter_queue_records(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "RestoreDeadLetterQueueRecords", input, options)
   end
 
   @doc """
@@ -3529,8 +4576,9 @@ defmodule AWS.Kinesis do
   the previous connection expires or fails with a
   `ResourceInUseException`.
 
-  For an example of how to use this operation, see [Enhanced Fan-Out Using the Kinesis Data Streams
-  API](https://docs.aws.amazon.com/streams/latest/dev/building-enhanced-consumers-api.html).
+  For an example of how to use this operation, see [Develop enhanced fan-out consumers
+  with the Amazon Web Services SDK for
+  Java](https://docs.aws.amazon.com/streams/latest/dev/building-enhanced-consumers-api.html).
   """
   @spec subscribe_to_shard(map(), subscribe_to_shard_input(), list()) ::
           {:ok, subscribe_to_shard_output(), any()}
@@ -3550,6 +4598,9 @@ defmodule AWS.Kinesis do
   Each tag is a label consisting of a user-defined key and value. Tags can help
   you manage, identify, organize, search for, and filter resources. You can assign
   up to 50 tags to a Kinesis resource.
+
+  The Kinesis resource can be a data stream, a queue, or an enhanced fan-out
+  consumer.
   """
   @spec tag_resource(map(), tag_resource_input(), list()) ::
           {:ok, nil, any()}
@@ -3568,6 +4619,9 @@ defmodule AWS.Kinesis do
 
   Removed tags are deleted and can't be recovered after this operation completes
   successfully.
+
+  The Kinesis resource can be a data stream, a queue, or an enhanced fan-out
+  consumer.
   """
   @spec untag_resource(map(), untag_resource_input(), list()) ::
           {:ok, nil, any()}
@@ -3641,6 +4695,34 @@ defmodule AWS.Kinesis do
   end
 
   @doc """
+  Changes the visibility timeout of up to 10 dead-letter records that you have
+  received
+  from the specified queue but not yet acknowledged.
+
+  The result for each entry is reported
+  individually in the response.
+
+  Because the request can result in a combination of successful and unsuccessful
+  entries, check the `Failed` list even when the call returns an HTTP status code
+  of `200`.
+  """
+  @spec update_dead_letter_queue_records_visibility(
+          map(),
+          update_dead_letter_queue_records_visibility_input(),
+          list()
+        ) ::
+          {:ok, update_dead_letter_queue_records_visibility_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_dead_letter_queue_records_visibility_errors()}
+  def update_dead_letter_queue_records_visibility(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateDeadLetterQueueRecordsVisibility", input, options)
+  end
+
+  @doc """
   This allows you to update the `MaxRecordSize` of a single record that you can
   write to, and read from a stream.
 
@@ -3656,6 +4738,74 @@ defmodule AWS.Kinesis do
       metadata()
 
     Request.request_post(client, meta, "UpdateMaxRecordSize", input, options)
+  end
+
+  @doc """
+  Updates the configuration attributes of the specified queue.
+
+  You can change the queue's
+  visibility timeout, its dead-letter handling configuration, or both.
+
+  A new visibility timeout applies to records received after the update completes.
+  Records
+  that are already in flight keep the visibility timeout they were received with.
+  To change
+  the visibility timeout of a record that is already in flight, use
+  `UpdateQueueRecordsVisibility`.
+
+  `UpdateQueue` is an asynchronous operation. Upon receiving an
+  `UpdateQueue` request, Amazon Kinesis Data Streams sets the
+  `QueueStatus` to `UPDATING`, and sets it back to
+  `ACTIVE` when the update is complete. You can continue to receive and
+  acknowledge records while the queue is `UPDATING`.
+
+  You can't change the data stream or the starting position of a queue after you
+  create
+  it. To read from a different stream or position, create a new queue.
+  """
+  @spec update_queue(map(), update_queue_input(), list()) ::
+          {:ok, update_queue_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_queue_errors()}
+  def update_queue(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateQueue", input, options)
+  end
+
+  @doc """
+  Changes the visibility timeout of up to 10 records that you have received from
+  the
+  specified queue but not yet acknowledged.
+
+  The result for each entry is reported
+  individually in the response.
+
+  Extend the visibility timeout of a record when your queue consumer needs more
+  time to
+  finish processing it, so the record does not become visible and get redelivered
+  while it is
+  still being processed. Set the visibility timeout to `0` to make a record
+  visible in the queue immediately, so that it can be received again without
+  waiting for its
+  current timeout to expire.
+
+  Because the request can result in a combination of successful and unsuccessful
+  entries, check the `Failed` list even when the call returns an HTTP status code
+  of `200`.
+  """
+  @spec update_queue_records_visibility(map(), update_queue_records_visibility_input(), list()) ::
+          {:ok, update_queue_records_visibility_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_queue_records_visibility_errors()}
+  def update_queue_records_visibility(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateQueueRecordsVisibility", input, options)
   end
 
   @doc """
@@ -3747,6 +4897,10 @@ defmodule AWS.Kinesis do
   enabling `MinimumThroughputBillingCommitment` for your account. Once your
   account has `MinimumThroughputBillingCommitment` enabled, you can specify the
   warm throughput in MiB per second that your stream can support in writes.
+
+  You can't switch a data stream from on-demand to provisioned capacity mode while
+  the stream has one or more queues. Delete the queues with `DeleteQueue` before
+  you change the capacity mode.
   """
   @spec update_stream_mode(map(), update_stream_mode_input(), list()) ::
           {:ok, nil, any()}

@@ -968,6 +968,26 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      delete_durable_execution_request() :: %{}
+
+  """
+  @type delete_durable_execution_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_durable_execution_response() :: %{
+        "DeletionRequestTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type delete_durable_execution_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_event_source_mapping_request() :: %{}
 
   """
@@ -1306,6 +1326,8 @@ defmodule AWS.Lambda do
         "EventTimestamp" => non_neg_integer(),
         "EventType" => list(any()),
         "ExecutionFailedDetails" => execution_failed_details(),
+        "ExecutionPausedDetails" => execution_paused_details(),
+        "ExecutionResumedDetails" => execution_resumed_details(),
         "ExecutionStartedDetails" => execution_started_details(),
         "ExecutionStoppedDetails" => execution_stopped_details(),
         "ExecutionSucceededDetails" => execution_succeeded_details(),
@@ -1354,6 +1376,18 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      event_pause_reason() :: %{
+        "Payload" => String.t() | atom(),
+        "Truncated" => boolean()
+      }
+
+  """
+  @type event_pause_reason() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       event_result() :: %{
         "Payload" => String.t() | atom(),
         "Truncated" => boolean()
@@ -1361,6 +1395,18 @@ defmodule AWS.Lambda do
 
   """
   @type event_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_resume_reason() :: %{
+        "Payload" => String.t() | atom(),
+        "Truncated" => boolean()
+      }
+
+  """
+  @type event_resume_reason() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1465,6 +1511,31 @@ defmodule AWS.Lambda do
 
   """
   @type execution_failed_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execution_paused_details() :: %{
+        "ExecutionTimeoutPaused" => boolean(),
+        "PauseRequestTimestamp" => non_neg_integer(),
+        "Reason" => event_pause_reason()
+      }
+
+  """
+  @type execution_paused_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execution_resumed_details() :: %{
+        "Reason" => event_resume_reason(),
+        "ResumeRequestTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type execution_resumed_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1856,8 +1927,10 @@ defmodule AWS.Lambda do
         "EndTimestamp" => non_neg_integer(),
         "Error" => error_object(),
         "ExecutionDataIncluded" => boolean(),
+        "ExpectedExecutionTimeoutTimestamp" => non_neg_integer(),
         "FunctionArn" => String.t() | atom(),
         "InputPayload" => String.t() | atom(),
+        "PauseDetails" => pause_details(),
         "Result" => String.t() | atom(),
         "StartTimestamp" => non_neg_integer(),
         "Status" => list(any()),
@@ -3134,6 +3207,41 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      pause_details() :: %{
+        "ExecutionTimeoutPaused" => boolean(),
+        "PauseRequestTimestamp" => non_neg_integer(),
+        "Reason" => String.t() | atom()
+      }
+
+  """
+  @type pause_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pause_durable_execution_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("ExecutionTimeoutPaused") => boolean(),
+        optional("Reason") => String.t() | atom()
+      }
+
+  """
+  @type pause_durable_execution_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pause_durable_execution_response() :: %{}
+
+  """
+  @type pause_durable_execution_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       policy_length_exceeded_exception() :: %{
         "Type" => String.t() | atom(),
         "message" => String.t() | atom()
@@ -3546,6 +3654,27 @@ defmodule AWS.Lambda do
 
   """
   @type resource_not_ready_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resume_durable_execution_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Reason") => String.t() | atom()
+      }
+
+  """
+  @type resume_durable_execution_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resume_durable_execution_response() :: %{}
+
+  """
+  @type resume_durable_execution_response() :: %{}
 
   @typedoc """
 
@@ -4441,6 +4570,13 @@ defmodule AWS.Lambda do
           | resource_conflict_exception()
           | invalid_parameter_value_exception()
 
+  @type delete_durable_execution_errors() ::
+          too_many_requests_exception()
+          | service_exception()
+          | resource_not_found_exception()
+          | resource_conflict_exception()
+          | invalid_parameter_value_exception()
+
   @type delete_event_source_mapping_errors() ::
           too_many_requests_exception()
           | service_exception()
@@ -4857,6 +4993,17 @@ defmodule AWS.Lambda do
           | resource_not_found_exception()
           | invalid_parameter_value_exception()
 
+  @type pause_durable_execution_errors() ::
+          too_many_requests_exception()
+          | service_exception()
+          | resource_not_found_exception()
+          | resource_conflict_exception()
+          | kms_not_found_exception()
+          | kms_invalid_state_exception()
+          | kms_disabled_exception()
+          | kms_access_denied_exception()
+          | invalid_parameter_value_exception()
+
   @type publish_layer_version_errors() ::
           too_many_requests_exception()
           | service_exception()
@@ -4948,6 +5095,17 @@ defmodule AWS.Lambda do
           | resource_not_found_exception()
           | public_policy_exception()
           | precondition_failed_exception()
+          | invalid_parameter_value_exception()
+
+  @type resume_durable_execution_errors() ::
+          too_many_requests_exception()
+          | service_exception()
+          | resource_not_found_exception()
+          | resource_conflict_exception()
+          | kms_not_found_exception()
+          | kms_invalid_state_exception()
+          | kms_disabled_exception()
+          | kms_access_denied_exception()
           | invalid_parameter_value_exception()
 
   @type send_durable_execution_callback_failure_errors() ::
@@ -5675,6 +5833,47 @@ defmodule AWS.Lambda do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Deletes a completed Lambda [durable execution](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html)
+  and its data.
+
+  The execution must be in a terminal state (`SUCCEEDED`, `FAILED`, `STOPPED`, or
+  `TIMED_OUT`). Otherwise, this operation returns a `ResourceConflictException`.
+
+  The execution has `DELETING` status until the deletion finishes. For more
+  information, see [Deleting durable executions](https://docs.aws.amazon.com/lambda/latest/dg/durable-delete.html).
+  """
+  @spec delete_durable_execution(
+          map(),
+          String.t() | atom(),
+          delete_durable_execution_request(),
+          list()
+        ) ::
+          {:ok, delete_durable_execution_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_durable_execution_errors()}
+  def delete_durable_execution(%Client{} = client, durable_execution_arn, input, options \\ []) do
+    url_path = "/2025-12-01/durable-executions/#{AWS.Util.encode_uri(durable_execution_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 
@@ -7752,6 +7951,51 @@ defmodule AWS.Lambda do
   end
 
   @doc """
+  Pauses a running [durable execution](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html).
+
+  While an execution is paused, Lambda doesn't invoke your function, but pending
+  operations such as waits and callbacks continue to complete.
+
+  If an invocation is in progress, the execution status changes to `PAUSING` until
+  the invocation reaches its next checkpoint, and then changes to `PAUSED`. This
+  operation returns a successful response while the execution status is still
+  `RUNNING`, and the status changes when Lambda processes the request. For more
+  information about pausing executions, see [Pausing and resuming durable executions](https://docs.aws.amazon.com/lambda/latest/dg/durable-pause-resume.html).
+  """
+  @spec pause_durable_execution(
+          map(),
+          String.t() | atom(),
+          pause_durable_execution_request(),
+          list()
+        ) ::
+          {:ok, pause_durable_execution_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, pause_durable_execution_errors()}
+  def pause_durable_execution(%Client{} = client, durable_execution_arn, input, options \\ []) do
+    url_path =
+      "/2025-12-01/durable-executions/#{AWS.Util.encode_uri(durable_execution_arn)}/pause"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Creates an [Lambda layer](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
   from a ZIP archive.
 
@@ -8288,6 +8532,52 @@ defmodule AWS.Lambda do
   end
 
   @doc """
+  Resumes a paused [durable execution](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html).
+
+  If the pause interrupted an invocation, or an operation completed while the
+  execution was paused, Lambda invokes your function. Otherwise, the execution
+  continues to wait for its pending operations.
+
+  If the execution status is `PAUSING`, this operation cancels the pause, and the
+  in-progress invocation continues. This operation returns a successful response
+  while the execution status is still `PAUSED` or `PAUSING`, and the status
+  changes to `RUNNING` when Lambda processes the request. For more information
+  about resuming executions, see [Pausing and resuming durable executions](https://docs.aws.amazon.com/lambda/latest/dg/durable-pause-resume.html).
+  """
+  @spec resume_durable_execution(
+          map(),
+          String.t() | atom(),
+          resume_durable_execution_request(),
+          list()
+        ) ::
+          {:ok, resume_durable_execution_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, resume_durable_execution_errors()}
+  def resume_durable_execution(%Client{} = client, durable_execution_arn, input, options \\ []) do
+    url_path =
+      "/2025-12-01/durable-executions/#{AWS.Util.encode_uri(durable_execution_arn)}/resume"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Sends a failure response for a callback operation in a durable execution.
 
   Use this API when an external system cannot complete a callback operation
@@ -8420,7 +8710,7 @@ defmodule AWS.Lambda do
   end
 
   @doc """
-  Stops a running [durable execution](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html).
+  Stops a running or paused [durable execution](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html).
 
   The execution transitions to STOPPED status and cannot be resumed. Any
   in-progress operations are terminated.

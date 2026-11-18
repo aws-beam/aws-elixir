@@ -314,6 +314,7 @@ defmodule AWS.ConnectCases do
   ## Example:
 
       case_event_included_data() :: %{
+        "autoIncludeFields" => String.t() | atom(),
         "fields" => list(field_identifier())
       }
 

@@ -446,11 +446,25 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      active_vpn_tunnel_additional_key_exchange() :: %{
+        "AdditionalKeyExchangeRound" => integer(),
+        "KeyExchangeMethod" => integer()
+      }
+      
+  """
+  @type active_vpn_tunnel_additional_key_exchange() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       active_vpn_tunnel_status() :: %{
         "IkeVersion" => String.t() | atom(),
+        "Phase1AdditionalKeyExchanges" => list(active_vpn_tunnel_additional_key_exchange()),
         "Phase1DHGroup" => integer(),
         "Phase1EncryptionAlgorithm" => String.t() | atom(),
         "Phase1IntegrityAlgorithm" => String.t() | atom(),
+        "Phase2AdditionalKeyExchanges" => list(active_vpn_tunnel_additional_key_exchange()),
         "Phase2DHGroup" => integer(),
         "Phase2EncryptionAlgorithm" => String.t() | atom(),
         "Phase2IntegrityAlgorithm" => String.t() | atom(),
@@ -527,6 +541,28 @@ defmodule AWS.EC2 do
       
   """
   @type additional_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      additional_key_exchange_methods_list_value() :: %{
+        "Value" => integer()
+      }
+      
+  """
+  @type additional_key_exchange_methods_list_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      additional_key_exchange_methods_request_list_value() :: %{
+        "Value" => integer()
+      }
+      
+  """
+  @type additional_key_exchange_methods_request_list_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2773,11 +2809,23 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      capacity_block_instance_type_preference() :: %{
+        "InstanceType" => String.t() | atom()
+      }
+      
+  """
+  @type capacity_block_instance_type_preference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       capacity_block_offering() :: %{
         "AvailabilityZone" => String.t() | atom(),
         "CapacityBlockDurationHours" => integer(),
         "CapacityBlockDurationMinutes" => integer(),
         "CapacityBlockOfferingId" => String.t() | atom(),
+        "CapacityBlockOfferingSegments" => list(capacity_block_offering_segment()),
         "CurrencyCode" => String.t() | atom(),
         "EndDate" => non_neg_integer(),
         "InstanceCount" => integer(),
@@ -2792,6 +2840,27 @@ defmodule AWS.EC2 do
       
   """
   @type capacity_block_offering() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_block_offering_segment() :: %{
+        "AvailabilityZone" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom(),
+        "CapacityBlockDurationHours" => integer(),
+        "CapacityBlockDurationMinutes" => integer(),
+        "CurrencyCode" => String.t() | atom(),
+        "EndDate" => non_neg_integer(),
+        "InstanceCount" => integer(),
+        "InstanceType" => String.t() | atom(),
+        "StartDate" => non_neg_integer(),
+        "UpfrontFee" => String.t() | atom(),
+        "ZoneType" => String.t() | atom()
+      }
+      
+  """
+  @type capacity_block_offering_segment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5741,6 +5810,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      create_peering_connection_options_request() :: %{
+        "AllowMultipathResilience" => boolean(),
+        "MultipathResilienceMode" => list(any())
+      }
+      
+  """
+  @type create_peering_connection_options_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_placement_group_request() :: %{
         optional("DryRun") => boolean(),
         optional("GroupName") => String.t() | atom(),
@@ -6607,7 +6688,9 @@ defmodule AWS.EC2 do
   ## Example:
       
       create_transit_gateway_peering_attachment_request_options() :: %{
-        "DynamicRouting" => list(any())
+        "AllowMultipathResilience" => boolean(),
+        "DynamicRouting" => list(any()),
+        "MultipathResilienceMode" => list(any())
       }
       
   """
@@ -7309,6 +7392,7 @@ defmodule AWS.EC2 do
         optional("PeerOwnerId") => String.t() | atom(),
         optional("PeerRegion") => String.t() | atom(),
         optional("PeerVpcId") => String.t() | atom(),
+        optional("RequesterPeeringConnectionOptions") => create_peering_connection_options_request(),
         optional("TagSpecifications") => list(tag_specification()),
         required("VpcId") => String.t() | atom()
       }
@@ -10547,6 +10631,7 @@ defmodule AWS.EC2 do
         optional("EndDateRange") => non_neg_integer(),
         optional("InstanceCount") => integer(),
         optional("InstanceType") => String.t() | atom(),
+        optional("InstanceTypePreferences") => list(capacity_block_instance_type_preference()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
         optional("StartDateRange") => non_neg_integer(),
@@ -27485,6 +27570,44 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      modify_transit_gateway_peering_attachment_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("Options") => modify_transit_gateway_peering_attachment_request_options(),
+        required("TransitGatewayAttachmentId") => String.t() | atom()
+      }
+      
+  """
+  @type modify_transit_gateway_peering_attachment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_transit_gateway_peering_attachment_request_options() :: %{
+        "AllowMultipathResilience" => boolean(),
+        "MultipathResilienceMode" => list(any())
+      }
+      
+  """
+  @type modify_transit_gateway_peering_attachment_request_options() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_transit_gateway_peering_attachment_result() :: %{
+        "TransitGatewayPeeringAttachment" => transit_gateway_peering_attachment()
+      }
+      
+  """
+  @type modify_transit_gateway_peering_attachment_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       modify_transit_gateway_policy_table_entry_request() :: %{
         optional("DryRun") => boolean(),
         optional("PolicyRule") => transit_gateway_request_policy_rule(),
@@ -28392,10 +28515,12 @@ defmodule AWS.EC2 do
         "EnableTunnelLifecycleControl" => boolean(),
         "IKEVersions" => list(i_k_e_versions_request_list_value()),
         "LogOptions" => vpn_tunnel_log_options_specification(),
+        "Phase1AdditionalKeyExchanges" => list(vpn_additional_key_exchange_request()),
         "Phase1DHGroupNumbers" => list(phase1_d_h_group_numbers_request_list_value()),
         "Phase1EncryptionAlgorithms" => list(phase1_encryption_algorithms_request_list_value()),
         "Phase1IntegrityAlgorithms" => list(phase1_integrity_algorithms_request_list_value()),
         "Phase1LifetimeSeconds" => integer(),
+        "Phase2AdditionalKeyExchanges" => list(vpn_additional_key_exchange_request()),
         "Phase2DHGroupNumbers" => list(phase2_d_h_group_numbers_request_list_value()),
         "Phase2EncryptionAlgorithms" => list(phase2_encryption_algorithms_request_list_value()),
         "Phase2IntegrityAlgorithms" => list(phase2_integrity_algorithms_request_list_value()),
@@ -29361,7 +29486,9 @@ defmodule AWS.EC2 do
       peering_connection_options() :: %{
         "AllowDnsResolutionFromRemoteVpc" => boolean(),
         "AllowEgressFromLocalClassicLinkToRemoteVpc" => boolean(),
-        "AllowEgressFromLocalVpcToRemoteClassicLink" => boolean()
+        "AllowEgressFromLocalVpcToRemoteClassicLink" => boolean(),
+        "AllowMultipathResilience" => boolean(),
+        "MultipathResilienceMode" => list(any())
       }
       
   """
@@ -29374,7 +29501,9 @@ defmodule AWS.EC2 do
       peering_connection_options_request() :: %{
         "AllowDnsResolutionFromRemoteVpc" => boolean(),
         "AllowEgressFromLocalClassicLinkToRemoteVpc" => boolean(),
-        "AllowEgressFromLocalVpcToRemoteClassicLink" => boolean()
+        "AllowEgressFromLocalVpcToRemoteClassicLink" => boolean(),
+        "AllowMultipathResilience" => boolean(),
+        "MultipathResilienceMode" => list(any())
       }
       
   """
@@ -30105,7 +30234,8 @@ defmodule AWS.EC2 do
       
       purchase_capacity_block_result() :: %{
         "CapacityBlocks" => list(capacity_block()),
-        "CapacityReservation" => capacity_reservation()
+        "CapacityReservation" => capacity_reservation(),
+        "CapacityReservations" => list(capacity_reservation())
       }
       
   """
@@ -34765,7 +34895,12 @@ defmodule AWS.EC2 do
   ## Example:
       
       transit_gateway_peering_attachment_options() :: %{
-        "DynamicRouting" => list(any())
+        "AccepterAllowMultipathResilience" => boolean(),
+        "AccepterMultipathResilienceMode" => list(any()),
+        "DynamicRouting" => list(any()),
+        "MultipathResilienceStatus" => list(any()),
+        "RequesterAllowMultipathResilience" => boolean(),
+        "RequesterMultipathResilienceMode" => list(any())
       }
       
   """
@@ -35109,10 +35244,12 @@ defmodule AWS.EC2 do
         "IkeVersions" => list(i_k_e_versions_list_value()),
         "LogOptions" => vpn_tunnel_log_options(),
         "OutsideIpAddress" => String.t() | atom(),
+        "Phase1AdditionalKeyExchanges" => list(vpn_additional_key_exchange()),
         "Phase1DHGroupNumbers" => list(phase1_d_h_group_numbers_list_value()),
         "Phase1EncryptionAlgorithms" => list(phase1_encryption_algorithms_list_value()),
         "Phase1IntegrityAlgorithms" => list(phase1_integrity_algorithms_list_value()),
         "Phase1LifetimeSeconds" => integer(),
+        "Phase2AdditionalKeyExchanges" => list(vpn_additional_key_exchange()),
         "Phase2DHGroupNumbers" => list(phase2_d_h_group_numbers_list_value()),
         "Phase2EncryptionAlgorithms" => list(phase2_encryption_algorithms_list_value()),
         "Phase2IntegrityAlgorithms" => list(phase2_integrity_algorithms_list_value()),
@@ -36549,6 +36686,7 @@ defmodule AWS.EC2 do
       vpc_peering_connection() :: %{
         "AccepterVpcInfo" => vpc_peering_connection_vpc_info(),
         "ExpirationTime" => non_neg_integer(),
+        "MultipathResilienceStatus" => list(any()),
         "RequesterVpcInfo" => vpc_peering_connection_vpc_info(),
         "Status" => vpc_peering_connection_state_reason(),
         "Tags" => list(tag()),
@@ -36565,7 +36703,9 @@ defmodule AWS.EC2 do
       vpc_peering_connection_options_description() :: %{
         "AllowDnsResolutionFromRemoteVpc" => boolean(),
         "AllowEgressFromLocalClassicLinkToRemoteVpc" => boolean(),
-        "AllowEgressFromLocalVpcToRemoteClassicLink" => boolean()
+        "AllowEgressFromLocalVpcToRemoteClassicLink" => boolean(),
+        "AllowMultipathResilience" => boolean(),
+        "MultipathResilienceMode" => list(any())
       }
       
   """
@@ -36599,6 +36739,32 @@ defmodule AWS.EC2 do
       
   """
   @type vpc_peering_connection_vpc_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      vpn_additional_key_exchange() :: %{
+        "AdditionalKeyExchangeRound" => integer(),
+        "KeyExchangeMethods" => list(additional_key_exchange_methods_list_value()),
+        "Requirement" => list(any())
+      }
+      
+  """
+  @type vpn_additional_key_exchange() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      vpn_additional_key_exchange_request() :: %{
+        "AdditionalKeyExchangeRound" => integer(),
+        "KeyExchangeMethods" => list(additional_key_exchange_methods_request_list_value()),
+        "Requirement" => list(any())
+      }
+      
+  """
+  @type vpn_additional_key_exchange_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -36761,10 +36927,12 @@ defmodule AWS.EC2 do
         "EnableTunnelLifecycleControl" => boolean(),
         "IKEVersions" => list(i_k_e_versions_request_list_value()),
         "LogOptions" => vpn_tunnel_log_options_specification(),
+        "Phase1AdditionalKeyExchanges" => list(vpn_additional_key_exchange_request()),
         "Phase1DHGroupNumbers" => list(phase1_d_h_group_numbers_request_list_value()),
         "Phase1EncryptionAlgorithms" => list(phase1_encryption_algorithms_request_list_value()),
         "Phase1IntegrityAlgorithms" => list(phase1_integrity_algorithms_request_list_value()),
         "Phase1LifetimeSeconds" => integer(),
+        "Phase2AdditionalKeyExchanges" => list(vpn_additional_key_exchange_request()),
         "Phase2DHGroupNumbers" => list(phase2_d_h_group_numbers_request_list_value()),
         "Phase2EncryptionAlgorithms" => list(phase2_encryption_algorithms_request_list_value()),
         "Phase2IntegrityAlgorithms" => list(phase2_integrity_algorithms_request_list_value()),
@@ -37003,6 +37171,15 @@ defmodule AWS.EC2 do
   For an inter-Region VPC peering connection request, you must accept the VPC
   peering
   connection in the Region of the accepter VPC.
+
+  If the requester allows multipath resilience, accepting the request also allows
+  multipath resilience
+  for the accepter VPC, and the `multipathResilienceStatus` of the VPC peering
+  connection becomes
+  `enabled`. Additional charges apply. For more information, see [Amazon VPC pricing](http://aws.amazon.com/vpc/pricing/). To stop allowing
+  multipath resilience for the accepter VPC, use
+  `ModifyVpcPeeringConnectionOptions` and set
+  `AllowMultipathResilience` to `false`.
   """
   @spec accept_vpc_peering_connection(map(), accept_vpc_peering_connection_request(), list()) ::
           {:ok, accept_vpc_peering_connection_result(), any()}
@@ -41709,6 +41886,10 @@ defmodule AWS.EC2 do
   connection. The VPC peering connection request expires after 7 days, after which
   it
   cannot be accepted or rejected.
+
+  Multipath resilience replicates the traffic of an inter-Region VPC peering
+  connection across
+  multiple network paths.
 
   If you create a VPC peering connection request between VPCs with overlapping
   CIDR
@@ -54387,6 +54568,40 @@ defmodule AWS.EC2 do
   end
 
   @doc """
+  Modifies the options for a transit gateway peering attachment.
+
+  The peering attachment must be in the `available` state.
+
+  You can allow multipath resilience for your side of an inter-Region transit
+  gateway peering attachment between
+  supported Regions.
+  Multipath resilience isn't supported for transit gateway peering attachments in
+  the same Region. It takes
+  effect only when both the requester and the accepter allow it. To modify the
+  requester side, send the
+  request in the Region of the requester transit gateway. To modify the accepter
+  side, send the request in the
+  Region of the accepter transit gateway. To check whether multipath resilience is
+  in effect, use
+  `DescribeTransitGatewayPeeringAttachments` and check
+  `multipathResilienceStatus`.
+  """
+  @spec modify_transit_gateway_peering_attachment(
+          map(),
+          modify_transit_gateway_peering_attachment_request(),
+          list()
+        ) ::
+          {:ok, modify_transit_gateway_peering_attachment_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def modify_transit_gateway_peering_attachment(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ModifyTransitGatewayPeeringAttachment", input, options)
+  end
+
+  @doc """
   Modifies the specified transit gateway policy table entry.
   """
   @spec modify_transit_gateway_policy_table_entry(
@@ -54889,6 +55104,17 @@ defmodule AWS.EC2 do
   the accepter VPC peering options. To verify which VPCs are the accepter and the
   requester for a VPC peering connection, use the `DescribeVpcPeeringConnections`
   command.
+
+  Multipath resilience replicates the traffic of an inter-Region VPC peering
+  connection across
+  multiple network paths. You can allow multipath resilience for your side of the
+  connection if both of its
+  Regions are supported. It takes effect only when both the requester and the
+  accepter allow it. Additional charges apply when multipath resilience is in
+  effect. For more
+  information, see [Amazon VPC pricing](http://aws.amazon.com/vpc/pricing/). To
+  check whether multipath resilience is in effect, use
+  `DescribeVpcPeeringConnections` and check `multipathResilienceStatus`.
   """
   @spec modify_vpc_peering_connection_options(
           map(),

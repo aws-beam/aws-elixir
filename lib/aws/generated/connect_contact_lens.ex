@@ -284,6 +284,7 @@ defmodule AWS.ConnectContactLens do
         "EndOffsetMillis" => integer(),
         "Id" => String.t() | atom(),
         "IssuesDetected" => list(issue_detected()),
+        "LanguageCode" => String.t() | atom(),
         "ParticipantId" => String.t() | atom(),
         "ParticipantRole" => String.t() | atom(),
         "Sentiment" => list(any())

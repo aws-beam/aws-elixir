@@ -79,6 +79,289 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      all_subscriptions() :: %{}
+
+  """
+  @type all_subscriptions() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      azure_aws_managed_flow_logs() :: %{
+        "RetentionDays" => integer()
+      }
+
+  """
+  @type azure_aws_managed_flow_logs() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      azure_connector_configuration() :: %{
+        "ClientIdentifier" => String.t() | atom(),
+        "TenantIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type azure_connector_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      azure_customer_managed_flow_logs() :: %{
+        "StorageAccounts" => list(azure_flow_log_storage_account_scope())
+      }
+
+  """
+  @type azure_customer_managed_flow_logs() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      azure_event_hub_configuration() :: %{
+        "PartitionCount" => integer(),
+        "Tier" => list(any())
+      }
+
+  """
+  @type azure_event_hub_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      azure_event_hub_summary() :: %{
+        "EventHubName" => [String.t() | atom()],
+        "FullyQualifiedNamespace" => [String.t() | atom()],
+        "NamespaceName" => String.t() | atom(),
+        "Region" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "SubscriptionId" => String.t() | atom()
+      }
+
+  """
+  @type azure_event_hub_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      azure_event_hubs_query() :: %{
+        "NamespaceName" => String.t() | atom(),
+        "Region" => String.t() | atom(),
+        "Scope" => azure_query_scope()
+      }
+
+  """
+  @type azure_event_hubs_query() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      azure_flow_log_storage_account_scope() :: %{
+        "Region" => String.t() | atom(),
+        "StorageAccountIds" => list(String.t() | atom())
+      }
+
+  """
+  @type azure_flow_log_storage_account_scope() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      azure_infrastructure() :: %{
+        "EventHubs" => list(azure_event_hub_configuration()),
+        "FlowLogs" => list(),
+        "SubscriptionId" => String.t() | atom()
+      }
+
+  """
+  @type azure_infrastructure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      azure_management_group_summary() :: %{
+        "DisplayName" => [String.t() | atom()],
+        "Id" => String.t() | atom(),
+        "Name" => [String.t() | atom()]
+      }
+
+  """
+  @type azure_management_group_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      azure_management_groups_query() :: %{
+        "ParentManagementGroupId" => String.t() | atom()
+      }
+
+  """
+  @type azure_management_groups_query() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      azure_query_scope() :: %{
+        "ManagementGroupId" => String.t() | atom(),
+        "SubscriptionIds" => list(String.t() | atom())
+      }
+
+  """
+  @type azure_query_scope() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      azure_regions_query() :: %{
+        "Scope" => azure_query_scope()
+      }
+
+  """
+  @type azure_regions_query() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      azure_resource_id_scope() :: %{
+        "Region" => String.t() | atom(),
+        "ResourceIds" => list(String.t() | atom())
+      }
+
+  """
+  @type azure_resource_id_scope() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      azure_resource_identifier_summary() :: %{
+        "Region" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "SubscriptionId" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type azure_resource_identifier_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      azure_resource_ids_query() :: %{
+        "Region" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "Scope" => azure_query_scope(),
+        "TagFilters" => list(tag_filter())
+      }
+
+  """
+  @type azure_resource_ids_query() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      azure_resource_types_query() :: %{
+        "Scope" => azure_query_scope()
+      }
+
+  """
+  @type azure_resource_types_query() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      azure_scope() :: %{
+        "Regions" => list(String.t() | atom()),
+        "ResourceTypes" => list(String.t() | atom()),
+        "Resources" => list(azure_resource_id_scope()),
+        "Subscriptions" => list(),
+        "TagFilters" => list(tag_filter())
+      }
+
+  """
+  @type azure_scope() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      azure_scope_item() :: %{
+        "Scope" => azure_scope(),
+        "TelemetryTypes" => list(list(any())())
+      }
+
+  """
+  @type azure_scope_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      azure_subscription_summary() :: %{
+        "DisplayName" => [String.t() | atom()],
+        "ManagementGroupId" => String.t() | atom(),
+        "State" => [String.t() | atom()],
+        "SubscriptionId" => String.t() | atom()
+      }
+
+  """
+  @type azure_subscription_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      azure_subscriptions_query() :: %{
+        "ManagementGroupId" => String.t() | atom()
+      }
+
+  """
+  @type azure_subscriptions_query() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      azure_telemetry_source_configuration_input() :: %{
+        "AwsConfigConnectorArn" => String.t() | atom()
+      }
+
+  """
+  @type azure_telemetry_source_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      azure_telemetry_source_configuration_output() :: %{
+        "AwsConfigConnectorArn" => String.t() | atom(),
+        "ServiceLinkedRecorderArn" => String.t() | atom()
+      }
+
+  """
+  @type azure_telemetry_source_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       centralization_rule() :: %{
         "Destination" => centralization_rule_destination(),
         "Source" => centralization_rule_source()
@@ -95,6 +378,7 @@ defmodule AWS.ObservabilityAdmin do
         "Account" => String.t() | atom(),
         "DestinationLogsConfiguration" => destination_logs_configuration(),
         "DestinationMetricsConfiguration" => destination_metrics_configuration(),
+        "DestinationProfilesConfiguration" => destination_profiles_configuration(),
         "Region" => String.t() | atom()
       }
 
@@ -110,7 +394,8 @@ defmodule AWS.ObservabilityAdmin do
         "Scope" => String.t() | atom(),
         "SourceContextGraphConfiguration" => source_context_graph_configuration(),
         "SourceLogsConfiguration" => source_logs_configuration(),
-        "SourceMetricsConfiguration" => source_metrics_configuration()
+        "SourceMetricsConfiguration" => source_metrics_configuration(),
+        "SourceProfilesConfiguration" => source_profiles_configuration()
       }
 
   """
@@ -194,6 +479,36 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      connector() :: %{
+        "Arn" => String.t() | atom(),
+        "ConnectorConfiguration" => list(),
+        "CreatedTimeStamp" => [float()],
+        "Name" => String.t() | atom(),
+        "Provider" => list(any()),
+        "RoleArn" => String.t() | atom()
+      }
+
+  """
+  @type connector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connector_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedTimeStamp" => [float()],
+        "Name" => String.t() | atom(),
+        "Provider" => list(any())
+      }
+
+  """
+  @type connector_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_centralization_rule_for_organization_input() :: %{
         optional("Tags") => map(),
         required("Rule") => centralization_rule(),
@@ -213,6 +528,32 @@ defmodule AWS.ObservabilityAdmin do
 
   """
   @type create_centralization_rule_for_organization_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_connector_input() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("ConnectorConfiguration") => list(),
+        required("Name") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom()
+      }
+
+  """
+  @type create_connector_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_connector_output() :: %{
+        "Connector" => connector()
+      }
+
+  """
+  @type create_connector_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -377,6 +718,26 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      delete_connector_input() :: %{
+        required("ConnectorIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type delete_connector_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_connector_output() :: %{}
+
+  """
+  @type delete_connector_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_dataset_integration_input() :: %{
         required("Arn") => String.t() | atom()
       }
@@ -467,6 +828,17 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      destination_profiles_configuration() :: %{
+        "BackupConfiguration" => profiles_backup_configuration()
+      }
+
+  """
+  @type destination_profiles_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       e_lb_load_balancer_logging_parameters() :: %{
         "FieldDelimiter" => [String.t() | atom()],
         "OutputFormat" => list(any())
@@ -546,6 +918,79 @@ defmodule AWS.ObservabilityAdmin do
 
   """
   @type get_centralization_rule_for_organization_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connector_input() :: %{
+        required("ConnectorIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type get_connector_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connector_output() :: %{
+        "Connector" => connector()
+      }
+
+  """
+  @type get_connector_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connector_telemetry_manifest_input() :: %{
+        required("ConnectorIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type get_connector_telemetry_manifest_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connector_telemetry_manifest_output() :: %{
+        "LastUpdateTimeStamp" => [float()],
+        "Manifest" => telemetry_manifest(),
+        "Version" => [float()]
+      }
+
+  """
+  @type get_connector_telemetry_manifest_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connector_telemetry_setup_input() :: %{
+        optional("Format") => list(any()),
+        required("ConnectorIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type get_connector_telemetry_setup_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connector_telemetry_setup_output() :: %{
+        "Artifacts" => list(setup_artifact()),
+        "Format" => list(any()),
+        "ManifestVersion" => [float()],
+        "Provider" => list(any()),
+        "RequiredPermissionsToApply" => list(String.t() | atom())
+      }
+
+  """
+  @type get_connector_telemetry_setup_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -725,6 +1170,33 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      get_third_party_telemetry_enrichment_input() :: %{
+        required("TelemetryEnrichmentIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type get_third_party_telemetry_enrichment_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_third_party_telemetry_enrichment_output() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusReason" => String.t() | atom(),
+        "Tags" => map(),
+        "TelemetrySourceConfiguration" => list()
+      }
+
+  """
+  @type get_third_party_telemetry_enrichment_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       integration_summary() :: %{
         "Arn" => String.t() | atom(),
         "Status" => list(any())
@@ -793,6 +1265,30 @@ defmodule AWS.ObservabilityAdmin do
 
   """
   @type list_centralization_rules_for_organization_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_connectors_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_connectors_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_connectors_output() :: %{
+        "ConnectorSummaries" => list(connector_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_connectors_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -874,6 +1370,32 @@ defmodule AWS.ObservabilityAdmin do
 
   """
   @type list_resource_telemetry_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resources_by_connector_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ConnectorIdentifier") => String.t() | atom(),
+        required("Selector") => list()
+      }
+
+  """
+  @type list_resources_by_connector_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resources_by_connector_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "Results" => list()
+      }
+
+  """
+  @type list_resources_by_connector_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1001,6 +1523,32 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      list_third_party_telemetry_enrichments_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Status") => list(any()),
+        optional("TelemetrySource") => list(any())
+      }
+
+  """
+  @type list_third_party_telemetry_enrichments_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_third_party_telemetry_enrichments_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "TelemetryEnrichments" => list(third_party_telemetry_enrichment_summary())
+      }
+
+  """
+  @type list_third_party_telemetry_enrichments_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       log_delivery_parameters() :: %{
         "LogTypes" => list(list(any())())
       }
@@ -1118,6 +1666,42 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      profiles_backup_configuration() :: %{
+        "Region" => String.t() | atom()
+      }
+
+  """
+  @type profiles_backup_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_connector_telemetry_manifest_input() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("ExpectedVersion") => [float()],
+        required("ConnectorIdentifier") => String.t() | atom(),
+        required("Manifest") => telemetry_manifest()
+      }
+
+  """
+  @type put_connector_telemetry_manifest_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_connector_telemetry_manifest_output() :: %{
+        "Version" => [float()]
+      }
+
+  """
+  @type put_connector_telemetry_manifest_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       region_status() :: %{
         "FailureReason" => [String.t() | atom()],
         "Region" => String.t() | atom(),
@@ -1156,6 +1740,20 @@ defmodule AWS.ObservabilityAdmin do
 
   """
   @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      setup_artifact() :: %{
+        "Content" => String.t() | atom(),
+        "ContentType" => String.t() | atom(),
+        "FileName" => String.t() | atom(),
+        "Format" => list(any())
+      }
+
+  """
+  @type setup_artifact() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1216,6 +1814,29 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      source_profiles_configuration() :: %{
+        "ProfilesSelectionCriteria" => String.t() | atom()
+      }
+
+  """
+  @type source_profiles_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_progress() :: %{
+        "Active" => [integer()],
+        "Total" => [integer()]
+      }
+
+  """
+  @type source_progress() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_telemetry_enrichment_output() :: %{
         "AwsResourceExplorerManagedViewArn" => String.t() | atom(),
         "Status" => list(any())
@@ -1252,12 +1873,98 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      start_telemetry_pipeline_refresh_input() :: %{
+        required("PipelineIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type start_telemetry_pipeline_refresh_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_telemetry_pipeline_refresh_output() :: %{}
+
+  """
+  @type start_telemetry_pipeline_refresh_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_third_party_telemetry_enrichment_input() :: %{
+        optional("Tags") => map(),
+        required("Name") => String.t() | atom(),
+        required("TelemetrySourceConfiguration") => list()
+      }
+
+  """
+  @type start_third_party_telemetry_enrichment_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_third_party_telemetry_enrichment_output() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusReason" => String.t() | atom(),
+        "Tags" => map(),
+        "TelemetrySourceConfiguration" => list()
+      }
+
+  """
+  @type start_third_party_telemetry_enrichment_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       stop_telemetry_enrichment_output() :: %{
         "Status" => list(any())
       }
 
   """
   @type stop_telemetry_enrichment_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_third_party_telemetry_enrichment_input() :: %{
+        required("TelemetryEnrichmentIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type stop_third_party_telemetry_enrichment_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_third_party_telemetry_enrichment_output() :: %{
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusReason" => String.t() | atom(),
+        "TelemetrySource" => list(any())
+      }
+
+  """
+  @type stop_third_party_telemetry_enrichment_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_filter() :: %{
+        "Key" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+
+  """
+  @type tag_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1324,12 +2031,27 @@ defmodule AWS.ObservabilityAdmin do
 
   ## Example:
 
+      telemetry_manifest() :: %{
+        "Infrastructure" => list(),
+        "Source" => list()
+      }
+
+  """
+  @type telemetry_manifest() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       telemetry_pipeline() :: %{
         "Arn" => String.t() | atom(),
         "Configuration" => telemetry_pipeline_configuration(),
+        "ConfigurationSummary" => configuration_summary(),
         "CreatedTimeStamp" => [float()],
+        "LastRefreshTimeStamp" => [float()],
         "LastUpdateTimeStamp" => [float()],
         "Name" => String.t() | atom(),
+        "SourceProgress" => source_progress(),
         "Status" => list(any()),
         "StatusReason" => telemetry_pipeline_status_reason(),
         "Tags" => map()
@@ -1436,6 +2158,19 @@ defmodule AWS.ObservabilityAdmin do
 
   """
   @type test_telemetry_pipeline_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      third_party_telemetry_enrichment_summary() :: %{
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "TelemetrySource" => list(any())
+      }
+
+  """
+  @type third_party_telemetry_enrichment_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1657,6 +2392,14 @@ defmodule AWS.ObservabilityAdmin do
           | conflict_exception()
           | access_denied_exception()
 
+  @type create_connector_errors() ::
+          validation_exception()
+          | too_many_requests_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type create_dataset_integration_errors() ::
           validation_exception()
           | too_many_requests_exception()
@@ -1703,6 +2446,14 @@ defmodule AWS.ObservabilityAdmin do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type delete_connector_errors() ::
+          validation_exception()
+          | too_many_requests_exception()
+          | resource_not_found_exception()
+          | invalid_state_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type delete_dataset_integration_errors() ::
           validation_exception()
           | too_many_requests_exception()
@@ -1741,6 +2492,27 @@ defmodule AWS.ObservabilityAdmin do
           | access_denied_exception()
 
   @type get_centralization_rule_for_organization_errors() ::
+          validation_exception()
+          | too_many_requests_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_connector_errors() ::
+          validation_exception()
+          | too_many_requests_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_connector_telemetry_manifest_errors() ::
+          validation_exception()
+          | too_many_requests_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_connector_telemetry_setup_errors() ::
           validation_exception()
           | too_many_requests_exception()
           | resource_not_found_exception()
@@ -1797,7 +2569,20 @@ defmodule AWS.ObservabilityAdmin do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type get_third_party_telemetry_enrichment_errors() ::
+          validation_exception()
+          | too_many_requests_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type list_centralization_rules_for_organization_errors() ::
+          validation_exception()
+          | too_many_requests_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_connectors_errors() ::
           validation_exception()
           | too_many_requests_exception()
           | internal_server_exception()
@@ -1818,6 +2603,13 @@ defmodule AWS.ObservabilityAdmin do
   @type list_resource_telemetry_for_organization_errors() ::
           validation_exception()
           | too_many_requests_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_resources_by_connector_errors() ::
+          validation_exception()
+          | too_many_requests_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
           | access_denied_exception()
 
@@ -1852,6 +2644,20 @@ defmodule AWS.ObservabilityAdmin do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type list_third_party_telemetry_enrichments_errors() ::
+          validation_exception()
+          | too_many_requests_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type put_connector_telemetry_manifest_errors() ::
+          validation_exception()
+          | too_many_requests_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type start_telemetry_enrichment_errors() ::
           too_many_requests_exception()
           | internal_server_exception()
@@ -1870,6 +2676,22 @@ defmodule AWS.ObservabilityAdmin do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type start_telemetry_pipeline_refresh_errors() ::
+          validation_exception()
+          | too_many_requests_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type start_third_party_telemetry_enrichment_errors() ::
+          validation_exception()
+          | too_many_requests_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type stop_telemetry_enrichment_errors() ::
           too_many_requests_exception()
           | internal_server_exception()
@@ -1886,6 +2708,14 @@ defmodule AWS.ObservabilityAdmin do
           validation_exception()
           | too_many_requests_exception()
           | internal_server_exception()
+          | access_denied_exception()
+
+  @type stop_third_party_telemetry_enrichment_errors() ::
+          validation_exception()
+          | too_many_requests_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type tag_resource_errors() ::
@@ -2004,6 +2834,38 @@ defmodule AWS.ObservabilityAdmin do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Creates a connector to a third-party cloud provider.
+
+  With a connector, you can discover resources in the provider and collect their
+  telemetry. Currently, Microsoft Azure is the only supported provider.
+  """
+  @spec create_connector(map(), create_connector_input(), list()) ::
+          {:ok, create_connector_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_connector_errors()}
+  def create_connector(%Client{} = client, input, options \\ []) do
+    url_path = "/CreateConnector"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
     )
   end
 
@@ -2215,6 +3077,35 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
+  Deletes a connector and its telemetry manifest.
+  """
+  @spec delete_connector(map(), delete_connector_input(), list()) ::
+          {:ok, delete_connector_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_connector_errors()}
+  def delete_connector(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteConnector"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes a dataset integration for the caller's account in the current region.
 
   This operation is idempotent; if you submit the same delete more than once, each
@@ -2394,6 +3285,101 @@ defmodule AWS.ObservabilityAdmin do
           | {:error, get_centralization_rule_for_organization_errors()}
   def get_centralization_rule_for_organization(%Client{} = client, input, options \\ []) do
     url_path = "/GetCentralizationRuleForOrganization"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves the details of a connector.
+  """
+  @spec get_connector(map(), get_connector_input(), list()) ::
+          {:ok, get_connector_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_connector_errors()}
+  def get_connector(%Client{} = client, input, options \\ []) do
+    url_path = "/GetConnector"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves the telemetry manifest of a connector and its current version.
+
+  If the connector has no telemetry manifest, this operation returns a
+  `ResourceNotFoundException`.
+  """
+  @spec get_connector_telemetry_manifest(map(), get_connector_telemetry_manifest_input(), list()) ::
+          {:ok, get_connector_telemetry_manifest_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_connector_telemetry_manifest_errors()}
+  def get_connector_telemetry_manifest(%Client{} = client, input, options \\ []) do
+    url_path = "/GetConnectorTelemetryManifest"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Generates the artifacts that you use to create the infrastructure in your cloud
+  provider that delivers the telemetry declared in the connector's telemetry
+  manifest.
+
+  This operation doesn't change any resources in your cloud provider or in Amazon
+  Web Services.
+  """
+  @spec get_connector_telemetry_setup(map(), get_connector_telemetry_setup_input(), list()) ::
+          {:ok, get_connector_telemetry_setup_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_connector_telemetry_setup_errors()}
+  def get_connector_telemetry_setup(%Client{} = client, input, options \\ []) do
+    url_path = "/GetConnectorTelemetrySetup"
     headers = []
     custom_headers = []
     query_params = []
@@ -2663,6 +3649,40 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
+  Returns the details of a third-party telemetry enrichment, including its status
+  and source configuration.
+  """
+  @spec get_third_party_telemetry_enrichment(
+          map(),
+          get_third_party_telemetry_enrichment_input(),
+          list()
+        ) ::
+          {:ok, get_third_party_telemetry_enrichment_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_third_party_telemetry_enrichment_errors()}
+  def get_third_party_telemetry_enrichment(%Client{} = client, input, options \\ []) do
+    url_path = "/GetThirdPartyTelemetryEnrichment"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Lists all centralization rules in your organization.
 
   This operation can only be called by the organization's management account or a
@@ -2679,6 +3699,39 @@ defmodule AWS.ObservabilityAdmin do
           | {:error, list_centralization_rules_for_organization_errors()}
   def list_centralization_rules_for_organization(%Client{} = client, input, options \\ []) do
     url_path = "/ListCentralizationRulesForOrganization"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists the connectors in the account and Region.
+
+  This operation returns results in pages. To get the next page, pass the returned
+  `NextToken` in the next call. We recommend that you use pagination to ensure
+  that the operation returns quickly and successfully.
+  """
+  @spec list_connectors(map(), list_connectors_input(), list()) ::
+          {:ok, list_connectors_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_connectors_errors()}
+  def list_connectors(%Client{} = client, input, options \\ []) do
+    url_path = "/ListConnectors"
     headers = []
     custom_headers = []
     query_params = []
@@ -2794,6 +3847,42 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
+  Lists resources in your cloud provider that the connector can access, such as
+  management groups, subscriptions, resource types, Regions, resources, and Event
+  Hubs.
+
+  Use the results to build a telemetry manifest. This operation returns results in
+  pages. To get the next page, pass the returned `NextToken` in the next call. We
+  recommend that you use pagination to ensure that the operation returns quickly
+  and successfully.
+  """
+  @spec list_resources_by_connector(map(), list_resources_by_connector_input(), list()) ::
+          {:ok, list_resources_by_connector_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_resources_by_connector_errors()}
+  def list_resources_by_connector(%Client{} = client, input, options \\ []) do
+    url_path = "/ListResourcesByConnector"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Lists all S3 Table integrations in your account.
 
   We recommend using pagination to ensure that the operation returns quickly and
@@ -2828,7 +3917,8 @@ defmodule AWS.ObservabilityAdmin do
   @doc """
   Lists all tags attached to the specified resource.
 
-  Supports telemetry rule resources and telemetry pipeline resources.
+  Supports telemetry rule resources, telemetry pipeline resources, and third-party
+  telemetry enrichment resources.
   """
   @spec list_tags_for_resource(map(), list_tags_for_resource_input(), list()) ::
           {:ok, list_tags_for_resource_output(), any()}
@@ -2956,6 +4046,77 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
+  Returns a summary of each third-party telemetry enrichment in your account and
+  Region.
+
+  To get the full configuration of an enrichment, use
+  `GetThirdPartyTelemetryEnrichment`. The results are paginated. To get the next
+  page of results, use `NextToken`.
+  """
+  @spec list_third_party_telemetry_enrichments(
+          map(),
+          list_third_party_telemetry_enrichments_input(),
+          list()
+        ) ::
+          {:ok, list_third_party_telemetry_enrichments_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_third_party_telemetry_enrichments_errors()}
+  def list_third_party_telemetry_enrichments(%Client{} = client, input, options \\ []) do
+    url_path = "/ListThirdPartyTelemetryEnrichments"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates or replaces the telemetry manifest of a connector.
+
+  The telemetry manifest declares which resources in your cloud provider to
+  collect telemetry from and which telemetry types to collect. To avoid
+  overwriting changes made by another caller, specify `ExpectedVersion`.
+  """
+  @spec put_connector_telemetry_manifest(map(), put_connector_telemetry_manifest_input(), list()) ::
+          {:ok, put_connector_telemetry_manifest_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_connector_telemetry_manifest_errors()}
+  def put_connector_telemetry_manifest(%Client{} = client, input, options \\ []) do
+    url_path = "/PutConnectorTelemetryManifest"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Enables the resource tags for telemetry feature for your account, which enhances
   telemetry data with additional resource metadata from Resource Explorer to
   provide richer context for monitoring and observability.
@@ -3051,6 +4212,87 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
+  Starts a refresh of an external-cloud telemetry pipeline.
+
+  The refresh re-reads the connector's telemetry manifest and re-discovers the
+  sources in scope.
+
+  The pipeline must be in the `ACTIVE` or `UPDATE_FAILED` state, with no refresh
+  already running. You can use `GetTelemetryPipeline` to track the refresh.
+  """
+  @spec start_telemetry_pipeline_refresh(map(), start_telemetry_pipeline_refresh_input(), list()) ::
+          {:ok, start_telemetry_pipeline_refresh_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_telemetry_pipeline_refresh_errors()}
+  def start_telemetry_pipeline_refresh(%Client{} = client, input, options \\ []) do
+    url_path = "/StartTelemetryPipelineRefresh"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Starts a third-party telemetry enrichment.
+
+  An enrichment adds resource metadata, such as tags, from a third-party telemetry
+  source to the telemetry that CloudWatch receives from the resources of that
+  source.
+
+  You specify an Amazon Web Services Config connector for your third-party
+  environment, such as a Microsoft Azure tenant. You can use each connector for
+  only one enrichment.
+
+  To use this operation, you must have the
+  `config:PutThirdPartyServiceLinkedConfigurationRecorder` permission. If the
+  Amazon Web Services Config service-linked role does not exist in your account,
+  you must also have the `iam:CreateServiceLinkedRole` permission.
+  """
+  @spec start_third_party_telemetry_enrichment(
+          map(),
+          start_third_party_telemetry_enrichment_input(),
+          list()
+        ) ::
+          {:ok, start_third_party_telemetry_enrichment_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_third_party_telemetry_enrichment_errors()}
+  def start_third_party_telemetry_enrichment(%Client{} = client, input, options \\ []) do
+    url_path = "/StartThirdPartyTelemetryEnrichment"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Disables the resource tags for telemetry feature for your account, stopping the
   enhancement of telemetry data with additional resource metadata.
   """
@@ -3141,9 +4383,49 @@ defmodule AWS.ObservabilityAdmin do
   end
 
   @doc """
+  Stops a third-party telemetry enrichment.
+
+  CloudWatch stops adding resource metadata from the third-party telemetry source
+  to your telemetry.
+
+  To use this operation, you must have the
+  `config:DeleteServiceLinkedConfigurationRecorder` permission.
+  """
+  @spec stop_third_party_telemetry_enrichment(
+          map(),
+          stop_third_party_telemetry_enrichment_input(),
+          list()
+        ) ::
+          {:ok, stop_third_party_telemetry_enrichment_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, stop_third_party_telemetry_enrichment_errors()}
+  def stop_third_party_telemetry_enrichment(%Client{} = client, input, options \\ []) do
+    url_path = "/StopThirdPartyTelemetryEnrichment"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Adds or updates tags for a resource.
 
-  Supports telemetry rule resources and telemetry pipeline resources.
+  Supports telemetry rule resources, telemetry pipeline resources, and third-party
+  telemetry enrichment resources.
   """
   @spec tag_resource(map(), tag_resource_input(), list()) ::
           {:ok, nil, any()}
@@ -3206,7 +4488,8 @@ defmodule AWS.ObservabilityAdmin do
   @doc """
   Removes tags from a resource.
 
-  Supports telemetry rule resources and telemetry pipeline resources.
+  Supports telemetry rule resources, telemetry pipeline resources, and third-party
+  telemetry enrichment resources.
   """
   @spec untag_resource(map(), untag_resource_input(), list()) ::
           {:ok, nil, any()}

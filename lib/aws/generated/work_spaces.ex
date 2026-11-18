@@ -2748,7 +2748,9 @@ defmodule AWS.WorkSpaces do
       
       selfservice_permissions() :: %{
         "ChangeComputeType" => list(any()),
+        "EnableEndUserAdvisor" => list(any()),
         "IncreaseVolumeSize" => list(any()),
+        "NestedVirtualization" => list(any()),
         "RebuildWorkspace" => list(any()),
         "RestartWorkspace" => list(any()),
         "SwitchRunningMode" => list(any())

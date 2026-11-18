@@ -6156,10 +6156,13 @@ defmodule AWS.Connect do
         "EvaluationArn" => String.t() | atom(),
         "EvaluationId" => String.t() | atom(),
         "EvaluationType" => list(any()),
+        "ItemEnablementStatus" => map(),
         "LastModifiedTime" => non_neg_integer(),
         "Metadata" => evaluation_metadata(),
         "Notes" => map(),
         "Scores" => map(),
+        "SourceResolutionStatus" => list(any()),
+        "SourceValues" => list(evaluation_resolved_source()),
         "Status" => list(any()),
         "Tags" => map()
       }
@@ -6385,7 +6388,12 @@ defmodule AWS.Connect do
   ## Example:
 
       evaluation_form_item_enablement_source() :: %{
+        "AiMetricsField" => list(any()),
+        "ContactAttributeKey" => String.t() | atom(),
+        "ContactField" => list(any()),
+        "EvaluationMetadataField" => list(any()),
         "RefId" => String.t() | atom(),
+        "SegmentAttributeKey" => String.t() | atom(),
         "Type" => list(any())
       }
 
@@ -6397,7 +6405,11 @@ defmodule AWS.Connect do
   ## Example:
 
       evaluation_form_item_enablement_source_value() :: %{
+        "BooleanValue" => boolean(),
+        "DateTimeValue" => non_neg_integer(),
+        "NumericValue" => float(),
         "RefId" => String.t() | atom(),
+        "StringValue" => String.t() | atom(),
         "Type" => list(any())
       }
 
@@ -6629,6 +6641,7 @@ defmodule AWS.Connect do
   ## Example:
 
       evaluation_form_section() :: %{
+        "Enablement" => evaluation_form_item_enablement_configuration(),
         "Instructions" => String.t() | atom(),
         "IsExcludedFromScoring" => boolean(),
         "Items" => list(list()),
@@ -6836,6 +6849,19 @@ defmodule AWS.Connect do
 
   """
   @type evaluation_question_input_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_resolved_source() :: %{
+        "Source" => evaluation_form_item_enablement_source(),
+        "Status" => list(any()),
+        "Values" => list(evaluation_form_item_enablement_source_value())
+      }
+
+  """
+  @type evaluation_resolved_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13995,6 +14021,18 @@ defmodule AWS.Connect do
 
   """
   @type sign_in_distribution() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      single_select_question_automation_rule() :: %{
+        "Condition" => evaluation_form_item_enablement_condition(),
+        "OptionRefId" => String.t() | atom()
+      }
+
+  """
+  @type single_select_question_automation_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

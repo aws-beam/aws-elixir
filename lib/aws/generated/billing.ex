@@ -412,6 +412,18 @@ defmodule AWS.Billing do
 
   ## Example:
       
+      child_credit() :: %{
+        "amount" => String.t() | atom(),
+        "creditId" => String.t() | atom()
+      }
+      
+  """
+  @type child_credit() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       conflict_exception() :: %{
         "message" => String.t() | atom(),
         "resourceId" => String.t() | atom(),
@@ -1467,6 +1479,45 @@ defmodule AWS.Billing do
 
   ## Example:
       
+      split_credit_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("dryRun") => [boolean()],
+        required("creditId") => String.t() | atom(),
+        required("portions") => list(split_portion())
+      }
+      
+  """
+  @type split_credit_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      split_credit_response() :: %{
+        "childCredits" => list(child_credit()),
+        "dryRun" => [boolean()],
+        "parentCreditId" => String.t() | atom()
+      }
+      
+  """
+  @type split_credit_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      split_portion() :: %{
+        "amount" => String.t() | atom(),
+        "description" => [String.t() | atom()]
+      }
+      
+  """
+  @type split_portion() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       string_search() :: %{
         "searchOption" => list(any()),
         "searchValue" => String.t() | atom()
@@ -1530,6 +1581,35 @@ defmodule AWS.Billing do
       
   """
   @type time_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      transfer_credit_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("dryRun") => [boolean()],
+        required("creditId") => String.t() | atom(),
+        required("destinationAccountId") => String.t() | atom()
+      }
+      
+  """
+  @type transfer_credit_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      transfer_credit_response() :: %{
+        "amount" => String.t() | atom(),
+        "destinationAccountId" => String.t() | atom(),
+        "dryRun" => [boolean()],
+        "newCreditId" => String.t() | atom(),
+        "sourceCreditId" => String.t() | atom()
+      }
+      
+  """
+  @type transfer_credit_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1826,11 +1906,29 @@ defmodule AWS.Billing do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type split_credit_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type tag_resource_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | access_denied_exception()
+
+  @type transfer_credit_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type untag_resource_errors() ::
@@ -2029,7 +2127,8 @@ defmodule AWS.Billing do
 
   Each feature controls a distinct billing capability: which accounts can share
   Reserved Instances or credits, whether billing alerts are enabled, the
-  historical record of sharing changes, and per-credit options.
+  historical record of sharing changes, per-credit options, and which accounts an
+  individual Reserved Instance or Savings Plan is shared with.
   """
   @spec get_billing_preferences(map(), get_billing_preferences_request(), list()) ::
           {:ok, get_billing_preferences_response(), any()}
@@ -2421,6 +2520,37 @@ defmodule AWS.Billing do
   end
 
   @doc """
+  Splits the available balance of a credit into 2 to 99 new credits in the same
+  account, and cancels the original credit.
+
+  The new credits keep the original credit's end date and applicable products.
+
+  The available balance is the remaining balance minus any amount reserved for a
+  bill that isn't finalized. The portions must add up to exactly the available
+  balance. Each portion must be at least 100.00 in the currency of the credit. For
+  example, if the credit is in USD, each portion must be at least USD $100.00. A
+  reserved amount stays on the original credit and still applies to that bill.
+
+  A credit and every credit split from it count toward a limit of 100 credits.
+  After a split, you can't split or transfer the original credit. You can split or
+  transfer its new credits, and you can split a credit after you transfer it.
+
+  You must own the credit or be the payer of the account that owns it. You can't
+  undo a split. This operation is idempotent and supports a dry run.
+  """
+  @spec split_credit(map(), split_credit_request(), list()) ::
+          {:ok, split_credit_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, split_credit_errors()}
+  def split_credit(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "SplitCredit", input, options)
+  end
+
+  @doc """
   An API operation for adding one or more tags (key-value pairs) to a resource.
   """
   @spec tag_resource(map(), tag_resource_request(), list()) ::
@@ -2433,6 +2563,34 @@ defmodule AWS.Billing do
       metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
+  end
+
+  @doc """
+  Moves a credit to another account in the same consolidated billing family.
+
+  The credit keeps its ID, balance, end date, and applicable products. Only the
+  account that owns the credit changes.
+
+  The transfer removes the credit's sharing settings. The new owner or the payer
+  can set them again. Any amount reserved for a bill that isn't finalized moves
+  with the credit and still applies to that bill.
+
+  You must be the payer of both accounts. You can't transfer a credit that has
+  ended, has no available balance, or is the original credit of a split. A
+  transfer creates no credit, so it doesn't count toward the split limit, and the
+  payer can transfer the credit back. This operation is idempotent and supports a
+  dry run.
+  """
+  @spec transfer_credit(map(), transfer_credit_request(), list()) ::
+          {:ok, transfer_credit_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, transfer_credit_errors()}
+  def transfer_credit(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "TransferCredit", input, options)
   end
 
   @doc """
@@ -2459,11 +2617,11 @@ defmodule AWS.Billing do
   supported keys. The action sets the value for each provided key; keys not
   present in the request are unchanged.
 
-  Sharing keys (`RI_SHARING`, `CREDIT_SHARING`, `CREDIT_LEVEL_SHARING`, and
-  sharing keys under `CREDIT_PREFERENCE_OPTIONS`) may only be set by the
-  management account of a consolidated billing family. The
-  `credit/{creditId}/status` key may be set by member accounts for credits they
-  own, or by the management account for any credit in the family.
+  To set sharing keys (`RI_SHARING`, `CREDIT_SHARING`, `CREDIT_LEVEL_SHARING`,
+  `BENEFIT_LEVEL_SHARING`, and sharing keys under `CREDIT_PREFERENCE_OPTIONS`),
+  you must use the management account of a consolidated billing family. To set the
+  `credit/{creditId}/status` key, you must own the credit or use the management
+  account of its family.
   """
   @spec update_billing_preferences(map(), update_billing_preferences_request(), list()) ::
           {:ok, update_billing_preferences_response(), any()}

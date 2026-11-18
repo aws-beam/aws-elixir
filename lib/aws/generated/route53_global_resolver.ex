@@ -39,12 +39,14 @@ defmodule AWS.Route53GlobalResolver do
       access_sources_item() :: %{
         "arn" => String.t() | atom(),
         "cidr" => String.t() | atom(),
+        "coreNetworkEndpointId" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "dnsViewId" => String.t() | atom(),
         "id" => String.t() | atom(),
         "ipAddressType" => list(any()),
         "name" => String.t() | atom(),
         "protocol" => list(any()),
+        "segment" => String.t() | atom(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer()
       }
@@ -353,12 +355,65 @@ defmodule AWS.Route53GlobalResolver do
 
   ## Example:
 
+      core_network_endpoint_dns_ip_input_item() :: %{
+        "dnsLabel" => String.t() | atom(),
+        "ipv4Address" => String.t() | atom(),
+        "ipv6Address" => String.t() | atom(),
+        "regionScope" => list(any()),
+        "regions" => list(String.t() | atom())
+      }
+
+  """
+  @type core_network_endpoint_dns_ip_input_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      core_network_endpoint_dns_ip_item() :: %{
+        "dnsLabel" => String.t() | atom(),
+        "dnsName" => String.t() | atom(),
+        "ipv4Address" => String.t() | atom(),
+        "ipv6Address" => String.t() | atom(),
+        "regionScope" => list(any()),
+        "regions" => list(String.t() | atom())
+      }
+
+  """
+  @type core_network_endpoint_dns_ip_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      core_network_endpoints_item() :: %{
+        "arn" => String.t() | atom(),
+        "availableRegions" => list(String.t() | atom()),
+        "coreNetworkArn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "globalResolverId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "ipAddresses" => list(core_network_endpoint_dns_ip_item()),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type core_network_endpoints_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_access_source_input() :: %{
+        optional("cidr") => String.t() | atom(),
         optional("clientToken") => String.t() | atom(),
+        optional("coreNetworkEndpointId") => String.t() | atom(),
         optional("ipAddressType") => list(any()),
         optional("name") => String.t() | atom(),
+        optional("segment") => String.t() | atom(),
         optional("tags") => map(),
-        required("cidr") => String.t() | atom(),
         required("dnsViewId") => String.t() | atom(),
         required("protocol") => list(any())
       }
@@ -373,12 +428,14 @@ defmodule AWS.Route53GlobalResolver do
       create_access_source_output() :: %{
         "arn" => String.t() | atom(),
         "cidr" => String.t() | atom(),
+        "coreNetworkEndpointId" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "dnsViewId" => String.t() | atom(),
         "id" => String.t() | atom(),
         "ipAddressType" => list(any()),
         "name" => String.t() | atom(),
         "protocol" => list(any()),
+        "segment" => String.t() | atom(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer()
       }
@@ -418,6 +475,42 @@ defmodule AWS.Route53GlobalResolver do
 
   """
   @type create_access_token_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_core_network_endpoint_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("tags") => map(),
+        required("coreNetworkArn") => String.t() | atom(),
+        required("globalResolverId") => String.t() | atom(),
+        required("ipAddresses") => list(core_network_endpoint_dns_ip_input_item())
+      }
+
+  """
+  @type create_core_network_endpoint_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_core_network_endpoint_output() :: %{
+        "arn" => String.t() | atom(),
+        "availableRegions" => list(String.t() | atom()),
+        "coreNetworkArn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "globalResolverId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "ipAddresses" => list(core_network_endpoint_dns_ip_item()),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type create_core_network_endpoint_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -551,6 +644,7 @@ defmodule AWS.Route53GlobalResolver do
         optional("description") => String.t() | atom(),
         optional("ipAddressType") => list(any()),
         optional("observabilityRegion") => String.t() | atom(),
+        optional("publicIpStatus") => list(any()),
         optional("tags") => map(),
         required("name") => String.t() | atom(),
         required("regions") => list(String.t() | atom())
@@ -575,6 +669,7 @@ defmodule AWS.Route53GlobalResolver do
         "ipv6Addresses" => list(String.t() | atom()),
         "name" => String.t() | atom(),
         "observabilityRegion" => String.t() | atom(),
+        "publicIpStatus" => list(any()),
         "regions" => list(String.t() | atom()),
         "status" => list(any()),
         "updatedAt" => non_neg_integer()
@@ -599,12 +694,14 @@ defmodule AWS.Route53GlobalResolver do
       delete_access_source_output() :: %{
         "arn" => String.t() | atom(),
         "cidr" => String.t() | atom(),
+        "coreNetworkEndpointId" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "dnsViewId" => String.t() | atom(),
         "id" => String.t() | atom(),
         "ipAddressType" => list(any()),
         "name" => String.t() | atom(),
         "protocol" => list(any()),
+        "segment" => String.t() | atom(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer()
       }
@@ -633,6 +730,35 @@ defmodule AWS.Route53GlobalResolver do
 
   """
   @type delete_access_token_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_core_network_endpoint_input() :: %{}
+
+  """
+  @type delete_core_network_endpoint_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_core_network_endpoint_output() :: %{
+        "arn" => String.t() | atom(),
+        "availableRegions" => list(String.t() | atom()),
+        "coreNetworkArn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "globalResolverId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "ipAddresses" => list(core_network_endpoint_dns_ip_item()),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type delete_core_network_endpoint_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -929,12 +1055,14 @@ defmodule AWS.Route53GlobalResolver do
       get_access_source_output() :: %{
         "arn" => String.t() | atom(),
         "cidr" => String.t() | atom(),
+        "coreNetworkEndpointId" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "dnsViewId" => String.t() | atom(),
         "id" => String.t() | atom(),
         "ipAddressType" => list(any()),
         "name" => String.t() | atom(),
         "protocol" => list(any()),
+        "segment" => String.t() | atom(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer()
       }
@@ -971,6 +1099,35 @@ defmodule AWS.Route53GlobalResolver do
 
   """
   @type get_access_token_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_core_network_endpoint_input() :: %{}
+
+  """
+  @type get_core_network_endpoint_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_core_network_endpoint_output() :: %{
+        "arn" => String.t() | atom(),
+        "availableRegions" => list(String.t() | atom()),
+        "coreNetworkArn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "globalResolverId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "ipAddresses" => list(core_network_endpoint_dns_ip_item()),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_core_network_endpoint_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1094,6 +1251,7 @@ defmodule AWS.Route53GlobalResolver do
         "ipv6Addresses" => list(String.t() | atom()),
         "name" => String.t() | atom(),
         "observabilityRegion" => String.t() | atom(),
+        "publicIpStatus" => list(any()),
         "regions" => list(String.t() | atom()),
         "status" => list(any()),
         "updatedAt" => non_neg_integer()
@@ -1168,6 +1326,7 @@ defmodule AWS.Route53GlobalResolver do
         "ipv6Addresses" => list(String.t() | atom()),
         "name" => String.t() | atom(),
         "observabilityRegion" => String.t() | atom(),
+        "publicIpStatus" => list(any()),
         "regions" => list(String.t() | atom()),
         "status" => list(any()),
         "updatedAt" => non_neg_integer()
@@ -1280,6 +1439,31 @@ defmodule AWS.Route53GlobalResolver do
 
   """
   @type list_access_tokens_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_core_network_endpoints_input() :: %{
+        optional("filters") => map(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_core_network_endpoints_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_core_network_endpoints_output() :: %{
+        "coreNetworkEndpoints" => list(core_network_endpoints_item()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_core_network_endpoints_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1626,6 +1810,7 @@ defmodule AWS.Route53GlobalResolver do
 
       update_access_source_input() :: %{
         optional("cidr") => String.t() | atom(),
+        optional("dnsViewId") => String.t() | atom(),
         optional("ipAddressType") => list(any()),
         optional("name") => String.t() | atom(),
         optional("protocol") => list(any())
@@ -1641,12 +1826,14 @@ defmodule AWS.Route53GlobalResolver do
       update_access_source_output() :: %{
         "arn" => String.t() | atom(),
         "cidr" => String.t() | atom(),
+        "coreNetworkEndpointId" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "dnsViewId" => String.t() | atom(),
         "id" => String.t() | atom(),
         "ipAddressType" => list(any()),
         "name" => String.t() | atom(),
         "protocol" => list(any()),
+        "segment" => String.t() | atom(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer()
       }
@@ -1676,6 +1863,38 @@ defmodule AWS.Route53GlobalResolver do
 
   """
   @type update_access_token_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_core_network_endpoint_input() :: %{
+        optional("name") => String.t() | atom(),
+        optional("updateIpAddresses") => list(update_ip_address_entry())
+      }
+
+  """
+  @type update_core_network_endpoint_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_core_network_endpoint_output() :: %{
+        "arn" => String.t() | atom(),
+        "availableRegions" => list(String.t() | atom()),
+        "coreNetworkArn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "globalResolverId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "ipAddresses" => list(core_network_endpoint_dns_ip_item()),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type update_core_network_endpoint_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1796,6 +2015,7 @@ defmodule AWS.Route53GlobalResolver do
         optional("ipAddressType") => list(any()),
         optional("name") => String.t() | atom(),
         optional("observabilityRegion") => String.t() | atom(),
+        optional("publicIpStatus") => list(any()),
         optional("regions") => list(String.t() | atom())
       }
 
@@ -1818,6 +2038,7 @@ defmodule AWS.Route53GlobalResolver do
         "ipv6Addresses" => list(String.t() | atom()),
         "name" => String.t() | atom(),
         "observabilityRegion" => String.t() | atom(),
+        "publicIpStatus" => list(any()),
         "regions" => list(String.t() | atom()),
         "status" => list(any()),
         "updatedAt" => non_neg_integer()
@@ -1854,6 +2075,22 @@ defmodule AWS.Route53GlobalResolver do
 
   """
   @type update_hosted_zone_association_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_ip_address_entry() :: %{
+        "dnsLabel" => String.t() | atom(),
+        "ipv4Address" => String.t() | atom(),
+        "ipv6Address" => String.t() | atom(),
+        "operation" => list(any()),
+        "regionScope" => list(any()),
+        "regions" => list(String.t() | atom())
+      }
+
+  """
+  @type update_ip_address_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1925,6 +2162,15 @@ defmodule AWS.Route53GlobalResolver do
           | conflict_exception()
           | access_denied_exception()
 
+  @type create_core_network_endpoint_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type create_dns_view_errors() ::
           validation_exception()
           | throttling_exception()
@@ -1969,6 +2215,14 @@ defmodule AWS.Route53GlobalResolver do
           | access_denied_exception()
 
   @type delete_access_token_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type delete_core_network_endpoint_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -2048,6 +2302,13 @@ defmodule AWS.Route53GlobalResolver do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type get_core_network_endpoint_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type get_dns_view_errors() ::
           validation_exception()
           | throttling_exception()
@@ -2112,6 +2373,12 @@ defmodule AWS.Route53GlobalResolver do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type list_core_network_endpoints_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type list_dns_views_errors() ::
           validation_exception()
           | throttling_exception()
@@ -2165,14 +2432,26 @@ defmodule AWS.Route53GlobalResolver do
           | internal_server_exception()
           | access_denied_exception()
 
-  @type list_tags_for_resource_errors() :: resource_not_found_exception()
+  @type list_tags_for_resource_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type tag_resource_errors() ::
           validation_exception()
+          | throttling_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
-  @type untag_resource_errors() :: validation_exception() | resource_not_found_exception()
+  @type untag_resource_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type update_access_source_errors() ::
           validation_exception()
@@ -2184,6 +2463,15 @@ defmodule AWS.Route53GlobalResolver do
           | access_denied_exception()
 
   @type update_access_token_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type update_core_network_endpoint_errors() ::
           validation_exception()
           | throttling_exception()
           | service_quota_exceeded_exception()
@@ -2481,6 +2769,46 @@ defmodule AWS.Route53GlobalResolver do
   end
 
   @doc """
+  Creates a core network endpoint, which enables DNS resolution for Amazon Web
+  Services Cloud WAN core network segments.
+
+  The endpoint connects a Route 53 Global Resolver to an Amazon Web Services Cloud
+  WAN core network so that resources attached to the core network can send DNS
+  queries to the resolver.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions, but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
+  """
+  @spec create_core_network_endpoint(map(), create_core_network_endpoint_input(), list()) ::
+          {:ok, create_core_network_endpoint_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_core_network_endpoint_errors()}
+  def create_core_network_endpoint(%Client{} = client, input, options \\ []) do
+    url_path = "/core-network-endpoints"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a DNS view within a Route 53 Global Resolver.
 
   A DNS view models end users, user groups, networks, and devices, and serves as a
@@ -2695,6 +3023,53 @@ defmodule AWS.Route53GlobalResolver do
           | {:error, delete_access_token_errors()}
   def delete_access_token(%Client{} = client, access_token_id, input, options \\ []) do
     url_path = "/tokens/#{AWS.Util.encode_uri(access_token_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a core network endpoint.
+
+  This operation cannot be undone.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions, but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
+  """
+  @spec delete_core_network_endpoint(
+          map(),
+          String.t() | atom(),
+          delete_core_network_endpoint_input(),
+          list()
+        ) ::
+          {:ok, delete_core_network_endpoint_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_core_network_endpoint_errors()}
+  def delete_core_network_endpoint(
+        %Client{} = client,
+        core_network_endpoint_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/core-network-endpoints/#{AWS.Util.encode_uri(core_network_endpoint_id)}"
     headers = []
     custom_headers = []
     query_params = []
@@ -3042,6 +3417,30 @@ defmodule AWS.Route53GlobalResolver do
   end
 
   @doc """
+  Retrieves information about a core network endpoint.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions, but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
+  """
+  @spec get_core_network_endpoint(map(), String.t() | atom(), list()) ::
+          {:ok, get_core_network_endpoint_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_core_network_endpoint_errors()}
+  def get_core_network_endpoint(%Client{} = client, core_network_endpoint_id, options \\ []) do
+    url_path = "/core-network-endpoints/#{AWS.Util.encode_uri(core_network_endpoint_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves information about a DNS view.
 
   Route 53 Global Resolver is a global service that supports resolvers in multiple
@@ -3325,6 +3724,64 @@ defmodule AWS.Route53GlobalResolver do
         options \\ []
       ) do
     url_path = "/tokens/dns-view/#{AWS.Util.encode_uri(dns_view_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(filters) do
+        [{"filters", filters} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max_results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next_token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the core network endpoints in your Amazon Web Services account, with
+  pagination support.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions, but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
+  """
+  @spec list_core_network_endpoints(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_core_network_endpoints_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_core_network_endpoints_errors()}
+  def list_core_network_endpoints(
+        %Client{} = client,
+        filters \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/core-network-endpoints"
     headers = []
     query_params = []
 
@@ -3941,6 +4398,54 @@ defmodule AWS.Route53GlobalResolver do
           | {:error, update_access_token_errors()}
   def update_access_token(%Client{} = client, access_token_id, input, options \\ []) do
     url_path = "/tokens/#{AWS.Util.encode_uri(access_token_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the configuration of a core network endpoint.
+
+  You can change the name and modify the IP addresses that the endpoint uses for
+  DNS resolution.
+
+  Route 53 Global Resolver is a global service that supports resolvers in multiple
+  Amazon Web Services Regions, but you must specify the US East (Ohio) Region to
+  create, update, or otherwise work with Route 53 Global Resolver resources. That
+  is, for example, specify `--region us-east-2` on Amazon Web Services CLI
+  commands.
+  """
+  @spec update_core_network_endpoint(
+          map(),
+          String.t() | atom(),
+          update_core_network_endpoint_input(),
+          list()
+        ) ::
+          {:ok, update_core_network_endpoint_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_core_network_endpoint_errors()}
+  def update_core_network_endpoint(
+        %Client{} = client,
+        core_network_endpoint_id,
+        input,
+        options \\ []
+      ) do
+    url_path = "/core-network-endpoints/#{AWS.Util.encode_uri(core_network_endpoint_id)}"
     headers = []
     custom_headers = []
     query_params = []

@@ -587,6 +587,7 @@ defmodule AWS.NetworkManager do
         "DnsSupport" => boolean(),
         "EdgeLocations" => list(String.t() | atom()),
         "InsideCidrBlocks" => list(String.t() | atom()),
+        "MultipathResilience" => multipath_resilience_change_values(),
         "NetworkFunctionGroupName" => String.t() | atom(),
         "PeerEdgeLocations" => list(String.t() | atom()),
         "RoutingPolicy" => String.t() | atom(),
@@ -2845,6 +2846,18 @@ defmodule AWS.NetworkManager do
 
   """
   @type location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multipath_resilience_change_values() :: %{
+        "EdgeSets" => list(list(String.t() | atom())()),
+        "Mode" => list(any())
+      }
+
+  """
+  @type multipath_resilience_change_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

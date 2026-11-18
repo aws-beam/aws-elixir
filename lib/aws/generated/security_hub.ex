@@ -10466,6 +10466,56 @@ defmodule AWS.SecurityHub do
 
   ## Example:
 
+      gcp_detail() :: %{
+        "AWSConfigConnectorArn" => String.t() | atom(),
+        "GCPRegions" => list(String.t() | atom()),
+        "ScopeConfiguration" => gcp_scope_configuration()
+      }
+
+  """
+  @type gcp_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gcp_provider_configuration() :: %{
+        "AWSConfigConnectorArn" => String.t() | atom(),
+        "GCPRegions" => list(String.t() | atom()),
+        "ScopeConfiguration" => gcp_scope_configuration()
+      }
+
+  """
+  @type gcp_provider_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gcp_scope_configuration() :: %{
+        "ScopeType" => list(any()),
+        "ScopeValues" => list(String.t() | atom())
+      }
+
+  """
+  @type gcp_scope_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gcp_update_configuration() :: %{
+        "GCPRegions" => list(String.t() | atom()),
+        "ScopeConfiguration" => gcp_scope_configuration()
+      }
+
+  """
+  @type gcp_update_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       generate_recommended_policy_v2_request() :: %{}
 
   """
@@ -13083,6 +13133,7 @@ defmodule AWS.SecurityHub do
         "AzureResource" => any(),
         "CodeRepository" => code_repository_details(),
         "Container" => container_details(),
+        "GcpResource" => any(),
         "Other" => map()
       }
 

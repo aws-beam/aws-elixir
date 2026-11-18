@@ -739,7 +739,10 @@ defmodule AWS.Config do
         "DeliveryS3Bucket" => String.t() | atom(),
         "DeliveryS3KeyPrefix" => String.t() | atom(),
         "LastUpdateRequestedTime" => non_neg_integer(),
-        "TemplateSSMDocumentDetails" => template_s_s_m_document_details()
+        "Scope" => conformance_pack_scope(),
+        "Source" => conformance_pack_source(),
+        "TemplateSSMDocumentDetails" => template_s_s_m_document_details(),
+        "Type" => list(any())
       }
       
   """
@@ -803,6 +806,29 @@ defmodule AWS.Config do
 
   ## Example:
       
+      conformance_pack_scope() :: %{
+        "TagKey" => String.t() | atom(),
+        "TagValue" => String.t() | atom()
+      }
+      
+  """
+  @type conformance_pack_scope() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conformance_pack_source() :: %{
+        "SourceIdentifier" => String.t() | atom()
+      }
+      
+  """
+  @type conformance_pack_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       conformance_pack_status_detail() :: %{
         "ConformancePackArn" => String.t() | atom(),
         "ConformancePackId" => String.t() | atom(),
@@ -811,7 +837,8 @@ defmodule AWS.Config do
         "ConformancePackStatusReason" => String.t() | atom(),
         "LastUpdateCompletedTime" => non_neg_integer(),
         "LastUpdateRequestedTime" => non_neg_integer(),
-        "StackArn" => String.t() | atom()
+        "StackArn" => String.t() | atom(),
+        "Type" => list(any())
       }
       
   """
@@ -1529,6 +1556,7 @@ defmodule AWS.Config do
       
       describe_conformance_pack_status_request() :: %{
         optional("ConformancePackNames") => list(String.t() | atom()),
+        optional("Filters") => describe_conformance_packs_filters(),
         optional("Limit") => integer(),
         optional("NextToken") => String.t() | atom()
       }
@@ -1552,8 +1580,20 @@ defmodule AWS.Config do
 
   ## Example:
       
+      describe_conformance_packs_filters() :: %{
+        "Types" => list(list(any())())
+      }
+      
+  """
+  @type describe_conformance_packs_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_conformance_packs_request() :: %{
         optional("ConformancePackNames") => list(String.t() | atom()),
+        optional("Filters") => describe_conformance_packs_filters(),
         optional("Limit") => integer(),
         optional("NextToken") => String.t() | atom()
       }
@@ -3611,6 +3651,8 @@ defmodule AWS.Config do
         optional("ConformancePackInputParameters") => list(conformance_pack_input_parameter()),
         optional("DeliveryS3Bucket") => String.t() | atom(),
         optional("DeliveryS3KeyPrefix") => String.t() | atom(),
+        optional("Scope") => conformance_pack_scope(),
+        optional("Source") => conformance_pack_source(),
         optional("Tags") => list(tag()),
         optional("TemplateBody") => String.t() | atom(),
         optional("TemplateS3Uri") => String.t() | atom(),
@@ -7339,8 +7381,12 @@ defmodule AWS.Config do
   The service-linked role is created only when the role does not exist in your
   account.
 
-  You must specify only one of the follow parameters: `TemplateS3Uri`,
-  `TemplateBody` or `TemplateSSMDocumentDetails`.
+  For custom conformance packs, you must specify only one of `TemplateS3Uri`,
+  `TemplateBody`, `TemplateSSMDocumentDetails`.
+
+  For managed conformance packs, you must specify `Source`. Do not specify
+  `TemplateS3Uri`, `TemplateBody`, `TemplateSSMDocumentDetails`,
+  `DeliveryS3Bucket`, or `DeliveryS3KeyPrefix`.
 
   ## Tags are added at creation and cannot be updated with this operation
 

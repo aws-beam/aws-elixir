@@ -935,6 +935,7 @@ defmodule AWS.ElastiCache do
         optional("ConnectionType") => list(any()),
         optional("DailySnapshotTime") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
+        optional("Integrations") => list(integration_request()),
         optional("KmsKeyId") => String.t() | atom(),
         optional("MajorEngineVersion") => String.t() | atom(),
         optional("NetworkType") => list(any()),
@@ -2037,6 +2038,29 @@ defmodule AWS.ElastiCache do
       
   """
   @type insufficient_cache_cluster_capacity_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      integration() :: %{
+        "IntegrationType" => list(any()),
+        "Status" => list(any())
+      }
+      
+  """
+  @type integration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      integration_request() :: %{
+        "IntegrationType" => list(any())
+      }
+      
+  """
+  @type integration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3281,6 +3305,7 @@ defmodule AWS.ElastiCache do
         "Endpoint" => endpoint(),
         "Engine" => String.t() | atom(),
         "FullEngineVersion" => String.t() | atom(),
+        "Integrations" => list(integration()),
         "KmsKeyId" => String.t() | atom(),
         "MajorEngineVersion" => String.t() | atom(),
         "Migration" => migration_summary(),

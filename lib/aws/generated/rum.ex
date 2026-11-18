@@ -634,6 +634,7 @@ defmodule AWS.RUM do
 
       put_rum_events_request() :: %{
         optional("Alias") => String.t() | atom(),
+        optional("SessionMetadata") => String.t() | atom(),
         required("AppMonitorDetails") => app_monitor_details(),
         required("BatchId") => [String.t() | atom()],
         required("RumEvents") => list(rum_event()),

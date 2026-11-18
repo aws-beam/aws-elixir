@@ -19,6 +19,26 @@ defmodule AWS.MarketplaceAgreement do
 
   ## Example:
       
+      accept_agreement_approval_input() :: %{
+        optional("buyerAgreementApprovalApproverInput") => buyer_agreement_approval_approver_input()
+      }
+      
+  """
+  @type accept_agreement_approval_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      accept_agreement_approval_output() :: %{}
+      
+  """
+  @type accept_agreement_approval_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       accept_agreement_cancellation_request_input() :: %{
         required("agreementCancellationRequestId") => String.t() | atom(),
         required("agreementId") => String.t() | atom()
@@ -114,6 +134,21 @@ defmodule AWS.MarketplaceAgreement do
 
   ## Example:
       
+      acceptor_contact() :: %{
+        "companyName" => String.t() | atom(),
+        "countryCode" => String.t() | atom(),
+        "emailAddress" => String.t() | atom(),
+        "firstName" => String.t() | atom(),
+        "lastName" => String.t() | atom()
+      }
+      
+  """
+  @type acceptor_contact() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       access_denied_exception() :: %{
         "message" => String.t() | atom(),
         "reason" => list(any()),
@@ -122,6 +157,89 @@ defmodule AWS.MarketplaceAgreement do
       
   """
   @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      agreement_approval_proposal_summary() :: %{
+        "offerId" => String.t() | atom(),
+        "offerSetId" => String.t() | atom(),
+        "resources" => list(agreement_approval_resource()),
+        "visibilityScope" => list(any())
+      }
+      
+  """
+  @type agreement_approval_proposal_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      agreement_approval_proposer() :: %{
+        "accountId" => String.t() | atom(),
+        "legalName" => String.t() | atom()
+      }
+      
+  """
+  @type agreement_approval_proposer() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      agreement_approval_purchase_order() :: %{
+        "chargeId" => String.t() | atom(),
+        "purchaseOrderReference" => String.t() | atom()
+      }
+      
+  """
+  @type agreement_approval_purchase_order() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      agreement_approval_requester() :: %{
+        "accountId" => String.t() | atom()
+      }
+      
+  """
+  @type agreement_approval_requester() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      agreement_approval_resource() :: %{
+        "deployedOnAws" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type agreement_approval_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      agreement_approval_summary() :: %{
+        "agreementApprovalId" => String.t() | atom(),
+        "agreementRequestId" => String.t() | atom(),
+        "approvalNeededBy" => non_neg_integer(),
+        "approvalType" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "expiresAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "startedAt" => non_neg_integer(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type agreement_approval_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -178,6 +296,21 @@ defmodule AWS.MarketplaceAgreement do
 
   ## Example:
       
+      agreement_request_summary() :: %{
+        "agreementId" => String.t() | atom(),
+        "agreementRequestId" => String.t() | atom(),
+        "agreementType" => String.t() | atom(),
+        "proposalSummary" => proposal_summary(),
+        "status" => list(any())
+      }
+      
+  """
+  @type agreement_request_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       agreement_view_summary() :: %{
         "acceptanceTime" => non_neg_integer(),
         "acceptor" => acceptor(),
@@ -188,6 +321,7 @@ defmodule AWS.MarketplaceAgreement do
         "endTimeBehaviorType" => list(any()),
         "entitlements" => list(entitlement()),
         "freeTrialEndTime" => non_neg_integer(),
+        "includesContactOfType" => list(list(any())()),
         "initialAgreementId" => String.t() | atom(),
         "lastUpdateTime" => non_neg_integer(),
         "proposalSummary" => proposal_summary(),
@@ -198,6 +332,32 @@ defmodule AWS.MarketplaceAgreement do
       
   """
   @type agreement_view_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aws_organization_admin_approver() :: %{
+        "organizationId" => String.t() | atom()
+      }
+      
+  """
+  @type aws_organization_admin_approver() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aws_organization_approver_outcome() :: %{
+        "approverOutcomeId" => String.t() | atom(),
+        "note" => String.t() | atom(),
+        "purchaseOrders" => list(agreement_approval_purchase_order()),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type aws_organization_approver_outcome() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -288,6 +448,142 @@ defmodule AWS.MarketplaceAgreement do
 
   ## Example:
       
+      buyer_agreement_approval() :: %{
+        "agreementApprovalId" => String.t() | atom(),
+        "agreementRequestId" => String.t() | atom(),
+        "approvalNeededBy" => non_neg_integer(),
+        "approvalType" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "expiresAt" => non_neg_integer(),
+        "levels" => list(buyer_agreement_approval_level()),
+        "name" => String.t() | atom(),
+        "planInput" => buyer_agreement_approval_plan_input(),
+        "proposalSummary" => agreement_approval_proposal_summary(),
+        "proposer" => agreement_approval_proposer(),
+        "requester" => agreement_approval_requester(),
+        "startedAt" => non_neg_integer(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type buyer_agreement_approval() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      buyer_agreement_approval_approver_input() :: %{
+        "agreementApprovalId" => String.t() | atom(),
+        "approverOutcomeIdToOverride" => String.t() | atom(),
+        "note" => String.t() | atom(),
+        "purchaseOrders" => list(agreement_approval_purchase_order())
+      }
+      
+  """
+  @type buyer_agreement_approval_approver_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      buyer_agreement_approval_criteria() :: %{
+        "requiredApprovalCount" => [integer()]
+      }
+      
+  """
+  @type buyer_agreement_approval_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      buyer_agreement_approval_group() :: %{
+        "approvalCriteria" => buyer_agreement_approval_criteria(),
+        "approvers" => list(list())
+      }
+      
+  """
+  @type buyer_agreement_approval_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      buyer_agreement_approval_level() :: %{
+        "groups" => list(buyer_agreement_approval_group()),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type buyer_agreement_approval_level() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      buyer_agreement_approval_plan() :: %{
+        "levels" => list(buyer_agreement_approval_plan_level()),
+        "name" => String.t() | atom(),
+        "planReference" => String.t() | atom()
+      }
+      
+  """
+  @type buyer_agreement_approval_plan() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      buyer_agreement_approval_plan_group() :: %{
+        "approvalCriteria" => buyer_agreement_approval_criteria(),
+        "approvers" => list(list())
+      }
+      
+  """
+  @type buyer_agreement_approval_plan_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      buyer_agreement_approval_plan_input() :: %{
+        "planReference" => String.t() | atom(),
+        "requesterNote" => String.t() | atom()
+      }
+      
+  """
+  @type buyer_agreement_approval_plan_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      buyer_agreement_approval_plan_level() :: %{
+        "groups" => list(buyer_agreement_approval_plan_group()),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type buyer_agreement_approval_plan_level() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      buyer_agreement_approval_rejection_input() :: %{
+        "agreementApprovalId" => String.t() | atom(),
+        "approverOutcomeIdToOverride" => String.t() | atom(),
+        "note" => String.t() | atom()
+      }
+      
+  """
+  @type buyer_agreement_approval_rejection_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       byol_pricing_term() :: %{
         "id" => String.t() | atom(),
         "type" => String.t() | atom()
@@ -295,6 +591,17 @@ defmodule AWS.MarketplaceAgreement do
       
   """
   @type byol_pricing_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      caller_identity() :: %{
+        "principalArn" => String.t() | atom()
+      }
+      
+  """
+  @type caller_identity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -377,6 +684,26 @@ defmodule AWS.MarketplaceAgreement do
       
   """
   @type cancel_agreement_payment_request_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_agreement_request_input() :: %{
+        required("agreementRequestId") => String.t() | atom()
+      }
+      
+  """
+  @type cancel_agreement_request_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_agreement_request_output() :: %{}
+      
+  """
+  @type cancel_agreement_request_output() :: %{}
 
   @typedoc """
 
@@ -484,6 +811,7 @@ defmodule AWS.MarketplaceAgreement do
   ## Example:
       
       create_agreement_request_input() :: %{
+        optional("acceptorContact") => acceptor_contact(),
         optional("agreementProposalIdentifier") => String.t() | atom(),
         optional("clientToken") => String.t() | atom(),
         optional("sourceAgreementIdentifier") => String.t() | atom(),
@@ -501,7 +829,11 @@ defmodule AWS.MarketplaceAgreement do
       
       create_agreement_request_output() :: %{
         "agreementRequestId" => String.t() | atom(),
-        "chargeSummary" => charge_summary()
+        "agreementType" => String.t() | atom(),
+        "approvalRequirement" => list(any()),
+        "chargeSummary" => charge_summary(),
+        "createdAt" => non_neg_integer(),
+        "status" => list(any())
       }
       
   """
@@ -570,6 +902,36 @@ defmodule AWS.MarketplaceAgreement do
 
   ## Example:
       
+      email_approver() :: %{
+        "emailAddress" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type email_approver() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      email_approver_outcome() :: %{
+        "approverOutcomeId" => String.t() | atom(),
+        "emailAddress" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "note" => String.t() | atom(),
+        "overriddenBy" => caller_identity(),
+        "purchaseOrders" => list(agreement_approval_purchase_order()),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type email_approver_outcome() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       end_time_behavior() :: %{
         "reasonCode" => list(any()),
         "renewalSummary" => renewal_summary(),
@@ -623,6 +985,7 @@ defmodule AWS.MarketplaceAgreement do
         "amountAfterTax" => String.t() | atom(),
         "estimatedTaxes" => estimated_taxes(),
         "id" => String.t() | atom(),
+        "purchaseOrderReference" => String.t() | atom(),
         "time" => non_neg_integer(),
         "timing" => list(any())
       }
@@ -698,6 +1061,28 @@ defmodule AWS.MarketplaceAgreement do
 
   ## Example:
       
+      get_agreement_approval_input() :: %{
+        required("agreementApprovalId") => String.t() | atom()
+      }
+      
+  """
+  @type get_agreement_approval_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_agreement_approval_output() :: %{
+        "buyerAgreementApproval" => buyer_agreement_approval()
+      }
+      
+  """
+  @type get_agreement_approval_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_agreement_cancellation_request_input() :: %{
         required("agreementCancellationRequestId") => String.t() | atom(),
         required("agreementId") => String.t() | atom()
@@ -723,6 +1108,28 @@ defmodule AWS.MarketplaceAgreement do
       
   """
   @type get_agreement_cancellation_request_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_agreement_contacts_input() :: %{
+        required("agreementId") => String.t() | atom()
+      }
+      
+  """
+  @type get_agreement_contacts_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_agreement_contacts_output() :: %{
+        "acceptorContact" => acceptor_contact()
+      }
+      
+  """
+  @type get_agreement_contacts_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -781,6 +1188,87 @@ defmodule AWS.MarketplaceAgreement do
       
   """
   @type get_agreement_payment_request_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_agreement_request_approval_plans_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("agreementRequestId") => String.t() | atom()
+      }
+      
+  """
+  @type get_agreement_request_approval_plans_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_agreement_request_approval_plans_output() :: %{
+        "items" => list(list()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_agreement_request_approval_plans_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_agreement_request_input() :: %{
+        required("agreementRequestId") => String.t() | atom()
+      }
+      
+  """
+  @type get_agreement_request_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_agreement_request_output() :: %{
+        "agreementId" => String.t() | atom(),
+        "agreementRequestId" => String.t() | atom(),
+        "agreementType" => String.t() | atom(),
+        "approvalRequirement" => list(any()),
+        "chargeSummary" => charge_summary(),
+        "createdAt" => non_neg_integer(),
+        "intent" => list(any()),
+        "proposalSummary" => proposal_summary(),
+        "proposer" => proposer(),
+        "status" => list(any())
+      }
+      
+  """
+  @type get_agreement_request_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_agreement_request_terms_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("agreementRequestId") => String.t() | atom()
+      }
+      
+  """
+  @type get_agreement_request_terms_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_agreement_request_terms_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "terms" => list(list())
+      }
+      
+  """
+  @type get_agreement_request_terms_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -920,6 +1408,35 @@ defmodule AWS.MarketplaceAgreement do
 
   ## Example:
       
+      list_agreement_approvals_input() :: %{
+        optional("agreementRequestId") => String.t() | atom(),
+        optional("approvalType") => list(any()),
+        optional("catalog") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(any()),
+        required("partyType") => list(any())
+      }
+      
+  """
+  @type list_agreement_approvals_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_agreement_approvals_output() :: %{
+        "items" => list(agreement_approval_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_agreement_approvals_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_agreement_cancellation_requests_input() :: %{
         optional("agreementId") => String.t() | atom(),
         optional("agreementType") => String.t() | atom(),
@@ -1031,6 +1548,33 @@ defmodule AWS.MarketplaceAgreement do
       
   """
   @type list_agreement_payment_requests_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_agreement_requests_input() :: %{
+        optional("catalog") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("resourceId") => String.t() | atom(),
+        optional("status") => list(any())
+      }
+      
+  """
+  @type list_agreement_requests_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_agreement_requests_output() :: %{
+        "items" => list(agreement_request_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_agreement_requests_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1162,6 +1706,34 @@ defmodule AWS.MarketplaceAgreement do
 
   ## Example:
       
+      procurement_tool_approver() :: %{
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type procurement_tool_approver() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      procurement_tool_approver_outcome() :: %{
+        "approverOutcomeId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "note" => String.t() | atom(),
+        "overriddenBy" => caller_identity(),
+        "purchaseOrders" => list(agreement_approval_purchase_order()),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type procurement_tool_approver_outcome() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       proposal_summary() :: %{
         "offerId" => String.t() | atom(),
         "offerSetId" => String.t() | atom(),
@@ -1222,6 +1794,26 @@ defmodule AWS.MarketplaceAgreement do
       
   """
   @type recurring_payment_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reject_agreement_approval_input() :: %{
+        optional("buyerAgreementApprovalRejectionInput") => buyer_agreement_approval_rejection_input()
+      }
+      
+  """
+  @type reject_agreement_approval_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reject_agreement_approval_output() :: %{}
+      
+  """
+  @type reject_agreement_approval_output() :: %{}
 
   @typedoc """
 
@@ -1513,6 +2105,30 @@ defmodule AWS.MarketplaceAgreement do
 
   ## Example:
       
+      start_agreement_approvals_input() :: %{
+        optional("purchaseOrders") => list(agreement_approval_purchase_order()),
+        required("agreementRequestId") => String.t() | atom(),
+        required("planInputs") => list(list())
+      }
+      
+  """
+  @type start_agreement_approvals_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_agreement_approvals_output() :: %{
+        "approvalSummaries" => list(agreement_approval_summary())
+      }
+      
+  """
+  @type start_agreement_approvals_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       support_term() :: %{
         "id" => String.t() | atom(),
         "refundPolicy" => String.t() | atom(),
@@ -1671,6 +2287,14 @@ defmodule AWS.MarketplaceAgreement do
   """
   @type variable_payment_term_configuration() :: %{(String.t() | atom()) => any()}
 
+  @type accept_agreement_approval_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type accept_agreement_cancellation_request_errors() ::
           validation_exception()
           | throttling_exception()
@@ -1690,6 +2314,7 @@ defmodule AWS.MarketplaceAgreement do
   @type accept_agreement_request_errors() ::
           validation_exception()
           | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
@@ -1726,6 +2351,14 @@ defmodule AWS.MarketplaceAgreement do
           | conflict_exception()
           | access_denied_exception()
 
+  @type cancel_agreement_request_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type create_agreement_request_errors() ::
           validation_exception()
           | throttling_exception()
@@ -1742,7 +2375,21 @@ defmodule AWS.MarketplaceAgreement do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type get_agreement_approval_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type get_agreement_cancellation_request_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_agreement_contacts_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -1763,6 +2410,27 @@ defmodule AWS.MarketplaceAgreement do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type get_agreement_request_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_agreement_request_approval_plans_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_agreement_request_terms_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type get_agreement_terms_errors() ::
           validation_exception()
           | throttling_exception()
@@ -1774,6 +2442,12 @@ defmodule AWS.MarketplaceAgreement do
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_agreement_approvals_errors() ::
+          validation_exception()
+          | throttling_exception()
           | internal_server_exception()
           | access_denied_exception()
 
@@ -1802,10 +2476,24 @@ defmodule AWS.MarketplaceAgreement do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type list_agreement_requests_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type list_billing_adjustment_requests_errors() ::
           validation_exception()
           | throttling_exception()
           | internal_server_exception()
+          | access_denied_exception()
+
+  @type reject_agreement_approval_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type reject_agreement_cancellation_request_errors() ::
@@ -1846,6 +2534,14 @@ defmodule AWS.MarketplaceAgreement do
           | conflict_exception()
           | access_denied_exception()
 
+  @type start_agreement_approvals_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type update_purchase_orders_errors() ::
           validation_exception()
           | throttling_exception()
@@ -1868,6 +2564,27 @@ defmodule AWS.MarketplaceAgreement do
       signing_name: "aws-marketplace",
       target_prefix: "AWSMPCommerceService_v20200301"
     }
+  end
+
+  @doc """
+  Allows the management account or a delegated administrator of the buyer's AWS
+  organization to approve an agreement approval that is in `PENDING_APPROVAL`
+  status, as the organization administrator approver or on behalf of another
+  approver.
+
+  Once every level is approved, the agreement approval transitions to `APPROVED`
+  status. You can optionally provide purchase order references and a note.
+  """
+  @spec accept_agreement_approval(map(), accept_agreement_approval_input(), list()) ::
+          {:ok, accept_agreement_approval_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, accept_agreement_approval_errors()}
+  def accept_agreement_approval(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "AcceptAgreementApproval", input, options)
   end
 
   @doc """
@@ -2032,6 +2749,26 @@ defmodule AWS.MarketplaceAgreement do
   end
 
   @doc """
+  Allows buyers (acceptors) to cancel an agreement request that is in
+  `PENDING_APPROVAL` status, or in `APPROVED` status when no agreement has been
+  created from it.
+
+  Once cancelled, the agreement request transitions to `CANCELLED` status and its
+  open agreement approvals are cancelled.
+  """
+  @spec cancel_agreement_request(map(), cancel_agreement_request_input(), list()) ::
+          {:ok, cancel_agreement_request_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, cancel_agreement_request_errors()}
+  def cancel_agreement_request(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CancelAgreementRequest", input, options)
+  end
+
+  @doc """
   Creates an agreement request that acts as a quote for the terms you want to
   accept.
 
@@ -2068,6 +2805,26 @@ defmodule AWS.MarketplaceAgreement do
   end
 
   @doc """
+  Retrieves detailed information about a specific agreement approval, including
+  its approval levels, the approvers at each level, and the decision of each
+  approver.
+
+  The acceptor, or the management account or a delegated administrator of the
+  acceptor's AWS organization, can call this operation.
+  """
+  @spec get_agreement_approval(map(), get_agreement_approval_input(), list()) ::
+          {:ok, get_agreement_approval_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_agreement_approval_errors()}
+  def get_agreement_approval(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetAgreementApproval", input, options)
+  end
+
+  @doc """
   Retrieves detailed information about a specific agreement cancellation request.
 
   Both sellers (proposers) and buyers (acceptors) can use this operation to view
@@ -2087,6 +2844,26 @@ defmodule AWS.MarketplaceAgreement do
       metadata()
 
     Request.request_post(client, meta, "GetAgreementCancellationRequest", input, options)
+  end
+
+  @doc """
+  Obtains details about the acceptor's contact information for an active agreement
+  that you participate in as the proposer, acceptor, or manufacturer.
+
+  If the acceptor's contact information isn't available, the operation succeeds
+  but doesn't return `acceptorContact`. This happens when the acceptor didn't
+  provide it, the information was removed, or the agreement isn't active.
+  """
+  @spec get_agreement_contacts(map(), get_agreement_contacts_input(), list()) ::
+          {:ok, get_agreement_contacts_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_agreement_contacts_errors()}
+  def get_agreement_contacts(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetAgreementContacts", input, options)
   end
 
   @doc """
@@ -2126,6 +2903,70 @@ defmodule AWS.MarketplaceAgreement do
       metadata()
 
     Request.request_post(client, meta, "GetAgreementPaymentRequest", input, options)
+  end
+
+  @doc """
+  Retrieves detailed information about a specific agreement request, including its
+  status, intent, approval requirement, and charges.
+
+  The acceptor, or the management account or a delegated administrator of the
+  acceptor's AWS organization, can call this operation.
+  """
+  @spec get_agreement_request(map(), get_agreement_request_input(), list()) ::
+          {:ok, get_agreement_request_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_agreement_request_errors()}
+  def get_agreement_request(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetAgreementRequest", input, options)
+  end
+
+  @doc """
+  Retrieves the approval plans that apply to an agreement request.
+
+  Only the acceptor of the agreement request can call this operation. Each
+  approval plan lists its approval levels and the approvers at each level. Pass
+  the `planReference` of an approval plan to `StartAgreementApprovals` to start an
+  agreement approval for it.
+  """
+  @spec get_agreement_request_approval_plans(
+          map(),
+          get_agreement_request_approval_plans_input(),
+          list()
+        ) ::
+          {:ok, get_agreement_request_approval_plans_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_agreement_request_approval_plans_errors()}
+  def get_agreement_request_approval_plans(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetAgreementRequestApprovalPlans", input, options)
+  end
+
+  @doc """
+  Retrieves the terms proposed for an agreement request, such as pricing, legal,
+  and renewal terms.
+
+  The acceptor, or the management account or a delegated administrator of the
+  acceptor's AWS organization, can call this operation. This operation is similar
+  to `GetAgreementTerms`, but it takes an `agreementRequestId` instead of an
+  `agreementId`.
+  """
+  @spec get_agreement_request_terms(map(), get_agreement_request_terms_input(), list()) ::
+          {:ok, get_agreement_request_terms_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_agreement_request_terms_errors()}
+  def get_agreement_request_terms(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetAgreementRequestTerms", input, options)
   end
 
   @doc """
@@ -2176,6 +3017,27 @@ defmodule AWS.MarketplaceAgreement do
       metadata()
 
     Request.request_post(client, meta, "GetBillingAdjustmentRequest", input, options)
+  end
+
+  @doc """
+  Lists agreement approvals available to you as a buyer.
+
+  Use `REQUESTER` as the `partyType` to list the agreement approvals that your
+  account started. Use `AWS_ORGANIZATION_ADMIN` to list the agreement approvals in
+  your AWS organization, if your account is the management account or a delegated
+  administrator of the organization. You can filter the results by agreement
+  request, approval type, and status.
+  """
+  @spec list_agreement_approvals(map(), list_agreement_approvals_input(), list()) ::
+          {:ok, list_agreement_approvals_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_agreement_approvals_errors()}
+  def list_agreement_approvals(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListAgreementApprovals", input, options)
   end
 
   @doc """
@@ -2273,6 +3135,23 @@ defmodule AWS.MarketplaceAgreement do
   end
 
   @doc """
+  Lists agreement requests available to you as a buyer (acceptor).
+
+  You can filter the results by `catalog`, `status`, and `resourceId`.
+  """
+  @spec list_agreement_requests(map(), list_agreement_requests_input(), list()) ::
+          {:ok, list_agreement_requests_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_agreement_requests_errors()}
+  def list_agreement_requests(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListAgreementRequests", input, options)
+  end
+
+  @doc """
   Lists billing adjustment requests for a specific agreement.
 
   Sellers (proposers) can use this operation to view all billing adjustment
@@ -2288,6 +3167,27 @@ defmodule AWS.MarketplaceAgreement do
       metadata()
 
     Request.request_post(client, meta, "ListBillingAdjustmentRequests", input, options)
+  end
+
+  @doc """
+  Allows the management account or a delegated administrator of the buyer's AWS
+  organization to reject an agreement approval that is in `PENDING_APPROVAL`
+  status, as the organization administrator approver or on behalf of another
+  approver.
+
+  Once rejected, the agreement approval and its agreement request transition to
+  `REJECTED` status. You must provide a reason for the rejection.
+  """
+  @spec reject_agreement_approval(map(), reject_agreement_approval_input(), list()) ::
+          {:ok, reject_agreement_approval_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, reject_agreement_approval_errors()}
+  def reject_agreement_approval(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "RejectAgreementApproval", input, options)
   end
 
   @doc """
@@ -2401,6 +3301,27 @@ defmodule AWS.MarketplaceAgreement do
       metadata()
 
     Request.request_post(client, meta, "SendAgreementPaymentRequest", input, options)
+  end
+
+  @doc """
+  Allows buyers (acceptors) to start the approvals that their organization
+  requires for an agreement request.
+
+  You start one agreement approval for each approval plan that you specify. Use
+  `GetAgreementRequestApprovalPlans` to retrieve the approval plans of the
+  agreement request. Once the agreement approvals start, the agreement request
+  transitions to `PENDING_APPROVAL` status.
+  """
+  @spec start_agreement_approvals(map(), start_agreement_approvals_input(), list()) ::
+          {:ok, start_agreement_approvals_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_agreement_approvals_errors()}
+  def start_agreement_approvals(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "StartAgreementApprovals", input, options)
   end
 
   @doc """

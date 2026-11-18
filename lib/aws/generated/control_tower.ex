@@ -534,7 +534,8 @@ defmodule AWS.ControlTower do
   ## Example:
 
       enabled_baseline_drift_types() :: %{
-        "inheritance" => enabled_baseline_inheritance_drift()
+        "inheritance" => enabled_baseline_inheritance_drift(),
+        "source" => enabled_baseline_source_drift()
       }
 
   """
@@ -548,6 +549,7 @@ defmodule AWS.ControlTower do
         "baselineIdentifiers" => list(String.t() | atom()),
         "inheritanceDriftStatuses" => list(list(any())()),
         "parentIdentifiers" => list(String.t() | atom()),
+        "sourceDriftStatuses" => list(list(any())()),
         "statuses" => list(list(any())()),
         "targetIdentifiers" => list(String.t() | atom())
       }
@@ -589,6 +591,17 @@ defmodule AWS.ControlTower do
 
   """
   @type enabled_baseline_parameter_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enabled_baseline_source_drift() :: %{
+        "status" => list(any())
+      }
+
+  """
+  @type enabled_baseline_source_drift() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

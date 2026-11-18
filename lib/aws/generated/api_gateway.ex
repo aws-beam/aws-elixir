@@ -10,7 +10,7 @@ defmodule AWS.APIGateway do
 
   API Gateway allows developers to securely connect mobile and web applications to
   APIs that run on Lambda, Amazon EC2, or other publicly addressable web services
-  that are hosted outside of AWS.
+  that are hosted outside of Amazon Web Services.
   """
 
   alias AWS.Client
@@ -112,6 +112,7 @@ defmodule AWS.APIGateway do
         "id" => String.t() | atom(),
         "identitySource" => String.t() | atom(),
         "identityValidationExpression" => String.t() | atom(),
+        "jwtConfiguration" => jwt_configuration(),
         "name" => String.t() | atom(),
         "providerARNs" => list(String.t() | atom()),
         "type" => list(any())
@@ -250,6 +251,7 @@ defmodule AWS.APIGateway do
         optional("authorizerUri") => String.t() | atom(),
         optional("identitySource") => String.t() | atom(),
         optional("identityValidationExpression") => String.t() | atom(),
+        optional("jwtConfiguration") => jwt_configuration_input(),
         optional("providerARNs") => list(String.t() | atom()),
         required("name") => String.t() | atom(),
         required("type") => list(any())
@@ -1549,6 +1551,71 @@ defmodule AWS.APIGateway do
 
   """
   @type integration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      jwt_additional_claim() :: %{
+        "claimName" => String.t() | atom(),
+        "expectedValues" => list(String.t() | atom()),
+        "format" => list(any()),
+        "required" => boolean()
+      }
+
+  """
+  @type jwt_additional_claim() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      jwt_configuration() :: %{
+        "defaultAlgorithms" => list(list(any())()),
+        "issuers" => list(jwt_issuer())
+      }
+
+  """
+  @type jwt_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      jwt_configuration_input() :: %{
+        "defaultAlgorithms" => list(list(any())()),
+        "issuers" => list(jwt_issuer_input())
+      }
+
+  """
+  @type jwt_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      jwt_issuer() :: %{
+        "additionalClaims" => list(jwt_additional_claim()),
+        "audiences" => list(String.t() | atom()),
+        "issuer" => String.t() | atom(),
+        "jwksUri" => String.t() | atom()
+      }
+
+  """
+  @type jwt_issuer() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      jwt_issuer_input() :: %{
+        "additionalClaims" => list(jwt_additional_claim()),
+        "audiences" => list(String.t() | atom()),
+        "issuer" => String.t() | atom()
+      }
+
+  """
+  @type jwt_issuer_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4230,10 +4297,10 @@ defmodule AWS.APIGateway do
   @doc """
   Deletes the DomainNameAccessAssociation resource.
 
-  Only the AWS account that created the DomainNameAccessAssociation resource can
-  delete it. To stop an access association source in another AWS account from
-  accessing your private custom domain name, use the
-  RejectDomainNameAccessAssociation operation.
+  Only the Amazon Web Services account that created the
+  DomainNameAccessAssociation resource can delete it. To stop an access
+  association source in another Amazon Web Services account from accessing your
+  private custom domain name, use the RejectDomainNameAccessAssociation operation.
   """
   @spec delete_domain_name_access_association(
           map(),
@@ -6938,9 +7005,9 @@ defmodule AWS.APIGateway do
   Rejects a domain name access association with a private custom domain name.
 
   To reject a domain name access association with an access association source in
-  another AWS account, use this operation. To remove a domain name access
-  association with an access association source in your own account, use the
-  DeleteDomainNameAccessAssociation operation.
+  another Amazon Web Services account, use this operation. To remove a domain name
+  access association with an access association source in your own account, use
+  the DeleteDomainNameAccessAssociation operation.
   """
   @spec reject_domain_name_access_association(
           map(),
@@ -7185,6 +7252,12 @@ defmodule AWS.APIGateway do
 
   @doc """
   Updates an existing Authorizer resource.
+
+  For a `JWT` authorizer, the only JWT patch operation is `replace` on the path
+  `/jwtConfiguration`. Its value is the complete configuration as a JSON string in
+  the `JwtConfigurationInput` shape. This replaces the entire configuration;
+  nothing from the previous configuration is retained. A `replace` operation on
+  the path `/type` is supported in both directions.
   """
   @spec update_authorizer(
           map(),

@@ -69,6 +69,40 @@ defmodule AWS.ElementalInference do
 
   ## Example:
 
+      bedrock_function_target() :: %{
+        "api" => list(any()),
+        "model" => [String.t() | atom()]
+      }
+
+  """
+  @type bedrock_function_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      choose_one_question() :: %{
+        "name" => String.t() | atom(),
+        "options" => list(question_option()),
+        "question" => String.t() | atom()
+      }
+
+  """
+  @type choose_one_question() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      clip_trigger() :: %{}
+
+  """
+  @type clip_trigger() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       clipping_config() :: %{
         "callbackMetadata" => String.t() | atom(),
         "dataSourceConfiguration" => data_source_configuration()
@@ -76,6 +110,17 @@ defmodule AWS.ElementalInference do
 
   """
   @type clipping_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      clipping_settings() :: %{
+        "outputName" => String.t() | atom()
+      }
+
+  """
+  @type clipping_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -105,12 +150,24 @@ defmodule AWS.ElementalInference do
   ## Example:
 
       contextual_metadata_config() :: %{
+        "customQuestions" => custom_questions_config(),
         "extendedAnalysis" => list(any()),
         "summaryGeneration" => list(any())
       }
 
   """
   @type contextual_metadata_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      contextual_metadata_settings() :: %{
+        "outputName" => String.t() | atom()
+      }
+
+  """
+  @type contextual_metadata_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -180,6 +237,45 @@ defmodule AWS.ElementalInference do
 
   ## Example:
 
+      create_function_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("eventBridgeDelivery") => list(any()),
+        optional("responseExpression") => String.t() | atom(),
+        optional("tags") => map(),
+        required("name") => String.t() | atom(),
+        required("requestExpression") => String.t() | atom(),
+        required("target") => list()
+      }
+
+  """
+  @type create_function_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_function_response() :: %{
+        "arn" => String.t() | atom(),
+        "contextTypes" => list(list(any())()),
+        "description" => String.t() | atom(),
+        "eventBridgeDelivery" => list(any()),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "references" => list(String.t() | atom()),
+        "requestExpression" => String.t() | atom(),
+        "responseExpression" => String.t() | atom(),
+        "status" => list(any()),
+        "tags" => map(),
+        "target" => list()
+      }
+
+  """
+  @type create_function_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_output() :: %{
         "description" => String.t() | atom(),
         "name" => String.t() | atom(),
@@ -189,6 +285,77 @@ defmodule AWS.ElementalInference do
 
   """
   @type create_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_question_set_request() :: %{
+        optional("chooseOne") => list(choose_one_question()),
+        optional("tags") => map(),
+        optional("yesNo") => list(yes_no_question()),
+        optional("yesNoPerOption") => list(yes_no_per_option_question()),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_question_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_question_set_response() :: %{
+        "arn" => String.t() | atom(),
+        "chooseOne" => list(choose_one_question()),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "latestVersion" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "references" => list(String.t() | atom()),
+        "sha256" => String.t() | atom(),
+        "tags" => map(),
+        "version" => String.t() | atom(),
+        "yesNo" => list(yes_no_question()),
+        "yesNoPerOption" => list(yes_no_per_option_question())
+      }
+
+  """
+  @type create_question_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_question_set_version_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("sha256") => String.t() | atom()
+      }
+
+  """
+  @type create_question_set_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_question_set_version_response() :: %{
+        "arn" => String.t() | atom(),
+        "chooseOne" => list(choose_one_question()),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "latestVersion" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "references" => list(String.t() | atom()),
+        "sha256" => String.t() | atom(),
+        "tags" => map(),
+        "version" => String.t() | atom(),
+        "yesNo" => list(yes_no_question()),
+        "yesNoPerOption" => list(yes_no_per_option_question())
+      }
+
+  """
+  @type create_question_set_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -228,6 +395,18 @@ defmodule AWS.ElementalInference do
 
   """
   @type cropping_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_questions_config() :: %{
+        "scene" => question_set_reference(),
+        "shot" => question_set_reference()
+      }
+
+  """
+  @type custom_questions_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -292,6 +471,67 @@ defmodule AWS.ElementalInference do
 
   """
   @type delete_feed_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_function_request() :: %{}
+
+  """
+  @type delete_function_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_function_response() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_function_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_question_set_request() :: %{}
+
+  """
+  @type delete_question_set_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_question_set_response() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom()
+      }
+
+  """
+  @type delete_question_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_question_set_version_request() :: %{}
+
+  """
+  @type delete_question_set_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_question_set_version_response() :: %{}
+
+  """
+  @type delete_question_set_version_response() :: %{}
 
   @typedoc """
 
@@ -404,6 +644,17 @@ defmodule AWS.ElementalInference do
 
   ## Example:
 
+      fixed_interval_trigger() :: %{
+        "intervalSeconds" => [integer()]
+      }
+
+  """
+  @type fixed_interval_trigger() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       fixed_mode_schedule_action_start_settings() :: %{
         "scheduledAt" => [non_neg_integer()]
       }
@@ -426,6 +677,75 @@ defmodule AWS.ElementalInference do
 
   """
   @type fixture_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      frame_sampling_strategy() :: %{
+        "count" => [integer()],
+        "mode" => list(any())
+      }
+
+  """
+  @type frame_sampling_strategy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      frame_settings() :: %{
+        "frameSampling" => frame_sampling_strategy(),
+        "frameSize" => frame_size()
+      }
+
+  """
+  @type frame_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      frame_size() :: %{
+        "heightPixels" => [integer()],
+        "widthPixels" => [integer()]
+      }
+
+  """
+  @type frame_size() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      function_config() :: %{
+        "clippingSettings" => clipping_settings(),
+        "contextualMetadataSettings" => contextual_metadata_settings(),
+        "frameSettings" => frame_settings(),
+        "functionArn" => String.t() | atom(),
+        "subtitlingSettings" => subtitling_settings(),
+        "trigger" => list()
+      }
+
+  """
+  @type function_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      function_summary() :: %{
+        "arn" => String.t() | atom(),
+        "contextTypes" => list(list(any())()),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "target" => list()
+      }
+
+  """
+  @type function_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -541,6 +861,37 @@ defmodule AWS.ElementalInference do
 
   ## Example:
 
+      get_function_request() :: %{}
+
+  """
+  @type get_function_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_function_response() :: %{
+        "arn" => String.t() | atom(),
+        "contextTypes" => list(list(any())()),
+        "description" => String.t() | atom(),
+        "eventBridgeDelivery" => list(any()),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "references" => list(String.t() | atom()),
+        "requestExpression" => String.t() | atom(),
+        "responseExpression" => String.t() | atom(),
+        "status" => list(any()),
+        "tags" => map(),
+        "target" => list()
+      }
+
+  """
+  @type get_function_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_output() :: %{
         "description" => String.t() | atom(),
         "fromAssociation" => [boolean()],
@@ -551,6 +902,39 @@ defmodule AWS.ElementalInference do
 
   """
   @type get_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_question_set_request() :: %{
+        optional("questionSetVersion") => String.t() | atom()
+      }
+
+  """
+  @type get_question_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_question_set_response() :: %{
+        "arn" => String.t() | atom(),
+        "chooseOne" => list(choose_one_question()),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "latestVersion" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "references" => list(String.t() | atom()),
+        "sha256" => String.t() | atom(),
+        "tags" => map(),
+        "version" => String.t() | atom(),
+        "yesNo" => list(yes_no_question()),
+        "yesNoPerOption" => list(yes_no_per_option_question())
+      }
+
+  """
+  @type get_question_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -615,6 +999,78 @@ defmodule AWS.ElementalInference do
 
   ## Example:
 
+      list_functions_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_functions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_functions_response() :: %{
+        "functions" => list(function_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_functions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_question_set_versions_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_question_set_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_question_set_versions_response() :: %{
+        "nextToken" => [String.t() | atom()],
+        "versions" => list(question_set_version_summary())
+      }
+
+  """
+  @type list_question_set_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_question_sets_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_question_sets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_question_sets_response() :: %{
+        "nextToken" => [String.t() | atom()],
+        "questionSets" => list(question_set_summary())
+      }
+
+  """
+  @type list_question_sets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_schedule_actions_request() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => [String.t() | atom()]
@@ -659,6 +1115,15 @@ defmodule AWS.ElementalInference do
 
   ## Example:
 
+      passthrough_function_target() :: %{}
+
+  """
+  @type passthrough_function_target() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       put_feed_policy_request() :: %{
         required("policy") => String.t() | atom()
       }
@@ -674,6 +1139,58 @@ defmodule AWS.ElementalInference do
 
   """
   @type put_feed_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      question_option() :: %{
+        "name" => String.t() | atom(),
+        "text" => String.t() | atom()
+      }
+
+  """
+  @type question_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      question_set_reference() :: %{
+        "questionSetId" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type question_set_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      question_set_summary() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "latestVersion" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type question_set_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      question_set_version_summary() :: %{
+        "description" => String.t() | atom(),
+        "lastModifiedAt" => [non_neg_integer()],
+        "sha256" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type question_set_version_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -696,6 +1213,15 @@ defmodule AWS.ElementalInference do
 
   """
   @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scene_trigger() :: %{}
+
+  """
+  @type scene_trigger() :: %{}
 
   @typedoc """
 
@@ -790,6 +1316,15 @@ defmodule AWS.ElementalInference do
 
   ## Example:
 
+      shot_trigger() :: %{}
+
+  """
+  @type shot_trigger() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       subtitling_config() :: %{
         "aspectRatio" => aspect_ratio(),
         "dictionary" => String.t() | atom(),
@@ -799,6 +1334,17 @@ defmodule AWS.ElementalInference do
 
   """
   @type subtitling_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subtitling_settings() :: %{
+        "outputName" => String.t() | atom()
+      }
+
+  """
+  @type subtitling_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -923,6 +1469,44 @@ defmodule AWS.ElementalInference do
 
   ## Example:
 
+      update_function_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("eventBridgeDelivery") => list(any()),
+        optional("name") => String.t() | atom(),
+        optional("requestExpression") => String.t() | atom(),
+        optional("responseExpression") => String.t() | atom(),
+        optional("target") => list()
+      }
+
+  """
+  @type update_function_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_function_response() :: %{
+        "arn" => String.t() | atom(),
+        "contextTypes" => list(list(any())()),
+        "description" => String.t() | atom(),
+        "eventBridgeDelivery" => list(any()),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "references" => list(String.t() | atom()),
+        "requestExpression" => String.t() | atom(),
+        "responseExpression" => String.t() | atom(),
+        "status" => list(any()),
+        "tags" => map(),
+        "target" => list()
+      }
+
+  """
+  @type update_function_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_output() :: %{
         "description" => String.t() | atom(),
         "fromAssociation" => [boolean()],
@@ -950,12 +1534,73 @@ defmodule AWS.ElementalInference do
 
   ## Example:
 
+      update_question_set_request() :: %{
+        optional("chooseOne") => list(choose_one_question()),
+        optional("name") => String.t() | atom(),
+        optional("yesNo") => list(yes_no_question()),
+        optional("yesNoPerOption") => list(yes_no_per_option_question())
+      }
+
+  """
+  @type update_question_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_question_set_response() :: %{
+        "arn" => String.t() | atom(),
+        "chooseOne" => list(choose_one_question()),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "latestVersion" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "references" => list(String.t() | atom()),
+        "sha256" => String.t() | atom(),
+        "tags" => map(),
+        "version" => String.t() | atom(),
+        "yesNo" => list(yes_no_question()),
+        "yesNoPerOption" => list(yes_no_per_option_question())
+      }
+
+  """
+  @type update_question_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
   @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      yes_no_per_option_question() :: %{
+        "name" => String.t() | atom(),
+        "options" => list(question_option()),
+        "question" => String.t() | atom()
+      }
+
+  """
+  @type yes_no_per_option_question() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      yes_no_question() :: %{
+        "name" => String.t() | atom(),
+        "question" => String.t() | atom()
+      }
+
+  """
+  @type yes_no_question() :: %{(String.t() | atom()) => any()}
 
   @type associate_feed_errors() ::
           validation_exception()
@@ -978,6 +1623,31 @@ defmodule AWS.ElementalInference do
           validation_exception()
           | too_many_request_exception()
           | service_quota_exceeded_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type create_function_errors() ::
+          validation_exception()
+          | too_many_request_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type create_question_set_errors() ::
+          validation_exception()
+          | too_many_request_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type create_question_set_version_errors() ::
+          validation_exception()
+          | too_many_request_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
           | internal_server_error_exception()
           | conflict_exception()
           | access_denied_exception()
@@ -1012,6 +1682,30 @@ defmodule AWS.ElementalInference do
           | too_many_request_exception()
           | resource_not_found_exception()
           | internal_server_error_exception()
+          | access_denied_exception()
+
+  @type delete_function_errors() ::
+          validation_exception()
+          | too_many_request_exception()
+          | resource_not_found_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type delete_question_set_errors() ::
+          validation_exception()
+          | too_many_request_exception()
+          | resource_not_found_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type delete_question_set_version_errors() ::
+          validation_exception()
+          | too_many_request_exception()
+          | resource_not_found_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type delete_schedule_action_errors() ::
@@ -1066,6 +1760,20 @@ defmodule AWS.ElementalInference do
           | gateway_timed_out_exception()
           | access_denied_exception()
 
+  @type get_function_errors() ::
+          validation_exception()
+          | too_many_request_exception()
+          | resource_not_found_exception()
+          | internal_server_error_exception()
+          | access_denied_exception()
+
+  @type get_question_set_errors() ::
+          validation_exception()
+          | too_many_request_exception()
+          | resource_not_found_exception()
+          | internal_server_error_exception()
+          | access_denied_exception()
+
   @type list_dictionaries_errors() ::
           validation_exception()
           | too_many_request_exception()
@@ -1076,6 +1784,25 @@ defmodule AWS.ElementalInference do
           validation_exception()
           | too_many_request_exception()
           | resource_not_found_exception()
+          | internal_server_error_exception()
+          | access_denied_exception()
+
+  @type list_functions_errors() ::
+          validation_exception()
+          | too_many_request_exception()
+          | internal_server_error_exception()
+          | access_denied_exception()
+
+  @type list_question_set_versions_errors() ::
+          validation_exception()
+          | too_many_request_exception()
+          | resource_not_found_exception()
+          | internal_server_error_exception()
+          | access_denied_exception()
+
+  @type list_question_sets_errors() ::
+          validation_exception()
+          | too_many_request_exception()
           | internal_server_error_exception()
           | access_denied_exception()
 
@@ -1137,6 +1864,22 @@ defmodule AWS.ElementalInference do
           validation_exception()
           | too_many_request_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type update_function_errors() ::
+          validation_exception()
+          | too_many_request_exception()
+          | resource_not_found_exception()
+          | internal_server_error_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type update_question_set_errors() ::
+          validation_exception()
+          | too_many_request_exception()
           | resource_not_found_exception()
           | internal_server_error_exception()
           | conflict_exception()
@@ -1282,6 +2025,148 @@ defmodule AWS.ElementalInference do
   end
 
   @doc """
+  Creates a function.
+
+  A function analyzes a feed by building a request from the feed's media and
+  metadata, optionally sending that request to an Amazon Bedrock model in your
+  account, and publishing the result to the feed's metadata timeline.
+
+  A function runs only after you attach it to a feed as a function output. For
+  more information, see [Using functions](https://docs.aws.amazon.com/elemental-inference/latest/userguide/functions.html)
+  in the *AWS Elemental Inference User Guide*.
+  """
+  @spec create_function(map(), create_function_request(), list()) ::
+          {:ok, create_function_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_function_errors()}
+  def create_function(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/function"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Creates a question set.
+
+  Use a question set to get answers about content that's specific to your
+  business, in addition to the built-in contextual metadata classifications. A
+  question set contains your own questions. You ask Elemental Inference these
+  questions about each shot or scene of the media in a contextual metadata output,
+  and Elemental Inference answers each question with scores. To use a question
+  set, reference it in the customQuestions property of the contextual metadata
+  configuration of a feed output.
+
+  CreateQuestionSet creates the question set with a DRAFT version that contains
+  the questions in the request. To change DRAFT, use UpdateQuestionSet. To publish
+  DRAFT as a numbered version, use CreateQuestionSetVersion. You can't change a
+  published version.
+
+  A question set can contain the following types of questions. You must specify at
+  least one question.
+
+    * yesNo – Elemental Inference answers yes or no.
+
+    * yesNoPerOption – Elemental Inference answers yes or no for each
+  option.
+
+    * chooseOne – Elemental Inference chooses one of the options.
+
+  A version can contain up to 100 scored items, where each yesNo question, each
+  option of a yesNoPerOption question, and each chooseOne question counts as one
+  item. The name of each question must be unique across all three types.
+  """
+  @spec create_question_set(map(), create_question_set_request(), list()) ::
+          {:ok, create_question_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_question_set_errors()}
+  def create_question_set(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/question-set"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Publishes the DRAFT version of the specified question set as a new version.
+
+  The new version has the same name and questions as DRAFT, and you can't change
+  it. DRAFT doesn't change, so you can continue to update it.
+
+  Version numbers start at 1, and each new version has the next number. Elemental
+  Inference never reuses a version number, even after you delete that version.
+
+  If DRAFT hasn't changed since the latest published version, Elemental Inference
+  doesn't create a version. Instead, it returns the latest version. A change to
+  the name of the question set counts as a change to DRAFT.
+
+  A question set can have a limited number of versions. If the question set
+  already has the maximum number of versions, Elemental Inference returns
+  ServiceQuotaExceededException. To free space for a new version, delete a version
+  that you no longer need, or create a new question set.
+  """
+  @spec create_question_set_version(
+          map(),
+          String.t() | atom(),
+          create_question_set_version_request(),
+          list()
+        ) ::
+          {:ok, create_question_set_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_question_set_version_errors()}
+  def create_question_set_version(%Client{} = client, id, input, options \\ []) do
+    url_path = "/v1/question-set/#{AWS.Util.encode_uri(id)}/versions"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a schedule action on a feed.
 
   A schedule action applies configuration changes to the feed at a time that you
@@ -1415,6 +2300,130 @@ defmodule AWS.ElementalInference do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Deletes a function.
+
+  If any feed still references the function, the operation returns a
+  ConflictException. A disabled function output still references the function. Use
+  GetFunction to find those feeds, then remove the function output from each one
+  with UpdateFeed, or delete the feed, before retrying.
+
+  Deleting a function doesn't delete the metadata that it has already produced.
+  """
+  @spec delete_function(map(), String.t() | atom(), delete_function_request(), list()) ::
+          {:ok, delete_function_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_function_errors()}
+  def delete_function(%Client{} = client, id, input, options \\ []) do
+    url_path = "/v1/function/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
+  Deletes the specified question set, including its DRAFT version and all its
+  published versions.
+
+  You can't delete a question set while any feed references any of its versions,
+  including an archived feed. You must first remove the question set from the
+  customQuestions configuration of each feed output that references it, or delete
+  those feeds.
+  """
+  @spec delete_question_set(map(), String.t() | atom(), delete_question_set_request(), list()) ::
+          {:ok, delete_question_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_question_set_errors()}
+  def delete_question_set(%Client{} = client, id, input, options \\ []) do
+    url_path = "/v1/question-set/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a published version of the specified question set.
+
+  You can't delete a version while a feed references it, including an archived
+  feed. You can't restore a deleted version, and Elemental Inference doesn't reuse
+  its number.
+
+  You can't delete the DRAFT version on its own. To delete DRAFT, delete the
+  question set by using DeleteQuestionSet.
+
+  Deleting a version doesn't change the latestVersion of the question set, even if
+  you delete the highest version.
+  """
+  @spec delete_question_set_version(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_question_set_version_request(),
+          list()
+        ) ::
+          {:ok, delete_question_set_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_question_set_version_errors()}
+  def delete_question_set_version(
+        %Client{} = client,
+        id,
+        question_set_version,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v1/question-set/#{AWS.Util.encode_uri(id)}/versions/#{AWS.Util.encode_uri(question_set_version)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -1590,6 +2599,54 @@ defmodule AWS.ElementalInference do
   end
 
   @doc """
+  Retrieves the details of a function, including its expressions, the media
+  context that Elemental Inference derived from the request expression, and the
+  feeds that currently reference it.
+  """
+  @spec get_function(map(), String.t() | atom(), list()) ::
+          {:ok, get_function_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_function_errors()}
+  def get_function(%Client{} = client, id, options \\ []) do
+    url_path = "/v1/function/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves information about the specified question set at one version.
+
+  By default, GetQuestionSet returns the DRAFT version. To retrieve a published
+  version, specify questionSetVersion.
+  """
+  @spec get_question_set(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
+          {:ok, get_question_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_question_set_errors()}
+  def get_question_set(%Client{} = client, id, question_set_version \\ nil, options \\ []) do
+    url_path = "/v1/question-set/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(question_set_version) do
+        [{"questionSetVersion", question_set_version} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists the dictionaries in your account.
   """
   @spec list_dictionaries(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
@@ -1631,6 +2688,126 @@ defmodule AWS.ElementalInference do
           | {:error, list_feeds_errors()}
   def list_feeds(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
     url_path = "/v1/feeds"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the functions in this account, in this Region.
+
+  Each entry is a summary. To get the expressions of a function, use GetFunction.
+  """
+  @spec list_functions(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
+          {:ok, list_functions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_functions_errors()}
+  def list_functions(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/v1/functions"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the versions of the specified question set.
+
+  The list starts with the DRAFT version, followed by the published versions from
+  the highest version number to the lowest. The list doesn't include deleted
+  versions.
+
+  The response doesn't include the questions in each version. To retrieve them,
+  use GetQuestionSet and specify questionSetVersion.
+  """
+  @spec list_question_set_versions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_question_set_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_question_set_versions_errors()}
+  def list_question_set_versions(
+        %Client{} = client,
+        id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/question-set/#{AWS.Util.encode_uri(id)}/versions"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the question sets in your account.
+
+  The response doesn't include the questions in each question set. To retrieve
+  them, use GetQuestionSet.
+  """
+  @spec list_question_sets(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
+          {:ok, list_question_sets_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_question_sets_errors()}
+  def list_question_sets(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/v1/question-sets"
     headers = []
     query_params = []
 
@@ -1913,6 +3090,90 @@ defmodule AWS.ElementalInference do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a function.
+
+  Include only the parameters that you want to change; parameters that you don't
+  include aren't affected. Elemental Inference validates the updated expressions
+  in the same way as CreateFunction.
+
+  While a feed references the function, you can change only its expressions and
+  its description, and you can set eventBridgeDelivery to DISABLED but not to
+  ENABLED. The request expression must keep referencing the same media context, as
+  reported in contextTypes. Changing an expression changes the behavior of every
+  feed that references the function.
+  """
+  @spec update_function(map(), String.t() | atom(), update_function_request(), list()) ::
+          {:ok, update_function_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_function_errors()}
+  def update_function(%Client{} = client, id, input, options \\ []) do
+    url_path = "/v1/function/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the DRAFT version of the specified question set.
+
+  UpdateQuestionSet doesn't create a version and doesn't change published
+  versions. To publish the updated DRAFT as a new version, use
+  CreateQuestionSetVersion.
+
+  UpdateQuestionSet replaces questions one type at a time. For each of yesNo,
+  yesNoPerOption, and chooseOne: if you omit the array, DRAFT keeps its questions
+  of that type. If you include the array, it replaces all the questions of that
+  type in DRAFT. If you include an empty array, DRAFT no longer has questions of
+  that type. The updated DRAFT must follow the same rules as in CreateQuestionSet,
+  and Elemental Inference applies those rules to the questions that DRAFT keeps as
+  well as to the questions in the request.
+
+  Feeds that reference the DRAFT version use the updated questions. To make sure
+  that the questions for a feed don't change, reference a published version
+  instead.
+  """
+  @spec update_question_set(map(), String.t() | atom(), update_question_set_request(), list()) ::
+          {:ok, update_question_set_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_question_set_errors()}
+  def update_question_set(%Client{} = client, id, input, options \\ []) do
+    url_path = "/v1/question-set/#{AWS.Util.encode_uri(id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
       url_path,
       query_params,
       custom_headers ++ headers,

@@ -279,6 +279,7 @@ defmodule AWS.DevOpsAgent do
   ## Example:
 
       chat_execution() :: %{
+        "archiveStatus" => list(any()),
         "createdAt" => [non_neg_integer()],
         "executionId" => String.t() | atom(),
         "summary" => [String.t() | atom()],
@@ -293,7 +294,8 @@ defmodule AWS.DevOpsAgent do
   ## Example:
 
       conflict_exception() :: %{
-        "message" => [String.t() | atom()]
+        "message" => [String.t() | atom()],
+        "reason" => list(any())
       }
 
   """
@@ -987,6 +989,30 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      get_chat_request() :: %{}
+
+  """
+  @type get_chat_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_chat_response() :: %{
+        "archiveStatus" => list(any()),
+        "createdAt" => [non_neg_integer()],
+        "executionId" => String.t() | atom(),
+        "summary" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type get_chat_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_operator_app_input() :: %{}
 
   """
@@ -1464,6 +1490,7 @@ defmodule AWS.DevOpsAgent do
   ## Example:
 
       list_chats_request() :: %{
+        optional("archiveStatus") => list(any()),
         optional("maxResults") => [integer()],
         optional("nextToken") => [String.t() | atom()],
         optional("userId") => String.t() | atom()
@@ -3179,6 +3206,33 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      update_chat_request() :: %{
+        optional("archiveStatus") => list(any()),
+        optional("clientToken") => [String.t() | atom()],
+        optional("summary") => [String.t() | atom()]
+      }
+
+  """
+  @type update_chat_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_chat_response() :: %{
+        "archiveStatus" => list(any()),
+        "executionId" => String.t() | atom(),
+        "summary" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type update_chat_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_goal_request() :: %{
         optional("clientToken") => [String.t() | atom()],
         optional("evaluationSchedule") => goal_schedule_input()
@@ -3550,6 +3604,13 @@ defmodule AWS.DevOpsAgent do
           | conflict_exception()
           | access_denied_exception()
 
+  @type get_chat_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type get_operator_app_errors() :: validation_exception() | internal_server_exception()
 
   @type get_recommendation_errors() ::
@@ -3611,6 +3672,7 @@ defmodule AWS.DevOpsAgent do
           | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | access_denied_exception()
 
   @type list_executions_errors() ::
           validation_exception()
@@ -3678,6 +3740,7 @@ defmodule AWS.DevOpsAgent do
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type tag_resource_errors() ::
@@ -3732,6 +3795,14 @@ defmodule AWS.DevOpsAgent do
           | conflict_exception()
 
   @type update_backlog_task_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type update_chat_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -4574,6 +4645,27 @@ defmodule AWS.DevOpsAgent do
   end
 
   @doc """
+  Retrieves the details of a chat execution, including its execution ID, summary,
+  timestamps, and archive status.
+  """
+  @spec get_chat(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_chat_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_chat_errors()}
+  def get_chat(%Client{} = client, agent_space_id, execution_id, options \\ []) do
+    url_path =
+      "/agents/agent-space/#{AWS.Util.encode_uri(agent_space_id)}/chat/get/#{AWS.Util.encode_uri(execution_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "dp.")
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Get the full auth configuration of operator including any enabled auth flow
   """
   @spec get_operator_app(map(), String.t() | atom(), list()) ::
@@ -4987,6 +5079,7 @@ defmodule AWS.DevOpsAgent do
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_chats_response(), any()}
@@ -4996,6 +5089,7 @@ defmodule AWS.DevOpsAgent do
   def list_chats(
         %Client{} = client,
         agent_space_id,
+        archive_status \\ nil,
         max_results \\ nil,
         next_token \\ nil,
         user_id \\ nil,
@@ -5004,6 +5098,13 @@ defmodule AWS.DevOpsAgent do
     url_path = "/agents/agent-space/#{AWS.Util.encode_uri(agent_space_id)}/chat/list"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(archive_status) do
+        [{"archiveStatus", archive_status} | query_params]
+      else
+        query_params
+      end
 
     query_params =
       if !is_nil(max_results) do
@@ -5667,6 +5768,49 @@ defmodule AWS.DevOpsAgent do
   def update_backlog_task(%Client{} = client, agent_space_id, task_id, input, options \\ []) do
     url_path =
       "/backlog/agent-space/#{AWS.Util.encode_uri(agent_space_id)}/tasks/#{AWS.Util.encode_uri(task_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata() |> Map.put_new(:host_prefix, "dp.")
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a chat execution.
+
+  You can use this operation to change the chat execution's summary or to archive
+  or unarchive it.
+
+  Archiving a chat execution hides it from the default chat list. Unarchiving a
+  chat execution restores it to the default chat list.
+  """
+  @spec update_chat(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_chat_request(),
+          list()
+        ) ::
+          {:ok, update_chat_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_chat_errors()}
+  def update_chat(%Client{} = client, agent_space_id, execution_id, input, options \\ []) do
+    url_path =
+      "/agents/agent-space/#{AWS.Util.encode_uri(agent_space_id)}/chat/#{AWS.Util.encode_uri(execution_id)}"
 
     headers = []
     custom_headers = []

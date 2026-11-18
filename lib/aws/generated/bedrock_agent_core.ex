@@ -107,6 +107,53 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      agent_core_runtime_invocation() :: %{
+        "agentRuntimeEndpointArn" => String.t() | atom(),
+        "requestTemplate" => String.t() | atom()
+      }
+
+  """
+  @type agent_core_runtime_invocation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_core_runtime_invocation_details() :: %{
+        "agentRuntimeEndpointArn" => String.t() | atom(),
+        "agentRuntimeVersion" => String.t() | atom(),
+        "requestTemplate" => String.t() | atom()
+      }
+
+  """
+  @type agent_core_runtime_invocation_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_insight_summary() :: %{
+        "affectedSessionCount" => [integer()],
+        "agentInsightId" => String.t() | atom(),
+        "applicationName" => String.t() | atom(),
+        "archiveStatus" => list(any()),
+        "batchEvaluationId" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "customerMetadataStatus" => list(any()),
+        "description" => String.t() | atom(),
+        "lastSeenAt" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "type" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type agent_insight_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       agent_skills_descriptor() :: %{
         "skillDefinition" => skill_definition(),
         "skillMd" => skill_md_definition()
@@ -220,6 +267,17 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type batch_delete_memory_records_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_evaluation_source_config() :: %{
+        "batchEvaluationArn" => String.t() | atom()
+      }
+
+  """
+  @type batch_evaluation_source_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -425,6 +483,21 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type cloud_watch_logs_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_logs_source_config() :: %{
+        "endTime" => [non_neg_integer()],
+        "logGroupNamePrefixes" => list(String.t() | atom()),
+        "logGroupNames" => list(String.t() | atom()),
+        "serviceNames" => list(String.t() | atom()),
+        "startTime" => [non_neg_integer()]
+      }
+
+  """
+  @type cloud_watch_logs_source_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -806,12 +879,90 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      custom_data_identifier() :: %{
+        "name" => [String.t() | atom()],
+        "regex" => [String.t() | atom()]
+      }
+
+  """
+  @type custom_data_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       custom_descriptor() :: %{
         "inlineContent" => String.t() | atom()
       }
 
   """
   @type custom_descriptor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dataset_details() :: %{
+        "datasetId" => String.t() | atom(),
+        "datasetVersion" => String.t() | atom()
+      }
+
+  """
+  @type dataset_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dataset_execution_config() :: %{
+        "agentInvocation" => list(),
+        "dataset" => dataset_source()
+      }
+
+  """
+  @type dataset_execution_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dataset_execution_details() :: %{
+        "agentInvocation" => list(),
+        "dataset" => dataset_details()
+      }
+
+  """
+  @type dataset_execution_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dataset_generation_summary() :: %{
+        "completedAt" => [non_neg_integer()],
+        "createdAt" => [non_neg_integer()],
+        "datasetId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "generationId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "scenarioType" => list(any()),
+        "status" => list(any())
+      }
+
+  """
+  @type dataset_generation_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dataset_source() :: %{
+        "datasetId" => String.t() | atom(),
+        "datasetVersion" => String.t() | atom()
+      }
+
+  """
+  @type dataset_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -878,6 +1029,27 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type delete_capacity_provider_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dataset_generation_request() :: %{}
+
+  """
+  @type delete_dataset_generation_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dataset_generation_response() :: %{
+        "generationId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_dataset_generation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1157,6 +1329,21 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      evaluator_filter() :: %{
+        "aggregation" => list(any()),
+        "evaluationDimensionName" => String.t() | atom(),
+        "evaluatorId" => String.t() | atom(),
+        "operator" => list(any()),
+        "value" => list()
+      }
+
+  """
+  @type evaluator_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       evaluator_metric() :: %{
         "controlStats" => control_stats(),
         "evaluatorArn" => [String.t() | atom()],
@@ -1410,6 +1597,99 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      generation_attribute_filter() :: %{
+        "key" => [String.t() | atom()],
+        "operator" => list(any()),
+        "value" => list()
+      }
+
+  """
+  @type generation_attribute_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      generation_error_detail() :: %{
+        "count" => [integer()],
+        "errorCode" => String.t() | atom(),
+        "errorMessage" => String.t() | atom(),
+        "sessionIds" => list(String.t() | atom())
+      }
+
+  """
+  @type generation_error_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      generation_filters() :: %{
+        "attributeFilters" => list(generation_attribute_filter()),
+        "evaluatorFilters" => list(evaluator_filter()),
+        "turnCount" => turn_count_range()
+      }
+
+  """
+  @type generation_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      generation_identifier_counts() :: %{
+        "sessionIdCount" => [integer()],
+        "traceIdCount" => [integer()]
+      }
+
+  """
+  @type generation_identifier_counts() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      generation_identifiers() :: %{
+        "sessionIds" => list(String.t() | atom()),
+        "traceIds" => list(String.t() | atom())
+      }
+
+  """
+  @type generation_identifiers() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      generation_results() :: %{
+        "examplesWithGroundTruth" => [integer()],
+        "examplesWritten" => [integer()],
+        "scenariosDeduplicated" => [integer()],
+        "scenariosGenerated" => [integer()],
+        "sessionsFailed" => [integer()],
+        "sessionsMatched" => [integer()],
+        "sessionsSelected" => [integer()],
+        "sessionsUnscored" => [integer()]
+      }
+
+  """
+  @type generation_results() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      generation_sampling_config() :: %{
+        "maxScenarios" => [integer()]
+      }
+
+  """
+  @type generation_sampling_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_a_b_test_request() :: %{}
 
   """
@@ -1473,6 +1753,41 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      get_agent_insight_request() :: %{
+        required("applicationName") => String.t() | atom()
+      }
+
+  """
+  @type get_agent_insight_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_agent_insight_response() :: %{
+        "affectedSessionCount" => [integer()],
+        "agentInsightId" => String.t() | atom(),
+        "applicationName" => String.t() | atom(),
+        "archiveStatus" => list(any()),
+        "batchEvaluationId" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "customerMetadataStatus" => list(any()),
+        "description" => String.t() | atom(),
+        "lastSeenAt" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "rootCauses" => list(insight_root_cause()),
+        "sampleSessions" => list(sample_session()),
+        "type" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type get_agent_insight_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_batch_evaluation_request() :: %{}
 
   """
@@ -1488,6 +1803,7 @@ defmodule AWS.BedrockAgentCore do
         "batchEvaluationName" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
         "dataSourceConfig" => list(),
+        "datasetExecutionDetails" => dataset_execution_details(),
         "description" => String.t() | atom(),
         "errorDetails" => list([String.t() | atom()]()),
         "evaluationResults" => evaluation_job_results(),
@@ -1571,6 +1887,39 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type get_code_interpreter_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_dataset_generation_request() :: %{}
+
+  """
+  @type get_dataset_generation_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_dataset_generation_response() :: %{
+        "completedAt" => [non_neg_integer()],
+        "createdAt" => [non_neg_integer()],
+        "datasetId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "errorDetails" => list(generation_error_detail()),
+        "failureReason" => [String.t() | atom()],
+        "generationId" => String.t() | atom(),
+        "generationResults" => generation_results(),
+        "name" => String.t() | atom(),
+        "redactionSummary" => redaction_summary(),
+        "scenarioType" => list(any()),
+        "source" => list(),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type get_dataset_generation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1873,6 +2222,18 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type get_workload_access_token_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ground_truth_config() :: %{
+        "fields" => list(list(any())()),
+        "qualityFilters" => list(evaluator_filter())
+      }
+
+  """
+  @type ground_truth_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2805,6 +3166,33 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      list_agent_insights_request() :: %{
+        optional("applicationName") => String.t() | atom(),
+        optional("archiveStatus") => list(any()),
+        optional("batchEvaluationId") => String.t() | atom(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_agent_insights_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_agent_insights_response() :: %{
+        "agentInsights" => list(agent_insight_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_agent_insights_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_batch_evaluations_request() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => [String.t() | atom()]
@@ -2874,6 +3262,30 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type list_code_interpreter_sessions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_dataset_generations_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_dataset_generations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_dataset_generations_response() :: %{
+        "datasetGenerations" => list(dataset_generation_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_dataset_generations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3388,6 +3800,19 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      online_evaluation_source_config() :: %{
+        "endTime" => [non_neg_integer()],
+        "onlineEvaluationConfigArn" => String.t() | atom(),
+        "startTime" => [non_neg_integer()]
+      }
+
+  """
+  @type online_evaluation_source_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       online_evaluation_trace_config() :: %{
         "endTime" => [non_neg_integer()],
         "onlineEvaluationConfigArn" => String.t() | atom(),
@@ -3603,6 +4028,30 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type recommendation_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redaction_configuration() :: %{
+        "customDataIdentifiers" => list(custom_data_identifier()),
+        "identifiers" => list(list(any())())
+      }
+
+  """
+  @type redaction_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redaction_summary() :: %{
+        "findingCounts" => map(),
+        "scenariosScanned" => [integer()]
+      }
+
+  """
+  @type redaction_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4047,6 +4496,7 @@ defmodule AWS.BedrockAgentCore do
 
       start_batch_evaluation_request() :: %{
         optional("clientToken") => String.t() | atom(),
+        optional("datasetExecutionConfig") => dataset_execution_config(),
         optional("description") => String.t() | atom(),
         optional("evaluationMetadata") => list(),
         optional("evaluators") => list(evaluator()),
@@ -4147,6 +4597,36 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type start_code_interpreter_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_dataset_generation_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("scenarioType") => list(any()),
+        required("name") => String.t() | atom(),
+        required("source") => list()
+      }
+
+  """
+  @type start_dataset_generation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_dataset_generation_response() :: %{
+        "createdAt" => [non_neg_integer()],
+        "datasetId" => String.t() | atom(),
+        "generationId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type start_dataset_generation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4579,6 +5059,48 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      trace_generation_record() :: %{
+        "groundTruth" => ground_truth_config(),
+        "redactionConfiguration" => redaction_configuration(),
+        "sampling" => generation_sampling_config(),
+        "selection" => list(),
+        "sourceConfig" => list()
+      }
+
+  """
+  @type trace_generation_record() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trace_generation_source() :: %{
+        "groundTruth" => ground_truth_config(),
+        "redactionConfiguration" => redaction_configuration(),
+        "sampling" => generation_sampling_config(),
+        "selection" => list(),
+        "sourceConfig" => list()
+      }
+
+  """
+  @type trace_generation_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      turn_count_range() :: %{
+        "max" => [integer()],
+        "min" => [integer()]
+      }
+
+  """
+  @type turn_count_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       unauthorized_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -4618,6 +5140,31 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type update_a_b_test_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_agent_insight_request() :: %{
+        required("applicationName") => String.t() | atom(),
+        required("archiveStatus") => list(any())
+      }
+
+  """
+  @type update_agent_insight_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_agent_insight_response() :: %{
+        "agentInsightId" => String.t() | atom(),
+        "archiveStatus" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type update_agent_insight_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4885,6 +5432,15 @@ defmodule AWS.BedrockAgentCore do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type delete_dataset_generation_errors() ::
+          validation_exception()
+          | unauthorized_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type delete_event_errors() ::
           validation_exception()
           | throttled_exception()
@@ -4954,6 +5510,13 @@ defmodule AWS.BedrockAgentCore do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type get_agent_insight_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type get_batch_evaluation_errors() ::
           validation_exception()
           | unauthorized_exception()
@@ -4971,6 +5534,14 @@ defmodule AWS.BedrockAgentCore do
 
   @type get_code_interpreter_session_errors() ::
           validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_dataset_generation_errors() ::
+          validation_exception()
+          | unauthorized_exception()
           | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
@@ -5148,6 +5719,12 @@ defmodule AWS.BedrockAgentCore do
           | invalid_input_exception()
           | access_denied_exception()
 
+  @type list_agent_insights_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type list_batch_evaluations_errors() ::
           validation_exception()
           | unauthorized_exception()
@@ -5164,6 +5741,14 @@ defmodule AWS.BedrockAgentCore do
 
   @type list_code_interpreter_sessions_errors() ::
           validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_dataset_generations_errors() ::
+          validation_exception()
+          | unauthorized_exception()
           | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
@@ -5284,6 +5869,16 @@ defmodule AWS.BedrockAgentCore do
           | conflict_exception()
           | access_denied_exception()
 
+  @type start_dataset_generation_errors() ::
+          validation_exception()
+          | unauthorized_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type start_memory_extraction_job_errors() ::
           validation_exception()
           | throttled_exception()
@@ -5344,6 +5939,14 @@ defmodule AWS.BedrockAgentCore do
           | unauthorized_exception()
           | throttling_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type update_agent_insight_errors() ::
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
@@ -5763,6 +6366,53 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
+  Deletes the record of a dataset generation.
+
+  The examples the generation added stay in the dataset's draft. To remove them,
+  find them with the `generationIds` filter of `ListDatasetExamples`, then call
+  `DeleteDatasetExamples`.
+  """
+  @spec delete_dataset_generation(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_dataset_generation_request(),
+          list()
+        ) ::
+          {:ok, delete_dataset_generation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_dataset_generation_errors()}
+  def delete_dataset_generation(
+        %Client{} = client,
+        dataset_id,
+        generation_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/datasets/#{AWS.Util.encode_uri(dataset_id)}/generations/#{AWS.Util.encode_uri(generation_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Deletes an event from an AgentCore Memory resource.
 
   When you delete an event, it is permanently removed.
@@ -6071,6 +6721,38 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
+  Amazon Bedrock AgentCore Agent Insights identifies patterns detected across your
+  agent sessions.
+
+  Use Agent Insights to identify recurring issues and prioritize fixes.
+
+  Retrieves detailed information about an Amazon Bedrock AgentCore Agent Insight,
+  including its archive status, affected sessions, and, when applicable, the batch
+  evaluation that produced it.
+  """
+  @spec get_agent_insight(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_agent_insight_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_agent_insight_errors()}
+  def get_agent_insight(%Client{} = client, agent_insight_id, application_name, options \\ []) do
+    url_path = "/agentinsights/#{AWS.Util.encode_uri(agent_insight_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(application_name) do
+        [{"applicationName", application_name} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves detailed information about a batch evaluation, including its status,
   configuration, results, and any error details.
   """
@@ -6174,6 +6856,30 @@ defmodule AWS.BedrockAgentCore do
       else
         query_params
       end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets a dataset generation, including its status, the request it was started
+  with, its progress counts, its redaction summary and its errors.
+
+  Call this operation to track a generation that you started with
+  `StartDatasetGeneration`.
+  """
+  @spec get_dataset_generation(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_dataset_generation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_dataset_generation_errors()}
+  def get_dataset_generation(%Client{} = client, dataset_id, generation_id, options \\ []) do
+    url_path =
+      "/datasets/#{AWS.Util.encode_uri(dataset_id)}/generations/#{AWS.Util.encode_uri(generation_id)}"
+
+    headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -7055,6 +7761,80 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
+  Lists Amazon Bedrock AgentCore Agent Insight summaries in your account and
+  Region.
+
+  Use this operation to review patterns across sessions before you investigate or
+  archive an insight. The response paginates the results. Use the `nextToken`
+  parameter to retrieve additional results.
+  """
+  @spec list_agent_insights(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_agent_insights_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_agent_insights_errors()}
+  def list_agent_insights(
+        %Client{} = client,
+        application_name \\ nil,
+        archive_status \\ nil,
+        batch_evaluation_id \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/agentinsights"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(application_name) do
+        [{"applicationName", application_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(archive_status) do
+        [{"archiveStatus", archive_status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(batch_evaluation_id) do
+        [{"batchEvaluationId", batch_evaluation_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists all batch evaluations in the account, providing summary information about
   each evaluation's status and configuration.
   """
@@ -7197,6 +7977,54 @@ defmodule AWS.BedrockAgentCore do
       options,
       200
     )
+  end
+
+  @doc """
+  Lists the generations for a dataset.
+
+  AgentCore keeps a generation until you delete it with `DeleteDatasetGeneration`
+  or delete the dataset. To get a generation's counts and the request it was
+  started with, call `GetDatasetGeneration`.
+  """
+  @spec list_dataset_generations(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_dataset_generations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_dataset_generations_errors()}
+  def list_dataset_generations(
+        %Client{} = client,
+        dataset_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}/generations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -7811,6 +8639,58 @@ defmodule AWS.BedrockAgentCore do
   end
 
   @doc """
+  Starts a dataset generation, which creates examples for an existing dataset from
+  your agent's traces.
+
+  The dataset must be `ACTIVE`. Each generation produces one scenario type, set by
+  `scenarioType`. When the generation finishes, AgentCore adds the examples to the
+  dataset's draft. Examples that duplicate each other, or that duplicate examples
+  already in the draft, are left out.
+
+  A dataset can have only one generation in progress at a time. While it runs,
+  requests that change the dataset's draft or publish a version are rejected with
+  a `ConflictException`.
+
+  AgentCore reads the traces with your credentials, so you need read access to the
+  trace log groups, and to the dataset's KMS key if the dataset uses a customer
+  managed key. The draft can hold at most 1,000 examples, including the examples
+  this generation can add (`maxScenarios`).
+
+  The operation returns immediately. To track progress, call
+  `GetDatasetGeneration`.
+  """
+  @spec start_dataset_generation(
+          map(),
+          String.t() | atom(),
+          start_dataset_generation_request(),
+          list()
+        ) ::
+          {:ok, start_dataset_generation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_dataset_generation_errors()}
+  def start_dataset_generation(%Client{} = client, dataset_id, input, options \\ []) do
+    url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}/generations"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Starts a memory extraction job that processes events that failed extraction
   previously in an AgentCore Memory resource and produces structured memory
   records.
@@ -8107,6 +8987,40 @@ defmodule AWS.BedrockAgentCore do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Updates the archive status of an Amazon Bedrock AgentCore Agent Insight.
+  """
+  @spec update_agent_insight(map(), String.t() | atom(), update_agent_insight_request(), list()) ::
+          {:ok, update_agent_insight_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_agent_insight_errors()}
+  def update_agent_insight(%Client{} = client, agent_insight_id, input, options \\ []) do
+    url_path = "/agentinsights/#{AWS.Util.encode_uri(agent_insight_id)}"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"applicationName", "applicationName"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 

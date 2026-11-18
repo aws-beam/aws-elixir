@@ -1259,6 +1259,8 @@ defmodule AWS.Inspector2 do
         "description" => String.t() | atom(),
         "enablementStatus" => list(any()),
         "enablementStatusReason" => [String.t() | atom()],
+        "gcpRegions" => list(String.t() | atom()),
+        "gcpScopeConfiguration" => gcp_scope_configuration(),
         "health" => connector_health(),
         "name" => String.t() | atom(),
         "provider" => list(any()),
@@ -2670,6 +2672,85 @@ defmodule AWS.Inspector2 do
 
   """
   @type free_trial_info_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gcp_capability_scope() :: %{
+        "scopeType" => list(any()),
+        "scopeValues" => list(String.t() | atom()),
+        "state" => list(any()),
+        "stateReason" => [String.t() | atom()]
+      }
+
+  """
+  @type gcp_capability_scope() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gcp_capability_scope_input() :: %{
+        "scopeType" => list(any()),
+        "scopeValues" => list(String.t() | atom())
+      }
+
+  """
+  @type gcp_capability_scope_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gcp_provider_detail_create() :: %{
+        "autoInstallVMScanner" => [boolean()],
+        "awsConfigConnectorArn" => String.t() | atom(),
+        "gcpRegions" => list(String.t() | atom()),
+        "scopeConfiguration" => gcp_scope_configuration_input()
+      }
+
+  """
+  @type gcp_provider_detail_create() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gcp_provider_detail_update() :: %{
+        "autoInstallVMScanner" => [boolean()],
+        "gcpRegions" => list(String.t() | atom()),
+        "scopeConfiguration" => gcp_scope_configuration_input()
+      }
+
+  """
+  @type gcp_provider_detail_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gcp_scope_configuration() :: %{
+        "containerImageScanning" => gcp_capability_scope(),
+        "serverlessScanning" => gcp_capability_scope(),
+        "vmScanning" => gcp_capability_scope()
+      }
+
+  """
+  @type gcp_scope_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gcp_scope_configuration_input() :: %{
+        "containerImageScanning" => gcp_capability_scope_input(),
+        "serverlessScanning" => gcp_capability_scope_input(),
+        "vmScanning" => gcp_capability_scope_input()
+      }
+
+  """
+  @type gcp_scope_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

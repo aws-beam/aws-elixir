@@ -1708,6 +1708,17 @@ defmodule AWS.S3Control do
 
   ## Example:
 
+      int_access_tiers() :: %{
+        "IsEnabled" => boolean()
+      }
+
+  """
+  @type int_access_tiers() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       internal_service_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -3574,11 +3585,13 @@ defmodule AWS.S3Control do
       storage_lens_configuration() :: %{
         "AccountLevel" => account_level(),
         "AwsOrg" => storage_lens_aws_org(),
+        "CostAndUsageReportsPublish" => storage_lens_cost_and_usage_reports_publish(),
         "DataExport" => storage_lens_data_export(),
         "Exclude" => exclude(),
         "ExpandedPrefixesDataExport" => storage_lens_expanded_prefixes_data_export(),
         "Id" => String.t() | atom(),
         "Include" => include(),
+        "IntAccessTiers" => int_access_tiers(),
         "IsEnabled" => boolean(),
         "PrefixDelimiter" => String.t() | atom(),
         "StorageLensArn" => String.t() | atom()
@@ -3586,6 +3599,43 @@ defmodule AWS.S3Control do
 
   """
   @type storage_lens_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      storage_lens_cost_and_usage_reports_prefix_level() :: %{
+        "IsEnabled" => boolean(),
+        "SelectionCriteria" => storage_lens_cost_and_usage_reports_selection_criteria()
+      }
+
+  """
+  @type storage_lens_cost_and_usage_reports_prefix_level() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      storage_lens_cost_and_usage_reports_publish() :: %{
+        "PrefixLevel" => storage_lens_cost_and_usage_reports_prefix_level()
+      }
+
+  """
+  @type storage_lens_cost_and_usage_reports_publish() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      storage_lens_cost_and_usage_reports_selection_criteria() :: %{
+        "MaxDepth" => integer(),
+        "MinDepth" => integer()
+      }
+
+  """
+  @type storage_lens_cost_and_usage_reports_selection_criteria() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 

@@ -284,6 +284,7 @@ defmodule AWS.Mgn do
         optional("largeVolumeConf") => launch_template_disk_conf(),
         optional("launchDisposition") => String.t() | atom(),
         optional("licensing") => licensing(),
+        optional("mapAutoTaggingKey") => String.t() | atom(),
         optional("mapAutoTaggingMpeID") => String.t() | atom(),
         optional("parametersEncryptionKey") => String.t() | atom(),
         optional("postLaunchActions") => post_launch_actions(),
@@ -303,6 +304,7 @@ defmodule AWS.Mgn do
       create_network_migration_definition_request() :: %{
         optional("cidrMappings") => list(cidr_mapping()),
         optional("clientToken") => String.t() | atom(),
+        optional("definitionType") => String.t() | atom(),
         optional("description") => String.t() | atom(),
         optional("scopeTags") => map(),
         optional("sourceConfigurations") => list(source_configuration()),
@@ -321,9 +323,59 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      create_operation() :: %{
+        "configuration" => list(),
+        "excluded" => [boolean()],
+        "name" => String.t() | atom(),
+        "properties" => map()
+      }
+
+  """
+  @type create_operation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_remote_source_action_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("operatingSystem") => String.t() | atom(),
+        optional("tags") => map(),
+        optional("timeoutSeconds") => integer(),
+        required("name") => String.t() | atom(),
+        required("ssmParameterName") => String.t() | atom()
+      }
+
+  """
+  @type create_remote_source_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_remote_source_action_response() :: %{
+        "arn" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "operatingSystem" => String.t() | atom(),
+        "remoteSourceActionID" => String.t() | atom(),
+        "ssmParameterName" => String.t() | atom(),
+        "tags" => map(),
+        "timeoutSeconds" => integer()
+      }
+
+  """
+  @type create_remote_source_action_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_replication_configuration_template_request() :: %{
         optional("ebsEncryptionKeyArn") => String.t() | atom(),
         optional("internetProtocol") => String.t() | atom(),
+        optional("outpostSnapshotLocation") => String.t() | atom(),
         optional("storageConfiguration") => storage_configuration(),
         optional("storeSnapshotOnLocalZone") => [boolean()],
         optional("tags") => map(),
@@ -382,7 +434,8 @@ defmodule AWS.Mgn do
         "lagDuration" => String.t() | atom(),
         "lastSnapshotDateTime" => String.t() | atom(),
         "replicatedDisks" => list(data_replication_info_replicated_disk()),
-        "replicatorId" => String.t() | atom()
+        "replicatorId" => String.t() | atom(),
+        "stagingOutpostArn" => String.t() | atom()
       }
 
   """
@@ -529,6 +582,27 @@ defmodule AWS.Mgn do
 
   """
   @type delete_operation() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_remote_source_action_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        required("remoteSourceActionID") => String.t() | atom()
+      }
+
+  """
+  @type delete_remote_source_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_remote_source_action_response() :: %{}
+
+  """
+  @type delete_remote_source_action_response() :: %{}
 
   @typedoc """
 
@@ -980,6 +1054,32 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      get_launch_configuration_defaults_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        required("sourceServerID") => String.t() | atom()
+      }
+
+  """
+  @type get_launch_configuration_defaults_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_launch_configuration_defaults_response() :: %{
+        "largeVolumeConfiguration" => source_server_volume_configuration(),
+        "smallVolumeConfiguration" => source_server_volume_configuration(),
+        "smallVolumeMaxSize" => float(),
+        "sourceServerID" => String.t() | atom()
+      }
+
+  """
+  @type get_launch_configuration_defaults_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_launch_configuration_request() :: %{
         optional("accountID") => String.t() | atom(),
         required("sourceServerID") => String.t() | atom()
@@ -1192,6 +1292,19 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      insight_message() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "topic" => String.t() | atom()
+      }
+
+  """
+  @type insight_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       internal_server_exception() :: %{
         "message" => String.t() | atom(),
         "retryAfterSeconds" => float()
@@ -1290,6 +1403,7 @@ defmodule AWS.Mgn do
         optional("enableMapAutoTagging") => [boolean()],
         optional("launchDisposition") => String.t() | atom(),
         optional("licensing") => licensing(),
+        optional("mapAutoTaggingKey") => String.t() | atom(),
         optional("mapAutoTaggingMpeID") => String.t() | atom(),
         optional("name") => String.t() | atom(),
         optional("postLaunchActions") => post_launch_actions(),
@@ -1316,6 +1430,7 @@ defmodule AWS.Mgn do
         optional("largeVolumeConf") => launch_template_disk_conf(),
         optional("launchDisposition") => String.t() | atom(),
         optional("licensing") => licensing(),
+        optional("mapAutoTaggingKey") => String.t() | atom(),
         optional("mapAutoTaggingMpeID") => String.t() | atom(),
         optional("parametersEncryptionKey") => String.t() | atom(),
         optional("postLaunchActions") => post_launch_actions(),
@@ -2038,6 +2153,47 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      list_network_migration_insights_filters() :: %{
+        "insightTypes" => list(String.t() | atom())
+      }
+
+  """
+  @type list_network_migration_insights_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_insights_request() :: %{
+        optional("constructID") => String.t() | atom(),
+        optional("filters") => list_network_migration_insights_filters(),
+        optional("maxResults") => integer(),
+        optional("networkMigrationExecutionID") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("producerID") => String.t() | atom(),
+        optional("segmentID") => String.t() | atom(),
+        required("networkMigrationDefinitionID") => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_insights_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_migration_insights_response() :: %{
+        "items" => list(network_migration_insight()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_network_migration_insights_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_network_migration_mapper_segment_constructs_filters() :: %{
         "constructIDs" => list(String.t() | atom()),
         "constructTypes" => list(String.t() | atom())
@@ -2054,6 +2210,8 @@ defmodule AWS.Mgn do
 
       list_network_migration_mapper_segment_constructs_request() :: %{
         optional("filters") => list_network_migration_mapper_segment_constructs_filters(),
+        optional("includeConfiguration") => [boolean()],
+        optional("includeEnrichedProperties") => [boolean()],
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
         required("networkMigrationDefinitionID") => String.t() | atom(),
@@ -2193,6 +2351,152 @@ defmodule AWS.Mgn do
 
   """
   @type list_network_migration_mappings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_remote_source_action_invocation_results_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("sourceServerID") => String.t() | atom()
+      }
+
+  """
+  @type list_remote_source_action_invocation_results_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_remote_source_action_invocation_results_response() :: %{
+        "items" => list(remote_source_action_invocation_result()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_remote_source_action_invocation_results_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_remote_source_action_invocations_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        optional("filters") => list_remote_source_action_invocations_request_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("remoteSourceActionJobID") => String.t() | atom()
+      }
+
+  """
+  @type list_remote_source_action_invocations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_remote_source_action_invocations_request_filters() :: %{
+        "remoteSourceActionArns" => list(String.t() | atom()),
+        "sourceServerArns" => list(String.t() | atom()),
+        "statuses" => list(String.t() | atom())
+      }
+
+  """
+  @type list_remote_source_action_invocations_request_filters() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_remote_source_action_invocations_response() :: %{
+        "items" => list(remote_source_action_invocation()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_remote_source_action_invocations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_remote_source_action_jobs_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        optional("filters") => list_remote_source_action_jobs_request_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_remote_source_action_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_remote_source_action_jobs_request_filters() :: %{
+        "remoteSourceActionJobIDs" => list(String.t() | atom())
+      }
+
+  """
+  @type list_remote_source_action_jobs_request_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_remote_source_action_jobs_response() :: %{
+        "items" => list(remote_source_action_job()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_remote_source_action_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_remote_source_actions_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        optional("filters") => list_remote_source_actions_request_filters(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_remote_source_actions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_remote_source_actions_request_filters() :: %{
+        "remoteSourceActionIDs" => list(String.t() | atom())
+      }
+
+  """
+  @type list_remote_source_actions_request_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_remote_source_actions_response() :: %{
+        "items" => list(remote_source_action()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_remote_source_actions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2486,6 +2790,7 @@ defmodule AWS.Mgn do
         "arn" => String.t() | atom(),
         "cidrMappings" => list(cidr_mapping()),
         "createdAt" => [non_neg_integer()],
+        "definitionType" => String.t() | atom(),
         "description" => String.t() | atom(),
         "name" => String.t() | atom(),
         "networkMigrationDefinitionID" => String.t() | atom(),
@@ -2508,6 +2813,7 @@ defmodule AWS.Mgn do
 
       network_migration_definition_summary() :: %{
         "arn" => String.t() | atom(),
+        "definitionType" => String.t() | atom(),
         "name" => String.t() | atom(),
         "networkMigrationDefinitionID" => String.t() | atom(),
         "scopeTags" => map(),
@@ -2586,6 +2892,28 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      network_migration_insight() :: %{
+        "constructID" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "insightID" => String.t() | atom(),
+        "insightLevel" => String.t() | atom(),
+        "insightMessage" => insight_message(),
+        "insightType" => String.t() | atom(),
+        "networkMigrationDefinitionID" => String.t() | atom(),
+        "networkMigrationExecutionID" => String.t() | atom(),
+        "producerID" => String.t() | atom(),
+        "producerName" => String.t() | atom(),
+        "producerType" => String.t() | atom(),
+        "segmentID" => String.t() | atom()
+      }
+
+  """
+  @type network_migration_insight() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       network_migration_mapper_segment() :: %{
         optional("checksum") => checksum(),
         optional("createdAt") => [non_neg_integer()],
@@ -2612,10 +2940,12 @@ defmodule AWS.Mgn do
   ## Example:
 
       network_migration_mapper_segment_construct() :: %{
+        "configuration" => list(),
         "constructID" => String.t() | atom(),
         "constructType" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
         "description" => String.t() | atom(),
+        "enrichedProperties" => map(),
         "excluded" => [boolean()],
         "logicalID" => String.t() | atom(),
         "name" => String.t() | atom(),
@@ -2776,6 +3106,75 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      remote_source_action() :: %{
+        "arn" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "operatingSystem" => String.t() | atom(),
+        "remoteSourceActionID" => String.t() | atom(),
+        "ssmParameterName" => String.t() | atom(),
+        "tags" => map(),
+        "timeoutSeconds" => integer()
+      }
+
+  """
+  @type remote_source_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remote_source_action_invocation() :: %{
+        "endedAt" => [non_neg_integer()],
+        "remoteSourceActionArn" => String.t() | atom(),
+        "sourceServerArn" => String.t() | atom(),
+        "ssmCommandInvocationID" => String.t() | atom(),
+        "startedAt" => [non_neg_integer()],
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type remote_source_action_invocation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remote_source_action_invocation_result() :: %{
+        "connectorOwnerAccountID" => String.t() | atom(),
+        "endedAt" => [non_neg_integer()],
+        "remoteSourceActionID" => String.t() | atom(),
+        "startedAt" => [non_neg_integer()],
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type remote_source_action_invocation_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remote_source_action_job() :: %{
+        "arn" => String.t() | atom(),
+        "connectorArn" => String.t() | atom(),
+        "endedAt" => [non_neg_integer()],
+        "remoteSourceActionArns" => list(String.t() | atom()),
+        "remoteSourceActionJobID" => String.t() | atom(),
+        "sourceServerArns" => list(String.t() | atom()),
+        "startedAt" => [non_neg_integer()],
+        "status" => String.t() | atom(),
+        "statusReason" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type remote_source_action_job() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       remove_source_server_action_request() :: %{
         optional("accountID") => String.t() | atom(),
         required("actionID") => String.t() | atom(),
@@ -2829,6 +3228,7 @@ defmodule AWS.Mgn do
         optional("ebsEncryptionKeyArn") => String.t() | atom(),
         optional("internetProtocol") => String.t() | atom(),
         optional("name") => String.t() | atom(),
+        optional("outpostSnapshotLocation") => String.t() | atom(),
         optional("replicatedDisks") => list(replication_configuration_replicated_disk()),
         optional("replicationServerInstanceType") => String.t() | atom(),
         optional("replicationServersSecurityGroupsIDs") => list(String.t() | atom()),
@@ -2873,6 +3273,7 @@ defmodule AWS.Mgn do
         optional("ebsEncryption") => String.t() | atom(),
         optional("ebsEncryptionKeyArn") => String.t() | atom(),
         optional("internetProtocol") => String.t() | atom(),
+        optional("outpostSnapshotLocation") => String.t() | atom(),
         optional("replicationServerInstanceType") => String.t() | atom(),
         optional("replicationServersSecurityGroupsIDs") => list(String.t() | atom()),
         optional("stagingAreaSubnetId") => String.t() | atom(),
@@ -2951,6 +3352,78 @@ defmodule AWS.Mgn do
 
   """
   @type s3_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      security_group_associations() :: %{
+        "cidrs" => list(String.t() | atom()),
+        "userProvidedIDs" => list(String.t() | atom()),
+        "vmUUIDs" => list(String.t() | atom())
+      }
+
+  """
+  @type security_group_associations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      security_group_configuration() :: %{
+        "associations" => security_group_associations()
+      }
+
+  """
+  @type security_group_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      security_group_rule_configuration() :: %{
+        "enableReferencing" => [boolean()]
+      }
+
+  """
+  @type security_group_rule_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      segment_create_operation() :: %{
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "scopeTags" => map(),
+        "targetAccount" => String.t() | atom()
+      }
+
+  """
+  @type segment_create_operation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      segment_delete_operation() :: %{}
+
+  """
+  @type segment_delete_operation() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      segment_update_operation() :: %{
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "scopeTags" => map(),
+        "targetAccount" => String.t() | atom()
+      }
+
+  """
+  @type segment_update_operation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3080,6 +3553,21 @@ defmodule AWS.Mgn do
 
   """
   @type source_server_connector_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_server_volume_configuration() :: %{
+        "deleteOnTermination" => String.t() | atom(),
+        "iops" => float(),
+        "throughput" => float(),
+        "volumeInitializationRate" => float(),
+        "volumeType" => String.t() | atom()
+      }
+
+  """
+  @type source_server_volume_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3329,9 +3817,11 @@ defmodule AWS.Mgn do
 
       start_network_migration_mapping_update_construct() :: %{
         "constructID" => String.t() | atom(),
+        "constructLogicalID" => String.t() | atom(),
         "constructType" => String.t() | atom(),
         "operation" => list(),
-        "segmentID" => String.t() | atom()
+        "segmentID" => String.t() | atom(),
+        "segmentLogicalID" => String.t() | atom()
       }
 
   """
@@ -3367,13 +3857,42 @@ defmodule AWS.Mgn do
   ## Example:
 
       start_network_migration_mapping_update_segment() :: %{
+        "operation" => list(),
         "scopeTags" => map(),
         "segmentID" => String.t() | atom(),
+        "segmentLogicalID" => String.t() | atom(),
         "targetAccount" => String.t() | atom()
       }
 
   """
   @type start_network_migration_mapping_update_segment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_remote_source_action_job_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("tags") => map(),
+        required("connectorArn") => String.t() | atom(),
+        required("remoteSourceActionArns") => list(String.t() | atom()),
+        required("sourceServerArns") => list(String.t() | atom())
+      }
+
+  """
+  @type start_remote_source_action_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_remote_source_action_job_response() :: %{
+        "remoteSourceActionJob" => remote_source_action_job()
+      }
+
+  """
+  @type start_remote_source_action_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3648,6 +4167,35 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      update_launch_configuration_defaults_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        optional("largeVolumeConfiguration") => source_server_volume_configuration(),
+        optional("smallVolumeConfiguration") => source_server_volume_configuration(),
+        optional("smallVolumeMaxSize") => float(),
+        required("sourceServerID") => String.t() | atom()
+      }
+
+  """
+  @type update_launch_configuration_defaults_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_launch_configuration_defaults_response() :: %{
+        "largeVolumeConfiguration" => source_server_volume_configuration(),
+        "smallVolumeConfiguration" => source_server_volume_configuration(),
+        "smallVolumeMaxSize" => float(),
+        "sourceServerID" => String.t() | atom()
+      }
+
+  """
+  @type update_launch_configuration_defaults_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_launch_configuration_request() :: %{
         optional("accountID") => String.t() | atom(),
         optional("bootMode") => String.t() | atom(),
@@ -3656,6 +4204,7 @@ defmodule AWS.Mgn do
         optional("enableMapAutoTagging") => [boolean()],
         optional("launchDisposition") => String.t() | atom(),
         optional("licensing") => licensing(),
+        optional("mapAutoTaggingKey") => String.t() | atom(),
         optional("mapAutoTaggingMpeID") => String.t() | atom(),
         optional("name") => String.t() | atom(),
         optional("postLaunchActions") => post_launch_actions(),
@@ -3680,6 +4229,7 @@ defmodule AWS.Mgn do
         optional("largeVolumeConf") => launch_template_disk_conf(),
         optional("launchDisposition") => String.t() | atom(),
         optional("licensing") => licensing(),
+        optional("mapAutoTaggingKey") => String.t() | atom(),
         optional("mapAutoTaggingMpeID") => String.t() | atom(),
         optional("parametersEncryptionKey") => String.t() | atom(),
         optional("postLaunchActions") => post_launch_actions(),
@@ -3698,6 +4248,7 @@ defmodule AWS.Mgn do
 
       update_network_migration_definition_request() :: %{
         optional("cidrMappings") => list(cidr_mapping()),
+        optional("definitionType") => String.t() | atom(),
         optional("description") => String.t() | atom(),
         optional("name") => String.t() | atom(),
         optional("scopeTags") => map(),
@@ -3743,6 +4294,56 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      update_operation_v2() :: %{
+        "configuration" => list(),
+        "excluded" => [boolean()],
+        "name" => String.t() | atom(),
+        "properties" => map(),
+        "propertiesToDelete" => list(String.t() | atom())
+      }
+
+  """
+  @type update_operation_v2() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_remote_source_action_request() :: %{
+        optional("accountID") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("operatingSystem") => String.t() | atom(),
+        optional("ssmParameterName") => String.t() | atom(),
+        optional("timeoutSeconds") => integer(),
+        required("remoteSourceActionID") => String.t() | atom()
+      }
+
+  """
+  @type update_remote_source_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_remote_source_action_response() :: %{
+        "arn" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "operatingSystem" => String.t() | atom(),
+        "remoteSourceActionID" => String.t() | atom(),
+        "ssmParameterName" => String.t() | atom(),
+        "tags" => map(),
+        "timeoutSeconds" => integer()
+      }
+
+  """
+  @type update_remote_source_action_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_replication_configuration_request() :: %{
         optional("accountID") => String.t() | atom(),
         optional("associateDefaultSecurityGroup") => [boolean()],
@@ -3754,6 +4355,7 @@ defmodule AWS.Mgn do
         optional("ebsEncryptionKeyArn") => String.t() | atom(),
         optional("internetProtocol") => String.t() | atom(),
         optional("name") => String.t() | atom(),
+        optional("outpostSnapshotLocation") => String.t() | atom(),
         optional("replicatedDisks") => list(replication_configuration_replicated_disk()),
         optional("replicationServerInstanceType") => String.t() | atom(),
         optional("replicationServersSecurityGroupsIDs") => list(String.t() | atom()),
@@ -3783,6 +4385,7 @@ defmodule AWS.Mgn do
         optional("ebsEncryption") => String.t() | atom(),
         optional("ebsEncryptionKeyArn") => String.t() | atom(),
         optional("internetProtocol") => String.t() | atom(),
+        optional("outpostSnapshotLocation") => String.t() | atom(),
         optional("replicationServerInstanceType") => String.t() | atom(),
         optional("replicationServersSecurityGroupsIDs") => list(String.t() | atom()),
         optional("stagingAreaSubnetId") => String.t() | atom(),
@@ -3961,6 +4564,12 @@ defmodule AWS.Mgn do
   @type create_network_migration_definition_errors() ::
           validation_exception() | service_quota_exceeded_exception()
 
+  @type create_remote_source_action_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | service_quota_exceeded_exception()
+          | conflict_exception()
+
   @type create_replication_configuration_template_errors() ::
           validation_exception() | uninitialized_account_exception() | access_denied_exception()
 
@@ -3991,6 +4600,12 @@ defmodule AWS.Mgn do
 
   @type delete_network_migration_definition_errors() ::
           resource_not_found_exception() | conflict_exception() | access_denied_exception()
+
+  @type delete_remote_source_action_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type delete_replication_configuration_template_errors() ::
           uninitialized_account_exception()
@@ -4058,6 +4673,11 @@ defmodule AWS.Mgn do
 
   @type get_launch_configuration_errors() ::
           uninitialized_account_exception() | resource_not_found_exception()
+
+  @type get_launch_configuration_defaults_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
 
   @type get_network_migration_definition_errors() ::
           resource_not_found_exception() | access_denied_exception()
@@ -4128,6 +4748,12 @@ defmodule AWS.Mgn do
   @type list_network_migration_executions_errors() ::
           resource_not_found_exception() | access_denied_exception()
 
+  @type list_network_migration_insights_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+
   @type list_network_migration_mapper_segment_constructs_errors() ::
           validation_exception()
           | throttling_exception()
@@ -4151,6 +4777,22 @@ defmodule AWS.Mgn do
           | throttling_exception()
           | resource_not_found_exception()
           | access_denied_exception()
+
+  @type list_remote_source_action_invocation_results_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+
+  @type list_remote_source_action_invocations_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+
+  @type list_remote_source_action_jobs_errors() ::
+          validation_exception() | uninitialized_account_exception()
+
+  @type list_remote_source_actions_errors() ::
+          validation_exception() | uninitialized_account_exception()
 
   @type list_source_server_actions_errors() ::
           uninitialized_account_exception() | resource_not_found_exception()
@@ -4275,6 +4917,13 @@ defmodule AWS.Mgn do
           | conflict_exception()
           | access_denied_exception()
 
+  @type start_remote_source_action_job_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
+
   @type start_replication_errors() ::
           validation_exception()
           | uninitialized_account_exception()
@@ -4335,6 +4984,11 @@ defmodule AWS.Mgn do
           | resource_not_found_exception()
           | conflict_exception()
 
+  @type update_launch_configuration_defaults_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+
   @type update_launch_configuration_template_errors() ::
           validation_exception()
           | uninitialized_account_exception()
@@ -4346,6 +5000,12 @@ defmodule AWS.Mgn do
 
   @type update_network_migration_mapper_segment_errors() ::
           validation_exception() | resource_not_found_exception() | access_denied_exception()
+
+  @type update_remote_source_action_errors() ::
+          validation_exception()
+          | uninitialized_account_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type update_replication_configuration_errors() ::
           validation_exception()
@@ -4667,6 +5327,36 @@ defmodule AWS.Mgn do
   end
 
   @doc """
+  Creates a source action, which references a script in AWS Systems Manager
+  Parameter Store that Application Migration Service runs on source environment.
+  """
+  @spec create_remote_source_action(map(), create_remote_source_action_request(), list()) ::
+          {:ok, create_remote_source_action_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_remote_source_action_errors()}
+  def create_remote_source_action(%Client{} = client, input, options \\ []) do
+    url_path = "/CreateRemoteSourceAction"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Creates a new ReplicationConfigurationTemplate.
   """
   @spec create_replication_configuration_template(
@@ -4864,6 +5554,37 @@ defmodule AWS.Mgn do
           | {:error, delete_network_migration_definition_errors()}
   def delete_network_migration_definition(%Client{} = client, input, options \\ []) do
     url_path = "/network-migration/DeleteNetworkMigrationDefinition"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes a source action.
+
+  This operation also deletes the invocation results of the source action.
+  """
+  @spec delete_remote_source_action(map(), delete_remote_source_action_request(), list()) ::
+          {:ok, delete_remote_source_action_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_remote_source_action_errors()}
+  def delete_remote_source_action(%Client{} = client, input, options \\ []) do
+    url_path = "/DeleteRemoteSourceAction"
     headers = []
     custom_headers = []
     query_params = []
@@ -5356,6 +6077,42 @@ defmodule AWS.Mgn do
           | {:error, get_launch_configuration_errors()}
   def get_launch_configuration(%Client{} = client, input, options \\ []) do
     url_path = "/GetLaunchConfiguration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Gets the launch configuration defaults of a source server: the Amazon Elastic
+  Block Store (Amazon EBS) volume configuration used for the disk mappings created
+  later in the source server's Amazon Elastic Compute Cloud (Amazon EC2) launch
+  template.
+  """
+  @spec get_launch_configuration_defaults(
+          map(),
+          get_launch_configuration_defaults_request(),
+          list()
+        ) ::
+          {:ok, get_launch_configuration_defaults_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_launch_configuration_defaults_errors()}
+  def get_launch_configuration_defaults(%Client{} = client, input, options \\ []) do
+    url_path = "/GetLaunchConfigurationDefaults"
     headers = []
     custom_headers = []
     query_params = []
@@ -6001,6 +6758,35 @@ defmodule AWS.Mgn do
   end
 
   @doc """
+  Lists network migration insights for a network migration definition.
+  """
+  @spec list_network_migration_insights(map(), list_network_migration_insights_request(), list()) ::
+          {:ok, list_network_migration_insights_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_network_migration_insights_errors()}
+  def list_network_migration_insights(%Client{} = client, input, options \\ []) do
+    url_path = "/network-migration/ListNetworkMigrationInsights"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Lists constructs within a mapper segment, representing individual infrastructure
   components like VPCs, subnets, or security groups.
   """
@@ -6113,6 +6899,132 @@ defmodule AWS.Mgn do
           | {:error, list_network_migration_mappings_errors()}
   def list_network_migration_mappings(%Client{} = client, input, options \\ []) do
     url_path = "/network-migration/ListNetworkMigrationMappings"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists the latest invocation result of each source action that ran on a source
+  server.
+  """
+  @spec list_remote_source_action_invocation_results(
+          map(),
+          list_remote_source_action_invocation_results_request(),
+          list()
+        ) ::
+          {:ok, list_remote_source_action_invocation_results_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_remote_source_action_invocation_results_errors()}
+  def list_remote_source_action_invocation_results(%Client{} = client, input, options \\ []) do
+    url_path = "/ListRemoteSourceActionInvocationResults"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists the invocations of a source action job, one for each source server and
+  source action, with optional filtering.
+  """
+  @spec list_remote_source_action_invocations(
+          map(),
+          list_remote_source_action_invocations_request(),
+          list()
+        ) ::
+          {:ok, list_remote_source_action_invocations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_remote_source_action_invocations_errors()}
+  def list_remote_source_action_invocations(%Client{} = client, input, options \\ []) do
+    url_path = "/ListRemoteSourceActionInvocations"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists the source action jobs in the account, with optional filtering.
+  """
+  @spec list_remote_source_action_jobs(map(), list_remote_source_action_jobs_request(), list()) ::
+          {:ok, list_remote_source_action_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_remote_source_action_jobs_errors()}
+  def list_remote_source_action_jobs(%Client{} = client, input, options \\ []) do
+    url_path = "/ListRemoteSourceActionJobs"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists the source actions in the account, with optional filtering.
+  """
+  @spec list_remote_source_actions(map(), list_remote_source_actions_request(), list()) ::
+          {:ok, list_remote_source_actions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_remote_source_actions_errors()}
+  def list_remote_source_actions(%Client{} = client, input, options \\ []) do
+    url_path = "/ListRemoteSourceActions"
     headers = []
     custom_headers = []
     query_params = []
@@ -6765,6 +7677,35 @@ defmodule AWS.Mgn do
   end
 
   @doc """
+  Starts a job that runs a source action on source servers through a connector.
+  """
+  @spec start_remote_source_action_job(map(), start_remote_source_action_job_request(), list()) ::
+          {:ok, start_remote_source_action_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_remote_source_action_job_errors()}
+  def start_remote_source_action_job(%Client{} = client, input, options \\ []) do
+    url_path = "/StartRemoteSourceActionJob"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
+    )
+  end
+
+  @doc """
   Start replication for source server irrespective of its replication type.
   """
   @spec start_replication(map(), start_replication_request(), list()) ::
@@ -7103,6 +8044,43 @@ defmodule AWS.Mgn do
   end
 
   @doc """
+  Updates the launch configuration defaults of a source server.
+
+  They apply only to disk mappings created later in the source server's Amazon
+  Elastic Compute Cloud (Amazon EC2) launch template, and members you omit keep
+  their current values.
+  """
+  @spec update_launch_configuration_defaults(
+          map(),
+          update_launch_configuration_defaults_request(),
+          list()
+        ) ::
+          {:ok, update_launch_configuration_defaults_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_launch_configuration_defaults_errors()}
+  def update_launch_configuration_defaults(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateLaunchConfigurationDefaults"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates an existing Launch Configuration Template by ID.
   """
   @spec update_launch_configuration_template(
@@ -7183,6 +8161,35 @@ defmodule AWS.Mgn do
           | {:error, update_network_migration_mapper_segment_errors()}
   def update_network_migration_mapper_segment(%Client{} = client, input, options \\ []) do
     url_path = "/network-migration/UpdateNetworkMigrationMapperSegment"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates a source action.
+  """
+  @spec update_remote_source_action(map(), update_remote_source_action_request(), list()) ::
+          {:ok, update_remote_source_action_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_remote_source_action_errors()}
+  def update_remote_source_action(%Client{} = client, input, options \\ []) do
+    url_path = "/UpdateRemoteSourceAction"
     headers = []
     custom_headers = []
     query_params = []

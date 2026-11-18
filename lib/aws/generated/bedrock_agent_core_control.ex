@@ -78,6 +78,35 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      agent_insight_store_encryption_configuration() :: %{
+        "kmsKeyArn" => String.t() | atom(),
+        "mode" => list(any())
+      }
+
+  """
+  @type agent_insight_store_encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_insight_store_summary() :: %{
+        "agentInsightStoreArn" => String.t() | atom(),
+        "agentInsightStoreId" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "enablementStatus" => list(any()),
+        "encryptionConfiguration" => agent_insight_store_encryption_configuration(),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type agent_insight_store_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       agent_runtime() :: %{
         "agentRuntimeArn" => String.t() | atom(),
         "agentRuntimeId" => String.t() | atom(),
@@ -1141,10 +1170,10 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("clientToken") => String.t() | atom(),
         optional("description") => [String.t() | atom()],
         optional("kmsKeyArn") => String.t() | atom(),
+        optional("schemaType") => list(any()),
+        optional("source") => list(),
         optional("tags") => map(),
-        required("datasetName") => String.t() | atom(),
-        required("schemaType") => list(any()),
-        required("source") => list()
+        required("datasetName") => String.t() | atom()
       }
 
   """
@@ -1949,6 +1978,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "description" => [String.t() | atom()],
         "draftStatus" => list(any()),
         "exampleCount" => [float()],
+        "exampleCountByField" => example_count_by_field(),
         "schemaType" => list(any()),
         "status" => list(any()),
         "updatedAt" => [non_neg_integer()]
@@ -1964,7 +1994,8 @@ defmodule AWS.BedrockAgentCoreControl do
       dataset_version_summary() :: %{
         "createdAt" => [non_neg_integer()],
         "datasetVersion" => String.t() | atom(),
-        "exampleCount" => [float()]
+        "exampleCount" => [float()],
+        "exampleCountByField" => example_count_by_field()
       }
 
   """
@@ -2984,6 +3015,43 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      example_count_by_field() :: %{
+        "actorProfile" => [float()],
+        "input" => [float()],
+        "turns" => [float()]
+      }
+
+  """
+  @type example_count_by_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      example_count_by_field_condition() :: %{
+        "anyOf" => list(list(any())()),
+        "max" => [float()],
+        "min" => [float()]
+      }
+
+  """
+  @type example_count_by_field_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      example_field_condition() :: %{
+        "anyOf" => list(list(any())())
+      }
+
+  """
+  @type example_field_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       fallback() :: %{
         "circuitBreaker" => circuit_breaker_configuration(),
         "firstByteTimeoutMilliseconds" => [integer()],
@@ -3178,6 +3246,33 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type gateway_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_agent_insight_store_request() :: %{}
+
+  """
+  @type get_agent_insight_store_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_agent_insight_store_response() :: %{
+        "agentInsightStoreArn" => String.t() | atom(),
+        "agentInsightStoreId" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "enablementStatus" => list(any()),
+        "encryptionConfiguration" => agent_insight_store_encryption_configuration(),
+        "failureReason" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type get_agent_insight_store_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3526,6 +3621,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "downloadUrlExpiresAt" => [non_neg_integer()],
         "draftStatus" => list(any()),
         "exampleCount" => [float()],
+        "exampleCountByField" => example_count_by_field(),
         "failureReason" => [String.t() | atom()],
         "kmsKeyArn" => String.t() | atom(),
         "schemaType" => list(any()),
@@ -5208,6 +5304,30 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      list_agent_insight_stores_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_agent_insight_stores_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_agent_insight_stores_response() :: %{
+        "agentInsightStores" => list(agent_insight_store_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_agent_insight_stores_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_agent_runtime_endpoints_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
@@ -5504,8 +5624,21 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      list_dataset_examples_filter() :: %{
+        "exampleFields" => list(example_field_condition()),
+        "generationIds" => list(String.t() | atom())
+      }
+
+  """
+  @type list_dataset_examples_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_dataset_examples_request() :: %{
         optional("datasetVersion") => String.t() | atom(),
+        optional("filter") => list_dataset_examples_filter(),
         optional("maxResults") => [integer()],
         optional("nextToken") => [String.t() | atom()]
       }
@@ -5532,7 +5665,19 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      list_dataset_versions_filter() :: %{
+        "exampleCountByField" => list(example_count_by_field_condition())
+      }
+
+  """
+  @type list_dataset_versions_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_dataset_versions_request() :: %{
+        optional("filter") => list_dataset_versions_filter(),
         optional("maxResults") => [integer()],
         optional("nextToken") => [String.t() | atom()]
       }
@@ -5556,7 +5701,19 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      list_datasets_filter() :: %{
+        "exampleCountByField" => list(example_count_by_field_condition())
+      }
+
+  """
+  @type list_datasets_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_datasets_request() :: %{
+        optional("filter") => list_datasets_filter(),
         optional("maxResults") => [integer()],
         optional("nextToken") => [String.t() | atom()]
       }
@@ -8285,6 +8442,35 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      update_agent_insight_store_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("enablementStatus") => list(any()),
+        optional("encryptionConfiguration") => agent_insight_store_encryption_configuration()
+      }
+
+  """
+  @type update_agent_insight_store_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_agent_insight_store_response() :: %{
+        "agentInsightStoreArn" => String.t() | atom(),
+        "agentInsightStoreId" => String.t() | atom(),
+        "enablementStatus" => list(any()),
+        "failureReason" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type update_agent_insight_store_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_agent_runtime_endpoint_request() :: %{
         optional("agentRuntimeVersion") => String.t() | atom(),
         optional("clientToken") => String.t() | atom(),
@@ -10143,6 +10329,13 @@ defmodule AWS.BedrockAgentCoreControl do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type get_agent_insight_store_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type get_agent_runtime_errors() ::
           validation_exception()
           | throttling_exception()
@@ -10396,6 +10589,12 @@ defmodule AWS.BedrockAgentCoreControl do
           | unauthorized_exception()
           | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_agent_insight_stores_errors() ::
+          validation_exception()
+          | throttling_exception()
           | internal_server_exception()
           | access_denied_exception()
 
@@ -10740,6 +10939,15 @@ defmodule AWS.BedrockAgentCoreControl do
           | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | access_denied_exception()
+
+  @type update_agent_insight_store_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type update_agent_runtime_errors() ::
@@ -13175,6 +13383,28 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
+  Returns the account's service-defined default Agent Insight Store.
+
+  The
+  logical default exists for every enrolled account; its backing state may be
+  initialized on first access.
+  """
+  @spec get_agent_insight_store(map(), String.t() | atom(), list()) ::
+          {:ok, get_agent_insight_store_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_agent_insight_store_errors()}
+  def get_agent_insight_store(%Client{} = client, agent_insight_store_id, options \\ []) do
+    url_path = "/agent-insight-stores/#{AWS.Util.encode_uri(agent_insight_store_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets an Amazon Bedrock AgentCore Runtime.
   """
   @spec get_agent_runtime(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
@@ -14011,6 +14241,44 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
+  Lists the account's service-defined default Agent Insight Store.
+
+  The
+  singleton backing state may be initialized on first access.
+  """
+  @spec list_agent_insight_stores(map(), list_agent_insight_stores_request(), list()) ::
+          {:ok, list_agent_insight_stores_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_agent_insight_stores_errors()}
+  def list_agent_insight_stores(%Client{} = client, input, options \\ []) do
+    url_path = "/agent-insight-stores"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"maxResults", "maxResults"},
+        {"nextToken", "nextToken"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Lists all endpoints for a specific Amazon Secure Agent.
   """
   @spec list_agent_runtime_endpoints(
@@ -14464,56 +14732,34 @@ defmodule AWS.BedrockAgentCoreControl do
 
   The server embeds the resolved version in the pagination token. Once pagination
   begins, all subsequent pages are pinned to that version regardless of concurrent
-  mutations.
+  mutations. A request with a pagination token can omit `datasetVersion`. If it
+  sets a version that differs from the token's version, the request fails with a
+  `ValidationException`.
   """
-  @spec list_dataset_examples(
-          map(),
-          String.t() | atom(),
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
-          list()
-        ) ::
+  @spec list_dataset_examples(map(), String.t() | atom(), list_dataset_examples_request(), list()) ::
           {:ok, list_dataset_examples_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_dataset_examples_errors()}
-  def list_dataset_examples(
-        %Client{} = client,
-        dataset_id,
-        dataset_version \\ nil,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
-    url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}/examples"
+  def list_dataset_examples(%Client{} = client, dataset_id, input, options \\ []) do
+    url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}/examples/list"
     headers = []
+    custom_headers = []
     query_params = []
-
-    query_params =
-      if !is_nil(dataset_version) do
-        [{"datasetVersion", dataset_version} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -14522,77 +14768,59 @@ defmodule AWS.BedrockAgentCoreControl do
 
   Does not include the DRAFT working copy.
   """
-  @spec list_dataset_versions(
-          map(),
-          String.t() | atom(),
-          String.t() | atom() | nil,
-          String.t() | atom() | nil,
-          list()
-        ) ::
+  @spec list_dataset_versions(map(), String.t() | atom(), list_dataset_versions_request(), list()) ::
           {:ok, list_dataset_versions_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_dataset_versions_errors()}
-  def list_dataset_versions(
-        %Client{} = client,
-        dataset_id,
-        max_results \\ nil,
-        next_token \\ nil,
-        options \\ []
-      ) do
-    url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}/versions"
+  def list_dataset_versions(%Client{} = client, dataset_id, input, options \\ []) do
+    url_path = "/datasets/#{AWS.Util.encode_uri(dataset_id)}/versions/list"
     headers = []
+    custom_headers = []
     query_params = []
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
   Lists all datasets in the caller's account, paginated.
   """
-  @spec list_datasets(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
+  @spec list_datasets(map(), list_datasets_request(), list()) ::
           {:ok, list_datasets_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_datasets_errors()}
-  def list_datasets(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
-    url_path = "/datasets"
+  def list_datasets(%Client{} = client, input, options \\ []) do
+    url_path = "/datasets/list"
     headers = []
+    custom_headers = []
     query_params = []
-
-    query_params =
-      if !is_nil(max_results) do
-        [{"maxResults", max_results} | query_params]
-      else
-        query_params
-      end
-
-    query_params =
-      if !is_nil(next_token) do
-        [{"nextToken", next_token} | query_params]
-      else
-        query_params
-      end
 
     meta = metadata()
 
-    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -16044,6 +16272,41 @@ defmodule AWS.BedrockAgentCoreControl do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Updates the enablement status or encryption configuration of an Agent Insight
+  Store.
+  """
+  @spec update_agent_insight_store(
+          map(),
+          String.t() | atom(),
+          update_agent_insight_store_request(),
+          list()
+        ) ::
+          {:ok, update_agent_insight_store_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_agent_insight_store_errors()}
+  def update_agent_insight_store(%Client{} = client, agent_insight_store_id, input, options \\ []) do
+    url_path = "/agent-insight-stores/#{AWS.Util.encode_uri(agent_insight_store_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 

@@ -121,6 +121,17 @@ defmodule AWS.WAFV2 do
 
   ## Example:
       
+      analytics_config() :: %{
+        "Mode" => list(any())
+      }
+      
+  """
+  @type analytics_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       and_statement() :: %{
         "Statements" => list(statement())
       }
@@ -635,6 +646,7 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       create_web_acl_request() :: %{
+        optional("AnalyticsConfig") => analytics_config(),
         optional("ApplicationConfig") => application_config(),
         optional("AssociationConfig") => association_config(),
         optional("CaptchaConfig") => captcha_config(),
@@ -3482,6 +3494,7 @@ defmodule AWS.WAFV2 do
   ## Example:
       
       update_web_acl_request() :: %{
+        optional("AnalyticsConfig") => analytics_config(),
         optional("ApplicationConfig") => application_config(),
         optional("AssociationConfig") => association_config(),
         optional("CaptchaConfig") => captcha_config(),
@@ -3804,6 +3817,7 @@ defmodule AWS.WAFV2 do
       
       web_acl() :: %{
         "ARN" => String.t() | atom(),
+        "AnalyticsConfig" => analytics_config(),
         "ApplicationConfig" => application_config(),
         "AssociationConfig" => association_config(),
         "Capacity" => float(),

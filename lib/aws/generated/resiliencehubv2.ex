@@ -1878,16 +1878,20 @@ defmodule AWS.Resiliencehubv2 do
 
   ## Example:
 
-      list_test_templates_request() :: %{}
+      list_test_templates_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
 
   """
-  @type list_test_templates_request() :: %{}
+  @type list_test_templates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
       list_test_templates_response() :: %{
+        "nextToken" => String.t() | atom(),
         "testTemplates" => list(test_template_summary())
       }
 
@@ -3102,6 +3106,7 @@ defmodule AWS.Resiliencehubv2 do
       test_run() :: %{
         "accountTargeting" => list(any()),
         "devOpsAgentInvestigation" => dev_ops_agent_investigation(),
+        "effectivePolicyValues" => test_run_effective_policy_values(),
         "endedAt" => [non_neg_integer()],
         "errorMessage" => [String.t() | atom()],
         "eventCount" => [integer()],
@@ -3145,6 +3150,24 @@ defmodule AWS.Resiliencehubv2 do
 
   """
   @type test_run_dependency_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      test_run_effective_policy_values() :: %{
+        "availabilitySlo" => slo_source(),
+        "dataRecoveryTimeBetweenBackups" => target_source(),
+        "multiAzDrApproach" => disaster_recovery_source(),
+        "multiAzRpo" => target_source(),
+        "multiAzRto" => target_source(),
+        "multiRegionDrApproach" => disaster_recovery_source(),
+        "multiRegionRpo" => target_source(),
+        "multiRegionRto" => target_source()
+      }
+
+  """
+  @type test_run_effective_policy_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3864,6 +3887,7 @@ defmodule AWS.Resiliencehubv2 do
 
   @type get_test_template_errors() ::
           validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
           | access_denied_exception()
@@ -4019,7 +4043,10 @@ defmodule AWS.Resiliencehubv2 do
           | access_denied_exception()
 
   @type list_test_templates_errors() ::
-          validation_exception() | internal_server_exception() | access_denied_exception()
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type list_tests_errors() ::
           validation_exception()
@@ -6599,15 +6626,34 @@ defmodule AWS.Resiliencehubv2 do
   A test template is a pre-configured, AWS recommended test that defines which
   resilience capability to validate.
   """
-  @spec list_test_templates(map(), list()) ::
+  @spec list_test_templates(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_test_templates_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, list_test_templates_errors()}
-  def list_test_templates(%Client{} = client, options \\ []) do
+  def list_test_templates(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
     url_path = "/v2/list-test-templates"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 

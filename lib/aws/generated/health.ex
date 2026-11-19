@@ -140,8 +140,7 @@ defmodule AWS.Health do
         "eventArn" => String.t() | atom(),
         "lastUpdatedTime" => non_neg_integer(),
         "resourceTags" => map(),
-        "statusCode" => list(any()),
-        "tags" => map()
+        "statusCode" => list(any())
       }
       
   """
@@ -174,7 +173,7 @@ defmodule AWS.Health do
   ## Example:
       
       configure_tags_for_organization_response() :: %{
-        "configuredTagKeys" => list(tag_key_for_organization())
+        "configuredTagKeys" => list(organization_tag_key())
       }
       
   """
@@ -185,7 +184,7 @@ defmodule AWS.Health do
   ## Example:
       
       configure_tags_request() :: %{
-        required("tagKeys") => list(resource_tag_key())
+        required("tagKeys") => list(configure_tags_tag_key())
       }
       
   """
@@ -201,6 +200,18 @@ defmodule AWS.Health do
       
   """
   @type configure_tags_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      configure_tags_tag_key() :: %{
+        "enabledForEventBridge" => boolean(),
+        "key" => String.t() | atom()
+      }
+      
+  """
+  @type configure_tags_tag_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

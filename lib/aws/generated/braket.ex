@@ -338,6 +338,20 @@ defmodule AWS.Braket do
 
   ## Example:
 
+      device_status_reason() :: %{
+        "estimatedEndAt" => [non_neg_integer()],
+        "reason" => String.t() | atom(),
+        "startedAt" => [non_neg_integer()],
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type device_status_reason() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       device_summary() :: %{
         "deviceArn" => String.t() | atom(),
         "deviceName" => [String.t() | atom()],
@@ -364,6 +378,7 @@ defmodule AWS.Braket do
 
       get_device_response() :: %{
         optional("deviceQueueInfo") => list(device_queue_info()),
+        optional("deviceStatusReason") => device_status_reason(),
         required("deviceArn") => String.t() | atom(),
         required("deviceCapabilities") => String.t() | atom(),
         required("deviceName") => [String.t() | atom()],

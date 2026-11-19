@@ -3299,6 +3299,7 @@ defmodule AWS.SecurityAgent do
         "title" => [String.t() | atom()],
         "trustedCaCertificates" => list(trusted_ca_certificate()),
         "updatedAt" => [non_neg_integer()],
+        "version" => [String.t() | atom()],
         "vpcConfig" => vpc_config()
       }
 
@@ -3317,7 +3318,8 @@ defmodule AWS.SecurityAgent do
         "reportUrl" => [String.t() | atom()],
         "status" => list(any()),
         "title" => [String.t() | atom()],
-        "updatedAt" => [non_neg_integer()]
+        "updatedAt" => [non_neg_integer()],
+        "version" => [String.t() | atom()]
       }
 
   """
@@ -3401,6 +3403,40 @@ defmodule AWS.SecurityAgent do
 
   """
   @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resume_pentest_job_input() :: %{
+        optional("actors") => list(actor()),
+        optional("agentSpaceId") => [String.t() | atom()],
+        optional("copyConfigFromPentest") => [boolean()],
+        optional("maxTaskHours") => [float()],
+        optional("networkTrafficConfig") => network_traffic_config(),
+        optional("pentestJobId") => [String.t() | atom()],
+        optional("vpcConfig") => vpc_config()
+      }
+
+  """
+  @type resume_pentest_job_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resume_pentest_job_output() :: %{
+        "createdAt" => [non_neg_integer()],
+        "pentestId" => [String.t() | atom()],
+        "pentestJobId" => [String.t() | atom()],
+        "status" => list(any()),
+        "title" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()],
+        "version" => [String.t() | atom()]
+      }
+
+  """
+  @type resume_pentest_job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3682,6 +3718,7 @@ defmodule AWS.SecurityAgent do
   ## Example:
 
       stop_pentest_job_input() :: %{
+        optional("pause") => [boolean()],
         required("agentSpaceId") => [String.t() | atom()],
         required("pentestJobId") => [String.t() | atom()]
       }
@@ -7025,6 +7062,38 @@ defmodule AWS.SecurityAgent do
           | {:error, term()}
   def list_threats(%Client{} = client, input, options \\ []) do
     url_path = "/ListThreats"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Resumes a stopped or paused pentest job from its last saved checkpoint.
+
+  The job keeps its pentest job identifier and continues as a new version, keeping
+  the findings and progress from earlier runs. You can resume a job within 7 days
+  of when it was created.
+  """
+  @spec resume_pentest_job(map(), resume_pentest_job_input(), list()) ::
+          {:ok, resume_pentest_job_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def resume_pentest_job(%Client{} = client, input, options \\ []) do
+    url_path = "/ResumePentestJob"
     headers = []
     custom_headers = []
     query_params = []

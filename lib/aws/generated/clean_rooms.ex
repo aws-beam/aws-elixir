@@ -4026,6 +4026,17 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      population_analysis_job_parameters() :: %{
+        "analysisTemplateArn" => String.t() | atom()
+      }
+
+  """
+  @type population_analysis_job_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       population_analysis_sql_parameters() :: %{
         "analysisTemplateArn" => String.t() | atom(),
         "queryString" => [String.t() | atom()]
@@ -4308,6 +4319,7 @@ defmodule AWS.CleanRooms do
       protected_job_summary() :: %{
         "createTime" => [non_neg_integer()],
         "id" => String.t() | atom(),
+        "intermediateTableConfiguration" => intermediate_table_output_configuration(),
         "jobComputePayerAccountId" => String.t() | atom(),
         "membershipArn" => String.t() | atom(),
         "membershipId" => String.t() | atom(),

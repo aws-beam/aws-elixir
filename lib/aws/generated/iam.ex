@@ -460,6 +460,7 @@ defmodule AWS.IAM do
   ## Example:
       
       create_login_profile_request() :: %{
+        optional("MaxSigninSessionDuration") => integer(),
         optional("Password") => String.t() | atom(),
         optional("PasswordResetRequired") => boolean(),
         optional("UserName") => String.t() | atom()
@@ -562,6 +563,7 @@ defmodule AWS.IAM do
       create_role_request() :: %{
         optional("Description") => String.t() | atom(),
         optional("MaxSessionDuration") => integer(),
+        optional("MaxSigninSessionDuration") => integer(),
         optional("Path") => String.t() | atom(),
         optional("PermissionsBoundary") => String.t() | atom(),
         optional("Tags") => list(tag()),
@@ -3218,6 +3220,7 @@ defmodule AWS.IAM do
       
       login_profile() :: %{
         "CreateDate" => non_neg_integer(),
+        "MaxSigninSessionDuration" => integer(),
         "PasswordResetRequired" => boolean(),
         "UserName" => String.t() | atom()
       }
@@ -3793,6 +3796,7 @@ defmodule AWS.IAM do
         "CreateDate" => non_neg_integer(),
         "Description" => String.t() | atom(),
         "MaxSessionDuration" => integer(),
+        "MaxSigninSessionDuration" => integer(),
         "Path" => String.t() | atom(),
         "PermissionsBoundary" => attached_permissions_boundary(),
         "RoleId" => String.t() | atom(),
@@ -4538,8 +4542,10 @@ defmodule AWS.IAM do
   ## Example:
       
       update_login_profile_request() :: %{
+        optional("MaxSigninSessionDuration") => integer(),
         optional("Password") => String.t() | atom(),
         optional("PasswordResetRequired") => boolean(),
+        optional("ResetMaxSigninSessionDuration") => boolean(),
         required("UserName") => String.t() | atom()
       }
       
@@ -4588,6 +4594,8 @@ defmodule AWS.IAM do
       update_role_request() :: %{
         optional("Description") => String.t() | atom(),
         optional("MaxSessionDuration") => integer(),
+        optional("MaxSigninSessionDuration") => integer(),
+        optional("ResetMaxSigninSessionDuration") => boolean(),
         required("RoleName") => String.t() | atom()
       }
       
@@ -5573,6 +5581,7 @@ defmodule AWS.IAM do
           | password_policy_violation_exception()
           | no_such_entity_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
           | entity_temporarily_unmodifiable_exception()
 
   @type update_open_id_connect_provider_thumbprint_errors() ::
@@ -5585,6 +5594,7 @@ defmodule AWS.IAM do
           unmodifiable_entity_exception()
           | service_failure_exception()
           | no_such_entity_exception()
+          | invalid_input_exception()
 
   @type update_role_description_errors() ::
           unmodifiable_entity_exception()
@@ -11072,7 +11082,8 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Changes the password for the specified IAM user.
+  Changes the password or the maximum sign-in session duration for the specified
+  IAM user.
 
   You can use the CLI, the Amazon Web Services
   API, or the **Users** page in the IAM console to change
@@ -11145,7 +11156,12 @@ defmodule AWS.IAM do
   end
 
   @doc """
-  Updates the description or maximum session duration setting of a role.
+  Updates the description, maximum session duration, or maximum sign-in session
+  duration
+  of a role.
+
+  You cannot change the maximum sign-in session duration of a service-linked
+  role.
   """
   @spec update_role(map(), update_role_request(), list()) ::
           {:ok, update_role_response(), any()}

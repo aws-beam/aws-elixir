@@ -440,7 +440,8 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       capacity_provider_configuration() :: %{
-        "capacityProviderArn" => String.t() | atom()
+        "capacityProviderArn" => String.t() | atom(),
+        "operatingSystemConfiguration" => list()
       }
 
   """
@@ -5304,6 +5305,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      linux_operating_system_configuration() :: %{
+        "privilegeMode" => list(any())
+      }
+
+  """
+  @type linux_operating_system_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_agent_insight_stores_request() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => [String.t() | atom()]
@@ -7516,6 +7528,21 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type runtime_target_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_bucket_mount_configuration() :: %{
+        "bucket" => [String.t() | atom()],
+        "mountPath" => String.t() | atom(),
+        "prefix" => [String.t() | atom()],
+        "s3BucketOwner" => [String.t() | atom()],
+        "s3BucketRegion" => [String.t() | atom()]
+      }
+
+  """
+  @type s3_bucket_mount_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

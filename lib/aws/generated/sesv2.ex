@@ -1079,9 +1079,21 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      delivery_attributes() :: %{
+        "SharedPoolDeliveryMode" => list(any())
+      }
+
+  """
+  @type delivery_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delivery_options() :: %{
         "MaxDeliverySeconds" => float(),
         "SendingPoolName" => String.t() | atom(),
+        "SharedPoolDeliveryMode" => list(any()),
         "TlsPolicy" => list(any())
       }
 
@@ -1443,6 +1455,7 @@ defmodule AWS.SESv2 do
 
       get_account_response() :: %{
         "DedicatedIpAutoWarmupEnabled" => boolean(),
+        "DeliveryAttributes" => delivery_attributes(),
         "Details" => account_details(),
         "EnforcementStatus" => String.t() | atom(),
         "PricingAttributes" => pricing_attributes(),
@@ -2988,6 +3001,26 @@ defmodule AWS.SESv2 do
 
   ## Example:
 
+      put_account_delivery_attributes_request() :: %{
+        required("SharedPoolDeliveryMode") => list(any())
+      }
+
+  """
+  @type put_account_delivery_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_account_delivery_attributes_response() :: %{}
+
+  """
+  @type put_account_delivery_attributes_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       put_account_details_request() :: %{
         optional("AdditionalContactEmailAddresses") => list(String.t() | atom()),
         optional("ContactLanguage") => list(any()),
@@ -3117,6 +3150,7 @@ defmodule AWS.SESv2 do
       put_configuration_set_delivery_options_request() :: %{
         optional("MaxDeliverySeconds") => float(),
         optional("SendingPoolName") => String.t() | atom(),
+        optional("SharedPoolDeliveryMode") => list(any()),
         optional("TlsPolicy") => list(any())
       }
 
@@ -4658,6 +4692,9 @@ defmodule AWS.SESv2 do
   @type list_tenants_errors() :: too_many_requests_exception() | bad_request_exception()
 
   @type put_account_dedicated_ip_warmup_attributes_errors() ::
+          too_many_requests_exception() | bad_request_exception()
+
+  @type put_account_delivery_attributes_errors() ::
           too_many_requests_exception() | bad_request_exception()
 
   @type put_account_details_errors() ::
@@ -7665,6 +7702,44 @@ defmodule AWS.SESv2 do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Set the shared pool delivery mode for your Amazon SES account in the current
+  Amazon Web Services Region.
+
+  The mode controls whether Amazon SES can deliver your email from shared IP
+  addresses in other
+  Amazon Web Services Regions within the same Amazon Web Services partition.
+
+  A change may take a few minutes to take effect. Messages that are already queued
+  for
+  delivery keep the mode that they were sent with.
+  """
+  @spec put_account_delivery_attributes(map(), put_account_delivery_attributes_request(), list()) ::
+          {:ok, put_account_delivery_attributes_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_account_delivery_attributes_errors()}
+  def put_account_delivery_attributes(%Client{} = client, input, options \\ []) do
+    url_path = "/v2/email/account/delivery"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,

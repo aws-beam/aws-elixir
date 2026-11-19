@@ -1237,7 +1237,8 @@ defmodule AWS.S3 do
   ## Example:
 
       encryption_configuration() :: %{
-        "ReplicaKmsKeyID" => String.t() | atom()
+        "ReplicaKmsKeyID" => String.t() | atom(),
+        "UseSourceMultiRegionKey" => use_source_multi_region_key()
       }
 
   """
@@ -4430,6 +4431,7 @@ defmodule AWS.S3 do
   ## Example:
 
       replication_rule_and_operator() :: %{
+        "Not" => replication_rule_not_operator(),
         "Prefix" => String.t() | atom(),
         "Tags" => list(tag())
       }
@@ -4443,12 +4445,38 @@ defmodule AWS.S3 do
 
       replication_rule_filter() :: %{
         "And" => replication_rule_and_operator(),
+        "Not" => replication_rule_not_operator(),
         "Prefix" => String.t() | atom(),
         "Tag" => tag()
       }
 
   """
   @type replication_rule_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      replication_rule_not_operator() :: %{
+        "Or" => replication_rule_or_operator(),
+        "Prefix" => String.t() | atom(),
+        "Tag" => tag()
+      }
+
+  """
+  @type replication_rule_not_operator() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      replication_rule_or_operator() :: %{
+        "Prefixes" => list(String.t() | atom()),
+        "Tags" => list(tag())
+      }
+
+  """
+  @type replication_rule_or_operator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5119,6 +5147,17 @@ defmodule AWS.S3 do
 
   """
   @type upload_part_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      use_source_multi_region_key() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type use_source_multi_region_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

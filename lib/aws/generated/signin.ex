@@ -41,6 +41,44 @@ defmodule AWS.Signin do
 
   ## Example:
 
+      batch_revoke_session_error() :: %{
+        "code" => [String.t() | atom()],
+        "message" => [String.t() | atom()],
+        "sessionArn" => String.t() | atom()
+      }
+
+  """
+  @type batch_revoke_session_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_revoke_sessions_input() :: %{
+        optional("principalArn") => String.t() | atom(),
+        optional("reason") => String.t() | atom(),
+        required("sessionArns") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_revoke_sessions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_revoke_sessions_output() :: %{
+        "errors" => list(batch_revoke_session_error()),
+        "revokedSessions" => list(revoked_session())
+      }
+
+  """
+  @type batch_revoke_sessions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       conflict_exception() :: %{
         "error" => list(any()),
         "message" => [String.t() | atom()]
@@ -158,6 +196,8 @@ defmodule AWS.Signin do
   ## Example:
 
       create_o_auth2_token_with_token_exchange_request() :: %{
+        optional("assertion") => String.t() | atom(),
+        optional("clientId") => String.t() | atom(),
         optional("resource") => String.t() | atom(),
         optional("scope") => String.t() | atom(),
         optional("subjectToken") => String.t() | atom(),
@@ -176,6 +216,8 @@ defmodule AWS.Signin do
         "accessToken" => String.t() | atom(),
         "expiresIn" => integer(),
         "issuedTokenType" => String.t() | atom(),
+        "resource" => String.t() | atom(),
+        "scope" => String.t() | atom(),
         "tokenType" => String.t() | atom()
       }
 
@@ -275,6 +317,41 @@ defmodule AWS.Signin do
 
   ## Example:
 
+      get_session_input() :: %{
+        optional("principalArn") => String.t() | atom(),
+        required("sessionArn") => String.t() | atom()
+      }
+
+  """
+  @type get_session_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_session_output() :: %{
+        "clientId" => [String.t() | atom()],
+        "clientType" => list(any()),
+        "expiresAt" => [float()],
+        "issuedAt" => [float()],
+        "issuedInRegion" => [String.t() | atom()],
+        "lastUsedAt" => [float()],
+        "originSessionArn" => String.t() | atom(),
+        "principalArn" => String.t() | atom(),
+        "resource" => [String.t() | atom()],
+        "role" => String.t() | atom(),
+        "sessionArn" => String.t() | atom(),
+        "status" => list(any()),
+        "userAgent" => [String.t() | atom()]
+      }
+
+  """
+  @type get_session_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       internal_server_exception() :: %{
         "error" => list(any()),
         "message" => [String.t() | atom()]
@@ -366,6 +443,35 @@ defmodule AWS.Signin do
 
   """
   @type list_resource_permission_statements_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sessions_input() :: %{
+        optional("clientId") => [String.t() | atom()],
+        optional("issuedAfter") => [float()],
+        optional("issuedBefore") => [float()],
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("principalArn") => String.t() | atom(),
+        optional("status") => list(any())
+      }
+
+  """
+  @type list_sessions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sessions_output() :: %{
+        "items" => list(session()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_sessions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -483,6 +589,17 @@ defmodule AWS.Signin do
 
   ## Example:
 
+      revoked_session() :: %{
+        "sessionArn" => String.t() | atom()
+      }
+
+  """
+  @type revoked_session() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       service_quota_exceeded_exception() :: %{
         "error" => list(any()),
         "message" => [String.t() | atom()]
@@ -502,6 +619,25 @@ defmodule AWS.Signin do
 
   """
   @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      session() :: %{
+        "clientId" => [String.t() | atom()],
+        "clientType" => list(any()),
+        "expiresAt" => [float()],
+        "issuedAt" => [float()],
+        "principalArn" => String.t() | atom(),
+        "resource" => [String.t() | atom()],
+        "role" => String.t() | atom(),
+        "sessionArn" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type session() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -538,6 +674,13 @@ defmodule AWS.Signin do
 
   """
   @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @type batch_revoke_sessions_errors() ::
+          validation_exception()
+          | too_many_requests_error()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type create_bearer_token_errors() ::
           validation_exception()
@@ -592,6 +735,13 @@ defmodule AWS.Signin do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type get_session_errors() ::
+          validation_exception()
+          | too_many_requests_error()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type introspect_o_auth2_token_with_iam_errors() ::
           validation_exception()
           | too_many_requests_error()
@@ -602,6 +752,12 @@ defmodule AWS.Signin do
           validation_exception()
           | too_many_requests_error()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_sessions_errors() ::
+          validation_exception()
+          | too_many_requests_error()
           | internal_server_exception()
           | access_denied_exception()
 
@@ -641,6 +797,42 @@ defmodule AWS.Signin do
       signing_name: "signin",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Revokes up to five sign-in sessions.
+
+  A revoked session can no longer be refreshed. Revoking a session that is
+  already revoked succeeds. Each session must belong to the identity specified by
+  principalArn, or to the caller if
+  principalArn is omitted. Failures for individual sessions are returned in the
+  errors list and do not fail the
+  whole request.
+  """
+  @spec batch_revoke_sessions(map(), batch_revoke_sessions_input(), list()) ::
+          {:ok, batch_revoke_sessions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_revoke_sessions_errors()}
+  def batch_revoke_sessions(%Client{} = client, input, options \\ []) do
+    url_path = "/batch-revoke-sessions"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -898,6 +1090,40 @@ defmodule AWS.Signin do
   end
 
   @doc """
+  Returns the details of a single sign-in session.
+
+  The session must belong to the identity specified by
+  principalArn, or to the caller if principalArn is omitted. A session that
+  belongs to a different identity or
+  account is reported as not found.
+  """
+  @spec get_session(map(), get_session_input(), list()) ::
+          {:ok, get_session_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_session_errors()}
+  def get_session(%Client{} = client, input, options \\ []) do
+    url_path = "/get-session"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Inspects the metadata and active state of an OAuth 2.0 access token or refresh
   token.
 
@@ -948,6 +1174,41 @@ defmodule AWS.Signin do
           | {:error, list_resource_permission_statements_errors()}
   def list_resource_permission_statements(%Client{} = client, input, options \\ []) do
     url_path = "/list-resource-permission-statements"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Lists sign-in sessions for an IAM identity in your account.
+
+  If you omit principalArn, the operation lists the
+  caller's own sessions. Specify a user or role ARN to list that identity's
+  sessions, or specify
+  arn:aws:iam::{account-id}:* to list all sessions in the account. Filters are
+  combined with a logical AND.
+  """
+  @spec list_sessions(map(), list_sessions_input(), list()) ::
+          {:ok, list_sessions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_sessions_errors()}
+  def list_sessions(%Client{} = client, input, options \\ []) do
+    url_path = "/list-sessions"
     headers = []
     custom_headers = []
     query_params = []

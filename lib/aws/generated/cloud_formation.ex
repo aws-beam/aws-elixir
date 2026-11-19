@@ -2586,6 +2586,47 @@ defmodule AWS.CloudFormation do
 
   ## Example:
       
+      regional_stack_instances_deployment() :: %{
+        "CancelledStackInstancesCount" => integer(),
+        "CompletedStackInstancesCount" => integer(),
+        "FailedStackInstancesCount" => integer(),
+        "PendingStackInstancesCount" => integer(),
+        "PercentageCompleted" => float(),
+        "SkippedStackInstancesCount" => integer(),
+        "Status" => list(any()),
+        "SucceededStackInstancesCount" => integer(),
+        "TotalStackInstancesCount" => integer()
+      }
+      
+  """
+  @type regional_stack_instances_deployment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      regional_stages() :: %{
+        "RegionalStackInstancesDeployment" => regional_stack_instances_deployment()
+      }
+      
+  """
+  @type regional_stages() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      regional_status_detail() :: %{
+        "Stages" => regional_stages()
+      }
+      
+  """
+  @type regional_status_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       register_publisher_input() :: %{
         optional("AcceptTermsAndConditions") => boolean(),
         optional("ConnectionArn") => String.t() | atom()
@@ -2856,6 +2897,22 @@ defmodule AWS.CloudFormation do
       
   """
   @type resource_to_import() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      role_provisioning() :: %{
+        "CompletedAccountsCount" => integer(),
+        "FailedAccountsCount" => integer(),
+        "PendingAccountsCount" => integer(),
+        "PercentageCompleted" => float(),
+        "Status" => list(any()),
+        "SucceededAccountsCount" => integer()
+      }
+      
+  """
+  @type role_provisioning() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3235,6 +3292,24 @@ defmodule AWS.CloudFormation do
 
   ## Example:
       
+      stack_instances_deployment() :: %{
+        "CancelledStackInstancesCount" => integer(),
+        "CompletedStackInstancesCount" => integer(),
+        "FailedStackInstancesCount" => integer(),
+        "PendingStackInstancesCount" => integer(),
+        "PercentageCompleted" => float(),
+        "SkippedStackInstancesCount" => integer(),
+        "Status" => list(any()),
+        "SucceededStackInstancesCount" => integer()
+      }
+      
+  """
+  @type stack_instances_deployment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       stack_not_found_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -3488,6 +3563,7 @@ defmodule AWS.CloudFormation do
         "ExecutionRoleName" => String.t() | atom(),
         "OperationId" => String.t() | atom(),
         "OperationPreferences" => stack_set_operation_preferences(),
+        "RegionalStatusDetails" => map(),
         "RetainStacks" => boolean(),
         "StackSetDriftDetectionDetails" => stack_set_drift_detection_details(),
         "StackSetId" => String.t() | atom(),
@@ -3537,7 +3613,10 @@ defmodule AWS.CloudFormation do
   ## Example:
       
       stack_set_operation_status_details() :: %{
-        "FailedStackInstancesCount" => integer()
+        "FailedStackInstancesCount" => integer(),
+        "Stages" => stages(),
+        "TotalAccountsCount" => integer(),
+        "TotalStackInstancesCount" => integer()
       }
       
   """
@@ -3601,6 +3680,18 @@ defmodule AWS.CloudFormation do
       
   """
   @type stack_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stages() :: %{
+        "RoleProvisioning" => role_provisioning(),
+        "StackInstancesDeployment" => stack_instances_deployment()
+      }
+      
+  """
+  @type stages() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4451,7 +4542,7 @@ defmodule AWS.CloudFormation do
   information for troubleshooting a failed update rollback, see [Update rollback failed](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed).
 
   `ForceRollback` and `ResourcesToSkip` are mutually exclusive.
-  For details, see `ContinueUpdateRollbackInput$ForceRollback`.
+  For details, see the `ForceRollback` parameter.
   """
   @spec continue_update_rollback(map(), continue_update_rollback_input(), list()) ::
           {:ok, continue_update_rollback_output(), any()}
@@ -5236,6 +5327,10 @@ defmodule AWS.CloudFormation do
   @doc """
   Returns the description of the specified StackSet operation.
 
+  Reports role provisioning and stack instances deployment progress in
+  `StatusDetails.Stages`. A breakdown for each Amazon Web Services Region is
+  available in `RegionalStatusDetails`.
+
   This API provides *strongly consistent* reads meaning it will always
   return the most up-to-date data.
   """
@@ -5966,6 +6061,10 @@ defmodule AWS.CloudFormation do
 
   @doc """
   Returns summary information about operations performed on a StackSet.
+
+  Reports role provisioning and stack instances deployment progress in
+  `StatusDetails.Stages`. The breakdown for each Amazon Web Services Region is
+  available only from `DescribeStackSetOperation`.
 
   This API provides *eventually consistent* reads meaning it may take
   some time but will eventually return the most up-to-date data.

@@ -619,6 +619,7 @@ defmodule AWS.Neptune do
         "ReadReplicaIdentifiers" => list(String.t() | atom()),
         "ReaderEndpoint" => String.t() | atom(),
         "ReplicationSourceIdentifier" => String.t() | atom(),
+        "ServerlessV2PlatformVersion" => String.t() | atom(),
         "ServerlessV2ScalingConfiguration" => serverless_v2_scaling_configuration_info(),
         "Status" => String.t() | atom(),
         "StorageEncrypted" => boolean(),
@@ -1832,6 +1833,23 @@ defmodule AWS.Neptune do
       
   """
   @type describe_pending_maintenance_actions_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_serverless_v2_platform_versions_message() :: %{
+        optional("DefaultOnly") => boolean(),
+        optional("Engine") => String.t() | atom(),
+        optional("Filters") => list(filter()),
+        optional("IncludeAll") => boolean(),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxRecords") => integer(),
+        optional("ServerlessV2PlatformVersion") => String.t() | atom()
+      }
+      
+  """
+  @type describe_serverless_v2_platform_versions_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3114,6 +3132,46 @@ defmodule AWS.Neptune do
 
   ## Example:
       
+      serverless_v2_features_support() :: %{
+        "MaxCapacity" => float(),
+        "MinCapacity" => float()
+      }
+      
+  """
+  @type serverless_v2_features_support() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      serverless_v2_platform_version_info() :: %{
+        "Engine" => String.t() | atom(),
+        "IsDefault" => boolean(),
+        "ServerlessV2FeaturesSupport" => serverless_v2_features_support(),
+        "ServerlessV2PlatformVersion" => String.t() | atom(),
+        "ServerlessV2PlatformVersionDescription" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type serverless_v2_platform_version_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      serverless_v2_platform_versions_message() :: %{
+        "Marker" => String.t() | atom(),
+        "ServerlessV2PlatformVersions" => list(serverless_v2_platform_version_info())
+      }
+      
+  """
+  @type serverless_v2_platform_versions_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       serverless_v2_scaling_configuration() :: %{
         "MaxCapacity" => float(),
         "MinCapacity" => float()
@@ -3956,19 +4014,6 @@ defmodule AWS.Neptune do
   When you associate a new DB cluster parameter group with a running DB cluster,
   you need to reboot the DB instances in the DB cluster without failover for the
   new DB cluster parameter group and associated settings to take effect.
-
-  After you create a DB cluster parameter group, you should wait at least
-  5 minutes before creating your first DB cluster that uses that DB cluster
-  parameter group as the default parameter group. This allows Amazon Neptune
-  to fully complete the create action before the DB cluster parameter group
-  is used as the default for a new DB cluster. This is especially important for
-  parameters that are critical when creating the default database for a DB
-  cluster, such as the character set for the default database defined by the
-  `character_set_database` parameter. You can use the *Parameter
-  Groups* option of the [Amazon Neptune console](https://console.aws.amazon.com/rds/) or the
-  `DescribeDBClusterParameters`
-  command to verify that your DB cluster parameter group has been created or
-  modified.
   """
   @spec create_db_cluster_parameter_group(
           map(),
@@ -4700,6 +4745,24 @@ defmodule AWS.Neptune do
       metadata()
 
     Request.request_post(client, meta, "DescribePendingMaintenanceActions", input, options)
+  end
+
+  @doc """
+  Describes the properties of specific platform versions for Neptune Serverless.
+  """
+  @spec describe_serverless_v2_platform_versions(
+          map(),
+          describe_serverless_v2_platform_versions_message(),
+          list()
+        ) ::
+          {:ok, serverless_v2_platform_versions_message(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_serverless_v2_platform_versions(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeServerlessV2PlatformVersions", input, options)
   end
 
   @doc """

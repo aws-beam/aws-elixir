@@ -1849,6 +1849,7 @@ defmodule AWS.Connect do
         "TaskTemplateInfo" => task_template_info_v2(),
         "TotalPauseCount" => integer(),
         "TotalPauseDurationInSeconds" => integer(),
+        "VoicemailInfo" => voicemail_info(),
         "WisdomInfo" => wisdom_info()
       }
 
@@ -17219,6 +17220,45 @@ defmodule AWS.Connect do
 
   """
   @type voice_recording_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      voicemail_analysis_reference() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type voicemail_analysis_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      voicemail_info() :: %{
+        "NumberOfVoicemails" => integer()
+      }
+
+  """
+  @type voicemail_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      voicemail_recording_reference() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type voicemail_recording_reference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

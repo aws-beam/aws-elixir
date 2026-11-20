@@ -34,6 +34,7 @@ defmodule AWS.DevOpsAgent do
 
       agent_space() :: %{
         "agentSpaceId" => String.t() | atom(),
+        "awsSourceMode" => list(any()),
         "createdAt" => [non_neg_integer()],
         "description" => String.t() | atom(),
         "kmsKeyArn" => String.t() | atom(),
@@ -232,7 +233,8 @@ defmodule AWS.DevOpsAgent do
         "accountType" => list(any()),
         "agentElevatedRoleArn" => String.t() | atom(),
         "agentElevatedRoleArnStatus" => list(any()),
-        "assumableRoleArn" => String.t() | atom()
+        "assumableRoleArn" => String.t() | atom(),
+        "serviceManagementRoleArn" => String.t() | atom()
       }
 
   """
@@ -317,6 +319,7 @@ defmodule AWS.DevOpsAgent do
   ## Example:
 
       create_agent_space_input() :: %{
+        optional("awsSourceMode") => list(any()),
         optional("clientToken") => [String.t() | atom()],
         optional("description") => String.t() | atom(),
         optional("kmsKeyArn") => String.t() | atom(),
@@ -2063,6 +2066,33 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      org_source_deployment_state() :: %{
+        "deployedAccountCount" => [integer()],
+        "issues" => list(org_source_issue()),
+        "lastEvaluatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type org_source_deployment_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      org_source_issue() :: %{
+        "accountCount" => [integer()],
+        "accountIds" => list(String.t() | atom()),
+        "message" => String.t() | atom(),
+        "reasonCode" => list(any())
+      }
+
+  """
+  @type org_source_issue() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       pager_duty_configuration() :: %{
         "customerEmail" => String.t() | atom(),
         "services" => list([String.t() | atom()]())
@@ -2921,6 +2951,31 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      source_aws_org_configuration() :: %{
+        "accountType" => list(any()),
+        "deploymentState" => org_source_deployment_state(),
+        "organizationalUnit" => source_aws_org_unit()
+      }
+
+  """
+  @type source_aws_org_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_aws_org_unit() :: %{
+        "accountIds" => list(String.t() | atom()),
+        "organizationalUnitId" => String.t() | atom()
+      }
+
+  """
+  @type source_aws_org_unit() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_request() :: %{
         required("tags") => map()
       }
@@ -3059,6 +3114,7 @@ defmodule AWS.DevOpsAgent do
   ## Example:
 
       update_agent_space_input() :: %{
+        optional("awsSourceMode") => list(any()),
         optional("description") => String.t() | atom(),
         optional("locale") => String.t() | atom(),
         optional("name") => String.t() | atom(),

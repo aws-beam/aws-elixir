@@ -515,11 +515,13 @@ defmodule AWS.RDS do
         "DBClusterIdentifier" => String.t() | atom(),
         "EngineVersion" => String.t() | atom(),
         "IAMDatabaseAuthenticationEnabled" => boolean(),
+        "InternetAccessGatewayEnabled" => boolean(),
         "Iops" => integer(),
         "MasterUserPassword" => String.t() | atom(),
         "PendingCloudwatchLogsExports" => pending_cloudwatch_logs_exports(),
         "RdsCustomClusterConfiguration" => rds_custom_cluster_configuration(),
-        "StorageType" => String.t() | atom()
+        "StorageType" => String.t() | atom(),
+        "VPCNetworkingEnabled" => boolean()
       }
       
   """
@@ -844,9 +846,11 @@ defmodule AWS.RDS do
         optional("EnableGlobalWriteForwarding") => boolean(),
         optional("EnableHttpEndpoint") => boolean(),
         optional("EnableIAMDatabaseAuthentication") => boolean(),
+        optional("EnableInternetAccessGateway") => boolean(),
         optional("EnableLimitlessDatabase") => boolean(),
         optional("EnableLocalWriteForwarding") => boolean(),
         optional("EnablePerformanceInsights") => boolean(),
+        optional("EnableVPCNetworking") => boolean(),
         optional("EngineLifecycleSupport") => String.t() | atom(),
         optional("EngineMode") => String.t() | atom(),
         optional("EngineVersion") => String.t() | atom(),
@@ -2264,6 +2268,7 @@ defmodule AWS.RDS do
         "PerformanceInsightsRetentionPeriod" => integer(),
         "PreferredBackupWindow" => String.t() | atom(),
         "PreferredMaintenanceWindow" => String.t() | atom(),
+        "PrimaryEndpoint" => primary_endpoint(),
         "ProcessorFeatures" => list(processor_feature()),
         "PromotionTier" => integer(),
         "PubliclyAccessible" => boolean(),
@@ -2286,6 +2291,7 @@ defmodule AWS.RDS do
         "TdeCredentialArn" => String.t() | atom(),
         "Timezone" => String.t() | atom(),
         "UpgradeRolloutOrder" => list(any()),
+        "VPCNetworkingEnabled" => boolean(),
         "VpcSecurityGroups" => list(vpc_security_group_membership())
       }
       
@@ -5811,6 +5817,7 @@ defmodule AWS.RDS do
         optional("DBClusterInstanceClass") => String.t() | atom(),
         optional("DBClusterParameterGroupName") => String.t() | atom(),
         optional("DBInstanceParameterGroupName") => String.t() | atom(),
+        optional("DBSubnetGroupName") => String.t() | atom(),
         optional("DatabaseInsightsMode") => list(any()),
         optional("DeletionProtection") => boolean(),
         optional("Domain") => String.t() | atom(),
@@ -5818,9 +5825,11 @@ defmodule AWS.RDS do
         optional("EnableGlobalWriteForwarding") => boolean(),
         optional("EnableHttpEndpoint") => boolean(),
         optional("EnableIAMDatabaseAuthentication") => boolean(),
+        optional("EnableInternetAccessGateway") => boolean(),
         optional("EnableLimitlessDatabase") => boolean(),
         optional("EnableLocalWriteForwarding") => boolean(),
         optional("EnablePerformanceInsights") => boolean(),
+        optional("EnableVPCNetworking") => boolean(),
         optional("EngineLifecycleSupport") => String.t() | atom(),
         optional("EngineMode") => String.t() | atom(),
         optional("EngineVersion") => String.t() | atom(),
@@ -6726,6 +6735,18 @@ defmodule AWS.RDS do
       
   """
   @type point_in_time_restore_not_enabled_fault() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      primary_endpoint() :: %{
+        "Address" => String.t() | atom(),
+        "HostedZoneId" => String.t() | atom()
+      }
+      
+  """
+  @type primary_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10092,6 +10113,9 @@ defmodule AWS.RDS do
   configuration provides a cluster with a writer instance and feature specific
   values set to all other input parameters of this API.
 
+  To create an Aurora PostgreSQL DB cluster without VPC networking, see
+  `EnableVPCNetworking`.
+
   You can use the `AssociatedRoles` parameter to associate one or more Amazon Web
   Services Identity and Access Management (IAM) roles with an Aurora DB cluster.
   Each associated role lets the DB cluster access other Amazon Web Services on
@@ -12332,6 +12356,11 @@ defmodule AWS.RDS do
 
   You can change one or more settings by specifying these parameters and the new
   values in the request.
+
+  To change the VPC networking configuration of an Aurora PostgreSQL DB cluster,
+  see `EnableVPCNetworking`. To move an Aurora MySQL or Aurora PostgreSQL DB
+  cluster to a different DB subnet group, in the same VPC or a different VPC, see
+  `DBSubnetGroupName`.
 
   For more information on Amazon Aurora DB clusters, see [ What is Amazon Aurora?](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html)
   in the *Amazon Aurora User Guide*.

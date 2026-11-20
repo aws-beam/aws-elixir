@@ -625,7 +625,8 @@ defmodule AWS.CloudFront do
         "Name" => String.t() | atom(),
         "RoutingEndpoint" => String.t() | atom(),
         "Status" => String.t() | atom(),
-        "Tags" => tags()
+        "Tags" => tags(),
+        "ViewerFallback" => viewer_fallback()
       }
 
   """
@@ -657,7 +658,8 @@ defmodule AWS.CloudFront do
         "LastModifiedTime" => non_neg_integer(),
         "Name" => String.t() | atom(),
         "RoutingEndpoint" => String.t() | atom(),
-        "Status" => String.t() | atom()
+        "Status" => String.t() | atom(),
+        "ViewerFallback" => viewer_fallback()
       }
 
   """
@@ -959,6 +961,7 @@ defmodule AWS.CloudFront do
         optional("Enabled") => boolean(),
         optional("Ipv6Enabled") => boolean(),
         optional("Tags") => tags(),
+        optional("ViewerFallback") => viewer_fallback(),
         required("Name") => String.t() | atom()
       }
 
@@ -1034,6 +1037,7 @@ defmodule AWS.CloudFront do
         optional("Customizations") => customizations(),
         optional("Enabled") => boolean(),
         optional("ManagedCertificateRequest") => managed_certificate_request(),
+        optional("OnDomainTakeover") => list(any()),
         optional("Parameters") => list(parameter()),
         optional("Tags") => tags(),
         required("DistributionId") => String.t() | atom(),
@@ -2264,7 +2268,8 @@ defmodule AWS.CloudFront do
   ## Example:
 
       domain_item() :: %{
-        "Domain" => String.t() | atom()
+        "Domain" => String.t() | atom(),
+        "ServeOn" => list(any())
       }
 
   """
@@ -2276,6 +2281,7 @@ defmodule AWS.CloudFront do
 
       domain_result() :: %{
         "Domain" => String.t() | atom(),
+        "ServeOn" => list(any()),
         "Status" => list(any())
       }
 
@@ -7560,6 +7566,7 @@ defmodule AWS.CloudFront do
         optional("AnycastIpListId") => String.t() | atom(),
         optional("Enabled") => boolean(),
         optional("Ipv6Enabled") => boolean(),
+        optional("ViewerFallback") => viewer_fallback(),
         required("IfMatch") => String.t() | atom()
       }
 
@@ -7637,6 +7644,7 @@ defmodule AWS.CloudFront do
         optional("Domains") => list(domain_item()),
         optional("Enabled") => boolean(),
         optional("ManagedCertificateRequest") => managed_certificate_request(),
+        optional("OnDomainTakeover") => list(any()),
         optional("Parameters") => list(parameter()),
         required("IfMatch") => String.t() | atom()
       }
@@ -8074,6 +8082,17 @@ defmodule AWS.CloudFront do
 
   """
   @type viewer_certificate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      viewer_fallback() :: %{
+        "DistributionId" => String.t() | atom()
+      }
+
+  """
+  @type viewer_fallback() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9185,6 +9204,7 @@ defmodule AWS.CloudFront do
           | illegal_origin_access_configuration()
           | illegal_field_level_encryption_config_association_with_cache_behavior()
           | entity_not_found()
+          | entity_limit_exceeded()
           | continuous_deployment_policy_in_use()
           | cname_already_exists()
           | access_denied()
@@ -9268,9 +9288,11 @@ defmodule AWS.CloudFront do
   @type update_domain_association_errors() ::
           precondition_failed()
           | invalid_if_match_version()
+          | invalid_association()
           | invalid_argument()
           | illegal_update()
           | entity_not_found()
+          | entity_limit_exceeded()
           | access_denied()
 
   @type update_field_level_encryption_config_errors() ::

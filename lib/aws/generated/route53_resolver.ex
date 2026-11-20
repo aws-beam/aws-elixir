@@ -166,6 +166,19 @@ defmodule AWS.Route53Resolver do
 
   ## Example:
       
+      auto_allowlist_config() :: %{
+        "AutoAllowlistFirewallDomainListId" => String.t() | atom(),
+        "ImportFromFirewallDomainListId" => String.t() | atom(),
+        "InitialDataTimeframeHours" => integer()
+      }
+      
+  """
+  @type auto_allowlist_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       batch_create_firewall_rule_error() :: %{
         "Code" => String.t() | atom(),
         "FirewallRule" => create_firewall_rule_entry(),
@@ -858,10 +871,13 @@ defmodule AWS.Route53Resolver do
         "Arn" => String.t() | atom(),
         "Category" => String.t() | atom(),
         "CreatorRequestId" => String.t() | atom(),
+        "FirewallRuleGroupId" => String.t() | atom(),
+        "FirewallThreatProtectionId" => String.t() | atom(),
         "Id" => String.t() | atom(),
         "ManagedListType" => list(any()),
         "ManagedOwnerName" => String.t() | atom(),
-        "Name" => String.t() | atom()
+        "Name" => String.t() | atom(),
+        "Status" => list(any())
       }
       
   """
@@ -896,6 +912,21 @@ defmodule AWS.Route53Resolver do
       
   """
   @type firewall_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      firewall_rule_domain() :: %{
+        "AddedTime" => String.t() | atom(),
+        "DomainName" => String.t() | atom(),
+        "DomainStatus" => list(any()),
+        "Last24HourRequests" => float(),
+        "TotalRequests" => float()
+      }
+      
+  """
+  @type firewall_rule_domain() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -962,6 +993,7 @@ defmodule AWS.Route53Resolver do
   ## Example:
       
       firewall_rule_type() :: %{
+        "AutoAllowlist" => auto_allowlist_config(),
         "DnsThreatProtection" => dns_threat_protection_rule_type_config(),
         "FirewallAdvancedContentCategory" => firewall_advanced_content_category_config(),
         "FirewallAdvancedThreatCategory" => firewall_advanced_threat_category_config(),
@@ -1024,7 +1056,9 @@ defmodule AWS.Route53Resolver do
   ## Example:
       
       get_firewall_domain_list_response() :: %{
-        "FirewallDomainList" => firewall_domain_list()
+        "FirewallDomainList" => firewall_domain_list(),
+        "FirewallRuleGroupId" => String.t() | atom(),
+        "FirewallThreatProtectionId" => String.t() | atom()
       }
       
   """
@@ -1539,6 +1573,48 @@ defmodule AWS.Route53Resolver do
       
   """
   @type list_firewall_domains_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_firewall_rule_domains_query_options() :: %{
+        "DomainNameFilter" => String.t() | atom(),
+        "DomainStatus" => list(any()),
+        "SortBy" => list(any()),
+        "SortOrder" => list(any())
+      }
+      
+  """
+  @type list_firewall_rule_domains_query_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_firewall_rule_domains_request() :: %{
+        optional("FirewallDomainListId") => String.t() | atom(),
+        optional("FirewallThreatProtectionId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("QueryOptions") => list_firewall_rule_domains_query_options(),
+        required("FirewallRuleGroupId") => String.t() | atom()
+      }
+      
+  """
+  @type list_firewall_rule_domains_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_firewall_rule_domains_response() :: %{
+        "Domains" => list(firewall_rule_domain()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_firewall_rule_domains_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2619,6 +2695,7 @@ defmodule AWS.Route53Resolver do
           | invalid_request_exception()
           | invalid_parameter_exception()
           | internal_service_error_exception()
+          | access_denied_exception()
 
   @type associate_resolver_query_log_config_errors() ::
           throttling_exception()
@@ -2639,6 +2716,7 @@ defmodule AWS.Route53Resolver do
           | invalid_request_exception()
           | invalid_parameter_exception()
           | internal_service_error_exception()
+          | access_denied_exception()
 
   @type batch_create_firewall_rule_errors() ::
           validation_exception()
@@ -2758,6 +2836,7 @@ defmodule AWS.Route53Resolver do
           | invalid_request_exception()
           | invalid_parameter_exception()
           | internal_service_error_exception()
+          | access_denied_exception()
 
   @type delete_resolver_query_log_config_errors() ::
           throttling_exception()
@@ -2774,6 +2853,7 @@ defmodule AWS.Route53Resolver do
           | invalid_request_exception()
           | invalid_parameter_exception()
           | internal_service_error_exception()
+          | access_denied_exception()
 
   @type disassociate_firewall_rule_group_errors() ::
           validation_exception()
@@ -2790,6 +2870,7 @@ defmodule AWS.Route53Resolver do
           | invalid_request_exception()
           | invalid_parameter_exception()
           | internal_service_error_exception()
+          | access_denied_exception()
 
   @type disassociate_resolver_query_log_config_errors() ::
           throttling_exception()
@@ -2805,6 +2886,7 @@ defmodule AWS.Route53Resolver do
           | invalid_request_exception()
           | invalid_parameter_exception()
           | internal_service_error_exception()
+          | access_denied_exception()
 
   @type get_firewall_config_errors() ::
           validation_exception()
@@ -2866,6 +2948,7 @@ defmodule AWS.Route53Resolver do
           | resource_not_found_exception()
           | invalid_parameter_exception()
           | internal_service_error_exception()
+          | access_denied_exception()
 
   @type get_resolver_query_log_config_errors() ::
           throttling_exception()
@@ -2895,12 +2978,14 @@ defmodule AWS.Route53Resolver do
           | resource_not_found_exception()
           | invalid_parameter_exception()
           | internal_service_error_exception()
+          | access_denied_exception()
 
   @type get_resolver_rule_association_errors() ::
           throttling_exception()
           | resource_not_found_exception()
           | invalid_parameter_exception()
           | internal_service_error_exception()
+          | access_denied_exception()
 
   @type get_resolver_rule_policy_errors() ::
           unknown_resource_exception()
@@ -2930,6 +3015,13 @@ defmodule AWS.Route53Resolver do
           | access_denied_exception()
 
   @type list_firewall_domains_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_service_error_exception()
+          | access_denied_exception()
+
+  @type list_firewall_rule_domains_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -2991,6 +3083,7 @@ defmodule AWS.Route53Resolver do
           | invalid_parameter_exception()
           | invalid_next_token_exception()
           | internal_service_error_exception()
+          | access_denied_exception()
 
   @type list_resolver_endpoints_errors() ::
           throttling_exception()
@@ -2998,6 +3091,7 @@ defmodule AWS.Route53Resolver do
           | invalid_parameter_exception()
           | invalid_next_token_exception()
           | internal_service_error_exception()
+          | access_denied_exception()
 
   @type list_resolver_query_log_config_associations_errors() ::
           throttling_exception()
@@ -3021,6 +3115,7 @@ defmodule AWS.Route53Resolver do
           | invalid_parameter_exception()
           | invalid_next_token_exception()
           | internal_service_error_exception()
+          | access_denied_exception()
 
   @type list_resolver_rules_errors() ::
           throttling_exception()
@@ -3028,6 +3123,7 @@ defmodule AWS.Route53Resolver do
           | invalid_parameter_exception()
           | invalid_next_token_exception()
           | internal_service_error_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
           throttling_exception()
@@ -3036,6 +3132,7 @@ defmodule AWS.Route53Resolver do
           | invalid_parameter_exception()
           | invalid_next_token_exception()
           | internal_service_error_exception()
+          | access_denied_exception()
 
   @type put_firewall_rule_group_policy_errors() ::
           validation_exception()
@@ -3067,6 +3164,7 @@ defmodule AWS.Route53Resolver do
           | invalid_request_exception()
           | invalid_parameter_exception()
           | internal_service_error_exception()
+          | access_denied_exception()
 
   @type untag_resource_errors() ::
           throttling_exception()
@@ -3074,6 +3172,7 @@ defmodule AWS.Route53Resolver do
           | invalid_request_exception()
           | invalid_parameter_exception()
           | internal_service_error_exception()
+          | access_denied_exception()
 
   @type update_firewall_config_errors() ::
           validation_exception()
@@ -3350,19 +3449,22 @@ defmodule AWS.Route53Resolver do
 
     *
 
-  `FirewallRuleType` — match one of the rule-type variants returned by
-  `ListFirewallRuleTypes`: `FirewallAdvancedContentCategory`,
-  `FirewallAdvancedThreatCategory`, `DnsThreatProtection`, or
-  `PartnerThreatProtection`. The `PartnerThreatProtection` variant requires an
-  active Amazon Web Services Marketplace subscription to the named partner
-  product.
+  `FirewallRuleType` — match one of the rule-type variants:
+  `FirewallAdvancedContentCategory`, `FirewallAdvancedThreatCategory`,
+  `DnsThreatProtection`, `PartnerThreatProtection`, or `AutoAllowlist`.
+  `ListFirewallRuleTypes` returns the first four. The `PartnerThreatProtection`
+  variant requires an active Amazon Web Services Marketplace subscription to the
+  named partner product.
 
-  For rules that require asynchronous provisioning (today, the
-  `PartnerThreatProtection` rule type), the rule's `Status` begins at `CREATING`
-  and transitions to `COMPLETE` once the rule is provisioned and the marketplace
-  entitlement is verified. If provisioning fails, `Status` becomes
-  `CREATION_FAILED` and `StatusMessage` contains a human-readable reason; the rule
-  is then immutable and must be removed with `DeleteFirewallRule`.
+  For rules that require asynchronous provisioning (the `PartnerThreatProtection`
+  and `AutoAllowlist` rule types), the rule's `Status` begins at `CREATING` and
+  transitions to `COMPLETE` once the rule is provisioned: for
+  `PartnerThreatProtection`, when the marketplace entitlement is verified, and for
+  `AutoAllowlist`, when DNS Firewall has read the look-back window of every VPC
+  that uses the rule group, which can take hours for a rule group that many VPCs
+  use. If provisioning fails, `Status` becomes `CREATION_FAILED` and
+  `StatusMessage` contains a human-readable reason; the rule is then immutable and
+  must be removed with `DeleteFirewallRule`.
   """
   @spec create_firewall_rule(map(), create_firewall_rule_request(), list()) ::
           {:ok, create_firewall_rule_response(), any()}
@@ -4026,6 +4128,9 @@ defmodule AWS.Route53Resolver do
   Imports domain names from a file into a domain list, for use in a DNS firewall
   rule group.
 
+  You can't import into an AutoAllowlist rule's managed domain list. To seed such
+  a list, specify `ImportFromFirewallDomainListId` when you create the rule.
+
   Each domain specification in your domain list must satisfy the following
   requirements:
 
@@ -4113,6 +4218,35 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
+  Retrieves the domains of an AutoAllowlist firewall rule.
+
+  Only the owner of the rule group can call this operation. Results are paginated.
+  Use `MaxResults` and `NextToken` to retrieve additional domains.
+
+  Identify the rule by `FirewallThreatProtectionId` to get the domains that DNS
+  Firewall observed in the VPCs that use the rule group, through a rule group
+  association or through a Route 53 Profile that includes the rule group,
+  including VPCs in other accounts. Each domain is returned with its
+  `DomainStatus` and request counts. Use `QueryOptions` to filter and sort the
+  results.
+
+  Identify the rule's managed domain list by `FirewallDomainListId` to get the
+  domains that the rule currently allows. For any other domain list, use
+  `ListFirewallDomains`.
+  """
+  @spec list_firewall_rule_domains(map(), list_firewall_rule_domains_request(), list()) ::
+          {:ok, list_firewall_rule_domains_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_firewall_rule_domains_errors()}
+  def list_firewall_rule_domains(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListFirewallRuleDomains", input, options)
+  end
+
+  @doc """
   Retrieves the firewall rule group associations that you have defined.
 
   Each association enables DNS filtering for a VPC with one rule group.
@@ -4172,6 +4306,9 @@ defmodule AWS.Route53Resolver do
   Marketplace product that backs it; absence of `SubscriptionInfo` means the
   variant is fully managed by Amazon Web Services and requires no separate
   subscription.
+
+  This operation doesn't return the `AutoAllowlist` variant. Configure an
+  AutoAllowlist rule with `AutoAllowlistConfig`.
   """
   @spec list_firewall_rule_types(map(), list_firewall_rule_types_request(), list()) ::
           {:ok, list_firewall_rule_types_response(), any()}
@@ -4196,7 +4333,7 @@ defmodule AWS.Route53Resolver do
   see `MaxResults`.
 
   For rules that require asynchronous provisioning, the response includes `Status`
-  (see `FirewallRuleStatus`) and, on failure, `StatusMessage` with the reason.
+  (see `FirewallRule`) and, on failure, `StatusMessage` with the reason.
   """
   @spec list_firewall_rules(map(), list_firewall_rules_request(), list()) ::
           {:ok, list_firewall_rules_response(), any()}
@@ -4488,6 +4625,22 @@ defmodule AWS.Route53Resolver do
 
   @doc """
   Updates the firewall domain list from an array of domain specifications.
+
+  For an AutoAllowlist rule's managed domain list, use `ADD` to approve observed
+  domains, `REMOVE` to stop allowing domains, unless a wildcard entry that's still
+  on the list matches them, and `DENY` to dismiss observed domains. `REPLACE` and
+  `ImportFirewallDomains` aren't supported for these lists.
+
+  DNS Firewall throttles `UpdateFirewallDomains` requests based on both the
+  request rate and the total number of domains across your requests.
+
+  ## Best Practice for Updating Domain Lists
+
+  If you only need to modify a subset of domains, use the `ADD` or `REMOVE`
+  operations instead of `REPLACE`. With `REPLACE`, you send the complete list you
+  want to end up with, and throttling counts every domain in that request,
+  including domains that aren't changing, which can use up your available
+  throttling capacity.
   """
   @spec update_firewall_domains(map(), update_firewall_domains_request(), list()) ::
           {:ok, update_firewall_domains_response(), any()}

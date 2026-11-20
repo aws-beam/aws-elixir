@@ -63,6 +63,7 @@ defmodule AWS.RolesAnywhere do
         optional("requireInstanceProperties") => [boolean()],
         optional("sessionPolicy") => [String.t() | atom()],
         optional("tags") => list(tag()),
+        optional("tipConfiguration") => tip_configuration(),
         required("name") => String.t() | atom(),
         required("roleArns") => list(String.t() | atom())
       }
@@ -342,6 +343,7 @@ defmodule AWS.RolesAnywhere do
         "requireInstanceProperties" => [boolean()],
         "roleArns" => list(String.t() | atom()),
         "sessionPolicy" => [String.t() | atom()],
+        "tipConfiguration" => tip_configuration(),
         "updatedAt" => [non_neg_integer()]
       }
 
@@ -583,6 +585,19 @@ defmodule AWS.RolesAnywhere do
 
   ## Example:
 
+      tip_configuration() :: %{
+        "status" => String.t() | atom(),
+        "subjectSource" => String.t() | atom(),
+        "subjectType" => String.t() | atom()
+      }
+
+  """
+  @type tip_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       too_many_tags_exception() :: %{
         "message" => [String.t() | atom()]
       }
@@ -668,7 +683,8 @@ defmodule AWS.RolesAnywhere do
         optional("managedPolicyArns") => list([String.t() | atom()]()),
         optional("name") => String.t() | atom(),
         optional("roleArns") => list(String.t() | atom()),
-        optional("sessionPolicy") => [String.t() | atom()]
+        optional("sessionPolicy") => [String.t() | atom()],
+        optional("tipConfiguration") => tip_configuration()
       }
 
   """

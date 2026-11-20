@@ -1134,6 +1134,22 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      code_security_integration_vpc_configuration() :: %{
+        "codeConnectionsHostArn" => String.t() | atom(),
+        "securityGroups" => list(String.t() | atom()),
+        "subnetIds" => list(String.t() | atom()),
+        "tlsCertificate" => String.t() | atom(),
+        "vpcEndpointId" => String.t() | atom(),
+        "vpcId" => String.t() | atom()
+      }
+
+  """
+  @type code_security_integration_vpc_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       code_security_scan_configuration() :: %{
         "continuousIntegrationScanConfiguration" => continuous_integration_scan_configuration(),
         "periodicScanConfiguration" => periodic_scan_configuration(),
@@ -1760,9 +1776,22 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      create_git_hub_enterprise_integration_detail() :: %{
+        "instanceUrl" => String.t() | atom(),
+        "vpcConfiguration" => code_security_integration_vpc_configuration()
+      }
+
+  """
+  @type create_git_hub_enterprise_integration_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_git_lab_self_managed_integration_detail() :: %{
         "accessToken" => String.t() | atom(),
-        "instanceUrl" => String.t() | atom()
+        "instanceUrl" => String.t() | atom(),
+        "vpcConfiguration" => code_security_integration_vpc_configuration()
       }
 
   """
@@ -2851,13 +2880,15 @@ defmodule AWS.Inspector2 do
       get_code_security_integration_response() :: %{
         "authorizationUrl" => String.t() | atom(),
         "createdOn" => [non_neg_integer()],
+        "instanceUrl" => String.t() | atom(),
         "integrationArn" => String.t() | atom(),
         "lastUpdateOn" => [non_neg_integer()],
         "name" => String.t() | atom(),
         "status" => list(any()),
         "statusReason" => [String.t() | atom()],
         "tags" => map(),
-        "type" => list(any())
+        "type" => list(any()),
+        "vpcConfiguration" => code_security_integration_vpc_configuration()
       }
 
   """
@@ -3118,6 +3149,17 @@ defmodule AWS.Inspector2 do
 
   """
   @type get_sbom_export_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      git_hub_enterprise_server_app_registration_detail() :: %{
+        "manifestCode" => String.t() | atom()
+      }
+
+  """
+  @type git_hub_enterprise_server_app_registration_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5205,9 +5247,25 @@ defmodule AWS.Inspector2 do
 
   ## Example:
 
+      update_git_hub_enterprise_server_app_installation_detail() :: %{
+        "code" => String.t() | atom(),
+        "installationId" => String.t() | atom(),
+        "stateToken" => String.t() | atom()
+      }
+
+  """
+  @type update_git_hub_enterprise_server_app_installation_detail() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
       update_git_hub_integration_detail() :: %{
         "code" => String.t() | atom(),
-        "installationId" => String.t() | atom()
+        "installationId" => String.t() | atom(),
+        "stateToken" => String.t() | atom()
       }
 
   """
@@ -5218,7 +5276,8 @@ defmodule AWS.Inspector2 do
   ## Example:
 
       update_git_lab_self_managed_integration_detail() :: %{
-        "authCode" => String.t() | atom()
+        "authCode" => String.t() | atom(),
+        "stateToken" => String.t() | atom()
       }
 
   """

@@ -1995,7 +1995,9 @@ defmodule AWS.LakeFormation do
         "AttachmentColumns" => list(column()),
         "CatalogId" => String.t() | atom(),
         "FilterExpression" => String.t() | atom(),
-        "Name" => String.t() | atom()
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusReason" => list(any())
       }
 
   """

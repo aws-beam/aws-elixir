@@ -33,6 +33,7 @@ defmodule AWS.ACM do
         "AcmeAccountId" => String.t() | atom(),
         "AcmeEndpointArn" => String.t() | atom(),
         "CertificateKeyPairOrigin" => list(any()),
+        "CertificateUsage" => list(any()),
         "CreatedAt" => non_neg_integer(),
         "ExportOption" => list(any()),
         "Exported" => boolean(),
@@ -43,6 +44,7 @@ defmodule AWS.ACM do
         "RenewalEligibility" => list(any()),
         "RenewalStatus" => list(any()),
         "RevokedAt" => non_neg_integer(),
+        "RootHierarchyType" => list(any()),
         "Status" => list(any()),
         "Type" => list(any()),
         "ValidationMethod" => list(any())
@@ -219,6 +221,7 @@ defmodule AWS.ACM do
         "CertificateArn" => String.t() | atom(),
         "CertificateAuthorityArn" => String.t() | atom(),
         "CertificateKeyPairOrigin" => list(any()),
+        "CertificateUsage" => list(any()),
         "CreatedAt" => non_neg_integer(),
         "DomainName" => String.t() | atom(),
         "DomainValidationOptions" => list(domain_validation()),
@@ -238,6 +241,7 @@ defmodule AWS.ACM do
         "RenewalSummary" => renewal_summary(),
         "RevocationReason" => list(any()),
         "RevokedAt" => non_neg_integer(),
+        "RootHierarchyType" => list(any()),
         "Serial" => String.t() | atom(),
         "SignatureAlgorithm" => String.t() | atom(),
         "Status" => list(any()),
@@ -283,6 +287,7 @@ defmodule AWS.ACM do
       certificate_summary() :: %{
         "CertificateArn" => String.t() | atom(),
         "CertificateKeyPairOrigin" => list(any()),
+        "CertificateUsage" => list(any()),
         "CreatedAt" => non_neg_integer(),
         "DomainName" => String.t() | atom(),
         "ExportOption" => list(any()),
@@ -299,6 +304,7 @@ defmodule AWS.ACM do
         "NotBefore" => non_neg_integer(),
         "RenewalEligibility" => list(any()),
         "RevokedAt" => non_neg_integer(),
+        "RootHierarchyType" => list(any()),
         "Status" => list(any()),
         "SubjectAlternativeNameSummaries" => list(String.t() | atom()),
         "Type" => list(any())
@@ -1148,6 +1154,7 @@ defmodule AWS.ACM do
         optional("Includes") => filters(),
         optional("MaxItems") => integer(),
         optional("NextToken") => String.t() | atom(),
+        optional("RootHierarchyTypes") => list(list(any())()),
         optional("SortBy") => list(any()),
         optional("SortOrder") => list(any())
       }
@@ -1289,11 +1296,13 @@ defmodule AWS.ACM do
       
       request_certificate_request() :: %{
         optional("CertificateAuthorityArn") => String.t() | atom(),
+        optional("CertificateUsage") => list(any()),
         optional("DomainValidationOptions") => list(domain_validation_option()),
         optional("IdempotencyToken") => String.t() | atom(),
         optional("KeyAlgorithm") => list(any()),
         optional("ManagedBy") => list(any()),
         optional("Options") => certificate_options(),
+        optional("RootHierarchyType") => list(any()),
         optional("SubjectAlternativeNames") => list(String.t() | atom()),
         optional("Tags") => list(tag()),
         optional("ValidationMethod") => list(any()),
@@ -2471,6 +2480,11 @@ defmodule AWS.ACM do
   By default, this action does not return certificates with a
   `CertificateKeyPairOrigin` of `ACME`. To include ACME certificates, specify
   `ACME` in the `CertificateKeyPairOrigins` filter.
+
+  By default, this action does not return certificates with a `RootHierarchyType`
+  of `N2_AMAZON_MANAGED` or `N2_SFG2_AMAZON_MANAGED`. To list only Amazon N2
+  certificates, specify one or both of these values in the `RootHierarchyTypes`
+  filter.
   """
   @spec list_certificates(map(), list_certificates_request(), list()) ::
           {:ok, list_certificates_response(), any()}

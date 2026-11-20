@@ -1842,6 +1842,17 @@ defmodule AWS.ConnectCases do
 
   ## Example:
 
+      sla_update_configuration() :: %{
+        "targetSlaMinutes" => float()
+      }
+
+  """
+  @type sla_update_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       sort() :: %{
         "fieldId" => String.t() | atom(),
         "sortOrder" => String.t() | atom()
@@ -2923,6 +2934,9 @@ defmodule AWS.ConnectCases do
 
   There's a quota for the number of fields allowed in a Custom type related item.
   See [Connect Customer Cases quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#cases-quotas).
+
+  There's a quota for the number of SLAs that can be attached to a case. See
+  [Connect Customer Cases quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#cases-quotas).
 
   ## Use cases
 
@@ -4461,6 +4475,11 @@ defmodule AWS.ConnectCases do
   add, modify, and remove fields from a custom related item. There's a quota for
   the number of fields allowed in a Custom type related item. See [Connect Customer Cases
   quotas](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#cases-quotas).
+
+    * **Sla** - Update the target duration (`targetSlaMinutes`) of an
+  SLA. The new deadline is counted from when the SLA was created. The SLA status
+  is recalculated against the new deadline: an open SLA becomes Active or Overdue,
+  and a completed SLA becomes Met or NotMet.
 
   ## Important things to know
 

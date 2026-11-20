@@ -955,6 +955,7 @@ defmodule AWS.MediaLive do
         "InferenceSettings" => describe_inference_settings(),
         "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
+        "JpegXsInputSpecification" => jpeg_xs_input_specification(),
         "LinkedChannelSettings" => describe_linked_channel_settings(),
         "LogLevel" => list(any()),
         "Maintenance" => maintenance_status(),
@@ -1038,6 +1039,7 @@ defmodule AWS.MediaLive do
         "InferenceSettings" => describe_inference_settings(),
         "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
+        "JpegXsInputSpecification" => jpeg_xs_input_specification(),
         "LinkedChannelSettings" => describe_linked_channel_settings(),
         "LogLevel" => list(any()),
         "Maintenance" => maintenance_status(),
@@ -1343,6 +1345,7 @@ defmodule AWS.MediaLive do
         optional("InferenceSettings") => inference_settings(),
         optional("InputAttachments") => list(input_attachment()),
         optional("InputSpecification") => input_specification(),
+        optional("JpegXsInputSpecification") => jpeg_xs_input_specification(),
         optional("LinkedChannelSettings") => linked_channel_settings(),
         optional("LogLevel") => list(any()),
         optional("Maintenance") => maintenance_create_settings(),
@@ -1915,6 +1918,7 @@ defmodule AWS.MediaLive do
         "InferenceSettings" => describe_inference_settings(),
         "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
+        "JpegXsInputSpecification" => jpeg_xs_input_specification(),
         "LinkedChannelSettings" => describe_linked_channel_settings(),
         "LogLevel" => list(any()),
         "Maintenance" => maintenance_status(),
@@ -2336,6 +2340,7 @@ defmodule AWS.MediaLive do
         "InferenceSettings" => describe_inference_settings(),
         "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
+        "JpegXsInputSpecification" => jpeg_xs_input_specification(),
         "LinkedChannelSettings" => describe_linked_channel_settings(),
         "LogLevel" => list(any()),
         "Maintenance" => maintenance_status(),
@@ -4541,6 +4546,19 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      jpeg_xs_input_specification() :: %{
+        "Codec" => list(any()),
+        "MaximumBitrate" => list(any()),
+        "Resolution" => list(any())
+      }
+
+  """
+  @type jpeg_xs_input_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       key_provider_settings() :: %{
         "StaticKeySettings" => static_key_settings()
       }
@@ -6591,6 +6609,7 @@ defmodule AWS.MediaLive do
         "InferenceSettings" => describe_inference_settings(),
         "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
+        "JpegXsInputSpecification" => jpeg_xs_input_specification(),
         "LinkedChannelSettings" => describe_linked_channel_settings(),
         "LogLevel" => list(any()),
         "Maintenance" => maintenance_status(),
@@ -7311,6 +7330,7 @@ defmodule AWS.MediaLive do
         "InferenceSettings" => describe_inference_settings(),
         "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
+        "JpegXsInputSpecification" => jpeg_xs_input_specification(),
         "LinkedChannelSettings" => describe_linked_channel_settings(),
         "LogLevel" => list(any()),
         "Maintenance" => maintenance_status(),
@@ -7631,6 +7651,7 @@ defmodule AWS.MediaLive do
         "InferenceSettings" => describe_inference_settings(),
         "InputAttachments" => list(input_attachment()),
         "InputSpecification" => input_specification(),
+        "JpegXsInputSpecification" => jpeg_xs_input_specification(),
         "LinkedChannelSettings" => describe_linked_channel_settings(),
         "LogLevel" => list(any()),
         "Maintenance" => maintenance_status(),
@@ -8032,6 +8053,7 @@ defmodule AWS.MediaLive do
         optional("InferenceSettings") => inference_settings(),
         optional("InputAttachments") => list(input_attachment()),
         optional("InputSpecification") => input_specification(),
+        optional("JpegXsInputSpecification") => jpeg_xs_input_specification(),
         optional("LinkedChannelSettings") => linked_channel_settings(),
         optional("LogLevel") => list(any()),
         optional("Maintenance") => maintenance_update_settings(),

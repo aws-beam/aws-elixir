@@ -23,6 +23,17 @@ defmodule AWS.Polly do
 
   ## Example:
 
+      access_denied_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       audio_event() :: %{
         "AudioChunk" => binary()
       }
@@ -43,6 +54,59 @@ defmodule AWS.Polly do
 
   ## Example:
 
+      conflict_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => list(any())
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_voice_input() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("CustomerManagedEncryption") => customer_managed_encryption(),
+        optional("Tags") => map(),
+        required("LanguageCode") => list(any()),
+        required("Name") => String.t() | atom(),
+        required("TermsAccepted") => boolean(),
+        required("VoiceCreationData") => voice_creation_data()
+      }
+
+  """
+  @type create_voice_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_voice_output() :: %{
+        "Voice" => voice()
+      }
+
+  """
+  @type create_voice_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      customer_managed_encryption() :: %{
+        "EncryptionContext" => map(),
+        "KmsKeyArn" => String.t() | atom()
+      }
+
+  """
+  @type customer_managed_encryption() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_lexicon_input() :: %{}
 
   """
@@ -56,6 +120,24 @@ defmodule AWS.Polly do
 
   """
   @type delete_lexicon_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_voice_input() :: %{}
+
+  """
+  @type delete_voice_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_voice_output() :: %{}
+
+  """
+  @type delete_voice_output() :: %{}
 
   @typedoc """
 
@@ -145,6 +227,26 @@ defmodule AWS.Polly do
 
   """
   @type get_speech_synthesis_task_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_voice_input() :: %{}
+
+  """
+  @type get_voice_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_voice_output() :: %{
+        "Voice" => voice()
+      }
+
+  """
+  @type get_voice_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -441,6 +543,30 @@ defmodule AWS.Polly do
 
   """
   @type put_lexicon_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      recording() :: %{
+        "Data" => recording_data(),
+        "Format" => list(any())
+      }
+
+  """
+  @type recording() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recording_data() :: %{
+        "Bytes" => binary(),
+        "S3Url" => String.t() | atom()
+      }
+
+  """
+  @type recording_data() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -784,18 +910,52 @@ defmodule AWS.Polly do
 
       voice() :: %{
         "AdditionalLanguageCodes" => list(list(any())()),
+        "Arn" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "CustomerManagedEncryption" => customer_managed_encryption(),
         "Gender" => list(any()),
         "Id" => list(any()),
         "LanguageCode" => list(any()),
         "LanguageName" => String.t() | atom(),
         "Name" => String.t() | atom(),
-        "SupportedEngines" => list(list(any())())
+        "Origin" => list(any()),
+        "Status" => list(any()),
+        "StatusReason" => String.t() | atom(),
+        "SupportedEngines" => list(list(any())()),
+        "VoiceCreationData" => voice_creation_data()
       }
 
   """
   @type voice() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      voice_creation_data() :: %{
+        "Recordings" => list(recording())
+      }
+
+  """
+  @type voice_creation_data() :: %{(String.t() | atom()) => any()}
+
+  @type create_voice_errors() ::
+          validation_exception()
+          | too_many_tags_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | service_failure_exception()
+          | invalid_tag_parameter_exception()
+          | access_denied_exception()
+
   @type delete_lexicon_errors() :: service_failure_exception() | lexicon_not_found_exception()
+
+  @type delete_voice_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_failure_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type describe_voices_errors() :: service_failure_exception() | invalid_next_token_exception()
 
@@ -805,6 +965,12 @@ defmodule AWS.Polly do
           synthesis_task_not_found_exception()
           | service_failure_exception()
           | invalid_task_id_exception()
+
+  @type get_voice_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_failure_exception()
+          | resource_not_found_exception()
 
   @type list_lexicons_errors() :: service_failure_exception() | invalid_next_token_exception()
 
@@ -835,11 +1001,14 @@ defmodule AWS.Polly do
           | throttling_exception()
           | service_quota_exceeded_exception()
           | service_failure_exception()
+          | resource_not_found_exception()
+          | conflict_exception()
 
   @type start_speech_synthesis_task_errors() ::
           text_length_exceeded_exception()
           | ssml_marks_not_supported_for_text_type_exception()
           | service_failure_exception()
+          | resource_not_found_exception()
           | marks_not_supported_for_format_exception()
           | lexicon_not_found_exception()
           | language_not_supported_exception()
@@ -849,17 +1018,20 @@ defmodule AWS.Polly do
           | invalid_s3_key_exception()
           | invalid_s3_bucket_exception()
           | engine_not_supported_exception()
+          | conflict_exception()
 
   @type synthesize_speech_errors() ::
           text_length_exceeded_exception()
           | ssml_marks_not_supported_for_text_type_exception()
           | service_failure_exception()
+          | resource_not_found_exception()
           | marks_not_supported_for_format_exception()
           | lexicon_not_found_exception()
           | language_not_supported_exception()
           | invalid_ssml_exception()
           | invalid_sample_rate_exception()
           | engine_not_supported_exception()
+          | conflict_exception()
 
   @type tag_resource_errors() ::
           validation_exception()
@@ -890,6 +1062,55 @@ defmodule AWS.Polly do
       signing_name: "polly",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Creates a custom voice from recordings of a speaker and returns it
+  in `pending` status.
+
+  Use `GetVoice` to check the
+  status. When the status is `active`, you can use the voice ID
+  in `SynthesizeSpeech`, `StartSpeechSynthesisTask`,
+  and `StartSpeechSynthesisStream`.
+
+  The `custom-voice-max-count` service quota limits the
+  number of custom voices in your account in each Region. If you reach the
+  quota, the request fails with
+  `ServiceQuotaExceededException`.
+
+  This operation requires permissions to perform the
+  `polly:CreateVoice` action. You also need
+  `s3:GetObject` permission on each recording that you specify by
+  `S3Url`. If you specify a customer managed key, you also need
+  `kms:DescribeKey`, `kms:GenerateDataKey`, and
+  `kms:Decrypt` permissions on the key. If you specify
+  `Tags`, you also need the `polly:TagResource`
+  permission.
+  """
+  @spec create_voice(map(), create_voice_input(), list()) ::
+          {:ok, create_voice_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_voice_errors()}
+  def create_voice(%Client{} = client, input, options \\ []) do
+    url_path = "/v1/voices"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -929,25 +1150,86 @@ defmodule AWS.Polly do
   end
 
   @doc """
-  Returns the list of voices that are available for use when
-  requesting speech synthesis.
+  Deletes a custom voice.
 
-  Each voice speaks a specified language, is
-  either male or female, and is identified by an ID, which is the ASCII
-  version of the voice name.
+  `DescribeVoices` and
+  `GetVoice` stop returning the voice immediately. You can't
+  restore a deleted voice.
 
-  When synthesizing speech ( `SynthesizeSpeech` ), you
+  You can delete a voice in `active` or `failed`
+  status. If the voice is in `pending` status, the request fails
+  with `ConflictException`. If no custom voice with the specified
+  ID exists in your account and Region, the request fails with
+  `ResourceNotFoundException`. You can delete the voice even if
+  you disabled its Amazon Web Services KMS key or scheduled it for deletion.
+
+  This operation requires permissions to perform the
+  `polly:DeleteVoice` action.
+  """
+  @spec delete_voice(map(), String.t() | atom(), delete_voice_input(), list()) ::
+          {:ok, delete_voice_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_voice_errors()}
+  def delete_voice(%Client{} = client, voice_id, input, options \\ []) do
+    url_path = "/v1/voices/#{AWS.Util.encode_uri(voice_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns the list of voices: the voices that Amazon Polly provides and
+  the custom voices in your account.
+
+  Each voice speaks a specified language
+  and is identified by an ID. A voice that Amazon Polly provides is either male or
+  female, and its ID is the ASCII version of the voice name.
+
+  When synthesizing speech (`SynthesizeSpeech`), you
   provide the voice ID for the voice you want from the list of voices
   returned by `DescribeVoices`.
 
-  For example, you want your news reader application to read news in
-  a specific language, but giving a user the option to choose the voice.
-  Using the `DescribeVoices` operation you can provide the user
-  with a list of available voices to select from.
+  For example, your news reader application reads news in a specific
+  language, and you want to give users the option to choose the voice. With
+  the `DescribeVoices` operation, you can provide a list of
+  available voices for users to choose from.
 
   You can optionally specify a language code to filter the available
   voices. For example, if you specify `en-US`, the operation
   returns a list of all available US English voices.
+
+  The list includes custom voices in every status. For each voice, `Origin`
+  indicates whether Amazon Polly
+  provides the voice or you created it. You can use a custom voice for
+  synthesis only when its status is `active`. A voice in
+  `failed` status stays in the list until you delete it.
+
+  For a custom voice, `DescribeVoices` returns
+  `Origin`, `Id`, `Name`,
+  `Status`, `LanguageCode`, `LanguageName`,
+  `SupportedEngines`, and `CreationTime`. To get
+  `Arn`, `StatusReason`,
+  `VoiceCreationData`, and
+  `CustomerManagedEncryption`, use `GetVoice`.
+
+  The `LanguageCode` and `Engine` filters apply
+  to custom voices in the same way as to voices that Amazon Polly
+  provides.
 
   This operation requires permissions to perform the
   `polly:DescribeVoices` action.
@@ -1044,6 +1326,37 @@ defmodule AWS.Polly do
           | {:error, get_speech_synthesis_task_errors()}
   def get_speech_synthesis_task(%Client{} = client, task_id, options \\ []) do
     url_path = "/v1/synthesisTasks/#{AWS.Util.encode_uri(task_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns the status and properties of a custom voice.
+
+  Use this
+  operation after `CreateVoice` to check whether the status of
+  the voice is `active` or `failed`. Unlike
+  `DescribeVoices`, `GetVoice` also returns
+  `Arn`, `VoiceCreationData`,
+  `CustomerManagedEncryption`, and
+  `StatusReason`. If no custom voice with the specified ID exists
+  in your account and Region, the request fails with
+  `ResourceNotFoundException`.
+
+  This operation requires permissions to perform the
+  `polly:GetVoice` action.
+  """
+  @spec get_voice(map(), String.t() | atom(), list()) ::
+          {:ok, get_voice_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_voice_errors()}
+  def get_voice(%Client{} = client, voice_id, options \\ []) do
+    url_path = "/v1/voices/#{AWS.Util.encode_uri(voice_id)}"
     headers = []
     query_params = []
 
@@ -1216,6 +1529,20 @@ defmodule AWS.Polly do
     *
 
   [SynthesizeSpeech](https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html)
+
+  To use a custom voice, specify its ID in `VoiceId`. The
+  voice must be in `active` status. If the voice is in
+  `pending` or `failed` status, the request fails with
+  `ConflictException`. If no custom voice with the specified ID
+  exists in your account and Region, the request fails with
+  `ResourceNotFoundException`. If the custom voice uses a
+  customer managed key, you need `kms:Decrypt` permission on the
+  key. If you disabled the key or scheduled it for deletion, the request
+  fails with `ValidationException`. If you don't have permission
+  to use the key, the request fails with
+  `AccessDeniedException`. If Amazon Web Services KMS throttles Amazon Polly's
+  request to use the key, the request fails with
+  `ThrottlingException`.
   """
   @spec start_speech_synthesis_stream(map(), start_speech_synthesis_stream_input(), list()) ::
           {:ok, start_speech_synthesis_stream_output(), any()}
@@ -1255,18 +1582,29 @@ defmodule AWS.Polly do
   end
 
   @doc """
-  Allows the creation of an asynchronous synthesis task, by starting a
-  new `SpeechSynthesisTask`.
+  Starts an asynchronous synthesis task by creating a new
+  `SpeechSynthesisTask`.
 
-  This operation requires all the
-  standard information needed for speech synthesis, plus the name of an
-  Amazon S3 bucket for the service to store the output of the synthesis task
-  and two optional parameters (`OutputS3KeyPrefix` and
-  `SnsTopicArn`). Once the synthesis task is created, this
-  operation will return a `SpeechSynthesisTask` object, which
-  will include an identifier of this task as well as the current status. The
+  This operation requires all the standard
+  information needed for speech synthesis, plus the name of an Amazon S3
+  bucket for the service to store the output of the synthesis task and two
+  optional parameters (`OutputS3KeyPrefix` and
+  `SnsTopicArn`). After Amazon Polly creates the synthesis task, the
+  operation returns a `SpeechSynthesisTask` object that includes
+  an identifier for the task and its current status. The
   `SpeechSynthesisTask` object is available for 72 hours after
-  starting the asynchronous synthesis task.
+  you start the asynchronous synthesis task.
+
+  To use a custom voice, specify its ID in `VoiceId`. The
+  voice must be in `active` status. If the voice is in
+  `pending` or `failed` status, the request fails with
+  `ConflictException`. If no custom voice with the specified ID
+  exists in your account and Region, the request fails with
+  `ResourceNotFoundException`. If the custom voice uses a
+  customer managed key, you need `kms:Decrypt` permission on the
+  key. If you disable the key or schedule it for deletion before the task
+  runs, the task fails and `TaskStatusReason` describes the
+  cause.
   """
   @spec start_speech_synthesis_task(map(), start_speech_synthesis_task_input(), list()) ::
           {:ok, start_speech_synthesis_task_output(), any()}
@@ -1301,6 +1639,21 @@ defmodule AWS.Polly do
   available with all the voices (for example, Cyrillic might not be read at
   all by English voices) unless phoneme mapping is used. For more
   information, see [How it Works](https://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html).
+
+  To use a custom voice, specify its ID in `VoiceId`. The
+  voice must be in `active` status. If the voice is in
+  `pending` or `failed` status, the request fails with
+  `ConflictException`. If no custom voice with the specified ID
+  exists in your account and Region, the request fails with
+  `ResourceNotFoundException`.
+
+  If the custom voice uses a customer managed key, you need
+  `kms:Decrypt` permission on the key. If you disabled the key or
+  scheduled it for deletion, the request fails with
+  `ValidationException`. If you don't have permission to use the
+  key, the request fails with `AccessDeniedException`. If Amazon Web Services
+  KMS throttles Amazon Polly's request to use the key, the request fails with
+  `ThrottlingException`.
   """
   @spec synthesize_speech(map(), synthesize_speech_input(), list()) ::
           {:ok, synthesize_speech_output(), any()}

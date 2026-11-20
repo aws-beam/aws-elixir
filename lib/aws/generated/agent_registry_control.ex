@@ -94,7 +94,10 @@ defmodule AWS.AgentRegistryControl do
   ## Example:
 
       agent_skills_additional_data() :: %{
-        "skillMd" => agent_skills_md_descriptor()
+        "repositoryProvider" => list(any()),
+        "skillMd" => agent_skills_md_descriptor(),
+        "skillPackage" => agent_skills_package_descriptor(),
+        "sourceConfiguration" => list()
       }
 
   """
@@ -125,6 +128,17 @@ defmodule AWS.AgentRegistryControl do
 
   """
   @type agent_skills_md_descriptor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_skills_package_descriptor() :: %{
+        "source" => descriptor_source()
+      }
+
+  """
+  @type agent_skills_package_descriptor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -190,6 +204,7 @@ defmodule AWS.AgentRegistryControl do
   ## Example:
 
       create_registry_record_request() :: %{
+        optional("artifact") => registry_record_artifact_upload(),
         optional("clientToken") => String.t() | atom(),
         optional("customMetadata") => any(),
         optional("description") => String.t() | atom(),
@@ -210,6 +225,7 @@ defmodule AWS.AgentRegistryControl do
   ## Example:
 
       create_registry_record_response() :: %{
+        "authorizationData" => list(),
         "recordArn" => String.t() | atom(),
         "status" => list(any())
       }
@@ -414,6 +430,7 @@ defmodule AWS.AgentRegistryControl do
   ## Example:
 
       get_registry_record_response() :: %{
+        "artifact" => registry_record_artifact_download(),
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
         "createdByAutoDetection" => [boolean()],
@@ -431,6 +448,7 @@ defmodule AWS.AgentRegistryControl do
         "registryArn" => String.t() | atom(),
         "status" => list(any()),
         "statusReason" => [String.t() | atom()],
+        "synchronizedSource" => list(),
         "updatedAt" => non_neg_integer()
       }
 
@@ -468,6 +486,19 @@ defmodule AWS.AgentRegistryControl do
 
   """
   @type get_registry_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      git_hub_synchronized_source() :: %{
+        "commitId" => String.t() | atom(),
+        "synchronizedAt" => non_neg_integer(),
+        "url" => String.t() | atom()
+      }
+
+  """
+  @type git_hub_synchronized_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -618,6 +649,20 @@ defmodule AWS.AgentRegistryControl do
 
   ## Example:
 
+      o_auth2_authorization_data() :: %{
+        "authorizationAttemptId" => String.t() | atom(),
+        "authorizationUrl" => String.t() | atom(),
+        "expiresAt" => non_neg_integer(),
+        "userId" => String.t() | atom()
+      }
+
+  """
+  @type o_auth2_authorization_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       private_endpoint_override() :: %{
         "domain" => String.t() | atom(),
         "privateEndpoint" => list()
@@ -681,6 +726,30 @@ defmodule AWS.AgentRegistryControl do
 
   ## Example:
 
+      registry_record_artifact_download() :: %{
+        "downloadUrl" => String.t() | atom(),
+        "sha256" => String.t() | atom()
+      }
+
+  """
+  @type registry_record_artifact_download() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      registry_record_artifact_upload() :: %{
+        "content" => binary(),
+        "sha256" => String.t() | atom()
+      }
+
+  """
+  @type registry_record_artifact_upload() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       registry_record_credential_provider_configuration() :: %{
         "credentialProvider" => list(),
         "credentialProviderType" => list(any())
@@ -722,6 +791,7 @@ defmodule AWS.AgentRegistryControl do
         "customParameters" => map(),
         "grantType" => list(any()),
         "providerArn" => String.t() | atom(),
+        "returnUrl" => String.t() | atom(),
         "scopes" => list([String.t() | atom()]())
       }
 
@@ -783,6 +853,31 @@ defmodule AWS.AgentRegistryControl do
 
   """
   @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_source_configuration() :: %{
+        "bucketOwnerAccountId" => String.t() | atom()
+      }
+
+  """
+  @type s3_source_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_synchronized_source() :: %{
+        "eTag" => String.t() | atom(),
+        "synchronizedAt" => non_neg_integer(),
+        "url" => String.t() | atom(),
+        "versionId" => String.t() | atom()
+      }
+
+  """
+  @type s3_synchronized_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -875,10 +970,12 @@ defmodule AWS.AgentRegistryControl do
   ## Example:
 
       update_registry_record_request() :: %{
+        optional("artifact") => updated_registry_record_artifact(),
         optional("customMetadata") => updated_custom_metadata_map(),
         optional("description") => updated_description(),
         optional("descriptors") => updated_descriptors(),
         optional("displayName") => updated_display_name(),
+        optional("forceAuthentication") => [boolean()],
         optional("name") => String.t() | atom(),
         optional("provenance") => list(provenance()),
         optional("recordType") => list(any()),
@@ -894,6 +991,7 @@ defmodule AWS.AgentRegistryControl do
   ## Example:
 
       update_registry_record_response() :: %{
+        "authorizationData" => list(),
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
         "createdByAutoDetection" => [boolean()],
@@ -1046,7 +1144,10 @@ defmodule AWS.AgentRegistryControl do
   ## Example:
 
       updated_agent_skills_additional_data_fields() :: %{
-        "skillMd" => updated_agent_skills_md_descriptor()
+        "repositoryProvider" => updated_agent_skills_repository_provider(),
+        "skillMd" => updated_agent_skills_md_descriptor(),
+        "skillPackage" => updated_agent_skills_package_descriptor(),
+        "sourceConfiguration" => updated_agent_skills_source_configuration()
       }
 
   """
@@ -1099,6 +1200,39 @@ defmodule AWS.AgentRegistryControl do
 
   """
   @type updated_agent_skills_md_descriptor_fields() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      updated_agent_skills_package_descriptor() :: %{
+        "optionalValue" => agent_skills_package_descriptor()
+      }
+
+  """
+  @type updated_agent_skills_package_descriptor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      updated_agent_skills_repository_provider() :: %{
+        "optionalValue" => list(any())
+      }
+
+  """
+  @type updated_agent_skills_repository_provider() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      updated_agent_skills_source_configuration() :: %{
+        "optionalValue" => list()
+      }
+
+  """
+  @type updated_agent_skills_source_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1366,6 +1500,17 @@ defmodule AWS.AgentRegistryControl do
 
   ## Example:
 
+      updated_registry_record_artifact() :: %{
+        "optionalValue" => registry_record_artifact_upload()
+      }
+
+  """
+  @type updated_registry_record_artifact() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
         "message" => [String.t() | atom()],
@@ -1568,8 +1713,12 @@ defmodule AWS.AgentRegistryControl do
   Creates a registry record within a registry.
 
   A registry record describes a discoverable resource, such as an MCP server, an
-  agent, an agent skill, or a custom resource. Creation is asynchronous: the
-  record is returned with the CREATING status while it is processed.
+  agent, an agent skill, or a custom resource. For an agent skill, you can upload
+  a skill package in `artifact`, or synchronize the skill from an Amazon S3 or
+  GitHub source. Creation is asynchronous: the operation returns the record with
+  the `CREATING` status while the registry processes it. If a GitHub user must
+  first authorize access to the source, the operation returns the record with the
+  `CREATE_PENDING_AUTH` status instead.
   """
   @spec create_registry_record(
           map(),
@@ -1690,7 +1839,12 @@ defmodule AWS.AgentRegistryControl do
   end
 
   @doc """
-  Retrieves the details of a registry record
+  Retrieves the details of a registry record.
+
+  The response describes the record's latest revision, including a revision that
+  isn't approved yet. For a skill record, the operation also returns the skill
+  package in `artifact` and the source that the registry last synchronized the
+  skill from in `synchronizedSource`.
   """
   @spec get_registry_record(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_registry_record_response(), any()}
@@ -1945,9 +2099,11 @@ defmodule AWS.AgentRegistryControl do
   @doc """
   Updates a registry record.
 
-  The update is asynchronous: the record is returned with the UPDATING status
-  while it is processed. Fields that use update wrappers follow PATCH semantics:
-  omit the field to leave it unchanged.
+  The update is asynchronous: the operation returns the record with the `UPDATING`
+  status while the registry processes it. If a GitHub user must first authorize
+  access to the record's skill source, the operation returns the record with the
+  `UPDATE_PENDING_AUTH` status instead. Fields that use update wrappers follow
+  PATCH semantics: omit the field to leave it unchanged.
   """
   @spec update_registry_record(
           map(),

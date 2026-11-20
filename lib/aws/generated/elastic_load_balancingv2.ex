@@ -345,6 +345,20 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
+      client_certificate_identity_filter() :: %{
+        "Action" => list(any()),
+        "Field" => list(any()),
+        "MatchType" => list(any()),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type client_certificate_identity_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_listener_input() :: %{
         optional("AlpnPolicy") => list(String.t() | atom()),
         optional("Certificates") => list(certificate()),
@@ -1797,6 +1811,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
       mutual_authentication_attributes() :: %{
         "AdvertiseTrustStoreCaNames" => list(any()),
+        "ClientCertificateIdentityFilters" => list(client_certificate_identity_filter()),
         "IgnoreClientCertificateExpiry" => boolean(),
         "Mode" => String.t() | atom(),
         "TrustStoreArn" => String.t() | atom(),
@@ -3175,7 +3190,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @doc """
   Creates a trust store.
 
-  For more information, see [Mutual TLS for Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/mutual-authentication.html).
+  For more information, see [Mutual TLS for Application Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/mutual-authentication.html)
+  or [Mutual TLS for Network Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/mutual-authentication.html).
   """
   @spec create_trust_store(map(), create_trust_store_input(), list()) ::
           {:ok, create_trust_store_output(), any()}

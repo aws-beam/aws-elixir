@@ -1009,6 +1009,51 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      c_i_m_d_policy_summary_type() :: %{
+        "CIMDPolicyId" => String.t() | atom(),
+        "CacheDuration" => integer(),
+        "ClientId" => String.t() | atom(),
+        "CreationDate" => non_neg_integer(),
+        "LastModifiedDate" => non_neg_integer(),
+        "PolicyName" => String.t() | atom()
+      }
+      
+  """
+  @type c_i_m_d_policy_summary_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      c_i_m_d_policy_type() :: %{
+        "CIMDPolicyId" => String.t() | atom(),
+        "CacheDuration" => integer(),
+        "ClientId" => String.t() | atom(),
+        "CreationDate" => non_neg_integer(),
+        "LastModifiedDate" => non_neg_integer(),
+        "PolicyName" => String.t() | atom(),
+        "URLPatterns" => list(String.t() | atom()),
+        "UserPoolId" => String.t() | atom()
+      }
+      
+  """
+  @type c_i_m_d_policy_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cached_c_i_m_d_url_does_not_exist_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type cached_c_i_m_d_url_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       cancel_point_in_time_recovery_request() :: %{
         required("RestoreId") => String.t() | atom(),
         required("UserPoolId") => String.t() | atom()
@@ -1074,6 +1119,19 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type client_authentication_result_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      client_metadata_url_type() :: %{
+        "CachedDate" => non_neg_integer(),
+        "ExpirationDate" => non_neg_integer(),
+        "URL" => String.t() | atom()
+      }
+      
+  """
+  @type client_metadata_url_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1301,6 +1359,32 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      create_c_i_m_d_policy_request() :: %{
+        optional("CacheDuration") => integer(),
+        required("ClientId") => String.t() | atom(),
+        required("PolicyName") => String.t() | atom(),
+        required("URLPatterns") => list(String.t() | atom()),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type create_c_i_m_d_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_c_i_m_d_policy_response() :: %{
+        "CIMDPolicy" => c_i_m_d_policy_type()
+      }
+      
+  """
+  @type create_c_i_m_d_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_group_request() :: %{
         optional("Description") => String.t() | atom(),
         optional("Precedence") => integer(),
@@ -1475,6 +1559,7 @@ defmodule AWS.CognitoIdentityProvider do
         optional("IdTokenValidity") => integer(),
         optional("LogoutURLs") => list(String.t() | atom()),
         optional("PreventUserExistenceErrors") => list(any()),
+        optional("PublishSecretsInAWSSecretsManager") => boolean(),
         optional("ReadAttributes") => list(String.t() | atom()),
         optional("RefreshTokenRotation") => refresh_token_rotation_type(),
         optional("RefreshTokenValidity") => integer(),
@@ -1650,6 +1735,27 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type dcr_configuration_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_c_i_m_d_policy_request() :: %{
+        required("CIMDPolicyId") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_c_i_m_d_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_c_i_m_d_policy_response() :: %{}
+      
+  """
+  @type delete_c_i_m_d_policy_response() :: %{}
 
   @typedoc """
 
@@ -1852,6 +1958,29 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type delete_web_authn_credential_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_c_i_m_d_policy_request() :: %{
+        required("CIMDPolicyId") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_c_i_m_d_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_c_i_m_d_policy_response() :: %{
+        "CIMDPolicy" => c_i_m_d_policy_type()
+      }
+      
+  """
+  @type describe_c_i_m_d_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3173,6 +3302,57 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type limit_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_c_i_m_d_policies_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type list_c_i_m_d_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_c_i_m_d_policies_response() :: %{
+        "CIMDPolicies" => list(c_i_m_d_policy_summary_type()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_c_i_m_d_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_client_metadata_urls_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("CIMDPolicyId") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type list_client_metadata_urls_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_client_metadata_urls_response() :: %{
+        "ClientMetadataURLs" => list(client_metadata_url_type()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_client_metadata_urls_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4832,6 +5012,56 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      update_c_i_m_d_policy_request() :: %{
+        optional("CacheDuration") => integer(),
+        optional("PolicyName") => String.t() | atom(),
+        required("CIMDPolicyId") => String.t() | atom(),
+        required("ClientId") => String.t() | atom(),
+        required("URLPatterns") => list(String.t() | atom()),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type update_c_i_m_d_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_c_i_m_d_policy_response() :: %{
+        "CIMDPolicy" => c_i_m_d_policy_type()
+      }
+      
+  """
+  @type update_c_i_m_d_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_client_metadata_url_state_request() :: %{
+        required("Action") => list(any()),
+        required("CIMDPolicyId") => String.t() | atom(),
+        required("URL") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type update_client_metadata_url_state_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_client_metadata_url_state_response() :: %{}
+      
+  """
+  @type update_client_metadata_url_state_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       update_device_status_request() :: %{
         optional("DeviceRememberedStatus") => list(any()),
         required("AccessToken") => String.t() | atom(),
@@ -5048,6 +5278,7 @@ defmodule AWS.CognitoIdentityProvider do
         optional("IdTokenValidity") => integer(),
         optional("LogoutURLs") => list(String.t() | atom()),
         optional("PreventUserExistenceErrors") => list(any()),
+        optional("PublishSecretsInAWSSecretsManager") => boolean(),
         optional("ReadAttributes") => list(String.t() | atom()),
         optional("RefreshTokenRotation") => refresh_token_rotation_type(),
         optional("RefreshTokenValidity") => integer(),
@@ -5310,6 +5541,7 @@ defmodule AWS.CognitoIdentityProvider do
         "ClientId" => String.t() | atom(),
         "ClientName" => String.t() | atom(),
         "ClientSecret" => String.t() | atom(),
+        "ClientSecretArn" => String.t() | atom(),
         "ClientType" => list(any()),
         "CreationDate" => non_neg_integer(),
         "DefaultRedirectURI" => String.t() | atom(),
@@ -6125,6 +6357,17 @@ defmodule AWS.CognitoIdentityProvider do
           | code_mismatch_exception()
           | alias_exists_exception()
 
+  @type create_c_i_m_d_policy_errors() ::
+          too_many_requests_exception()
+          | resource_not_found_exception()
+          | operation_not_enabled_exception()
+          | not_authorized_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
+          | feature_unavailable_in_tier_exception()
+          | concurrent_modification_exception()
+
   @type create_group_errors() ::
           too_many_requests_exception()
           | resource_not_found_exception()
@@ -6230,6 +6473,15 @@ defmodule AWS.CognitoIdentityProvider do
           | invalid_parameter_exception()
           | internal_error_exception()
           | feature_unavailable_in_tier_exception()
+
+  @type delete_c_i_m_d_policy_errors() ::
+          too_many_requests_exception()
+          | resource_not_found_exception()
+          | operation_not_enabled_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
+          | concurrent_modification_exception()
 
   @type delete_group_errors() ::
           too_many_requests_exception()
@@ -6349,6 +6601,13 @@ defmodule AWS.CognitoIdentityProvider do
           | invalid_parameter_exception()
           | internal_error_exception()
           | forbidden_exception()
+
+  @type describe_c_i_m_d_policy_errors() ::
+          too_many_requests_exception()
+          | resource_not_found_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
 
   @type describe_identity_provider_errors() ::
           too_many_requests_exception()
@@ -6687,6 +6946,20 @@ defmodule AWS.CognitoIdentityProvider do
           | internal_error_exception()
           | feature_unavailable_in_tier_exception()
           | concurrent_modification_exception()
+
+  @type list_c_i_m_d_policies_errors() ::
+          too_many_requests_exception()
+          | resource_not_found_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
+
+  @type list_client_metadata_urls_errors() ::
+          too_many_requests_exception()
+          | resource_not_found_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
 
   @type list_devices_errors() ::
           user_not_found_exception()
@@ -7055,6 +7328,27 @@ defmodule AWS.CognitoIdentityProvider do
           | not_authorized_exception()
           | invalid_parameter_exception()
           | internal_error_exception()
+
+  @type update_c_i_m_d_policy_errors() ::
+          too_many_requests_exception()
+          | resource_not_found_exception()
+          | operation_not_enabled_exception()
+          | not_authorized_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
+          | feature_unavailable_in_tier_exception()
+          | concurrent_modification_exception()
+
+  @type update_client_metadata_url_state_errors() ::
+          too_many_requests_exception()
+          | resource_not_found_exception()
+          | operation_not_enabled_exception()
+          | not_authorized_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
+          | feature_unavailable_in_tier_exception()
+          | cached_c_i_m_d_url_does_not_exist_exception()
 
   @type update_device_status_errors() ::
           user_not_found_exception()
@@ -8846,6 +9140,44 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+  Creates a Client ID Metadata Document (CIMD) policy for an app client.
+
+  A CIMD policy
+  lets OAuth clients identify themselves to your user pool with an HTTPS URL as
+  their
+  client ID. Amazon Cognito retrieves the client metadata document from that URL
+  and
+  accepts the client only when the URL matches one of the URL patterns in the
+  policy.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For
+  this operation, you must use IAM credentials to authorize requests, and you must
+  grant yourself the corresponding IAM permission in a policy.
+
+  ## Learn more
+
+    
+
+  [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+    
+
+  [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+  """
+  @spec create_c_i_m_d_policy(map(), create_c_i_m_d_policy_request(), list()) ::
+          {:ok, create_c_i_m_d_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_c_i_m_d_policy_errors()}
+  def create_c_i_m_d_policy(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateCIMDPolicy", input, options)
+  end
+
+  @doc """
   Creates a new group in the specified user pool.
 
   For more information about user pool
@@ -9277,6 +9609,36 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+  Deletes a Client ID Metadata Document (CIMD) policy.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For
+  this operation, you must use IAM credentials to authorize requests, and you must
+  grant yourself the corresponding IAM permission in a policy.
+
+  ## Learn more
+
+    
+
+  [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+    
+
+  [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+  """
+  @spec delete_c_i_m_d_policy(map(), delete_c_i_m_d_policy_request(), list()) ::
+          {:ok, delete_c_i_m_d_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_c_i_m_d_policy_errors()}
+  def delete_c_i_m_d_policy(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteCIMDPolicy", input, options)
+  end
+
+  @doc """
   Deletes a group from the specified user pool.
 
   When you delete a group, that group no
@@ -9656,6 +10018,36 @@ defmodule AWS.CognitoIdentityProvider do
       metadata()
 
     Request.request_post(client, meta, "DeleteWebAuthnCredential", input, options)
+  end
+
+  @doc """
+  Returns the configuration of a Client ID Metadata Document (CIMD) policy.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For
+  this operation, you must use IAM credentials to authorize requests, and you must
+  grant yourself the corresponding IAM permission in a policy.
+
+  ## Learn more
+
+    
+
+  [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+    
+
+  [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+  """
+  @spec describe_c_i_m_d_policy(map(), describe_c_i_m_d_policy_request(), list()) ::
+          {:ok, describe_c_i_m_d_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_c_i_m_d_policy_errors()}
+  def describe_c_i_m_d_policy(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeCIMDPolicy", input, options)
   end
 
   @doc """
@@ -10779,10 +11171,8 @@ defmodule AWS.CognitoIdentityProvider do
 
   This operation is the first step of a recovery and doesn't change your
   user pool data. Amazon Cognito pauses write operations in the user pool and
-  generates a recovery preview when capacity is available in the Amazon Web
-  Services Region, so the
-  preview might not be available immediately. The preview shows the number of
-  entities that the recovery creates, updates,
+  generates a recovery preview, which might not be available immediately. The
+  preview shows the number of entities that the recovery creates, updates,
   and deletes. To check the status of the recovery and review the preview, make a
   request. When the status is
   `PREVIEW_GENERATED`, apply the recovery with a request or discard it with a
@@ -10800,7 +11190,7 @@ defmodule AWS.CognitoIdentityProvider do
   While a recovery is in progress, Amazon Cognito blocks operations that write to
   the user pool,
   for example user sign-up, user creation, and attribute updates. Sign-in and read
-  operations continue to work, with the following exceptions.
+  operations continue to work, with the following exceptions:
 
     *
   Users who must set a new password, set up MFA, or respond to a TOTP MFA
@@ -10821,9 +11211,8 @@ defmodule AWS.CognitoIdentityProvider do
   If you don't start or cancel the recovery within 24 hours after you initiate it,
   the recovery preview expires. Amazon Cognito then resumes write operations and
   doesn't
-  change your user pool data. The 24-hour period includes the time that Amazon
-  Cognito waits for
-  available capacity.
+  change your user pool data. The 24-hour period includes the time that
+  Amazon Cognito takes to generate the recovery preview.
 
   A point-in-time recovery restores user data, including user profiles and
   attributes,
@@ -10834,7 +11223,7 @@ defmodule AWS.CognitoIdentityProvider do
   after
   the recovery point keep their current password.
 
-  The following requirements and limits apply to point-in-time recovery.
+  The following requirements and limits apply to point-in-time recovery:
 
     *
   Your user pool must be on the Essentials or Plus [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html).
@@ -10916,6 +11305,68 @@ defmodule AWS.CognitoIdentityProvider do
       metadata()
 
     Request.request_post(client, meta, "InitiatePointInTimeRecovery", input, options)
+  end
+
+  @doc """
+  Lists the Client ID Metadata Document (CIMD) policies in a user pool.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For
+  this operation, you must use IAM credentials to authorize requests, and you must
+  grant yourself the corresponding IAM permission in a policy.
+
+  ## Learn more
+
+    
+
+  [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+    
+
+  [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+  """
+  @spec list_c_i_m_d_policies(map(), list_c_i_m_d_policies_request(), list()) ::
+          {:ok, list_c_i_m_d_policies_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_c_i_m_d_policies_errors()}
+  def list_c_i_m_d_policies(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListCIMDPolicies", input, options)
+  end
+
+  @doc """
+  Lists the client ID metadata document URLs that Amazon Cognito has received for
+  a
+  Client ID Metadata Document (CIMD) policy, with the cache state of each URL.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For
+  this operation, you must use IAM credentials to authorize requests, and you must
+  grant yourself the corresponding IAM permission in a policy.
+
+  ## Learn more
+
+    
+
+  [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+    
+
+  [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+  """
+  @spec list_client_metadata_urls(map(), list_client_metadata_urls_request(), list()) ::
+          {:ok, list_client_metadata_urls_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_client_metadata_urls_errors()}
+  def list_client_metadata_urls(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListClientMetadataURLs", input, options)
   end
 
   @doc """
@@ -12117,6 +12568,75 @@ defmodule AWS.CognitoIdentityProvider do
       metadata()
 
     Request.request_post(client, meta, "UpdateAuthEventFeedback", input, options)
+  end
+
+  @doc """
+  Updates the configuration of a Client ID Metadata Document (CIMD) policy.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For
+  this operation, you must use IAM credentials to authorize requests, and you must
+  grant yourself the corresponding IAM permission in a policy.
+
+  ## Learn more
+
+    
+
+  [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+    
+
+  [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+  """
+  @spec update_c_i_m_d_policy(map(), update_c_i_m_d_policy_request(), list()) ::
+          {:ok, update_c_i_m_d_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_c_i_m_d_policy_errors()}
+  def update_c_i_m_d_policy(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateCIMDPolicy", input, options)
+  end
+
+  @doc """
+  Changes the cache state of a client metadata document URL for a client ID
+  metadata
+  document (CIMD) policy.
+
+  Refresh a URL to make Amazon Cognito retrieve the client
+  metadata document again, or invalidate it to remove the cached document.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For
+  this operation, you must use IAM credentials to authorize requests, and you must
+  grant yourself the corresponding IAM permission in a policy.
+
+  ## Learn more
+
+    
+
+  [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+    
+
+  [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+  """
+  @spec update_client_metadata_url_state(
+          map(),
+          update_client_metadata_url_state_request(),
+          list()
+        ) ::
+          {:ok, update_client_metadata_url_state_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_client_metadata_url_state_errors()}
+  def update_client_metadata_url_state(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateClientMetadataURLState", input, options)
   end
 
   @doc """

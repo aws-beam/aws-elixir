@@ -1081,6 +1081,93 @@ defmodule AWS.BCMPricingCalculator do
 
   ## Example:
       
+      get_usage_lines_estimated_cost_error() :: %{
+        "errorCode" => list(any()),
+        "errorMessage" => [String.t() | atom()],
+        "key" => String.t() | atom(),
+        "operation" => String.t() | atom(),
+        "serviceCode" => String.t() | atom(),
+        "usageType" => String.t() | atom()
+      }
+      
+  """
+  @type get_usage_lines_estimated_cost_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_usage_lines_estimated_cost_estimated_cost() :: %{
+        "cost" => [float()],
+        "currency" => list(any()),
+        "usageAmount" => [float()],
+        "usageUnit" => [String.t() | atom()]
+      }
+      
+  """
+  @type get_usage_lines_estimated_cost_estimated_cost() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_usage_lines_estimated_cost_input() :: %{
+        "amount" => float(),
+        "key" => String.t() | atom(),
+        "operation" => String.t() | atom(),
+        "serviceCode" => String.t() | atom(),
+        "usageType" => String.t() | atom()
+      }
+      
+  """
+  @type get_usage_lines_estimated_cost_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_usage_lines_estimated_cost_line_item() :: %{
+        "estimatedCost" => get_usage_lines_estimated_cost_estimated_cost(),
+        "key" => String.t() | atom(),
+        "operation" => String.t() | atom(),
+        "serviceCode" => String.t() | atom(),
+        "usageType" => String.t() | atom()
+      }
+      
+  """
+  @type get_usage_lines_estimated_cost_line_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_usage_lines_estimated_cost_request() :: %{
+        required("rateType") => list(any()),
+        required("usage") => list(get_usage_lines_estimated_cost_input())
+      }
+      
+  """
+  @type get_usage_lines_estimated_cost_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_usage_lines_estimated_cost_response() :: %{
+        "currency" => list(any()),
+        "errors" => list(get_usage_lines_estimated_cost_error()),
+        "lineItems" => list(get_usage_lines_estimated_cost_line_item()),
+        "rateType" => list(any()),
+        "totalCost" => [float()]
+      }
+      
+  """
+  @type get_usage_lines_estimated_cost_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_workload_estimate_request() :: %{
         required("identifier") => String.t() | atom()
       }
@@ -1909,6 +1996,13 @@ defmodule AWS.BCMPricingCalculator do
 
   @type get_preferences_errors() :: data_unavailable_exception()
 
+  @type get_usage_lines_estimated_cost_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | data_unavailable_exception()
+          | access_denied_exception()
+
   @type get_workload_estimate_errors() ::
           resource_not_found_exception() | data_unavailable_exception()
 
@@ -2059,8 +2153,8 @@ defmodule AWS.BCMPricingCalculator do
   @doc """
   Delete commitment that you have created in a Bill Scenario.
 
-  You can only delete a commitment that you had added and cannot model deletion
-  (or removal) of a existing commitment. If you want model deletion of an existing
+  You can only delete a commitment that you had added and can't model deletion (or
+  removal) of a existing commitment. If you want model deletion of an existing
   commitment, see the negate [
   BillScenarioCommitmentModificationAction](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AWSBCMPricingCalculator_BillScenarioCommitmentModificationAction.html)
   of [
@@ -2098,7 +2192,7 @@ defmodule AWS.BCMPricingCalculator do
   @doc """
   Delete usage that you have created in a Bill Scenario.
 
-  You can only delete usage that you had added and cannot model deletion (or
+  You can only delete usage that you had added and can't model deletion (or
   removal) of a existing usage. If you want model removal of an existing usage,
   see [
   BatchUpdateBillScenarioUsageModification](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AWSBCMPricingCalculator_BatchUpdateBillScenarioUsageModification.html).
@@ -2127,7 +2221,7 @@ defmodule AWS.BCMPricingCalculator do
   @doc """
   Delete usage that you have created in a Workload estimate.
 
-  You can only delete usage that you had added and cannot model deletion (or
+  You can only delete usage that you had added and can't model deletion (or
   removal) of a existing usage. If you want model removal of an existing usage,
   see [
   BatchUpdateWorkloadEstimateUsage](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AWSBCMPricingCalculator_BatchUpdateWorkloadEstimateUsage.html).
@@ -2383,6 +2477,30 @@ defmodule AWS.BCMPricingCalculator do
       metadata()
 
     Request.request_post(client, meta, "GetPreferences", input, options)
+  end
+
+  @doc """
+  Retrieves the estimated cost of a list of usage lines.
+
+  Each usage line identifies a billing line by its service code, usage type, and
+  operation, and includes the usage amount to price. The estimate is based on
+  Amazon Web Services pricing data and the rate type you choose. It doesn't
+  include taxes, and your actual charges depend on your usage.
+
+  The response includes the estimated cost of each usage line that was priced. It
+  also includes each usage line that couldn't be priced, and the reason it
+  couldn't be priced.
+  """
+  @spec get_usage_lines_estimated_cost(map(), get_usage_lines_estimated_cost_request(), list()) ::
+          {:ok, get_usage_lines_estimated_cost_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_usage_lines_estimated_cost_errors()}
+  def get_usage_lines_estimated_cost(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetUsageLinesEstimatedCost", input, options)
   end
 
   @doc """

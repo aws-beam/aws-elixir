@@ -1060,7 +1060,10 @@ defmodule AWS.SecurityAgent do
       code_remediation_task_details() :: %{
         "codeDiffLink" => [String.t() | atom()],
         "pullRequestLink" => [String.t() | atom()],
-        "repoName" => [String.t() | atom()]
+        "repoName" => [String.t() | atom()],
+        "status" => list(any()),
+        "statusCode" => [String.t() | atom()],
+        "statusReason" => [String.t() | atom()]
       }
 
   """

@@ -57,6 +57,31 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Example:
 
+      additional_resource() :: %{
+        "Text" => String.t() | atom(),
+        "Type" => String.t() | atom(),
+        "Url" => String.t() | atom()
+      }
+
+  """
+  @type additional_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      additional_resources_alternative() :: %{
+        "Rationale" => String.t() | atom(),
+        "Value" => list(additional_resource())
+      }
+
+  """
+  @type additional_resources_alternative() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       ami_product_entity_id_filter() :: %{
         "ValueList" => list(String.t() | atom())
       }
@@ -172,7 +197,8 @@ defmodule AWS.MarketplaceCatalog do
 
       assessment_target_filter() :: %{
         "ChangeSetId" => String.t() | atom(),
-        "EntityId" => String.t() | atom()
+        "EntityId" => String.t() | atom(),
+        "EntityIds" => list(String.t() | atom())
       }
 
   """
@@ -248,6 +274,18 @@ defmodule AWS.MarketplaceCatalog do
 
   """
   @type cancel_change_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      case_studies_alternative() :: %{
+        "Rationale" => String.t() | atom(),
+        "Value" => list(listing_case_study())
+      }
+
+  """
+  @type case_studies_alternative() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -422,10 +460,26 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Example:
 
+      content_recommendation() :: %{
+        "Alternatives" => list(),
+        "Findings" => list(listing_finding()),
+        "FollowUpQuestions" => list(follow_up_question()),
+        "Status" => list(any())
+      }
+
+  """
+  @type content_recommendation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       control_assessment() :: %{
         "ControlAssessmentResult" => list(any()),
         "ControlId" => String.t() | atom(),
-        "Errors" => list(control_error())
+        "ControlSummary" => list(),
+        "Errors" => list(control_error()),
+        "VerificationSource" => list(any())
       }
 
   """
@@ -443,6 +497,18 @@ defmodule AWS.MarketplaceCatalog do
 
   """
   @type control_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      control_input() :: %{
+        "ControlId" => String.t() | atom(),
+        "Input" => any()
+      }
+
+  """
+  @type control_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -820,6 +886,32 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Example:
 
+      feature_recommendation() :: %{
+        "Action" => String.t() | atom(),
+        "FeatureId" => list(any()),
+        "Rationale" => String.t() | atom(),
+        "Severity" => list(any()),
+        "Status" => list(any())
+      }
+
+  """
+  @type feature_recommendation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      feature_recommendations() :: %{
+        "Recommendations" => list(feature_recommendation())
+      }
+
+  """
+  @type feature_recommendations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       filter() :: %{
         "Name" => String.t() | atom(),
         "ValueList" => list(String.t() | atom())
@@ -827,6 +919,18 @@ defmodule AWS.MarketplaceCatalog do
 
   """
   @type filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      follow_up_question() :: %{
+        "Justification" => String.t() | atom(),
+        "Question" => String.t() | atom()
+      }
+
+  """
+  @type follow_up_question() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -969,6 +1073,74 @@ defmodule AWS.MarketplaceCatalog do
 
   """
   @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      listing_case_study() :: %{
+        "Id" => String.t() | atom(),
+        "Rationale" => String.t() | atom(),
+        "Title" => String.t() | atom()
+      }
+
+  """
+  @type listing_case_study() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      listing_finding() :: %{
+        "Action" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Severity" => list(any()),
+        "Status" => list(any())
+      }
+
+  """
+  @type listing_finding() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      listing_quality_summary() :: %{
+        "EntityRevision" => String.t() | atom(),
+        "Tier" => list(any())
+      }
+
+  """
+  @type listing_quality_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      listing_recommendations_summary() :: %{
+        "EntityRevision" => String.t() | atom(),
+        "Tier" => list(any())
+      }
+
+  """
+  @type listing_recommendations_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      listing_use_case() :: %{
+        "Group" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Rank" => integer(),
+        "Rationale" => String.t() | atom(),
+        "Subgroup" => String.t() | atom(),
+        "UseCaseDetails" => String.t() | atom()
+      }
+
+  """
+  @type listing_use_case() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1139,6 +1311,7 @@ defmodule AWS.MarketplaceCatalog do
         "ReleaseDate" => offer_release_date_filter(),
         "ResaleAuthorizationId" => offer_resale_authorization_id_filter(),
         "State" => offer_state_filter(),
+        "SubsidiaryAuthorizationId" => offer_subsidiary_authorization_id_filter(),
         "TargetAgreementId" => offer_target_agreement_id_filter(),
         "TargetAgreementIntent" => offer_target_agreement_intent_filter(),
         "Targeting" => offer_targeting_filter()
@@ -1410,6 +1583,17 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Example:
 
+      offer_subsidiary_authorization_id_filter() :: %{
+        "ValueList" => list(String.t() | atom())
+      }
+
+  """
+  @type offer_subsidiary_authorization_id_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       offer_summary() :: %{
         "AvailabilityEndDate" => String.t() | atom(),
         "BuyerAccounts" => list(String.t() | atom()),
@@ -1420,6 +1604,7 @@ defmodule AWS.MarketplaceCatalog do
         "ReleaseDate" => String.t() | atom(),
         "ResaleAuthorizationId" => String.t() | atom(),
         "State" => list(any()),
+        "SubsidiaryAuthorizationId" => String.t() | atom(),
         "TargetAgreementId" => String.t() | atom(),
         "TargetAgreementIntent" => list(any()),
         "Targeting" => list(list(any())())
@@ -1465,6 +1650,25 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Example:
 
+      product_content_recommendations() :: %{
+        "AdditionalResources" => content_recommendation(),
+        "Categories" => content_recommendation(),
+        "Citations" => list(recommendation_citation()),
+        "Highlights" => content_recommendation(),
+        "LongDescription" => content_recommendation(),
+        "ProductTitle" => content_recommendation(),
+        "SearchKeywords" => content_recommendation(),
+        "ShortDescription" => content_recommendation(),
+        "SupportDescription" => content_recommendation()
+      }
+
+  """
+  @type product_content_recommendations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_resource_policy_request() :: %{
         required("Policy") => String.t() | atom(),
         required("ResourceArn") => String.t() | atom()
@@ -1481,6 +1685,17 @@ defmodule AWS.MarketplaceCatalog do
 
   """
   @type put_resource_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      recommendation_citation() :: %{
+        "Url" => String.t() | atom()
+      }
+
+  """
+  @type recommendation_citation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1912,6 +2127,24 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Example:
 
+      solution_content_recommendations() :: %{
+        "AdditionalResources" => content_recommendation(),
+        "CaseStudies" => content_recommendation(),
+        "Citations" => list(recommendation_citation()),
+        "IntegrationDetails" => content_recommendation(),
+        "LongDescription" => content_recommendation(),
+        "ShortDescription" => content_recommendation(),
+        "Title" => content_recommendation(),
+        "UseCases" => content_recommendation()
+      }
+
+  """
+  @type solution_content_recommendations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       sort() :: %{
         "SortBy" => String.t() | atom(),
         "SortOrder" => list(any())
@@ -1919,6 +2152,33 @@ defmodule AWS.MarketplaceCatalog do
 
   """
   @type sort() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_assessment_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Controls") => list(control_input()),
+        optional("Tags") => map(),
+        required("Catalog") => String.t() | atom(),
+        required("EntityId") => String.t() | atom(),
+        required("FrameworkId") => String.t() | atom()
+      }
+
+  """
+  @type start_assessment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_assessment_response() :: %{
+        "AssessmentId" => String.t() | atom()
+      }
+
+  """
+  @type start_assessment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2151,6 +2411,30 @@ defmodule AWS.MarketplaceCatalog do
 
   ## Example:
 
+      text_alternative() :: %{
+        "Rationale" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type text_alternative() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      text_list_alternative() :: %{
+        "Rationale" => String.t() | atom(),
+        "Value" => list(String.t() | atom())
+      }
+
+  """
+  @type text_list_alternative() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       throttling_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -2178,6 +2462,18 @@ defmodule AWS.MarketplaceCatalog do
 
   """
   @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      use_cases_alternative() :: %{
+        "Rationale" => String.t() | atom(),
+        "Value" => list(listing_use_case())
+      }
+
+  """
+  @type use_cases_alternative() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2287,6 +2583,15 @@ defmodule AWS.MarketplaceCatalog do
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+
+  @type start_assessment_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | resource_in_use_exception()
           | internal_service_exception()
           | access_denied_exception()
 
@@ -2716,6 +3021,46 @@ defmodule AWS.MarketplaceCatalog do
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
     url_path = "/PutResourcePolicy"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Starts an assessment of a product entity against a framework.
+
+  An
+  *assessment* is the result of evaluating an entity against the
+  controls of a framework. You choose the controls to run and provide the input
+  that each
+  control needs.
+
+  The assessment runs asynchronously. This action returns the ID of the assessment
+  immediately. To get its status and the results of each control, use the
+  `DescribeAssessment` action. To find assessments that you started earlier,
+  use the `ListAssessments` action.
+  """
+  @spec start_assessment(map(), start_assessment_request(), list()) ::
+          {:ok, start_assessment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_assessment_errors()}
+  def start_assessment(%Client{} = client, input, options \\ []) do
+    url_path = "/StartAssessment"
     headers = []
     custom_headers = []
     query_params = []

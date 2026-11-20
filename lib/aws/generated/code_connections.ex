@@ -157,6 +157,7 @@ defmodule AWS.CodeConnections do
         "ConnectionStatus" => list(any()),
         "HostArn" => String.t() | atom(),
         "OwnerAccountId" => String.t() | atom(),
+        "ProviderEndpoint" => String.t() | atom(),
         "ProviderType" => list(any())
       }
       
@@ -169,6 +170,7 @@ defmodule AWS.CodeConnections do
       
       create_connection_input() :: %{
         optional("HostArn") => String.t() | atom(),
+        optional("ProviderEndpoint") => String.t() | atom(),
         optional("ProviderType") => list(any()),
         optional("Tags") => list(tag()),
         required("ConnectionName") => String.t() | atom()
@@ -1165,14 +1167,17 @@ defmodule AWS.CodeConnections do
   @type vpc_configuration() :: %{(String.t() | atom()) => any()}
 
   @type create_connection_errors() ::
-          resource_unavailable_exception()
+          unsupported_provider_type_exception()
+          | resource_unavailable_exception()
           | resource_not_found_exception()
           | limit_exceeded_exception()
+          | invalid_input_exception()
 
   @type create_host_errors() :: limit_exceeded_exception()
 
   @type create_repository_link_errors() ::
           throttling_exception()
+          | resource_not_found_exception()
           | resource_already_exists_exception()
           | limit_exceeded_exception()
           | invalid_input_exception()
@@ -1182,6 +1187,7 @@ defmodule AWS.CodeConnections do
 
   @type create_sync_configuration_errors() ::
           throttling_exception()
+          | resource_not_found_exception()
           | resource_already_exists_exception()
           | limit_exceeded_exception()
           | invalid_input_exception()

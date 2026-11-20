@@ -859,6 +859,7 @@ defmodule AWS.AppStream do
         optional("StreamingExperienceSettings") => streaming_experience_settings(),
         optional("Tags") => map(),
         optional("UserSettings") => list(user_setting()),
+        optional("WebAuthnRedirection") => web_authn_redirection(),
         required("Name") => String.t() | atom()
       }
       
@@ -2700,7 +2701,8 @@ defmodule AWS.AppStream do
         "StorageConnectorAuthentication" => list(any()),
         "StorageConnectors" => list(storage_connector()),
         "StreamingExperienceSettings" => streaming_experience_settings(),
-        "UserSettings" => list(user_setting())
+        "UserSettings" => list(user_setting()),
+        "WebAuthnRedirection" => web_authn_redirection()
       }
       
   """
@@ -3191,6 +3193,7 @@ defmodule AWS.AppStream do
         optional("StorageConnectors") => list(storage_connector()),
         optional("StreamingExperienceSettings") => streaming_experience_settings(),
         optional("UserSettings") => list(user_setting()),
+        optional("WebAuthnRedirection") => web_authn_redirection(),
         required("Name") => String.t() | atom()
       }
       
@@ -3344,6 +3347,18 @@ defmodule AWS.AppStream do
       
   """
   @type vpc_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      web_authn_redirection() :: %{
+        "Enabled" => boolean(),
+        "ProcessCompatibilityList" => list(String.t() | atom())
+      }
+      
+  """
+  @type web_authn_redirection() :: %{(String.t() | atom()) => any()}
 
   @type associate_app_block_builder_app_block_errors() ::
           resource_not_found_exception()

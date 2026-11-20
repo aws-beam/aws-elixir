@@ -213,6 +213,42 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      aws_billing_payment_options() :: %{
+        "dpopJwk" => dpop_jwk()
+      }
+
+  """
+  @type aws_billing_payment_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_billing_x402_payment_input() :: %{
+        "options" => aws_billing_payment_options(),
+        "payload" => any(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type aws_billing_x402_payment_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_billing_x402_payment_output() :: %{
+        "paymentToken" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type aws_billing_x402_payment_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       basic_auth() :: %{
         "secretArn" => String.t() | atom()
       }
@@ -1188,6 +1224,20 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type domain_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dpop_jwk() :: %{
+        "crv" => list(any()),
+        "kty" => list(any()),
+        "x" => [String.t() | atom()],
+        "y" => [String.t() | atom()]
+      }
+
+  """
+  @type dpop_jwk() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

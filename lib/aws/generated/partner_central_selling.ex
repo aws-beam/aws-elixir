@@ -91,6 +91,34 @@ defmodule AWS.PartnerCentralSelling do
 
   ## Example:
       
+      account_customer() :: %{
+        "CompanyName" => String.t() | atom(),
+        "CountryCode" => list(any()),
+        "Industry" => String.t() | atom(),
+        "WebsiteUrl" => String.t() | atom()
+      }
+      
+  """
+  @type account_customer() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      account_planning_invitation_payload() :: %{
+        "AccountIdentifier" => String.t() | atom(),
+        "Customer" => account_customer(),
+        "PreferredContact" => preferred_contact_window(),
+        "SenderContacts" => list(sender_contact())
+      }
+      
+  """
+  @type account_planning_invitation_payload() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       account_receiver() :: %{
         "Alias" => String.t() | atom(),
         "AwsAccountId" => String.t() | atom()
@@ -147,6 +175,30 @@ defmodule AWS.PartnerCentralSelling do
 
   ## Example:
       
+      aggregation_request() :: %{
+        "GroupBy" => list(list(any())())
+      }
+      
+  """
+  @type aggregation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aggregation_result() :: %{
+        "Buckets" => list(bucket()),
+        "GroupBy" => list(list(any())()),
+        "OtherCount" => [integer()]
+      }
+      
+  """
+  @type aggregation_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       assign_opportunity_request() :: %{
         required("Assignee") => assignee_contact(),
         required("Catalog") => String.t() | atom(),
@@ -184,6 +236,95 @@ defmodule AWS.PartnerCentralSelling do
       
   """
   @type associate_opportunity_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aws_enrichment() :: %{
+        "Customer" => aws_enrichment_customer(),
+        "Insights" => aws_enrichment_insights()
+      }
+      
+  """
+  @type aws_enrichment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aws_enrichment_customer() :: %{
+        "AccountName" => [String.t() | atom()],
+        "CompanySize" => [String.t() | atom()],
+        "Country" => [String.t() | atom()],
+        "CustomerAccountPlanningQualification" => [String.t() | atom()],
+        "EligiblePrograms" => list([String.t() | atom()]()),
+        "Geo" => [String.t() | atom()],
+        "Industry" => [String.t() | atom()],
+        "Region" => [String.t() | atom()],
+        "Sector" => [String.t() | atom()],
+        "Segment" => [String.t() | atom()],
+        "SubIndustry" => [String.t() | atom()],
+        "SubRegion" => [String.t() | atom()]
+      }
+      
+  """
+  @type aws_enrichment_customer() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aws_enrichment_customer_summary() :: %{
+        "AccountPlanningQualification" => String.t() | atom(),
+        "Country" => [String.t() | atom()],
+        "EligiblePrograms" => list([String.t() | atom()]()),
+        "Geo" => [String.t() | atom()],
+        "Industry" => [String.t() | atom()],
+        "Segment" => [String.t() | atom()]
+      }
+      
+  """
+  @type aws_enrichment_customer_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aws_enrichment_insights() :: %{
+        "MarketplaceEngagementScore" => [String.t() | atom()],
+        "SolutionCategory" => [String.t() | atom()],
+        "SolutionScore" => [String.t() | atom()],
+        "SolutionSubCategory" => [String.t() | atom()]
+      }
+      
+  """
+  @type aws_enrichment_insights() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aws_enrichment_insights_summary() :: %{
+        "MarketplaceEngagementScore" => [String.t() | atom()],
+        "SolutionCategory" => [String.t() | atom()],
+        "SolutionScore" => [String.t() | atom()]
+      }
+      
+  """
+  @type aws_enrichment_insights_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aws_enrichment_summary() :: %{
+        "Customer" => aws_enrichment_customer_summary(),
+        "Insights" => aws_enrichment_insights_summary()
+      }
+      
+  """
+  @type aws_enrichment_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -258,6 +399,7 @@ defmodule AWS.PartnerCentralSelling do
       
       aws_opportunity_summary_full_view() :: %{
         "CosellMotion" => [String.t() | atom()],
+        "CosellMotionReason" => [String.t() | atom()],
         "Customer" => aws_opportunity_customer(),
         "Insights" => aws_opportunity_insights(),
         "InvolvementType" => list(any()),
@@ -377,6 +519,58 @@ defmodule AWS.PartnerCentralSelling do
 
   ## Example:
       
+      best_outreach_window() :: %{
+        "Day" => list(any()),
+        "EndTimeUtc" => String.t() | atom(),
+        "StartTimeUtc" => String.t() | atom()
+      }
+      
+  """
+  @type best_outreach_window() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      bucket() :: %{
+        "Count" => [integer()],
+        "Values" => list([String.t() | atom()]())
+      }
+      
+  """
+  @type bucket() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      bulk_job_result() :: %{
+        "ErrorCode" => [String.t() | atom()],
+        "ErrorMessage" => [String.t() | atom()],
+        "RequestId" => [String.t() | atom()],
+        "ResourceIdentifier" => [String.t() | atom()],
+        "Status" => list(any())
+      }
+      
+  """
+  @type bulk_job_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      channel_recommendation() :: %{
+        "BestOutreachWindows" => list(best_outreach_window()),
+        "RecommendedChannel" => String.t() | atom()
+      }
+      
+  """
+  @type channel_recommendation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       conflict_exception() :: %{
         "Message" => [String.t() | atom()]
       }
@@ -398,6 +592,37 @@ defmodule AWS.PartnerCentralSelling do
       
   """
   @type contact() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_customer_account_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("PartnerAccountIdentifier") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("Account") => customer_account_data(),
+        required("Catalog") => String.t() | atom()
+      }
+      
+  """
+  @type create_customer_account_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_customer_account_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Catalog" => String.t() | atom(),
+        "CreatedDate" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "PartnerAccountIdentifier" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type create_customer_account_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -604,6 +829,112 @@ defmodule AWS.PartnerCentralSelling do
 
   ## Example:
       
+      customer_account_bulk_job_filter() :: %{
+        "Identifier" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type customer_account_bulk_job_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      customer_account_bulk_job_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "CompletedAt" => non_neg_integer(),
+        "CreatedAt" => non_neg_integer(),
+        "DeletedCount" => [integer()],
+        "FailureCount" => [integer()],
+        "FailureReason" => [String.t() | atom()],
+        "FileName" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "ProcessedRecords" => [integer()],
+        "Status" => list(any()),
+        "SuccessCount" => [integer()],
+        "TotalRecords" => [integer()]
+      }
+      
+  """
+  @type customer_account_bulk_job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      customer_account_context() :: %{
+        "AccountIdentifier" => String.t() | atom(),
+        "Customer" => account_customer()
+      }
+      
+  """
+  @type customer_account_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      customer_account_data() :: %{
+        "Address" => address(),
+        "CompanyName" => String.t() | atom(),
+        "Domain" => String.t() | atom(),
+        "Duns" => String.t() | atom(),
+        "Industry" => [String.t() | atom()],
+        "OtherIndustry" => [String.t() | atom()],
+        "ParentCompanyName" => String.t() | atom(),
+        "WebsiteUrl" => String.t() | atom()
+      }
+      
+  """
+  @type customer_account_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      customer_account_details_summary() :: %{
+        "CompanyName" => String.t() | atom()
+      }
+      
+  """
+  @type customer_account_details_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      customer_account_sort() :: %{
+        "SortBy" => list(any()),
+        "SortOrder" => list(any())
+      }
+      
+  """
+  @type customer_account_sort() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      customer_account_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "AwsEnrichment" => aws_enrichment_summary(),
+        "Catalog" => String.t() | atom(),
+        "CreatedDate" => non_neg_integer(),
+        "CustomerAccount" => customer_account_details_summary(),
+        "EnrichmentStatus" => list(any()),
+        "Id" => String.t() | atom(),
+        "LastModifiedDate" => non_neg_integer(),
+        "PartnerAccountIdentifier" => String.t() | atom()
+      }
+      
+  """
+  @type customer_account_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       customer_projects_context() :: %{
         "Customer" => engagement_customer(),
         "Project" => engagement_customer_project_details()
@@ -622,6 +953,27 @@ defmodule AWS.PartnerCentralSelling do
       
   """
   @type customer_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_customer_account_request() :: %{
+        required("Catalog") => String.t() | atom(),
+        required("Identifier") => String.t() | atom()
+      }
+      
+  """
+  @type delete_customer_account_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_customer_account_response() :: %{}
+      
+  """
+  @type delete_customer_account_response() :: %{}
 
   @typedoc """
 
@@ -688,6 +1040,36 @@ defmodule AWS.PartnerCentralSelling do
       
   """
   @type engagement_customer_project_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      engagement_group_sort() :: %{
+        "SortBy" => list(any()),
+        "SortOrder" => list(any())
+      }
+      
+  """
+  @type engagement_group_sort() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      engagement_group_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "Catalog" => String.t() | atom(),
+        "Count" => [integer()],
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ReadinessLevel" => list(any()),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type engagement_group_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -771,6 +1153,70 @@ defmodule AWS.PartnerCentralSelling do
 
   ## Example:
       
+      engagement_search_filter() :: %{
+        "AndAllFilters" => list(engagement_search_filter()),
+        "ContainsAll" => engagement_search_predicate(),
+        "ContainsAny" => engagement_search_predicate(),
+        "EqualsTo" => engagement_search_predicate(),
+        "GreaterThan" => engagement_search_predicate(),
+        "GreaterThanOrEquals" => engagement_search_predicate(),
+        "LessThan" => engagement_search_predicate(),
+        "LessThanOrEquals" => engagement_search_predicate(),
+        "NotFilter" => engagement_search_filter(),
+        "OrAllFilters" => list(engagement_search_filter())
+      }
+      
+  """
+  @type engagement_search_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      engagement_search_predicate() :: %{
+        "Key" => list(any()),
+        "Value" => list()
+      }
+      
+  """
+  @type engagement_search_predicate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      engagement_search_sort() :: %{
+        "SortBy" => list(any()),
+        "SortOrder" => list(any())
+      }
+      
+  """
+  @type engagement_search_sort() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      engagement_search_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "Contexts" => list(engagement_context_details()),
+        "CreatedAt" => non_neg_integer(),
+        "CreatedBy" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "MemberCount" => [integer()],
+        "ModifiedAt" => non_neg_integer(),
+        "ModifiedBy" => String.t() | atom(),
+        "Title" => String.t() | atom()
+      }
+      
+  """
+  @type engagement_search_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       engagement_sort() :: %{
         "SortBy" => list(any()),
         "SortOrder" => list(any())
@@ -841,6 +1287,38 @@ defmodule AWS.PartnerCentralSelling do
 
   ## Example:
       
+      filter() :: %{
+        "AndAllFilters" => list(filter()),
+        "ContainsAll" => filter_condition(),
+        "ContainsAny" => filter_condition(),
+        "EqualsTo" => filter_condition(),
+        "GreaterThan" => filter_condition(),
+        "GreaterThanOrEquals" => filter_condition(),
+        "LessThan" => filter_condition(),
+        "LessThanOrEquals" => filter_condition(),
+        "NotFilter" => filter(),
+        "OrAllFilters" => list(filter())
+      }
+      
+  """
+  @type filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      filter_condition() :: %{
+        "Key" => list(any()),
+        "Value" => list()
+      }
+      
+  """
+  @type filter_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_aws_opportunity_summary_request() :: %{
         required("Catalog") => String.t() | atom(),
         required("RelatedOpportunityIdentifier") => String.t() | atom()
@@ -856,6 +1334,7 @@ defmodule AWS.PartnerCentralSelling do
       get_aws_opportunity_summary_response() :: %{
         "Catalog" => String.t() | atom(),
         "CosellMotion" => [String.t() | atom()],
+        "CosellMotionReason" => [String.t() | atom()],
         "Customer" => aws_opportunity_customer(),
         "Insights" => aws_opportunity_insights(),
         "InvolvementType" => list(any()),
@@ -872,6 +1351,130 @@ defmodule AWS.PartnerCentralSelling do
       
   """
   @type get_aws_opportunity_summary_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_customer_account_bulk_job_report_url_request() :: %{
+        optional("ReportType") => list(any()),
+        required("Catalog") => String.t() | atom(),
+        required("Identifier") => String.t() | atom()
+      }
+      
+  """
+  @type get_customer_account_bulk_job_report_url_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_customer_account_bulk_job_report_url_response() :: %{
+        "ExpiresAt" => non_neg_integer(),
+        "FailureReason" => [String.t() | atom()],
+        "ReportStatus" => list(any()),
+        "ReportType" => list(any()),
+        "Url" => String.t() | atom()
+      }
+      
+  """
+  @type get_customer_account_bulk_job_report_url_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_customer_account_bulk_job_request() :: %{
+        required("Catalog") => String.t() | atom(),
+        required("Identifier") => String.t() | atom()
+      }
+      
+  """
+  @type get_customer_account_bulk_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_customer_account_bulk_job_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CompletedAt" => non_neg_integer(),
+        "CreatedAt" => non_neg_integer(),
+        "DeletedCount" => [integer()],
+        "FailureCount" => [integer()],
+        "FailureReason" => [String.t() | atom()],
+        "FileName" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "ProcessedRecords" => [integer()],
+        "Status" => list(any()),
+        "SuccessCount" => [integer()],
+        "TotalRecords" => [integer()]
+      }
+      
+  """
+  @type get_customer_account_bulk_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_customer_account_request() :: %{
+        required("Catalog") => String.t() | atom(),
+        required("Identifier") => String.t() | atom()
+      }
+      
+  """
+  @type get_customer_account_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_customer_account_response() :: %{
+        "Account" => customer_account_data(),
+        "Arn" => String.t() | atom(),
+        "AwsEnrichment" => aws_enrichment(),
+        "Catalog" => String.t() | atom(),
+        "CreatedDate" => non_neg_integer(),
+        "EnrichmentStatus" => list(any()),
+        "ExistingCustomerAccountArn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Issues" => list(issue()),
+        "LastModifiedDate" => non_neg_integer(),
+        "Message" => [String.t() | atom()],
+        "PartnerAccountIdentifier" => String.t() | atom(),
+        "ReasonCode" => list(any()),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type get_customer_account_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_customer_account_statistics_request() :: %{
+        optional("Aggregations") => list(aggregation_request()),
+        optional("Filter") => filter(),
+        optional("IncludeMissing") => [boolean()],
+        required("Catalog") => String.t() | atom()
+      }
+      
+  """
+  @type get_customer_account_statistics_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_customer_account_statistics_response() :: %{
+        "Aggregations" => list(aggregation_result()),
+        "TotalCount" => [integer()]
+      }
+      
+  """
+  @type get_customer_account_statistics_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -944,6 +1547,36 @@ defmodule AWS.PartnerCentralSelling do
       
   """
   @type get_engagement_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_opportunity_bulk_job_report_url_request() :: %{
+        optional("ReportType") => list(any()),
+        required("Catalog") => String.t() | atom(),
+        required("JobId") => String.t() | atom(),
+        required("ReportFormat") => list(any())
+      }
+      
+  """
+  @type get_opportunity_bulk_job_report_url_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_opportunity_bulk_job_report_url_response() :: %{
+        "ExpiresAt" => non_neg_integer(),
+        "FailureReason" => [String.t() | atom()],
+        "ReportFormat" => list(any()),
+        "ReportStatus" => list(any()),
+        "ReportType" => list(any()),
+        "Url" => String.t() | atom()
+      }
+      
+  """
+  @type get_opportunity_bulk_job_report_url_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1145,6 +1778,19 @@ defmodule AWS.PartnerCentralSelling do
 
   ## Example:
       
+      issue() :: %{
+        "Code" => [String.t() | atom()],
+        "Message" => [String.t() | atom()],
+        "Severity" => [String.t() | atom()]
+      }
+      
+  """
+  @type issue() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       last_modified_date() :: %{
         "AfterLastModifiedDate" => non_neg_integer(),
         "BeforeLastModifiedDate" => non_neg_integer()
@@ -1217,6 +1863,7 @@ defmodule AWS.PartnerCentralSelling do
   ## Example:
       
       lead_insights() :: %{
+        "ChannelRecommendation" => channel_recommendation(),
         "LeadReadinessScore" => [String.t() | atom()]
       }
       
@@ -1337,6 +1984,59 @@ defmodule AWS.PartnerCentralSelling do
 
   ## Example:
       
+      list_customer_account_bulk_job_results_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Status") => list(any()),
+        required("Catalog") => String.t() | atom(),
+        required("Identifier") => String.t() | atom()
+      }
+      
+  """
+  @type list_customer_account_bulk_job_results_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_customer_account_bulk_job_results_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Results" => list(bulk_job_result())
+      }
+      
+  """
+  @type list_customer_account_bulk_job_results_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_customer_account_bulk_jobs_request() :: %{
+        optional("Filter") => customer_account_bulk_job_filter(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("Catalog") => String.t() | atom()
+      }
+      
+  """
+  @type list_customer_account_bulk_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_customer_account_bulk_jobs_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "items" => list(customer_account_bulk_job_summary())
+      }
+      
+  """
+  @type list_customer_account_bulk_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_engagement_by_accepting_invitation_task_summary() :: %{
         "EngagementInvitationId" => String.t() | atom(),
         "Message" => [String.t() | atom()],
@@ -1437,6 +2137,34 @@ defmodule AWS.PartnerCentralSelling do
       
   """
   @type list_engagement_from_opportunity_tasks_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_engagement_groups_request() :: %{
+        optional("EngagementGroupIdentifiers") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ReadinessLevel") => list(any()),
+        optional("Sort") => engagement_group_sort(),
+        required("Catalog") => String.t() | atom()
+      }
+      
+  """
+  @type list_engagement_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_engagement_groups_response() :: %{
+        "EngagementGroupSummaries" => list(engagement_group_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_engagement_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1587,6 +2315,60 @@ defmodule AWS.PartnerCentralSelling do
       
   """
   @type list_opportunities_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_opportunity_bulk_job_results_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()],
+        optional("Status") => list(any()),
+        required("Catalog") => String.t() | atom(),
+        required("JobId") => String.t() | atom()
+      }
+      
+  """
+  @type list_opportunity_bulk_job_results_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_opportunity_bulk_job_results_response() :: %{
+        "NextToken" => [String.t() | atom()],
+        "Results" => list(bulk_job_result())
+      }
+      
+  """
+  @type list_opportunity_bulk_job_results_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_opportunity_bulk_jobs_request() :: %{
+        optional("JobId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()],
+        optional("Status") => list(any()),
+        required("Catalog") => String.t() | atom()
+      }
+      
+  """
+  @type list_opportunity_bulk_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_opportunity_bulk_jobs_response() :: %{
+        "NextToken" => [String.t() | atom()],
+        "OpportunityBulkJobSummaries" => list(opportunity_bulk_job_summary())
+      }
+      
+  """
+  @type list_opportunity_bulk_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1834,6 +2616,28 @@ defmodule AWS.PartnerCentralSelling do
 
   ## Example:
       
+      opportunity_bulk_job_summary() :: %{
+        "CompletedAt" => non_neg_integer(),
+        "CreatedAt" => non_neg_integer(),
+        "FailureCount" => [integer()],
+        "FailureReason" => [String.t() | atom()],
+        "FileName" => String.t() | atom(),
+        "JobId" => String.t() | atom(),
+        "OperationType" => list(any()),
+        "ProcessedRecords" => [integer()],
+        "StartedAt" => non_neg_integer(),
+        "Status" => list(any()),
+        "SuccessCount" => [integer()],
+        "TotalRecords" => [integer()]
+      }
+      
+  """
+  @type opportunity_bulk_job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       opportunity_engagement_invitation_sort() :: %{
         "SortBy" => list(any()),
         "SortOrder" => list(any())
@@ -1848,6 +2652,7 @@ defmodule AWS.PartnerCentralSelling do
       
       opportunity_invitation_payload() :: %{
         "Customer" => engagement_customer(),
+        "OpportunityType" => list(any()),
         "Project" => project_details(),
         "ReceiverResponsibilities" => list(list(any())()),
         "SenderContacts" => list(sender_contact())
@@ -1867,6 +2672,210 @@ defmodule AWS.PartnerCentralSelling do
       
   """
   @type opportunity_quality() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      opportunity_search_account() :: %{
+        "Address" => opportunity_search_address(),
+        "AwsAccountId" => String.t() | atom(),
+        "CompanyName" => String.t() | atom(),
+        "Industry" => list(any())
+      }
+      
+  """
+  @type opportunity_search_account() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      opportunity_search_address() :: %{
+        "CountryCode" => list(any())
+      }
+      
+  """
+  @type opportunity_search_address() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      opportunity_search_aws_summary() :: %{
+        "CosellMotion" => String.t() | atom(),
+        "Insights" => opportunity_search_insights(),
+        "Origin" => list(any())
+      }
+      
+  """
+  @type opportunity_search_aws_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      opportunity_search_customer() :: %{
+        "Account" => opportunity_search_account()
+      }
+      
+  """
+  @type opportunity_search_customer() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      opportunity_search_expected_customer_spend() :: %{
+        "Amount" => String.t() | atom(),
+        "CurrencyCode" => list(any())
+      }
+      
+  """
+  @type opportunity_search_expected_customer_spend() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      opportunity_search_filter() :: %{
+        "AndAllFilters" => list(opportunity_search_filter()),
+        "ContainsAll" => opportunity_search_predicate(),
+        "ContainsAny" => opportunity_search_predicate(),
+        "EqualsTo" => opportunity_search_predicate(),
+        "GreaterThan" => opportunity_search_predicate(),
+        "GreaterThanOrEquals" => opportunity_search_predicate(),
+        "LessThan" => opportunity_search_predicate(),
+        "LessThanOrEquals" => opportunity_search_predicate(),
+        "NotFilter" => opportunity_search_filter(),
+        "OrAllFilters" => list(opportunity_search_filter())
+      }
+      
+  """
+  @type opportunity_search_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      opportunity_search_insights() :: %{
+        "EngagementScore" => list(any()),
+        "OpportunityQuality" => opportunity_search_opportunity_quality()
+      }
+      
+  """
+  @type opportunity_search_insights() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      opportunity_search_life_cycle() :: %{
+        "NextSteps" => String.t() | atom(),
+        "ReviewStatus" => list(any()),
+        "Stage" => list(any()),
+        "TargetCloseDate" => String.t() | atom()
+      }
+      
+  """
+  @type opportunity_search_life_cycle() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      opportunity_search_opportunity_quality() :: %{
+        "Score" => [integer()]
+      }
+      
+  """
+  @type opportunity_search_opportunity_quality() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      opportunity_search_predicate() :: %{
+        "Key" => list(any()),
+        "Value" => list()
+      }
+      
+  """
+  @type opportunity_search_predicate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      opportunity_search_project() :: %{
+        "ApnPrograms" => list([String.t() | atom()]()),
+        "ExpectedCustomerSpend" => list(opportunity_search_expected_customer_spend()),
+        "Title" => String.t() | atom()
+      }
+      
+  """
+  @type opportunity_search_project() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      opportunity_search_related_entity_identifiers() :: %{
+        "AwsMarketplaceOfferSets" => list(String.t() | atom()),
+        "AwsMarketplaceOffers" => list(String.t() | atom()),
+        "AwsMarketplaceSolutions" => list(String.t() | atom()),
+        "Solutions" => list(String.t() | atom())
+      }
+      
+  """
+  @type opportunity_search_related_entity_identifiers() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      opportunity_search_sort() :: %{
+        "SortBy" => list(any()),
+        "SortOrder" => list(any())
+      }
+      
+  """
+  @type opportunity_search_sort() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      opportunity_search_summary() :: %{
+        "AwsOpportunitySummary" => opportunity_search_aws_summary(),
+        "CreatedDate" => non_neg_integer(),
+        "Customer" => opportunity_search_customer(),
+        "Id" => String.t() | atom(),
+        "LastModifiedDate" => non_neg_integer(),
+        "LifeCycle" => opportunity_search_life_cycle(),
+        "OpportunityTeam" => list(opportunity_search_team_member()),
+        "OpportunityType" => list(any()),
+        "PartnerOpportunityIdentifier" => [String.t() | atom()],
+        "Project" => opportunity_search_project(),
+        "RelatedEntityIdentifiers" => opportunity_search_related_entity_identifiers(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type opportunity_search_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      opportunity_search_team_member() :: %{
+        "BusinessTitle" => String.t() | atom(),
+        "FirstName" => String.t() | atom(),
+        "LastName" => String.t() | atom()
+      }
+      
+  """
+  @type opportunity_search_team_member() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1916,6 +2925,18 @@ defmodule AWS.PartnerCentralSelling do
       
   """
   @type opportunity_summary_view() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      preferred_contact_window() :: %{
+        "Timezone" => [String.t() | atom()],
+        "Window" => list(any())
+      }
+      
+  """
+  @type preferred_contact_window() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2200,6 +3221,90 @@ defmodule AWS.PartnerCentralSelling do
 
   ## Example:
       
+      search_customer_accounts_request() :: %{
+        optional("Filter") => filter(),
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t() | atom(),
+        optional("Sort") => customer_account_sort(),
+        required("Catalog") => String.t() | atom()
+      }
+      
+  """
+  @type search_customer_accounts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_customer_accounts_response() :: %{
+        "CustomerAccountSummaries" => list(customer_account_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type search_customer_accounts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_engagements_request() :: %{
+        optional("Filter") => engagement_search_filter(),
+        optional("GroupId") => String.t() | atom(),
+        optional("Keyword") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Sort") => engagement_search_sort(),
+        required("Catalog") => String.t() | atom()
+      }
+      
+  """
+  @type search_engagements_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_engagements_response() :: %{
+        "EngagementSearchSummaries" => list(engagement_search_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type search_engagements_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_opportunities_request() :: %{
+        optional("Filter") => opportunity_search_filter(),
+        optional("Keyword") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()],
+        optional("Sort") => opportunity_search_sort(),
+        required("Catalog") => String.t() | atom()
+      }
+      
+  """
+  @type search_opportunities_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_opportunities_response() :: %{
+        "NextToken" => [String.t() | atom()],
+        "OpportunitySearchSummaries" => list(opportunity_search_summary())
+      }
+      
+  """
+  @type search_opportunities_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       sender_contact() :: %{
         "BusinessTitle" => String.t() | atom(),
         "Email" => String.t() | atom(),
@@ -2282,6 +3387,33 @@ defmodule AWS.PartnerCentralSelling do
 
   ## Example:
       
+      start_customer_account_bulk_job_request() :: %{
+        required("Catalog") => String.t() | atom(),
+        required("ClientToken") => String.t() | atom(),
+        required("FileUri") => String.t() | atom()
+      }
+      
+  """
+  @type start_customer_account_bulk_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_customer_account_bulk_job_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type start_customer_account_bulk_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       start_engagement_by_accepting_invitation_task_request() :: %{
         optional("Tags") => list(tag()),
         required("Catalog") => String.t() | atom(),
@@ -2349,6 +3481,31 @@ defmodule AWS.PartnerCentralSelling do
       
   """
   @type start_engagement_from_opportunity_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_opportunity_bulk_job_request() :: %{
+        required("Catalog") => String.t() | atom(),
+        required("ClientToken") => String.t() | atom(),
+        required("FileFormat") => list(any()),
+        required("FileURI") => String.t() | atom()
+      }
+      
+  """
+  @type start_opportunity_bulk_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_opportunity_bulk_job_response() :: %{
+        "JobId" => String.t() | atom()
+      }
+      
+  """
+  @type start_opportunity_bulk_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2536,6 +3693,38 @@ defmodule AWS.PartnerCentralSelling do
 
   ## Example:
       
+      update_customer_account_request() :: %{
+        optional("PartnerAccountIdentifier") => String.t() | atom(),
+        required("Account") => customer_account_data(),
+        required("Catalog") => String.t() | atom(),
+        required("Identifier") => String.t() | atom(),
+        required("LastModifiedDate") => non_neg_integer()
+      }
+      
+  """
+  @type update_customer_account_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_customer_account_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Catalog" => String.t() | atom(),
+        "CreatedDate" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "LastModifiedDate" => non_neg_integer(),
+        "PartnerAccountIdentifier" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type update_customer_account_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_engagement_context_request() :: %{
         required("Catalog") => String.t() | atom(),
         required("ContextIdentifier") => String.t() | atom(),
@@ -2658,6 +3847,14 @@ defmodule AWS.PartnerCentralSelling do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type create_customer_account_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type create_engagement_errors() ::
           validation_exception()
           | throttling_exception()
@@ -2711,6 +3908,12 @@ defmodule AWS.PartnerCentralSelling do
           | conflict_exception()
           | access_denied_exception()
 
+  @type delete_customer_account_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type delete_resource_snapshot_job_errors() ::
           validation_exception()
           | throttling_exception()
@@ -2733,6 +3936,34 @@ defmodule AWS.PartnerCentralSelling do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type get_customer_account_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_customer_account_bulk_job_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_customer_account_bulk_job_report_url_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type get_customer_account_statistics_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type get_engagement_errors() ::
           validation_exception()
           | throttling_exception()
@@ -2752,6 +3983,14 @@ defmodule AWS.PartnerCentralSelling do
           | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_opportunity_bulk_job_report_url_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type get_prospecting_from_engagement_task_errors() ::
@@ -2782,6 +4021,19 @@ defmodule AWS.PartnerCentralSelling do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type list_customer_account_bulk_job_results_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_customer_account_bulk_jobs_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type list_engagement_by_accepting_invitation_tasks_errors() ::
           validation_exception()
           | throttling_exception()
@@ -2793,6 +4045,12 @@ defmodule AWS.PartnerCentralSelling do
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_engagement_groups_errors() ::
+          validation_exception()
+          | throttling_exception()
           | internal_server_exception()
           | access_denied_exception()
 
@@ -2825,6 +4083,20 @@ defmodule AWS.PartnerCentralSelling do
           | access_denied_exception()
 
   @type list_opportunities_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_opportunity_bulk_job_results_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_opportunity_bulk_jobs_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -2887,6 +4159,33 @@ defmodule AWS.PartnerCentralSelling do
           | conflict_exception()
           | access_denied_exception()
 
+  @type search_customer_accounts_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type search_engagements_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type search_opportunities_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type start_customer_account_bulk_job_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type start_engagement_by_accepting_invitation_task_errors() ::
           validation_exception()
           | throttling_exception()
@@ -2901,6 +4200,14 @@ defmodule AWS.PartnerCentralSelling do
           | throttling_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type start_opportunity_bulk_job_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | internal_server_exception()
           | conflict_exception()
           | access_denied_exception()
@@ -2952,6 +4259,14 @@ defmodule AWS.PartnerCentralSelling do
           | access_denied_exception()
 
   @type untag_resource_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type update_customer_account_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -3086,6 +4401,29 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
+  Use `CreateCustomerAccount` to map a customer account from your records to an
+  AWS customer.
+
+  Provide details about the customer, such as the company name and website. AWS
+  then matches the account to a customer and adds enrichment information about it.
+
+  Matching runs asynchronously. The response returns the new customer account with
+  a status of `PENDING`. Use `GetCustomerAccount` to check the result and read the
+  enrichment information.
+  """
+  @spec create_customer_account(map(), create_customer_account_request(), list()) ::
+          {:ok, create_customer_account_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_customer_account_errors()}
+  def create_customer_account(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateCustomerAccount", input, options)
+  end
+
+  @doc """
   The `CreateEngagement` action allows you to create an `Engagement`, which serves
   as a collaborative space between different parties such as AWS Partners and AWS
   Sellers.
@@ -3216,6 +4554,24 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
+  Use `DeleteCustomerAccount` to delete a customer account.
+
+  This operation is idempotent. Deleting a customer account that was already
+  deleted succeeds.
+  """
+  @spec delete_customer_account(map(), delete_customer_account_request(), list()) ::
+          {:ok, delete_customer_account_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_customer_account_errors()}
+  def delete_customer_account(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteCustomerAccount", input, options)
+  end
+
+  @doc """
   Use this action to deletes a previously created resource snapshot job.
 
   The job must be in a stopped state before it can be deleted.
@@ -3280,6 +4636,83 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
+  Use `GetCustomerAccount` to retrieve the details of a customer account,
+  including the customer information that you provided, the enrichment status, and
+  the enrichment information that AWS provides when the status is `ENRICHED`.
+  """
+  @spec get_customer_account(map(), get_customer_account_request(), list()) ::
+          {:ok, get_customer_account_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_customer_account_errors()}
+  def get_customer_account(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetCustomerAccount", input, options)
+  end
+
+  @doc """
+  Use `GetCustomerAccountBulkJob` to retrieve the status and record counts of a
+  bulk job.
+  """
+  @spec get_customer_account_bulk_job(map(), get_customer_account_bulk_job_request(), list()) ::
+          {:ok, get_customer_account_bulk_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_customer_account_bulk_job_errors()}
+  def get_customer_account_bulk_job(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetCustomerAccountBulkJob", input, options)
+  end
+
+  @doc """
+  Use `GetCustomerAccountBulkJobReportUrl` to get a temporary URL for downloading
+  the report of a bulk job, such as the list of records that failed.
+
+  A report is available only after the job is `COMPLETED` or `FAILED`. For a job
+  that is still running, the request fails with a `ConflictException`.
+
+  The report is generated on request. If `ReportStatus` is not `AVAILABLE`, call
+  the operation again later.
+  """
+  @spec get_customer_account_bulk_job_report_url(
+          map(),
+          get_customer_account_bulk_job_report_url_request(),
+          list()
+        ) ::
+          {:ok, get_customer_account_bulk_job_report_url_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_customer_account_bulk_job_report_url_errors()}
+  def get_customer_account_bulk_job_report_url(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetCustomerAccountBulkJobReportUrl", input, options)
+  end
+
+  @doc """
+  Use `GetCustomerAccountStatistics` to count your customer accounts and group
+  them by fields such as industry, geography, or enrichment status.
+
+  You can use the same filters as `SearchCustomerAccounts`.
+  """
+  @spec get_customer_account_statistics(map(), get_customer_account_statistics_request(), list()) ::
+          {:ok, get_customer_account_statistics_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_customer_account_statistics_errors()}
+  def get_customer_account_statistics(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetCustomerAccountStatistics", input, options)
+  end
+
+  @doc """
   Use this action to retrieve the engagement record for a given
   `EngagementIdentifier`.
   """
@@ -3330,6 +4763,29 @@ defmodule AWS.PartnerCentralSelling do
       metadata()
 
     Request.request_post(client, meta, "GetOpportunity", input, options)
+  end
+
+  @doc """
+  Gets the status of the failed-records report for a finished opportunity bulk job
+  and, when the report is ready, a temporary URL to download it.
+
+  A report is available only after the job is `COMPLETED` or `FAILED`. The URL
+  expires after 15 minutes, and the report expires after about 7 days.
+  """
+  @spec get_opportunity_bulk_job_report_url(
+          map(),
+          get_opportunity_bulk_job_report_url_request(),
+          list()
+        ) ::
+          {:ok, get_opportunity_bulk_job_report_url_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_opportunity_bulk_job_report_url_errors()}
+  def get_opportunity_bulk_job_report_url(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetOpportunityBulkJobReportUrl", input, options)
   end
 
   @doc """
@@ -3400,6 +4856,51 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
+  Use `ListCustomerAccountBulkJobResults` to list the outcome of each record in a
+  bulk job.
+
+  You can filter the results to records that succeeded or failed. A job that
+  failed before it processed any records returns an empty list.
+
+  Results are paginated. Use `NextToken` to retrieve additional results.
+  """
+  @spec list_customer_account_bulk_job_results(
+          map(),
+          list_customer_account_bulk_job_results_request(),
+          list()
+        ) ::
+          {:ok, list_customer_account_bulk_job_results_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_customer_account_bulk_job_results_errors()}
+  def list_customer_account_bulk_job_results(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListCustomerAccountBulkJobResults", input, options)
+  end
+
+  @doc """
+  Use `ListCustomerAccountBulkJobs` to list the bulk jobs in the specified
+  catalog.
+
+  You can filter the results by job identifier or status.
+
+  Results are paginated. Use `NextToken` to retrieve additional results.
+  """
+  @spec list_customer_account_bulk_jobs(map(), list_customer_account_bulk_jobs_request(), list()) ::
+          {:ok, list_customer_account_bulk_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_customer_account_bulk_jobs_errors()}
+  def list_customer_account_bulk_jobs(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListCustomerAccountBulkJobs", input, options)
+  end
+
+  @doc """
   Lists all in-progress, completed, or failed
   StartEngagementByAcceptingInvitationTask tasks that were initiated by the
   caller's account.
@@ -3421,8 +4922,8 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
-  Lists all in-progress, completed, or failed `EngagementFromOpportunity` tasks
-  that were initiated by the caller's account.
+  Lists all in-progress, completed, or failed EngagementFromOpportunity tasks that
+  were initiated by the caller's account.
   """
   @spec list_engagement_from_opportunity_tasks(
           map(),
@@ -3438,6 +4939,27 @@ defmodule AWS.PartnerCentralSelling do
       metadata()
 
     Request.request_post(client, meta, "ListEngagementFromOpportunityTasks", input, options)
+  end
+
+  @doc """
+  Lists the active, fully curated AWS Partner Central engagement groups that are
+  available to you in the specified catalog.
+
+  An engagement group is a curated set of engagements that share common
+  characteristics, such as customer geography, industry, or solution category. To
+  retrieve the engagements in a group, pass the group `Id` to `SearchEngagements`
+  as `GroupId`, and use `NextToken` to retrieve additional pages of groups.
+  """
+  @spec list_engagement_groups(map(), list_engagement_groups_request(), list()) ::
+          {:ok, list_engagement_groups_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_engagement_groups_errors()}
+  def list_engagement_groups(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListEngagementGroups", input, options)
   end
 
   @doc """
@@ -3551,6 +5073,48 @@ defmodule AWS.PartnerCentralSelling do
       metadata()
 
     Request.request_post(client, meta, "ListOpportunities", input, options)
+  end
+
+  @doc """
+  Lists the outcome of each record in an opportunity bulk job.
+
+  You can filter the results by record status.
+
+  Results are paginated. Use `NextToken` to retrieve additional results.
+  """
+  @spec list_opportunity_bulk_job_results(
+          map(),
+          list_opportunity_bulk_job_results_request(),
+          list()
+        ) ::
+          {:ok, list_opportunity_bulk_job_results_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_opportunity_bulk_job_results_errors()}
+  def list_opportunity_bulk_job_results(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListOpportunityBulkJobResults", input, options)
+  end
+
+  @doc """
+  Lists the opportunity bulk jobs in the specified catalog, newest first.
+
+  You can filter the results by job identifier or status.
+
+  Results are paginated. Use `NextToken` to retrieve additional results.
+  """
+  @spec list_opportunity_bulk_jobs(map(), list_opportunity_bulk_jobs_request(), list()) ::
+          {:ok, list_opportunity_bulk_jobs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_opportunity_bulk_jobs_errors()}
+  def list_opportunity_bulk_jobs(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListOpportunityBulkJobs", input, options)
   end
 
   @doc """
@@ -3713,6 +5277,93 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
+  Use `SearchCustomerAccounts` to find customer accounts in the specified catalog.
+
+  You can filter the results by fields such as enrichment status, industry,
+  geography, and creation date, and sort them by company name, date, or score.
+
+  Results are paginated. Use `NextToken` to retrieve additional results.
+  """
+  @spec search_customer_accounts(map(), search_customer_accounts_request(), list()) ::
+          {:ok, search_customer_accounts_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, search_customer_accounts_errors()}
+  def search_customer_accounts(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "SearchCustomerAccounts", input, options)
+  end
+
+  @doc """
+  Searches the engagements in AWS Partner Central that match your criteria, such
+  as customer industry or geography.
+
+  You can combine a free-text `Keyword`, a structured `Filter` tree, an engagement
+  group (`GroupId`), and `Sort` options, and each search criterion that you
+  specify narrows the results. Results are paginated, so use `NextToken` to
+  retrieve additional results.
+  """
+  @spec search_engagements(map(), search_engagements_request(), list()) ::
+          {:ok, search_engagements_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, search_engagements_errors()}
+  def search_engagements(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "SearchEngagements", input, options)
+  end
+
+  @doc """
+  The `SearchOpportunities` operation in the AWS Partner Central Selling API
+  searches and filters the opportunities available to you in AWS Partner Central.
+
+  You can optionally provide a free-text `Keyword`, a structured `Filter` tree,
+  and `Sort` options. The operation returns a curated summary view of each
+  matching opportunity. If you supply both `Keyword` and `Filter`, the operation
+  combines them with a logical AND, so each one narrows the result set.
+
+  Results are paginated. Use the `NextToken` parameter to retrieve additional
+  pages of results.
+  """
+  @spec search_opportunities(map(), search_opportunities_request(), list()) ::
+          {:ok, search_opportunities_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, search_opportunities_errors()}
+  def search_opportunities(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "SearchOpportunities", input, options)
+  end
+
+  @doc """
+  Use `StartCustomerAccountBulkJob` to create many customer accounts from a single
+  file.
+
+  The job starts processing as soon as it is created.
+
+  Use `GetCustomerAccountBulkJob` to track progress,
+  `ListCustomerAccountBulkJobResults` to review the outcome of each record, and
+  `GetCustomerAccountBulkJobReportUrl` to download a report when the job finishes.
+  """
+  @spec start_customer_account_bulk_job(map(), start_customer_account_bulk_job_request(), list()) ::
+          {:ok, start_customer_account_bulk_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_customer_account_bulk_job_errors()}
+  def start_customer_account_bulk_job(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "StartCustomerAccountBulkJob", input, options)
+  end
+
+  @doc """
   This action starts the engagement by accepting an `EngagementInvitation`.
 
   The task is asynchronous and involves the following steps: accepting the
@@ -3763,6 +5414,29 @@ defmodule AWS.PartnerCentralSelling do
       metadata()
 
     Request.request_post(client, meta, "StartEngagementFromOpportunityTask", input, options)
+  end
+
+  @doc """
+  The `StartOpportunityBulkJob` operation creates or updates many opportunities in
+  AWS Partner Central (Partner Central) from a single CSV file.
+
+  The column headers in the file determine whether the job creates or updates
+  opportunities.
+
+  Returns a `JobId` for the job. Use `ListOpportunityBulkJobs` to track the job,
+  `ListOpportunityBulkJobResults` to review each record, and
+  `GetOpportunityBulkJobReportUrl` to download a report of the failed records.
+  """
+  @spec start_opportunity_bulk_job(map(), start_opportunity_bulk_job_request(), list()) ::
+          {:ok, start_opportunity_bulk_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_opportunity_bulk_job_errors()}
+  def start_opportunity_bulk_job(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "StartOpportunityBulkJob", input, options)
   end
 
   @doc """
@@ -3892,6 +5566,28 @@ defmodule AWS.PartnerCentralSelling do
       metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
+  end
+
+  @doc """
+  Use `UpdateCustomerAccount` to replace the customer information on an existing
+  customer account.
+
+  AWS matches the account again with the updated information.
+
+  To prevent concurrent changes from overwriting each other, specify the
+  `LastModifiedDate` value that you last read for the account. If the account
+  changed since then, the request fails with a `ConflictException`.
+  """
+  @spec update_customer_account(map(), update_customer_account_request(), list()) ::
+          {:ok, update_customer_account_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_customer_account_errors()}
+  def update_customer_account(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateCustomerAccount", input, options)
   end
 
   @doc """

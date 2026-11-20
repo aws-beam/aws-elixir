@@ -43,6 +43,7 @@ defmodule AWS.RTBFabric do
         "connectivityType" => list(any()),
         "createdAt" => [non_neg_integer()],
         "direction" => list(any()),
+        "errorDetails" => list(error_detail()),
         "flowModules" => list(module_configuration()),
         "gatewayId" => String.t() | atom(),
         "linkId" => String.t() | atom(),
@@ -104,6 +105,36 @@ defmodule AWS.RTBFabric do
 
   """
   @type auto_scaling_groups_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      available_module_summary() :: %{
+        "marketplaceProductId" => [String.t() | atom()],
+        "moduleArn" => String.t() | atom(),
+        "moduleId" => String.t() | atom(),
+        "moduleName" => String.t() | atom(),
+        "subscriptionStatus" => list(any()),
+        "subscriptionType" => list(any())
+      }
+
+  """
+  @type available_module_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      available_module_version_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "moduleVersionArn" => String.t() | atom(),
+        "status" => list(any()),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type available_module_version_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -184,6 +215,7 @@ defmodule AWS.RTBFabric do
         "createdAt" => [non_neg_integer()],
         "customerProvidedId" => [String.t() | atom()],
         "direction" => list(any()),
+        "errorDetails" => list(error_detail()),
         "flowModules" => list(module_configuration()),
         "gatewayId" => String.t() | atom(),
         "linkId" => String.t() | atom(),
@@ -490,6 +522,19 @@ defmodule AWS.RTBFabric do
 
   ## Example:
 
+      error_detail() :: %{
+        "code" => list(any()),
+        "message" => [String.t() | atom()],
+        "resourceIds" => list(String.t() | atom())
+      }
+
+  """
+  @type error_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       filter() :: %{
         "criteria" => list(filter_criterion())
       }
@@ -513,6 +558,101 @@ defmodule AWS.RTBFabric do
 
   ## Example:
 
+      flow() :: %{
+        "name" => String.t() | atom(),
+        "pipeline" => list()
+      }
+
+  """
+  @type flow() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_module() :: %{
+        "activationPercentage" => float(),
+        "configurationValues" => String.t() | atom(),
+        "failureMode" => list(any()),
+        "moduleVersionArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "selectedActions" => list(list(any())())
+      }
+
+  """
+  @type flow_module() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_phase() :: %{
+        "modules" => list(flow_module())
+      }
+
+  """
+  @type flow_phase() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_available_module_request() :: %{}
+
+  """
+  @type get_available_module_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_available_module_response() :: %{
+        "createdAt" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "marketplaceProductId" => [String.t() | atom()],
+        "moduleArn" => String.t() | atom(),
+        "moduleId" => String.t() | atom(),
+        "moduleName" => String.t() | atom(),
+        "subscriptionStatus" => list(any()),
+        "subscriptionType" => list(any())
+      }
+
+  """
+  @type get_available_module_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_available_module_version_request() :: %{}
+
+  """
+  @type get_available_module_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_available_module_version_response() :: %{
+        "configurableActions" => list(list(any())()),
+        "configurationSchema" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "moduleId" => String.t() | atom(),
+        "moduleVersionArn" => String.t() | atom(),
+        "permissions" => list(list(any())()),
+        "releaseNotes" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()],
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type get_available_module_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_certificate_association_request() :: %{
         required("acmCertificateArn") => String.t() | atom()
       }
@@ -527,6 +667,7 @@ defmodule AWS.RTBFabric do
       get_certificate_association_response() :: %{
         "acmCertificateArn" => String.t() | atom(),
         "associatedAt" => [non_neg_integer()],
+        "errorDetails" => list(error_detail()),
         "gatewayId" => String.t() | atom(),
         "status" => list(any()),
         "updatedAt" => [non_neg_integer()]
@@ -553,9 +694,12 @@ defmodule AWS.RTBFabric do
         "connectivityType" => list(any()),
         "createdAt" => [non_neg_integer()],
         "domainName" => String.t() | atom(),
+        "errorDetails" => list(error_detail()),
         "flowModules" => list(module_configuration()),
+        "flows" => list(flow()),
         "gatewayId" => String.t() | atom(),
         "linkId" => String.t() | atom(),
+        "lockToken" => String.t() | atom(),
         "logSettings" => link_log_settings(),
         "pendingFlowModules" => list(module_configuration()),
         "status" => list(any()),
@@ -584,10 +728,13 @@ defmodule AWS.RTBFabric do
         "connectivityType" => list(any()),
         "createdAt" => [non_neg_integer()],
         "direction" => list(any()),
+        "errorDetails" => list(error_detail()),
         "flowModules" => list(module_configuration()),
+        "flows" => list(flow()),
         "gatewayId" => String.t() | atom(),
         "httpResponderAllowed" => [boolean()],
         "linkId" => String.t() | atom(),
+        "lockToken" => String.t() | atom(),
         "logSettings" => link_log_settings(),
         "peerGatewayId" => String.t() | atom(),
         "pendingFlowModules" => list(module_configuration()),
@@ -616,6 +763,7 @@ defmodule AWS.RTBFabric do
       get_link_routing_rule_response() :: %{
         "conditions" => rule_condition(),
         "createdAt" => [non_neg_integer()],
+        "errorDetails" => list(error_detail()),
         "gatewayId" => String.t() | atom(),
         "linkId" => String.t() | atom(),
         "priority" => integer(),
@@ -645,9 +793,12 @@ defmodule AWS.RTBFabric do
         "attributes" => link_attributes(),
         "connectivityType" => list(any()),
         "createdAt" => [non_neg_integer()],
+        "errorDetails" => list(error_detail()),
         "flowModules" => list(module_configuration()),
+        "flows" => list(flow()),
         "gatewayId" => String.t() | atom(),
         "linkId" => String.t() | atom(),
+        "lockToken" => String.t() | atom(),
         "logSettings" => link_log_settings(),
         "pendingFlowModules" => list(module_configuration()),
         "publicEndpoint" => String.t() | atom(),
@@ -677,6 +828,7 @@ defmodule AWS.RTBFabric do
         "createdAt" => [non_neg_integer()],
         "description" => [String.t() | atom()],
         "domainName" => String.t() | atom(),
+        "errorDetails" => list(error_detail()),
         "gatewayId" => String.t() | atom(),
         "securityGroupIds" => list(String.t() | atom()),
         "status" => list(any()),
@@ -709,6 +861,7 @@ defmodule AWS.RTBFabric do
         "createdAt" => [non_neg_integer()],
         "description" => [String.t() | atom()],
         "domainName" => String.t() | atom(),
+        "errorDetails" => list(error_detail()),
         "externalInboundEndpoint" => String.t() | atom(),
         "gatewayId" => String.t() | atom(),
         "gatewayType" => list(any()),
@@ -729,6 +882,26 @@ defmodule AWS.RTBFabric do
 
   """
   @type get_responder_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_update_request() :: %{}
+
+  """
+  @type get_update_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_update_response() :: %{
+        "update" => update()
+      }
+
+  """
+  @type get_update_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -810,6 +983,18 @@ defmodule AWS.RTBFabric do
 
   ## Example:
 
+      link_config_parameters() :: %{
+        "logSettings" => link_log_settings(),
+        "timeoutInMillis" => float()
+      }
+
+  """
+  @type link_config_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       link_log_settings() :: %{
         "applicationLogs" => link_application_log_configuration()
       }
@@ -824,6 +1009,7 @@ defmodule AWS.RTBFabric do
       link_routing_rule_summary() :: %{
         "conditions" => rule_condition(),
         "createdAt" => [non_neg_integer()],
+        "errorDetails" => list(error_detail()),
         "priority" => integer(),
         "ruleId" => String.t() | atom(),
         "status" => list(any()),
@@ -832,6 +1018,68 @@ defmodule AWS.RTBFabric do
 
   """
   @type link_routing_rule_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      link_target() :: %{
+        "linkId" => String.t() | atom()
+      }
+
+  """
+  @type link_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_available_module_versions_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()],
+        optional("status") => list(any())
+      }
+
+  """
+  @type list_available_module_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_available_module_versions_response() :: %{
+        "moduleId" => String.t() | atom(),
+        "nextToken" => [String.t() | atom()],
+        "versions" => list(available_module_version_summary())
+      }
+
+  """
+  @type list_available_module_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_available_modules_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()],
+        optional("subscriptionType") => list(any())
+      }
+
+  """
+  @type list_available_modules_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_available_modules_response() :: %{
+        "modules" => list(available_module_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_available_modules_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -914,6 +1162,7 @@ defmodule AWS.RTBFabric do
         "connectivityType" => list(any()),
         "createdAt" => [non_neg_integer()],
         "direction" => list(any()),
+        "errorDetails" => list(error_detail()),
         "flowModules" => list(module_configuration()),
         "gatewayId" => String.t() | atom(),
         "linkId" => String.t() | atom(),
@@ -1001,6 +1250,34 @@ defmodule AWS.RTBFabric do
 
   ## Example:
 
+      list_updates_request() :: %{
+        optional("linkId") => String.t() | atom(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()],
+        optional("ruleId") => String.t() | atom(),
+        optional("status") => list(any()),
+        optional("type") => list(any())
+      }
+
+  """
+  @type list_updates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_updates_response() :: %{
+        "nextToken" => [String.t() | atom()],
+        "updates" => list(update_summary())
+      }
+
+  """
+  @type list_updates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       listener_config() :: %{
         "protocols" => list(list(any())())
       }
@@ -1064,6 +1341,44 @@ defmodule AWS.RTBFabric do
 
   ## Example:
 
+      phased_pipeline() :: %{
+        "phases" => list(flow_phase())
+      }
+
+  """
+  @type phased_pipeline() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_link_flows_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("flows") => list(flow()),
+        required("lockToken") => String.t() | atom()
+      }
+
+  """
+  @type put_link_flows_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_link_flows_response() :: %{
+        "gatewayId" => String.t() | atom(),
+        "linkId" => String.t() | atom(),
+        "status" => list(any()),
+        "updateId" => String.t() | atom()
+      }
+
+  """
+  @type put_link_flows_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       query_string_key_value_pair() :: %{
         "key" => [String.t() | atom()],
         "value" => [String.t() | atom()]
@@ -1101,6 +1416,7 @@ defmodule AWS.RTBFabric do
         "connectivityType" => list(any()),
         "createdAt" => [non_neg_integer()],
         "direction" => list(any()),
+        "errorDetails" => list(error_detail()),
         "flowModules" => list(module_configuration()),
         "gatewayId" => String.t() | atom(),
         "linkId" => String.t() | atom(),
@@ -1143,6 +1459,48 @@ defmodule AWS.RTBFabric do
 
   ## Example:
 
+      responder_gateway_config_parameters() :: %{
+        "clientRoutingPolicy" => list(any()),
+        "description" => [String.t() | atom()],
+        "domainName" => String.t() | atom(),
+        "listenerConfig" => listener_config(),
+        "managedEndpointConfiguration" => list(),
+        "port" => [integer()],
+        "protocol" => list(any()),
+        "trustStoreConfiguration" => trust_store_configuration()
+      }
+
+  """
+  @type responder_gateway_config_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      routing_rule_parameters() :: %{
+        "conditions" => rule_condition(),
+        "priority" => integer()
+      }
+
+  """
+  @type routing_rule_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      routing_rule_target() :: %{
+        "linkId" => String.t() | atom(),
+        "ruleId" => String.t() | atom()
+      }
+
+  """
+  @type routing_rule_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       rule_condition() :: %{
         "hostHeader" => [String.t() | atom()],
         "hostHeaderWildcard" => [String.t() | atom()],
@@ -1154,6 +1512,17 @@ defmodule AWS.RTBFabric do
 
   """
   @type rule_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sequential_pipeline() :: %{
+        "modules" => list(flow_module())
+      }
+
+  """
+  @type sequential_pipeline() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1232,6 +1601,23 @@ defmodule AWS.RTBFabric do
 
   ## Example:
 
+      update() :: %{
+        "createdAt" => [non_neg_integer()],
+        "errorDetails" => list(error_detail()),
+        "parameters" => list(),
+        "status" => list(any()),
+        "target" => list(),
+        "type" => list(any()),
+        "updateId" => String.t() | atom()
+      }
+
+  """
+  @type update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_link_module_flow_request() :: %{
         required("clientToken") => [String.t() | atom()],
         required("modules") => list(module_configuration())
@@ -1247,7 +1633,8 @@ defmodule AWS.RTBFabric do
       update_link_module_flow_response() :: %{
         "gatewayId" => String.t() | atom(),
         "linkId" => String.t() | atom(),
-        "status" => list(any())
+        "status" => list(any()),
+        "updateId" => String.t() | atom()
       }
 
   """
@@ -1258,6 +1645,7 @@ defmodule AWS.RTBFabric do
   ## Example:
 
       update_link_request() :: %{
+        optional("clientToken") => [String.t() | atom()],
         optional("logSettings") => link_log_settings(),
         optional("timeoutInMillis") => float()
       }
@@ -1271,7 +1659,8 @@ defmodule AWS.RTBFabric do
 
       update_link_response() :: %{
         "linkId" => String.t() | atom(),
-        "status" => list(any())
+        "status" => list(any()),
+        "updateId" => String.t() | atom()
       }
 
   """
@@ -1282,6 +1671,7 @@ defmodule AWS.RTBFabric do
   ## Example:
 
       update_link_routing_rule_request() :: %{
+        optional("clientToken") => [String.t() | atom()],
         required("conditions") => rule_condition(),
         required("priority") => integer()
       }
@@ -1296,6 +1686,7 @@ defmodule AWS.RTBFabric do
       update_link_routing_rule_response() :: %{
         "ruleId" => String.t() | atom(),
         "status" => list(any()),
+        "updateId" => String.t() | atom(),
         "updatedAt" => [non_neg_integer()]
       }
 
@@ -1352,11 +1743,26 @@ defmodule AWS.RTBFabric do
       update_responder_gateway_response() :: %{
         "clientRoutingPolicy" => list(any()),
         "gatewayId" => String.t() | atom(),
-        "status" => list(any())
+        "status" => list(any()),
+        "updateId" => String.t() | atom()
       }
 
   """
   @type update_responder_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "status" => list(any()),
+        "type" => list(any()),
+        "updateId" => String.t() | atom()
+      }
+
+  """
+  @type update_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1495,6 +1901,20 @@ defmodule AWS.RTBFabric do
           | conflict_exception()
           | access_denied_exception()
 
+  @type get_available_module_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_available_module_version_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type get_certificate_association_errors() ::
           validation_exception()
           | throttling_exception()
@@ -1545,6 +1965,26 @@ defmodule AWS.RTBFabric do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type get_update_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_available_module_versions_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_available_modules_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type list_certificate_associations_errors() ::
           validation_exception()
           | throttling_exception()
@@ -1575,6 +2015,22 @@ defmodule AWS.RTBFabric do
           | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_updates_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type put_link_flows_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type reject_link_errors() ::
@@ -2192,6 +2648,50 @@ defmodule AWS.RTBFabric do
   end
 
   @doc """
+  Returns a module that you can attach.
+
+  If you can't attach the module, the operation returns ResourceNotFoundException,
+  the same as for a missing one.
+  """
+  @spec get_available_module(map(), String.t() | atom(), list()) ::
+          {:ok, get_available_module_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_available_module_errors()}
+  def get_available_module(%Client{} = client, module_id, options \\ []) do
+    url_path = "/available-modules/#{AWS.Util.encode_uri(module_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns an ACTIVE or DEPRECATED version of a module that you can attach.
+
+  If you can't attach the module, or the version is in another status, the
+  operation returns ResourceNotFoundException, the same as for a missing one.
+  """
+  @spec get_available_module_version(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_available_module_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_available_module_version_errors()}
+  def get_available_module_version(%Client{} = client, module_id, version, options \\ []) do
+    url_path =
+      "/available-modules/#{AWS.Util.encode_uri(module_id)}/versions/#{AWS.Util.encode_uri(version)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves the details of a certificate association with a responder gateway.
   """
   @spec get_certificate_association(map(), String.t() | atom(), String.t() | atom(), list()) ::
@@ -2338,6 +2838,140 @@ defmodule AWS.RTBFabric do
     url_path = "/responder-gateway/#{AWS.Util.encode_uri(gateway_id)}"
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns ResourceNotFoundException for an updateId past the 90-day retention
+  window, indistinguishable in the response from an id that never existed.
+  """
+  @spec get_update(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_update_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_update_errors()}
+  def get_update(%Client{} = client, gateway_id, update_id, options \\ []) do
+    url_path =
+      "/gateway/#{AWS.Util.encode_uri(gateway_id)}/updates/#{AWS.Util.encode_uri(update_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the ACTIVE and DEPRECATED versions of a module that you can attach,
+  highest version first (numerically by MAJOR, then MINOR, then PATCH).
+
+  If you can't attach the module, the operation returns ResourceNotFoundException,
+  the same as for a missing one. If the module has no ACTIVE or DEPRECATED
+  versions, the operation returns an empty list. The operation lists DEPRECATED
+  versions so that you can inspect one that you've attached, but you can't attach
+  them. Results are paginated. Use `nextToken` to get the next page.
+  """
+  @spec list_available_module_versions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_available_module_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_available_module_versions_errors()}
+  def list_available_module_versions(
+        %Client{} = client,
+        module_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/available-modules/#{AWS.Util.encode_uri(module_id)}/versions"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the modules that you can attach, newest first by `createdAt`.
+
+  Results are paginated. Use `nextToken` to get the next page.
+  """
+  @spec list_available_modules(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_available_modules_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_available_modules_errors()}
+  def list_available_modules(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        subscription_type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/available-modules"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(subscription_type) do
+        [{"subscriptionType", subscription_type} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -2583,6 +3217,131 @@ defmodule AWS.RTBFabric do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the updates on a gateway.
+
+  Results are paginated. Use `nextToken` to get the next page.
+  """
+  @spec list_updates(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_updates_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_updates_errors()}
+  def list_updates(
+        %Client{} = client,
+        gateway_id,
+        link_id \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        rule_id \\ nil,
+        status \\ nil,
+        type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/gateway/#{AWS.Util.encode_uri(gateway_id)}/updates"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(link_id) do
+        [{"linkId", link_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(rule_id) do
+        [{"ruleId", rule_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(type) do
+        [{"type", type} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Replaces a link's flow configuration.
+
+  The change applies asynchronously. The call returns once the change is accepted,
+  and the link serves its prior flows until the update commits atomically. RTB
+  Fabric validates the request before accepting it, and a request that fails
+  validation changes nothing. After the call, use GetLink. Once the change
+  completes, the link's status is ACTIVE again and its flows show the change.
+  """
+  @spec put_link_flows(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          put_link_flows_request(),
+          list()
+        ) ::
+          {:ok, put_link_flows_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_link_flows_errors()}
+  def put_link_flows(%Client{} = client, gateway_id, link_id, input, options \\ []) do
+    url_path =
+      "/gateway/#{AWS.Util.encode_uri(gateway_id)}/link/#{AWS.Util.encode_uri(link_id)}/flows"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

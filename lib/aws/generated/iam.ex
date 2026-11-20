@@ -348,6 +348,32 @@ defmodule AWS.IAM do
 
   ## Example:
       
+      context_provider() :: %{
+        "KeyDefinitionList" => list(context_provider_key_definition()),
+        "SubjectSourceKey" => String.t() | atom(),
+        "SubjectTypeSourceKey" => String.t() | atom(),
+        "SubjectTypeValue" => String.t() | atom()
+      }
+      
+  """
+  @type context_provider() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      context_provider_key_definition() :: %{
+        "SourceKey" => String.t() | atom(),
+        "TargetKey" => String.t() | atom()
+      }
+      
+  """
+  @type context_provider_key_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_access_key_request() :: %{
         optional("UserName") => String.t() | atom()
       }
@@ -486,6 +512,8 @@ defmodule AWS.IAM do
       
       create_open_id_connect_provider_request() :: %{
         optional("ClientIDList") => list(String.t() | atom()),
+        optional("ContextProvider") => context_provider(),
+        optional("IdentityCenterInstanceArn") => String.t() | atom(),
         optional("Tags") => list(tag()),
         optional("ThumbprintList") => list(String.t() | atom()),
         required("Url") => String.t() | atom()
@@ -592,6 +620,8 @@ defmodule AWS.IAM do
       create_saml_provider_request() :: %{
         optional("AddPrivateKey") => String.t() | atom(),
         optional("AssertionEncryptionMode") => list(any()),
+        optional("ContextProvider") => context_provider(),
+        optional("IdentityCenterInstanceArn") => String.t() | atom(),
         optional("Tags") => list(tag()),
         required("Name") => String.t() | atom(),
         required("SAMLMetadataDocument") => String.t() | atom()
@@ -1741,7 +1771,10 @@ defmodule AWS.IAM do
       
       get_open_id_connect_provider_response() :: %{
         "ClientIDList" => list(String.t() | atom()),
+        "ContextProvider" => context_provider(),
         "CreateDate" => non_neg_integer(),
+        "IdentityCenterInstanceArn" => String.t() | atom(),
+        "IdentityStoreArn" => String.t() | atom(),
         "Tags" => list(tag()),
         "ThumbprintList" => list(String.t() | atom()),
         "Url" => String.t() | atom()
@@ -1927,8 +1960,12 @@ defmodule AWS.IAM do
       
       get_saml_provider_response() :: %{
         "AssertionEncryptionMode" => list(any()),
+        "ContextProvider" => context_provider(),
         "CreateDate" => non_neg_integer(),
+        "IdentityCenterInstanceArn" => String.t() | atom(),
+        "IdentityStoreArn" => String.t() | atom(),
         "PrivateKeyList" => list(saml_private_key()),
+        "SAMLKeyHashes" => list(saml_key_hash_entry()),
         "SAMLMetadataDocument" => String.t() | atom(),
         "SAMLProviderUUID" => String.t() | atom(),
         "Tags" => list(tag()),
@@ -3312,7 +3349,8 @@ defmodule AWS.IAM do
   ## Example:
       
       open_id_connect_provider_list_entry() :: %{
-        "Arn" => String.t() | atom()
+        "Arn" => String.t() | atom(),
+        "IsTrustedIdentityPropagationEnabled" => boolean()
       }
       
   """
@@ -3914,6 +3952,18 @@ defmodule AWS.IAM do
 
   ## Example:
       
+      saml_key_hash_entry() :: %{
+        "IssuerURL" => String.t() | atom(),
+        "KeyHashes" => list(String.t() | atom())
+      }
+      
+  """
+  @type saml_key_hash_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       saml_private_key() :: %{
         "KeyId" => String.t() | atom(),
         "Timestamp" => non_neg_integer()
@@ -3929,6 +3979,7 @@ defmodule AWS.IAM do
       saml_provider_list_entry() :: %{
         "Arn" => String.t() | atom(),
         "CreateDate" => non_neg_integer(),
+        "IsTrustedIdentityPropagationEnabled" => boolean(),
         "ValidUntil" => non_neg_integer()
       }
       
@@ -4556,6 +4607,21 @@ defmodule AWS.IAM do
 
   ## Example:
       
+      update_open_id_connect_provider_request() :: %{
+        optional("ContextProvider") => context_provider(),
+        optional("IdentityCenterInstanceArn") => String.t() | atom(),
+        optional("RemoveContextProvider") => boolean(),
+        optional("RemoveIdentityCenterInstance") => boolean(),
+        required("OpenIDConnectProviderArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_open_id_connect_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_open_id_connect_provider_thumbprint_request() :: %{
         required("OpenIDConnectProviderArn") => String.t() | atom(),
         required("ThumbprintList") => list(String.t() | atom())
@@ -4618,6 +4684,10 @@ defmodule AWS.IAM do
       update_saml_provider_request() :: %{
         optional("AddPrivateKey") => String.t() | atom(),
         optional("AssertionEncryptionMode") => list(any()),
+        optional("ContextProvider") => context_provider(),
+        optional("IdentityCenterInstanceArn") => String.t() | atom(),
+        optional("RemoveContextProvider") => boolean(),
+        optional("RemoveIdentityCenterInstance") => boolean(),
         optional("RemovePrivateKey") => String.t() | atom(),
         optional("SAMLMetadataDocument") => String.t() | atom(),
         required("SAMLProviderArn") => String.t() | atom()
@@ -5041,7 +5111,10 @@ defmodule AWS.IAM do
           | entity_temporarily_unmodifiable_exception()
 
   @type delete_open_id_connect_provider_errors() ::
-          service_failure_exception() | no_such_entity_exception() | invalid_input_exception()
+          service_failure_exception()
+          | no_such_entity_exception()
+          | invalid_input_exception()
+          | concurrent_modification_exception()
 
   @type delete_policy_errors() ::
           service_failure_exception()
@@ -5081,6 +5154,7 @@ defmodule AWS.IAM do
           | no_such_entity_exception()
           | limit_exceeded_exception()
           | invalid_input_exception()
+          | concurrent_modification_exception()
 
   @type delete_server_certificate_errors() ::
           service_failure_exception()
@@ -5583,6 +5657,12 @@ defmodule AWS.IAM do
           | limit_exceeded_exception()
           | invalid_input_exception()
           | entity_temporarily_unmodifiable_exception()
+
+  @type update_open_id_connect_provider_errors() ::
+          service_failure_exception()
+          | no_such_entity_exception()
+          | invalid_input_exception()
+          | concurrent_modification_exception()
 
   @type update_open_id_connect_provider_thumbprint_errors() ::
           service_failure_exception()
@@ -6167,8 +6247,21 @@ defmodule AWS.IAM do
   A list of thumbprints of one or more server certificates that the IdP
   uses
 
-  You get all of this information from the OIDC IdP you want to use to access
-  Amazon Web Services.
+    *
+  A trusted identity propagation context provider that defines how the subject
+  is derived and how keys from the provider's token are mapped into trusted
+  context keys. Specifying a context provider enables trusted identity propagation
+  for the provider. For more information, see
+  [ContextProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextProvider.html). 
+
+    *
+  The ARN of an IAM Identity Center instance to associate with the OIDC
+  provider. If you specify an IAM Identity Center instance, you must also
+  specify a context provider.
+
+  You get the URL, client IDs, and thumbprints from the OIDC IdP you want to use
+  to
+  access Amazon Web Services.
 
   Amazon Web Services secures communication with OIDC identity providers (IdPs)
   using our library of
@@ -6184,6 +6277,16 @@ defmodule AWS.IAM do
   [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html)
   operation to highly privileged
   users.
+
+  To control who can configure trusted identity propagation on an OIDC provider,
+  use the
+  [iam:EnableIdentityPropagation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_EnableIdentityPropagation), [iam:EnableIdentityCenterAssociation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_EnableIdentityCenterAssociation),
+  [iam:RequestIdentityProviderIssuers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_RequestIdentityProviderIssuers), [iam:ResourceIdentityProviderIssuers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_ResourceIdentityProviderIssuers),
+  [iam:RequestIdentityCenterInstanceArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_RequestIdentityCenterInstanceArn), and
+  [iam:ResourceIdentityCenterInstanceArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_ResourceIdentityCenterInstanceArn)
+  condition keys in IAM
+  policies. The `Request` keys contain the values in the request. The
+  `Resource` keys contain the values stored on the provider.
   """
   @spec create_open_id_connect_provider(map(), create_open_id_connect_provider_request(), list()) ::
           {:ok, create_open_id_connect_provider_response(), any()}
@@ -6309,6 +6412,16 @@ defmodule AWS.IAM do
   Console](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-saml.html)
   and [About SAML 2.0-based federation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html)
   in the *IAM User Guide*.
+
+  To control who can configure trusted identity propagation on a SAML provider,
+  use the
+  [iam:EnableIdentityPropagation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_EnableIdentityPropagation), [iam:EnableIdentityCenterAssociation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_EnableIdentityCenterAssociation),
+  [iam:RequestIdentityProviderIssuers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_RequestIdentityProviderIssuers), [iam:ResourceIdentityProviderIssuers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_ResourceIdentityProviderIssuers),
+  [iam:RequestIdentityCenterInstanceArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_RequestIdentityCenterInstanceArn), and
+  [iam:ResourceIdentityCenterInstanceArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_ResourceIdentityCenterInstanceArn)
+  condition keys in IAM
+  policies. The `Request` keys contain the values in the request. The
+  `Resource` keys contain the values stored on the provider.
   """
   @spec create_saml_provider(map(), create_saml_provider_request(), list()) ::
           {:ok, create_saml_provider_response(), any()}
@@ -6652,15 +6765,16 @@ defmodule AWS.IAM do
   @doc """
   Deletes an OpenID Connect identity provider (IdP) resource object in IAM.
 
+  Deleting the
+  provider also deletes its trusted identity propagation context provider and
+  removes any
+  IAM Identity Center instance association.
+
   Deleting an IAM OIDC provider resource does not update any roles that reference
   the
   provider as a principal in their trust policies. Any attempt to assume a role
   that
   references a deleted provider fails.
-
-  This operation is idempotent; it does not fail or return an error if you call
-  the
-  operation for a provider that does not exist.
   """
   @spec delete_open_id_connect_provider(map(), delete_open_id_connect_provider_request(), list()) ::
           {:ok, nil, any()}
@@ -11110,6 +11224,58 @@ defmodule AWS.IAM do
   end
 
   @doc """
+  Updates the configuration of an existing IAM OpenID Connect (OIDC) identity
+  provider
+  resource object.
+
+  Use this operation to set, change, or remove the trusted identity
+  propagation context provider, and to associate or disassociate an IAM Identity
+  Center
+  instance with the provider.
+
+  This operation does not update the OIDC provider's server certificate
+  thumbprints.
+  Thumbprints are managed only by the
+  [UpdateOpenIDConnectProviderThumbprint](https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateOpenIDConnectProviderThumbprint.html) operation. To change a provider's
+  thumbprints, call that operation instead.
+
+  To remove a configuration rather than replace it, use the
+  `RemoveContextProvider` and `RemoveIdentityCenterInstance`
+  parameters. For each configuration, provide either the new value or the
+  corresponding
+  `Remove` flag in a single request, but not both. For example, specifying
+  both `ContextProvider` and `RemoveContextProvider` in the same
+  request is not allowed.
+
+  A single request can change either the context provider or the IAM Identity
+  Center
+  association, but not both. To change both, make separate
+  `UpdateOpenIDConnectProvider` requests. To remove the context provider,
+  first remove the IAM Identity Center association in a separate request.
+
+  To control who can configure trusted identity propagation on an OIDC provider,
+  use the
+  [iam:EnableIdentityPropagation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_EnableIdentityPropagation),
+  [iam:EnableIdentityCenterAssociation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_EnableIdentityCenterAssociation), [iam:ResourceIdentityProviderIssuers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_ResourceIdentityProviderIssuers),
+  [iam:RequestIdentityCenterInstanceArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_RequestIdentityCenterInstanceArn), and
+  [iam:ResourceIdentityCenterInstanceArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_ResourceIdentityCenterInstanceArn)
+  condition keys in IAM
+  policies. The `Request` keys contain the values in the request. The
+  `Resource` keys contain the values stored on the provider.
+  """
+  @spec update_open_id_connect_provider(map(), update_open_id_connect_provider_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_open_id_connect_provider_errors()}
+  def update_open_id_connect_provider(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateOpenIDConnectProvider", input, options)
+  end
+
+  @doc """
   Replaces the existing list of server certificate thumbprints associated with an
   OpenID
   Connect (OIDC) provider resource object with a new list of thumbprints.
@@ -11202,6 +11368,35 @@ defmodule AWS.IAM do
 
   To rotate private keys, add your new private key and then remove
   the old key in a separate request.
+
+  You can also use this operation to set, change, or remove the trusted identity
+  propagation context provider, and to associate or disassociate an IAM Identity
+  Center
+  instance with the provider. To remove a configuration rather than replace it,
+  use the
+  `RemoveContextProvider` and `RemoveIdentityCenterInstance`
+  parameters. For each configuration, provide either the new value or the
+  corresponding
+  `Remove` flag in a single request, but not both.
+
+  A single request can change either the context provider or the provider
+  metadata, but
+  not both. Provider metadata includes the SAML metadata document, assertion
+  encryption
+  mode, private keys, and IAM Identity Center association. To change both, make
+  separate
+  `UpdateSAMLProvider` requests. To remove the context provider, first
+  remove the IAM Identity Center association in a separate request.
+
+  To control who can configure trusted identity propagation on a SAML provider,
+  use the
+  [iam:EnableIdentityPropagation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_EnableIdentityPropagation), [iam:EnableIdentityCenterAssociation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_EnableIdentityCenterAssociation),
+  [iam:RequestIdentityProviderIssuers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_RequestIdentityProviderIssuers), [iam:ResourceIdentityProviderIssuers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_ResourceIdentityProviderIssuers),
+  [iam:RequestIdentityCenterInstanceArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_RequestIdentityCenterInstanceArn), and
+  [iam:ResourceIdentityCenterInstanceArn](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_ResourceIdentityCenterInstanceArn)
+  condition keys in IAM
+  policies. The `Request` keys contain the values in the request. The
+  `Resource` keys contain the values stored on the provider.
   """
   @spec update_saml_provider(map(), update_saml_provider_request(), list()) ::
           {:ok, update_saml_provider_response(), any()}

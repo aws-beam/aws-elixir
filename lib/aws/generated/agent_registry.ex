@@ -278,6 +278,18 @@ defmodule AWS.AgentRegistry do
 
   ## Example:
 
+      registry_record_artifact_download() :: %{
+        "downloadUrl" => String.t() | atom(),
+        "sha256" => String.t() | atom()
+      }
+
+  """
+  @type registry_record_artifact_download() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       registry_record_filter() :: %{
         "name" => list(any()),
         "values" => list(String.t() | atom())
@@ -291,6 +303,7 @@ defmodule AWS.AgentRegistry do
   ## Example:
 
       registry_record_summary() :: %{
+        "artifact" => registry_record_artifact_download(),
         "createdAt" => non_neg_integer(),
         "customMetadata" => any(),
         "description" => String.t() | atom(),
@@ -339,6 +352,8 @@ defmodule AWS.AgentRegistry do
       search_discoverable_registry_records_request() :: %{
         optional("filters") => any(),
         optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()],
+        optional("searchType") => list(any()),
         required("registryIds") => list(String.t() | atom()),
         required("searchQuery") => String.t() | atom()
       }
@@ -351,7 +366,9 @@ defmodule AWS.AgentRegistry do
   ## Example:
 
       search_discoverable_registry_records_response() :: %{
-        "registryRecords" => list(registry_record_summary())
+        "nextToken" => [String.t() | atom()],
+        "registryRecords" => list(registry_record_summary()),
+        "searchType" => list(any())
       }
 
   """
@@ -448,7 +465,11 @@ defmodule AWS.AgentRegistry do
   Retrieves multiple discoverable registry records by ID from a single registry.
 
   Records that cannot be retrieved are reported individually in the `errors` list
-  rather than failing the entire request.
+  rather than failing the entire request. For each skill record that has a skill
+  package, the operation also returns `artifact`. It contains a short-lived
+  download URL and a SHA-256 checksum for the package of the record's latest
+  approved revision. If the registry can't create a download URL for a package,
+  the whole request fails.
   """
   @spec batch_get_discoverable_registry_record(
           map(),
@@ -521,6 +542,11 @@ defmodule AWS.AgentRegistry do
   language query.
 
   Returns metadata for the matching records ordered by relevance.
+
+  Returns at most 1000 results across all pages when `searchType` is `KEYWORD`,
+  and at most 20 results when it is `HYBRID` or `SEMANTIC`. To retrieve more
+  records, refine the query or filters, or use `ListDiscoverableRegistryRecords`
+  to list every record.
   """
   @spec search_discoverable_registry_records(
           map(),

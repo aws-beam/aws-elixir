@@ -36,6 +36,64 @@ defmodule AWS.Kafka do
 
   ## Example:
 
+      assessment_finding() :: %{
+        "Category" => list(any()),
+        "FindingId" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "Remediation" => finding_remediation(),
+        "Resource" => String.t() | atom(),
+        "Severity" => list(any())
+      }
+
+  """
+  @type assessment_finding() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      assessment_info() :: %{
+        "AssessmentArn" => String.t() | atom(),
+        "AssessmentType" => list(any()),
+        "ClusterArn" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type assessment_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      assessment_parameters() :: %{
+        "TargetInstanceType" => String.t() | atom()
+      }
+
+  """
+  @type assessment_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      assessment_summary() :: %{
+        "ByCategory" => map(),
+        "BySeverity" => map(),
+        "FindingsCapped" => boolean(),
+        "HasBlockingFindings" => boolean(),
+        "TotalFindings" => integer()
+      }
+
+  """
+  @type assessment_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       authorizer_logs() :: %{
         "CloudWatchLogs" => cloud_watch_logs(),
         "Firehose" => firehose(),
@@ -165,6 +223,7 @@ defmodule AWS.Kafka do
       broker_node_info() :: %{
         "AttachedENIId" => String.t() | atom(),
         "BrokerId" => float(),
+        "BrokerNodeType" => list(any()),
         "ClientSubnet" => String.t() | atom(),
         "ClientVpcIpAddress" => String.t() | atom(),
         "CurrentBrokerSoftwareInfo" => broker_software_info(),
@@ -186,6 +245,18 @@ defmodule AWS.Kafka do
 
   """
   @type broker_software_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      broker_type_upgrade_info() :: %{
+        "TopicReassignmentMode" => list(any()),
+        "TopicReassignmentOperationArn" => String.t() | atom()
+      }
+
+  """
+  @type broker_type_upgrade_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -349,6 +420,7 @@ defmodule AWS.Kafka do
   ## Example:
 
       cluster_operation_info() :: %{
+        "BrokerTypeUpgradeInfo" => broker_type_upgrade_info(),
         "ClientRequestId" => String.t() | atom(),
         "ClusterArn" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
@@ -414,6 +486,7 @@ defmodule AWS.Kafka do
   ## Example:
 
       cluster_operation_v2_provisioned() :: %{
+        "BrokerTypeUpgradeInfo" => broker_type_upgrade_info(),
         "OperationSteps" => list(cluster_operation_step()),
         "SourceClusterInfo" => mutable_cluster_info(),
         "TargetClusterInfo" => mutable_cluster_info(),
@@ -583,6 +656,34 @@ defmodule AWS.Kafka do
 
   """
   @type controller_node_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_assessment_request() :: %{
+        optional("AssessmentParameters") => assessment_parameters(),
+        optional("Tags") => map(),
+        required("AssessmentType") => list(any())
+      }
+
+  """
+  @type create_assessment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_assessment_response() :: %{
+        "AssessmentArn" => String.t() | atom(),
+        "AssessmentType" => list(any()),
+        "ClusterArn" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "Status" => list(any())
+      }
+
+  """
+  @type create_assessment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -814,6 +915,27 @@ defmodule AWS.Kafka do
 
   ## Example:
 
+      delete_assessment_request() :: %{}
+
+  """
+  @type delete_assessment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_assessment_response() :: %{
+        "AssessmentArn" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type delete_assessment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_channel_request() :: %{}
 
   """
@@ -958,6 +1080,35 @@ defmodule AWS.Kafka do
 
   """
   @type delete_vpc_connection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_assessment_request() :: %{}
+
+  """
+  @type describe_assessment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_assessment_response() :: %{
+        "AssessmentArn" => String.t() | atom(),
+        "AssessmentParameters" => assessment_parameters(),
+        "AssessmentType" => list(any()),
+        "ClusterArn" => String.t() | atom(),
+        "CompletionTime" => non_neg_integer(),
+        "CreationTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom(),
+        "Summary" => assessment_summary(),
+        "Tags" => map()
+      }
+
+  """
+  @type describe_assessment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1182,6 +1333,38 @@ defmodule AWS.Kafka do
 
   ## Example:
 
+      describe_topic_reassignment_request() :: %{}
+
+  """
+  @type describe_topic_reassignment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_topic_reassignment_response() :: %{
+        "ClusterArn" => String.t() | atom(),
+        "CompletedTopics" => integer(),
+        "CreationTime" => non_neg_integer(),
+        "ErrorInfo" => error_info(),
+        "LastUpdateTime" => non_neg_integer(),
+        "MigratedPartitions" => integer(),
+        "Status" => list(any()),
+        "TargetInstanceType" => String.t() | atom(),
+        "TopicReassignmentOperationArn" => String.t() | atom(),
+        "TopicsToExclude" => list(String.t() | atom()),
+        "TopicsToInclude" => list(String.t() | atom()),
+        "TotalPartitions" => integer(),
+        "TotalTopics" => integer()
+      }
+
+  """
+  @type describe_topic_reassignment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_topic_request() :: %{}
 
   """
@@ -1194,6 +1377,7 @@ defmodule AWS.Kafka do
       describe_topic_response() :: %{
         "Configs" => String.t() | atom(),
         "PartitionCount" => integer(),
+        "ReplicaIds" => list(integer()),
         "ReplicationFactor" => integer(),
         "Status" => list(any()),
         "TopicArn" => String.t() | atom(),
@@ -1313,6 +1497,18 @@ defmodule AWS.Kafka do
 
   """
   @type error_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      finding_remediation() :: %{
+        "Action" => String.t() | atom(),
+        "DocumentationUrl" => String.t() | atom()
+      }
+
+  """
+  @type finding_remediation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1699,6 +1895,57 @@ defmodule AWS.Kafka do
 
   ## Example:
 
+      list_assessment_findings_request() :: %{
+        optional("Category") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Severity") => String.t() | atom()
+      }
+
+  """
+  @type list_assessment_findings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_assessment_findings_response() :: %{
+        "Findings" => list(assessment_finding()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_assessment_findings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_assessments_request() :: %{
+        optional("AssessmentType") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_assessments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_assessments_response() :: %{
+        "Assessments" => list(assessment_info()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_assessments_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_channels_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
@@ -2007,6 +2254,31 @@ defmodule AWS.Kafka do
 
   """
   @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_topic_reassignments_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StatusFilter") => String.t() | atom()
+      }
+
+  """
+  @type list_topic_reassignments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_topic_reassignments_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Reassignments" => list(topic_reassignment_info())
+      }
+
+  """
+  @type list_topic_reassignments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2724,6 +2996,33 @@ defmodule AWS.Kafka do
 
   ## Example:
 
+      start_topic_reassignment_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("TopicsToExclude") => list(String.t() | atom()),
+        required("TargetInstanceType") => String.t() | atom(),
+        required("TopicsToInclude") => list(String.t() | atom())
+      }
+
+  """
+  @type start_topic_reassignment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_topic_reassignment_response() :: %{
+        "ClusterArn" => String.t() | atom(),
+        "Status" => list(any()),
+        "TopicReassignmentOperationArn" => String.t() | atom()
+      }
+
+  """
+  @type start_topic_reassignment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       state_info() :: %{
         optional("Code") => String.t() | atom(),
         optional("Message") => String.t() | atom()
@@ -2731,6 +3030,27 @@ defmodule AWS.Kafka do
 
   """
   @type state_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_topic_reassignment_request() :: %{}
+
+  """
+  @type stop_topic_reassignment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_topic_reassignment_response() :: %{
+        "Status" => list(any()),
+        "TopicReassignmentOperationArn" => String.t() | atom()
+      }
+
+  """
+  @type stop_topic_reassignment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2821,6 +3141,7 @@ defmodule AWS.Kafka do
       topic_info() :: %{
         "OutOfSyncReplicaCount" => integer(),
         "PartitionCount" => integer(),
+        "ReplicaIds" => list(integer()),
         "ReplicationFactor" => integer(),
         "TopicArn" => String.t() | atom(),
         "TopicName" => String.t() | atom()
@@ -2842,6 +3163,22 @@ defmodule AWS.Kafka do
 
   """
   @type topic_partition_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      topic_reassignment_info() :: %{
+        "CompletedTopics" => integer(),
+        "CreationTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "TargetInstanceType" => String.t() | atom(),
+        "TopicReassignmentOperationArn" => String.t() | atom(),
+        "TotalTopics" => integer()
+      }
+
+  """
+  @type topic_reassignment_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2987,6 +3324,7 @@ defmodule AWS.Kafka do
   ## Example:
 
       update_broker_type_request() :: %{
+        optional("TopicReassignment") => list(any()),
         required("CurrentVersion") => String.t() | atom(),
         required("TargetInstanceType") => String.t() | atom()
       }
@@ -3464,6 +3802,16 @@ defmodule AWS.Kafka do
           | forbidden_exception()
           | bad_request_exception()
 
+  @type create_assessment_errors() ::
+          unauthorized_exception()
+          | too_many_requests_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
+
   @type create_channel_errors() ::
           unauthorized_exception()
           | too_many_requests_exception()
@@ -3537,6 +3885,16 @@ defmodule AWS.Kafka do
           | forbidden_exception()
           | bad_request_exception()
 
+  @type delete_assessment_errors() ::
+          unauthorized_exception()
+          | too_many_requests_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
+
   @type delete_channel_errors() ::
           unauthorized_exception()
           | too_many_requests_exception()
@@ -3589,6 +3947,15 @@ defmodule AWS.Kafka do
 
   @type delete_vpc_connection_errors() ::
           not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
+
+  @type describe_assessment_errors() ::
+          unauthorized_exception()
+          | too_many_requests_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
           | internal_server_error_exception()
           | forbidden_exception()
           | bad_request_exception()
@@ -3671,6 +4038,15 @@ defmodule AWS.Kafka do
           | forbidden_exception()
           | bad_request_exception()
 
+  @type describe_topic_reassignment_errors() ::
+          unauthorized_exception()
+          | too_many_requests_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
+
   @type describe_vpc_connection_errors() ::
           unauthorized_exception()
           | service_unavailable_exception()
@@ -3693,6 +4069,25 @@ defmodule AWS.Kafka do
           | bad_request_exception()
 
   @type get_compatible_kafka_versions_errors() ::
+          unauthorized_exception()
+          | too_many_requests_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
+
+  @type list_assessment_findings_errors() ::
+          unauthorized_exception()
+          | too_many_requests_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
+
+  @type list_assessments_errors() ::
           unauthorized_exception()
           | too_many_requests_exception()
           | service_unavailable_exception()
@@ -3792,6 +4187,15 @@ defmodule AWS.Kafka do
   @type list_tags_for_resource_errors() ::
           not_found_exception() | internal_server_error_exception() | bad_request_exception()
 
+  @type list_topic_reassignments_errors() ::
+          unauthorized_exception()
+          | too_many_requests_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
+
   @type list_topics_errors() ::
           unauthorized_exception()
           | service_unavailable_exception()
@@ -3821,6 +4225,25 @@ defmodule AWS.Kafka do
   @type reject_client_vpc_connection_errors() ::
           unauthorized_exception()
           | service_unavailable_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | bad_request_exception()
+
+  @type start_topic_reassignment_errors() ::
+          unauthorized_exception()
+          | too_many_requests_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
+
+  @type stop_topic_reassignment_errors() ::
+          unauthorized_exception()
+          | too_many_requests_exception()
+          | service_unavailable_exception()
+          | not_found_exception()
           | internal_server_error_exception()
           | forbidden_exception()
           | bad_request_exception()
@@ -4040,6 +4463,37 @@ defmodule AWS.Kafka do
   end
 
   @doc """
+  Creates a new assessment for the specified cluster.
+
+  Kicks off an asynchronous scan.
+  """
+  @spec create_assessment(map(), String.t() | atom(), create_assessment_request(), list()) ::
+          {:ok, create_assessment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_assessment_errors()}
+  def create_assessment(%Client{} = client, cluster_arn, input, options \\ []) do
+    url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/assessments"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a Channel that streams records from an Amazon MSK Express cluster topic
   to Amazon S3 or Apache Iceberg.
   """
@@ -4234,6 +4688,45 @@ defmodule AWS.Kafka do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes an assessment and its findings.
+
+  Frees one slot against the cluster's assessment quota.
+  """
+  @spec delete_assessment(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_assessment_request(),
+          list()
+        ) ::
+          {:ok, delete_assessment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_assessment_errors()}
+  def delete_assessment(%Client{} = client, assessment_arn, cluster_arn, input, options \\ []) do
+    url_path =
+      "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/assessments/#{AWS.Util.encode_uri(assessment_arn)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -4479,6 +4972,26 @@ defmodule AWS.Kafka do
   end
 
   @doc """
+  Returns the status and summary of an assessment.
+  """
+  @spec describe_assessment(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, describe_assessment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_assessment_errors()}
+  def describe_assessment(%Client{} = client, assessment_arn, cluster_arn, options \\ []) do
+    url_path =
+      "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/assessments/#{AWS.Util.encode_uri(assessment_arn)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns the current configuration and state of a channel.
   """
   @spec describe_channel(map(), String.t() | atom(), String.t() | atom(), list()) ::
@@ -4697,6 +5210,31 @@ defmodule AWS.Kafka do
   end
 
   @doc """
+  Returns the status and progress of a topic reassignment operation.
+  """
+  @spec describe_topic_reassignment(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, describe_topic_reassignment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_topic_reassignment_errors()}
+  def describe_topic_reassignment(
+        %Client{} = client,
+        cluster_arn,
+        topic_reassignment_operation_arn,
+        options \\ []
+      ) do
+    url_path =
+      "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/topic-reassignments/#{AWS.Util.encode_uri(topic_reassignment_operation_arn)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns a description of this MSK VPC connection.
   """
   @spec describe_vpc_connection(map(), String.t() | atom(), list()) ::
@@ -4773,6 +5311,129 @@ defmodule AWS.Kafka do
     query_params =
       if !is_nil(cluster_arn) do
         [{"clusterArn", cluster_arn} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns the findings for a completed assessment.
+
+  Paginated.
+  """
+  @spec list_assessment_findings(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_assessment_findings_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_assessment_findings_errors()}
+  def list_assessment_findings(
+        %Client{} = client,
+        assessment_arn,
+        cluster_arn,
+        category \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        severity \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/assessments/#{AWS.Util.encode_uri(assessment_arn)}/findings"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(category) do
+        [{"category", category} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(severity) do
+        [{"severity", severity} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a list of assessments for the specified cluster.
+
+  Optionally filterable by assessment type.
+  """
+  @spec list_assessments(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_assessments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_assessments_errors()}
+  def list_assessments(
+        %Client{} = client,
+        cluster_arn,
+        assessment_type \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/assessments"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(assessment_type) do
+        [{"assessmentType", assessment_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
       else
         query_params
       end
@@ -5356,6 +6017,59 @@ defmodule AWS.Kafka do
   end
 
   @doc """
+  Lists topic reassignment operations for a cluster.
+  """
+  @spec list_topic_reassignments(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_topic_reassignments_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_topic_reassignments_errors()}
+  def list_topic_reassignments(
+        %Client{} = client,
+        cluster_arn,
+        max_results \\ nil,
+        next_token \\ nil,
+        status_filter \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/topic-reassignments"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status_filter) do
+        [{"statusFilter", status_filter} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   List topics in a MSK cluster.
   """
   @spec list_topics(
@@ -5529,6 +6243,84 @@ defmodule AWS.Kafka do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Initiates topic partition reassignment between broker types in a mixed-mode
+  cluster.
+  """
+  @spec start_topic_reassignment(
+          map(),
+          String.t() | atom(),
+          start_topic_reassignment_request(),
+          list()
+        ) ::
+          {:ok, start_topic_reassignment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_topic_reassignment_errors()}
+  def start_topic_reassignment(%Client{} = client, cluster_arn, input, options \\ []) do
+    url_path = "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/topic-reassignments"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Stops an active topic reassignment operation.
+  """
+  @spec stop_topic_reassignment(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          stop_topic_reassignment_request(),
+          list()
+        ) ::
+          {:ok, stop_topic_reassignment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, stop_topic_reassignment_errors()}
+  def stop_topic_reassignment(
+        %Client{} = client,
+        cluster_arn,
+        topic_reassignment_operation_arn,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v1/clusters/#{AWS.Util.encode_uri(cluster_arn)}/topic-reassignments/#{AWS.Util.encode_uri(topic_reassignment_operation_arn)}/stop"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,

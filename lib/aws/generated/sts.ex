@@ -118,7 +118,8 @@ defmodule AWS.STS do
         "SessionTokenUtilization" => integer(),
         "SourceIdentity" => String.t() | atom(),
         "Subject" => String.t() | atom(),
-        "SubjectType" => String.t() | atom()
+        "SubjectType" => String.t() | atom(),
+        "TrustedIdentityPropagationContext" => trusted_identity_propagation_context()
       }
       
   """
@@ -155,7 +156,8 @@ defmodule AWS.STS do
         "SessionTokenSize" => integer(),
         "SessionTokenUtilization" => integer(),
         "SourceIdentity" => String.t() | atom(),
-        "SubjectFromWebIdentityToken" => String.t() | atom()
+        "SubjectFromWebIdentityToken" => String.t() | atom(),
+        "TrustedIdentityPropagationContext" => trusted_identity_propagation_context()
       }
       
   """
@@ -374,6 +376,36 @@ defmodule AWS.STS do
 
   ## Example:
       
+      get_scoped_credentials_request() :: %{
+        optional("DurationSeconds") => integer(),
+        optional("MinimumSessionTokenSize") => integer(),
+        optional("Policy") => String.t() | atom(),
+        optional("ScopedSessionDescription") => String.t() | atom()
+      }
+      
+  """
+  @type get_scoped_credentials_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_scoped_credentials_response() :: %{
+        "Credentials" => credentials(),
+        "ScopedPoliciesCount" => integer(),
+        "SessionInfo" => scoped_session(),
+        "SessionTokenSize" => integer(),
+        "SessionTokenUtilization" => integer(),
+        "SourceIdentity" => String.t() | atom()
+      }
+      
+  """
+  @type get_scoped_credentials_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_session_token_request() :: %{
         optional("DurationSeconds") => integer(),
         optional("MinimumSessionTokenSize") => integer(),
@@ -403,6 +435,8 @@ defmodule AWS.STS do
       
       get_web_identity_token_request() :: %{
         optional("DurationSeconds") => integer(),
+        optional("Scope") => String.t() | atom(),
+        optional("SubjectMode") => list(any()),
         optional("Tags") => list(tag()),
         required("Audience") => list(String.t() | atom()),
         required("SigningAlgorithm") => String.t() | atom()
@@ -449,6 +483,17 @@ defmodule AWS.STS do
 
   ## Example:
       
+      insufficient_session_lifetime_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type insufficient_session_lifetime_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       invalid_authorization_message_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -460,12 +505,34 @@ defmodule AWS.STS do
 
   ## Example:
       
+      invalid_context_assertion_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_context_assertion_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       invalid_identity_token_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
   @type invalid_identity_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_subject_credentials_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_subject_credentials_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -488,6 +555,20 @@ defmodule AWS.STS do
       
   """
   @type malformed_policy_document_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      origin_identity() :: %{
+        "FederatedProviderArn" => String.t() | atom(),
+        "Issuer" => String.t() | atom(),
+        "Subject" => String.t() | atom(),
+        "SubjectType" => String.t() | atom()
+      }
+      
+  """
+  @type origin_identity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -549,6 +630,18 @@ defmodule AWS.STS do
 
   ## Example:
       
+      scoped_session() :: %{
+        "Arn" => String.t() | atom(),
+        "ScopedSessionId" => String.t() | atom()
+      }
+      
+  """
+  @type scoped_session() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       session_duration_escalation_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -568,10 +661,34 @@ defmodule AWS.STS do
   """
   @type tag() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+      
+      transaction_context() :: %{
+        "IdentityProvider" => map()
+      }
+      
+  """
+  @type transaction_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      trusted_identity_propagation_context() :: %{
+        "OriginIdentity" => origin_identity(),
+        "TransactionContext" => transaction_context()
+      }
+      
+  """
+  @type trusted_identity_propagation_context() :: %{(String.t() | atom()) => any()}
+
   @type assume_role_errors() ::
           region_disabled_exception()
           | packed_policy_too_large_exception()
           | malformed_policy_document_exception()
+          | invalid_context_assertion_exception()
           | expired_token_exception()
 
   @type assume_role_with_saml_errors() ::
@@ -604,6 +721,12 @@ defmodule AWS.STS do
           region_disabled_exception()
           | packed_policy_too_large_exception()
           | malformed_policy_document_exception()
+
+  @type get_scoped_credentials_errors() ::
+          packed_policy_too_large_exception()
+          | malformed_policy_document_exception()
+          | invalid_subject_credentials_exception()
+          | insufficient_session_lifetime_exception()
 
   @type get_session_token_errors() :: region_disabled_exception()
 
@@ -890,14 +1013,6 @@ defmodule AWS.STS do
   Limits](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length)
   in the *IAM User Guide*.
 
-  An Amazon Web Services conversion compresses the passed inline session policy,
-  managed policy ARNs,
-  and session tags into a packed binary format that has a separate limit. Your
-  request can
-  fail for this limit even if your plaintext meets the other requirements. The
-  `PackedPolicySize` response element indicates by percentage how close the
-  policies and tags for your request are to the upper size limit.
-
   You can pass a session tag with the same key as a tag that is attached to the
   role. When
   you do, session tags override the role's tags with the same key.
@@ -1076,14 +1191,6 @@ defmodule AWS.STS do
   [IAM and STS Character
   Limits](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length)
   in the *IAM User Guide*.
-
-  An Amazon Web Services conversion compresses the passed inline session policy,
-  managed policy ARNs,
-  and session tags into a packed binary format that has a separate limit. Your
-  request can
-  fail for this limit even if your plaintext meets the other requirements. The
-  `PackedPolicySize` response element indicates by percentage how close the
-  policies and tags for your request are to the upper size limit.
 
   You can pass a session tag with the same key as a tag that is attached to the
   role. When
@@ -1409,7 +1516,8 @@ defmodule AWS.STS do
   limitation does not apply to console sessions.
 
     *
-  You cannot call any STS operations except `GetCallerIdentity`.
+  You cannot call any STS operations except `GetCallerIdentity`,
+  `GetScopedCredentials`, or `GetDelegatedAccessToken`.
 
   You can use temporary credentials for single sign-on (SSO) to the console.
 
@@ -1496,6 +1604,46 @@ defmodule AWS.STS do
   end
 
   @doc """
+  Returns a set of temporary security credentials that are scoped down from the
+  caller's
+  existing temporary security credentials.
+
+  `GetScopedCredentials` preserves the
+  caller's identity while narrowing the permissions and optionally shortening the
+  session
+  lifetime.
+
+  For a comparison of `GetScopedCredentials` with the other API operations that
+  produce temporary security credentials, see [Requesting Temporary Security Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html)
+  and [Compare STS credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_sts-comparison.html)
+  in the IAM User Guide.
+
+  ## Credential requirements
+
+  You can only call `GetScopedCredentials` with temporary security credentials,
+  for example, credentials from an assumed role or a federated session. You cannot
+  call it
+  with IAM user credentials or root credentials. If you want to scope down IAM
+  user
+  credentials, first call `GetSessionToken` to get temporary security credentials,
+  and then call `GetScopedCredentials` with those credentials.
+
+  The `GetScopedCredentials` API is not available on the STS Global
+  endpoint.
+  """
+  @spec get_scoped_credentials(map(), get_scoped_credentials_request(), list()) ::
+          {:ok, get_scoped_credentials_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_scoped_credentials_errors()}
+  def get_scoped_credentials(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetScopedCredentials", input, options)
+  end
+
+  @doc """
   Returns a set of temporary credentials for an Amazon Web Services account or IAM
   user.
 
@@ -1551,7 +1699,9 @@ defmodule AWS.STS do
 
     *
   You cannot call any STS API *except*
-  `AssumeRole` or `GetCallerIdentity`.
+  `AssumeRole`, `GetCallerIdentity`,
+  `GetScopedCredentials`, `GetWebIdentityToken`, or
+  `GetDelegatedAccessToken`.
 
   The credentials that `GetSessionToken` returns are based on permissions
   associated with the IAM user whose credentials were used to call the
@@ -1587,12 +1737,23 @@ defmodule AWS.STS do
 
   @doc """
   Returns a signed JSON Web Token (JWT) that represents the calling Amazon Web
-  Services identity.
+  Services identity or, if you set
+  `SubjectMode` to `OriginIdentity`, the human user or workload on whose behalf
+  the
+  calling session acts.
 
   The returned JWT can be used to authenticate with external services that support
   OIDC discovery.
   The token is signed by Amazon Web Services STS and can be publicly verified
   using the verification keys published at the issuer's JWKS endpoint.
+
+  The `sub` (subject) claim contains the identity that `SubjectMode` selects.
+  Whichever
+  subject mode you use, the `principal_id` claim under the
+  `https://sts.amazonaws.com/`
+  namespace contains the ARN of the principal that requested the token, when that
+  principal has an ARN. For a
+  role session, this is the ARN of the role.
 
   The `GetWebIdentityToken` API is not available on the STS Global endpoint.
   """

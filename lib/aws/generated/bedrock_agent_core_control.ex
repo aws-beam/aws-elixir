@@ -295,6 +295,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      aws_billing_connector_configuration() :: %{
+        "iamRoleArn" => String.t() | atom()
+      }
+
+  """
+  @type aws_billing_connector_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_put_gateway_rate_limits_request() :: %{
         optional("clientToken") => String.t() | atom(),
         required("rateLimits") => list(batch_put_limit_entry())
@@ -860,6 +871,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type content_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cpu_options() :: %{
+        "nestedVirtualization" => list(any())
+      }
+
+  """
+  @type cpu_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1595,9 +1617,9 @@ defmodule AWS.BedrockAgentCoreControl do
 
       create_payment_connector_request() :: %{
         optional("clientToken") => String.t() | atom(),
+        optional("credentialProviderConfigurations") => list(list()),
         optional("description") => String.t() | atom(),
         optional("provisionMode") => list(any()),
-        required("credentialProviderConfigurations") => list(list()),
         required("name") => String.t() | atom(),
         required("type") => list(any())
       }
@@ -5214,6 +5236,7 @@ defmodule AWS.BedrockAgentCoreControl do
 
       launch_parameters() :: %{
         "capacityReservationSpecification" => capacity_reservation_specification(),
+        "cpuOptions" => cpu_options(),
         "ephemeralVolumes" => list(ephemeral_block_device_mapping()),
         "instanceProfileArn" => String.t() | atom(),
         "instanceRequirements" => instance_requirements(),

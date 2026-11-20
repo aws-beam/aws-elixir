@@ -110,6 +110,7 @@ defmodule AWS.PCS do
         "accounting" => accounting(),
         "authKey" => slurm_auth_key(),
         "cgroupCustomSettings" => list(cgroup_custom_setting()),
+        "jobSubmitPlugins" => list(job_submit_plugin()),
         "jwtAuth" => jwt_auth(),
         "scaleDownIdleTimeInSeconds" => [integer()],
         "slurmCustomSettings" => list(slurm_custom_setting()),
@@ -127,6 +128,7 @@ defmodule AWS.PCS do
       cluster_slurm_configuration_request() :: %{
         "accounting" => accounting_request(),
         "cgroupCustomSettings" => list(cgroup_custom_setting()),
+        "jobSubmitPlugins" => list(job_submit_plugin()),
         "scaleDownIdleTimeInSeconds" => [integer()],
         "slurmCustomSettings" => list(slurm_custom_setting()),
         "slurmRest" => slurm_rest_request(),
@@ -536,6 +538,32 @@ defmodule AWS.PCS do
       
   """
   @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      job_submit_plugin() :: %{
+        "name" => [String.t() | atom()],
+        "scriptSource" => job_submit_script_source(),
+        "type" => list(any())
+      }
+      
+  """
+  @type job_submit_plugin() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      job_submit_script_source() :: %{
+        "checksum" => [String.t() | atom()],
+        "s3VersionId" => [String.t() | atom()],
+        "scriptLocation" => [String.t() | atom()]
+      }
+      
+  """
+  @type job_submit_script_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1077,6 +1105,7 @@ defmodule AWS.PCS do
       update_cluster_slurm_configuration_request() :: %{
         "accounting" => update_accounting_request(),
         "cgroupCustomSettings" => list(cgroup_custom_setting()),
+        "jobSubmitPlugins" => list(job_submit_plugin()),
         "scaleDownIdleTimeInSeconds" => [integer()],
         "slurmCustomSettings" => list(slurm_custom_setting()),
         "slurmRest" => update_slurm_rest_request(),

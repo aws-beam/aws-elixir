@@ -435,6 +435,32 @@ defmodule AWS.Route53 do
 
   ## Example:
 
+      create_health_check_source_request() :: %{
+        optional("CallerReference") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("HealthCheckSourceConfig") => health_check_source_config()
+      }
+
+  """
+  @type create_health_check_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_health_check_source_response() :: %{
+        "HealthCheckSourceId" => String.t() | atom(),
+        "HealthCheckSourceStatus" => list(any()),
+        "Location" => String.t() | atom()
+      }
+
+  """
+  @type create_health_check_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_hosted_zone_request() :: %{
         optional("DelegationSetId") => String.t() | atom(),
         optional("HostedZoneConfig") => hosted_zone_config(),
@@ -779,6 +805,27 @@ defmodule AWS.Route53 do
 
   """
   @type delete_health_check_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_health_check_source_request() :: %{}
+
+  """
+  @type delete_health_check_source_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_health_check_source_response() :: %{
+        "HealthCheckSourceId" => String.t() | atom(),
+        "HealthCheckSourceStatus" => list(any())
+      }
+
+  """
+  @type delete_health_check_source_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1243,6 +1290,26 @@ defmodule AWS.Route53 do
 
   ## Example:
 
+      get_health_check_source_request() :: %{}
+
+  """
+  @type get_health_check_source_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_health_check_source_response() :: %{
+        "HealthCheckSource" => health_check_source()
+      }
+
+  """
+  @type get_health_check_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_health_check_status_request() :: %{}
 
   """
@@ -1479,8 +1546,10 @@ defmodule AWS.Route53 do
         "ChildHealthChecks" => list(String.t() | atom()),
         "Disabled" => boolean(),
         "EnableSNI" => boolean(),
+        "EndpointType" => list(any()),
         "FailureThreshold" => integer(),
         "FullyQualifiedDomainName" => String.t() | atom(),
+        "HealthCheckSourceId" => String.t() | atom(),
         "HealthThreshold" => integer(),
         "IPAddress" => String.t() | atom(),
         "InsufficientDataHealthStatus" => list(any()),
@@ -1521,6 +1590,44 @@ defmodule AWS.Route53 do
 
   """
   @type health_check_observation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      health_check_source() :: %{
+        "HealthCheckSourceConfig" => health_check_source_config(),
+        "HealthCheckSourceId" => String.t() | atom(),
+        "HealthCheckSourceStatus" => list(any()),
+        "StatusReason" => String.t() | atom(),
+        "StatusReasonCode" => list(any())
+      }
+
+  """
+  @type health_check_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      health_check_source_already_exists() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type health_check_source_already_exists() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      health_check_source_config() :: %{
+        "SubnetConfigurationList" => list(subnet_configuration()),
+        "VpcId" => String.t() | atom()
+      }
+
+  """
+  @type health_check_source_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2039,6 +2146,57 @@ defmodule AWS.Route53 do
 
   """
   @type list_geo_locations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_health_check_sources_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_health_check_sources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_health_check_sources_response() :: %{
+        "HealthCheckSources" => list(health_check_source()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_health_check_sources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_health_checks_by_source_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => [integer()]
+      }
+
+  """
+  @type list_health_checks_by_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_health_checks_by_source_response() :: %{
+        "HealthChecks" => list(health_check()),
+        "IsTruncated" => boolean(),
+        "Marker" => String.t() | atom(),
+        "MaxItems" => [integer()],
+        "NextMarker" => String.t() | atom()
+      }
+
+  """
+  @type list_health_checks_by_source_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2567,6 +2725,17 @@ defmodule AWS.Route53 do
 
   ## Example:
 
+      no_such_health_check_source() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type no_such_health_check_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       no_such_hosted_zone() :: %{
         "message" => String.t() | atom()
       }
@@ -2816,6 +2985,19 @@ defmodule AWS.Route53 do
 
   ## Example:
 
+      subnet_configuration() :: %{
+        "AvailabilityZoneId" => String.t() | atom(),
+        "SecurityGroupIdList" => list(String.t() | atom()),
+        "SubnetId" => String.t() | atom()
+      }
+
+  """
+  @type subnet_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag() :: %{
         "Key" => String.t() | atom(),
         "Value" => String.t() | atom()
@@ -2866,6 +3048,17 @@ defmodule AWS.Route53 do
 
   """
   @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_health_check_sources() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type too_many_health_check_sources() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3038,6 +3231,7 @@ defmodule AWS.Route53 do
         optional("EnableSNI") => boolean(),
         optional("FailureThreshold") => integer(),
         optional("FullyQualifiedDomainName") => String.t() | atom(),
+        optional("HealthCheckSourceId") => String.t() | atom(),
         optional("HealthCheckVersion") => float(),
         optional("HealthThreshold") => integer(),
         optional("IPAddress") => String.t() | atom(),
@@ -3223,6 +3417,7 @@ defmodule AWS.Route53 do
           throttling_exception()
           | prior_request_not_complete()
           | no_such_hosted_zone()
+          | no_such_health_check_source()
           | no_such_health_check()
           | invalid_input()
 
@@ -3234,6 +3429,12 @@ defmodule AWS.Route53 do
 
   @type create_health_check_errors() ::
           too_many_health_checks() | invalid_input() | health_check_already_exists()
+
+  @type create_health_check_source_errors() ::
+          too_many_health_check_sources()
+          | invalid_vpc_id()
+          | invalid_input()
+          | health_check_source_already_exists()
 
   @type create_hosted_zone_errors() ::
           too_many_hosted_zones()
@@ -3328,6 +3529,9 @@ defmodule AWS.Route53 do
   @type delete_health_check_errors() ::
           no_such_health_check() | invalid_input() | health_check_in_use()
 
+  @type delete_health_check_source_errors() ::
+          prior_request_not_complete() | no_such_health_check_source() | invalid_input()
+
   @type delete_hosted_zone_errors() ::
           prior_request_not_complete()
           | no_such_hosted_zone()
@@ -3415,6 +3619,8 @@ defmodule AWS.Route53 do
 
   @type get_health_check_last_failure_reason_errors() :: no_such_health_check() | invalid_input()
 
+  @type get_health_check_source_errors() :: no_such_health_check_source() | invalid_input()
+
   @type get_health_check_status_errors() :: no_such_health_check() | invalid_input()
 
   @type get_hosted_zone_errors() :: no_such_hosted_zone() | invalid_input()
@@ -3447,7 +3653,11 @@ defmodule AWS.Route53 do
 
   @type list_geo_locations_errors() :: invalid_input()
 
+  @type list_health_check_sources_errors() :: invalid_input()
+
   @type list_health_checks_errors() :: invalid_input() | incompatible_version()
+
+  @type list_health_checks_by_source_errors() :: no_such_health_check_source() | invalid_input()
 
   @type list_hosted_zones_errors() ::
           no_such_delegation_set() | invalid_input() | delegation_set_not_reusable()
@@ -3470,6 +3680,7 @@ defmodule AWS.Route53 do
           throttling_exception()
           | prior_request_not_complete()
           | no_such_hosted_zone()
+          | no_such_health_check_source()
           | no_such_health_check()
           | invalid_input()
 
@@ -3477,6 +3688,7 @@ defmodule AWS.Route53 do
           throttling_exception()
           | prior_request_not_complete()
           | no_such_hosted_zone()
+          | no_such_health_check_source()
           | no_such_health_check()
           | invalid_input()
 
@@ -3864,7 +4076,8 @@ defmodule AWS.Route53 do
   end
 
   @doc """
-  Adds, edits, or deletes tags for a health check or a hosted zone.
+  Adds, edits, or deletes tags for a health check, a health check source, or a
+  hosted zone.
 
   For information about using tags for cost allocation, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html)
   in the *Billing and Cost Management User Guide*.
@@ -3968,9 +4181,15 @@ defmodule AWS.Route53 do
   zone. Note the following:
 
     *
-  Route 53 health checkers are outside the VPC. To check the health of an
-  endpoint within a VPC by IP address, you must assign a public IP address to the
-  instance in the VPC.
+  For a public health check, Route 53 health checkers are outside the VPC. To
+  check the health of an endpoint within a VPC by IP address, you must assign a
+  public IP address to the instance in the VPC.
+
+    *
+  To check the health of an endpoint within a VPC by using a private IP
+  address, use a private endpoint health check (`EndpointType` of
+  `PRIVATE`). For more information, see
+  `CreateHealthCheckSource`.
 
     *
   You can configure a health checker to check the health of an external resource
@@ -3993,6 +4212,62 @@ defmodule AWS.Route53 do
           | {:error, create_health_check_errors()}
   def create_health_check(%Client{} = client, input, options \\ []) do
     url_path = "/2013-04-01/healthcheck"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [{"Location", "Location"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a health check source, which defines the virtual private cloud (VPC),
+  subnets, and security groups from which Route 53 sends private endpoint health
+  check requests.
+
+  To use this operation, you must have the `route53:CreateHealthCheckSource`
+  permission. You must also have permission to create a service-linked role.
+
+  Specify a VPC, one subnet in each Availability Zone that Route 53 uses for
+  private endpoint health checks in the Amazon Web Services Region, and one or
+  more security groups for each subnet. The security groups must allow outbound
+  traffic to the endpoints that you want to check.
+
+  Route 53 creates a health check source asynchronously, and the initial
+  `HealthCheckSourceStatus` is `CREATE_PENDING`. Call `GetHealthCheckSource` until
+  the status is `CREATE_COMPLETED` before you create health checks that use the
+  source. You can't change the configuration of a health check source after you
+  create it.
+
+  If AWS Identity and Access Management (IAM) is still deleting the Route 53
+  service-linked role for your account, the request fails with `InvalidInput`.
+  Retry after the deletion completes.
+  """
+  @spec create_health_check_source(map(), create_health_check_source_request(), list()) ::
+          {:ok, create_health_check_source_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_health_check_source_errors()}
+  def create_health_check_source(%Client{} = client, input, options \\ []) do
+    url_path = "/2013-04-01/healthchecksource"
     headers = []
     custom_headers = []
     query_params = []
@@ -4879,6 +5154,56 @@ defmodule AWS.Route53 do
   end
 
   @doc """
+  Deletes a health check source.
+
+  Before you delete a health check source, delete or update any health checks that
+  reference it. Otherwise, the request fails with `InvalidInput`. The request also
+  fails with `InvalidInput` if the status of the health check source is
+  `CREATE_PENDING` or `CREATE_IN_PROGRESS`. Wait until the status is
+  `CREATE_COMPLETED` or `CREATE_FAILED`, and then try again.
+
+  Route 53 deletes a health check source asynchronously, and the initial
+  `HealthCheckSourceStatus` is `DELETE_PENDING`. Call `GetHealthCheckSource` to
+  track progress. After the deletion completes, `GetHealthCheckSource` returns
+  `NoSuchHealthCheckSource` and the health check source no longer appears in the
+  results of `ListHealthCheckSources`. If you delete a health check source that is
+  already deleted, the request fails with `NoSuchHealthCheckSource`.
+
+  To use this operation, you must have the `route53:DeleteHealthCheckSource`
+  permission. You must also have permission to create a service-linked role.
+  """
+  @spec delete_health_check_source(
+          map(),
+          String.t() | atom(),
+          delete_health_check_source_request(),
+          list()
+        ) ::
+          {:ok, delete_health_check_source_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_health_check_source_errors()}
+  def delete_health_check_source(%Client{} = client, health_check_source_id, input, options \\ []) do
+    url_path = "/2013-04-01/healthchecksource/#{AWS.Util.encode_uri(health_check_source_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes a hosted zone.
 
   If the hosted zone was created by another service, such as Cloud Map, see
@@ -5719,6 +6044,25 @@ defmodule AWS.Route53 do
   end
 
   @doc """
+  Gets information about a specified health check source, including its status and
+  the virtual private cloud (VPC), subnets, and security groups that it uses.
+  """
+  @spec get_health_check_source(map(), String.t() | atom(), list()) ::
+          {:ok, get_health_check_source_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_health_check_source_errors()}
+  def get_health_check_source(%Client{} = client, health_check_source_id, options \\ []) do
+    url_path = "/2013-04-01/healthchecksource/#{AWS.Util.encode_uri(health_check_source_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets status of a specified health check.
 
   This API is intended for use during development to diagnose behavior. It doesn’t
@@ -6172,6 +6516,52 @@ defmodule AWS.Route53 do
   end
 
   @doc """
+  Retrieves a list of the health check sources that are associated with the
+  current Amazon Web Services account.
+
+  Results are paginated. To get more results, specify the `NextToken` value from
+  the previous response for `NextToken`.
+  """
+  @spec list_health_check_sources(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_health_check_sources_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_health_check_sources_errors()}
+  def list_health_check_sources(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2013-04-01/healthchecksource"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxresults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nexttoken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieve a list of the health checks that are associated with the current Amazon
   Web Services account.
   """
@@ -6182,6 +6572,53 @@ defmodule AWS.Route53 do
           | {:error, list_health_checks_errors()}
   def list_health_checks(%Client{} = client, marker \\ nil, max_items \\ nil, options \\ []) do
     url_path = "/2013-04-01/healthcheck"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(marker) do
+        [{"marker", marker} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_items) do
+        [{"maxitems", max_items} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves a list of the health checks that use a specified health check source.
+
+  Results are paginated. If `IsTruncated` is `true`, specify the `NextMarker`
+  value for `marker` to get more results.
+  """
+  @spec list_health_checks_by_source(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_health_checks_by_source_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_health_checks_by_source_errors()}
+  def list_health_checks_by_source(
+        %Client{} = client,
+        health_check_source_id,
+        marker \\ nil,
+        max_items \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2013-04-01/healthchecks/source/#{AWS.Util.encode_uri(health_check_source_id)}"
     headers = []
     query_params = []
 

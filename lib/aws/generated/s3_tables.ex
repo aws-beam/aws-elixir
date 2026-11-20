@@ -273,6 +273,26 @@ defmodule AWS.S3Tables do
 
   ## Example:
 
+      disassociate_table_replication_request() :: %{
+        required("tableArn") => String.t() | atom()
+      }
+
+  """
+  @type disassociate_table_replication_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_table_replication_response() :: %{}
+
+  """
+  @type disassociate_table_replication_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       encryption_configuration() :: %{
         "kmsKeyArn" => [String.t() | atom()],
         "sseAlgorithm" => list(any())
@@ -2004,6 +2024,15 @@ defmodule AWS.S3Tables do
           | bad_request_exception()
           | access_denied_exception()
 
+  @type disassociate_table_replication_errors() ::
+          too_many_requests_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | bad_request_exception()
+          | access_denied_exception()
+
   @type get_namespace_errors() ::
           too_many_requests_exception()
           | not_found_exception()
@@ -2996,6 +3025,67 @@ defmodule AWS.S3Tables do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Disassociates a replica table from replication, making it a standalone writable
+  table.
+
+  Any in-progress replication to the table stops, and in-flight commits fail
+  without being committed to the table. Disassociating a table from replication is
+  permanent and can't be reversed.
+
+  You can only disassociate a replica table. If you call this operation on a table
+  that isn't a replica table, including a table that you have already
+  disassociated, the request fails.
+
+  After you disassociate a table from replication, you can write to the table as
+  you do any other table. `GetTable` no longer returns `managedByService` and
+  `managedTableInformation` for the table, and `ListTables` no longer returns
+  `managedByService` for it. On the source table, `GetTableReplicationStatus`
+  reports a failure for this destination the next time replication to it is
+  attempted.
+
+  Disassociating a table from replication doesn't change its maintenance
+  configuration. Review the maintenance settings of the table, such as compaction,
+  after you disassociate it.
+
+  ## Definitions
+
+  ### Permissions
+
+  You must have the `s3tables:DisassociateTableReplication` permission to use this
+  operation.
+  """
+  @spec disassociate_table_replication(map(), disassociate_table_replication_request(), list()) ::
+          {:ok, disassociate_table_replication_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disassociate_table_replication_errors()}
+  def disassociate_table_replication(%Client{} = client, input, options \\ []) do
+    url_path = "/table-replication/disassociate"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"tableArn", "tableArn"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 

@@ -162,7 +162,8 @@ defmodule AWS.AgentRegistry do
         "agui" => ag_ui_descriptor(),
         "custom" => custom_descriptor(),
         "http" => http_descriptor(),
-        "mcpServer" => mcp_server_descriptor()
+        "mcpServer" => mcp_server_descriptor(),
+        "signatureAgentCard" => signature_agent_card_descriptor()
       }
 
   """
@@ -373,6 +374,31 @@ defmodule AWS.AgentRegistry do
 
   """
   @type search_discoverable_registry_records_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      signature_agent_card_additional_data() :: %{
+        "category" => list(any())
+      }
+
+  """
+  @type signature_agent_card_additional_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      signature_agent_card_descriptor() :: %{
+        "additionalData" => signature_agent_card_additional_data(),
+        "data" => String.t() | atom(),
+        "dataSchemaVersion" => String.t() | atom(),
+        "source" => descriptor_source()
+      }
+
+  """
+  @type signature_agent_card_descriptor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

@@ -233,6 +233,46 @@ defmodule AWS.Textract do
 
   ## Example:
       
+      blueprint_filter() :: %{
+        "BlueprintArn" => String.t() | atom(),
+        "BlueprintVersion" => String.t() | atom()
+      }
+      
+  """
+  @type blueprint_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      blueprint_item() :: %{
+        "BlueprintArn" => String.t() | atom(),
+        "BlueprintVersion" => String.t() | atom()
+      }
+      
+  """
+  @type blueprint_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      blueprint_summary() :: %{
+        "BlueprintArn" => String.t() | atom(),
+        "BlueprintName" => String.t() | atom(),
+        "BlueprintVersion" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "ResourceOwner" => list(any())
+      }
+      
+  """
+  @type blueprint_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       bounding_box() :: %{
         "Height" => float(),
         "Left" => float(),
@@ -242,6 +282,17 @@ defmodule AWS.Textract do
       
   """
   @type bounding_box() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      bounding_box_configuration() :: %{
+        "State" => list(any())
+      }
+      
+  """
+  @type bounding_box_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -314,6 +365,100 @@ defmodule AWS.Textract do
 
   ## Example:
       
+      create_blueprint_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("EncryptionConfiguration") => encryption_configuration(),
+        optional("Tags") => map(),
+        required("BlueprintName") => String.t() | atom(),
+        required("Schema") => String.t() | atom()
+      }
+      
+  """
+  @type create_blueprint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_blueprint_response() :: %{
+        "BlueprintArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_blueprint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_blueprint_version_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("BlueprintArn") => String.t() | atom()
+      }
+      
+  """
+  @type create_blueprint_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_blueprint_version_response() :: %{
+        "BlueprintArn" => String.t() | atom(),
+        "BlueprintVersion" => String.t() | atom()
+      }
+      
+  """
+  @type create_blueprint_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_project_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("CustomConfiguration") => custom_configuration(),
+        optional("EncryptionConfiguration") => encryption_configuration(),
+        optional("GenerativeConfiguration") => generative_configuration(),
+        optional("ProjectDescription") => String.t() | atom(),
+        optional("SensitiveDataConfiguration") => sensitive_data_configuration(),
+        optional("SplitterConfiguration") => splitter_configuration(),
+        optional("Tags") => map(),
+        required("ExtractionConfiguration") => extraction_configuration(),
+        required("ProjectName") => String.t() | atom()
+      }
+      
+  """
+  @type create_project_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_project_response() :: %{
+        "ProjectArn" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type create_project_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_configuration() :: %{
+        "Blueprints" => list(blueprint_item()),
+        "FallbackBlueprints" => list(blueprint_item())
+      }
+      
+  """
+  @type custom_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_adapter_request() :: %{
         required("AdapterId") => String.t() | atom()
       }
@@ -350,6 +495,47 @@ defmodule AWS.Textract do
       
   """
   @type delete_adapter_version_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_blueprint_request() :: %{
+        optional("BlueprintVersion") => String.t() | atom(),
+        required("BlueprintArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_blueprint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_blueprint_response() :: %{}
+      
+  """
+  @type delete_blueprint_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_project_request() :: %{
+        required("ProjectArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_project_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_project_response() :: %{}
+      
+  """
+  @type delete_project_response() :: %{}
 
   @typedoc """
 
@@ -450,6 +636,18 @@ defmodule AWS.Textract do
 
   ## Example:
       
+      encryption_configuration() :: %{
+        "KmsEncryptionContext" => map(),
+        "KmsKeyId" => String.t() | atom()
+      }
+      
+  """
+  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       evaluation_metric() :: %{
         "F1Score" => float(),
         "Precision" => float(),
@@ -458,6 +656,17 @@ defmodule AWS.Textract do
       
   """
   @type evaluation_metric() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_bridge_configuration() :: %{
+        "State" => list(any())
+      }
+      
+  """
+  @type event_bridge_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -555,6 +764,53 @@ defmodule AWS.Textract do
 
   ## Example:
       
+      extraction_configuration() :: %{
+        "BoundingBox" => bounding_box_configuration(),
+        "Granularity" => extraction_granularity(),
+        "OutputFormat" => output_format()
+      }
+      
+  """
+  @type extraction_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      extraction_granularity() :: %{
+        "Types" => list(list(any())())
+      }
+      
+  """
+  @type extraction_granularity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      figure_caption_configuration() :: %{
+        "State" => list(any())
+      }
+      
+  """
+  @type figure_caption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      generative_configuration() :: %{
+        "FigureCaption" => figure_caption_configuration(),
+        "Summarization" => summarization_configuration()
+      }
+      
+  """
+  @type generative_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       geometry() :: %{
         "BoundingBox" => bounding_box(),
         "Polygon" => list(point()),
@@ -629,6 +885,36 @@ defmodule AWS.Textract do
 
   ## Example:
       
+      get_blueprint_request() :: %{
+        optional("BlueprintVersion") => String.t() | atom(),
+        required("BlueprintArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_blueprint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_blueprint_response() :: %{
+        "BlueprintArn" => String.t() | atom(),
+        "BlueprintName" => String.t() | atom(),
+        "BlueprintVersion" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "KmsEncryptionContext" => map(),
+        "KmsKeyId" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Schema" => String.t() | atom()
+      }
+      
+  """
+  @type get_blueprint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_document_analysis_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
@@ -654,6 +940,31 @@ defmodule AWS.Textract do
       
   """
   @type get_document_analysis_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_document_insights_request() :: %{
+        required("JobArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_document_insights_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_document_insights_response() :: %{
+        "ErrorMessage" => String.t() | atom(),
+        "ErrorType" => String.t() | atom(),
+        "OutputConfiguration" => output_configuration(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type get_document_insights_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -776,6 +1087,39 @@ defmodule AWS.Textract do
 
   ## Example:
       
+      get_project_request() :: %{
+        required("ProjectArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_project_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_project_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "CustomConfiguration" => custom_configuration(),
+        "EncryptionConfiguration" => encryption_configuration(),
+        "ExtractionConfiguration" => extraction_configuration(),
+        "GenerativeConfiguration" => generative_configuration(),
+        "LastModifiedTime" => non_neg_integer(),
+        "ProjectArn" => String.t() | atom(),
+        "ProjectDescription" => String.t() | atom(),
+        "ProjectName" => String.t() | atom(),
+        "SensitiveDataConfiguration" => sensitive_data_configuration(),
+        "SplitterConfiguration" => splitter_configuration(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type get_project_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       human_loop_activation_output() :: %{
         "HumanLoopActivationConditionsEvaluationResults" => String.t() | atom(),
         "HumanLoopActivationReasons" => list(String.t() | atom()),
@@ -860,6 +1204,17 @@ defmodule AWS.Textract do
       
   """
   @type identity_document_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_configuration() :: %{
+        "S3Uri" => String.t() | atom()
+      }
+      
+  """
+  @type input_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1077,6 +1432,58 @@ defmodule AWS.Textract do
 
   ## Example:
       
+      list_blueprints_request() :: %{
+        optional("BlueprintArn") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ProjectFilter") => project_filter(),
+        optional("ResourceOwner") => list(any())
+      }
+      
+  """
+  @type list_blueprints_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_blueprints_response() :: %{
+        "Blueprints" => list(blueprint_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_blueprints_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_projects_request() :: %{
+        optional("BlueprintFilter") => blueprint_filter(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_projects_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_projects_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Projects" => list(project_summary())
+      }
+      
+  """
+  @type list_projects_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_tags_for_resource_request() :: %{
         required("ResourceARN") => String.t() | atom()
       }
@@ -1123,6 +1530,28 @@ defmodule AWS.Textract do
 
   ## Example:
       
+      notification_configuration() :: %{
+        "EventBridgeConfiguration" => event_bridge_configuration()
+      }
+      
+  """
+  @type notification_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      output_additional_file_format() :: %{
+        "State" => list(any())
+      }
+      
+  """
+  @type output_additional_file_format() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       output_config() :: %{
         "S3Bucket" => String.t() | atom(),
         "S3Prefix" => String.t() | atom()
@@ -1130,6 +1559,52 @@ defmodule AWS.Textract do
       
   """
   @type output_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      output_configuration() :: %{
+        "S3Uri" => String.t() | atom()
+      }
+      
+  """
+  @type output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      output_format() :: %{
+        "AdditionalFileFormat" => output_additional_file_format(),
+        "TextFormat" => output_text_format()
+      }
+      
+  """
+  @type output_format() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      output_text_format() :: %{
+        "Types" => list(list(any())())
+      }
+      
+  """
+  @type output_text_format() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      p_i_i_entities_configuration() :: %{
+        "PiiEntityTypes" => list(list(any())()),
+        "RedactionMaskMode" => list(any())
+      }
+      
+  """
+  @type p_i_i_entities_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1166,6 +1641,31 @@ defmodule AWS.Textract do
       
   """
   @type prediction() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      project_filter() :: %{
+        "ProjectArn" => String.t() | atom()
+      }
+      
+  """
+  @type project_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      project_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "ProjectArn" => String.t() | atom(),
+        "ProjectName" => String.t() | atom()
+      }
+      
+  """
+  @type project_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1244,6 +1744,18 @@ defmodule AWS.Textract do
 
   ## Example:
       
+      sensitive_data_configuration() :: %{
+        "DetectionMode" => list(any()),
+        "PiiEntitiesConfiguration" => p_i_i_entities_configuration()
+      }
+      
+  """
+  @type sensitive_data_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       service_quota_exceeded_exception() :: %{
         "Code" => String.t() | atom(),
         "Message" => String.t() | atom()
@@ -1280,6 +1792,17 @@ defmodule AWS.Textract do
 
   ## Example:
       
+      splitter_configuration() :: %{
+        "State" => list(any())
+      }
+      
+  """
+  @type splitter_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       start_document_analysis_request() :: %{
         optional("AdaptersConfig") => adapters_config(),
         optional("ClientRequestToken") => String.t() | atom(),
@@ -1305,6 +1828,34 @@ defmodule AWS.Textract do
       
   """
   @type start_document_analysis_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_document_insights_request() :: %{
+        optional("Blueprints") => list(blueprint_item()),
+        optional("EncryptionConfiguration") => encryption_configuration(),
+        optional("NotificationConfiguration") => notification_configuration(),
+        optional("ProjectArn") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("InputConfiguration") => input_configuration(),
+        required("OutputConfiguration") => output_configuration()
+      }
+      
+  """
+  @type start_document_insights_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_document_insights_response() :: %{
+        "JobArn" => String.t() | atom()
+      }
+      
+  """
+  @type start_document_insights_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1386,6 +1937,17 @@ defmodule AWS.Textract do
       
   """
   @type start_lending_analysis_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      summarization_configuration() :: %{
+        "State" => list(any())
+      }
+      
+  """
+  @type summarization_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1498,6 +2060,60 @@ defmodule AWS.Textract do
 
   ## Example:
       
+      update_blueprint_request() :: %{
+        optional("EncryptionConfiguration") => encryption_configuration(),
+        optional("Schema") => String.t() | atom(),
+        required("BlueprintArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_blueprint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_blueprint_response() :: %{
+        "BlueprintArn" => String.t() | atom()
+      }
+      
+  """
+  @type update_blueprint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_project_request() :: %{
+        optional("CustomConfiguration") => custom_configuration(),
+        optional("EncryptionConfiguration") => encryption_configuration(),
+        optional("ExtractionConfiguration") => extraction_configuration(),
+        optional("GenerativeConfiguration") => generative_configuration(),
+        optional("ProjectDescription") => String.t() | atom(),
+        optional("SensitiveDataConfiguration") => sensitive_data_configuration(),
+        optional("SplitterConfiguration") => splitter_configuration(),
+        required("ProjectArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_project_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_project_response() :: %{
+        "ProjectArn" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type update_project_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       validation_exception() :: %{
         "Code" => String.t() | atom(),
         "Message" => String.t() | atom()
@@ -1579,6 +2195,35 @@ defmodule AWS.Textract do
           | conflict_exception()
           | access_denied_exception()
 
+  @type create_blueprint_errors() ::
+          validation_exception()
+          | provisioned_throughput_exceeded_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type create_blueprint_version_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type create_project_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type delete_adapter_errors() ::
           validation_exception()
           | throttling_exception()
@@ -1597,6 +2242,23 @@ defmodule AWS.Textract do
           | invalid_parameter_exception()
           | internal_server_error()
           | conflict_exception()
+          | access_denied_exception()
+
+  @type delete_blueprint_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type delete_project_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
           | access_denied_exception()
 
   @type detect_document_text_errors() ::
@@ -1628,12 +2290,28 @@ defmodule AWS.Textract do
           | internal_server_error()
           | access_denied_exception()
 
+  @type get_blueprint_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
   @type get_document_analysis_errors() ::
           throttling_exception()
           | provisioned_throughput_exceeded_exception()
           | invalid_s3_object_exception()
           | invalid_parameter_exception()
           | invalid_kms_key_exception()
+          | invalid_job_id_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type get_document_insights_errors() ::
+          validation_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
           | invalid_job_id_exception()
           | internal_server_error()
           | access_denied_exception()
@@ -1678,6 +2356,14 @@ defmodule AWS.Textract do
           | internal_server_error()
           | access_denied_exception()
 
+  @type get_project_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
   @type list_adapter_versions_errors() ::
           validation_exception()
           | throttling_exception()
@@ -1690,6 +2376,22 @@ defmodule AWS.Textract do
   @type list_adapters_errors() ::
           validation_exception()
           | throttling_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type list_blueprints_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | access_denied_exception()
+
+  @type list_projects_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
           | provisioned_throughput_exceeded_exception()
           | invalid_parameter_exception()
           | internal_server_error()
@@ -1716,6 +2418,15 @@ defmodule AWS.Textract do
           | idempotent_parameter_mismatch_exception()
           | document_too_large_exception()
           | bad_document_exception()
+          | access_denied_exception()
+
+  @type start_document_insights_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
           | access_denied_exception()
 
   @type start_document_text_detection_errors() ::
@@ -1784,6 +2495,25 @@ defmodule AWS.Textract do
           | throttling_exception()
           | resource_not_found_exception()
           | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type update_blueprint_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_server_error()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type update_project_errors() ::
+          validation_exception()
+          | resource_not_found_exception()
+          | provisioned_throughput_exceeded_exception()
+          | limit_exceeded_exception()
           | invalid_parameter_exception()
           | internal_server_error()
           | conflict_exception()
@@ -1969,6 +2699,59 @@ defmodule AWS.Textract do
   end
 
   @doc """
+  Creates a blueprint that defines the schema Amazon Textract uses to extract
+  structured
+  data from a document during a document insights job.
+
+  A blueprint describes the fields
+  to extract and how to normalize them.
+  """
+  @spec create_blueprint(map(), create_blueprint_request(), list()) ::
+          {:ok, create_blueprint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_blueprint_errors()}
+  def create_blueprint(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateBlueprint", input, options)
+  end
+
+  @doc """
+  Creates a new, immutable version of an existing blueprint so that projects can
+  pin to a
+  specific version.
+  """
+  @spec create_blueprint_version(map(), create_blueprint_version_request(), list()) ::
+          {:ok, create_blueprint_version_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_blueprint_version_errors()}
+  def create_blueprint_version(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateBlueprintVersion", input, options)
+  end
+
+  @doc """
+  Creates a project that groups the configuration used to run document insights
+  jobs.
+  """
+  @spec create_project(map(), create_project_request(), list()) ::
+          {:ok, create_project_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_project_errors()}
+  def create_project(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateProject", input, options)
+  end
+
+  @doc """
   Deletes an Amazon Textract adapter.
 
   Takes an AdapterId and deletes the adapter specified by the ID.
@@ -2002,6 +2785,36 @@ defmodule AWS.Textract do
       metadata()
 
     Request.request_post(client, meta, "DeleteAdapterVersion", input, options)
+  end
+
+  @doc """
+  Deletes a blueprint, or a specific version of a blueprint.
+  """
+  @spec delete_blueprint(map(), delete_blueprint_request(), list()) ::
+          {:ok, delete_blueprint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_blueprint_errors()}
+  def delete_blueprint(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteBlueprint", input, options)
+  end
+
+  @doc """
+  Deletes a project.
+  """
+  @spec delete_project(map(), delete_project_request(), list()) ::
+          {:ok, delete_project_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_project_errors()}
+  def delete_project(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteProject", input, options)
   end
 
   @doc """
@@ -2069,6 +2882,22 @@ defmodule AWS.Textract do
       metadata()
 
     Request.request_post(client, meta, "GetAdapterVersion", input, options)
+  end
+
+  @doc """
+  Gets the details of a blueprint, including its schema, encryption settings, and
+  timestamps.
+  """
+  @spec get_blueprint(map(), get_blueprint_request(), list()) ::
+          {:ok, get_blueprint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_blueprint_errors()}
+  def get_blueprint(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetBlueprint", input, options)
   end
 
   @doc """
@@ -2151,6 +2980,22 @@ defmodule AWS.Textract do
       metadata()
 
     Request.request_post(client, meta, "GetDocumentAnalysis", input, options)
+  end
+
+  @doc """
+  Gets the status and results of a document insights job that was started by
+  `StartDocumentInsights`.
+  """
+  @spec get_document_insights(map(), get_document_insights_request(), list()) ::
+          {:ok, get_document_insights_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_document_insights_errors()}
+  def get_document_insights(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetDocumentInsights", input, options)
   end
 
   @doc """
@@ -2317,6 +3162,22 @@ defmodule AWS.Textract do
   end
 
   @doc """
+  Gets the details of a project, including its configuration, status, and
+  timestamps.
+  """
+  @spec get_project(map(), get_project_request(), list()) ::
+          {:ok, get_project_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_project_errors()}
+  def get_project(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetProject", input, options)
+  end
+
+  @doc """
   List all version of an adapter that meet the specified filtration criteria.
   """
   @spec list_adapter_versions(map(), list_adapter_versions_request(), list()) ::
@@ -2344,6 +3205,46 @@ defmodule AWS.Textract do
       metadata()
 
     Request.request_post(client, meta, "ListAdapters", input, options)
+  end
+
+  @doc """
+  Lists the blueprints that are available to the caller, with optional filtering
+  by
+  project and resource owner.
+
+  The results are paginated. If the response includes a
+  `NextToken` value, pass it in a subsequent call to retrieve the next page of
+  results.
+  """
+  @spec list_blueprints(map(), list_blueprints_request(), list()) ::
+          {:ok, list_blueprints_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_blueprints_errors()}
+  def list_blueprints(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListBlueprints", input, options)
+  end
+
+  @doc """
+  Lists the projects that are available to the caller, with optional filtering by
+  blueprint.
+
+  The results are paginated. If the response includes a `NextToken`
+  value, pass it in a subsequent call to retrieve the next page of results.
+  """
+  @spec list_projects(map(), list_projects_request(), list()) ::
+          {:ok, list_projects_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_projects_errors()}
+  def list_projects(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListProjects", input, options)
   end
 
   @doc """
@@ -2395,6 +3296,26 @@ defmodule AWS.Textract do
       metadata()
 
     Request.request_post(client, meta, "StartDocumentAnalysis", input, options)
+  end
+
+  @doc """
+  Starts an asynchronous job that analyzes a document using the configuration
+  defined by a
+  project or a set of blueprints.
+
+  Use `GetDocumentInsights` to
+  retrieve the results of the job.
+  """
+  @spec start_document_insights(map(), start_document_insights_request(), list()) ::
+          {:ok, start_document_insights_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_document_insights_errors()}
+  def start_document_insights(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "StartDocumentInsights", input, options)
   end
 
   @doc """
@@ -2570,5 +3491,41 @@ defmodule AWS.Textract do
       metadata()
 
     Request.request_post(client, meta, "UpdateAdapter", input, options)
+  end
+
+  @doc """
+  Updates an existing blueprint, replacing its schema and, optionally, its
+  encryption
+  configuration.
+  """
+  @spec update_blueprint(map(), update_blueprint_request(), list()) ::
+          {:ok, update_blueprint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_blueprint_errors()}
+  def update_blueprint(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateBlueprint", input, options)
+  end
+
+  @doc """
+  Updates the configuration of an existing project.
+
+  If you omit a configuration, UpdateProject leaves it unchanged.
+  A configuration that you supply replaces the stored one, so include every
+  setting that you want to keep.
+  """
+  @spec update_project(map(), update_project_request(), list()) ::
+          {:ok, update_project_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_project_errors()}
+  def update_project(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateProject", input, options)
   end
 end

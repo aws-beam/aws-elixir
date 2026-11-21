@@ -1544,6 +1544,7 @@ defmodule AWS.CloudFront do
         "HTTPPort" => integer(),
         "HTTPSPort" => integer(),
         "IpAddressType" => list(any()),
+        "OriginHttpVersion" => list(any()),
         "OriginKeepaliveTimeout" => integer(),
         "OriginMtlsConfig" => origin_mtls_config(),
         "OriginProtocolPolicy" => list(any()),
@@ -8128,6 +8129,7 @@ defmodule AWS.CloudFront do
   ## Example:
 
       vpc_origin_config() :: %{
+        "OriginHttpVersion" => list(any()),
         "OriginKeepaliveTimeout" => integer(),
         "OriginReadTimeout" => integer(),
         "OwnerAccountId" => String.t() | atom(),

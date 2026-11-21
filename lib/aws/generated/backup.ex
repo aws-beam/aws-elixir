@@ -1242,6 +1242,7 @@ defmodule AWS.Backup do
 
       describe_region_settings_output() :: %{
         "ResourceTypeManagementPreference" => map(),
+        "ResourceTypeOptInIncremental" => map(),
         "ResourceTypeOptInPreference" => map()
       }
 
@@ -3894,6 +3895,7 @@ defmodule AWS.Backup do
 
       update_region_settings_input() :: %{
         optional("ResourceTypeManagementPreference") => map(),
+        optional("ResourceTypeOptInIncremental") => map(),
         optional("ResourceTypeOptInPreference") => map()
       }
 

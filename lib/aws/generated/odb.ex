@@ -400,6 +400,20 @@ defmodule AWS.Odb do
 
   ## Example:
       
+      autonomous_database_refreshable_clone_summary() :: %{
+        "autonomousDatabaseArn" => String.t() | atom(),
+        "autonomousDatabaseId" => String.t() | atom(),
+        "ocid" => [String.t() | atom()],
+        "region" => [String.t() | atom()]
+      }
+      
+  """
+  @type autonomous_database_refreshable_clone_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       autonomous_database_summary() :: %{
         "actualUsedDataStorageSizeInTBs" => [float()],
         "adminPasswordSourceSummary" => admin_password_source_summary(),
@@ -2796,6 +2810,30 @@ defmodule AWS.Odb do
 
   ## Example:
       
+      list_autonomous_database_refreshable_clones_input() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+      
+  """
+  @type list_autonomous_database_refreshable_clones_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_autonomous_database_refreshable_clones_output() :: %{
+        "autonomousDatabaseRefreshableClones" => list(autonomous_database_refreshable_clone_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+      
+  """
+  @type list_autonomous_database_refreshable_clones_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_autonomous_database_versions_input() :: %{
         optional("dbWorkload") => list(any()),
         optional("maxResults") => [integer()],
@@ -3730,6 +3768,33 @@ defmodule AWS.Odb do
       
   """
   @type start_autonomous_database_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_autonomous_database_refresh_input() :: %{
+        optional("timeOfRefreshCutoff") => [non_neg_integer()],
+        required("autonomousDatabaseId") => String.t() | atom()
+      }
+      
+  """
+  @type start_autonomous_database_refresh_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_autonomous_database_refresh_output() :: %{
+        "autonomousDatabaseId" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "refreshableStatus" => list(any()),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+      
+  """
+  @type start_autonomous_database_refresh_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4696,6 +4761,13 @@ defmodule AWS.Odb do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type list_autonomous_database_refreshable_clones_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type list_autonomous_database_versions_errors() ::
           validation_exception()
           | throttling_exception()
@@ -4841,6 +4913,14 @@ defmodule AWS.Odb do
           | access_denied_exception()
 
   @type start_autonomous_database_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type start_autonomous_database_refresh_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -5788,6 +5868,25 @@ defmodule AWS.Odb do
   end
 
   @doc """
+  Lists the refreshable clones of the specified Autonomous Database.
+  """
+  @spec list_autonomous_database_refreshable_clones(
+          map(),
+          list_autonomous_database_refreshable_clones_input(),
+          list()
+        ) ::
+          {:ok, list_autonomous_database_refreshable_clones_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_autonomous_database_refreshable_clones_errors()}
+  def list_autonomous_database_refreshable_clones(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListAutonomousDatabaseRefreshableClones", input, options)
+  end
+
+  @doc """
   Lists the available Oracle Database software versions for Autonomous Databases.
   """
   @spec list_autonomous_database_versions(
@@ -6156,6 +6255,29 @@ defmodule AWS.Odb do
       metadata()
 
     Request.request_post(client, meta, "StartAutonomousDatabase", input, options)
+  end
+
+  @doc """
+  Starts a refresh of the specified refreshable clone Autonomous Database with
+  data from its source database.
+
+  The refresh runs asynchronously. To track its progress, check the
+  `refreshableStatus` of the Autonomous Database.
+  """
+  @spec start_autonomous_database_refresh(
+          map(),
+          start_autonomous_database_refresh_input(),
+          list()
+        ) ::
+          {:ok, start_autonomous_database_refresh_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_autonomous_database_refresh_errors()}
+  def start_autonomous_database_refresh(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "StartAutonomousDatabaseRefresh", input, options)
   end
 
   @doc """

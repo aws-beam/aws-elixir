@@ -304,6 +304,7 @@ defmodule AWS.BedrockRuntime do
         optional("messages") => list(message()),
         optional("outputConfig") => output_config(),
         optional("performanceConfig") => performance_configuration(),
+        optional("projectIdentifier") => String.t() | atom(),
         optional("promptVariables") => map(),
         optional("requestMetadata") => map(),
         optional("serviceTier") => service_tier(),
@@ -370,6 +371,7 @@ defmodule AWS.BedrockRuntime do
         optional("messages") => list(message()),
         optional("outputConfig") => output_config(),
         optional("performanceConfig") => performance_configuration(),
+        optional("projectIdentifier") => String.t() | atom(),
         optional("promptVariables") => map(),
         optional("requestMetadata") => map(),
         optional("serviceTier") => service_tier(),
@@ -1391,6 +1393,7 @@ defmodule AWS.BedrockRuntime do
         optional("guardrailIdentifier") => String.t() | atom(),
         optional("guardrailVersion") => String.t() | atom(),
         optional("performanceConfigLatency") => list(any()),
+        optional("projectIdentifier") => String.t() | atom(),
         optional("requestMetadata") => String.t() | atom(),
         optional("serviceTier") => list(any()),
         optional("trace") => list(any())
@@ -1457,6 +1460,7 @@ defmodule AWS.BedrockRuntime do
         optional("guardrailIdentifier") => String.t() | atom(),
         optional("guardrailVersion") => String.t() | atom(),
         optional("performanceConfigLatency") => list(any()),
+        optional("projectIdentifier") => String.t() | atom(),
         optional("requestMetadata") => String.t() | atom(),
         optional("serviceTier") => list(any()),
         optional("trace") => list(any())
@@ -2192,8 +2196,8 @@ defmodule AWS.BedrockRuntime do
   models. If a model has unique inference parameters, you can also pass those
   unique parameters to the model.
 
-  Amazon Bedrock doesn't store any text, images, or documents that you provide as
-  content. The data is only used to generate the response.
+  Data retention for this request depends on the applicable account or project
+  configuration and the model's data retention policy.
 
   You can submit a prompt by including it in the `messages` field, specifying the
   `modelId` of a foundation model or inference profile to run inference on it, and
@@ -2216,7 +2220,9 @@ defmodule AWS.BedrockRuntime do
   For example code, see *Converse API examples* in the *Amazon Bedrock User
   Guide*.
 
-  This operation requires permission for the `bedrock:InvokeModel` action.
+  This operation requires permission for the `bedrock:InvokeModel` action on both
+  the inference target and the project. If you omit `projectIdentifier` or specify
+  `default`, this includes permission on the default project for your account.
 
   To deny all inference access to resources that you specify in the modelId field,
   you need to deny access to the `bedrock:InvokeModel` and
@@ -2271,8 +2277,8 @@ defmodule AWS.BedrockRuntime do
   The CLI doesn't support streaming operations in Amazon Bedrock, including
   `ConverseStream`.
 
-  Amazon Bedrock doesn't store any text, images, or documents that you provide as
-  content. The data is only used to generate the response.
+  Data retention for this request depends on the applicable account or project
+  configuration and the model's data retention policy.
 
   You can submit a prompt by including it in the `messages` field, specifying the
   `modelId` of a foundation model or inference profile to run inference on it, and
@@ -2297,7 +2303,9 @@ defmodule AWS.BedrockRuntime do
   User Guide*.
 
   This operation requires permission for the
-  `bedrock:InvokeModelWithResponseStream` action.
+  `bedrock:InvokeModelWithResponseStream` action on both the inference target and
+  the project. If you omit `projectIdentifier` or specify `default`, this includes
+  permission on the default project for your account.
 
   To deny all inference access to resources that you specify in the modelId field,
   you need to deny access to the `bedrock:InvokeModel` and
@@ -2455,7 +2463,9 @@ defmodule AWS.BedrockRuntime do
   For example code, see *Invoke model code examples* in the *Amazon Bedrock User
   Guide*.
 
-  This operation requires permission for the `bedrock:InvokeModel` action.
+  This operation requires permission for the `bedrock:InvokeModel` action on both
+  the inference target and the project. If you omit `projectIdentifier` or specify
+  `default`, this includes permission on the default project for your account.
 
   To deny all inference access to resources that you specify in the modelId field,
   you need to deny access to the `bedrock:InvokeModel` and
@@ -2484,6 +2494,7 @@ defmodule AWS.BedrockRuntime do
         {"guardrailIdentifier", "X-Amzn-Bedrock-GuardrailIdentifier"},
         {"guardrailVersion", "X-Amzn-Bedrock-GuardrailVersion"},
         {"performanceConfigLatency", "X-Amzn-Bedrock-PerformanceConfig-Latency"},
+        {"projectIdentifier", "X-Amzn-Bedrock-ProjectIdentifier"},
         {"requestMetadata", "X-Amzn-Bedrock-Request-Metadata"},
         {"serviceTier", "X-Amzn-Bedrock-Service-Tier"},
         {"trace", "X-Amzn-Bedrock-Trace"}
@@ -2578,8 +2589,10 @@ defmodule AWS.BedrockRuntime do
   For example code, see *Invoke model with streaming code example* in the *Amazon
   Bedrock User Guide*.
 
-  This operation requires permissions to perform the
-  `bedrock:InvokeModelWithResponseStream` action.
+  This operation requires permission for the
+  `bedrock:InvokeModelWithResponseStream` action on both the inference target and
+  the project. If you omit `projectIdentifier` or specify `default`, this includes
+  permission on the default project for your account.
 
   To deny all inference access to resources that you specify in the modelId field,
   you need to deny access to the `bedrock:InvokeModel` and
@@ -2615,6 +2628,7 @@ defmodule AWS.BedrockRuntime do
         {"guardrailIdentifier", "X-Amzn-Bedrock-GuardrailIdentifier"},
         {"guardrailVersion", "X-Amzn-Bedrock-GuardrailVersion"},
         {"performanceConfigLatency", "X-Amzn-Bedrock-PerformanceConfig-Latency"},
+        {"projectIdentifier", "X-Amzn-Bedrock-ProjectIdentifier"},
         {"requestMetadata", "X-Amzn-Bedrock-Request-Metadata"},
         {"serviceTier", "X-Amzn-Bedrock-Service-Tier"},
         {"trace", "X-Amzn-Bedrock-Trace"}

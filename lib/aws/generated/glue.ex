@@ -202,12 +202,24 @@ defmodule AWS.Glue do
 
   ## Example:
       
-      asset_type_form_reference() :: %{
+      asset_form_input() :: %{
+        "Content" => String.t() | atom(),
         "FormTypeIdentifier" => String.t() | atom()
       }
       
   """
-  @type asset_type_form_reference() :: %{(String.t() | atom()) => any()}
+  @type asset_form_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      asset_type_form_output() :: %{
+        "FormTypeId" => String.t() | atom()
+      }
+      
+  """
+  @type asset_type_form_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -220,6 +232,29 @@ defmodule AWS.Glue do
       
   """
   @type asset_type_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      assets_export() :: %{
+        "S3TablesExport" => list(any())
+      }
+      
+  """
+  @type assets_export() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      assets_export_result() :: %{
+        "S3TablesExport" => list(any()),
+        "S3TablesExportState" => s3_tables_export_state()
+      }
+      
+  """
+  @type assets_export_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -240,9 +275,9 @@ defmodule AWS.Glue do
   ## Example:
       
       associate_glossary_terms_response() :: %{
-        "AssetIdentifier" => String.t() | atom(),
+        "AssetId" => String.t() | atom(),
         "GlossaryTerms" => list(String.t() | atom()),
-        "ItemIdentifier" => String.t() | atom(),
+        "ItemId" => String.t() | atom(),
         "IterableFormName" => String.t() | atom()
       }
       
@@ -4175,24 +4210,6 @@ defmodule AWS.Glue do
 
   ## Example:
       
-      delete_asset_type_request() :: %{}
-      
-  """
-  @type delete_asset_type_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_asset_type_response() :: %{}
-      
-  """
-  @type delete_asset_type_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
       delete_attachment_request() :: %{
         optional("ItemIdentifier") => String.t() | atom(),
         optional("IterableFormName") => String.t() | atom()
@@ -4206,8 +4223,8 @@ defmodule AWS.Glue do
   ## Example:
       
       delete_attachment_response() :: %{
-        "AssetIdentifier" => String.t() | atom(),
-        "ItemIdentifier" => String.t() | atom(),
+        "AssetId" => String.t() | atom(),
+        "ItemId" => String.t() | atom(),
         "IterableFormName" => String.t() | atom()
       }
       
@@ -5288,9 +5305,9 @@ defmodule AWS.Glue do
   ## Example:
       
       disassociate_glossary_terms_response() :: %{
-        "AssetIdentifier" => String.t() | atom(),
+        "AssetId" => String.t() | atom(),
         "GlossaryTerms" => list(String.t() | atom()),
-        "ItemIdentifier" => String.t() | atom(),
+        "ItemId" => String.t() | atom(),
         "IterableFormName" => String.t() | atom()
       }
       
@@ -6516,11 +6533,9 @@ defmodule AWS.Glue do
   ## Example:
       
       get_data_catalog_export_configuration_output() :: %{
+        "Assets" => assets_export_result(),
         "CreatedAt" => non_neg_integer(),
-        "EncryptionConfiguration" => export_encryption_configuration(),
-        "ExportSetting" => list(any()),
-        "S3TableBucketArn" => String.t() | atom(),
-        "Status" => list(any()),
+        "S3TablesConfiguration" => s3_tables_configuration_result(),
         "UpdatedAt" => non_neg_integer()
       }
       
@@ -11395,9 +11410,9 @@ defmodule AWS.Glue do
   ## Example:
       
       put_asset_request() :: %{
+        optional("AssetTypeIdentifier") => String.t() | atom(),
         optional("ClientToken") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
-        required("AssetTypeId") => String.t() | atom(),
         required("Forms") => map(),
         required("Identifier") => String.t() | atom(),
         required("Name") => String.t() | atom()
@@ -11411,6 +11426,7 @@ defmodule AWS.Glue do
   ## Example:
       
       put_asset_response() :: %{
+        "AssetTypeId" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t() | atom(),
         "Forms" => map(),
@@ -11425,39 +11441,13 @@ defmodule AWS.Glue do
 
   ## Example:
       
-      put_asset_type_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        required("Forms") => map(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type put_asset_type_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_asset_type_response() :: %{
-        "Forms" => map(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type put_asset_type_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       put_attachment_request() :: %{
         optional("ClientToken") => String.t() | atom(),
+        optional("FormTypeIdentifier") => String.t() | atom(),
         optional("ItemIdentifier") => String.t() | atom(),
         optional("IterableFormName") => String.t() | atom(),
         required("AttachmentName") => String.t() | atom(),
-        required("Content") => String.t() | atom(),
-        required("FormTypeId") => String.t() | atom()
+        required("Content") => String.t() | atom()
       }
       
   """
@@ -11468,10 +11458,10 @@ defmodule AWS.Glue do
   ## Example:
       
       put_attachment_response() :: %{
-        "AssetIdentifier" => String.t() | atom(),
+        "AssetId" => String.t() | atom(),
         "AttachmentName" => String.t() | atom(),
         "FormTypeId" => String.t() | atom(),
-        "ItemIdentifier" => String.t() | atom(),
+        "ItemId" => String.t() | atom(),
         "IterableFormName" => String.t() | atom()
       }
       
@@ -11504,9 +11494,9 @@ defmodule AWS.Glue do
   ## Example:
       
       put_data_catalog_export_configuration_input() :: %{
+        optional("Assets") => assets_export(),
         optional("ClientToken") => String.t() | atom(),
-        optional("EncryptionConfiguration") => export_encryption_configuration(),
-        required("ExportSetting") => list(any())
+        optional("S3TablesConfiguration") => s3_tables_configuration()
       }
       
   """
@@ -11517,8 +11507,8 @@ defmodule AWS.Glue do
   ## Example:
       
       put_data_catalog_export_configuration_output() :: %{
-        "EncryptionConfiguration" => export_encryption_configuration(),
-        "ExportSetting" => list(any())
+        "Assets" => assets_export(),
+        "S3TablesConfiguration" => s3_tables_configuration()
       }
       
   """
@@ -12587,6 +12577,40 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      s3_tables_configuration() :: %{
+        "EncryptionConfiguration" => export_encryption_configuration()
+      }
+      
+  """
+  @type s3_tables_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_tables_configuration_result() :: %{
+        "EncryptionConfiguration" => export_encryption_configuration(),
+        "TableBucketArn" => String.t() | atom()
+      }
+      
+  """
+  @type s3_tables_configuration_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_tables_export_state() :: %{
+        "Status" => list(any())
+      }
+      
+  """
+  @type s3_tables_export_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       s3_target() :: %{
         "ConnectionName" => String.t() | atom(),
         "DlqEventQueueArn" => String.t() | atom(),
@@ -12783,7 +12807,7 @@ defmodule AWS.Glue do
       
       search_attribute_filter() :: %{
         "Attribute" => String.t() | atom(),
-        "Operator" => list(any()),
+        "Comparator" => list(any()),
         "Value" => list()
       }
       
@@ -12808,10 +12832,11 @@ defmodule AWS.Glue do
   ## Example:
       
       search_result_item() :: %{
-        "AssetDescription" => String.t() | atom(),
-        "AssetName" => String.t() | atom(),
         "AssetTypeId" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
         "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "UpdatedAt" => non_neg_integer()
       }
       
@@ -16196,13 +16221,6 @@ defmodule AWS.Glue do
           | concurrent_modification_exception()
           | access_denied_exception()
 
-  @type delete_asset_type_errors() ::
-          throttling_exception()
-          | invalid_input_exception()
-          | internal_service_exception()
-          | concurrent_modification_exception()
-          | access_denied_exception()
-
   @type delete_attachment_errors() ::
           throttling_exception()
           | invalid_input_exception()
@@ -16628,6 +16646,7 @@ defmodule AWS.Glue do
           | invalid_input_exception()
           | internal_service_exception()
           | entity_not_found_exception()
+          | access_denied_exception()
 
   @type get_data_quality_evaluation_config_errors() ::
           operation_timeout_exception()
@@ -16729,12 +16748,14 @@ defmodule AWS.Glue do
 
   @type get_glossary_errors() ::
           throttling_exception()
+          | invalid_input_exception()
           | internal_service_exception()
           | entity_not_found_exception()
           | access_denied_exception()
 
   @type get_glossary_term_errors() ::
           throttling_exception()
+          | invalid_input_exception()
           | internal_service_exception()
           | entity_not_found_exception()
           | access_denied_exception()
@@ -17293,14 +17314,6 @@ defmodule AWS.Glue do
           | idempotent_parameter_mismatch_exception()
 
   @type put_asset_errors() ::
-          throttling_exception()
-          | invalid_input_exception()
-          | internal_service_exception()
-          | entity_not_found_exception()
-          | concurrent_modification_exception()
-          | access_denied_exception()
-
-  @type put_asset_type_errors() ::
           throttling_exception()
           | invalid_input_exception()
           | internal_service_exception()
@@ -18964,21 +18977,6 @@ defmodule AWS.Glue do
       metadata()
 
     Request.request_post(client, meta, "DeleteAsset", input, options)
-  end
-
-  @doc """
-  Deletes an asset type from Glue Data Catalog.
-  """
-  @spec delete_asset_type(map(), delete_asset_type_request(), list()) ::
-          {:ok, delete_asset_type_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, delete_asset_type_errors()}
-  def delete_asset_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
-
-    Request.request_post(client, meta, "DeleteAssetType", input, options)
   end
 
   @doc """
@@ -22082,24 +22080,6 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Creates or updates an asset type in Glue Data Catalog.
-
-  An asset type defines the structure of assets by specifying which forms they
-  include. If an asset type with the given name already exists, it is updated.
-  """
-  @spec put_asset_type(map(), put_asset_type_request(), list()) ::
-          {:ok, put_asset_type_response(), any()}
-          | {:error, {:unexpected_response, any()}}
-          | {:error, term()}
-          | {:error, put_asset_type_errors()}
-  def put_asset_type(%Client{} = client, input, options \\ []) do
-    meta =
-      metadata()
-
-    Request.request_post(client, meta, "PutAssetType", input, options)
-  end
-
-  @doc """
   Attaches a form to an asset or an iterable form item in Glue Data Catalog.
 
   If an attachment with the same name already exists, it is overwritten.
@@ -22400,8 +22380,8 @@ defmodule AWS.Glue do
   end
 
   @doc """
-  Searches for assets in Glue Data Catalog using full-text search, filters,
-  sorting, and aggregations.
+  Searches for assets in Glue Data Catalog using full-text search, filters, and
+  sorting.
 
   Returns matching assets with relevance-ranked results.
   """

@@ -3,10 +3,13 @@
 
 defmodule AWS.MarketplaceDiscovery do
   @moduledoc """
-  The AWS Marketplace Discovery API provides programmatic access to the AWS
-  Marketplace catalog, including searching and browsing listings, retrieving
-  product details and fulfillment options, and accessing public and private offer
-  pricing and terms.
+  With the AWS Marketplace Discovery API (Discovery API), you have programmatic
+  access to the AWS Marketplace catalog.
+
+  You can search and browse listings, retrieve product details and fulfillment
+  options, and access public and private offer pricing and terms. For more
+  information, see [Using the AWS Marketplace Discovery API](https://docs.aws.amazon.com/marketplace/latest/developerguide/discovery-apis.html)
+  in the *AWS Marketplace Developer Guide*.
   """
 
   alias AWS.Client
@@ -143,6 +146,50 @@ defmodule AWS.MarketplaceDiscovery do
 
   ## Example:
 
+      case_studies_summary() :: %{
+        "caseStudyCount" => float()
+      }
+
+  """
+  @type case_studies_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      case_study() :: %{
+        "caseStudyId" => String.t() | atom(),
+        "caseStudyName" => String.t() | atom(),
+        "challenge" => String.t() | atom(),
+        "engagementDates" => engagement_dates(),
+        "implementationApproach" => String.t() | atom(),
+        "outcome" => String.t() | atom(),
+        "resolution" => String.t() | atom(),
+        "resources" => list(case_study_resource()),
+        "shortDescription" => String.t() | atom()
+      }
+
+  """
+  @type case_study() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      case_study_resource() :: %{
+        "contentType" => list(any()),
+        "displayName" => [String.t() | atom()],
+        "resourceType" => list(any()),
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type case_study_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       category() :: %{
         "categoryId" => String.t() | atom(),
         "displayName" => String.t() | atom()
@@ -156,7 +203,9 @@ defmodule AWS.MarketplaceDiscovery do
   ## Example:
 
       cloud_formation_fulfillment_option() :: %{
+        "architectureDiagramUrl" => [String.t() | atom()],
         "availableFromTime" => [non_neg_integer()],
+        "deploymentTemplateUrl" => [String.t() | atom()],
         "fulfillmentOptionDisplayName" => [String.t() | atom()],
         "fulfillmentOptionId" => [String.t() | atom()],
         "fulfillmentOptionName" => [String.t() | atom()],
@@ -349,6 +398,18 @@ defmodule AWS.MarketplaceDiscovery do
 
   ## Example:
 
+      engagement_dates() :: %{
+        "completionDate" => [non_neg_integer()],
+        "startDate" => [non_neg_integer()]
+      }
+
+  """
+  @type engagement_dates() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       fixed_percentage() :: %{
         "percentageValue" => String.t() | atom()
       }
@@ -431,6 +492,7 @@ defmodule AWS.MarketplaceDiscovery do
         "pricingUnits" => list(pricing_unit()),
         "promotionalMedia" => list(list()),
         "publisher" => seller_information(),
+        "purchaseIndicators" => list(purchase_indicator()),
         "resources" => list(resource()),
         "reviewSummary" => review_summary(),
         "sellerEngagements" => list(seller_engagement()),
@@ -564,6 +626,7 @@ defmodule AWS.MarketplaceDiscovery do
         "productId" => String.t() | atom(),
         "productName" => String.t() | atom(),
         "promotionalMedia" => list(list()),
+        "purchaseIndicators" => list(purchase_indicator()),
         "resources" => list(resource()),
         "sellerEngagements" => list(seller_engagement()),
         "shortDescription" => String.t() | atom()
@@ -674,6 +737,34 @@ defmodule AWS.MarketplaceDiscovery do
 
   ## Example:
 
+      list_listing_attributes_input() :: %{
+        optional("locale") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("attributeTypes") => list(list(any())()),
+        required("listingId") => String.t() | atom()
+      }
+
+  """
+  @type list_listing_attributes_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_listing_attributes_output() :: %{
+        "listingAttributes" => list(list()),
+        "locale" => String.t() | atom(),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_listing_attributes_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_purchase_options_input() :: %{
         optional("filters") => list(purchase_option_filter()),
         optional("locale") => String.t() | atom(),
@@ -741,6 +832,7 @@ defmodule AWS.MarketplaceDiscovery do
       listing_summary() :: %{
         "associatedEntities" => list(listing_summary_associated_entity()),
         "badges" => list(listing_badge()),
+        "caseStudiesSummary" => case_studies_summary(),
         "catalog" => String.t() | atom(),
         "categories" => list(category()),
         "fulfillmentOptionSummaries" => list(fulfillment_option_summary()),
@@ -751,7 +843,10 @@ defmodule AWS.MarketplaceDiscovery do
         "pricingUnits" => list(pricing_unit()),
         "publisher" => seller_information(),
         "reviewSummary" => review_summary(),
-        "shortDescription" => String.t() | atom()
+        "sellerEngagements" => list(seller_engagement()),
+        "shortDescription" => String.t() | atom(),
+        "trustCenterSummary" => trust_center_summary(),
+        "useCaseSummary" => use_case_summary()
       }
 
   """
@@ -963,6 +1058,17 @@ defmodule AWS.MarketplaceDiscovery do
 
   ## Example:
 
+      purchase_indicator() :: %{
+        "indicatorType" => list(any())
+      }
+
+  """
+  @type purchase_indicator() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       purchase_option_associated_entity() :: %{
         "offer" => offer_information(),
         "offerSet" => offer_set_information(),
@@ -1025,6 +1131,7 @@ defmodule AWS.MarketplaceDiscovery do
         "dimensionLabels" => list(dimension_label()),
         "displayName" => String.t() | atom(),
         "price" => String.t() | atom(),
+        "regionalPrices" => list(regional_price()),
         "unit" => String.t() | atom()
       }
 
@@ -1045,6 +1152,19 @@ defmodule AWS.MarketplaceDiscovery do
 
   """
   @type recurring_payment_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      regional_price() :: %{
+        "displayName" => String.t() | atom(),
+        "price" => String.t() | atom(),
+        "region" => [String.t() | atom()]
+      }
+
+  """
+  @type regional_price() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1118,8 +1238,24 @@ defmodule AWS.MarketplaceDiscovery do
 
   ## Example:
 
+      saas_cloud_formation_deployment_template() :: %{
+        "defaultStackName" => [String.t() | atom()],
+        "description" => [String.t() | atom()],
+        "iamPolicy" => [String.t() | atom()],
+        "templateName" => [String.t() | atom()],
+        "templateUrl" => String.t() | atom()
+      }
+
+  """
+  @type saas_cloud_formation_deployment_template() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       saas_fulfillment_option() :: %{
         "availableFromTime" => [non_neg_integer()],
+        "deploymentTemplates" => list(list()),
         "fulfillmentOptionDisplayName" => [String.t() | atom()],
         "fulfillmentOptionId" => [String.t() | atom()],
         "fulfillmentOptionType" => list(any()),
@@ -1316,6 +1452,46 @@ defmodule AWS.MarketplaceDiscovery do
 
   ## Example:
 
+      specialization() :: %{
+        "caseStudyIds" => list(String.t() | atom()),
+        "description" => String.t() | atom(),
+        "specializationId" => String.t() | atom(),
+        "specializationName" => String.t() | atom(),
+        "specializationTypes" => list(specialization_type_detail())
+      }
+
+  """
+  @type specialization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      specialization_category() :: %{
+        "parentSpecializationId" => String.t() | atom(),
+        "specializationCategoryId" => String.t() | atom(),
+        "specializationCategoryName" => String.t() | atom()
+      }
+
+  """
+  @type specialization_category() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      specialization_type_detail() :: %{
+        "displayName" => String.t() | atom(),
+        "specializationType" => list(any())
+      }
+
+  """
+  @type specialization_type_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       support_term() :: %{
         "id" => String.t() | atom(),
         "refundPolicy" => String.t() | atom(),
@@ -1335,6 +1511,127 @@ defmodule AWS.MarketplaceDiscovery do
 
   """
   @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trust_center_certification_attribute() :: %{
+        "certificationType" => String.t() | atom(),
+        "displayName" => String.t() | atom(),
+        "logoUrl" => String.t() | atom()
+      }
+
+  """
+  @type trust_center_certification_attribute() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trust_center_certification_summary() :: %{
+        "certificationType" => String.t() | atom(),
+        "displayName" => String.t() | atom(),
+        "logoUrl" => String.t() | atom()
+      }
+
+  """
+  @type trust_center_certification_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trust_center_control() :: %{
+        "description" => [String.t() | atom()],
+        "domains" => list(list(any())()),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type trust_center_control() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trust_center_document_attribute() :: %{
+        "accessType" => list(any()),
+        "contentType" => list(any()),
+        "displayName" => [String.t() | atom()],
+        "subjectArea" => String.t() | atom(),
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type trust_center_document_attribute() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trust_center_faq_attribute() :: %{
+        "answer" => [String.t() | atom()],
+        "question" => String.t() | atom(),
+        "subjectArea" => String.t() | atom()
+      }
+
+  """
+  @type trust_center_faq_attribute() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trust_center_source() :: %{
+        "contentType" => list(any()),
+        "displayName" => [String.t() | atom()],
+        "provider" => list(any()),
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type trust_center_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trust_center_source_summary() :: %{
+        "contentType" => list(any()),
+        "displayName" => [String.t() | atom()],
+        "provider" => list(any()),
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type trust_center_source_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trust_center_summary() :: %{
+        "certificationSummaries" => list(trust_center_certification_summary()),
+        "sourceSummaries" => list(trust_center_source_summary()),
+        "totalCertificationCount" => float()
+      }
+
+  """
+  @type trust_center_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trust_center_update_attribute() :: %{
+        "description" => [String.t() | atom()],
+        "publishedTime" => [non_neg_integer()],
+        "title" => String.t() | atom()
+      }
+
+  """
+  @type trust_center_update_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1389,6 +1686,40 @@ defmodule AWS.MarketplaceDiscovery do
 
   ## Example:
 
+      use_case_information() :: %{
+        "displayName" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type use_case_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      use_case_summary() :: %{
+        "useCases" => list(use_case_summary_entry())
+      }
+
+  """
+  @type use_case_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      use_case_summary_entry() :: %{
+        "useCase" => use_case_information()
+      }
+
+  """
+  @type use_case_summary_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception() :: %{
         "message" => String.t() | atom(),
         "reason" => list(any())
@@ -1437,6 +1768,8 @@ defmodule AWS.MarketplaceDiscovery do
   @type get_product_errors() :: resource_not_found_exception()
 
   @type list_fulfillment_options_errors() :: resource_not_found_exception()
+
+  @type list_listing_attributes_errors() :: resource_not_found_exception()
 
   def metadata do
     %{
@@ -1548,9 +1881,12 @@ defmodule AWS.MarketplaceDiscovery do
   end
 
   @doc """
-  Returns the terms attached to an offer, such as pricing terms (usage-based,
-  contract, BYOL, free trial), legal terms, payment schedules, validity terms,
-  support terms, and renewal terms.
+  Retrieves the terms attached to an offer, such as pricing terms (usage-based,
+  contract, Bring Your Own License (BYOL), free trial), legal terms, payment
+  schedules, validity terms, support terms, and renewal terms.
+
+  The operation returns results in pages. Use `nextToken` to retrieve the next
+  page.
   """
   @spec get_offer_terms(map(), get_offer_terms_input(), list()) ::
           {:ok, get_offer_terms_output(), any()}
@@ -1609,9 +1945,12 @@ defmodule AWS.MarketplaceDiscovery do
   end
 
   @doc """
-  Returns the fulfillment options available for a product, including deployment
+  Retrieves the fulfillment options available for a product, including deployment
   details such as version information, operating systems, usage instructions, and
   release notes.
+
+  The operation returns results in pages. Use `nextToken` to retrieve the next
+  page.
   """
   @spec list_fulfillment_options(map(), list_fulfillment_options_input(), list()) ::
           {:ok, list_fulfillment_options_output(), any()}
@@ -1640,10 +1979,44 @@ defmodule AWS.MarketplaceDiscovery do
   end
 
   @doc """
-  Returns the purchase options (offers and offer sets) available to the buyer.
+  Retrieves the requested attributes for a listing, including case studies and
+  trust center information.
+
+  The operation returns results in pages. Use `nextToken` to retrieve the next
+  page.
+  """
+  @spec list_listing_attributes(map(), list_listing_attributes_input(), list()) ::
+          {:ok, list_listing_attributes_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_listing_attributes_errors()}
+  def list_listing_attributes(%Client{} = client, input, options \\ []) do
+    url_path = "/2026-02-05/listListingAttributes"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves the purchase options (offers and offer sets) available to you.
 
   You can filter results by product, seller, purchase option type, visibility
-  scope, and availability status.
+  scope, and availability status. The operation returns results in pages. Use
+  `nextToken` to retrieve the next page.
 
   You must include at least one of the following filters in the request: a
   `PRODUCT_ID` filter to specify the product for which to retrieve purchase
@@ -1676,7 +2049,7 @@ defmodule AWS.MarketplaceDiscovery do
   end
 
   @doc """
-  Returns available facet values for filtering listings, such as categories,
+  Retrieves the available facet values for filtering listings, such as categories,
   pricing models, fulfillment option types, publishers, and customer ratings.
 
   Each facet value includes a count of matching listings.
@@ -1707,10 +2080,11 @@ defmodule AWS.MarketplaceDiscovery do
   end
 
   @doc """
-  Returns a list of product listings based on search criteria and filters.
+  Searches for listings that match your search criteria and filters.
 
   You can search by keyword, filter by category, pricing model, fulfillment type,
-  and other attributes, and sort results by relevance or customer rating.
+  and other attributes, and sort results by relevance or customer rating. The
+  operation returns results in pages. Use `nextToken` to retrieve the next page.
   """
   @spec search_listings(map(), search_listings_input(), list()) ::
           {:ok, search_listings_output(), any()}

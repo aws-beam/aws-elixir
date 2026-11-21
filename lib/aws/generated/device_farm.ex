@@ -583,7 +583,8 @@ defmodule AWS.DeviceFarm do
         "radio" => String.t() | atom(),
         "remoteAccessEnabled" => boolean(),
         "remoteDebugEnabled" => boolean(),
-        "resolution" => resolution()
+        "resolution" => resolution(),
+        "type" => list(any())
       }
       
   """

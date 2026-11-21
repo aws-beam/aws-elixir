@@ -4079,7 +4079,10 @@ defmodule AWS.Inspector2 do
         "epoch" => number_filter(),
         "filePath" => string_filter(),
         "name" => string_filter(),
+        "purlQualifier" => purl_qualifier_filter(),
         "release" => string_filter(),
+        "runtimeReachability" => runtime_reachability_filter(),
+        "runtimeReachabilityReason" => runtime_reachability_reason_filter(),
         "sourceLambdaLayerArn" => string_filter(),
         "sourceLayerHash" => string_filter(),
         "version" => string_filter()
@@ -4203,6 +4206,19 @@ defmodule AWS.Inspector2 do
 
   """
   @type provider_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      purl_qualifier_filter() :: %{
+        "comparison" => String.t() | atom(),
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type purl_qualifier_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4434,6 +4450,30 @@ defmodule AWS.Inspector2 do
 
   """
   @type resource_string_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      runtime_reachability_filter() :: %{
+        "comparison" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type runtime_reachability_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      runtime_reachability_reason_filter() :: %{
+        "comparison" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type runtime_reachability_reason_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5512,8 +5552,11 @@ defmodule AWS.Inspector2 do
         "fixedInVersion" => String.t() | atom(),
         "name" => String.t() | atom(),
         "packageManager" => String.t() | atom(),
+        "purl" => String.t() | atom(),
         "release" => String.t() | atom(),
         "remediation" => String.t() | atom(),
+        "runtimeReachability" => String.t() | atom(),
+        "runtimeReachabilityReason" => String.t() | atom(),
         "sourceLambdaLayerArn" => String.t() | atom(),
         "sourceLayerHash" => String.t() | atom(),
         "version" => String.t() | atom()

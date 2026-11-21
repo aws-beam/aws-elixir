@@ -168,6 +168,7 @@ defmodule AWS.PCS do
         "iamInstanceProfileArn" => String.t() | atom(),
         "id" => [String.t() | atom()],
         "instanceConfigs" => list(instance_config()),
+        "instanceHealthChecks" => instance_health_checks(),
         "launchTemplateMode" => list(any()),
         "modifiedAt" => [non_neg_integer()],
         "name" => String.t() | atom(),
@@ -288,6 +289,7 @@ defmodule AWS.PCS do
         optional("amiId") => String.t() | atom(),
         optional("clientToken") => String.t() | atom(),
         optional("customLaunchTemplate") => custom_launch_template(),
+        optional("instanceHealthChecks") => instance_health_checks_request(),
         optional("launchTemplateMode") => list(any()),
         optional("nodeLifecycleActions") => node_lifecycle_actions_request(),
         optional("purchaseOption") => list(any()),
@@ -356,6 +358,29 @@ defmodule AWS.PCS do
       
   """
   @type custom_launch_template() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deep_health_check_on_start() :: %{
+        "profile" => list(any()),
+        "repairAction" => list(any())
+      }
+      
+  """
+  @type deep_health_check_on_start() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deep_health_checks() :: %{
+        "onStart" => deep_health_check_on_start()
+      }
+      
+  """
+  @type deep_health_checks() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -521,12 +546,48 @@ defmodule AWS.PCS do
 
   ## Example:
       
+      health_monitoring() :: %{
+        "mode" => list(any()),
+        "repairAction" => list(any())
+      }
+      
+  """
+  @type health_monitoring() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       instance_config() :: %{
         "instanceType" => [String.t() | atom()]
       }
       
   """
   @type instance_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_health_checks() :: %{
+        "deepHealthChecks" => deep_health_checks(),
+        "healthMonitoring" => health_monitoring()
+      }
+      
+  """
+  @type instance_health_checks() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_health_checks_request() :: %{
+        "deepHealthChecks" => deep_health_checks(),
+        "healthMonitoring" => health_monitoring()
+      }
+      
+  """
+  @type instance_health_checks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -841,6 +902,7 @@ defmodule AWS.PCS do
         "computeNodeGroupId" => [String.t() | atom()],
         "computeNodeGroupName" => [String.t() | atom()],
         "endpoints" => list(endpoint()),
+        "instanceHealthChecks" => instance_health_checks(),
         "nodeID" => [String.t() | atom()],
         "nodeLifecycleActions" => node_lifecycle_actions(),
         "schedulerVersion" => [String.t() | atom()],
@@ -1124,6 +1186,7 @@ defmodule AWS.PCS do
         optional("clientToken") => String.t() | atom(),
         optional("customLaunchTemplate") => custom_launch_template(),
         optional("iamInstanceProfileArn") => String.t() | atom(),
+        optional("instanceHealthChecks") => update_instance_health_checks_request(),
         optional("launchTemplateMode") => list(any()),
         optional("nodeLifecycleActions") => update_node_lifecycle_actions_request(),
         optional("purchaseOption") => list(any()),
@@ -1165,6 +1228,18 @@ defmodule AWS.PCS do
   @type update_compute_node_group_slurm_configuration_request() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+      
+      update_instance_health_checks_request() :: %{
+        "deepHealthChecks" => deep_health_checks(),
+        "healthMonitoring" => health_monitoring()
+      }
+      
+  """
+  @type update_instance_health_checks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

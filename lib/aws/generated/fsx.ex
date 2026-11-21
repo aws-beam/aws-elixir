@@ -3979,8 +3979,10 @@ defmodule AWS.FSx do
   For FSx for OpenZFS file systems, the
   volume must be hosted on a high-availability file system, either Single-AZ or
   Multi-AZ. For more information,
-  see [Accessing your data using Amazon S3 access points](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/s3accesspoints-for-FSx.html).
-  in the Amazon FSx for OpenZFS User Guide.
+  see [Accessing your data using Amazon S3 access points](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/s3accesspoints-for-FSx.html)
+  in the Amazon FSx for OpenZFS User Guide. For FSx for ONTAP file systems, see
+  [Accessing data using Amazon S3 access points](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/s3-access-points.html)
+  in the Amazon FSx for NetApp ONTAP User Guide.
 
   The requester requires the following permissions to perform these actions:
 
@@ -4953,7 +4955,7 @@ defmodule AWS.FSx do
   the endpoint that you're calling.
 
   When retrieving all snapshots, you can optionally specify the `MaxResults`
-  parameter to limit the number of snapshots in a response. If more backups
+  parameter to limit the number of snapshots in a response. If more snapshots
   remain,
   Amazon FSx returns a `NextToken` value in the response. In this
   case, send a later request with the `NextToken` request parameter set to the
@@ -4974,7 +4976,7 @@ defmodule AWS.FSx do
 
     *
   The order of snapshots returned in the response of one
-  `DescribeSnapshots` call and the order of backups returned across
+  `DescribeSnapshots` call and the order of snapshots returned across
   the responses of a multi-call iteration is unspecified.
   """
   @spec describe_snapshots(map(), describe_snapshots_request(), list()) ::

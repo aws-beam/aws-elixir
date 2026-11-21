@@ -467,6 +467,7 @@ defmodule AWS.NetworkSecurityManager do
         optional("clientToken") => String.t() | atom(),
         optional("isPublished") => boolean(),
         optional("scopeDescription") => String.t() | atom(),
+        optional("specializedScopeType") => list(any()),
         optional("tags") => map(),
         required("scopeConfiguration") => scope_configuration(),
         required("scopeName") => String.t() | atom()
@@ -487,6 +488,7 @@ defmodule AWS.NetworkSecurityManager do
         "scopeDescription" => String.t() | atom(),
         "scopeId" => String.t() | atom(),
         "scopeName" => String.t() | atom(),
+        "specializedScopeType" => list(any()),
         "status" => list(any()),
         "updateToken" => String.t() | atom(),
         "updatedAt" => non_neg_integer(),
@@ -520,6 +522,7 @@ defmodule AWS.NetworkSecurityManager do
         "scopeDescription" => String.t() | atom(),
         "scopeId" => String.t() | atom(),
         "scopeName" => String.t() | atom(),
+        "specializedScopeType" => list(any()),
         "status" => list(any()),
         "updateToken" => String.t() | atom(),
         "updatedAt" => non_neg_integer(),
@@ -878,6 +881,7 @@ defmodule AWS.NetworkSecurityManager do
         "scopeDescription" => String.t() | atom(),
         "scopeId" => String.t() | atom(),
         "scopeName" => String.t() | atom(),
+        "specializedScopeType" => list(any()),
         "status" => list(any()),
         "updateToken" => String.t() | atom(),
         "updatedAt" => non_neg_integer(),
@@ -922,6 +926,18 @@ defmodule AWS.NetworkSecurityManager do
 
   ## Example:
 
+      igw_firewall_config() :: %{
+        "defaultSubnetConnectivity" => list(any()),
+        "subnetConnectivityOverrides" => list(subnet_connectivity_override())
+      }
+
+  """
+  @type igw_firewall_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       internal_server_exception() :: %{
         "message" => [String.t() | atom()]
       }
@@ -944,6 +960,19 @@ defmodule AWS.NetworkSecurityManager do
 
   """
   @type invalid_firewall_reasons() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_resource_issue() :: %{
+        "actualValue" => [String.t() | atom()],
+        "expectedValue" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()]
+      }
+
+  """
+  @type invalid_resource_issue() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1051,6 +1080,32 @@ defmodule AWS.NetworkSecurityManager do
 
   ## Example:
 
+      list_entity_coverages_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("resourceOwnerAccountId") => String.t() | atom(),
+        required("entityArn") => String.t() | atom()
+      }
+
+  """
+  @type list_entity_coverages_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_entity_coverages_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "resourceCoverages" => list(resource_coverage_summary())
+      }
+
+  """
+  @type list_entity_coverages_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_policies_input() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
@@ -1095,6 +1150,32 @@ defmodule AWS.NetworkSecurityManager do
 
   """
   @type list_policy_snapshots_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_protected_resource_coverages_input() :: %{
+        optional("entityType") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("resourceArn") => String.t() | atom()
+      }
+
+  """
+  @type list_protected_resource_coverages_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_protected_resource_coverages_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "resourceCoverages" => list(resource_coverage_summary())
+      }
+
+  """
+  @type list_protected_resource_coverages_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1296,7 +1377,8 @@ defmodule AWS.NetworkSecurityManager do
       list_templates_input() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
-        optional("status") => list(any())
+        optional("status") => list(any()),
+        optional("templateOwner") => list(any())
       }
 
   """
@@ -1342,6 +1424,7 @@ defmodule AWS.NetworkSecurityManager do
   ## Example:
 
       policy_configuration() :: %{
+        "igwFirewallConfig" => igw_firewall_config(),
         "remediationEnabled" => boolean(),
         "resourcesCleanUp" => boolean(),
         "wafConfig" => waf_config()
@@ -1428,6 +1511,25 @@ defmodule AWS.NetworkSecurityManager do
 
   """
   @type resource_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_coverage_summary() :: %{
+        "coverageStatus" => list(any()),
+        "deploymentArns" => list(String.t() | atom()),
+        "entityArn" => String.t() | atom(),
+        "entityType" => list(any()),
+        "firewallType" => list(any()),
+        "resourceArn" => String.t() | atom(),
+        "resourceOwnerAccountId" => String.t() | atom(),
+        "resourceType" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type resource_coverage_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1548,6 +1650,7 @@ defmodule AWS.NetworkSecurityManager do
         "scopeArn" => String.t() | atom(),
         "scopeId" => String.t() | atom(),
         "scopeName" => String.t() | atom(),
+        "specializedScopeType" => list(any()),
         "status" => list(any()),
         "updatedAt" => non_neg_integer(),
         "version" => String.t() | atom()
@@ -1582,6 +1685,18 @@ defmodule AWS.NetworkSecurityManager do
 
   """
   @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subnet_connectivity_override() :: %{
+        "connectivityType" => list(any()),
+        "scopes" => list(String.t() | atom())
+      }
+
+  """
+  @type subnet_connectivity_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1625,6 +1740,7 @@ defmodule AWS.NetworkSecurityManager do
         "templateArn" => String.t() | atom(),
         "templateId" => String.t() | atom(),
         "templateName" => String.t() | atom(),
+        "templateOwner" => list(any()),
         "updatedAt" => non_neg_integer(),
         "version" => String.t() | atom()
       }
@@ -1813,6 +1929,7 @@ defmodule AWS.NetworkSecurityManager do
         "scopeDescription" => String.t() | atom(),
         "scopeId" => String.t() | atom(),
         "scopeName" => String.t() | atom(),
+        "specializedScopeType" => list(any()),
         "status" => list(any()),
         "updateToken" => String.t() | atom(),
         "updatedAt" => non_neg_integer(),
@@ -1909,6 +2026,7 @@ defmodule AWS.NetworkSecurityManager do
   @type create_deployment_snapshot_errors() ::
           validation_exception()
           | throttling_exception()
+          | tag_policy_violation_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
@@ -1928,6 +2046,7 @@ defmodule AWS.NetworkSecurityManager do
   @type create_policy_snapshot_errors() ::
           validation_exception()
           | throttling_exception()
+          | tag_policy_violation_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
@@ -1947,6 +2066,7 @@ defmodule AWS.NetworkSecurityManager do
   @type create_rule_snapshot_errors() ::
           validation_exception()
           | throttling_exception()
+          | tag_policy_violation_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
@@ -1966,6 +2086,7 @@ defmodule AWS.NetworkSecurityManager do
   @type create_scope_snapshot_errors() ::
           validation_exception()
           | throttling_exception()
+          | tag_policy_violation_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
@@ -1985,6 +2106,7 @@ defmodule AWS.NetworkSecurityManager do
   @type create_template_snapshot_errors() ::
           validation_exception()
           | throttling_exception()
+          | tag_policy_violation_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
@@ -2105,6 +2227,12 @@ defmodule AWS.NetworkSecurityManager do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type list_entity_coverages_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type list_policies_errors() ::
           validation_exception()
           | throttling_exception()
@@ -2115,6 +2243,12 @@ defmodule AWS.NetworkSecurityManager do
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_protected_resource_coverages_errors() ::
+          validation_exception()
+          | throttling_exception()
           | internal_server_exception()
           | access_denied_exception()
 
@@ -3096,6 +3230,71 @@ defmodule AWS.NetworkSecurityManager do
   end
 
   @doc """
+  Lists the protected resources that the specified Network Security Manager entity
+  covers.
+
+  You can filter the results to the resources owned by a single account and page
+  through them. You must call this operation from the administrator account that
+  owns the Network Security Manager entity.
+  """
+  @spec list_entity_coverages(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_entity_coverages_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_entity_coverages_errors()}
+  def list_entity_coverages(
+        %Client{} = client,
+        entity_arn,
+        max_results \\ nil,
+        next_token \\ nil,
+        resource_owner_account_id \\ nil,
+        options \\ []
+      ) do
+    url_path = "/resource-coverage/entities"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(entity_arn) do
+        [{"entityArn", entity_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resource_owner_account_id) do
+        [{"resourceOwnerAccountId", resource_owner_account_id} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists the policies in the account.
 
   You can filter the results by status and page through them using `maxResults`
@@ -3184,6 +3383,70 @@ defmodule AWS.NetworkSecurityManager do
     query_params =
       if !is_nil(next_token) do
         [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the AWS Network Security Manager entities that cover the specified
+  protected resource.
+
+  You can filter the results by entity type and page through them. You must own
+  the resource.
+  """
+  @spec list_protected_resource_coverages(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, list_protected_resource_coverages_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_protected_resource_coverages_errors()}
+  def list_protected_resource_coverages(
+        %Client{} = client,
+        entity_type \\ nil,
+        max_results \\ nil,
+        next_token \\ nil,
+        resource_arn,
+        options \\ []
+      ) do
+    url_path = "/resource-coverage/protected-resources"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(entity_type) do
+        [{"entityType", entity_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(resource_arn) do
+        [{"resourceArn", resource_arn} | query_params]
       else
         query_params
       end
@@ -3576,6 +3839,7 @@ defmodule AWS.NetworkSecurityManager do
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_templates_output(), any()}
@@ -3587,6 +3851,7 @@ defmodule AWS.NetworkSecurityManager do
         max_results \\ nil,
         next_token \\ nil,
         status \\ nil,
+        template_owner \\ nil,
         options \\ []
       ) do
     url_path = "/templates"
@@ -3610,6 +3875,13 @@ defmodule AWS.NetworkSecurityManager do
     query_params =
       if !is_nil(status) do
         [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(template_owner) do
+        [{"templateOwner", template_owner} | query_params]
       else
         query_params
       end

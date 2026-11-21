@@ -191,6 +191,8 @@ defmodule AWS.MediaConvert do
         "Ac4Settings" => ac4_settings(),
         "AiffSettings" => aiff_settings(),
         "Codec" => list(any()),
+        "DtscSettings" => dtsc_settings(),
+        "DtsxSettings" => dtsx_settings(),
         "Eac3AtmosSettings" => eac3_atmos_settings(),
         "Eac3Settings" => eac3_settings(),
         "FlacSettings" => flac_settings(),
@@ -368,12 +370,14 @@ defmodule AWS.MediaConvert do
         "AdaptiveQuantization" => list(any()),
         "BitDepth" => list(any()),
         "Bitrate" => integer(),
+        "FastDecode" => list(any()),
         "FilmGrainSynthesis" => list(any()),
         "FramerateControl" => list(any()),
         "FramerateConversionAlgorithm" => list(any()),
         "FramerateDenominator" => integer(),
         "FramerateNumerator" => integer(),
         "GopSize" => float(),
+        "GopSizeUnits" => list(any()),
         "MaxBitrate" => integer(),
         "NumberBFramesBetweenReferenceFrames" => integer(),
         "PerFrameMetrics" => list(list(any())()),
@@ -383,7 +387,8 @@ defmodule AWS.MediaConvert do
         "Slices" => integer(),
         "SlidingWindowMs" => integer(),
         "SlidingWindowPeakBitrate" => integer(),
-        "SpatialAdaptiveQuantization" => list(any())
+        "SpatialAdaptiveQuantization" => list(any()),
+        "TemporalAdaptiveQuantization" => list(any())
       }
 
   """
@@ -1307,6 +1312,31 @@ defmodule AWS.MediaConvert do
 
   ## Example:
 
+      dtsc_settings() :: %{
+        "Bitrate" => integer(),
+        "SampleRate" => integer()
+      }
+
+  """
+  @type dtsc_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dtsx_settings() :: %{
+        "Bitrate" => integer(),
+        "CodingMode" => list(any()),
+        "SampleRate" => integer()
+      }
+
+  """
+  @type dtsx_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       duration_control() :: %{
         "IntegerDurationMaximumCompressionDenominator" => integer(),
         "IntegerDurationMaximumCompressionNumerator" => integer(),
@@ -1420,6 +1450,18 @@ defmodule AWS.MediaConvert do
 
   """
   @type dynamic_audio_selector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dynamic_multiview_settings() :: %{
+        "Enabled" => list(any()),
+        "Regions" => list(rectangle())
+      }
+
+  """
+  @type dynamic_multiview_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4182,6 +4224,7 @@ defmodule AWS.MediaConvert do
         "ColorMetadata" => list(any()),
         "Crop" => rectangle(),
         "DropFrameTimecode" => list(any()),
+        "DynamicMultiviewSettings" => dynamic_multiview_settings(),
         "FixedAfd" => integer(),
         "Height" => integer(),
         "Position" => rectangle(),

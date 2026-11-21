@@ -21705,6 +21705,18 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      igw_firewall() :: %{
+        "FirewallArn" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type igw_firewall() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       image() :: %{
         "Architecture" => list(any()),
         "BlockDeviceMappings" => list(block_device_mapping()),
@@ -28852,6 +28864,19 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      network_firewall_association() :: %{
+        "FirewallArn" => String.t() | atom(),
+        "FirewallMode" => list(any()),
+        "FirewallOnboardingStatus" => list(any())
+      }
+      
+  """
+  @type network_firewall_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       network_info() :: %{
         "BandwidthWeightings" => list(list(any())()),
         "ConnectionTrackingConfiguration" => default_connection_tracking_configuration(),
@@ -32002,6 +32027,7 @@ defmodule AWS.EC2 do
         "DestinationPrefixListId" => String.t() | atom(),
         "EgressOnlyInternetGatewayId" => String.t() | atom(),
         "GatewayId" => String.t() | atom(),
+        "IgwFirewall" => igw_firewall(),
         "InstanceId" => String.t() | atom(),
         "InstanceOwnerId" => String.t() | atom(),
         "IpAddress" => String.t() | atom(),
@@ -33854,6 +33880,7 @@ defmodule AWS.EC2 do
         "Ipv6Native" => boolean(),
         "MapCustomerOwnedIpOnLaunch" => boolean(),
         "MapPublicIpOnLaunch" => boolean(),
+        "NetworkFirewallConnectivityType" => list(any()),
         "OutpostArn" => String.t() | atom(),
         "OwnerId" => String.t() | atom(),
         "PrivateDnsNameOptionsOnLaunch" => private_dns_name_options_on_launch(),
@@ -36399,6 +36426,7 @@ defmodule AWS.EC2 do
         "InstanceTenancy" => list(any()),
         "Ipv6CidrBlockAssociationSet" => list(vpc_ipv6_cidr_block_association()),
         "IsDefault" => boolean(),
+        "NetworkFirewallAssociations" => list(network_firewall_association()),
         "OwnerId" => String.t() | atom(),
         "State" => list(any()),
         "Tags" => list(tag()),

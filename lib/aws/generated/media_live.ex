@@ -920,7 +920,8 @@ defmodule AWS.MediaLive do
         "Scte20SourceSettings" => scte20_source_settings(),
         "Scte27SourceSettings" => scte27_source_settings(),
         "SmartSubtitleSourceSettings" => smart_subtitle_source_settings(),
-        "TeletextSourceSettings" => teletext_source_settings()
+        "TeletextSourceSettings" => teletext_source_settings(),
+        "WebvttSourceSettings" => webvtt_source_settings()
       }
 
   """
@@ -3038,6 +3039,8 @@ defmodule AWS.MediaLive do
   ## Example:
 
       embedded_destination_settings() :: %{
+        "CaptionServiceChannel" => integer(),
+        "EmbeddedMode" => list(any()),
         "Position" => embedded_caption_position_settings(),
         "StyleControl" => list(any())
       }
@@ -8713,6 +8716,18 @@ defmodule AWS.MediaLive do
 
   """
   @type webvtt_destination_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      webvtt_source_settings() :: %{
+        "GroupId" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type webvtt_source_settings() :: %{(String.t() | atom()) => any()}
 
   @type accept_input_device_transfer_errors() ::
           unprocessable_entity_exception()

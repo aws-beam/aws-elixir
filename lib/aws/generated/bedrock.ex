@@ -112,6 +112,32 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      archive_project_request() :: %{}
+
+  """
+  @type archive_project_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      archive_project_response() :: %{
+        "archivedAt" => non_neg_integer(),
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "dataRetention" => project_data_retention(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type archive_project_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       automated_evaluation_config() :: %{
         "customMetricConfig" => automated_evaluation_custom_metric_config(),
         "datasetMetricConfigs" => list(evaluation_dataset_metric_config()),
@@ -1745,6 +1771,36 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      create_project_request() :: %{
+        optional("dataRetention") => project_data_retention(),
+        optional("tags") => list(tag()),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_project_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_project_response() :: %{
+        "archivedAt" => non_neg_integer(),
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "dataRetention" => project_data_retention(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_project_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_prompt_router_request() :: %{
         optional("clientRequestToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
@@ -1902,6 +1958,37 @@ defmodule AWS.Bedrock do
 
   """
   @type data_processing_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_retention_storage_configuration() :: %{
+        "kmsKeyArn" => String.t() | atom(),
+        "s3BucketArn" => String.t() | atom(),
+        "s3BucketOwner" => String.t() | atom()
+      }
+
+  """
+  @type data_retention_storage_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_account_data_retention_storage_request() :: %{}
+
+  """
+  @type delete_account_data_retention_storage_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_account_data_retention_storage_response() :: %{}
+
+  """
+  @type delete_account_data_retention_storage_response() :: %{}
 
   @typedoc """
 
@@ -2130,6 +2217,42 @@ defmodule AWS.Bedrock do
 
   """
   @type delete_model_invocation_logging_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_organization_data_retention_storage_request() :: %{}
+
+  """
+  @type delete_organization_data_retention_storage_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_organization_data_retention_storage_response() :: %{}
+
+  """
+  @type delete_organization_data_retention_storage_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_project_data_retention_storage_request() :: %{}
+
+  """
+  @type delete_project_data_retention_storage_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_project_data_retention_storage_response() :: %{}
+
+  """
+  @type delete_project_data_retention_storage_response() :: %{}
 
   @typedoc """
 
@@ -2549,6 +2672,32 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      get_account_data_retention_storage_request() :: %{}
+
+  """
+  @type get_account_data_retention_storage_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_account_data_retention_storage_response() :: %{
+        "kmsKeyStatus" => list(any()),
+        "modelProvider" => list(any()),
+        "s3BucketStatus" => list(any()),
+        "scope" => list(any()),
+        "storageConfiguration" => data_retention_storage_configuration(),
+        "storageDestination" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_account_data_retention_storage_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_advanced_prompt_optimization_job_request() :: %{}
 
   """
@@ -2876,10 +3025,12 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      get_foundation_model_request() :: %{}
+      get_foundation_model_request() :: %{
+        optional("projectIdentifier") => String.t() | atom()
+      }
 
   """
-  @type get_foundation_model_request() :: %{}
+  @type get_foundation_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2966,10 +3117,12 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      get_inference_profile_request() :: %{}
+      get_inference_profile_request() :: %{
+        optional("projectIdentifier") => String.t() | atom()
+      }
 
   """
-  @type get_inference_profile_request() :: %{}
+  @type get_inference_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3177,6 +3330,85 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      get_organization_data_retention_storage_request() :: %{}
+
+  """
+  @type get_organization_data_retention_storage_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_organization_data_retention_storage_response() :: %{
+        "kmsKeyStatus" => list(any()),
+        "modelProvider" => list(any()),
+        "s3BucketStatus" => list(any()),
+        "scope" => list(any()),
+        "storageConfiguration" => data_retention_storage_configuration(),
+        "storageDestination" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_organization_data_retention_storage_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_project_data_retention_storage_request() :: %{}
+
+  """
+  @type get_project_data_retention_storage_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_project_data_retention_storage_response() :: %{
+        "kmsKeyStatus" => list(any()),
+        "modelProvider" => list(any()),
+        "projectArn" => String.t() | atom(),
+        "s3BucketStatus" => list(any()),
+        "scope" => list(any()),
+        "storageConfiguration" => data_retention_storage_configuration(),
+        "storageDestination" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_project_data_retention_storage_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_project_request() :: %{}
+
+  """
+  @type get_project_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_project_response() :: %{
+        "archivedAt" => non_neg_integer(),
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "dataRetention" => project_data_retention(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type get_project_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_prompt_router_request() :: %{}
 
   """
@@ -3253,6 +3485,109 @@ defmodule AWS.Bedrock do
 
   """
   @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_trusted_access_program_account_enrollment_request() :: %{}
+
+  """
+  @type get_trusted_access_program_account_enrollment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_trusted_access_program_account_enrollment_response() :: %{
+        "optIn" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_trusted_access_program_account_enrollment_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_trusted_access_program_organization_enrollment_request() :: %{}
+
+  """
+  @type get_trusted_access_program_organization_enrollment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_trusted_access_program_organization_enrollment_response() :: %{
+        "optIn" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_trusted_access_program_organization_enrollment_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_trusted_access_program_project_enrollment_request() :: %{}
+
+  """
+  @type get_trusted_access_program_project_enrollment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_trusted_access_program_project_enrollment_response() :: %{
+        "optIn" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_trusted_access_program_project_enrollment_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_trusted_access_program_request() :: %{
+        optional("projectIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type get_trusted_access_program_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_trusted_access_program_response() :: %{
+        "description" => [String.t() | atom()],
+        "detailsUrl" => String.t() | atom(),
+        "eligibilityScope" => list(any()),
+        "enrollmentUrl" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "optIn" => list(any()),
+        "programId" => String.t() | atom(),
+        "providerName" => String.t() | atom(),
+        "resolvedFor" => trusted_access_resolution_context(),
+        "source" => list(any()),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_trusted_access_program_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4255,7 +4590,8 @@ defmodule AWS.Bedrock do
         optional("byCustomizationType") => list(any()),
         optional("byInferenceType") => list(any()),
         optional("byOutputModality") => list(any()),
-        optional("byProvider") => String.t() | atom()
+        optional("byProvider") => String.t() | atom(),
+        optional("projectIdentifier") => String.t() | atom()
       }
 
   """
@@ -4333,6 +4669,7 @@ defmodule AWS.Bedrock do
       list_inference_profiles_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
+        optional("projectIdentifier") => String.t() | atom(),
         optional("typeEquals") => list(any())
       }
 
@@ -4502,6 +4839,31 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      list_projects_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("statusFilter") => list(any())
+      }
+
+  """
+  @type list_projects_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_projects_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "projectSummaries" => list(project_summary())
+      }
+
+  """
+  @type list_projects_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_prompt_routers_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
@@ -4575,6 +4937,31 @@ defmodule AWS.Bedrock do
 
   """
   @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_trusted_access_programs_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("projectIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type list_trusted_access_programs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_trusted_access_programs_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "programSummaries" => list(trusted_access_program_summary())
+      }
+
+  """
+  @type list_trusted_access_programs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4866,6 +5253,34 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      project_data_retention() :: %{
+        "mode" => list(any())
+      }
+
+  """
+  @type project_data_retention() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      project_summary() :: %{
+        "archivedAt" => non_neg_integer(),
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "dataRetention" => project_data_retention(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type project_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       prompt_router_summary() :: %{
         "createdAt" => non_neg_integer(),
         "description" => String.t() | atom(),
@@ -4953,6 +5368,35 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      put_account_data_retention_storage_request() :: %{
+        optional("storageConfiguration") => data_retention_storage_configuration(),
+        required("storageDestination") => list(any())
+      }
+
+  """
+  @type put_account_data_retention_storage_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_account_data_retention_storage_response() :: %{
+        "kmsKeyStatus" => list(any()),
+        "modelProvider" => list(any()),
+        "s3BucketStatus" => list(any()),
+        "scope" => list(any()),
+        "storageConfiguration" => data_retention_storage_configuration(),
+        "storageDestination" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type put_account_data_retention_storage_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_enforced_guardrail_configuration_request() :: %{
         optional("configId") => String.t() | atom(),
         required("guardrailInferenceConfig") => account_enforced_guardrail_inference_input_configuration()
@@ -4998,6 +5442,65 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      put_organization_data_retention_storage_request() :: %{
+        optional("storageConfiguration") => data_retention_storage_configuration(),
+        required("storageDestination") => list(any())
+      }
+
+  """
+  @type put_organization_data_retention_storage_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_organization_data_retention_storage_response() :: %{
+        "kmsKeyStatus" => list(any()),
+        "modelProvider" => list(any()),
+        "s3BucketStatus" => list(any()),
+        "scope" => list(any()),
+        "storageConfiguration" => data_retention_storage_configuration(),
+        "storageDestination" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type put_organization_data_retention_storage_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_project_data_retention_storage_request() :: %{
+        optional("storageConfiguration") => data_retention_storage_configuration(),
+        required("storageDestination") => list(any())
+      }
+
+  """
+  @type put_project_data_retention_storage_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_project_data_retention_storage_response() :: %{
+        "kmsKeyStatus" => list(any()),
+        "modelProvider" => list(any()),
+        "projectArn" => String.t() | atom(),
+        "s3BucketStatus" => list(any()),
+        "scope" => list(any()),
+        "storageConfiguration" => data_retention_storage_configuration(),
+        "storageDestination" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type put_project_data_retention_storage_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_resource_policy_request() :: %{
         required("resourceArn") => String.t() | atom(),
         required("resourcePolicy") => String.t() | atom()
@@ -5016,6 +5519,87 @@ defmodule AWS.Bedrock do
 
   """
   @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_trusted_access_program_account_enrollment_request() :: %{
+        required("optIn") => list(any())
+      }
+
+  """
+  @type put_trusted_access_program_account_enrollment_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      put_trusted_access_program_account_enrollment_response() :: %{
+        "optIn" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type put_trusted_access_program_account_enrollment_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      put_trusted_access_program_organization_enrollment_request() :: %{
+        required("optIn") => list(any())
+      }
+
+  """
+  @type put_trusted_access_program_organization_enrollment_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      put_trusted_access_program_organization_enrollment_response() :: %{
+        "optIn" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type put_trusted_access_program_organization_enrollment_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      put_trusted_access_program_project_enrollment_request() :: %{
+        required("optIn") => list(any())
+      }
+
+  """
+  @type put_trusted_access_program_project_enrollment_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      put_trusted_access_program_project_enrollment_response() :: %{
+        "optIn" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type put_trusted_access_program_project_enrollment_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -5324,6 +5908,72 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      start_trusted_access_program_account_application_request() :: %{}
+
+  """
+  @type start_trusted_access_program_account_application_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_trusted_access_program_account_application_response() :: %{
+        "result" => list()
+      }
+
+  """
+  @type start_trusted_access_program_account_application_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      start_trusted_access_program_organization_application_request() :: %{}
+
+  """
+  @type start_trusted_access_program_organization_application_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_trusted_access_program_organization_application_response() :: %{
+        "result" => list()
+      }
+
+  """
+  @type start_trusted_access_program_organization_application_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      start_trusted_access_program_project_application_request() :: %{}
+
+  """
+  @type start_trusted_access_program_project_application_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_trusted_access_program_project_application_response() :: %{
+        "result" => list()
+      }
+
+  """
+  @type start_trusted_access_program_project_application_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
       status_details() :: %{
         "dataProcessingDetails" => data_processing_details(),
         "trainingDetails" => training_details(),
@@ -5552,6 +6202,54 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      trusted_access_program_provider_handoff() :: %{
+        "applicationToken" => String.t() | atom(),
+        "applicationTokenExpiresAt" => non_neg_integer(),
+        "enrollmentUrl" => String.t() | atom()
+      }
+
+  """
+  @type trusted_access_program_provider_handoff() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trusted_access_program_summary() :: %{
+        "description" => [String.t() | atom()],
+        "detailsUrl" => String.t() | atom(),
+        "eligibilityScope" => list(any()),
+        "enrollmentUrl" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "optIn" => list(any()),
+        "programId" => String.t() | atom(),
+        "providerName" => String.t() | atom(),
+        "resolvedFor" => trusted_access_resolution_context(),
+        "source" => list(any()),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type trusted_access_program_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trusted_access_resolution_context() :: %{
+        "accountId" => String.t() | atom(),
+        "projectArn" => String.t() | atom()
+      }
+
+  """
+  @type trusted_access_resolution_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       untag_resource_request() :: %{
         required("resourceARN") => String.t() | atom(),
         required("tagKeys") => list(String.t() | atom())
@@ -5741,6 +6439,35 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
+      update_project_request() :: %{
+        optional("dataRetention") => project_data_retention(),
+        optional("name") => String.t() | atom()
+      }
+
+  """
+  @type update_project_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_project_response() :: %{
+        "archivedAt" => non_neg_integer(),
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "dataRetention" => project_data_retention(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type update_project_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_provisioned_model_throughput_request() :: %{
         optional("desiredModelId") => String.t() | atom(),
         optional("desiredProvisionedModelName") => String.t() | atom()
@@ -5874,6 +6601,14 @@ defmodule AWS.Bedrock do
 
   """
   @type vpc_config() :: %{(String.t() | atom()) => any()}
+
+  @type archive_project_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
 
   @type batch_delete_advanced_prompt_optimization_job_errors() ::
           validation_exception()
@@ -6044,6 +6779,15 @@ defmodule AWS.Bedrock do
           | conflict_exception()
           | access_denied_exception()
 
+  @type create_project_errors() ::
+          validation_exception()
+          | too_many_tags_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type create_prompt_router_errors() ::
           validation_exception()
           | too_many_tags_exception()
@@ -6060,6 +6804,12 @@ defmodule AWS.Bedrock do
           | throttling_exception()
           | service_quota_exceeded_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type delete_account_data_retention_storage_errors() ::
+          validation_exception()
+          | throttling_exception()
           | internal_server_exception()
           | access_denied_exception()
 
@@ -6156,6 +6906,19 @@ defmodule AWS.Bedrock do
   @type delete_model_invocation_logging_configuration_errors() ::
           throttling_exception() | internal_server_exception() | access_denied_exception()
 
+  @type delete_organization_data_retention_storage_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type delete_project_data_retention_storage_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type delete_prompt_router_errors() ::
           validation_exception()
           | throttling_exception()
@@ -6196,6 +6959,13 @@ defmodule AWS.Bedrock do
   @type get_account_data_retention_errors() ::
           validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_account_data_retention_storage_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
           | access_denied_exception()
 
@@ -6349,6 +7119,27 @@ defmodule AWS.Bedrock do
   @type get_model_invocation_logging_configuration_errors() ::
           throttling_exception() | internal_server_exception() | access_denied_exception()
 
+  @type get_organization_data_retention_storage_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_project_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_project_data_retention_storage_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type get_prompt_router_errors() ::
           validation_exception()
           | throttling_exception()
@@ -6364,6 +7155,34 @@ defmodule AWS.Bedrock do
           | access_denied_exception()
 
   @type get_resource_policy_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_trusted_access_program_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_trusted_access_program_account_enrollment_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_trusted_access_program_organization_enrollment_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_trusted_access_program_project_enrollment_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -6500,6 +7319,12 @@ defmodule AWS.Bedrock do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type list_projects_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type list_prompt_routers_errors() ::
           validation_exception()
           | throttling_exception()
@@ -6519,10 +7344,24 @@ defmodule AWS.Bedrock do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type list_trusted_access_programs_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type put_account_data_retention_errors() ::
           validation_exception()
           | throttling_exception()
           | internal_server_exception()
+          | access_denied_exception()
+
+  @type put_account_data_retention_storage_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type put_enforced_guardrail_configuration_errors() ::
@@ -6539,9 +7378,48 @@ defmodule AWS.Bedrock do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type put_organization_data_retention_storage_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type put_project_data_retention_storage_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type put_resource_policy_errors() ::
           validation_exception()
           | throttling_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type put_trusted_access_program_account_enrollment_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type put_trusted_access_program_organization_enrollment_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type put_trusted_access_program_project_enrollment_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
           | access_denied_exception()
@@ -6575,6 +7453,27 @@ defmodule AWS.Bedrock do
           | throttling_exception()
           | resource_not_found_exception()
           | resource_in_use_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type start_trusted_access_program_account_application_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type start_trusted_access_program_organization_application_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type start_trusted_access_program_project_application_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
           | access_denied_exception()
 
@@ -6676,6 +7575,14 @@ defmodule AWS.Bedrock do
           | conflict_exception()
           | access_denied_exception()
 
+  @type update_project_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type update_provisioned_model_throughput_errors() ::
           validation_exception()
           | throttling_exception()
@@ -6697,6 +7604,38 @@ defmodule AWS.Bedrock do
       signing_name: "bedrock",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Archives a project.
+
+  Archiving is terminal; there is no delete. Archiving an already-archived project
+  succeeds without effect. The default project cannot be archived.
+  """
+  @spec archive_project(map(), String.t() | atom(), archive_project_request(), list()) ::
+          {:ok, archive_project_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, archive_project_errors()}
+  def archive_project(%Client{} = client, project_identifier, input, options \\ []) do
+    url_path = "/projects/#{AWS.Util.encode_uri(project_identifier)}/archive"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -7454,6 +8393,36 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Creates a project: a workload boundary within the account that inference
+  requests can be associated with.
+  """
+  @spec create_project(map(), create_project_request(), list()) ::
+          {:ok, create_project_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_project_errors()}
+  def create_project(%Client{} = client, input, options \\ []) do
+    url_path = "/projects"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a prompt router that manages the routing of requests between multiple
   foundation models based on the routing criteria.
   """
@@ -7518,6 +8487,49 @@ defmodule AWS.Bedrock do
       input,
       options,
       201
+    )
+  end
+
+  @doc """
+  Deletes your account's retention storage configuration for a model provider.
+
+  Deleting an absent configuration succeeds. You do not need to participate in the
+  program to delete the configuration. You can delete it even if your account is
+  ineligible or its eligibility is revoked.
+  """
+  @spec delete_account_data_retention_storage(
+          map(),
+          String.t() | atom(),
+          delete_account_data_retention_storage_request(),
+          list()
+        ) ::
+          {:ok, delete_account_data_retention_storage_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_account_data_retention_storage_errors()}
+  def delete_account_data_retention_storage(
+        %Client{} = client,
+        model_provider,
+        input,
+        options \\ []
+      ) do
+    url_path = "/v1/data_retention/storage/#{AWS.Util.encode_uri(model_provider)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -8003,6 +9015,99 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Deletes the organization's retention storage configuration for a model provider.
+
+  The caller must be the organization's management account or a delegated
+  administrator. Deleting an absent configuration succeeds; no program
+  participation is required to delete.
+  """
+  @spec delete_organization_data_retention_storage(
+          map(),
+          String.t() | atom(),
+          delete_organization_data_retention_storage_request(),
+          list()
+        ) ::
+          {:ok, delete_organization_data_retention_storage_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_organization_data_retention_storage_errors()}
+  def delete_organization_data_retention_storage(
+        %Client{} = client,
+        model_provider,
+        input,
+        options \\ []
+      ) do
+    url_path = "/v1/data_retention/organization-storage/#{AWS.Util.encode_uri(model_provider)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a project's retention storage configuration for a model provider.
+
+  Deleting an absent configuration on an active project succeeds. If the project
+  does not exist or your account does not own it, the operation returns
+  `ResourceNotFoundException`. For an archived project, the operation returns
+  `ValidationException`. You can read the archived project's stored configuration
+  until Amazon Bedrock purges the project. You do not need to participate in the
+  program to delete the configuration.
+  """
+  @spec delete_project_data_retention_storage(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_project_data_retention_storage_request(),
+          list()
+        ) ::
+          {:ok, delete_project_data_retention_storage_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_project_data_retention_storage_errors()}
+  def delete_project_data_retention_storage(
+        %Client{} = client,
+        model_provider,
+        project_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v1/projects/#{AWS.Util.encode_uri(project_identifier)}/data_retention/storage/#{AWS.Util.encode_uri(model_provider)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes a specified prompt router.
 
   This action cannot be undone.
@@ -8183,6 +9288,29 @@ defmodule AWS.Bedrock do
           | {:error, get_account_data_retention_errors()}
   def get_account_data_retention(%Client{} = client, options \\ []) do
     url_path = "/data-retention"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns your account's stored retention storage configuration for a model
+  provider.
+
+  Amazon Bedrock determines whether the configuration applies when processing an
+  inference request. Returns `ResourceNotFoundException` when no configuration
+  exists.
+  """
+  @spec get_account_data_retention_storage(map(), String.t() | atom(), list()) ::
+          {:ok, get_account_data_retention_storage_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_account_data_retention_storage_errors()}
+  def get_account_data_retention_storage(%Client{} = client, model_provider, options \\ []) do
+    url_path = "/v1/data_retention/storage/#{AWS.Util.encode_uri(model_provider)}"
     headers = []
     query_params = []
 
@@ -8520,15 +9648,27 @@ defmodule AWS.Bedrock do
   @doc """
   Get details about a Amazon Bedrock foundation model.
   """
-  @spec get_foundation_model(map(), String.t() | atom(), list()) ::
+  @spec get_foundation_model(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_foundation_model_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_foundation_model_errors()}
-  def get_foundation_model(%Client{} = client, model_identifier, options \\ []) do
+  def get_foundation_model(
+        %Client{} = client,
+        model_identifier,
+        project_identifier \\ nil,
+        options \\ []
+      ) do
     url_path = "/foundation-models/#{AWS.Util.encode_uri(model_identifier)}"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(project_identifier) do
+        [{"projectIdentifier", project_identifier} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -8611,15 +9751,27 @@ defmodule AWS.Bedrock do
   Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html).
   in the Amazon Bedrock User Guide.
   """
-  @spec get_inference_profile(map(), String.t() | atom(), list()) ::
+  @spec get_inference_profile(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_inference_profile_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_inference_profile_errors()}
-  def get_inference_profile(%Client{} = client, inference_profile_identifier, options \\ []) do
+  def get_inference_profile(
+        %Client{} = client,
+        inference_profile_identifier,
+        project_identifier \\ nil,
+        options \\ []
+      ) do
     url_path = "/inference-profiles/#{AWS.Util.encode_uri(inference_profile_identifier)}"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(project_identifier) do
+        [{"projectIdentifier", project_identifier} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -8749,6 +9901,78 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Returns the organization's retention storage configuration for a model provider.
+
+  The caller must be the organization's management account or a delegated
+  administrator. Returns ResourceNotFoundException when no configuration exists.
+  """
+  @spec get_organization_data_retention_storage(map(), String.t() | atom(), list()) ::
+          {:ok, get_organization_data_retention_storage_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_organization_data_retention_storage_errors()}
+  def get_organization_data_retention_storage(%Client{} = client, model_provider, options \\ []) do
+    url_path = "/v1/data_retention/organization-storage/#{AWS.Util.encode_uri(model_provider)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves a project.
+  """
+  @spec get_project(map(), String.t() | atom(), list()) ::
+          {:ok, get_project_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_project_errors()}
+  def get_project(%Client{} = client, project_identifier, options \\ []) do
+    url_path = "/projects/#{AWS.Util.encode_uri(project_identifier)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns a project's retention storage configuration for a model provider.
+
+  Returns ResourceNotFoundException when the project does not exist, is not owned
+  by the calling account, or has no configuration.
+  """
+  @spec get_project_data_retention_storage(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, get_project_data_retention_storage_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_project_data_retention_storage_errors()}
+  def get_project_data_retention_storage(
+        %Client{} = client,
+        model_provider,
+        project_identifier,
+        options \\ []
+      ) do
+    url_path =
+      "/v1/projects/#{AWS.Util.encode_uri(project_identifier)}/data_retention/storage/#{AWS.Util.encode_uri(model_provider)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves details about a prompt router.
   """
   @spec get_prompt_router(map(), String.t() | atom(), list()) ::
@@ -8797,6 +10021,140 @@ defmodule AWS.Bedrock do
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, resource_arn, options \\ []) do
     url_path = "/resource-policy/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets trusted access program details and resolves participation for your account
+  and its current organization.
+
+  If you specify a project, Amazon Bedrock resolves participation for the project,
+  including inheritance from the account and organization. Archived projects
+  remain readable until they expire. Returns the same flat summary as a
+  ListTrustedAccessPrograms item. An absent or invisible program returns
+  ResourceNotFoundException.
+  """
+  @spec get_trusted_access_program(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
+          {:ok, get_trusted_access_program_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_trusted_access_program_errors()}
+  def get_trusted_access_program(
+        %Client{} = client,
+        program_identifier,
+        project_identifier \\ nil,
+        options \\ []
+      ) do
+    url_path = "/trusted-access-programs/#{AWS.Util.encode_uri(program_identifier)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(project_identifier) do
+        [{"projectIdentifier", project_identifier} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets the calling account's stored enrollment setting for a trusted access
+  program.
+
+  The account is derived from the authenticated caller. Use
+  GetTrustedAccessProgram to retrieve the resolved participation status, including
+  organization inheritance. If no enrollment is stored, returns inherit without
+  timestamps.
+  """
+  @spec get_trusted_access_program_account_enrollment(map(), String.t() | atom(), list()) ::
+          {:ok, get_trusted_access_program_account_enrollment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_trusted_access_program_account_enrollment_errors()}
+  def get_trusted_access_program_account_enrollment(
+        %Client{} = client,
+        program_identifier,
+        options \\ []
+      ) do
+    url_path =
+      "/trusted-access-programs/#{AWS.Util.encode_uri(program_identifier)}/account-enrollment"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets the current organization's stored enrollment setting for a trusted access
+  program.
+
+  The organization and payer account are derived from the authenticated context.
+  Requires operation permission and management-account or Bedrock-specific
+  delegated-administrator authority. The setting can differ from the caller's
+  resolved status returned by GetTrustedAccessProgram. If no enrollment is stored,
+  returns inherit without timestamps.
+  """
+  @spec get_trusted_access_program_organization_enrollment(map(), String.t() | atom(), list()) ::
+          {:ok, get_trusted_access_program_organization_enrollment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_trusted_access_program_organization_enrollment_errors()}
+  def get_trusted_access_program_organization_enrollment(
+        %Client{} = client,
+        program_identifier,
+        options \\ []
+      ) do
+    url_path =
+      "/trusted-access-programs/#{AWS.Util.encode_uri(program_identifier)}/organization-enrollment"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Gets a named project's stored enrollment setting for a trusted access program.
+
+  The project must exist in this Region and be owned by the calling account.
+  Archived projects remain readable until they expire. Use GetTrustedAccessProgram
+  with projectIdentifier to retrieve resolved participation, including account and
+  organization inheritance. If no enrollment is stored, returns inherit without
+  timestamps.
+  """
+  @spec get_trusted_access_program_project_enrollment(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, get_trusted_access_program_project_enrollment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_trusted_access_program_project_enrollment_errors()}
+  def get_trusted_access_program_project_enrollment(
+        %Client{} = client,
+        program_identifier,
+        project_identifier,
+        options \\ []
+      ) do
+    url_path =
+      "/trusted-access-programs/#{AWS.Util.encode_uri(program_identifier)}/project-enrollment/#{AWS.Util.encode_uri(project_identifier)}"
+
     headers = []
     query_params = []
 
@@ -9503,6 +10861,7 @@ defmodule AWS.Bedrock do
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_foundation_models_response(), any()}
@@ -9515,6 +10874,7 @@ defmodule AWS.Bedrock do
         by_inference_type \\ nil,
         by_output_modality \\ nil,
         by_provider \\ nil,
+        project_identifier \\ nil,
         options \\ []
       ) do
     url_path = "/foundation-models"
@@ -9545,6 +10905,13 @@ defmodule AWS.Bedrock do
     query_params =
       if !is_nil(by_provider) do
         [{"byProvider", by_provider} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(project_identifier) do
+        [{"projectIdentifier", project_identifier} | query_params]
       else
         query_params
       end
@@ -9717,6 +11084,7 @@ defmodule AWS.Bedrock do
           String.t() | atom() | nil,
           String.t() | atom() | nil,
           String.t() | atom() | nil,
+          String.t() | atom() | nil,
           list()
         ) ::
           {:ok, list_inference_profiles_response(), any()}
@@ -9727,6 +11095,7 @@ defmodule AWS.Bedrock do
         %Client{} = client,
         max_results \\ nil,
         next_token \\ nil,
+        project_identifier \\ nil,
         type_equals \\ nil,
         options \\ []
       ) do
@@ -9744,6 +11113,13 @@ defmodule AWS.Bedrock do
     query_params =
       if !is_nil(next_token) do
         [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(project_identifier) do
+        [{"projectIdentifier", project_identifier} | query_params]
       else
         query_params
       end
@@ -10230,6 +11606,62 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Lists the account's projects.
+
+  Results are paginated: when the response includes `nextToken`, pass it in the
+  next request to fetch the following page. Page size is 1-100, default 20. By
+  default every project is returned regardless of status; set `statusFilter` to
+  list only active or only archived projects.
+  """
+  @spec list_projects(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_projects_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_projects_errors()}
+  def list_projects(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        status_filter \\ nil,
+        options \\ []
+      ) do
+    url_path = "/projects"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(status_filter) do
+        [{"statusFilter", status_filter} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves a list of prompt routers.
   """
   @spec list_prompt_routers(
@@ -10421,6 +11853,64 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Lists all trusted access programs visible to your account, ordered by program
+  ID.
+
+  Amazon Bedrock resolves participation for your account and its current
+  organization. If you specify a project, Amazon Bedrock resolves participation
+  for the project, including inheritance from the account and organization.
+  Archived projects remain readable until they expire. Amazon Bedrock returns all
+  visible programs in one response.
+  """
+  @spec list_trusted_access_programs(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_trusted_access_programs_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_trusted_access_programs_errors()}
+  def list_trusted_access_programs(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        project_identifier \\ nil,
+        options \\ []
+      ) do
+    url_path = "/trusted-access-programs"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(project_identifier) do
+        [{"projectIdentifier", project_identifier} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Sets the account-wide data retention mode for Amazon Bedrock.
   """
   @spec put_account_data_retention(map(), put_account_data_retention_request(), list()) ::
@@ -10430,6 +11920,51 @@ defmodule AWS.Bedrock do
           | {:error, put_account_data_retention_errors()}
   def put_account_data_retention(%Client{} = client, input, options \\ []) do
     url_path = "/data-retention"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates or replaces the calling account's retention storage record for a model
+  provider.
+
+  Amazon Bedrock identifies the account from your authenticated request. Requires
+  resolved trusted access eligibility for a storage-capable program of the
+  provider at a covering scope; otherwise returns ConflictException. Writes
+  replace the whole record; the last write wins.
+
+  For `customer_managed` destinations, Amazon Bedrock validates the caller's and
+  service's access to the bucket and key before saving the configuration. The
+  bucket and key must be in the AWS Region where you register the configuration.
+  Validation failures reject the write.
+  """
+  @spec put_account_data_retention_storage(
+          map(),
+          String.t() | atom(),
+          put_account_data_retention_storage_request(),
+          list()
+        ) ::
+          {:ok, put_account_data_retention_storage_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_account_data_retention_storage_errors()}
+  def put_account_data_retention_storage(%Client{} = client, model_provider, input, options \\ []) do
+    url_path = "/v1/data_retention/storage/#{AWS.Util.encode_uri(model_provider)}"
     headers = []
     custom_headers = []
     query_params = []
@@ -10516,6 +12051,117 @@ defmodule AWS.Bedrock do
   end
 
   @doc """
+  Creates or replaces the organization's retention storage record for a model
+  provider.
+
+  The organization is resolved from the authenticated caller's management context;
+  the caller must be the organization's management account or a delegated
+  administrator. Requires resolved organization-scope trusted access eligibility
+  for a storage-capable program of the provider; otherwise returns
+  ConflictException. Writes replace the whole record; the last write wins.
+
+  For `customer_managed` destinations, Amazon Bedrock validates the caller's and
+  service's access to the bucket and key before saving the configuration. The
+  bucket and key must be in the AWS Region where you register the configuration.
+  Validation failures reject the write.
+  """
+  @spec put_organization_data_retention_storage(
+          map(),
+          String.t() | atom(),
+          put_organization_data_retention_storage_request(),
+          list()
+        ) ::
+          {:ok, put_organization_data_retention_storage_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_organization_data_retention_storage_errors()}
+  def put_organization_data_retention_storage(
+        %Client{} = client,
+        model_provider,
+        input,
+        options \\ []
+      ) do
+    url_path = "/v1/data_retention/organization-storage/#{AWS.Util.encode_uri(model_provider)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates or replaces a project's retention storage record for a model provider.
+
+  The project must be active in this AWS Region and owned by the calling account.
+  A missing or unowned project returns `ResourceNotFoundException`; an archived
+  project returns `ValidationException`.
+
+  Requires applicable project, account, or organization approval for a
+  storage-capable trusted access program of the provider, with no applicable
+  revocation. Otherwise, the operation returns `ConflictException`. Enrollment is
+  not required to save the configuration.
+
+  The request replaces the complete stored configuration. The last successful
+  write wins.
+
+  For `customer_managed` destinations, Amazon Bedrock validates the caller's and
+  service's access to the bucket and key before saving the configuration. The
+  bucket and key must be in the AWS Region where you register the configuration.
+  Validation failures reject the write.
+  """
+  @spec put_project_data_retention_storage(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          put_project_data_retention_storage_request(),
+          list()
+        ) ::
+          {:ok, put_project_data_retention_storage_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_project_data_retention_storage_errors()}
+  def put_project_data_retention_storage(
+        %Client{} = client,
+        model_provider,
+        project_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v1/projects/#{AWS.Util.encode_uri(project_identifier)}/data_retention/storage/#{AWS.Util.encode_uri(model_provider)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Adds a resource policy for a Bedrock resource.
   """
   @spec put_resource_policy(map(), put_resource_policy_request(), list()) ::
@@ -10541,6 +12187,155 @@ defmodule AWS.Bedrock do
       input,
       options,
       201
+    )
+  end
+
+  @doc """
+  Sets your account's enrollment preference for a trusted access program.
+
+  Amazon Bedrock identifies the account from your authenticated request. To enable
+  enrollment, your account needs applicable approval and no applicable revocation,
+  including when you repeat an enabled setting. Otherwise, Amazon Bedrock returns
+  `ConflictException` and preserves the stored setting. With the required
+  permissions, you can set `disabled` or `inherit` even if your account is
+  ineligible or its eligibility is revoked.
+  """
+  @spec put_trusted_access_program_account_enrollment(
+          map(),
+          String.t() | atom(),
+          put_trusted_access_program_account_enrollment_request(),
+          list()
+        ) ::
+          {:ok, put_trusted_access_program_account_enrollment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_trusted_access_program_account_enrollment_errors()}
+  def put_trusted_access_program_account_enrollment(
+        %Client{} = client,
+        program_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/trusted-access-programs/#{AWS.Util.encode_uri(program_identifier)}/account-enrollment"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Sets the current organization's enrollment preference for a trusted access
+  program.
+
+  The organization and payer account are derived from the authenticated context.
+  Every write requires operation permission and management-account or
+  Bedrock-specific delegated-administrator authority. Enabling requires approval
+  and no revocation for the organization, including when repeating an enabled
+  setting; otherwise returns ConflictException and preserves the stored setting.
+  Account approval alone is insufficient. If you have the required permissions,
+  you can set the enrollment preference to `disabled` or `inherit` even if your
+  organization is ineligible or its eligibility is revoked.
+  """
+  @spec put_trusted_access_program_organization_enrollment(
+          map(),
+          String.t() | atom(),
+          put_trusted_access_program_organization_enrollment_request(),
+          list()
+        ) ::
+          {:ok, put_trusted_access_program_organization_enrollment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_trusted_access_program_organization_enrollment_errors()}
+  def put_trusted_access_program_organization_enrollment(
+        %Client{} = client,
+        program_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/trusted-access-programs/#{AWS.Util.encode_uri(program_identifier)}/organization-enrollment"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Sets a named project's enrollment preference for a trusted access program.
+
+  The project must be active in this Region and owned by the calling account.
+  Enabling requires applicable project, account, or organization approval and no
+  applicable revocation, including when repeating an enabled setting; otherwise
+  returns ConflictException and preserves the stored setting. Authorized disable
+  and inherit writes are allowed while ineligible or revoked. Archived projects
+  reject all writes with ValidationException.
+  """
+  @spec put_trusted_access_program_project_enrollment(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          put_trusted_access_program_project_enrollment_request(),
+          list()
+        ) ::
+          {:ok, put_trusted_access_program_project_enrollment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_trusted_access_program_project_enrollment_errors()}
+  def put_trusted_access_program_project_enrollment(
+        %Client{} = client,
+        program_identifier,
+        project_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/trusted-access-programs/#{AWS.Util.encode_uri(program_identifier)}/project-enrollment/#{AWS.Util.encode_uri(project_identifier)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -10692,6 +12487,151 @@ defmodule AWS.Bedrock do
       ) do
     url_path =
       "/automated-reasoning-policies/#{AWS.Util.encode_uri(policy_arn)}/build-workflows/#{AWS.Util.encode_uri(build_workflow_id)}/test-workflows"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Prepare a provider application handoff for the calling account.
+
+  This does not submit an application, grant eligibility, or change enrollment.
+  Programs without self-service applications return ValidationException with
+  guidance to contact the AWS account team. Repeated calls can issue fresh tokens.
+  Successful responses use Cache-Control: no-store.
+  """
+  @spec start_trusted_access_program_account_application(
+          map(),
+          String.t() | atom(),
+          start_trusted_access_program_account_application_request(),
+          list()
+        ) ::
+          {:ok, start_trusted_access_program_account_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_trusted_access_program_account_application_errors()}
+  def start_trusted_access_program_account_application(
+        %Client{} = client,
+        program_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/trusted-access-programs/#{AWS.Util.encode_uri(program_identifier)}/account-application"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Prepare a provider application handoff for the calling account's current
+  organization.
+
+  Requires operation permission and management-account or Bedrock-specific
+  delegated-administrator authority. This does not submit an application, grant
+  eligibility, or change enrollment. Programs without self-service applications
+  return ValidationException with guidance to contact the AWS account team.
+  Repeated calls can issue fresh tokens. Successful responses use Cache-Control:
+  no-store.
+  """
+  @spec start_trusted_access_program_organization_application(
+          map(),
+          String.t() | atom(),
+          start_trusted_access_program_organization_application_request(),
+          list()
+        ) ::
+          {:ok, start_trusted_access_program_organization_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_trusted_access_program_organization_application_errors()}
+  def start_trusted_access_program_organization_application(
+        %Client{} = client,
+        program_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/trusted-access-programs/#{AWS.Util.encode_uri(program_identifier)}/organization-application"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Prepare a provider application handoff for a named project.
+
+  The project must be active in this Region and owned by the calling account.
+  Archived projects return ValidationException. This does not submit an
+  application, grant eligibility, or change enrollment. Programs without
+  self-service applications return ValidationException with guidance to contact
+  the AWS account team. Repeated calls can issue fresh tokens. Successful
+  responses use Cache-Control: no-store.
+  """
+  @spec start_trusted_access_program_project_application(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          start_trusted_access_program_project_application_request(),
+          list()
+        ) ::
+          {:ok, start_trusted_access_program_project_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_trusted_access_program_project_application_errors()}
+  def start_trusted_access_program_project_application(
+        %Client{} = client,
+        program_identifier,
+        project_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/trusted-access-programs/#{AWS.Util.encode_uri(program_identifier)}/project-application/#{AWS.Util.encode_uri(project_identifier)}"
 
     headers = []
     custom_headers = []
@@ -11178,6 +13118,38 @@ defmodule AWS.Bedrock do
       client,
       meta,
       :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates one mutable project field per call: exactly one of `name` or
+  `dataRetention` must be set.
+
+  The default project and archived projects cannot be updated.
+  """
+  @spec update_project(map(), String.t() | atom(), update_project_request(), list()) ::
+          {:ok, update_project_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_project_errors()}
+  def update_project(%Client{} = client, project_identifier, input, options \\ []) do
+    url_path = "/projects/#{AWS.Util.encode_uri(project_identifier)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,

@@ -155,6 +155,36 @@ defmodule AWS.AgentRegistryControl do
 
   ## Example:
 
+      associate_publisher_request() :: %{
+        optional("categories") => list(String.t() | atom()),
+        optional("clientToken") => String.t() | atom(),
+        optional("subdomain") => String.t() | atom(),
+        required("publisherArn") => String.t() | atom(),
+        required("recordArn") => String.t() | atom()
+      }
+
+  """
+  @type associate_publisher_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_publisher_response() :: %{
+        "publicIdentifier" => String.t() | atom(),
+        "publisher" => String.t() | atom(),
+        "recordArn" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => String.t() | atom()
+      }
+
+  """
+  @type associate_publisher_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       authorizing_claim_match_value_type() :: %{
         "claimMatchOperator" => list(any()),
         "claimMatchValue" => list()
@@ -198,6 +228,38 @@ defmodule AWS.AgentRegistryControl do
 
   """
   @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_publisher_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("tags") => map(),
+        required("value") => list()
+      }
+
+  """
+  @type create_publisher_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_publisher_response() :: %{
+        "createdAt" => [non_neg_integer()],
+        "domainChallenge" => domain_challenge(),
+        "identifierType" => list(any()),
+        "publisherArn" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => String.t() | atom(),
+        "tags" => map(),
+        "updatedAt" => [non_neg_integer()],
+        "value" => list()
+      }
+
+  """
+  @type create_publisher_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -320,6 +382,15 @@ defmodule AWS.AgentRegistryControl do
 
   ## Example:
 
+      delete_publisher_request() :: %{}
+
+  """
+  @type delete_publisher_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_registry_record_request() :: %{}
 
   """
@@ -358,6 +429,17 @@ defmodule AWS.AgentRegistryControl do
 
   ## Example:
 
+      dependency_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type dependency_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       descriptor_source() :: %{
         "fromUrl" => descriptor_source_from_url()
       }
@@ -387,11 +469,21 @@ defmodule AWS.AgentRegistryControl do
         "agui" => ag_ui_descriptor(),
         "custom" => custom_descriptor(),
         "http" => http_descriptor(),
-        "mcpServer" => mcp_server_descriptor()
+        "mcpServer" => mcp_server_descriptor(),
+        "signatureAgentCard" => signature_agent_card_descriptor()
       }
 
   """
   @type descriptors() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_publisher_request() :: %{}
+
+  """
+  @type disassociate_publisher_request() :: %{}
 
   @typedoc """
 
@@ -409,12 +501,33 @@ defmodule AWS.AgentRegistryControl do
 
   ## Example:
 
+      domain_challenge() :: %{
+        "recordName" => String.t() | atom(),
+        "recordValue" => String.t() | atom()
+      }
+
+  """
+  @type domain_challenge() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       encryption_configuration() :: %{
         "kmsKeyArn" => String.t() | atom()
       }
 
   """
   @type encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_publisher_request() :: %{}
+
+  """
+  @type get_publisher_request() :: %{}
 
   @typedoc """
 
@@ -521,6 +634,55 @@ defmodule AWS.AgentRegistryControl do
 
   """
   @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_publisher_associations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("publisherArn") => String.t() | atom()
+      }
+
+  """
+  @type list_publisher_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_publisher_associations_response() :: %{
+        "items" => list(publisher_association()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_publisher_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_publishers_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_publishers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_publishers_response() :: %{
+        "items" => list(publisher_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_publishers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -697,6 +859,57 @@ defmodule AWS.AgentRegistryControl do
 
   """
   @type provenance_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      publisher() :: %{
+        "createdAt" => [non_neg_integer()],
+        "domainChallenge" => domain_challenge(),
+        "identifierType" => list(any()),
+        "publisherArn" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => String.t() | atom(),
+        "tags" => map(),
+        "updatedAt" => [non_neg_integer()],
+        "value" => list()
+      }
+
+  """
+  @type publisher() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      publisher_association() :: %{
+        "publicIdentifier" => String.t() | atom(),
+        "publisher" => String.t() | atom(),
+        "recordArn" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => String.t() | atom()
+      }
+
+  """
+  @type publisher_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      publisher_summary() :: %{
+        "associationCount" => [integer()],
+        "createdAt" => [non_neg_integer()],
+        "identifierType" => list(any()),
+        "pendingAssociationApprovalCount" => [integer()],
+        "publisherArn" => String.t() | atom(),
+        "status" => list(any()),
+        "value" => list()
+      }
+
+  """
+  @type publisher_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -894,6 +1107,31 @@ defmodule AWS.AgentRegistryControl do
 
   ## Example:
 
+      signature_agent_card_additional_data() :: %{
+        "category" => list(any())
+      }
+
+  """
+  @type signature_agent_card_additional_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      signature_agent_card_descriptor() :: %{
+        "additionalData" => signature_agent_card_additional_data(),
+        "data" => String.t() | atom(),
+        "dataSchemaVersion" => String.t() | atom(),
+        "source" => descriptor_source()
+      }
+
+  """
+  @type signature_agent_card_descriptor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       submit_registry_record_for_approval_request() :: %{}
 
   """
@@ -964,6 +1202,29 @@ defmodule AWS.AgentRegistryControl do
 
   """
   @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_publisher_association_approval_status_request() :: %{
+        required("approvalStatus") => list(any()),
+        required("approvalStatusReason") => String.t() | atom()
+      }
+
+  """
+  @type update_publisher_association_approval_status_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      update_publisher_association_approval_status_response() :: %{}
+
+  """
+  @type update_publisher_association_approval_status_response() :: %{}
 
   @typedoc """
 
@@ -1271,6 +1532,17 @@ defmodule AWS.AgentRegistryControl do
 
   ## Example:
 
+      updated_bot_category() :: %{
+        "optionalValue" => list(any())
+      }
+
+  """
+  @type updated_bot_category() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       updated_custom_descriptor() :: %{
         "optionalValue" => updated_custom_descriptor_fields()
       }
@@ -1376,7 +1648,8 @@ defmodule AWS.AgentRegistryControl do
         "agui" => updated_ag_ui_descriptor(),
         "custom" => updated_custom_descriptor(),
         "http" => updated_http_descriptor(),
-        "mcpServer" => updated_mcp_server_descriptor()
+        "mcpServer" => updated_mcp_server_descriptor(),
+        "signatureAgentCard" => updated_signature_agent_card_descriptor()
       }
 
   """
@@ -1511,6 +1784,81 @@ defmodule AWS.AgentRegistryControl do
 
   ## Example:
 
+      updated_signature_agent_card_additional_data() :: %{
+        "optionalValue" => updated_signature_agent_card_additional_data_fields()
+      }
+
+  """
+  @type updated_signature_agent_card_additional_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      updated_signature_agent_card_additional_data_fields() :: %{
+        "category" => updated_bot_category()
+      }
+
+  """
+  @type updated_signature_agent_card_additional_data_fields() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      updated_signature_agent_card_descriptor() :: %{
+        "optionalValue" => updated_signature_agent_card_descriptor_fields()
+      }
+
+  """
+  @type updated_signature_agent_card_descriptor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      updated_signature_agent_card_descriptor_fields() :: %{
+        "additionalData" => updated_signature_agent_card_additional_data(),
+        "data" => updated_descriptor_data(),
+        "dataSchemaVersion" => updated_data_schema_version(),
+        "source" => updated_descriptor_source()
+      }
+
+  """
+  @type updated_signature_agent_card_descriptor_fields() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validate_publisher_request() :: %{}
+
+  """
+  @type validate_publisher_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      validate_publisher_response() :: %{
+        "createdAt" => [non_neg_integer()],
+        "domainChallenge" => domain_challenge(),
+        "identifierType" => list(any()),
+        "publisherArn" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => String.t() | atom(),
+        "tags" => map(),
+        "updatedAt" => [non_neg_integer()],
+        "value" => list()
+      }
+
+  """
+  @type validate_publisher_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
         "message" => [String.t() | atom()],
@@ -1543,6 +1891,23 @@ defmodule AWS.AgentRegistryControl do
   """
   @type workload_identity_details() :: %{(String.t() | atom()) => any()}
 
+  @type associate_publisher_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | dependency_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type create_publisher_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type create_registry_errors() ::
           validation_exception()
           | throttling_exception()
@@ -1555,6 +1920,14 @@ defmodule AWS.AgentRegistryControl do
           validation_exception()
           | throttling_exception()
           | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type delete_publisher_errors() ::
+          validation_exception()
+          | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
@@ -1576,6 +1949,19 @@ defmodule AWS.AgentRegistryControl do
           | conflict_exception()
           | access_denied_exception()
 
+  @type disassociate_publisher_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type get_publisher_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type get_registry_errors() ::
           validation_exception()
           | throttling_exception()
@@ -1589,6 +1975,18 @@ defmodule AWS.AgentRegistryControl do
           | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
+          | access_denied_exception()
+
+  @type list_publisher_associations_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_publishers_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
           | access_denied_exception()
 
   @type list_registries_errors() ::
@@ -1635,6 +2033,13 @@ defmodule AWS.AgentRegistryControl do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type update_publisher_association_approval_status_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type update_registry_errors() ::
           validation_exception()
           | throttling_exception()
@@ -1660,6 +2065,13 @@ defmodule AWS.AgentRegistryControl do
           | conflict_exception()
           | access_denied_exception()
 
+  @type validate_publisher_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   def metadata do
     %{
       api_version: "2025-12-01",
@@ -1674,6 +2086,97 @@ defmodule AWS.AgentRegistryControl do
       signing_name: "agent-registry",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Associate a registry record with a publisher and assign the record a public
+  identifier under the
+  publisher's domain.
+
+  The registry record must be APPROVED and the publisher must be ACTIVE. A
+  registry record can have only one publisher association. The new association
+  starts in
+  PENDING_APPROVAL until a curator approves or rejects it.
+  A ConflictException (HTTP 409) means the publisher is not ACTIVE yet, the
+  registry record already
+  has an association, or another registry record already holds the public
+  identifier. To retry
+  safely, repeat the request with the same clientToken; a retry returns the
+  original association.
+  If the publisher has reached its association quota, the request fails with
+  ServiceQuotaExceededException (HTTP 402). Remove an unused association or
+  request a quota increase.
+  """
+  @spec associate_publisher(map(), associate_publisher_request(), list()) ::
+          {:ok, associate_publisher_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, associate_publisher_errors()}
+  def associate_publisher(%Client{} = client, input, options \\ []) do
+    url_path = "/associations"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Create a publisher for a domain you control.
+
+  The publisher starts in ACTION_REQUIRED, and the
+  response includes a domainChallenge. To verify the domain, create a DNS TXT
+  record with the
+  challenge's recordName and recordValue. When the registry finds the record, the
+  publisher becomes
+  ACTIVE and you can associate registry records with it.
+  Your account can have one publisher per domain. Creating a second publisher for
+  the same domain
+  fails with ConflictException unless the request repeats the original
+  clientToken, which returns the
+  existing publisher. The request also fails with ConflictException when another
+  account has already
+  verified the domain.
+  If your account has reached its Publisher quota, the request fails with
+  ServiceQuotaExceededException (HTTP 402). Delete an unused Publisher or request
+  a quota increase.
+  """
+  @spec create_publisher(map(), create_publisher_request(), list()) ::
+          {:ok, create_publisher_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_publisher_errors()}
+  def create_publisher(%Client{} = client, input, options \\ []) do
+    url_path = "/publishers"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
   end
 
   @doc """
@@ -1752,6 +2255,47 @@ defmodule AWS.AgentRegistryControl do
   end
 
   @doc """
+  Delete a publisher.
+
+  A successful call returns an empty response. You can't delete a publisher
+  that has registry record associations; disassociate every registry record from
+  it first. The
+  request fails with ConflictException while the publisher has associations or
+  another delete is in
+  progress. Association removals can take a few seconds to be reflected, so a
+  delete that follows a
+  disassociation can briefly fail with ConflictException; retry after a short
+  wait. If the publisher
+  ARN names your account and the publisher doesn't exist, the request fails with
+  ResourceNotFoundException.
+  """
+  @spec delete_publisher(map(), String.t() | atom(), delete_publisher_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_publisher_errors()}
+  def delete_publisher(%Client{} = client, publisher_arn, input, options \\ []) do
+    url_path = "/publishers/#{AWS.Util.encode_uri(publisher_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Deletes a registry.
 
   Deletion is asynchronous: the registry transitions to the DELETING status and is
@@ -1821,6 +2365,71 @@ defmodule AWS.AgentRegistryControl do
   end
 
   @doc """
+  Remove a registry record's publisher association and release its public
+  identifier.
+
+  A successful
+  call returns an empty response. Disassociating a registry record that has no
+  association succeeds.
+  If another account created the association, the request fails with
+  AccessDeniedException.
+  """
+  @spec disassociate_publisher(
+          map(),
+          String.t() | atom(),
+          disassociate_publisher_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disassociate_publisher_errors()}
+  def disassociate_publisher(%Client{} = client, record_arn, input, options \\ []) do
+    url_path = "/associations/#{AWS.Util.encode_multi_segment_uri(record_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Get a publisher, including its verification status and the DNS challenge for its
+  domain.
+
+  If the
+  publisher ARN names your account and the publisher doesn't exist, the request
+  fails with
+  ResourceNotFoundException.
+  """
+  @spec get_publisher(map(), String.t() | atom(), list()) ::
+          {:ok, publisher(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_publisher_errors()}
+  def get_publisher(%Client{} = client, publisher_arn, options \\ []) do
+    url_path = "/publishers/#{AWS.Util.encode_uri(publisher_arn)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Gets a registry by identifier (ARN or ID)
   """
   @spec get_registry(map(), String.t() | atom(), list()) ::
@@ -1857,6 +2466,97 @@ defmodule AWS.AgentRegistryControl do
 
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  List the registry record associations your account created.
+
+  Pass publisherArn to list only the
+  associations for that publisher; omit it to list associations across all
+  publishers. Results are
+  eventually consistent, so an association you just created or removed can take a
+  few seconds to
+  appear in or disappear from the list.
+  """
+  @spec list_publisher_associations(
+          map(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_publisher_associations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_publisher_associations_errors()}
+  def list_publisher_associations(
+        %Client{} = client,
+        max_results \\ nil,
+        next_token \\ nil,
+        publisher_arn \\ nil,
+        options \\ []
+      ) do
+    url_path = "/associations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(publisher_arn) do
+        [{"publisherArn", publisher_arn} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  List the publishers your account owns, followed by the ACTIVE publishers shared
+  with your account.
+  """
+  @spec list_publishers(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
+          {:ok, list_publishers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_publishers_errors()}
+  def list_publishers(%Client{} = client, max_results \\ nil, next_token \\ nil, options \\ []) do
+    url_path = "/publishers"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -2064,6 +2764,58 @@ defmodule AWS.AgentRegistryControl do
   end
 
   @doc """
+  Record the curator's decision (APPROVED or REJECTED) on a registry record's
+  publisher association.
+
+  A successful call returns an empty response. Repeating the decision the
+  association already holds
+  changes nothing; the same approvalStatus with a different approvalStatusReason
+  updates the reason.
+  If the caller has no publisher association for the registry record, the request
+  fails with
+  AccessDeniedException. A ConflictException (HTTP 409) means the association is
+  not in a state
+  that accepts the decision (e.g. not PENDING_APPROVAL/APPROVED/REJECTED) or it
+  changed while the
+  request was being applied; read it again before deciding whether to resubmit.
+  """
+  @spec update_publisher_association_approval_status(
+          map(),
+          String.t() | atom(),
+          update_publisher_association_approval_status_request(),
+          list()
+        ) ::
+          {:ok, update_publisher_association_approval_status_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_publisher_association_approval_status_errors()}
+  def update_publisher_association_approval_status(
+        %Client{} = client,
+        record_arn,
+        input,
+        options \\ []
+      ) do
+    url_path = "/associations/#{AWS.Util.encode_multi_segment_uri(record_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates an existing registry.
 
   This operation uses PATCH semantics: specify only the fields you want to change,
@@ -2181,6 +2933,44 @@ defmodule AWS.AgentRegistryControl do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Restart domain verification for a publisher in FAILED or SUSPENDED.
+
+  The publisher returns to
+  ACTION_REQUIRED with a new domainChallenge, which the response includes. Update
+  the DNS TXT record
+  with the new recordValue; the previous value no longer verifies the domain. The
+  request fails with
+  ConflictException when the publisher is ACTIVE, verification is already in
+  progress
+  (ACTION_REQUIRED), or the publisher is being deleted.
+  """
+  @spec validate_publisher(map(), String.t() | atom(), validate_publisher_request(), list()) ::
+          {:ok, validate_publisher_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, validate_publisher_errors()}
+  def validate_publisher(%Client{} = client, publisher_arn, input, options \\ []) do
+    url_path = "/publishers/#{AWS.Util.encode_uri(publisher_arn)}/verification"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 end

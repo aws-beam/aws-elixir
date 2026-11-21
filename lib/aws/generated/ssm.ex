@@ -1171,6 +1171,7 @@ defmodule AWS.SSM do
       
       create_document_request() :: %{
         optional("Attachments") => list(attachments_source()),
+        optional("CloudProviders") => list(list(any())()),
         optional("DisplayName") => String.t() | atom(),
         optional("DocumentFormat") => list(any()),
         optional("DocumentType") => list(any()),
@@ -2708,6 +2709,7 @@ defmodule AWS.SSM do
         "Author" => String.t() | atom(),
         "Category" => list(String.t() | atom()),
         "CategoryEnum" => list(String.t() | atom()),
+        "CloudProviders" => list(list(any())()),
         "CreatedDate" => non_neg_integer(),
         "DefaultVersion" => String.t() | atom(),
         "Description" => String.t() | atom(),
@@ -2756,6 +2758,7 @@ defmodule AWS.SSM do
       
       document_identifier() :: %{
         "Author" => String.t() | atom(),
+        "CloudProviders" => list(list(any())()),
         "CreatedDate" => non_neg_integer(),
         "DisplayName" => String.t() | atom(),
         "DocumentFormat" => list(any()),
@@ -2892,6 +2895,7 @@ defmodule AWS.SSM do
   ## Example:
       
       document_version_info() :: %{
+        "CloudProviders" => list(list(any())()),
         "CreatedDate" => non_neg_integer(),
         "DisplayName" => String.t() | atom(),
         "DocumentFormat" => list(any()),
@@ -8127,6 +8131,7 @@ defmodule AWS.SSM do
       
       update_document_request() :: %{
         optional("Attachments") => list(attachments_source()),
+        optional("CloudProviders") => list(list(any())()),
         optional("DisplayName") => String.t() | atom(),
         optional("DocumentFormat") => list(any()),
         optional("DocumentVersion") => String.t() | atom(),

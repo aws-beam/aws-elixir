@@ -464,6 +464,21 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      asset_ownership_transfer() :: %{
+        "sourceProjectId" => String.t() | atom(),
+        "startedAt" => [non_neg_integer()],
+        "status" => list(any()),
+        "targetProjectId" => String.t() | atom(),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type asset_ownership_transfer() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       asset_permission() :: %{
         "assetId" => String.t() | atom(),
         "permissions" => list()
@@ -3368,6 +3383,7 @@ defmodule AWS.DataZone do
   ## Example:
 
       environment_configuration_user_parameter() :: %{
+        "environmentBlueprintId" => String.t() | atom(),
         "environmentConfigurationName" => String.t() | atom(),
         "environmentId" => String.t() | atom(),
         "environmentParameters" => list(environment_parameter()),
@@ -3699,6 +3715,7 @@ defmodule AWS.DataZone do
         "latestTimeSeriesDataPointFormsOutput" => list(time_series_data_point_summary_form_output()),
         "listing" => asset_listing_details(),
         "name" => String.t() | atom(),
+        "ownershipTransfer" => asset_ownership_transfer(),
         "owningProjectId" => String.t() | atom(),
         "readOnlyFormsOutput" => list(form_output()),
         "revision" => String.t() | atom(),
@@ -9193,6 +9210,31 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      update_asset_owner_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("targetProjectIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type update_asset_owner_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_asset_owner_output() :: %{
+        "id" => String.t() | atom(),
+        "ownershipTransfer" => asset_ownership_transfer(),
+        "revision" => String.t() | atom()
+      }
+
+  """
+  @type update_asset_owner_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_connection_input() :: %{
         optional("awsLocation") => aws_location(),
         optional("configurations") => list(configuration()),
@@ -9680,6 +9722,7 @@ defmodule AWS.DataZone do
         optional("environmentDeploymentDetails") => environment_deployment_details(),
         optional("glossaryTerms") => list(String.t() | atom()),
         optional("name") => String.t() | atom(),
+        optional("projectProfileAction") => list(any()),
         optional("projectProfileVersion") => [String.t() | atom()],
         optional("resourceTags") => map(),
         optional("userParameters") => list(environment_configuration_user_parameter())
@@ -11382,6 +11425,15 @@ defmodule AWS.DataZone do
   @type update_asset_filter_errors() ::
           validation_exception()
           | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type update_asset_owner_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
           | resource_not_found_exception()
           | internal_server_exception()
           | conflict_exception()
@@ -19626,6 +19678,59 @@ defmodule AWS.DataZone do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Transfers the ownership of an asset to another project in the same Amazon
+  DataZone domain.
+
+  The transfer changes the asset's owning project and moves its published listing,
+  subscriptions, and subscription grants to the target project.
+
+  The transfer runs asynchronously, and the operation returns HTTP status code
+  202. To follow the transfer, call `GetAsset` and check
+  `ownershipTransfer.status` until it is `SUCCEEDED` or `FAILED`.
+
+  You need to be an owner of the project that currently owns the asset. You can
+  transfer an asset from the domain's administration project to any project. You
+  can also transfer an asset from any project to the administration project.
+
+  An asset can have only one ownership transfer in progress at a time. While a
+  transfer is in progress, requests that change the asset or its listing fail with
+  a `ConflictException`.
+  """
+  @spec update_asset_owner(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_asset_owner_input(),
+          list()
+        ) ::
+          {:ok, update_asset_owner_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_asset_owner_errors()}
+  def update_asset_owner(%Client{} = client, domain_identifier, identifier, input, options \\ []) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/assets/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 

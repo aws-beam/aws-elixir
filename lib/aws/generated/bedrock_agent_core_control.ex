@@ -3169,7 +3169,9 @@ defmodule AWS.BedrockAgentCoreControl do
       gateway_interceptor_configuration() :: %{
         "inputConfiguration" => interceptor_input_configuration(),
         "interceptionPoints" => list(list(any())()),
-        "interceptor" => list()
+        "interceptor" => list(),
+        "responseInterceptionMode" => list(any()),
+        "responseStreamingConfiguration" => response_streaming_configuration()
       }
 
   """
@@ -7450,6 +7452,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      response_streaming_configuration() :: %{
+        "maxEventsPerInvocation" => integer()
+      }
+
+  """
+  @type response_streaming_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

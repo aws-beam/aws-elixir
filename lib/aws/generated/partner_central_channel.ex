@@ -62,6 +62,61 @@ defmodule AWS.PartnerCentralChannel do
 
   ## Example:
       
+      address() :: %{
+        "addressLine" => String.t() | atom(),
+        "addressLine2" => String.t() | atom(),
+        "city" => String.t() | atom(),
+        "countryCode" => String.t() | atom(),
+        "postalCode" => String.t() | atom(),
+        "stateOrRegion" => String.t() | atom()
+      }
+      
+  """
+  @type address() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_channel_contract_detail() :: %{
+        "arn" => String.t() | atom(),
+        "cancellationReason" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type cancel_channel_contract_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_channel_contract_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("reason") => String.t() | atom(),
+        required("catalog") => String.t() | atom(),
+        required("identifier") => String.t() | atom()
+      }
+      
+  """
+  @type cancel_channel_contract_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_channel_contract_response() :: %{
+        "channelContractDetail" => cancel_channel_contract_detail()
+      }
+      
+  """
+  @type cancel_channel_contract_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       cancel_channel_handshake_detail() :: %{
         "arn" => String.t() | atom(),
         "id" => String.t() | atom(),
@@ -98,6 +153,45 @@ defmodule AWS.PartnerCentralChannel do
 
   ## Example:
       
+      channel_contract_detail() :: %{
+        "arn" => String.t() | atom(),
+        "cancellationReason" => String.t() | atom(),
+        "catalog" => String.t() | atom(),
+        "contractType" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "details" => list(),
+        "id" => String.t() | atom(),
+        "respondedAt" => non_neg_integer(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type channel_contract_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      channel_contract_summary() :: %{
+        "arn" => String.t() | atom(),
+        "catalog" => String.t() | atom(),
+        "contractType" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "details" => list(),
+        "id" => String.t() | atom(),
+        "respondedAt" => non_neg_integer(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type channel_contract_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       channel_handshake_summary() :: %{
         "arn" => String.t() | atom(),
         "associatedResourceId" => String.t() | atom(),
@@ -129,6 +223,44 @@ defmodule AWS.PartnerCentralChannel do
       
   """
   @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_channel_contract_detail() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom()
+      }
+      
+  """
+  @type create_channel_contract_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_channel_contract_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        required("catalog") => String.t() | atom(),
+        required("contractType") => list(any()),
+        required("payload") => list()
+      }
+      
+  """
+  @type create_channel_contract_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_channel_contract_response() :: %{
+        "channelContractDetail" => create_channel_contract_detail()
+      }
+      
+  """
+  @type create_channel_contract_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -188,6 +320,7 @@ defmodule AWS.PartnerCentralChannel do
       create_program_management_account_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("tags") => list(tag()),
+        optional("type") => list(any()),
         required("accountId") => String.t() | atom(),
         required("catalog") => String.t() | atom(),
         required("displayName") => String.t() | atom(),
@@ -225,11 +358,13 @@ defmodule AWS.PartnerCentralChannel do
   ## Example:
       
       create_relationship_request() :: %{
+        optional("accountScope") => list(any()),
+        optional("associatedAccountId") => String.t() | atom(),
         optional("clientToken") => String.t() | atom(),
         optional("requestedSupportPlan") => list(),
         optional("resaleAccountModel") => list(any()),
+        optional("startDate") => non_neg_integer(),
         optional("tags") => list(tag()),
-        required("associatedAccountId") => String.t() | atom(),
         required("associationType") => list(any()),
         required("catalog") => String.t() | atom(),
         required("displayName") => String.t() | atom(),
@@ -300,6 +435,29 @@ defmodule AWS.PartnerCentralChannel do
 
   ## Example:
       
+      get_channel_contract_request() :: %{
+        required("catalog") => String.t() | atom(),
+        required("identifier") => String.t() | atom()
+      }
+      
+  """
+  @type get_channel_contract_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_channel_contract_response() :: %{
+        "channelContractDetail" => channel_contract_detail()
+      }
+      
+  """
+  @type get_channel_contract_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_relationship_request() :: %{
         required("catalog") => String.t() | atom(),
         required("identifier") => String.t() | atom(),
@@ -330,6 +488,35 @@ defmodule AWS.PartnerCentralChannel do
       
   """
   @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_channel_contracts_request() :: %{
+        optional("contractTypeFilters") => list(),
+        optional("contractTypeSort") => list(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("statuses") => list(list(any())()),
+        required("catalog") => String.t() | atom(),
+        required("contractType") => list(any())
+      }
+      
+  """
+  @type list_channel_contracts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_channel_contracts_response() :: %{
+        "items" => list(channel_contract_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_channel_contracts_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -374,6 +561,7 @@ defmodule AWS.PartnerCentralChannel do
         optional("programs") => list(list(any())()),
         optional("sort") => list_program_management_accounts_sort_base(),
         optional("statuses") => list(list(any())()),
+        optional("type") => list(any()),
         required("catalog") => String.t() | atom()
       }
       
@@ -472,6 +660,84 @@ defmodule AWS.PartnerCentralChannel do
 
   ## Example:
       
+      managed_services_attestation_details() :: %{
+        "endDate" => non_neg_integer(),
+        "legalEntityAddress" => address(),
+        "legalEntityName" => String.t() | atom(),
+        "memberAccountIds" => list(String.t() | atom()),
+        "programManagementAccountIdentifier" => String.t() | atom(),
+        "relationshipIdentifier" => String.t() | atom(),
+        "signatoryEmail" => String.t() | atom(),
+        "signatoryName" => String.t() | atom(),
+        "supportedServices" => list(list(any())())
+      }
+      
+  """
+  @type managed_services_attestation_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      managed_services_attestation_payload() :: %{
+        "endDate" => non_neg_integer(),
+        "legalEntityAddress" => address(),
+        "legalEntityName" => String.t() | atom(),
+        "memberAccountIds" => list(String.t() | atom()),
+        "programManagementAccountIdentifier" => String.t() | atom(),
+        "relationshipIdentifier" => String.t() | atom(),
+        "signatoryEmail" => String.t() | atom(),
+        "signatoryName" => String.t() | atom(),
+        "supportedServices" => list(list(any())())
+      }
+      
+  """
+  @type managed_services_attestation_payload() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      managed_services_attestation_summary_details() :: %{
+        "endDate" => non_neg_integer(),
+        "legalEntityName" => String.t() | atom(),
+        "memberAccountIds" => list(String.t() | atom()),
+        "programManagementAccountIdentifier" => String.t() | atom(),
+        "relationshipIdentifier" => String.t() | atom(),
+        "supportedServices" => list(list(any())())
+      }
+      
+  """
+  @type managed_services_attestation_summary_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      managed_services_attestation_type_filters() :: %{
+        "legalEntityNames" => list(String.t() | atom()),
+        "relationshipIdentifiers" => list(String.t() | atom())
+      }
+      
+  """
+  @type managed_services_attestation_type_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      managed_services_attestation_type_sort() :: %{
+        "sortBy" => list(any()),
+        "sortOrder" => list(any())
+      }
+      
+  """
+  @type managed_services_attestation_type_sort() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       partner_led_support() :: %{
         "coverage" => list(any()),
         "provider" => list(any()),
@@ -507,6 +773,7 @@ defmodule AWS.PartnerCentralChannel do
         "revision" => String.t() | atom(),
         "startDate" => non_neg_integer(),
         "status" => list(any()),
+        "type" => list(any()),
         "updatedAt" => non_neg_integer()
       }
       
@@ -577,12 +844,15 @@ defmodule AWS.PartnerCentralChannel do
   ## Example:
       
       relationship_detail() :: %{
+        "accountScope" => list(any()),
         "arn" => String.t() | atom(),
         "associatedAccountId" => String.t() | atom(),
         "associationType" => list(any()),
         "catalog" => String.t() | atom(),
+        "channelContractId" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "displayName" => String.t() | atom(),
+        "endDate" => non_neg_integer(),
         "id" => String.t() | atom(),
         "programManagementAccountId" => String.t() | atom(),
         "resaleAccountModel" => list(any()),
@@ -953,11 +1223,28 @@ defmodule AWS.PartnerCentralChannel do
           | internal_server_exception()
           | access_denied_exception()
 
+  @type cancel_channel_contract_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type cancel_channel_handshake_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | access_denied_exception()
+
+  @type create_channel_contract_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type create_channel_handshake_errors() ::
@@ -1003,7 +1290,21 @@ defmodule AWS.PartnerCentralChannel do
           | conflict_exception()
           | access_denied_exception()
 
+  @type get_channel_contract_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
   @type get_relationship_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+
+  @type list_channel_contracts_errors() ::
           validation_exception()
           | throttling_exception()
           | resource_not_found_exception()
@@ -1109,6 +1410,24 @@ defmodule AWS.PartnerCentralChannel do
   end
 
   @doc """
+  Cancels a pending channel contract created within the last 30 days.
+
+  A request for a channel contract that isn't PENDING, including one that is
+  already CANCELED, fails with a ValidationException.
+  """
+  @spec cancel_channel_contract(map(), cancel_channel_contract_request(), list()) ::
+          {:ok, cancel_channel_contract_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, cancel_channel_contract_errors()}
+  def cancel_channel_contract(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CancelChannelContract", input, options)
+  end
+
+  @doc """
   Cancels a pending channel handshake request.
   """
   @spec cancel_channel_handshake(map(), cancel_channel_handshake_request(), list()) ::
@@ -1121,6 +1440,23 @@ defmodule AWS.PartnerCentralChannel do
       metadata()
 
     Request.request_post(client, meta, "CancelChannelHandshake", input, options)
+  end
+
+  @doc """
+  Creates a new channel contract and sends it to the signatory for signature.
+
+  In the Sandbox catalog, the channel contract is accepted automatically.
+  """
+  @spec create_channel_contract(map(), create_channel_contract_request(), list()) ::
+          {:ok, create_channel_contract_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_channel_contract_errors()}
+  def create_channel_contract(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateChannelContract", input, options)
   end
 
   @doc """
@@ -1208,6 +1544,21 @@ defmodule AWS.PartnerCentralChannel do
   end
 
   @doc """
+  Retrieves details of a specific channel contract.
+  """
+  @spec get_channel_contract(map(), get_channel_contract_request(), list()) ::
+          {:ok, get_channel_contract_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_channel_contract_errors()}
+  def get_channel_contract(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetChannelContract", input, options)
+  end
+
+  @doc """
   Retrieves details of a specific partner relationship.
   """
   @spec get_relationship(map(), get_relationship_request(), list()) ::
@@ -1220,6 +1571,21 @@ defmodule AWS.PartnerCentralChannel do
       metadata()
 
     Request.request_post(client, meta, "GetRelationship", input, options)
+  end
+
+  @doc """
+  Lists channel contracts based on specified criteria.
+  """
+  @spec list_channel_contracts(map(), list_channel_contracts_request(), list()) ::
+          {:ok, list_channel_contracts_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_channel_contracts_errors()}
+  def list_channel_contracts(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListChannelContracts", input, options)
   end
 
   @doc """

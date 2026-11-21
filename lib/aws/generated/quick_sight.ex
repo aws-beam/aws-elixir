@@ -3,7 +3,7 @@
 
 defmodule AWS.QuickSight do
   @moduledoc """
-  Amazon Quick API Reference
+  Quick API Reference
 
   Amazon Quick Sight is a fully managed, serverless business intelligence service
   for the
@@ -17,6 +17,51 @@ defmodule AWS.QuickSight do
 
   alias AWS.Client
   alias AWS.Request
+
+  @typedoc """
+
+  ## Example:
+
+      access_control_application() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "AuthenticationType" => list(any()),
+        "CreatedTime" => [non_neg_integer()],
+        "Description" => String.t() | atom(),
+        "IdcApplicationArn" => [String.t() | atom()],
+        "IdpAuthorizingConfiguration" => idp_authorizing_config(),
+        "LastUpdatedTime" => [non_neg_integer()],
+        "Name" => String.t() | atom(),
+        "Namespace" => [String.t() | atom()],
+        "QuickAuthenticationConfiguration" => quick_authentication_config(),
+        "Status" => list(any()),
+        "TenantUrl" => [String.t() | atom()]
+      }
+
+  """
+  @type access_control_application() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_control_application_summary() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "AuthenticationType" => list(any()),
+        "CreatedTime" => [non_neg_integer()],
+        "Description" => String.t() | atom(),
+        "IdpAuthorizingConfiguration" => idp_authorizing_config_summary(),
+        "LastUpdatedTime" => [non_neg_integer()],
+        "Name" => String.t() | atom(),
+        "Namespace" => [String.t() | atom()],
+        "QuickAuthenticationConfiguration" => quick_authentication_config(),
+        "Status" => list(any()),
+        "TenantUrl" => [String.t() | atom()]
+      }
+
+  """
+  @type access_control_application_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1977,6 +2022,55 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      batch_delete_policy_assignment_by_policy_request() :: %{
+        required("PolicyArn") => String.t() | atom(),
+        required("PrincipalArns") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_delete_policy_assignment_by_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_policy_assignment_by_policy_response() :: %{
+        "Errors" => list(batch_delete_policy_assignment_error()),
+        "PolicyArn" => String.t() | atom(),
+        "Success" => list(batch_delete_policy_assignment_success())
+      }
+
+  """
+  @type batch_delete_policy_assignment_by_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_policy_assignment_error() :: %{
+        "ErrorCode" => [String.t() | atom()],
+        "ErrorMessage" => [String.t() | atom()],
+        "PrincipalArn" => String.t() | atom()
+      }
+
+  """
+  @type batch_delete_policy_assignment_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_policy_assignment_success() :: %{
+        "PrincipalArn" => String.t() | atom()
+      }
+
+  """
+  @type batch_delete_policy_assignment_success() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_delete_topic_reviewed_answer_request() :: %{
         optional("AnswerIds") => list(String.t() | atom())
       }
@@ -2038,6 +2132,57 @@ defmodule AWS.QuickSight do
 
   """
   @type batch_describe_user_limits_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_policy_assignment_by_policy_request() :: %{
+        required("Assignments") => list(put_assignment_entry()),
+        required("PolicyArn") => String.t() | atom()
+      }
+
+  """
+  @type batch_put_policy_assignment_by_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_policy_assignment_by_policy_response() :: %{
+        "Errors" => list(batch_put_policy_assignment_error()),
+        "PolicyArn" => String.t() | atom(),
+        "Success" => list(batch_put_policy_assignment_success())
+      }
+
+  """
+  @type batch_put_policy_assignment_by_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_policy_assignment_error() :: %{
+        "ErrorCode" => [String.t() | atom()],
+        "ErrorMessage" => [String.t() | atom()],
+        "PrincipalArn" => String.t() | atom()
+      }
+
+  """
+  @type batch_put_policy_assignment_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_policy_assignment_success() :: %{
+        "PrincipalArn" => String.t() | atom(),
+        "ReplacedPolicyArn" => String.t() | atom(),
+        "Revision" => float()
+      }
+
+  """
+  @type batch_put_policy_assignment_success() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2528,6 +2673,7 @@ defmodule AWS.QuickSight do
         "CreateAndUpdateJiraAction" => list(any()),
         "CreateAndUpdateKnowledgeBases" => list(any()),
         "CreateAndUpdateLinearAction" => list(any()),
+        "CreateAndUpdateLocalMCPAction" => list(any()),
         "CreateAndUpdateMCPAction" => list(any()),
         "CreateAndUpdateMSExchangeAction" => list(any()),
         "CreateAndUpdateMSTeamsAction" => list(any()),
@@ -2671,6 +2817,7 @@ defmodule AWS.QuickSight do
         "JiraDataSource" => list(any()),
         "KnowledgeBase" => list(any()),
         "LinearAction" => list(any()),
+        "LocalMCPAction" => list(any()),
         "MCPAction" => list(any()),
         "MSExchangeAction" => list(any()),
         "MSTeamsAction" => list(any()),
@@ -2973,6 +3120,7 @@ defmodule AWS.QuickSight do
         "UseIntercomAction" => list(any()),
         "UseJiraAction" => list(any()),
         "UseLinearAction" => list(any()),
+        "UseLocalMCPAction" => list(any()),
         "UseMCPAction" => list(any()),
         "UseMSExchangeAction" => list(any()),
         "UseMSTeamsAction" => list(any()),
@@ -3220,6 +3368,18 @@ defmodule AWS.QuickSight do
 
   """
   @type client_credentials_grant_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      client_secret_configuration() :: %{
+        "ClientSecretConfigurationDetail" => list(),
+        "ClientSecretSourceType" => list(any())
+      }
+
+  """
+  @type client_secret_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3904,6 +4064,69 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      create_access_control_application_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("ApplicationId") => String.t() | atom(),
+        required("AuthenticationType") => list(any()),
+        required("IdpAuthorizingConfiguration") => idp_authorizing_config_input(),
+        required("Name") => String.t() | atom(),
+        required("Namespace") => String.t() | atom(),
+        required("QuickAuthenticationConfiguration") => quick_authentication_config_input()
+      }
+
+  """
+  @type create_access_control_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_access_control_application_response() :: %{
+        "AccessControlApplicationStatus" => list(any()),
+        "ApplicationId" => [String.t() | atom()],
+        "Arn" => [String.t() | atom()],
+        "CreatedTime" => [non_neg_integer()],
+        "IdcApplicationArn" => [String.t() | atom()],
+        "QuickAuthenticationConfiguration" => quick_authentication_config_create_output(),
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer(),
+        "TenantUrl" => [String.t() | atom()]
+      }
+
+  """
+  @type create_access_control_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_access_control_application_secret_request() :: %{
+        optional("Description") => String.t() | atom(),
+        required("ClientSecretConfiguration") => client_secret_configuration()
+      }
+
+  """
+  @type create_access_control_application_secret_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_access_control_application_secret_response() :: %{
+        "ClientSecretId" => String.t() | atom(),
+        "CreatedAt" => [non_neg_integer()],
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer()
+      }
+
+  """
+  @type create_access_control_application_secret_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_account_customization_request() :: %{
         optional("Namespace") => String.t() | atom(),
         optional("Tags") => list(tag()),
@@ -4223,6 +4446,7 @@ defmodule AWS.QuickSight do
         optional("RowLevelPermissionTagConfiguration") => row_level_permission_tag_configuration(),
         optional("SemanticModelConfiguration") => semantic_model_configuration(),
         optional("Tags") => list(tag()),
+        optional("UnmaterializedCalculatedColumns") => list(unmaterialized_calculated_column()),
         optional("UseAs") => list(any()),
         required("DataSetId") => String.t() | atom(),
         required("ImportMode") => list(any()),
@@ -4476,6 +4700,38 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      create_inbound_connector_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("InboundConnectorConfiguration") => inbound_connector_config(),
+        required("InboundConnectorId") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_inbound_connector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_inbound_connector_response() :: %{
+        "Arn" => [String.t() | atom()],
+        "CreatedTime" => [non_neg_integer()],
+        "InboundConnectorId" => [String.t() | atom()],
+        "InboundConnectorStatus" => list(any()),
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer(),
+        "TenantUrl" => [String.t() | atom()]
+      }
+
+  """
+  @type create_inbound_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_ingestion_request() :: %{
         optional("IngestionType") => list(any())
       }
@@ -4497,6 +4753,34 @@ defmodule AWS.QuickSight do
 
   """
   @type create_ingestion_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_knowledge_base_refresh_schedule_request() :: %{
+        optional("StartTime") => [non_neg_integer()],
+        optional("State") => list(any()),
+        required("ScheduleFrequency") => knowledge_base_refresh_frequency(),
+        required("ScheduleId") => String.t() | atom()
+      }
+
+  """
+  @type create_knowledge_base_refresh_schedule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_knowledge_base_refresh_schedule_response() :: %{
+        "KnowledgeBaseArn" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "ScheduleId" => String.t() | atom(),
+        "Status" => integer()
+      }
+
+  """
+  @type create_knowledge_base_refresh_schedule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5803,6 +6087,7 @@ defmodule AWS.QuickSight do
         "RowLevelPermissionDataSet" => row_level_permission_data_set(),
         "RowLevelPermissionTagConfiguration" => row_level_permission_tag_configuration(),
         "SemanticModelConfiguration" => semantic_model_configuration(),
+        "UnmaterializedCalculatedColumns" => list(unmaterialized_calculated_column()),
         "UseAs" => list(any())
       }
 
@@ -6773,6 +7058,52 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      delete_access_control_application_request() :: %{
+        optional("ApplicationId") => String.t() | atom(),
+        optional("IdcApplicationArn") => String.t() | atom()
+      }
+
+  """
+  @type delete_access_control_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_access_control_application_response() :: %{
+        "ApplicationId" => [String.t() | atom()],
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer()
+      }
+
+  """
+  @type delete_access_control_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_access_control_application_secret_request() :: %{}
+
+  """
+  @type delete_access_control_application_secret_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_access_control_application_secret_response() :: %{
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer()
+      }
+
+  """
+  @type delete_access_control_application_secret_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_account_custom_permission_request() :: %{}
 
   """
@@ -7295,6 +7626,51 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      delete_inbound_connector_request() :: %{}
+
+  """
+  @type delete_inbound_connector_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_inbound_connector_response() :: %{
+        "InboundConnectorId" => [String.t() | atom()],
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer()
+      }
+
+  """
+  @type delete_inbound_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_knowledge_base_refresh_schedule_request() :: %{}
+
+  """
+  @type delete_knowledge_base_refresh_schedule_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_knowledge_base_refresh_schedule_response() :: %{
+        "KnowledgeBaseArn" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "ScheduleId" => String.t() | atom(),
+        "Status" => integer()
+      }
+
+  """
+  @type delete_knowledge_base_refresh_schedule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_knowledge_base_request() :: %{}
 
   """
@@ -7377,6 +7753,28 @@ defmodule AWS.QuickSight do
 
   """
   @type delete_o_auth_client_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_policy_assignment_request() :: %{
+        optional("Revision") => float(),
+        required("PolicyArn") => String.t() | atom(),
+        required("PrincipalArn") => String.t() | atom()
+      }
+
+  """
+  @type delete_policy_assignment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_policy_assignment_response() :: %{}
+
+  """
+  @type delete_policy_assignment_response() :: %{}
 
   @typedoc """
 
@@ -7720,6 +8118,28 @@ defmodule AWS.QuickSight do
 
   """
   @type delete_vpc_connection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_access_control_application_request() :: %{}
+
+  """
+  @type describe_access_control_application_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_access_control_application_response() :: %{
+        "AccessControlApplication" => access_control_application(),
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer()
+      }
+
+  """
+  @type describe_access_control_application_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8727,6 +9147,28 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      describe_inbound_connector_request() :: %{}
+
+  """
+  @type describe_inbound_connector_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_inbound_connector_response() :: %{
+        "InboundConnector" => inbound_connector(),
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer()
+      }
+
+  """
+  @type describe_inbound_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_ingestion_request() :: %{}
 
   """
@@ -8820,6 +9262,29 @@ defmodule AWS.QuickSight do
 
   """
   @type describe_knowledge_base_permissions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_knowledge_base_refresh_schedule_request() :: %{}
+
+  """
+  @type describe_knowledge_base_refresh_schedule_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_knowledge_base_refresh_schedule_response() :: %{
+        "KnowledgeBaseArn" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "Schedule" => knowledge_base_refresh_schedule_summary(),
+        "Status" => integer()
+      }
+
+  """
+  @type describe_knowledge_base_refresh_schedule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9780,6 +10245,91 @@ defmodule AWS.QuickSight do
 
   """
   @type export_with_hidden_fields_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      external_idp_confidential_auth_code_authorizing_config() :: %{
+        "ClientId" => String.t() | atom(),
+        "ClientSecrets" => list(external_idp_confidential_client_secret()),
+        "IssuerUrl" => String.t() | atom()
+      }
+
+  """
+  @type external_idp_confidential_auth_code_authorizing_config() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      external_idp_confidential_auth_code_authorizing_config_input() :: %{
+        "ClientId" => String.t() | atom(),
+        "ClientSecret" => idp_client_secret_input(),
+        "IssuerUrl" => String.t() | atom()
+      }
+
+  """
+  @type external_idp_confidential_auth_code_authorizing_config_input() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      external_idp_confidential_auth_code_authorizing_config_summary() :: %{
+        "ClientId" => String.t() | atom(),
+        "IssuerUrl" => String.t() | atom()
+      }
+
+  """
+  @type external_idp_confidential_auth_code_authorizing_config_summary() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      external_idp_confidential_auth_code_authorizing_config_update_input() :: %{
+        "ClientId" => String.t() | atom(),
+        "IssuerUrl" => String.t() | atom()
+      }
+
+  """
+  @type external_idp_confidential_auth_code_authorizing_config_update_input() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      external_idp_confidential_client_secret() :: %{
+        "ClientSecretId" => String.t() | atom(),
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => String.t() | atom(),
+        "RegionalSecretManagerArns" => map(),
+        "UpdatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type external_idp_confidential_client_secret() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      external_idp_public_auth_code_authorizing_config() :: %{
+        "ClientId" => String.t() | atom(),
+        "IssuerUrl" => String.t() | atom()
+      }
+
+  """
+  @type external_idp_public_auth_code_authorizing_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11628,6 +12178,32 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      get_policy_assignment_request() :: %{
+        required("PolicyType") => list(any()),
+        required("PrincipalArn") => String.t() | atom()
+      }
+
+  """
+  @type get_policy_assignment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_policy_assignment_response() :: %{
+        "PolicyArn" => String.t() | atom(),
+        "PolicyName" => String.t() | atom(),
+        "Revision" => float(),
+        "UpdatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type get_policy_assignment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_session_embed_url_request() :: %{
         optional("EntryPoint") => String.t() | atom(),
         optional("SessionLifetimeInMinutes") => float(),
@@ -12172,6 +12748,17 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      idc_trusted_token_issuer_config() :: %{
+        "IdcTrustedTokenIssuerArn" => String.t() | atom()
+      }
+
+  """
+  @type idc_trusted_token_issuer_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       identity_center_configuration() :: %{
         "EnableIdentityPropagation" => boolean()
       }
@@ -12190,6 +12777,69 @@ defmodule AWS.QuickSight do
 
   """
   @type identity_type_not_supported_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      idp_authorizing_config() :: %{
+        "IdcTrustedTokenIssuerConfiguration" => idc_trusted_token_issuer_config(),
+        "IdpAuthorizingConfigurationDetail" => list(),
+        "IdpAuthorizingType" => list(any())
+      }
+
+  """
+  @type idp_authorizing_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      idp_authorizing_config_input() :: %{
+        "IdcTrustedTokenIssuerConfiguration" => idc_trusted_token_issuer_config(),
+        "IdpAuthorizingConfigurationDetailInput" => list(),
+        "IdpAuthorizingType" => list(any())
+      }
+
+  """
+  @type idp_authorizing_config_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      idp_authorizing_config_summary() :: %{
+        "IdcTrustedTokenIssuerConfiguration" => idc_trusted_token_issuer_config(),
+        "IdpAuthorizingConfigurationSummaryDetail" => list(),
+        "IdpAuthorizingType" => list(any())
+      }
+
+  """
+  @type idp_authorizing_config_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      idp_authorizing_config_update_input() :: %{
+        "IdcTrustedTokenIssuerConfiguration" => idc_trusted_token_issuer_config(),
+        "IdpAuthorizingConfigurationDetailInput" => list(),
+        "IdpAuthorizingType" => list(any())
+      }
+
+  """
+  @type idp_authorizing_config_update_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      idp_client_secret_input() :: %{
+        "RegionalSecretManagerArns" => map()
+      }
+
+  """
+  @type idp_client_secret_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12348,6 +12998,67 @@ defmodule AWS.QuickSight do
 
   """
   @type import_table_operation_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inbound_connector() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedTime" => [non_neg_integer()],
+        "Description" => String.t() | atom(),
+        "InboundConnectorConfiguration" => inbound_connector_config(),
+        "InboundConnectorId" => String.t() | atom(),
+        "LastUpdatedTime" => [non_neg_integer()],
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "TenantUrl" => [String.t() | atom()]
+      }
+
+  """
+  @type inbound_connector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inbound_connector_application_association_summary() :: %{
+        "AccessControlApplicationArn" => String.t() | atom(),
+        "CreatedTime" => [non_neg_integer()]
+      }
+
+  """
+  @type inbound_connector_application_association_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inbound_connector_config() :: %{
+        "InboundConnectorType" => list(any())
+      }
+
+  """
+  @type inbound_connector_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inbound_connector_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedTime" => [non_neg_integer()],
+        "Description" => String.t() | atom(),
+        "InboundConnectorConfiguration" => inbound_connector_config(),
+        "InboundConnectorId" => String.t() | atom(),
+        "LastUpdatedTime" => [non_neg_integer()],
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "TenantUrl" => [String.t() | atom()]
+      }
+
+  """
+  @type inbound_connector_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12964,6 +13675,44 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      knowledge_base_refresh_frequency() :: %{
+        "Interval" => list(any()),
+        "RefreshOnDay" => knowledge_base_schedule_refresh_on_entity()
+      }
+
+  """
+  @type knowledge_base_refresh_frequency() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      knowledge_base_refresh_schedule_summary() :: %{
+        "ScheduleFrequency" => knowledge_base_refresh_frequency(),
+        "ScheduleId" => String.t() | atom(),
+        "StartTime" => [non_neg_integer()],
+        "State" => list(any())
+      }
+
+  """
+  @type knowledge_base_refresh_schedule_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      knowledge_base_schedule_refresh_on_entity() :: %{
+        "DayOfMonth" => String.t() | atom(),
+        "DayOfWeek" => list(any())
+      }
+
+  """
+  @type knowledge_base_schedule_refresh_on_entity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       knowledge_base_search_filter() :: %{
         "name" => list(any()),
         "operator" => list(any()),
@@ -13315,6 +14064,33 @@ defmodule AWS.QuickSight do
 
   """
   @type link_sharing_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_access_control_applications_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("Namespace") => String.t() | atom(),
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_access_control_applications_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_access_control_applications_response() :: %{
+        "AccessControlApplications" => list(access_control_application_summary()),
+        "NextToken" => [String.t() | atom()],
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer()
+      }
+
+  """
+  @type list_access_control_applications_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13948,6 +14724,63 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      list_inbound_connector_application_associations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_inbound_connector_application_associations_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_inbound_connector_application_associations_response() :: %{
+        "ApplicationAssociations" => list(inbound_connector_application_association_summary()),
+        "NextToken" => [String.t() | atom()],
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer()
+      }
+
+  """
+  @type list_inbound_connector_application_associations_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_inbound_connectors_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()],
+        optional("Type") => list(list(any())())
+      }
+
+  """
+  @type list_inbound_connectors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_inbound_connectors_response() :: %{
+        "InboundConnectorSummaries" => list(inbound_connector_summary()),
+        "NextToken" => [String.t() | atom()],
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer()
+      }
+
+  """
+  @type list_inbound_connectors_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_ingestions_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
@@ -13969,6 +14802,33 @@ defmodule AWS.QuickSight do
 
   """
   @type list_ingestions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_knowledge_base_refresh_schedules_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_knowledge_base_refresh_schedules_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_knowledge_base_refresh_schedules_response() :: %{
+        "KnowledgeBaseArn" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "ScheduleSummaries" => list(knowledge_base_refresh_schedule_summary()),
+        "Status" => integer()
+      }
+
+  """
+  @type list_knowledge_base_refresh_schedules_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14072,6 +14932,32 @@ defmodule AWS.QuickSight do
 
   """
   @type list_o_auth_client_applications_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_principals_for_policy_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("PrincipalType") => list(any()),
+        required("PolicyArn") => String.t() | atom()
+      }
+
+  """
+  @type list_principals_for_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_principals_for_policy_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Principals" => list(policy_principal())
+      }
+
+  """
+  @type list_principals_for_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16223,6 +17109,20 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      policy_principal() :: %{
+        "PrincipalArn" => String.t() | atom(),
+        "PrincipalType" => list(any()),
+        "Revision" => float(),
+        "UpdatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type policy_principal() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       postgre_sql_parameters() :: %{
         "Database" => String.t() | atom(),
         "Host" => String.t() | atom(),
@@ -16338,6 +17238,19 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      put_assignment_entry() :: %{
+        "ExistingPolicyArn" => String.t() | atom(),
+        "PrincipalArn" => String.t() | atom(),
+        "Revision" => float()
+      }
+
+  """
+  @type put_assignment_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_data_set_refresh_properties_request() :: %{
         required("DataSetRefreshProperties") => data_set_refresh_properties()
       }
@@ -16356,6 +17269,33 @@ defmodule AWS.QuickSight do
 
   """
   @type put_data_set_refresh_properties_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_policy_assignment_request() :: %{
+        optional("ExistingPolicyArn") => String.t() | atom(),
+        optional("Revision") => float(),
+        required("PolicyArn") => String.t() | atom(),
+        required("PrincipalArn") => String.t() | atom()
+      }
+
+  """
+  @type put_policy_assignment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_policy_assignment_response() :: %{
+        "PolicyArn" => String.t() | atom(),
+        "ReplacedPolicyArn" => String.t() | atom(),
+        "Revision" => float()
+      }
+
+  """
+  @type put_policy_assignment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16415,6 +17355,69 @@ defmodule AWS.QuickSight do
 
   """
   @type queue_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      quick_authentication_config() :: %{
+        "QuickAuthenticationConfigurationDetail" => list(),
+        "QuickAuthenticationType" => list(any())
+      }
+
+  """
+  @type quick_authentication_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      quick_authentication_config_create_output() :: %{
+        "QuickAuthenticationConfigurationDetailCreateOutput" => list(),
+        "QuickAuthenticationType" => list(any())
+      }
+
+  """
+  @type quick_authentication_config_create_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      quick_authentication_config_input() :: %{
+        "QuickAuthenticationConfigurationDetailInput" => list(),
+        "QuickAuthenticationType" => list(any())
+      }
+
+  """
+  @type quick_authentication_config_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      quick_managed_auth_code_quick_authentication_config_input() :: %{
+        "RedirectUris" => list(String.t() | atom())
+      }
+
+  """
+  @type quick_managed_auth_code_quick_authentication_config_input() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      quick_managed_public_auth_code_quick_authentication_config() :: %{
+        "ClientId" => String.t() | atom(),
+        "RedirectUris" => list(String.t() | atom())
+      }
+
+  """
+  @type quick_managed_public_auth_code_quick_authentication_config() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -16731,6 +17734,7 @@ defmodule AWS.QuickSight do
       redshift_parameters() :: %{
         "ClusterId" => String.t() | atom(),
         "Database" => String.t() | atom(),
+        "FederatedCatalog" => String.t() | atom(),
         "Host" => String.t() | atom(),
         "IAMParameters" => redshift_iam_parameters(),
         "IdentityCenterConfiguration" => identity_center_configuration(),
@@ -21340,6 +22344,21 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      unmaterialized_calculated_column() :: %{
+        "ColumnId" => String.t() | atom(),
+        "ColumnName" => String.t() | atom(),
+        "Expression" => String.t() | atom(),
+        "SubType" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type unmaterialized_calculated_column() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       unpivot_operation() :: %{
         "Alias" => String.t() | atom(),
         "ColumnsToUnpivot" => list(column_to_unpivot()),
@@ -21411,6 +22430,64 @@ defmodule AWS.QuickSight do
 
   """
   @type untag_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_access_control_application_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("IdpAuthorizingConfiguration") => idp_authorizing_config_update_input(),
+        optional("Name") => String.t() | atom(),
+        optional("QuickAuthenticationConfiguration") => quick_authentication_config_input(),
+        optional("Status") => list(any())
+      }
+
+  """
+  @type update_access_control_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_access_control_application_response() :: %{
+        "AccessControlApplicationStatus" => list(any()),
+        "ApplicationId" => [String.t() | atom()],
+        "Arn" => [String.t() | atom()],
+        "LastUpdatedTime" => [non_neg_integer()],
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer()
+      }
+
+  """
+  @type update_access_control_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_access_control_application_secret_request() :: %{
+        optional("RemoveRegionalSecretManagerArns") => list(String.t() | atom()),
+        optional("UpdateRegionalSecretManagerArns") => map()
+      }
+
+  """
+  @type update_access_control_application_secret_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_access_control_application_secret_response() :: %{
+        "ClientSecretId" => String.t() | atom(),
+        "RegionalSecretManagerArns" => map(),
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer(),
+        "UpdatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type update_access_control_application_secret_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -22021,6 +23098,7 @@ defmodule AWS.QuickSight do
         optional("RowLevelPermissionDataSet") => row_level_permission_data_set(),
         optional("RowLevelPermissionTagConfiguration") => row_level_permission_tag_configuration(),
         optional("SemanticModelConfiguration") => semantic_model_configuration(),
+        optional("UnmaterializedCalculatedColumns") => list(unmaterialized_calculated_column()),
         required("ImportMode") => list(any()),
         required("Name") => String.t() | atom(),
         required("PhysicalTableMap") => map()
@@ -22341,6 +23419,64 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      update_inbound_connector_application_associations_request() :: %{
+        optional("AssociateAccessControlApplications") => list(String.t() | atom()),
+        optional("DisassociateAccessControlApplications") => list(String.t() | atom())
+      }
+
+  """
+  @type update_inbound_connector_application_associations_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      update_inbound_connector_application_associations_response() :: %{
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer()
+      }
+
+  """
+  @type update_inbound_connector_application_associations_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      update_inbound_connector_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("InboundConnectorConfiguration") => inbound_connector_config(),
+        optional("InboundConnectorStatus") => list(any()),
+        optional("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_inbound_connector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_inbound_connector_response() :: %{
+        "Arn" => [String.t() | atom()],
+        "InboundConnectorId" => [String.t() | atom()],
+        "InboundConnectorStatus" => list(any()),
+        "LastUpdatedTime" => [non_neg_integer()],
+        "RequestId" => [String.t() | atom()],
+        "Status" => integer()
+      }
+
+  """
+  @type update_inbound_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_ip_restriction_request() :: %{
         optional("Enabled") => boolean(),
         optional("IpRestrictionRuleMap") => map(),
@@ -22414,6 +23550,33 @@ defmodule AWS.QuickSight do
 
   """
   @type update_knowledge_base_permissions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_knowledge_base_refresh_schedule_request() :: %{
+        optional("ScheduleFrequency") => knowledge_base_refresh_frequency(),
+        optional("StartTime") => [non_neg_integer()],
+        optional("State") => list(any())
+      }
+
+  """
+  @type update_knowledge_base_refresh_schedule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_knowledge_base_refresh_schedule_response() :: %{
+        "KnowledgeBaseArn" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "ScheduleId" => String.t() | atom(),
+        "Status" => integer()
+      }
+
+  """
+  @type update_knowledge_base_refresh_schedule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -23283,6 +24446,31 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      validation_exception() :: %{
+        "FieldList" => list(validation_exception_field()),
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "Message" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       validation_strategy() :: %{
         "Mode" => list(any())
       }
@@ -23888,6 +25076,13 @@ defmodule AWS.QuickSight do
           | internal_failure_exception()
           | access_denied_exception()
 
+  @type batch_delete_policy_assignment_by_policy_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
   @type batch_delete_topic_reviewed_answer_errors() ::
           throttling_exception()
           | resource_not_found_exception()
@@ -23902,12 +25097,37 @@ defmodule AWS.QuickSight do
           | internal_failure_exception()
           | access_denied_exception()
 
+  @type batch_put_policy_assignment_by_policy_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
   @type cancel_ingestion_errors() ::
           throttling_exception()
           | resource_not_found_exception()
           | resource_exists_exception()
           | invalid_parameter_value_exception()
           | internal_failure_exception()
+          | access_denied_exception()
+
+  @type create_access_control_application_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type create_access_control_application_secret_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type create_account_customization_errors() ::
@@ -24090,6 +25310,15 @@ defmodule AWS.QuickSight do
           | concurrent_updating_exception()
           | access_denied_exception()
 
+  @type create_inbound_connector_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type create_ingestion_errors() ::
           throttling_exception()
           | resource_not_found_exception()
@@ -24100,6 +25329,17 @@ defmodule AWS.QuickSight do
           | access_denied_exception()
 
   @type create_knowledge_base_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | resource_exists_exception()
+          | precondition_not_met_exception()
+          | limit_exceeded_exception()
+          | invalid_request_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
+  @type create_knowledge_base_refresh_schedule_errors() ::
           throttling_exception()
           | resource_not_found_exception()
           | resource_exists_exception()
@@ -24243,6 +25483,22 @@ defmodule AWS.QuickSight do
           | throttling_exception()
           | resource_exists_exception()
           | limit_exceeded_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type delete_access_control_application_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type delete_access_control_application_secret_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
           | invalid_parameter_value_exception()
           | internal_failure_exception()
           | conflict_exception()
@@ -24444,6 +25700,14 @@ defmodule AWS.QuickSight do
           | internal_failure_exception()
           | access_denied_exception()
 
+  @type delete_inbound_connector_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type delete_knowledge_base_errors() ::
           throttling_exception()
           | resource_not_found_exception()
@@ -24453,6 +25717,15 @@ defmodule AWS.QuickSight do
           | invalid_parameter_value_exception()
           | internal_failure_exception()
           | conflict_exception()
+          | access_denied_exception()
+
+  @type delete_knowledge_base_refresh_schedule_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | precondition_not_met_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
           | access_denied_exception()
 
   @type delete_limits_profile_errors() ::
@@ -24476,6 +25749,14 @@ defmodule AWS.QuickSight do
           throttling_exception()
           | resource_not_found_exception()
           | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type delete_policy_assignment_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
           | internal_failure_exception()
           | conflict_exception()
           | access_denied_exception()
@@ -24607,6 +25888,13 @@ defmodule AWS.QuickSight do
           | invalid_parameter_value_exception()
           | internal_failure_exception()
           | conflict_exception()
+          | access_denied_exception()
+
+  @type describe_access_control_application_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
           | access_denied_exception()
 
   @type describe_account_custom_permission_errors() ::
@@ -24925,6 +26213,13 @@ defmodule AWS.QuickSight do
           | internal_failure_exception()
           | access_denied_exception()
 
+  @type describe_inbound_connector_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
   @type describe_ingestion_errors() ::
           throttling_exception()
           | resource_not_found_exception()
@@ -24957,6 +26252,16 @@ defmodule AWS.QuickSight do
           | access_denied_exception()
 
   @type describe_knowledge_base_permissions_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | precondition_not_met_exception()
+          | limit_exceeded_exception()
+          | invalid_request_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
+  @type describe_knowledge_base_refresh_schedule_errors() ::
           throttling_exception()
           | resource_not_found_exception()
           | precondition_not_met_exception()
@@ -25239,6 +26544,13 @@ defmodule AWS.QuickSight do
           | internal_failure_exception()
           | access_denied_exception()
 
+  @type get_policy_assignment_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
   @type get_session_embed_url_errors() ::
           unsupported_user_edition_exception()
           | throttling_exception()
@@ -25246,6 +26558,13 @@ defmodule AWS.QuickSight do
           | resource_not_found_exception()
           | resource_exists_exception()
           | quick_sight_user_not_found_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
+  @type list_access_control_applications_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
           | invalid_parameter_value_exception()
           | internal_failure_exception()
           | access_denied_exception()
@@ -25425,10 +26744,34 @@ defmodule AWS.QuickSight do
           | internal_failure_exception()
           | access_denied_exception()
 
+  @type list_inbound_connector_application_associations_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
+  @type list_inbound_connectors_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
   @type list_ingestions_errors() ::
           throttling_exception()
           | resource_not_found_exception()
           | resource_exists_exception()
+          | invalid_parameter_value_exception()
+          | invalid_next_token_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
+  @type list_knowledge_base_refresh_schedules_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | precondition_not_met_exception()
+          | limit_exceeded_exception()
           | invalid_parameter_value_exception()
           | invalid_next_token_exception()
           | internal_failure_exception()
@@ -25463,6 +26806,13 @@ defmodule AWS.QuickSight do
           | resource_not_found_exception()
           | invalid_parameter_value_exception()
           | invalid_next_token_exception()
+          | internal_failure_exception()
+          | access_denied_exception()
+
+  @type list_principals_for_policy_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
           | internal_failure_exception()
           | access_denied_exception()
 
@@ -25645,6 +26995,14 @@ defmodule AWS.QuickSight do
           | precondition_not_met_exception()
           | limit_exceeded_exception()
           | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type put_policy_assignment_errors() ::
+          validation_exception()
+          | throttling_exception()
+          | resource_not_found_exception()
           | internal_failure_exception()
           | conflict_exception()
           | access_denied_exception()
@@ -25840,6 +27198,22 @@ defmodule AWS.QuickSight do
           | resource_not_found_exception()
           | invalid_parameter_value_exception()
           | internal_failure_exception()
+          | access_denied_exception()
+
+  @type update_access_control_application_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type update_access_control_application_secret_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type update_account_custom_permission_errors() ::
@@ -26136,6 +27510,23 @@ defmodule AWS.QuickSight do
           | internal_failure_exception()
           | access_denied_exception()
 
+  @type update_inbound_connector_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type update_inbound_connector_application_associations_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type update_ip_restriction_errors() ::
           throttling_exception()
           | resource_not_found_exception()
@@ -26167,6 +27558,16 @@ defmodule AWS.QuickSight do
           | precondition_not_met_exception()
           | limit_exceeded_exception()
           | invalid_request_exception()
+          | invalid_parameter_value_exception()
+          | internal_failure_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
+  @type update_knowledge_base_refresh_schedule_errors() ::
+          throttling_exception()
+          | resource_not_found_exception()
+          | precondition_not_met_exception()
+          | limit_exceeded_exception()
           | invalid_parameter_value_exception()
           | internal_failure_exception()
           | conflict_exception()
@@ -26522,6 +27923,55 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Removes a governance policy from multiple Amazon Quick Sight principals in a
+  single request.
+
+  A principal that
+  doesn't have the policy is reported as a success.
+
+  Each entry succeeds or fails independently. Check the `Errors` list in the
+  response for
+  entries that failed.
+  """
+  @spec batch_delete_policy_assignment_by_policy(
+          map(),
+          String.t() | atom(),
+          batch_delete_policy_assignment_by_policy_request(),
+          list()
+        ) ::
+          {:ok, batch_delete_policy_assignment_by_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_delete_policy_assignment_by_policy_errors()}
+  def batch_delete_policy_assignment_by_policy(
+        %Client{} = client,
+        account_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/governance-policy-mgmt/accounts/#{AWS.Util.encode_uri(account_id)}/policy-assignments/batch-delete"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes reviewed answers for Q Topic.
   """
   @spec batch_delete_topic_reviewed_answer(
@@ -26601,6 +28051,50 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Assigns a governance policy to multiple Amazon Quick Sight principals in a
+  single request.
+
+  If a principal
+  already has a policy of the same type, this operation replaces it.
+
+  Each entry succeeds or fails independently. Check the `Errors` list in the
+  response for
+  entries that failed.
+  """
+  @spec batch_put_policy_assignment_by_policy(
+          map(),
+          String.t() | atom(),
+          batch_put_policy_assignment_by_policy_request(),
+          list()
+        ) ::
+          {:ok, batch_put_policy_assignment_by_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_put_policy_assignment_by_policy_errors()}
+  def batch_put_policy_assignment_by_policy(%Client{} = client, account_id, input, options \\ []) do
+    url_path =
+      "/governance-policy-mgmt/accounts/#{AWS.Util.encode_uri(account_id)}/policy-assignments/batch-put"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Cancels an ongoing ingestion of data into SPICE.
   """
   @spec cancel_ingestion(
@@ -26642,6 +28136,97 @@ defmodule AWS.QuickSight do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  Creates an access control application in an Amazon Quick Sight account.
+
+  You use an access control application to define how an external client signs in
+  to Quick Sight with OAuth 2.0.
+
+  To connect a client to Quick Sight through an inbound connector, associate the
+  access control application with the connector by using the
+  `UpdateInboundConnectorApplicationAssociations` operation.
+  """
+  @spec create_access_control_application(
+          map(),
+          String.t() | atom(),
+          create_access_control_application_request(),
+          list()
+        ) ::
+          {:ok, create_access_control_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_access_control_application_errors()}
+  def create_access_control_application(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/access-control-applications"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Creates a client secret for an access control application.
+
+  An access control application can have up to two client secrets, so that you can
+  rotate a secret without downtime.
+
+  Provide the Amazon Web Services Secrets Manager (Secrets Manager) secret ARN for
+  each Region where the client secret, issued by your identity provider (IdP), is
+  stored.
+  """
+  @spec create_access_control_application_secret(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          create_access_control_application_secret_request(),
+          list()
+        ) ::
+          {:ok, create_access_control_application_secret_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_access_control_application_secret_errors()}
+  def create_access_control_application_secret(
+        %Client{} = client,
+        application_id,
+        aws_account_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/access-control-applications/#{AWS.Util.encode_uri(application_id)}/client-secrets"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
     )
   end
 
@@ -27423,6 +29008,49 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Creates an inbound connector in a Quick Sight account.
+
+  An inbound connector is the endpoint that an external client, such as the Quick
+  Sight desktop application, uses to reach Quick Sight in your account.
+
+  Your users authenticate through the access control applications that are
+  associated with the connector. To manage these associations, use
+  `UpdateInboundConnectorApplicationAssociations`.
+
+  An account can have one `QUICK_DESKTOP` inbound connector in each Region.
+  """
+  @spec create_inbound_connector(
+          map(),
+          String.t() | atom(),
+          create_inbound_connector_request(),
+          list()
+        ) ::
+          {:ok, create_inbound_connector_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_inbound_connector_errors()}
+  def create_inbound_connector(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/inbound-connectors"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
   Creates and starts a new SPICE ingestion for a dataset.
 
   You can manually refresh datasets in
@@ -27532,6 +29160,54 @@ defmodule AWS.QuickSight do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Creates a schedule that periodically refreshes an Amazon Quick Sight knowledge
+  base at the frequency that you specify.
+
+  A knowledge base can have only one refresh schedule. If the knowledge base
+  already has a refresh schedule, the request fails with a
+  `LimitExceededException`.
+  """
+  @spec create_knowledge_base_refresh_schedule(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          create_knowledge_base_refresh_schedule_request(),
+          list()
+        ) ::
+          {:ok, create_knowledge_base_refresh_schedule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_knowledge_base_refresh_schedule_errors()}
+  def create_knowledge_base_refresh_schedule(
+        %Client{} = client,
+        aws_account_id,
+        knowledge_base_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v1/accounts/#{AWS.Util.encode_uri(aws_account_id)}/knowledge-bases/#{AWS.Util.encode_uri(knowledge_base_id)}/kb-refresh-schedules"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
     )
   end
 
@@ -28072,6 +29748,97 @@ defmodule AWS.QuickSight do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes an access control application.
+
+  You can't delete an access control application that is associated with an
+  inbound connector whose status is `ENABLED`.
+
+  If another update to the same application is in progress, Quick Sight returns a
+  `ConflictException`. Retry the request.
+  """
+  @spec delete_access_control_application(
+          map(),
+          String.t() | atom(),
+          delete_access_control_application_request(),
+          list()
+        ) ::
+          {:ok, delete_access_control_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_access_control_application_errors()}
+  def delete_access_control_application(%Client{} = client, aws_account_id, input, options \\ []) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/access-control-applications"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"ApplicationId", "ApplicationId"},
+        {"IdcApplicationArn", "IdcApplicationArn"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Deletes a client secret from an access control application.
+  """
+  @spec delete_access_control_application_secret(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_access_control_application_secret_request(),
+          list()
+        ) ::
+          {:ok, delete_access_control_application_secret_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_access_control_application_secret_errors()}
+  def delete_access_control_application_secret(
+        %Client{} = client,
+        application_id,
+        aws_account_id,
+        client_secret_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/access-control-applications/#{AWS.Util.encode_uri(application_id)}/client-secrets/#{AWS.Util.encode_uri(client_secret_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -29139,6 +30906,53 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Deletes an inbound connector.
+
+  You must disable the connector before you can delete it. When you delete a
+  connector, Quick Sight doesn't delete the access control applications that are
+  associated with it.
+  """
+  @spec delete_inbound_connector(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_inbound_connector_request(),
+          list()
+        ) ::
+          {:ok, delete_inbound_connector_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_inbound_connector_errors()}
+  def delete_inbound_connector(
+        %Client{} = client,
+        aws_account_id,
+        inbound_connector_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/inbound-connectors/#{AWS.Util.encode_uri(inbound_connector_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes a knowledge base.
   """
   @spec delete_knowledge_base(
@@ -29178,6 +30992,54 @@ defmodule AWS.QuickSight do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Deletes the refresh schedule for an Amazon Quick Sight knowledge base.
+
+  Delete the schedule when you no longer want the knowledge base to refresh
+  automatically.
+  """
+  @spec delete_knowledge_base_refresh_schedule(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_knowledge_base_refresh_schedule_request(),
+          list()
+        ) ::
+          {:ok, delete_knowledge_base_refresh_schedule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_knowledge_base_refresh_schedule_errors()}
+  def delete_knowledge_base_refresh_schedule(
+        %Client{} = client,
+        aws_account_id,
+        knowledge_base_id,
+        schedule_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v1/accounts/#{AWS.Util.encode_uri(aws_account_id)}/knowledge-bases/#{AWS.Util.encode_uri(knowledge_base_id)}/kb-refresh-schedules/#{AWS.Util.encode_uri(schedule_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -29288,6 +31150,54 @@ defmodule AWS.QuickSight do
     headers = []
     custom_headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Removes a governance policy from an Amazon Quick Sight principal.
+
+  If the principal doesn't have the specified
+  policy, the request succeeds and makes no change. If the principal has a
+  different policy of the same
+  type, the request fails with a `ConflictException`.
+  """
+  @spec delete_policy_assignment(
+          map(),
+          String.t() | atom(),
+          delete_policy_assignment_request(),
+          list()
+        ) ::
+          {:ok, delete_policy_assignment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_policy_assignment_errors()}
+  def delete_policy_assignment(%Client{} = client, account_id, input, options \\ []) do
+    url_path =
+      "/governance-policy-mgmt/accounts/#{AWS.Util.encode_uri(account_id)}/policy-assignments"
+
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"PolicyArn", "PolicyArn"},
+        {"PrincipalArn", "PrincipalArn"},
+        {"Revision", "Revision"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 
@@ -29950,6 +31860,38 @@ defmodule AWS.QuickSight do
       options,
       200
     )
+  end
+
+  @doc """
+  Describes an access control application.
+
+  The response includes client secret metadata, but never client secret values.
+  """
+  @spec describe_access_control_application(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, describe_access_control_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_access_control_application_errors()}
+  def describe_access_control_application(
+        %Client{} = client,
+        application_id,
+        aws_account_id,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/access-control-applications/#{AWS.Util.encode_uri(application_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
   end
 
   @doc """
@@ -31314,6 +33256,31 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Describes an inbound connector.
+  """
+  @spec describe_inbound_connector(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, describe_inbound_connector_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_inbound_connector_errors()}
+  def describe_inbound_connector(
+        %Client{} = client,
+        aws_account_id,
+        inbound_connector_id,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/inbound-connectors/#{AWS.Util.encode_uri(inbound_connector_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Describes a SPICE ingestion.
   """
   @spec describe_ingestion(
@@ -31439,6 +33406,39 @@ defmodule AWS.QuickSight do
       ) do
     url_path =
       "/v1/accounts/#{AWS.Util.encode_uri(aws_account_id)}/knowledge-bases/#{AWS.Util.encode_uri(knowledge_base_id)}/permissions"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Describes the refresh schedule for an Amazon Quick Sight knowledge base,
+  including the schedule's frequency, start time, and state.
+  """
+  @spec describe_knowledge_base_refresh_schedule(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, describe_knowledge_base_refresh_schedule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_knowledge_base_refresh_schedule_errors()}
+  def describe_knowledge_base_refresh_schedule(
+        %Client{} = client,
+        aws_account_id,
+        knowledge_base_id,
+        schedule_id,
+        options \\ []
+      ) do
+    url_path =
+      "/v1/accounts/#{AWS.Util.encode_uri(aws_account_id)}/knowledge-bases/#{AWS.Util.encode_uri(knowledge_base_id)}/kb-refresh-schedules/#{AWS.Util.encode_uri(schedule_id)}"
 
     headers = []
     query_params = []
@@ -32193,7 +34193,7 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Generates an embed URL that you can use to embed an Amazon Quick dashboard or
+  Generates an embed URL that you can use to embed an Quick dashboard or
   visual in your website, without having to register any reader users.
 
   Before you use this
@@ -32218,17 +34218,16 @@ defmodule AWS.QuickSight do
   session duration is 10 hours.
 
     *
-  You are charged only when the URL is used or there is interaction with Amazon
-  Quick.
+  You are charged only when the URL is used or there is interaction with Quick.
 
   For more information, see [Embedded
   Analytics](https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html)
   in
-  the *Amazon Quick User Guide*.
+  the *Quick User Guide*.
 
   For more information about the high-level steps for embedding and for an
   interactive
-  demo of the ways you can customize embedding, visit the [Amazon Quick Developer
+  demo of the ways you can customize embedding, visit the [Quick Developer
   Portal](https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html).
   """
   @spec generate_embed_url_for_anonymous_user(
@@ -32268,12 +34267,12 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
-  Generates an embed URL that you can use to embed an Amazon Quick experience
+  Generates an embed URL that you can use to embed an Quick experience
   in your website.
 
-  This action can be used for any type of user registered in an Amazon Quick
-  account. Before you use this action, make sure that you have
-  configured the relevant Amazon Quick resource and permissions.
+  This action can be used for any type of user registered in an Quick account.
+  Before you use this action, make sure that you have
+  configured the relevant Quick resource and permissions.
 
   The following rules apply to the generated URL:
 
@@ -32295,17 +34294,16 @@ defmodule AWS.QuickSight do
   (maximum). The default session duration is 10 hours.
 
     *
-  You are charged only when the URL is used or there is interaction with Amazon
-  Quick.
+  You are charged only when the URL is used or there is interaction with Quick.
 
   For more information, see [Embedded
   Analytics](https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics.html)
   in
-  the *Amazon Quick User Guide*.
+  the *Quick User Guide*.
 
   For more information about the high-level steps for embedding and for an
   interactive
-  demo of the ways you can customize embedding, visit the [Amazon Quick Developer
+  demo of the ways you can customize embedding, visit the [Quick Developer
   Portal](https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html).
   """
   @spec generate_embed_url_for_registered_user(
@@ -32436,12 +34434,12 @@ defmodule AWS.QuickSight do
 
   For more information, see [Embedding Analytics Using
   GetDashboardEmbedUrl](https://docs.aws.amazon.com/quicksight/latest/user/embedded-analytics-deprecated.html)
-  in the *Amazon Quick User
+  in the *Quick User
   Guide*.
 
   For more information about the high-level steps for embedding and for an
   interactive
-  demo of the ways you can customize embedding, visit the [Amazon Quick Developer
+  demo of the ways you can customize embedding, visit the [Quick Developer
   Portal](https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html).
   """
   @spec get_dashboard_embed_url(
@@ -32683,6 +34681,56 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Describes the policy of the specified type that an Amazon Quick Sight principal
+  has.
+
+  If the principal has no
+  policy of that type, the response contains no policy details.
+  """
+  @spec get_policy_assignment(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, get_policy_assignment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_policy_assignment_errors()}
+  def get_policy_assignment(
+        %Client{} = client,
+        account_id,
+        policy_type,
+        principal_arn,
+        options \\ []
+      ) do
+    url_path =
+      "/governance-policy-mgmt/accounts/#{AWS.Util.encode_uri(account_id)}/policy-assignments"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(policy_type) do
+        [{"PolicyType", policy_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(principal_arn) do
+        [{"PrincipalArn", principal_arn} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Generates a session URL and authorization code that you can use to embed the
   Amazon
   Amazon Quick Sight console in your web server code.
@@ -32712,7 +34760,7 @@ defmodule AWS.QuickSight do
   API operation to add a new user with a custom
   permission profile attached. For more information, see the following sections in
   the
-  *Amazon Quick User Guide*:
+  *Quick User Guide*:
 
     *
 
@@ -32720,7 +34768,7 @@ defmodule AWS.QuickSight do
 
     *
 
-  [Customizing Access to the Amazon Quick Console](https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html)
+  [Customizing Access to the Quick Console](https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html)
   """
   @spec get_session_embed_url(
           map(),
@@ -32763,6 +34811,63 @@ defmodule AWS.QuickSight do
     query_params =
       if !is_nil(user_arn) do
         [{"user-arn", user_arn} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the access control applications in a Quick Sight account in the current
+  Amazon Web Services Region.
+
+  You can filter the results by namespace. Quick Sight paginates the results. To
+  retrieve additional results, use the `NextToken` parameter.
+  """
+  @spec list_access_control_applications(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_access_control_applications_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_access_control_applications_errors()}
+  def list_access_control_applications(
+        %Client{} = client,
+        aws_account_id,
+        max_results \\ nil,
+        namespace \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/access-control-applications"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(namespace) do
+        [{"namespace", namespace} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
       else
         query_params
       end
@@ -33867,6 +35972,114 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Lists the access control applications that are associated with an inbound
+  connector.
+
+  Quick Sight paginates the results. To retrieve additional results, use the
+  `NextToken` parameter.
+  """
+  @spec list_inbound_connector_application_associations(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_inbound_connector_application_associations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_inbound_connector_application_associations_errors()}
+  def list_inbound_connector_application_associations(
+        %Client{} = client,
+        aws_account_id,
+        inbound_connector_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/inbound-connectors/#{AWS.Util.encode_uri(inbound_connector_id)}/associations"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the inbound connectors in a Quick Sight account.
+
+  You can filter the results by connector type. Quick Sight paginates the results.
+  To retrieve additional results, use the `NextToken` parameter.
+  """
+  @spec list_inbound_connectors(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_inbound_connectors_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_inbound_connectors_errors()}
+  def list_inbound_connectors(
+        %Client{} = client,
+        aws_account_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        type \\ nil,
+        options \\ []
+      ) do
+    url_path = "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/inbound-connectors"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(type) do
+        [{"type", type} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists the history of SPICE ingestions for a dataset.
 
   Limited to 5 TPS per user and 25 TPS per account.
@@ -33893,6 +36106,58 @@ defmodule AWS.QuickSight do
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/ingestions"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"max-results", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the refresh schedules for an Amazon Quick Sight knowledge base.
+
+  Currently, a knowledge base can have only one refresh schedule, so the list
+  contains at most one schedule. Results are paginated. To retrieve the next page
+  of results, use the `NextToken` value from the previous response.
+  """
+  @spec list_knowledge_base_refresh_schedules(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_knowledge_base_refresh_schedules_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_knowledge_base_refresh_schedules_errors()}
+  def list_knowledge_base_refresh_schedules(
+        %Client{} = client,
+        aws_account_id,
+        knowledge_base_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/v1/accounts/#{AWS.Util.encode_uri(aws_account_id)}/knowledge-bases/#{AWS.Util.encode_uri(knowledge_base_id)}/kb-refresh-schedules"
 
     headers = []
     query_params = []
@@ -34099,6 +36364,84 @@ defmodule AWS.QuickSight do
     query_params =
       if !is_nil(next_token) do
         [{"next-token", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the Amazon Quick Sight principals that have a governance policy.
+
+  This operation returns paginated
+  results. A page can contain fewer results than `MaxResults`, or none, and still
+  include a
+  `NextToken`. Continue to call the operation until the response doesn't include a
+  `NextToken`. We recommend that you use pagination to make sure that the
+  operation returns
+  quickly and successfully.
+
+  Results are eventually consistent and might not reflect recent changes. If the
+  policy has no
+  assignments, the response contains an empty `Principals` list. If the policy
+  doesn't exist,
+  the request fails with a `ResourceNotFoundException`.
+  """
+  @spec list_principals_for_policy(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_principals_for_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_principals_for_policy_errors()}
+  def list_principals_for_policy(
+        %Client{} = client,
+        account_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        policy_arn,
+        principal_type \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/governance-policy-mgmt/accounts/#{AWS.Util.encode_uri(account_id)}/policy-assignments/by-policy"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"MaxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"NextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(policy_arn) do
+        [{"PolicyArn", policy_arn} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(principal_type) do
+        [{"PrincipalType", principal_type} | query_params]
       else
         query_params
       end
@@ -34974,6 +37317,48 @@ defmodule AWS.QuickSight do
       ) do
     url_path =
       "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/data-sets/#{AWS.Util.encode_uri(data_set_id)}/refresh-properties"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Assigns a governance policy to an Amazon Quick Sight principal.
+
+  A principal can have one policy of each
+  policy type. If the principal already has a policy of the same type, this
+  operation replaces it.
+
+  To make the change conditional, specify `ExistingPolicyArn`, `Revision`, or
+  both. If the current assignment doesn't match, the request fails with a
+  `ConflictException`
+  and makes no change. If the principal already has the specified policy, the
+  request succeeds and makes
+  no change.
+  """
+  @spec put_policy_assignment(map(), String.t() | atom(), put_policy_assignment_request(), list()) ::
+          {:ok, put_policy_assignment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_policy_assignment_errors()}
+  def put_policy_assignment(%Client{} = client, account_id, input, options \\ []) do
+    url_path =
+      "/governance-policy-mgmt/accounts/#{AWS.Util.encode_uri(account_id)}/policy-assignments"
 
     headers = []
     custom_headers = []
@@ -36038,6 +38423,108 @@ defmodule AWS.QuickSight do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an access control application.
+
+  You can change its name, description, status, IdP settings such as the client ID
+  and issuer URL, and its Quick Sight authentication settings such as redirect
+  URIs.
+
+  You can't change the `IdpAuthorizingType`, the `QuickAuthenticationType`, or the
+  trusted token issuer after the application is created. To manage client secrets,
+  use `CreateAccessControlApplicationSecret`,
+  `UpdateAccessControlApplicationSecret`, and
+  `DeleteAccessControlApplicationSecret`.
+  """
+  @spec update_access_control_application(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_access_control_application_request(),
+          list()
+        ) ::
+          {:ok, update_access_control_application_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_access_control_application_errors()}
+  def update_access_control_application(
+        %Client{} = client,
+        application_id,
+        aws_account_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/access-control-applications/#{AWS.Util.encode_uri(application_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the Amazon Web Services Secrets Manager secret ARNs of an IdP-provided
+  client secret.
+
+  You can add, replace, or remove the ARN for a Region, but you can't remove the
+  last remaining Region. To remove it, delete the client secret.
+  """
+  @spec update_access_control_application_secret(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_access_control_application_secret_request(),
+          list()
+        ) ::
+          {:ok, update_access_control_application_secret_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_access_control_application_secret_errors()}
+  def update_access_control_application_secret(
+        %Client{} = client,
+        application_id,
+        aws_account_id,
+        client_secret_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/access-control-applications/#{AWS.Util.encode_uri(application_id)}/client-secrets/#{AWS.Util.encode_uri(client_secret_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -37459,6 +39946,99 @@ defmodule AWS.QuickSight do
   end
 
   @doc """
+  Updates an inbound connector.
+
+  You can change its name, description, status, and configuration. You can't
+  change the connector type after the connector is created.
+  """
+  @spec update_inbound_connector(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_inbound_connector_request(),
+          list()
+        ) ::
+          {:ok, update_inbound_connector_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_inbound_connector_errors()}
+  def update_inbound_connector(
+        %Client{} = client,
+        aws_account_id,
+        inbound_connector_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/inbound-connectors/#{AWS.Util.encode_uri(inbound_connector_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Associates access control applications with an inbound connector, disassociates
+  them from it, or both.
+
+  You can add up to 20 associations and remove up to 20 associations in each
+  request. An inbound connector supports up to 6,000 associations.
+  """
+  @spec update_inbound_connector_application_associations(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_inbound_connector_application_associations_request(),
+          list()
+        ) ::
+          {:ok, update_inbound_connector_application_associations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_inbound_connector_application_associations_errors()}
+  def update_inbound_connector_application_associations(
+        %Client{} = client,
+        aws_account_id,
+        inbound_connector_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/accounts/#{AWS.Util.encode_uri(aws_account_id)}/inbound-connectors/#{AWS.Util.encode_uri(inbound_connector_id)}/associations"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Updates the content and status of IP rules.
 
   Traffic from a source is allowed when the source satisfies either the
@@ -37603,6 +40183,56 @@ defmodule AWS.QuickSight do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the refresh schedule for an Amazon Quick Sight knowledge base.
+
+  Use this operation to change how often the knowledge base refreshes, or to
+  enable or disable the schedule. Specify the schedule by its `ScheduleId`. The
+  operation changes only the fields that you provide. Any field that you omit
+  keeps its existing value.
+  """
+  @spec update_knowledge_base_refresh_schedule(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_knowledge_base_refresh_schedule_request(),
+          list()
+        ) ::
+          {:ok, update_knowledge_base_refresh_schedule_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_knowledge_base_refresh_schedule_errors()}
+  def update_knowledge_base_refresh_schedule(
+        %Client{} = client,
+        aws_account_id,
+        knowledge_base_id,
+        schedule_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v1/accounts/#{AWS.Util.encode_uri(aws_account_id)}/knowledge-bases/#{AWS.Util.encode_uri(knowledge_base_id)}/kb-refresh-schedules/#{AWS.Util.encode_uri(schedule_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
       url_path,
       query_params,
       custom_headers ++ headers,

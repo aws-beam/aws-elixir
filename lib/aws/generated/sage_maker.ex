@@ -513,6 +513,35 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      add_inference_gateway_request() :: %{
+        required("ClusterArn") => String.t() | atom(),
+        required("Identifier") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("Namespace") => String.t() | atom()
+      }
+      
+  """
+  @type add_inference_gateway_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_inference_gateway_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Gateway" => global_inference_gateway_member(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type add_inference_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       add_tags_input() :: %{
         required("ResourceArn") => String.t() | atom(),
         required("Tags") => list(tag())
@@ -1847,6 +1876,115 @@ defmodule AWS.SageMaker do
       
   """
   @type capacity_reservation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_reservation_detail() :: %{
+        "AvailabilityZone" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "EndTime" => non_neg_integer(),
+        "InstanceType" => String.t() | atom(),
+        "Owner" => String.t() | atom(),
+        "SMCapacityReservationArn" => String.t() | atom(),
+        "SMCapacityReservationId" => String.t() | atom(),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "TotalInstanceCount" => integer()
+      }
+      
+  """
+  @type capacity_reservation_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_reservation_endpoints_association() :: %{
+        "AssociatedTime" => non_neg_integer(),
+        "EndpointSharing" => list(any()),
+        "FailureReason" => String.t() | atom(),
+        "MatchCriteria" => list(any()),
+        "MlReservationArn" => String.t() | atom(),
+        "MlReservationId" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type capacity_reservation_endpoints_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_reservation_filter() :: %{
+        "Name" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type capacity_reservation_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_reservation_hyper_pod_clusters_association() :: %{
+        "AssociatedTime" => non_neg_integer(),
+        "FailureReason" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type capacity_reservation_hyper_pod_clusters_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_reservation_instance_usage() :: %{
+        "AccountId" => String.t() | atom(),
+        "InUseInstanceCount" => integer(),
+        "ResourcesUsage" => list(capacity_reservation_resource_usage())
+      }
+      
+  """
+  @type capacity_reservation_instance_usage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_reservation_resource_usage() :: %{
+        "InUseInstanceCount" => integer(),
+        "ResourceType" => list(any())
+      }
+      
+  """
+  @type capacity_reservation_resource_usage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_reservation_summary() :: %{
+        "AvailabilityZone" => String.t() | atom(),
+        "AvailabilityZoneId" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "EndTime" => non_neg_integer(),
+        "InstanceType" => String.t() | atom(),
+        "Owner" => String.t() | atom(),
+        "SMCapacityReservationArn" => String.t() | atom(),
+        "SMCapacityReservationId" => String.t() | atom(),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "TotalInstanceCount" => integer()
+      }
+      
+  """
+  @type capacity_reservation_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4002,6 +4140,39 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      create_global_inference_gateway_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Routing") => global_inference_gateway_routing(),
+        optional("Tags") => list(tag()),
+        required("ExecutionRoleArn") => String.t() | atom(),
+        required("Gateways") => list(global_inference_gateway_member()),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_global_inference_gateway_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_global_inference_gateway_response() :: %{
+        "Arn" => String.t() | atom(),
+        "ExecutionRoleArn" => String.t() | atom(),
+        "Gateways" => list(global_inference_gateway_member()),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Routing" => global_inference_gateway_routing(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type create_global_inference_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_hub_content_presigned_urls_request() :: %{
         optional("AccessConfig") => presigned_url_access_config(),
         optional("HubContentVersion") => String.t() | atom(),
@@ -6104,6 +6275,30 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      delete_global_inference_gateway_request() :: %{
+        required("Identifier") => String.t() | atom()
+      }
+      
+  """
+  @type delete_global_inference_gateway_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_global_inference_gateway_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type delete_global_inference_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_hub_content_reference_request() :: %{
         required("HubContentName") => String.t() | atom(),
         required("HubContentType") => list(any()),
@@ -7150,6 +7345,28 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      describe_capacity_reservation_request() :: %{
+        required("SMCapacityReservationArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_capacity_reservation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_capacity_reservation_response() :: %{
+        "CapacityReservation" => capacity_reservation_detail()
+      }
+      
+  """
+  @type describe_capacity_reservation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_cluster_event_request() :: %{
         required("ClusterName") => String.t() | atom(),
         required("EventId") => String.t() | atom()
@@ -7865,6 +8082,37 @@ defmodule AWS.SageMaker do
       
   """
   @type describe_flow_definition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_global_inference_gateway_request() :: %{
+        required("Identifier") => String.t() | atom()
+      }
+      
+  """
+  @type describe_global_inference_gateway_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_global_inference_gateway_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "EndpointUrl" => String.t() | atom(),
+        "ExecutionRoleArn" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Routing" => global_inference_gateway_routing(),
+        "Status" => list(any()),
+        "VpcEndpointServiceName" => String.t() | atom()
+      }
+      
+  """
+  @type describe_global_inference_gateway_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9088,6 +9336,33 @@ defmodule AWS.SageMaker do
       
   """
   @type describe_reserved_capacity_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_resource_associations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("SMCapacityReservationArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_resource_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_resource_associations_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ResourceAssociations" => list(list()),
+        "SMCapacityReservationArn" => String.t() | atom(),
+        "SMCapacityReservationId" => String.t() | atom()
+      }
+      
+  """
+  @type describe_resource_associations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10848,6 +11123,35 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      get_capacity_reservation_usage_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("SMCapacityReservationArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_capacity_reservation_usage_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_capacity_reservation_usage_response() :: %{
+        "AvailableInstanceCount" => integer(),
+        "InstanceUsageSet" => list(capacity_reservation_instance_usage()),
+        "LastRefreshTime" => non_neg_integer(),
+        "NextToken" => String.t() | atom(),
+        "SMCapacityReservationId" => String.t() | atom(),
+        "TotalInstanceCount" => integer()
+      }
+      
+  """
+  @type get_capacity_reservation_usage_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_device_fleet_report_request() :: %{
         required("DeviceFleetName") => String.t() | atom()
       }
@@ -11042,6 +11346,98 @@ defmodule AWS.SageMaker do
       
   """
   @type git_config_for_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      global_inference_gateway_filter() :: %{
+        "Name" => list(any()),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type global_inference_gateway_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      global_inference_gateway_member() :: %{
+        "ClusterArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Namespace" => String.t() | atom()
+      }
+      
+  """
+  @type global_inference_gateway_member() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      global_inference_gateway_member_filter() :: %{
+        "Name" => list(any()),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type global_inference_gateway_member_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      global_inference_gateway_member_summary() :: %{
+        "ClusterArn" => String.t() | atom(),
+        "FailureReason" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Namespace" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type global_inference_gateway_member_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      global_inference_gateway_routing() :: %{
+        "Weights" => global_inference_gateway_routing_weights()
+      }
+      
+  """
+  @type global_inference_gateway_routing() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      global_inference_gateway_routing_weights() :: %{
+        "ErrorRate" => float(),
+        "KVHeadroom" => float(),
+        "QueueDepth" => float(),
+        "RegionProximity" => float()
+      }
+      
+  """
+  @type global_inference_gateway_routing_weights() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      global_inference_gateway_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type global_inference_gateway_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13066,6 +13462,31 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      list_capacity_reservations_request() :: %{
+        optional("Filters") => list(capacity_reservation_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_capacity_reservations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_capacity_reservations_response() :: %{
+        "CapacityReservationSummaries" => list(capacity_reservation_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_capacity_reservations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_cluster_events_request() :: %{
         optional("EventTimeAfter") => non_neg_integer(),
         optional("EventTimeBefore") => non_neg_integer(),
@@ -13722,6 +14143,31 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      list_global_inference_gateways_request() :: %{
+        optional("Filters") => list(global_inference_gateway_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_global_inference_gateways_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_global_inference_gateways_response() :: %{
+        "GlobalInferenceGatewaySummaries" => list(global_inference_gateway_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_global_inference_gateways_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_hub_content_versions_request() :: %{
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
@@ -14001,6 +14447,32 @@ defmodule AWS.SageMaker do
       
   """
   @type list_inference_experiments_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_inference_gateways_request() :: %{
+        optional("Filters") => list(global_inference_gateway_member_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("Identifier") => String.t() | atom()
+      }
+      
+  """
+  @type list_inference_gateways_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_inference_gateways_response() :: %{
+        "InferenceGatewaySummaries" => list(global_inference_gateway_member_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_inference_gateways_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16940,6 +17412,64 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      move_cluster_node_logical_ids_error() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom(),
+        "NodeLogicalId" => String.t() | atom()
+      }
+      
+  """
+  @type move_cluster_node_logical_ids_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      move_cluster_nodes_error() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom(),
+        "NodeId" => String.t() | atom()
+      }
+      
+  """
+  @type move_cluster_nodes_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      move_cluster_nodes_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("InstanceCount") => integer(),
+        optional("NodeIds") => list(String.t() | atom()),
+        optional("NodeLogicalIds") => list(String.t() | atom()),
+        required("SourceClusterArn") => String.t() | atom(),
+        required("SourceInstanceGroupName") => String.t() | atom(),
+        required("TargetClusterArn") => String.t() | atom(),
+        required("TargetInstanceGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type move_cluster_nodes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      move_cluster_nodes_response() :: %{
+        "Failed" => list(move_cluster_nodes_error()),
+        "FailedNodeLogicalIds" => list(move_cluster_node_logical_ids_error()),
+        "Successful" => list(String.t() | atom()),
+        "SuccessfulNodeLogicalIds" => list(String.t() | atom())
+      }
+      
+  """
+  @type move_cluster_nodes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       multi_model_config() :: %{
         "ModelCacheSetting" => list(any())
       }
@@ -18685,6 +19215,35 @@ defmodule AWS.SageMaker do
       
   """
   @type remote_debug_config_for_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_inference_gateway_request() :: %{
+        required("ClusterArn") => String.t() | atom(),
+        required("Identifier") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("Namespace") => String.t() | atom()
+      }
+      
+  """
+  @type remove_inference_gateway_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_inference_gateway_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Gateway" => global_inference_gateway_member(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type remove_inference_gateway_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -21829,6 +22388,33 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      update_global_inference_gateway_request() :: %{
+        required("Identifier") => String.t() | atom(),
+        required("Routing") => global_inference_gateway_routing()
+      }
+      
+  """
+  @type update_global_inference_gateway_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_global_inference_gateway_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Routing" => global_inference_gateway_routing(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type update_global_inference_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_hub_content_reference_request() :: %{
         optional("MinVersion") => String.t() | atom(),
         required("HubContentName") => String.t() | atom(),
@@ -22841,6 +23427,12 @@ defmodule AWS.SageMaker do
 
   @type add_association_errors() :: resource_not_found() | resource_limit_exceeded()
 
+  @type add_inference_gateway_errors() ::
+          resource_not_found()
+          | resource_limit_exceeded()
+          | resource_in_use()
+          | conflict_exception()
+
   @type associate_trial_component_errors() :: resource_not_found() | resource_limit_exceeded()
 
   @type attach_cluster_node_network_interface_errors() ::
@@ -22912,6 +23504,8 @@ defmodule AWS.SageMaker do
   @type create_feature_group_errors() :: resource_limit_exceeded() | resource_in_use()
 
   @type create_flow_definition_errors() :: resource_limit_exceeded() | resource_in_use()
+
+  @type create_global_inference_gateway_errors() :: resource_limit_exceeded() | resource_in_use()
 
   @type create_hub_errors() :: resource_limit_exceeded() | resource_in_use()
 
@@ -23065,6 +23659,8 @@ defmodule AWS.SageMaker do
 
   @type delete_flow_definition_errors() :: resource_not_found() | resource_in_use()
 
+  @type delete_global_inference_gateway_errors() :: conflict_exception()
+
   @type delete_hub_errors() :: resource_not_found() | resource_in_use()
 
   @type delete_hub_content_errors() :: resource_not_found() | resource_in_use()
@@ -23145,6 +23741,8 @@ defmodule AWS.SageMaker do
 
   @type describe_auto_ml_job_v2_errors() :: resource_not_found()
 
+  @type describe_capacity_reservation_errors() :: resource_not_found()
+
   @type describe_cluster_errors() :: resource_not_found()
 
   @type describe_cluster_event_errors() :: resource_not_found()
@@ -23182,6 +23780,8 @@ defmodule AWS.SageMaker do
   @type describe_feature_metadata_errors() :: resource_not_found()
 
   @type describe_flow_definition_errors() :: resource_not_found()
+
+  @type describe_global_inference_gateway_errors() :: resource_not_found()
 
   @type describe_hub_errors() :: resource_not_found()
 
@@ -23239,6 +23839,8 @@ defmodule AWS.SageMaker do
 
   @type describe_reserved_capacity_errors() :: resource_not_found()
 
+  @type describe_resource_associations_errors() :: resource_not_found()
+
   @type describe_space_errors() :: resource_not_found()
 
   @type describe_studio_lifecycle_config_errors() :: resource_not_found()
@@ -23264,6 +23866,8 @@ defmodule AWS.SageMaker do
   @type disassociate_trial_component_errors() :: resource_not_found()
 
   @type extend_training_plan_errors() :: resource_not_found()
+
+  @type get_capacity_reservation_usage_errors() :: resource_not_found()
 
   @type get_endpoint_policy_errors() :: resource_not_found()
 
@@ -23300,6 +23904,8 @@ defmodule AWS.SageMaker do
 
   @type list_image_versions_errors() :: resource_not_found()
 
+  @type list_inference_gateways_errors() :: resource_not_found()
+
   @type list_inference_recommendations_job_steps_errors() :: resource_not_found()
 
   @type list_job_schema_versions_errors() :: resource_not_found()
@@ -23330,6 +23936,8 @@ defmodule AWS.SageMaker do
 
   @type list_ultra_servers_by_reserved_capacity_errors() :: resource_not_found()
 
+  @type move_cluster_nodes_errors() :: resource_not_found()
+
   @type put_endpoint_policy_errors() :: resource_not_found()
 
   @type put_model_package_group_policy_errors() :: conflict_exception()
@@ -23337,6 +23945,8 @@ defmodule AWS.SageMaker do
   @type query_lineage_errors() :: resource_not_found()
 
   @type register_devices_errors() :: resource_limit_exceeded()
+
+  @type remove_inference_gateway_errors() :: resource_not_found() | conflict_exception()
 
   @type render_ui_template_errors() :: resource_not_found()
 
@@ -23438,6 +24048,8 @@ defmodule AWS.SageMaker do
 
   @type update_feature_metadata_errors() :: resource_not_found()
 
+  @type update_global_inference_gateway_errors() :: resource_not_found() | conflict_exception()
+
   @type update_hub_errors() :: resource_not_found()
 
   @type update_hub_content_errors() :: resource_not_found() | resource_in_use()
@@ -23534,6 +24146,36 @@ defmodule AWS.SageMaker do
       metadata()
 
     Request.request_post(client, meta, "AddAssociation", input, options)
+  end
+
+  @doc """
+  Adds an in-cluster inference gateway to a global inference gateway.
+
+  This operation is
+  asynchronous: the in-cluster inference gateway starts in the `ADDING` status. To
+  check its status,
+  call `ListInferenceGateways`. If the in-cluster inference gateway is already in
+  the global
+  inference gateway, the operation succeeds and returns its current status.
+
+  An in-cluster inference gateway can belong to only one global inference gateway.
+  If it already
+  belongs to another global inference gateway, the operation fails with
+  `ResourceInUse`. The
+  operation fails with `ConflictException` while another operation is in progress
+  on the global
+  inference gateway, or if the global inference gateway failed to create.
+  """
+  @spec add_inference_gateway(map(), add_inference_gateway_request(), list()) ::
+          {:ok, add_inference_gateway_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, add_inference_gateway_errors()}
+  def add_inference_gateway(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "AddInferenceGateway", input, options)
   end
 
   @doc """
@@ -24565,6 +25207,30 @@ defmodule AWS.SageMaker do
       metadata()
 
     Request.request_post(client, meta, "CreateFlowDefinition", input, options)
+  end
+
+  @doc """
+  Creates a global inference gateway.
+
+  This operation is asynchronous: the global inference gateway
+  starts in the `CREATING` status. To check its status, call
+  `DescribeGlobalInferenceGateway` until
+  the status is `ACTIVE` or `FAILED`. The operation fails with `ResourceInUse` if
+  the name is already
+  in use, or if one of the in-cluster inference gateways in `Gateways` already
+  belongs to another
+  global inference gateway.
+  """
+  @spec create_global_inference_gateway(map(), create_global_inference_gateway_request(), list()) ::
+          {:ok, create_global_inference_gateway_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_global_inference_gateway_errors()}
+  def create_global_inference_gateway(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateGlobalInferenceGateway", input, options)
   end
 
   @doc """
@@ -26357,6 +27023,32 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Delete a global inference gateway and its member inference gateways, which are
+  then free to join
+  another global inference gateway.
+
+  Asynchronous: the global inference gateway is DELETING while its
+  managed endpoint resources are torn down; poll DescribeGlobalInferenceGateway
+  until it returns
+  ResourceNotFound. Does not touch the customer's clusters. Idempotent: a Delete
+  whose Identifier
+  matches no global inference gateway succeeds and echoes what the Identifier says
+  (Arn and Id for an
+  ARN or Id, Name for a name).
+  """
+  @spec delete_global_inference_gateway(map(), delete_global_inference_gateway_request(), list()) ::
+          {:ok, delete_global_inference_gateway_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_global_inference_gateway_errors()}
+  def delete_global_inference_gateway(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteGlobalInferenceGateway", input, options)
+  end
+
+  @doc """
   Delete a hub.
   """
   @spec delete_hub(map(), delete_hub_request(), list()) ::
@@ -27255,6 +27947,22 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Returns details about a SageMaker Capacity Reservation, such as its instance
+  type, instance count, Availability Zone, and start and end times.
+  """
+  @spec describe_capacity_reservation(map(), describe_capacity_reservation_request(), list()) ::
+          {:ok, describe_capacity_reservation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_capacity_reservation_errors()}
+  def describe_capacity_reservation(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeCapacityReservation", input, options)
+  end
+
+  @doc """
   Retrieves information of a SageMaker HyperPod cluster.
   """
   @spec describe_cluster(map(), describe_cluster_request(), list()) ::
@@ -27614,6 +28322,30 @@ defmodule AWS.SageMaker do
       metadata()
 
     Request.request_post(client, meta, "DescribeFlowDefinition", input, options)
+  end
+
+  @doc """
+  Retrieves information about a global inference gateway, including its status,
+  endpoints, and routing configuration.
+
+  To list the in-cluster inference gateways of the global inference gateway, use
+  `ListInferenceGateways`. To read the tags of the global inference gateway, use
+  `ListTags`.
+  """
+  @spec describe_global_inference_gateway(
+          map(),
+          describe_global_inference_gateway_request(),
+          list()
+        ) ::
+          {:ok, describe_global_inference_gateway_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_global_inference_gateway_errors()}
+  def describe_global_inference_gateway(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeGlobalInferenceGateway", input, options)
   end
 
   @doc """
@@ -28227,6 +28959,24 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Returns the resources in your account that are associated with a SageMaker
+  Capacity Reservation and the status of each association.
+
+  Resources include SageMaker AI HyperPod clusters and SageMaker AI endpoints.
+  """
+  @spec describe_resource_associations(map(), describe_resource_associations_request(), list()) ::
+          {:ok, describe_resource_associations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_resource_associations_errors()}
+  def describe_resource_associations(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeResourceAssociations", input, options)
+  end
+
+  @doc """
   Describes the space.
   """
   @spec describe_space(map(), describe_space_request(), list()) ::
@@ -28573,6 +29323,25 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Returns the number of instances in use from a SageMaker Capacity Reservation,
+  for each account that uses them.
+
+  SageMaker AI refreshes the usage counts periodically. The `LastRefreshTime`
+  value shows when the counts were last refreshed.
+  """
+  @spec get_capacity_reservation_usage(map(), get_capacity_reservation_usage_request(), list()) ::
+          {:ok, get_capacity_reservation_usage_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_capacity_reservation_usage_errors()}
+  def get_capacity_reservation_usage(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetCapacityReservationUsage", input, options)
+  end
+
+  @doc """
   Describes a fleet.
   """
   @spec get_device_fleet_report(map(), get_device_fleet_report_request(), list()) ::
@@ -28900,6 +29669,22 @@ defmodule AWS.SageMaker do
       metadata()
 
     Request.request_post(client, meta, "ListCandidatesForAutoMLJob", input, options)
+  end
+
+  @doc """
+  Lists the SageMaker Capacity Reservations in your account.
+
+  An empty list is a valid response.
+  """
+  @spec list_capacity_reservations(map(), list_capacity_reservations_request(), list()) ::
+          {:ok, list_capacity_reservations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def list_capacity_reservations(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListCapacityReservations", input, options)
   end
 
   @doc """
@@ -29245,6 +30030,22 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Lists summaries of the global inference gateways in your account.
+
+  You can filter the results by status.
+  """
+  @spec list_global_inference_gateways(map(), list_global_inference_gateways_request(), list()) ::
+          {:ok, list_global_inference_gateways_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def list_global_inference_gateways(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListGlobalInferenceGateways", input, options)
+  end
+
+  @doc """
   List hub content versions.
   """
   @spec list_hub_content_versions(map(), list_hub_content_versions_request(), list()) ::
@@ -29382,6 +30183,29 @@ defmodule AWS.SageMaker do
       metadata()
 
     Request.request_post(client, meta, "ListInferenceExperiments", input, options)
+  end
+
+  @doc """
+  Lists the in-cluster inference gateways in a global inference gateway, in the
+  order that they were
+  added.
+
+  Each summary includes the status of the in-cluster inference gateway and, if the
+  status is
+  `FAILED`, the reason for the failure. `DescribeGlobalInferenceGateway` doesn't
+  return the in-cluster
+  inference gateways; use this operation to list them.
+  """
+  @spec list_inference_gateways(map(), list_inference_gateways_request(), list()) ::
+          {:ok, list_inference_gateways_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_inference_gateways_errors()}
+  def list_inference_gateways(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListInferenceGateways", input, options)
   end
 
   @doc """
@@ -30260,6 +31084,46 @@ defmodule AWS.SageMaker do
   end
 
   @doc """
+  Moves running nodes from one instance group to another instance group.
+
+  The target instance group can be in the same HyperPod cluster or in a different
+  HyperPod cluster in the same account and Region. The underlying instances aren't
+  terminated.
+
+  Each node keeps its instance ID, its `NodeLogicalId`, its network interfaces and
+  IP addresses, and its capacity. The node then joins the target instance group
+  with the target's configuration and lifecycle scripts.
+
+  The move replaces the node's root Amazon Elastic Block Store (Amazon EBS) volume
+  and secondary EBS volume, which deletes any data stored on them. Back up any
+  data that you need before you move the node.
+
+  Specify the nodes to move with exactly one of `NodeIds`, `NodeLogicalIds`, or
+  `InstanceCount`. The operation is asynchronous and returns after it accepts the
+  nodes for the move. While a node moves, its status is `DetachInProgress` and
+  then `AttachInProgress`. The node appears in the source cluster while it
+  detaches. After HyperPod hands the node off to the target instance group, the
+  node appears in the target cluster. To track the node, call
+  `DescribeClusterNode` or `ListClusterNodes` on the source or target cluster.
+
+  Both clusters must be `InService`, use Amazon EKS orchestration, and use
+  `Continuous` as the `NodeProvisioningMode`.
+
+  The source and target instance groups must also use compatible configurations.
+  """
+  @spec move_cluster_nodes(map(), move_cluster_nodes_request(), list()) ::
+          {:ok, move_cluster_nodes_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, move_cluster_nodes_errors()}
+  def move_cluster_nodes(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "MoveClusterNodes", input, options)
+  end
+
+  @doc """
   Attaches a resource-based policy to an endpoint.
 
   With an endpoint policy, you can allow other Amazon Web Services accounts to
@@ -30338,6 +31202,36 @@ defmodule AWS.SageMaker do
       metadata()
 
     Request.request_post(client, meta, "RegisterDevices", input, options)
+  end
+
+  @doc """
+  Removes an in-cluster inference gateway from a global inference gateway.
+
+  This operation is
+  asynchronous: the in-cluster inference gateway moves to the `REMOVING` status,
+  and then no longer
+  appears in `ListInferenceGateways`. If the in-cluster inference gateway isn't in
+  the global
+  inference gateway, the operation succeeds and returns no status. The operation
+  returns
+  `ResourceNotFound` only if the global inference gateway doesn't exist.
+
+  The operation fails with `ConflictException` while another operation is in
+  progress on the global
+  inference gateway. It fails with `ValidationException` if the in-cluster
+  inference gateway is the
+  last one, because a global inference gateway must have at least one.
+  """
+  @spec remove_inference_gateway(map(), remove_inference_gateway_request(), list()) ::
+          {:ok, remove_inference_gateway_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, remove_inference_gateway_errors()}
+  def remove_inference_gateway(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "RemoveInferenceGateway", input, options)
   end
 
   @doc """
@@ -31339,6 +32233,29 @@ defmodule AWS.SageMaker do
       metadata()
 
     Request.request_post(client, meta, "UpdateFeatureMetadata", input, options)
+  end
+
+  @doc """
+  Updates the routing configuration of a global inference gateway.
+
+  To add or remove in-cluster
+  inference gateways, use `AddInferenceGateway` and `RemoveInferenceGateway`. This
+  operation is
+  asynchronous: the global inference gateway moves to the `UPDATING` status. The
+  operation fails with
+  `ConflictException` while another operation is in progress on the global
+  inference gateway.
+  """
+  @spec update_global_inference_gateway(map(), update_global_inference_gateway_request(), list()) ::
+          {:ok, update_global_inference_gateway_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_global_inference_gateway_errors()}
+  def update_global_inference_gateway(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateGlobalInferenceGateway", input, options)
   end
 
   @doc """

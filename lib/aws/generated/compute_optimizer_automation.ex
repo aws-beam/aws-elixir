@@ -39,6 +39,7 @@ defmodule AWS.ComputeOptimizerAutomation do
         "accountId" => String.t() | atom(),
         "lastUpdatedTimestamp" => [non_neg_integer()],
         "organizationRuleMode" => list(any()),
+        "organizationRuleModeSource" => organization_rule_mode_source(),
         "status" => list(any()),
         "statusReason" => [String.t() | atom()]
       }
@@ -167,6 +168,17 @@ defmodule AWS.ComputeOptimizerAutomation do
 
   ## Example:
       
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_automation_rule_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("criteria") => criteria(),
@@ -247,6 +259,30 @@ defmodule AWS.ComputeOptimizerAutomation do
       
   """
   @type delete_automation_rule_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_organization_enrollment_configuration_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("configurationTypes") => list(list(any())()),
+        required("target") => list()
+      }
+      
+  """
+  @type delete_organization_enrollment_configuration_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_organization_enrollment_configuration_response() :: %{}
+      
+  """
+  @type delete_organization_enrollment_configuration_response() :: %{}
 
   @typedoc """
 
@@ -434,6 +470,7 @@ defmodule AWS.ComputeOptimizerAutomation do
       
       get_enrollment_configuration_response() :: %{
         "lastUpdatedTimestamp" => [non_neg_integer()],
+        "organizationEnrollmentConfigurationStatus" => list(any()),
         "organizationRuleMode" => list(any()),
         "status" => list(any()),
         "statusReason" => [String.t() | atom()]
@@ -556,6 +593,7 @@ defmodule AWS.ComputeOptimizerAutomation do
         optional("filters") => list(automation_event_filter()),
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t() | atom(),
+        optional("organizationalUnitIds") => list(String.t() | atom()),
         optional("startDateInclusive") => [String.t() | atom()]
       }
       
@@ -583,6 +621,7 @@ defmodule AWS.ComputeOptimizerAutomation do
         optional("filters") => list(automation_event_filter()),
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t() | atom(),
+        optional("organizationalUnitIds") => list(String.t() | atom()),
         optional("startTimeInclusive") => [non_neg_integer()]
       }
       
@@ -686,10 +725,63 @@ defmodule AWS.ComputeOptimizerAutomation do
 
   ## Example:
       
+      list_organization_enrollment_configurations_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("targetType") => list(any())
+      }
+      
+  """
+  @type list_organization_enrollment_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_organization_enrollment_configurations_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "organizationEnrollmentConfigurations" => list(organization_enrollment_configuration())
+      }
+      
+  """
+  @type list_organization_enrollment_configurations_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      list_organizational_units_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("organizationalUnitIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type list_organizational_units_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_organizational_units_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "organizationalUnits" => list(organizational_unit_info())
+      }
+      
+  """
+  @type list_organizational_units_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_recommended_action_summaries_request() :: %{
         optional("filters") => list(recommended_action_filter()),
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
+        optional("nextToken") => String.t() | atom(),
+        optional("organizationalUnitIds") => list(String.t() | atom())
       }
       
   """
@@ -714,7 +806,8 @@ defmodule AWS.ComputeOptimizerAutomation do
       list_recommended_actions_request() :: %{
         optional("filters") => list(recommended_action_filter()),
         optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
+        optional("nextToken") => String.t() | atom(),
+        optional("organizationalUnitIds") => list(String.t() | atom())
       }
       
   """
@@ -782,6 +875,9 @@ defmodule AWS.ComputeOptimizerAutomation do
       
       organization_configuration() :: %{
         "accountIds" => list(String.t() | atom()),
+        "excludedAccountIds" => list(String.t() | atom()),
+        "excludedOrganizationalUnitIds" => list(String.t() | atom()),
+        "organizationalUnitIds" => list(String.t() | atom()),
         "ruleApplyOrder" => list(any())
       }
       
@@ -792,12 +888,54 @@ defmodule AWS.ComputeOptimizerAutomation do
 
   ## Example:
       
+      organization_enrollment_configuration() :: %{
+        "organizationRuleMode" => list(any()),
+        "targetId" => [String.t() | atom()],
+        "targetType" => list(any())
+      }
+      
+  """
+  @type organization_enrollment_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      organization_rule_mode_source() :: %{
+        "sourceTargetId" => [String.t() | atom()],
+        "sourceType" => list(any())
+      }
+      
+  """
+  @type organization_rule_mode_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       organization_scope() :: %{
-        "accountIds" => list(String.t() | atom())
+        "accountIds" => list(String.t() | atom()),
+        "excludedAccountIds" => list(String.t() | atom()),
+        "excludedOrganizationalUnitIds" => list(String.t() | atom()),
+        "organizationalUnitIds" => list(String.t() | atom())
       }
       
   """
   @type organization_scope() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      organizational_unit_info() :: %{
+        "autoEnrollMemberAccounts" => list(any()),
+        "organizationRuleMode" => list(any()),
+        "organizationRuleModeSource" => organization_rule_mode_source(),
+        "organizationalUnitId" => String.t() | atom()
+      }
+      
+  """
+  @type organizational_unit_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -835,6 +973,28 @@ defmodule AWS.ComputeOptimizerAutomation do
       
   """
   @type preview_result_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_organization_enrollment_configuration_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("organizationRuleMode") => list(any()),
+        required("target") => list()
+      }
+      
+  """
+  @type put_organization_enrollment_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_organization_enrollment_configuration_response() :: %{}
+      
+  """
+  @type put_organization_enrollment_configuration_response() :: %{}
 
   @typedoc """
 
@@ -1241,6 +1401,18 @@ defmodule AWS.ComputeOptimizerAutomation do
           | forbidden_exception()
           | access_denied_exception()
 
+  @type delete_organization_enrollment_configuration_errors() ::
+          throttling_exception()
+          | service_unavailable_exception()
+          | opt_in_required_exception()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | idempotent_parameter_mismatch_exception()
+          | idempotency_token_in_use_exception()
+          | forbidden_exception()
+          | conflict_exception()
+          | access_denied_exception()
+
   @type disassociate_accounts_errors() ::
           throttling_exception()
           | service_unavailable_exception()
@@ -1348,6 +1520,24 @@ defmodule AWS.ComputeOptimizerAutomation do
           | forbidden_exception()
           | access_denied_exception()
 
+  @type list_organization_enrollment_configurations_errors() ::
+          throttling_exception()
+          | service_unavailable_exception()
+          | opt_in_required_exception()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | forbidden_exception()
+          | access_denied_exception()
+
+  @type list_organizational_units_errors() ::
+          throttling_exception()
+          | service_unavailable_exception()
+          | opt_in_required_exception()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | forbidden_exception()
+          | access_denied_exception()
+
   @type list_recommended_action_summaries_errors() ::
           throttling_exception()
           | service_unavailable_exception()
@@ -1374,6 +1564,18 @@ defmodule AWS.ComputeOptimizerAutomation do
           | invalid_parameter_value_exception()
           | internal_server_exception()
           | forbidden_exception()
+          | access_denied_exception()
+
+  @type put_organization_enrollment_configuration_errors() ::
+          throttling_exception()
+          | service_unavailable_exception()
+          | opt_in_required_exception()
+          | invalid_parameter_value_exception()
+          | internal_server_exception()
+          | idempotent_parameter_mismatch_exception()
+          | idempotency_token_in_use_exception()
+          | forbidden_exception()
+          | conflict_exception()
           | access_denied_exception()
 
   @type rollback_automation_event_errors() ::
@@ -1478,6 +1680,9 @@ defmodule AWS.ComputeOptimizerAutomation do
   actions to that account. If the member account has not previously enabled the
   Automation feature, the association process automatically enables it.
 
+  Requests that include an account to which an organization enrollment
+  configuration applies are rejected.
+
   Only the management account or a delegated administrator can perform this
   action.
   """
@@ -1525,12 +1730,49 @@ defmodule AWS.ComputeOptimizerAutomation do
   end
 
   @doc """
+  Deletes the specified configuration types from an organization enrollment
+  configuration.
+
+  After deletion, Automation stays enabled for affected accounts and earlier
+  account associations aren't restored. Affected accounts inherit the organization
+  rule mode from the closest parent that has an organization enrollment
+  configuration, or get None allowed if no parent has one.
+
+  Only the management account or a delegated administrator can perform this
+  action.
+  """
+  @spec delete_organization_enrollment_configuration(
+          map(),
+          delete_organization_enrollment_configuration_request(),
+          list()
+        ) ::
+          {:ok, delete_organization_enrollment_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_organization_enrollment_configuration_errors()}
+  def delete_organization_enrollment_configuration(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(
+      client,
+      meta,
+      "DeleteOrganizationEnrollmentConfiguration",
+      input,
+      options
+    )
+  end
+
+  @doc """
   Disassociates member accounts from your organization's management account,
   removing centralized automation capabilities.
 
   Once disassociated, organization rules no longer apply to the member account,
-  and the management account (or delegated administrator) cannot create Automation
+  and the management account (or delegated administrator) can't create automation
   rules for that account.
+
+  Requests that include an account to which an organization enrollment
+  configuration applies are rejected.
 
   Only the management account or a delegated administrator can perform this
   action.
@@ -1714,11 +1956,55 @@ defmodule AWS.ComputeOptimizerAutomation do
   end
 
   @doc """
+  Lists the organization enrollment configurations that are stored directly on
+  accounts, organizational units (OUs), and the organization root.
+
+  Only the management account or a delegated administrator can perform this
+  action.
+  """
+  @spec list_organization_enrollment_configurations(
+          map(),
+          list_organization_enrollment_configurations_request(),
+          list()
+        ) ::
+          {:ok, list_organization_enrollment_configurations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_organization_enrollment_configurations_errors()}
+  def list_organization_enrollment_configurations(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListOrganizationEnrollmentConfigurations", input, options)
+  end
+
+  @doc """
+  Lists the organization root and organizational units (OUs), including whether an
+  applicable organization enrollment configuration enables Automation for member
+  accounts and the effective organization rule mode for each root or OU.
+
+  Only the management account or a delegated administrator can perform this
+  action.
+  """
+  @spec list_organizational_units(map(), list_organizational_units_request(), list()) ::
+          {:ok, list_organizational_units_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_organizational_units_errors()}
+  def list_organizational_units(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListOrganizationalUnits", input, options)
+  end
+
+  @doc """
   Provides a summary of recommended actions based on specified filters.
 
-  Management accounts and delegated administrators can retrieve recommended
-  actions that include associated member accounts. You can associate a member
-  account using `AssociateAccounts`.
+  Management accounts and delegated administrators can retrieve recommended action
+  summaries for member accounts that are associated using `AssociateAccounts` or
+  have an applicable organization enrollment configuration with
+  `organizationRuleMode` set to `AnyAllowed`.
   """
   @spec list_recommended_action_summaries(
           map(),
@@ -1737,11 +2023,12 @@ defmodule AWS.ComputeOptimizerAutomation do
   end
 
   @doc """
-  Lists the recommended actions based that match specified filters.
+  Lists the recommended actions that match the specified filters.
 
   Management accounts and delegated administrators can retrieve recommended
-  actions that include associated member accounts. You can associate a member
-  account using `AssociateAccounts`.
+  actions for member accounts that are associated using `AssociateAccounts` or
+  have an applicable organization enrollment configuration with
+  `organizationRuleMode` set to `AnyAllowed`.
   """
   @spec list_recommended_actions(map(), list_recommended_actions_request(), list()) ::
           {:ok, list_recommended_actions_response(), any()}
@@ -1771,11 +2058,45 @@ defmodule AWS.ComputeOptimizerAutomation do
   end
 
   @doc """
+  Creates or updates an organization enrollment configuration.
+
+  The organization enrollment configuration sets the organization rule mode on the
+  specified account, organizational unit (OU), or organization root and enables
+  Automation for affected member accounts that have opted in to Compute Optimizer,
+  including accounts that join later. Changes on an OU or the organization root
+  can take up to 5 minutes. Organization enrollment configurations take precedence
+  over settings made by `AssociateAccounts` and `DisassociateAccounts`. You must
+  specify at least one configuration in the request.
+
+  Only the management account or a delegated administrator can perform this
+  action.
+
+  Organization enrollment configurations can't be created for the management
+  account.
+  """
+  @spec put_organization_enrollment_configuration(
+          map(),
+          put_organization_enrollment_configuration_request(),
+          list()
+        ) ::
+          {:ok, put_organization_enrollment_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_organization_enrollment_configuration_errors()}
+  def put_organization_enrollment_configuration(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "PutOrganizationEnrollmentConfiguration", input, options)
+  end
+
+  @doc """
   Initiates a rollback for a completed automation event.
 
-  Management accounts and delegated administrators can only initiate a rollback
-  for events belonging to associated member accounts. You can associate a member
-  account using `AssociateAccounts`.
+  Management accounts and delegated administrators can initiate a rollback for
+  events belonging to member accounts that are associated using
+  `AssociateAccounts` or have an applicable organization enrollment configuration
+  with `organizationRuleMode` set to `AnyAllowed`.
   """
   @spec rollback_automation_event(map(), rollback_automation_event_request(), list()) ::
           {:ok, rollback_automation_event_response(), any()}
@@ -1792,9 +2113,10 @@ defmodule AWS.ComputeOptimizerAutomation do
   @doc """
   Initiates a one-time, on-demand automation for the specified recommended action.
 
-  Management accounts and delegated administrators can only initiate recommended
-  actions for associated member accounts. You can associate a member account using
-  `AssociateAccounts`.
+  Management accounts and delegated administrators can initiate recommended
+  actions for member accounts that are associated using `AssociateAccounts` or
+  have an applicable organization enrollment configuration with
+  `organizationRuleMode` set to `AnyAllowed`.
   """
   @spec start_automation_event(map(), start_automation_event_request(), list()) ::
           {:ok, start_automation_event_response(), any()}

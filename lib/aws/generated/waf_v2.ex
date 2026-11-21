@@ -157,6 +157,50 @@ defmodule AWS.WAFV2 do
 
   ## Example:
       
+      api_pattern() :: %{
+        "Domains" => list(String.t() | atom()),
+        "Method" => String.t() | atom(),
+        "PathPattern" => String.t() | atom(),
+        "Port" => integer()
+      }
+      
+  """
+  @type api_pattern() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      api_pattern_filter() :: %{
+        "Domains" => list(String.t() | atom()),
+        "Method" => String.t() | atom(),
+        "PathPattern" => String.t() | atom(),
+        "Port" => integer()
+      }
+      
+  """
+  @type api_pattern_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      api_security_event_detail() :: %{
+        "ApiPatterns" => list(api_pattern()),
+        "Category" => String.t() | atom(),
+        "Confidence" => list(any()),
+        "EventActors" => list(event_actor_reference()),
+        "Label" => String.t() | atom(),
+        "Timeline" => list(event_timeline_entry())
+      }
+      
+  """
+  @type api_security_event_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       application_attribute() :: %{
         "Name" => String.t() | atom(),
         "Values" => list(String.t() | atom())
@@ -240,6 +284,17 @@ defmodule AWS.WAFV2 do
 
   ## Example:
       
+      aws_managed_rules_a_i_security_rule_set() :: %{
+        "BedrockGuardrails" => bedrock_guardrails()
+      }
+      
+  """
+  @type aws_managed_rules_a_i_security_rule_set() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       aws_managed_rules_a_t_p_rule_set() :: %{
         "EnableRegexInPath" => boolean(),
         "LoginPath" => String.t() | atom(),
@@ -273,6 +328,41 @@ defmodule AWS.WAFV2 do
       
   """
   @type aws_managed_rules_bot_control_rule_set() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      bedrock_guardrails() :: %{
+        "Disable" => disable_bedrock_guardrails(),
+        "ProtectRequestAndResponse" => bedrock_guardrails_request_and_response(),
+        "ProtectRequestOnly" => bedrock_guardrails_request_only()
+      }
+      
+  """
+  @type bedrock_guardrails() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      bedrock_guardrails_request_and_response() :: %{
+        "RoleArn" => String.t() | atom()
+      }
+      
+  """
+  @type bedrock_guardrails_request_and_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      bedrock_guardrails_request_only() :: %{
+        "RoleArn" => String.t() | atom()
+      }
+      
+  """
+  @type bedrock_guardrails_request_only() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1050,6 +1140,15 @@ defmodule AWS.WAFV2 do
 
   ## Example:
       
+      disable_bedrock_guardrails() :: %{}
+      
+  """
+  @type disable_bedrock_guardrails() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       disallowed_feature() :: %{
         "Feature" => String.t() | atom(),
         "RequiredPricingPlan" => String.t() | atom()
@@ -1088,6 +1187,129 @@ defmodule AWS.WAFV2 do
       
   """
   @type email_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_actor_change() :: %{
+        "Asn" => String.t() | atom(),
+        "AsnOrganization" => String.t() | atom(),
+        "ChangeTime" => non_neg_integer(),
+        "ClientIp" => String.t() | atom(),
+        "Country" => String.t() | atom(),
+        "TlsFingerprint" => String.t() | atom()
+      }
+      
+  """
+  @type event_actor_change() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_actor_detail() :: %{
+        "Changes" => list(event_actor_change()),
+        "Events" => list(related_event()),
+        "Summary" => event_actor_detail_summary()
+      }
+      
+  """
+  @type event_actor_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_actor_detail_summary() :: %{
+        "Asn" => String.t() | atom(),
+        "AsnOrganization" => String.t() | atom(),
+        "AuthFingerprint" => String.t() | atom(),
+        "ClientIp" => String.t() | atom(),
+        "Country" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "EventActorId" => String.t() | atom(),
+        "TlsFingerprint" => String.t() | atom()
+      }
+      
+  """
+  @type event_actor_detail_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_actor_reference() :: %{
+        "EventActorId" => String.t() | atom(),
+        "EventActorValue" => String.t() | atom()
+      }
+      
+  """
+  @type event_actor_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_actor_summary() :: %{
+        "Asn" => String.t() | atom(),
+        "AsnOrganization" => String.t() | atom(),
+        "AuthFingerprint" => String.t() | atom(),
+        "ClientIp" => String.t() | atom(),
+        "Country" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "EventActorId" => String.t() | atom(),
+        "EventCount" => integer(),
+        "TlsFingerprint" => String.t() | atom()
+      }
+      
+  """
+  @type event_actor_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_detail_summary() :: %{
+        "ApiSecurityEventDetail" => api_security_event_detail(),
+        "EndTime" => non_neg_integer(),
+        "EventCategory" => list(any()),
+        "EventId" => String.t() | atom(),
+        "EventStatus" => list(any()),
+        "LastUpdatedTime" => non_neg_integer(),
+        "ResourceArn" => String.t() | atom(),
+        "StartTime" => non_neg_integer(),
+        "WebAclArn" => String.t() | atom()
+      }
+      
+  """
+  @type event_detail_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_filter() :: %{
+        "Name" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type event_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_timeline_entry() :: %{
+        "ApiPatterns" => list(api_pattern()),
+        "ChangeTime" => non_neg_integer(),
+        "Confidence" => list(any()),
+        "Label" => String.t() | atom()
+      }
+      
+  """
+  @type event_timeline_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1259,6 +1481,53 @@ defmodule AWS.WAFV2 do
       
   """
   @type get_decrypted_api_key_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_event_actor_request() :: %{
+        required("EventActorId") => String.t() | atom(),
+        required("Scope") => list(any())
+      }
+      
+  """
+  @type get_event_actor_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_event_actor_response() :: %{
+        "EventActor" => event_actor_detail()
+      }
+      
+  """
+  @type get_event_actor_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_event_request() :: %{
+        required("EventId") => String.t() | atom(),
+        required("Scope") => list(any()),
+        required("WebAclArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_event_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_event_response() :: %{
+        "Event" => event_detail_summary()
+      }
+      
+  """
+  @type get_event_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1965,6 +2234,96 @@ defmodule AWS.WAFV2 do
 
   ## Example:
       
+      list_event_actors_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextMarker") => String.t() | atom(),
+        optional("SortBy") => list(any()),
+        required("Scope") => list(any()),
+        required("TimeWindow") => time_window()
+      }
+      
+  """
+  @type list_event_actors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_event_actors_response() :: %{
+        "EventActors" => list(event_actor_summary()),
+        "NextMarker" => String.t() | atom()
+      }
+      
+  """
+  @type list_event_actors_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_events_by_web_acl_request() :: %{
+        optional("ApiPatternFilters") => list(api_pattern_filter()),
+        optional("Filters") => list(event_filter()),
+        optional("Include") => list(list(any())()),
+        optional("Limit") => integer(),
+        optional("NextMarker") => String.t() | atom(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("TimeWindow") => time_window(),
+        required("Scope") => list(any()),
+        required("WebAclArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_events_by_web_acl_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_events_by_web_acl_response() :: %{
+        "Events" => list(event_detail_summary()),
+        "NextMarker" => String.t() | atom()
+      }
+      
+  """
+  @type list_events_by_web_acl_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_events_request() :: %{
+        optional("ApiPatternFilters") => list(api_pattern_filter()),
+        optional("Filters") => list(event_filter()),
+        optional("Include") => list(list(any())()),
+        optional("Limit") => integer(),
+        optional("NextMarker") => String.t() | atom(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("TimeWindow") => time_window(),
+        required("Scope") => list(any())
+      }
+      
+  """
+  @type list_events_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_events_response() :: %{
+        "Events" => list(event_detail_summary()),
+        "NextMarker" => String.t() | atom()
+      }
+      
+  """
+  @type list_events_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_ip_sets_request() :: %{
         optional("Limit") => integer(),
         optional("NextMarker") => String.t() | atom(),
@@ -2269,6 +2628,7 @@ defmodule AWS.WAFV2 do
       
       managed_rule_group_config() :: %{
         "AWSManagedRulesACFPRuleSet" => aws_managed_rules_a_c_f_p_rule_set(),
+        "AWSManagedRulesAISecurityRuleSet" => aws_managed_rules_a_i_security_rule_set(),
         "AWSManagedRulesATPRuleSet" => aws_managed_rules_a_t_p_rule_set(),
         "AWSManagedRulesAntiDDoSRuleSet" => aws_managed_rules_anti_d_do_s_rule_set(),
         "AWSManagedRulesBotControlRuleSet" => aws_managed_rules_bot_control_rule_set(),
@@ -2884,6 +3244,22 @@ defmodule AWS.WAFV2 do
       
   """
   @type regex_pattern_set_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      related_event() :: %{
+        "ApiPatterns" => list(api_pattern()),
+        "Category" => String.t() | atom(),
+        "Confidence" => list(any()),
+        "EventId" => String.t() | atom(),
+        "Label" => String.t() | atom(),
+        "StartTime" => non_neg_integer()
+      }
+      
+  """
+  @type related_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4050,6 +4426,18 @@ defmodule AWS.WAFV2 do
           | w_a_f_invalid_operation_exception()
           | w_a_f_internal_error_exception()
 
+  @type get_event_errors() ::
+          w_a_f_nonexistent_item_exception()
+          | w_a_f_invalid_parameter_exception()
+          | w_a_f_invalid_operation_exception()
+          | w_a_f_internal_error_exception()
+
+  @type get_event_actor_errors() ::
+          w_a_f_nonexistent_item_exception()
+          | w_a_f_invalid_parameter_exception()
+          | w_a_f_invalid_operation_exception()
+          | w_a_f_internal_error_exception()
+
   @type get_ip_set_errors() ::
           w_a_f_nonexistent_item_exception()
           | w_a_f_invalid_parameter_exception()
@@ -4155,6 +4543,22 @@ defmodule AWS.WAFV2 do
 
   @type list_available_managed_rule_groups_errors() ::
           w_a_f_invalid_parameter_exception()
+          | w_a_f_invalid_operation_exception()
+          | w_a_f_internal_error_exception()
+
+  @type list_event_actors_errors() ::
+          w_a_f_invalid_parameter_exception()
+          | w_a_f_invalid_operation_exception()
+          | w_a_f_internal_error_exception()
+
+  @type list_events_errors() ::
+          w_a_f_invalid_parameter_exception()
+          | w_a_f_invalid_operation_exception()
+          | w_a_f_internal_error_exception()
+
+  @type list_events_by_web_acl_errors() ::
+          w_a_f_nonexistent_item_exception()
+          | w_a_f_invalid_parameter_exception()
           | w_a_f_invalid_operation_exception()
           | w_a_f_internal_error_exception()
 
@@ -4808,6 +5212,47 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
+  Retrieves the details of the specified event for the specified web ACL,
+  including the event actors that are associated with the event and the event
+  timeline.
+
+  Currently, this operation supports API Security Amazon Web Services Managed
+  Rules.
+  """
+  @spec get_event(map(), get_event_request(), list()) ::
+          {:ok, get_event_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_event_errors()}
+  def get_event(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetEvent", input, options)
+  end
+
+  @doc """
+  Retrieves the details of the specified event actor.
+
+  An event actor is a client that is associated with one or more events. The
+  details include the latest observed attributes of the event actor, the events
+  that it's associated with, and the history of changes to its attributes.
+  Currently, this operation supports API Security Amazon Web Services Managed
+  Rules.
+  """
+  @spec get_event_actor(map(), get_event_actor_request(), list()) ::
+          {:ok, get_event_actor_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_event_actor_errors()}
+  def get_event_actor(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetEventActor", input, options)
+  end
+
+  @doc """
   Retrieves the specified `IPSet`.
   """
   @spec get_ip_set(map(), get_ip_set_request(), list()) ::
@@ -5218,6 +5663,80 @@ defmodule AWS.WAFV2 do
       metadata()
 
     Request.request_post(client, meta, "ListAvailableManagedRuleGroups", input, options)
+  end
+
+  @doc """
+  Retrieves a paginated list of the event actors in your account that are
+  associated with events in the specified time window.
+
+  An event actor is a client that is associated with one or more events. The
+  operation returns up to the top 100 event actors by event count. Results are
+  paginated. Use the `NextMarker` value from the response to retrieve the next
+  batch of results. Currently, this operation supports API Security Amazon Web
+  Services Managed Rules.
+  """
+  @spec list_event_actors(map(), list_event_actors_request(), list()) ::
+          {:ok, list_event_actors_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_event_actors_errors()}
+  def list_event_actors(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListEventActors", input, options)
+  end
+
+  @doc """
+  Retrieves a paginated list of event summaries for your account.
+
+  Use this operation to monitor and investigate potential threats to the resources
+  that your web ACLs protect. Results are paginated. Use the `NextMarker` value
+  from the response to retrieve the next batch of results. Currently, this
+  operation supports API Security Amazon Web Services Managed Rules.
+
+  You can filter the results by time window, event category, resource, and API
+  pattern, and sort them by start time, end time, or confidence.
+
+  To retrieve the events for a single web ACL, use `ListEventsByWebACL`. To
+  retrieve the full details of a single event, use `GetEvent`.
+  """
+  @spec list_events(map(), list_events_request(), list()) ::
+          {:ok, list_events_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_events_errors()}
+  def list_events(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListEvents", input, options)
+  end
+
+  @doc """
+  Retrieves a paginated list of event summaries for the specified web ACL.
+
+  Use this operation to monitor and investigate potential threats to the resources
+  that the web ACL protects. Results are paginated. Use the `NextMarker` value
+  from the response to retrieve the next batch of results. Currently, this
+  operation supports API Security Amazon Web Services Managed Rules.
+
+  You can filter the results by time window, event category, resource, and API
+  pattern, and sort them by start time, end time, or confidence.
+
+  To retrieve the events for all of the web ACLs in your account, use
+  `ListEvents`. To retrieve the full details of a single event, use `GetEvent`.
+  """
+  @spec list_events_by_web_acl(map(), list_events_by_web_acl_request(), list()) ::
+          {:ok, list_events_by_web_acl_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_events_by_web_acl_errors()}
+  def list_events_by_web_acl(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListEventsByWebACL", input, options)
   end
 
   @doc """

@@ -6,26 +6,150 @@ defmodule AWS.Route53 do
   Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web
   service.
 
-  You can use Route 53 to:
+  Route 53 performs four main functions:
 
     *
-  Register domain names.
 
-  For more information, see [How domain registration works](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/welcome-domain-registration.html).
-
-    *
-  Route internet traffic to the resources for your domain
-
-  For more information, see [How internet traffic is routed to your website or web application](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/welcome-dns-service.html).
+  **Domain registration** – Route 53 lets you register domain names such as
+  example.com.
 
     *
-  Check the health of your resources.
 
-  For more information, see [How Route 53 checks the health of your resources](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/welcome-health-checks.html).
+  **Domain Name System (DNS) service** – Route 53 translates friendly domain names
+  into IP addresses using a global network of authoritative DNS servers, and
+  provides DNS resolution within your VPCs for private hosted zones.
+
+    *
+
+  **Health checking** – Route 53 sends automated requests to your application,
+  over the internet or from within your VPC for private endpoints, to verify that
+  it's reachable, available, and functional.
+
+    *
+
+  **Resolver** – Route 53 Resolver lets you forward DNS queries from a VPC that
+  you created using Amazon VPC to DNS resolvers in your network, and from your
+  network to resolvers in your VPC.
+
+  You can use the API to create and manage the following resources:
+
+  ## Definitions
+
+  ### Public and Private Hosted Zones
+
+  A *public hosted zone* is a container that holds information about how you want
+  to route traffic on the internet for a domain, such as example.com, and its
+  subdomains.
+
+  A *private hosted zone* is a container that holds information about how you want
+  to route traffic for a domain and its subdomains within one or more VPCs that
+  you created with the Amazon VPC service.
+
+  ### Reusable Delegation Sets
+
+  By default, each hosted zone that you create gets a different set of four name
+  servers—a different delegation set. If you create a lot of hosted zones,
+  maintaining different delegation sets can be difficult and time consuming.
+  Route 53 lets you create a delegation set that you can reuse with multiple
+  hosted zones.
+
+  ### Resource Record Sets
+
+  After you create a hosted zone for your domain, such as example.com, you create
+  resource record sets to tell the Domain Name System (DNS) how to route traffic
+  for that domain.
+
+  ### Traffic Policies and Traffic Policy Instances
+
+  You can create complex routing configurations, known as traffic policies, that
+  use weighted, latency, failover, and geolocation resource record sets. You can
+  then associate a traffic policy with a domain name or subdomain name, such as
+  www.example.com, by creating a traffic policy instance. When users submit DNS
+  queries for the domain or subdomain, Route 53 responds based on the traffic
+  policy that you used to create the traffic policy instance.
+
+  ### Health Checks
+
+  Route 53 health checks monitor the health and performance of your web
+  applications, web servers, and other resources. At regular intervals that you
+  specify, Route 53 submits automated requests to your application, server, or
+  other resource, over the internet or from within your VPC for private endpoints,
+  to verify that it's reachable, available, and functional.
+
+  ### Domain Registrations
+
+  When you want to get a new domain name, such as example.com, you can register it
+  with Route 53. You can also transfer the registration for existing domains from
+  other registrars to Route 53.
+
+  ### DNS–DNSSEC
+
+  You can protect your domain from DNS spoofing or a man-in-the-middle attack, by
+  configuring Domain Name System Security Extensions (DNSSEC).
+
+  ### Query Logs
+
+  You can configure Route 53 to log information about the DNS queries that
+  Route 53 receives, such as the domain or subdomain that was requested, the date
+  and time of the request, and the DNS record type (such as A or AAAA).
+
+  You can also configure Route 53 Resolver to log information about the DNS
+  queries that originate in Amazon VPCs.
+
+  ### Outbound and Inbound Endpoints, and Rules
+
+  You can configure Route 53 Resolver to forward DNS queries from your VPC to your
+  network or vice versa. DNS queries pass through an outbound endpoint on their
+  way from a VPC to your network, and they pass through an inbound endpoint on
+  their way from your network to a VPC. For outbound queries, rules let you
+  specify the domain names that you want to forward to your network and the IP
+  addresses of the DNS resolvers in your network.
+
+  ### Tags
+
+  A tag is a label that you assign to an Amazon Web Services resource. Each tag
+  consists of a key and a value, both of which you define. You can use tags for a
+  variety of purposes; one common use is to categorize and track your Route 53
+  costs.
+
+  ### Profiles
+
+  A *profile* is a named container that groups DNS configurations—such as private
+  hosted zone associations, Resolver rules, and DNS Firewall rule groups—into a
+  single reusable unit. You can associate a profile with multiple VPCs and share
+  it across Amazon Web Services accounts so that each VPC inherits the same DNS
+  settings without requiring individual configuration.
+
+  ### DNS Firewall
+
+  A *DNS Firewall rule group* is an ordered collection of rules that each pair a
+  domain list with an action—allow, block, or alert. You associate rule groups
+  with your VPCs to filter outbound DNS queries made by VPC resources, preventing
+  connections to known-malicious domains or restricting access to only approved
+  domains.
+
+  You can also use the Route 53 API to get the current limit on Route 53 objects
+  that you can create, such as hosted zones and health checks.
+
+  For information about Route 53 concepts and about how to use the Route 53
+  console, see the
+  [Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/).
   """
 
   alias AWS.Client
   alias AWS.Request
+
+  @typedoc """
+
+  ## Example:
+
+      a_z_affinity() :: %{
+        "LocationId" => String.t() | atom(),
+        "LocationType" => list(any())
+      }
+
+  """
+  @type a_z_affinity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -135,6 +259,23 @@ defmodule AWS.Route53 do
 
   ## Example:
 
+      change_batch_summary() :: %{
+        "ChangeCount" => float(),
+        "ChangeId" => String.t() | atom(),
+        "Comment" => String.t() | atom(),
+        "Operation" => list(any()),
+        "RequestId" => String.t() | atom(),
+        "SubmittedAt" => non_neg_integer(),
+        "SubmittedBy" => String.t() | atom()
+      }
+
+  """
+  @type change_batch_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       change_cidr_collection_request() :: %{
         optional("CollectionVersion") => float(),
         required("Changes") => list(cidr_collection_change())
@@ -153,6 +294,30 @@ defmodule AWS.Route53 do
 
   """
   @type change_cidr_collection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      change_guardrail() :: %{
+        "Name" => list(any()),
+        "Status" => list(any())
+      }
+
+  """
+  @type change_guardrail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      change_history_feature() :: %{
+        "RetentionStartsAt" => non_neg_integer(),
+        "Status" => list(any())
+      }
+
+  """
+  @type change_history_feature() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -462,7 +627,9 @@ defmodule AWS.Route53 do
   ## Example:
 
       create_hosted_zone_request() :: %{
+        optional("ChangeGuardrails") => list(change_guardrail()),
         optional("DelegationSetId") => String.t() | atom(),
+        optional("EnablePublicDNSFallback") => boolean(),
         optional("HostedZoneConfig") => hosted_zone_config(),
         optional("VPC") => vpc(),
         required("CallerReference") => String.t() | atom(),
@@ -1081,6 +1248,17 @@ defmodule AWS.Route53 do
 
   ## Example:
 
+      feature_not_enabled() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type feature_not_enabled() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       geo_location() :: %{
         "ContinentCode" => String.t() | atom(),
         "CountryCode" => String.t() | atom(),
@@ -1325,6 +1503,27 @@ defmodule AWS.Route53 do
 
   """
   @type get_health_check_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_hosted_zone_change_batch_request() :: %{}
+
+  """
+  @type get_hosted_zone_change_batch_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_hosted_zone_change_batch_response() :: %{
+        "ChangeBatch" => change_batch(),
+        "ChangeBatchSummary" => change_batch_summary()
+      }
+
+  """
+  @type get_hosted_zone_change_batch_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1674,6 +1873,7 @@ defmodule AWS.Route53 do
 
       hosted_zone_config() :: %{
         "Comment" => String.t() | atom(),
+        "HostedZoneTier" => list(any()),
         "PrivateZone" => boolean()
       }
 
@@ -1697,7 +1897,10 @@ defmodule AWS.Route53 do
 
       hosted_zone_features() :: %{
         "AcceleratedRecoveryStatus" => list(any()),
-        "FailureReasons" => hosted_zone_failure_reasons()
+        "ChangeGuardrails" => list(change_guardrail()),
+        "ChangeHistory" => change_history_feature(),
+        "FailureReasons" => hosted_zone_failure_reasons(),
+        "PublicDNSFallbackStatus" => list(any())
       }
 
   """
@@ -2229,6 +2432,34 @@ defmodule AWS.Route53 do
 
   ## Example:
 
+      list_hosted_zone_change_batches_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t() | atom(),
+        optional("SortOrder") => list(any()),
+        optional("StartAfterChangeId") => String.t() | atom(),
+        optional("SubmittedAfter") => String.t() | atom(),
+        optional("SubmittedBefore") => String.t() | atom()
+      }
+
+  """
+  @type list_hosted_zone_change_batches_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_hosted_zone_change_batches_response() :: %{
+        "ChangeBatchSummaries" => list(change_batch_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_hosted_zone_change_batches_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_hosted_zones_by_name_request() :: %{
         optional("DNSName") => String.t() | atom(),
         optional("HostedZoneId") => String.t() | atom(),
@@ -2335,6 +2566,35 @@ defmodule AWS.Route53 do
 
   """
   @type list_query_logging_configs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resource_record_set_changes_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t() | atom(),
+        optional("RecordName") => String.t() | atom(),
+        optional("RecordType") => list(any()),
+        optional("SortOrder") => list(any()),
+        optional("SubmittedAfter") => String.t() | atom(),
+        optional("SubmittedBefore") => String.t() | atom()
+      }
+
+  """
+  @type list_resource_record_set_changes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resource_record_set_changes_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ResourceRecordSetChanges" => list(resource_record_set_change())
+      }
+
+  """
+  @type list_resource_record_set_changes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2886,6 +3146,7 @@ defmodule AWS.Route53 do
   ## Example:
 
       resource_record_set() :: %{
+        "AZAffinity" => a_z_affinity(),
         "AliasTarget" => alias_target(),
         "CidrRoutingConfig" => cidr_routing_config(),
         "Failover" => list(any()),
@@ -2905,6 +3166,23 @@ defmodule AWS.Route53 do
 
   """
   @type resource_record_set() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_record_set_change() :: %{
+        "Action" => list(any()),
+        "ChangeId" => String.t() | atom(),
+        "Operation" => list(any()),
+        "RequestId" => String.t() | atom(),
+        "ResourceRecordSet" => resource_record_set(),
+        "SubmittedAt" => non_neg_integer(),
+        "SubmittedBy" => String.t() | atom()
+      }
+
+  """
+  @type resource_record_set_change() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3285,7 +3563,10 @@ defmodule AWS.Route53 do
   ## Example:
 
       update_hosted_zone_features_request() :: %{
-        optional("EnableAcceleratedRecovery") => boolean()
+        optional("ChangeGuardrails") => list(change_guardrail()),
+        optional("DryRun") => boolean(),
+        optional("EnableAcceleratedRecovery") => boolean(),
+        optional("EnablePublicDNSFallback") => boolean()
       }
 
   """
@@ -3299,6 +3580,27 @@ defmodule AWS.Route53 do
 
   """
   @type update_hosted_zone_features_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_hosted_zone_tier_request() :: %{
+        optional("DryRun") => boolean(),
+        required("HostedZoneTier") => list(any())
+      }
+
+  """
+  @type update_hosted_zone_tier_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_hosted_zone_tier_response() :: %{}
+
+  """
+  @type update_hosted_zone_tier_response() :: %{}
 
   @typedoc """
 
@@ -3625,6 +3927,9 @@ defmodule AWS.Route53 do
 
   @type get_hosted_zone_errors() :: no_such_hosted_zone() | invalid_input()
 
+  @type get_hosted_zone_change_batch_errors() ::
+          no_such_hosted_zone() | no_such_change() | invalid_input() | feature_not_enabled()
+
   @type get_hosted_zone_count_errors() :: invalid_input()
 
   @type get_hosted_zone_limit_errors() ::
@@ -3659,6 +3964,12 @@ defmodule AWS.Route53 do
 
   @type list_health_checks_by_source_errors() :: no_such_health_check_source() | invalid_input()
 
+  @type list_hosted_zone_change_batches_errors() ::
+          no_such_hosted_zone()
+          | invalid_pagination_token()
+          | invalid_input()
+          | feature_not_enabled()
+
   @type list_hosted_zones_errors() ::
           no_such_delegation_set() | invalid_input() | delegation_set_not_reusable()
 
@@ -3668,6 +3979,12 @@ defmodule AWS.Route53 do
 
   @type list_query_logging_configs_errors() ::
           no_such_hosted_zone() | invalid_pagination_token() | invalid_input()
+
+  @type list_resource_record_set_changes_errors() ::
+          no_such_hosted_zone()
+          | invalid_pagination_token()
+          | invalid_input()
+          | feature_not_enabled()
 
   @type list_resource_record_set_protections_errors() ::
           no_such_hosted_zone() | invalid_pagination_token() | invalid_input()
@@ -3721,6 +4038,9 @@ defmodule AWS.Route53 do
           | no_such_hosted_zone()
           | limits_exceeded()
           | invalid_input()
+
+  @type update_hosted_zone_tier_errors() ::
+          prior_request_not_complete() | no_such_hosted_zone() | invalid_input()
 
   @type update_traffic_policy_comment_errors() ::
           no_such_traffic_policy() | invalid_input() | concurrent_modification()
@@ -6111,6 +6431,38 @@ defmodule AWS.Route53 do
   end
 
   @doc """
+  Returns one change batch from the change history of a hosted zone, including
+  every change in the batch.
+
+  Each resource record set is in the same form that `ListResourceRecordSets`
+  returns. For example, the name is in lowercase and ends with a dot. For an
+  `UPSERT` or a `DELETE`, the response doesn't contain the values that the
+  resource record set had before the change.
+
+  If the change batch isn't in the hosted zone's retained change history, for
+  example because it's in another hosted zone, it expired, or it's from before
+  `RetentionStartsAt`, Route 53 returns a `NoSuchChange` error. If Change History
+  isn't turned on for the hosted zone, Route 53 returns a `FeatureNotEnabled`
+  error.
+  """
+  @spec get_hosted_zone_change_batch(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_hosted_zone_change_batch_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_hosted_zone_change_batch_errors()}
+  def get_hosted_zone_change_batch(%Client{} = client, change_id, hosted_zone_id, options \\ []) do
+    url_path =
+      "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/changebatches/#{AWS.Util.encode_uri(change_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves the number of hosted zones that are associated with the current Amazon
   Web Services account.
   """
@@ -6642,6 +6994,102 @@ defmodule AWS.Route53 do
   end
 
   @doc """
+  Lists the change batches in an Amazon Route 53 hosted zone.
+
+  For each change batch, the response contains its change ID, the operation that
+  submitted it, and when and by whom it was submitted. It also contains the
+  request ID, the comment if there is one, and the number of changes. Use this
+  list to review who changed the hosted zone and when.
+
+  Each change batch records one `ChangeResourceRecordSets` or `CreateHostedZone`
+  request. A `CreateHostedZone` change batch has a `ChangeCount` of 0.
+
+  You can read a change batch for 365 days after it was submitted, but not from
+  before the `RetentionStartsAt` time that `GetHostedZone` returns in
+  `Features/ChangeHistory`. If Change History isn't turned on for the hosted zone,
+  Route 53 returns a `FeatureNotEnabled` error.
+
+  Results are paginated. To get the next page, use the `NextToken` value from the
+  response. To get the changes in a change batch, use `GetHostedZoneChangeBatch`.
+  """
+  @spec list_hosted_zone_change_batches(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_hosted_zone_change_batches_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_hosted_zone_change_batches_errors()}
+  def list_hosted_zone_change_batches(
+        %Client{} = client,
+        hosted_zone_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        sort_order \\ nil,
+        start_after_change_id \\ nil,
+        submitted_after \\ nil,
+        submitted_before \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/changebatches"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxresults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nexttoken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_order) do
+        [{"sortorder", sort_order} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(start_after_change_id) do
+        [{"startafterchangeid", start_after_change_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(submitted_after) do
+        [{"submittedafter", submitted_after} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(submitted_before) do
+        [{"submittedbefore", submitted_before} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves a list of the public and private hosted zones that are associated with
   the
   current Amazon Web Services account.
@@ -6987,6 +7435,111 @@ defmodule AWS.Route53 do
     query_params =
       if !is_nil(next_token) do
         [{"nexttoken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the individual changes in the change history of a hosted zone.
+
+  Each entry is one change, with the full resource record set that the change
+  wrote or deleted. To list only the changes to the resource record sets that have
+  a specific name and type, specify `RecordName` and `RecordType`. Weighted,
+  latency, and other resource record sets that have the same name and type appear
+  as separate entries, each with its `SetIdentifier`.
+
+  A change can take a few seconds to appear in `ListResourceRecordSetChanges`
+  after it appears in `ListHostedZoneChangeBatches`. For a complete, ordered list
+  of changes, use `ListHostedZoneChangeBatches`.
+
+  Results are paginated. To get the next page, use the `NextToken` value from the
+  response.
+
+  If Change History isn't turned on for the hosted zone, Route 53 returns a
+  `FeatureNotEnabled` error.
+  """
+  @spec list_resource_record_set_changes(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_resource_record_set_changes_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_resource_record_set_changes_errors()}
+  def list_resource_record_set_changes(
+        %Client{} = client,
+        hosted_zone_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        record_name \\ nil,
+        record_type \\ nil,
+        sort_order \\ nil,
+        submitted_after \\ nil,
+        submitted_before \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/rrsetchanges"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxresults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nexttoken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(record_name) do
+        [{"recordname", record_name} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(record_type) do
+        [{"recordtype", record_type} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(sort_order) do
+        [{"sortorder", sort_order} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(submitted_after) do
+        [{"submittedafter", submitted_after} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(submitted_before) do
+        [{"submittedbefore", submitted_before} | query_params]
       else
         query_params
       end
@@ -7853,10 +8406,16 @@ defmodule AWS.Route53 do
   Updates the features configuration for a hosted zone.
 
   This operation allows you to enable or disable specific features for your hosted
-  zone, such as accelerated recovery.
+  zone, such as accelerated recovery and public DNS fallback.
 
   Accelerated recovery enables you to update DNS records in your public hosted
   zone even when the us-east-1 region is unavailable.
+
+  Public DNS fallback enables Route 53 to retry a query against public DNS when a
+  query for a domain name in a private hosted zone matches no existing name
+  (`NXDOMAIN`). Fallback does not occur when the name exists but has no record of
+  the requested type. Public DNS fallback is supported only for private hosted
+  zones.
   """
   @spec update_hosted_zone_features(
           map(),
@@ -7870,6 +8429,51 @@ defmodule AWS.Route53 do
           | {:error, update_hosted_zone_features_errors()}
   def update_hosted_zone_features(%Client{} = client, hosted_zone_id, input, options \\ []) do
     url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/features"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Changes the tier of a hosted zone.
+
+  The tier determines which features the hosted zone includes and which optional
+  features you can turn on. For pricing information, see [Amazon Route 53 pricing](https://aws.amazon.com/route53/pricing/) on the AWS website.
+
+  When the hosted zone moves to a new tier, Route 53 turns on the features that
+  the new tier includes. Route 53 also disables any enabled features that the new
+  tier doesn't include.
+
+  Before you move a hosted zone to a tier that doesn't offer an optional feature
+  that you turned on, turn off that feature. You can't change the tier of a hosted
+  zone that uses a CloudFront flat-rate pricing plan.
+  """
+  @spec update_hosted_zone_tier(
+          map(),
+          String.t() | atom(),
+          update_hosted_zone_tier_request(),
+          list()
+        ) ::
+          {:ok, update_hosted_zone_tier_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_hosted_zone_tier_errors()}
+  def update_hosted_zone_tier(%Client{} = client, hosted_zone_id, input, options \\ []) do
+    url_path = "/2013-04-01/hostedzone/#{AWS.Util.encode_uri(hosted_zone_id)}/tier"
     headers = []
     custom_headers = []
     query_params = []

@@ -186,6 +186,18 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      address_translations() :: %{
+        "PublicIPv4Addresses" => list(String.t() | atom()),
+        "PublicIPv6Addresses" => list(String.t() | atom())
+      }
+      
+  """
+  @type address_translations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       analysis_report() :: %{
         "AnalysisReportId" => String.t() | atom(),
         "AnalysisType" => list(any()),
@@ -232,6 +244,7 @@ defmodule AWS.NetworkFirewall do
       associate_availability_zones_request() :: %{
         optional("FirewallArn") => String.t() | atom(),
         optional("FirewallName") => String.t() | atom(),
+        optional("FirewallType") => list(any()),
         optional("UpdateToken") => String.t() | atom(),
         required("AvailabilityZoneMappings") => list(availability_zone_mapping())
       }
@@ -260,6 +273,7 @@ defmodule AWS.NetworkFirewall do
       associate_firewall_policy_request() :: %{
         optional("FirewallArn") => String.t() | atom(),
         optional("FirewallName") => String.t() | atom(),
+        optional("FirewallType") => list(any()),
         optional("UpdateToken") => String.t() | atom(),
         required("FirewallPolicyArn") => String.t() | atom()
       }
@@ -567,6 +581,7 @@ defmodule AWS.NetworkFirewall do
         optional("EnabledAnalysisTypes") => list(list(any())()),
         optional("EncryptionConfiguration") => encryption_configuration(),
         optional("FirewallPolicyChangeProtection") => boolean(),
+        optional("IgwFirewallConfiguration") => igw_firewall_configuration(),
         optional("NatGatewayCreateMappings") => list(nat_gateway_create_mapping()),
         optional("ProxySettings") => proxy_settings(),
         optional("SubnetChangeProtection") => boolean(),
@@ -775,7 +790,8 @@ defmodule AWS.NetworkFirewall do
       delete_firewall_request() :: %{
         optional("DeleteAssociatedNatGateways") => boolean(),
         optional("FirewallArn") => String.t() | atom(),
-        optional("FirewallName") => String.t() | atom()
+        optional("FirewallName") => String.t() | atom(),
+        optional("FirewallType") => list(any())
       }
       
   """
@@ -1052,7 +1068,8 @@ defmodule AWS.NetworkFirewall do
       
       describe_firewall_request() :: %{
         optional("FirewallArn") => String.t() | atom(),
-        optional("FirewallName") => String.t() | atom()
+        optional("FirewallName") => String.t() | atom(),
+        optional("FirewallType") => list(any())
       }
       
   """
@@ -1114,7 +1131,8 @@ defmodule AWS.NetworkFirewall do
       
       describe_logging_configuration_request() :: %{
         optional("FirewallArn") => String.t() | atom(),
-        optional("FirewallName") => String.t() | atom()
+        optional("FirewallName") => String.t() | atom(),
+        optional("FirewallType") => list(any())
       }
       
   """
@@ -1361,6 +1379,7 @@ defmodule AWS.NetworkFirewall do
       disassociate_availability_zones_request() :: %{
         optional("FirewallArn") => String.t() | atom(),
         optional("FirewallName") => String.t() | atom(),
+        optional("FirewallType") => list(any()),
         optional("UpdateToken") => String.t() | atom(),
         required("AvailabilityZoneMappings") => list(availability_zone_mapping())
       }
@@ -1451,6 +1470,7 @@ defmodule AWS.NetworkFirewall do
         "FirewallName" => String.t() | atom(),
         "FirewallPolicyArn" => String.t() | atom(),
         "FirewallPolicyChangeProtection" => boolean(),
+        "IgwFirewallConfiguration" => igw_firewall_configuration(),
         "NatGatewayCreateMappings" => list(nat_gateway_create_mapping()),
         "NumberOfAssociations" => integer(),
         "ProxySettings" => proxy_settings(),
@@ -1815,6 +1835,17 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      igw_firewall_configuration() :: %{
+        "EnforcementMode" => list(any())
+      }
+      
+  """
+  @type igw_firewall_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       insufficient_capacity_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -2096,6 +2127,7 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       list_firewalls_request() :: %{
+        optional("FirewallType") => list(any()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
         optional("VpcIds") => list(String.t() | atom())
@@ -3015,6 +3047,7 @@ defmodule AWS.NetworkFirewall do
   ## Example:
       
       sync_state() :: %{
+        "AddressTranslations" => address_translations(),
         "Attachment" => attachment(),
         "Config" => map(),
         "NatGatewayAttachments" => list(nat_gateway_attachment())
@@ -3276,6 +3309,7 @@ defmodule AWS.NetworkFirewall do
         optional("EnabledAnalysisTypes") => list(list(any())()),
         optional("FirewallArn") => String.t() | atom(),
         optional("FirewallName") => String.t() | atom(),
+        optional("FirewallType") => list(any()),
         optional("UpdateToken") => String.t() | atom()
       }
       
@@ -3303,6 +3337,7 @@ defmodule AWS.NetworkFirewall do
       update_firewall_delete_protection_request() :: %{
         optional("FirewallArn") => String.t() | atom(),
         optional("FirewallName") => String.t() | atom(),
+        optional("FirewallType") => list(any()),
         optional("UpdateToken") => String.t() | atom(),
         required("DeleteProtection") => boolean()
       }
@@ -3332,6 +3367,7 @@ defmodule AWS.NetworkFirewall do
         optional("Description") => String.t() | atom(),
         optional("FirewallArn") => String.t() | atom(),
         optional("FirewallName") => String.t() | atom(),
+        optional("FirewallType") => list(any()),
         optional("UpdateToken") => String.t() | atom()
       }
       
@@ -3360,6 +3396,7 @@ defmodule AWS.NetworkFirewall do
         optional("EncryptionConfiguration") => encryption_configuration(),
         optional("FirewallArn") => String.t() | atom(),
         optional("FirewallName") => String.t() | atom(),
+        optional("FirewallType") => list(any()),
         optional("UpdateToken") => String.t() | atom()
       }
       
@@ -3387,6 +3424,7 @@ defmodule AWS.NetworkFirewall do
       update_firewall_policy_change_protection_request() :: %{
         optional("FirewallArn") => String.t() | atom(),
         optional("FirewallName") => String.t() | atom(),
+        optional("FirewallType") => list(any()),
         optional("UpdateToken") => String.t() | atom(),
         required("FirewallPolicyChangeProtection") => boolean()
       }
@@ -3474,6 +3512,7 @@ defmodule AWS.NetworkFirewall do
         optional("EnableMonitoringDashboard") => boolean(),
         optional("FirewallArn") => String.t() | atom(),
         optional("FirewallName") => String.t() | atom(),
+        optional("FirewallType") => list(any()),
         optional("LoggingConfiguration") => logging_configuration()
       }
       

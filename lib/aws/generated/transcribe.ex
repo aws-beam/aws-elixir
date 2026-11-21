@@ -48,7 +48,8 @@ defmodule AWS.Transcribe do
   ## Example:
       
       bad_request_exception() :: %{
-        "Message" => String.t() | atom()
+        "Message" => String.t() | atom(),
+        "Reason" => list(any())
       }
       
   """
@@ -1464,6 +1465,59 @@ defmodule AWS.Transcribe do
 
   ## Example:
       
+      sync_item() :: %{
+        "ChannelLabel" => String.t() | atom(),
+        "Content" => String.t() | atom(),
+        "EndTime" => float(),
+        "Id" => integer(),
+        "LanguageCode" => list(any()),
+        "Redactions" => list(sync_redaction()),
+        "SpeakerLabel" => String.t() | atom(),
+        "StartTime" => float(),
+        "VocabularyFilterMatch" => boolean()
+      }
+      
+  """
+  @type sync_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sync_language_code_item() :: %{
+        "DurationInSeconds" => float(),
+        "LanguageCode" => list(any())
+      }
+      
+  """
+  @type sync_language_code_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sync_output_configuration() :: %{
+        "OutputMediaFileUri" => String.t() | atom()
+      }
+      
+  """
+  @type sync_output_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sync_redaction() :: %{
+        "Type" => list(any())
+      }
+      
+  """
+  @type sync_redaction() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       tag() :: %{
         "Key" => String.t() | atom(),
         "Value" => String.t() | atom()
@@ -1507,6 +1561,67 @@ defmodule AWS.Transcribe do
 
   ## Example:
       
+      transcribe_audio_metadata() :: %{
+        "LanguageCode" => list(any()),
+        "LanguageCodes" => list(sync_language_code_item()),
+        "MediaFormat" => list(any()),
+        "MediaSampleRateHertz" => integer(),
+        "NumberOfChannels" => integer(),
+        "SpeakersCount" => integer()
+      }
+      
+  """
+  @type transcribe_audio_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      transcribe_audio_request() :: %{
+        optional("ChannelIdentification") => boolean(),
+        optional("ContentRedaction") => content_redaction(),
+        optional("Language") => list(any()),
+        optional("LanguageDetectionMode") => list(any()),
+        optional("LanguageOptions") => list(list(any())()),
+        optional("MaxSpeakerLabels") => integer(),
+        optional("OutputConfiguration") => sync_output_configuration(),
+        optional("ShowSpeakerLabels") => boolean(),
+        optional("VocabularyFilterSettings") => vocabulary_filter_settings(),
+        optional("VocabularySettings") => list(vocabulary_settings_entry()),
+        required("Media") => list()
+      }
+      
+  """
+  @type transcribe_audio_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      transcribe_audio_response() :: %{
+        "OutputConfiguration" => sync_output_configuration(),
+        "TranscriptResponse" => transcript_response()
+      }
+      
+  """
+  @type transcribe_audio_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      transcribe_audio_results() :: %{
+        "Items" => list(sync_item()),
+        "Transcript" => String.t() | atom()
+      }
+      
+  """
+  @type transcribe_audio_results() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       transcript() :: %{
         "RedactedTranscriptFileUri" => String.t() | atom(),
         "TranscriptFileUri" => String.t() | atom()
@@ -1530,6 +1645,19 @@ defmodule AWS.Transcribe do
       
   """
   @type transcript_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      transcript_response() :: %{
+        "Metadata" => transcribe_audio_metadata(),
+        "RedactedResults" => transcribe_audio_results(),
+        "Results" => transcribe_audio_results()
+      }
+      
+  """
+  @type transcript_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1744,6 +1872,19 @@ defmodule AWS.Transcribe do
 
   ## Example:
       
+      vocabulary_filter_entry() :: %{
+        "Language" => list(any()),
+        "VocabularyFilterName" => String.t() | atom(),
+        "Words" => list(String.t() | atom())
+      }
+      
+  """
+  @type vocabulary_filter_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       vocabulary_filter_info() :: %{
         "LanguageCode" => list(any()),
         "LastModifiedTime" => non_neg_integer(),
@@ -1752,6 +1893,18 @@ defmodule AWS.Transcribe do
       
   """
   @type vocabulary_filter_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      vocabulary_filter_settings() :: %{
+        "Filters" => list(vocabulary_filter_entry()),
+        "VocabularyFilterMethod" => list(any())
+      }
+      
+  """
+  @type vocabulary_filter_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1766,6 +1919,31 @@ defmodule AWS.Transcribe do
       
   """
   @type vocabulary_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      vocabulary_phrase() :: %{
+        "DisplayAs" => String.t() | atom(),
+        "Text" => String.t() | atom()
+      }
+      
+  """
+  @type vocabulary_phrase() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      vocabulary_settings_entry() :: %{
+        "Language" => list(any()),
+        "Phrases" => list(vocabulary_phrase()),
+        "VocabularyName" => String.t() | atom()
+      }
+      
+  """
+  @type vocabulary_settings_entry() :: %{(String.t() | atom()) => any()}
 
   @type create_call_analytics_category_errors() ::
           limit_exceeded_exception()
@@ -1953,6 +2131,9 @@ defmodule AWS.Transcribe do
           | internal_failure_exception()
           | conflict_exception()
           | bad_request_exception()
+
+  @type transcribe_audio_errors() ::
+          limit_exceeded_exception() | internal_failure_exception() | bad_request_exception()
 
   @type untag_resource_errors() ::
           not_found_exception()
@@ -3041,6 +3222,61 @@ defmodule AWS.Transcribe do
       metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
+  end
+
+  @doc """
+  Transcribes a media file and returns the transcript in the same response.
+
+  There is
+  no job to start and no status to poll.
+
+  Use `TranscribeAudio` when you already have a complete media file and want
+  the transcript right away. For large files, long audio, or bulk processing, use
+  .
+
+  You must include the following parameters in your `TranscribeAudio`
+  request:
+
+    *
+
+  `Media`: Your audio, either as inline bytes
+  (`MediaBytes`) or as the Amazon S3 location of a media
+  file (`MediaFileUri`).
+
+    *
+  One of `Language` or `LanguageDetectionMode`: Specify
+  the language of your audio, or have Amazon Transcribe identify it.
+
+  Your audio must be between 0.5 seconds and 1 hour long. Supported formats are
+  WAV,
+  MP3, FLAC, M4A, MP4, Ogg, WebM, and AMR.
+
+  If you send your audio in the request (`MediaBytes`), the file can be up to
+  25 MB. If you provide an Amazon S3 location (`MediaFileUri`), the
+  file can be up to 500 MB.
+
+  Amazon Transcribe always turns on smart formatting, also known as inverse text
+  normalization (ITN). It writes numbers, dates, currency, and similar items in
+  their
+  usual written form. For example, "one hundred" becomes "100". You can't turn
+  smart
+  formatting off.
+
+  By default, Amazon Transcribe returns the transcript in
+  `TranscriptResponse`. If you include `OutputConfiguration`,
+  Amazon Transcribe writes the transcript to the Amazon S3 location you
+  specify instead, and the response contains only that location.
+  """
+  @spec transcribe_audio(map(), transcribe_audio_request(), list()) ::
+          {:ok, transcribe_audio_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, transcribe_audio_errors()}
+  def transcribe_audio(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "TranscribeAudio", input, options)
   end
 
   @doc """

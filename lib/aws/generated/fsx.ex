@@ -284,6 +284,77 @@ defmodule AWS.FSx do
 
   ## Example:
       
+      clone_configuration() :: %{
+        "ParentVolumeId" => String.t() | atom(),
+        "SnapshotId" => String.t() | atom()
+      }
+      
+  """
+  @type clone_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_peer() :: %{
+        "AllowedSvmIds" => list(String.t() | atom()),
+        "AllowedSvmMode" => list(any()),
+        "AuthenticationStatus" => cluster_peer_authentication_status(),
+        "ClusterPeerId" => String.t() | atom(),
+        "FileSystemId" => String.t() | atom(),
+        "Lifecycle" => list(any()),
+        "LifecycleTransitionReason" => lifecycle_transition_reason(),
+        "PassphraseSecretArn" => String.t() | atom(),
+        "PeerAddresses" => list(String.t() | atom()),
+        "PeerClusterName" => String.t() | atom(),
+        "ResourceARN" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "Tags" => list(tag()),
+        "UUID" => String.t() | atom()
+      }
+      
+  """
+  @type cluster_peer() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_peer_authentication_status() :: %{
+        "InUse" => String.t() | atom(),
+        "State" => String.t() | atom()
+      }
+      
+  """
+  @type cluster_peer_authentication_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_peer_filter() :: %{
+        "Name" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type cluster_peer_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_peer_not_found() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type cluster_peer_not_found() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       completion_report() :: %{
         "Enabled" => boolean(),
         "Format" => list(any()),
@@ -452,6 +523,47 @@ defmodule AWS.FSx do
       
   """
   @type create_backup_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_clone_configuration() :: %{
+        "ParentVolumeId" => String.t() | atom(),
+        "SnapshotId" => String.t() | atom()
+      }
+      
+  """
+  @type create_clone_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_cluster_peer_request() :: %{
+        optional("AllowedSvmIds") => list(String.t() | atom()),
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("PeerClusterName") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("AllowedSvmMode") => list(any()),
+        required("FileSystemId") => String.t() | atom(),
+        required("PassphraseSecretArn") => String.t() | atom(),
+        required("PeerAddresses") => list(String.t() | atom())
+      }
+      
+  """
+  @type create_cluster_peer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_cluster_peer_response() :: %{
+        "ClusterPeer" => cluster_peer()
+      }
+      
+  """
+  @type create_cluster_peer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -740,8 +852,22 @@ defmodule AWS.FSx do
 
   ## Example:
       
+      create_ontap_snapshot_configuration() :: %{
+        "ExpiryTime" => non_neg_integer(),
+        "SnaplockExpiryTime" => non_neg_integer(),
+        "SnapmirrorLabel" => String.t() | atom()
+      }
+      
+  """
+  @type create_ontap_snapshot_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_ontap_volume_configuration() :: %{
         "AggregateConfiguration" => create_aggregate_configuration(),
+        "CloneConfiguration" => create_clone_configuration(),
         "CopyTagsToBackups" => boolean(),
         "JunctionPath" => String.t() | atom(),
         "OntapVolumeType" => list(any()),
@@ -811,8 +937,118 @@ defmodule AWS.FSx do
 
   ## Example:
       
+      create_snapmirror_destination() :: %{
+        "VolumeId" => String.t() | atom()
+      }
+      
+  """
+  @type create_snapmirror_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_snapmirror_policy_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("FileSystemId") => String.t() | atom(),
+        optional("NetworkCompressionEnabled") => boolean(),
+        optional("RetentionRules") => list(snapmirror_policy_retention_rule()),
+        optional("SnapshotCopyMode") => list(any()),
+        optional("StorageVirtualMachineId") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        optional("ThrottleInKbps") => float(),
+        optional("TransferSchedule") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_snapmirror_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_snapmirror_policy_response() :: %{
+        "SnapmirrorPolicy" => snapmirror_policy()
+      }
+      
+  """
+  @type create_snapmirror_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_snapmirror_relationship_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("PolicyId") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        optional("ThrottleInKbps") => float(),
+        optional("TransferSchedule") => String.t() | atom(),
+        required("Destination") => create_snapmirror_destination(),
+        required("Source") => create_snapmirror_source()
+      }
+      
+  """
+  @type create_snapmirror_relationship_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_snapmirror_relationship_response() :: %{
+        "SnapmirrorRelationship" => snapmirror_relationship()
+      }
+      
+  """
+  @type create_snapmirror_relationship_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_snapmirror_source() :: %{
+        "Path" => String.t() | atom()
+      }
+      
+  """
+  @type create_snapmirror_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_snapshot_policy_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("Enabled") => boolean(),
+        optional("FileSystemId") => String.t() | atom(),
+        optional("StorageVirtualMachineId") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("Name") => String.t() | atom(),
+        required("Schedules") => list(snapshot_policy_schedule())
+      }
+      
+  """
+  @type create_snapshot_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_snapshot_policy_response() :: %{
+        "SnapshotPolicy" => snapshot_policy()
+      }
+      
+  """
+  @type create_snapshot_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_snapshot_request() :: %{
         optional("ClientRequestToken") => String.t() | atom(),
+        optional("OntapConfiguration") => create_ontap_snapshot_configuration(),
         optional("Tags") => list(tag()),
         required("Name") => String.t() | atom(),
         required("VolumeId") => String.t() | atom()
@@ -831,6 +1067,34 @@ defmodule AWS.FSx do
       
   """
   @type create_snapshot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_storage_virtual_machine_peer_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("PeerClusterName") => String.t() | atom(),
+        optional("PeerSvmAlias") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("Applications") => list(list(any())()),
+        required("PeerSvmName") => String.t() | atom(),
+        required("StorageVirtualMachineId") => String.t() | atom()
+      }
+      
+  """
+  @type create_storage_virtual_machine_peer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_storage_virtual_machine_peer_response() :: %{
+        "StorageVirtualMachinePeer" => storage_virtual_machine_peer()
+      }
+      
+  """
+  @type create_storage_virtual_machine_peer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1114,6 +1378,30 @@ defmodule AWS.FSx do
 
   ## Example:
       
+      delete_cluster_peer_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("ClusterPeerId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_cluster_peer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_cluster_peer_response() :: %{
+        "ClusterPeerId" => String.t() | atom(),
+        "Lifecycle" => list(any())
+      }
+      
+  """
+  @type delete_cluster_peer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_data_repository_association_request() :: %{
         optional("ClientRequestToken") => String.t() | atom(),
         optional("DeleteDataInFileSystem") => boolean(),
@@ -1267,6 +1555,78 @@ defmodule AWS.FSx do
 
   ## Example:
       
+      delete_snapmirror_policy_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("SnapmirrorPolicyId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_snapmirror_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_snapmirror_policy_response() :: %{
+        "Lifecycle" => list(any()),
+        "SnapmirrorPolicyId" => String.t() | atom()
+      }
+      
+  """
+  @type delete_snapmirror_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_snapmirror_relationship_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("SnapmirrorRelationshipId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_snapmirror_relationship_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_snapmirror_relationship_response() :: %{
+        "Lifecycle" => list(any()),
+        "SnapmirrorRelationshipId" => String.t() | atom()
+      }
+      
+  """
+  @type delete_snapmirror_relationship_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_snapshot_policy_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("SnapshotPolicyId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_snapshot_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_snapshot_policy_response() :: %{
+        "Lifecycle" => list(any()),
+        "SnapshotPolicyId" => String.t() | atom()
+      }
+      
+  """
+  @type delete_snapshot_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_snapshot_request() :: %{
         optional("ClientRequestToken") => String.t() | atom(),
         required("SnapshotId") => String.t() | atom()
@@ -1286,6 +1646,30 @@ defmodule AWS.FSx do
       
   """
   @type delete_snapshot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_storage_virtual_machine_peer_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("StorageVirtualMachinePeerId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_storage_virtual_machine_peer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_storage_virtual_machine_peer_response() :: %{
+        "Lifecycle" => list(any()),
+        "StorageVirtualMachinePeerId" => String.t() | atom()
+      }
+      
+  """
+  @type delete_storage_virtual_machine_peer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1399,6 +1783,32 @@ defmodule AWS.FSx do
       
   """
   @type describe_backups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_cluster_peers_request() :: %{
+        optional("ClusterPeerIds") => list(String.t() | atom()),
+        optional("Filters") => list(cluster_peer_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_cluster_peers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_cluster_peers_response() :: %{
+        "ClusterPeers" => list(cluster_peer()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_cluster_peers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1578,6 +1988,84 @@ defmodule AWS.FSx do
 
   ## Example:
       
+      describe_snapmirror_policies_request() :: %{
+        optional("Filters") => list(snapmirror_policy_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SnapmirrorPolicyIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_snapmirror_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_snapmirror_policies_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "SnapmirrorPolicies" => list(snapmirror_policy())
+      }
+      
+  """
+  @type describe_snapmirror_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_snapmirror_relationships_request() :: %{
+        optional("Filters") => list(snapmirror_relationship_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SnapmirrorRelationshipIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_snapmirror_relationships_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_snapmirror_relationships_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "SnapmirrorRelationships" => list(snapmirror_relationship())
+      }
+      
+  """
+  @type describe_snapmirror_relationships_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_snapshot_policies_request() :: %{
+        optional("Filters") => list(snapshot_policy_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SnapshotPolicyIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_snapshot_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_snapshot_policies_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "SnapshotPolicies" => list(snapshot_policy())
+      }
+      
+  """
+  @type describe_snapshot_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_snapshots_request() :: %{
         optional("Filters") => list(snapshot_filter()),
         optional("IncludeShared") => boolean(),
@@ -1600,6 +2088,32 @@ defmodule AWS.FSx do
       
   """
   @type describe_snapshots_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_storage_virtual_machine_peers_request() :: %{
+        optional("Filters") => list(storage_virtual_machine_peer_filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StorageVirtualMachinePeerIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_storage_virtual_machine_peers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_storage_virtual_machine_peers_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "StorageVirtualMachinePeers" => list(storage_virtual_machine_peer())
+      }
+      
+  """
+  @type describe_storage_virtual_machine_peers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2111,7 +2625,8 @@ defmodule AWS.FSx do
   ## Example:
       
       lifecycle_transition_reason() :: %{
-        "Message" => String.t() | atom()
+        "Message" => String.t() | atom(),
+        "OntapError" => ontap_error()
       }
       
   """
@@ -2278,6 +2793,18 @@ defmodule AWS.FSx do
 
   ## Example:
       
+      ontap_error() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type ontap_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       ontap_file_system_configuration() :: %{
         "AutomaticBackupRetentionDays" => integer(),
         "DailyAutomaticBackupStartTime" => String.t() | atom(),
@@ -2315,6 +2842,21 @@ defmodule AWS.FSx do
 
   ## Example:
       
+      ontap_snapshot_configuration() :: %{
+        "ExpiryTime" => non_neg_integer(),
+        "SizeInMegabytes" => float(),
+        "SnaplockExpiryTime" => non_neg_integer(),
+        "SnapmirrorLabel" => String.t() | atom(),
+        "UUID" => String.t() | atom()
+      }
+      
+  """
+  @type ontap_snapshot_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       ontap_unix_file_system_user() :: %{
         "Name" => String.t() | atom()
       }
@@ -2328,6 +2870,7 @@ defmodule AWS.FSx do
       
       ontap_volume_configuration() :: %{
         "AggregateConfiguration" => aggregate_configuration(),
+        "CloneConfiguration" => clone_configuration(),
         "CopyTagsToBackups" => boolean(),
         "FlexCacheEndpointType" => list(any()),
         "JunctionPath" => String.t() | atom(),
@@ -2807,14 +3350,190 @@ defmodule AWS.FSx do
 
   ## Example:
       
+      snapmirror_destination() :: %{
+        "Path" => String.t() | atom(),
+        "VolumeId" => String.t() | atom()
+      }
+      
+  """
+  @type snapmirror_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapmirror_exported_snapshot() :: %{
+        "SnapshotId" => String.t() | atom(),
+        "SnapshotName" => String.t() | atom()
+      }
+      
+  """
+  @type snapmirror_exported_snapshot() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapmirror_policy() :: %{
+        "FileSystemId" => String.t() | atom(),
+        "Lifecycle" => list(any()),
+        "LifecycleTransitionReason" => lifecycle_transition_reason(),
+        "Name" => String.t() | atom(),
+        "NetworkCompressionEnabled" => boolean(),
+        "ResourceARN" => String.t() | atom(),
+        "RetentionRules" => list(snapmirror_policy_retention_rule()),
+        "Scope" => list(any()),
+        "SnapmirrorPolicyId" => String.t() | atom(),
+        "SnapshotCopyMode" => list(any()),
+        "StorageVirtualMachineId" => String.t() | atom(),
+        "Tags" => list(tag()),
+        "ThrottleInKbps" => float(),
+        "TransferSchedule" => String.t() | atom(),
+        "UUID" => String.t() | atom()
+      }
+      
+  """
+  @type snapmirror_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapmirror_policy_filter() :: %{
+        "Name" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type snapmirror_policy_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapmirror_policy_not_found() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type snapmirror_policy_not_found() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapmirror_policy_retention_rule() :: %{
+        "Count" => integer(),
+        "CreationSchedule" => String.t() | atom(),
+        "Label" => String.t() | atom()
+      }
+      
+  """
+  @type snapmirror_policy_retention_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapmirror_relationship() :: %{
+        "Destination" => snapmirror_destination(),
+        "ExportedSnapshot" => snapmirror_exported_snapshot(),
+        "FileSystemId" => String.t() | atom(),
+        "Healthy" => boolean(),
+        "LagTimeInMinutes" => float(),
+        "Lifecycle" => list(any()),
+        "LifecycleTransitionReason" => lifecycle_transition_reason(),
+        "ResourceARN" => String.t() | atom(),
+        "SnapmirrorPolicy" => snapmirror_relationship_policy(),
+        "SnapmirrorRelationshipId" => String.t() | atom(),
+        "Source" => snapmirror_source(),
+        "State" => list(any()),
+        "Tags" => list(tag()),
+        "ThrottleInKbps" => float(),
+        "TransferSchedule" => String.t() | atom(),
+        "TransferState" => snapmirror_transfer_state(),
+        "UUID" => String.t() | atom(),
+        "UnhealthyReason" => String.t() | atom()
+      }
+      
+  """
+  @type snapmirror_relationship() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapmirror_relationship_filter() :: %{
+        "Name" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type snapmirror_relationship_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapmirror_relationship_not_found() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type snapmirror_relationship_not_found() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapmirror_relationship_policy() :: %{
+        "PolicyId" => String.t() | atom(),
+        "PolicyName" => String.t() | atom()
+      }
+      
+  """
+  @type snapmirror_relationship_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapmirror_source() :: %{
+        "Path" => String.t() | atom()
+      }
+      
+  """
+  @type snapmirror_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapmirror_transfer_state() :: %{
+        "BytesTransferred" => float(),
+        "Duration" => String.t() | atom(),
+        "EndTime" => non_neg_integer(),
+        "State" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+      
+  """
+  @type snapmirror_transfer_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       snapshot() :: %{
         "AdministrativeActions" => list(administrative_action()),
         "CreationTime" => non_neg_integer(),
         "Lifecycle" => list(any()),
         "LifecycleTransitionReason" => lifecycle_transition_reason(),
         "Name" => String.t() | atom(),
+        "OntapConfiguration" => ontap_snapshot_configuration(),
         "ResourceARN" => String.t() | atom(),
         "SnapshotId" => String.t() | atom(),
+        "SnapshotType" => list(any()),
         "Tags" => list(tag()),
         "VolumeId" => String.t() | atom()
       }
@@ -2844,6 +3563,78 @@ defmodule AWS.FSx do
       
   """
   @type snapshot_not_found() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapshot_policy() :: %{
+        "Enabled" => boolean(),
+        "FileSystemId" => String.t() | atom(),
+        "Lifecycle" => list(any()),
+        "LifecycleTransitionReason" => lifecycle_transition_reason(),
+        "Name" => String.t() | atom(),
+        "ResourceARN" => String.t() | atom(),
+        "Schedules" => list(snapshot_policy_schedule()),
+        "Scope" => list(any()),
+        "SnapshotPolicyId" => String.t() | atom(),
+        "StorageVirtualMachineId" => String.t() | atom(),
+        "Tags" => list(tag()),
+        "UUID" => String.t() | atom()
+      }
+      
+  """
+  @type snapshot_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapshot_policy_filter() :: %{
+        "Name" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type snapshot_policy_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapshot_policy_not_found() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type snapshot_policy_not_found() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapshot_policy_retention_period() :: %{
+        "Type" => list(any()),
+        "Value" => integer()
+      }
+      
+  """
+  @type snapshot_policy_retention_period() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      snapshot_policy_schedule() :: %{
+        "Count" => integer(),
+        "Name" => String.t() | atom(),
+        "Prefix" => String.t() | atom(),
+        "RetentionPeriod" => snapshot_policy_retention_period(),
+        "SnapmirrorLabel" => String.t() | atom()
+      }
+      
+  """
+  @type snapshot_policy_schedule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2925,6 +3716,52 @@ defmodule AWS.FSx do
       
   """
   @type storage_virtual_machine_not_found() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      storage_virtual_machine_peer() :: %{
+        "Applications" => list(list(any())()),
+        "FileSystemId" => String.t() | atom(),
+        "Lifecycle" => list(any()),
+        "LifecycleTransitionReason" => lifecycle_transition_reason(),
+        "PeerClusterName" => String.t() | atom(),
+        "PeerSvmAlias" => String.t() | atom(),
+        "PeerSvmName" => String.t() | atom(),
+        "ResourceARN" => String.t() | atom(),
+        "State" => list(any()),
+        "StorageVirtualMachineId" => String.t() | atom(),
+        "StorageVirtualMachinePeerId" => String.t() | atom(),
+        "Tags" => list(tag()),
+        "UUID" => String.t() | atom()
+      }
+      
+  """
+  @type storage_virtual_machine_peer() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      storage_virtual_machine_peer_filter() :: %{
+        "Name" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type storage_virtual_machine_peer_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      storage_virtual_machine_peer_not_found() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type storage_virtual_machine_peer_not_found() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3053,6 +3890,42 @@ defmodule AWS.FSx do
       
   """
   @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_clone_configuration() :: %{
+        "SplitAction" => list(any())
+      }
+      
+  """
+  @type update_clone_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_cluster_peer_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("PeerAddresses") => list(String.t() | atom()),
+        optional("PeerClusterName") => String.t() | atom(),
+        required("ClusterPeerId") => String.t() | atom()
+      }
+      
+  """
+  @type update_cluster_peer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_cluster_peer_response() :: %{
+        "ClusterPeer" => cluster_peer()
+      }
+      
+  """
+  @type update_cluster_peer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3242,7 +4115,21 @@ defmodule AWS.FSx do
 
   ## Example:
       
+      update_ontap_snapshot_configuration() :: %{
+        "ExpiryTime" => non_neg_integer(),
+        "SnaplockExpiryTime" => non_neg_integer(),
+        "SnapmirrorLabel" => String.t() | atom()
+      }
+      
+  """
+  @type update_ontap_snapshot_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_ontap_volume_configuration() :: %{
+        "CloneConfiguration" => update_clone_configuration(),
         "CopyTagsToBackups" => boolean(),
         "JunctionPath" => String.t() | atom(),
         "SecurityStyle" => list(any()),
@@ -3316,9 +4203,88 @@ defmodule AWS.FSx do
 
   ## Example:
       
+      update_snapmirror_policy_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("NetworkCompressionEnabled") => boolean(),
+        optional("RetentionRules") => list(snapmirror_policy_retention_rule()),
+        optional("ThrottleInKbps") => float(),
+        optional("TransferSchedule") => String.t() | atom(),
+        required("SnapmirrorPolicyId") => String.t() | atom()
+      }
+      
+  """
+  @type update_snapmirror_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_snapmirror_policy_response() :: %{
+        "SnapmirrorPolicy" => snapmirror_policy()
+      }
+      
+  """
+  @type update_snapmirror_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_snapmirror_relationship_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("PolicyId") => String.t() | atom(),
+        optional("State") => list(any()),
+        optional("ThrottleInKbps") => float(),
+        optional("TransferSchedule") => String.t() | atom(),
+        required("SnapmirrorRelationshipId") => String.t() | atom()
+      }
+      
+  """
+  @type update_snapmirror_relationship_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_snapmirror_relationship_response() :: %{
+        "SnapmirrorRelationship" => snapmirror_relationship()
+      }
+      
+  """
+  @type update_snapmirror_relationship_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_snapshot_policy_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("Enabled") => boolean(),
+        required("SnapshotPolicyId") => String.t() | atom()
+      }
+      
+  """
+  @type update_snapshot_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_snapshot_policy_response() :: %{
+        "SnapshotPolicy" => snapshot_policy()
+      }
+      
+  """
+  @type update_snapshot_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_snapshot_request() :: %{
         optional("ClientRequestToken") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("OntapConfiguration") => update_ontap_snapshot_configuration(),
         required("SnapshotId") => String.t() | atom()
       }
       
@@ -3335,6 +4301,32 @@ defmodule AWS.FSx do
       
   """
   @type update_snapshot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_storage_virtual_machine_peer_request() :: %{
+        optional("Applications") => list(list(any())()),
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("PeerSvmAlias") => String.t() | atom(),
+        optional("State") => list(any()),
+        required("StorageVirtualMachinePeerId") => String.t() | atom()
+      }
+      
+  """
+  @type update_storage_virtual_machine_peer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_storage_virtual_machine_peer_response() :: %{
+        "StorageVirtualMachinePeer" => storage_virtual_machine_peer()
+      }
+      
+  """
+  @type update_storage_virtual_machine_peer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3559,6 +4551,14 @@ defmodule AWS.FSx do
           | bad_request()
           | backup_in_progress()
 
+  @type create_cluster_peer_errors() ::
+          unsupported_operation()
+          | service_limit_exceeded()
+          | internal_server_error()
+          | incompatible_parameter_error()
+          | file_system_not_found()
+          | bad_request()
+
   @type create_data_repository_association_errors() ::
           unsupported_operation()
           | service_limit_exceeded()
@@ -3608,8 +4608,36 @@ defmodule AWS.FSx do
           | backup_not_found()
           | active_directory_error()
 
+  @type create_snapmirror_policy_errors() ::
+          storage_virtual_machine_not_found()
+          | service_limit_exceeded()
+          | internal_server_error()
+          | incompatible_parameter_error()
+          | file_system_not_found()
+          | bad_request()
+
+  @type create_snapmirror_relationship_errors() ::
+          volume_not_found()
+          | unsupported_operation()
+          | service_limit_exceeded()
+          | internal_server_error()
+          | incompatible_parameter_error()
+          | bad_request()
+
   @type create_snapshot_errors() ::
-          volume_not_found() | service_limit_exceeded() | internal_server_error() | bad_request()
+          volume_not_found()
+          | service_limit_exceeded()
+          | internal_server_error()
+          | incompatible_parameter_error()
+          | bad_request()
+
+  @type create_snapshot_policy_errors() ::
+          storage_virtual_machine_not_found()
+          | service_limit_exceeded()
+          | internal_server_error()
+          | incompatible_parameter_error()
+          | file_system_not_found()
+          | bad_request()
 
   @type create_storage_virtual_machine_errors() ::
           unsupported_operation()
@@ -3620,8 +4648,17 @@ defmodule AWS.FSx do
           | bad_request()
           | active_directory_error()
 
-  @type create_volume_errors() ::
+  @type create_storage_virtual_machine_peer_errors() ::
           unsupported_operation()
+          | storage_virtual_machine_not_found()
+          | service_limit_exceeded()
+          | internal_server_error()
+          | incompatible_parameter_error()
+          | bad_request()
+
+  @type create_volume_errors() ::
+          volume_not_found()
+          | unsupported_operation()
           | storage_virtual_machine_not_found()
           | service_limit_exceeded()
           | missing_volume_configuration()
@@ -3649,6 +4686,12 @@ defmodule AWS.FSx do
           | backup_in_progress()
           | backup_being_copied()
 
+  @type delete_cluster_peer_errors() ::
+          internal_server_error()
+          | incompatible_parameter_error()
+          | cluster_peer_not_found()
+          | bad_request()
+
   @type delete_data_repository_association_errors() ::
           service_limit_exceeded()
           | internal_server_error()
@@ -3670,10 +4713,38 @@ defmodule AWS.FSx do
           | file_system_not_found()
           | bad_request()
 
-  @type delete_snapshot_errors() :: snapshot_not_found() | internal_server_error() | bad_request()
+  @type delete_snapmirror_policy_errors() ::
+          snapmirror_policy_not_found()
+          | internal_server_error()
+          | incompatible_parameter_error()
+          | bad_request()
+
+  @type delete_snapmirror_relationship_errors() ::
+          snapmirror_relationship_not_found()
+          | internal_server_error()
+          | incompatible_parameter_error()
+          | bad_request()
+
+  @type delete_snapshot_errors() ::
+          snapshot_not_found()
+          | internal_server_error()
+          | incompatible_parameter_error()
+          | bad_request()
+
+  @type delete_snapshot_policy_errors() ::
+          snapshot_policy_not_found()
+          | internal_server_error()
+          | incompatible_parameter_error()
+          | bad_request()
 
   @type delete_storage_virtual_machine_errors() ::
           storage_virtual_machine_not_found()
+          | internal_server_error()
+          | incompatible_parameter_error()
+          | bad_request()
+
+  @type delete_storage_virtual_machine_peer_errors() ::
+          storage_virtual_machine_peer_not_found()
           | internal_server_error()
           | incompatible_parameter_error()
           | bad_request()
@@ -3691,6 +4762,12 @@ defmodule AWS.FSx do
           | file_system_not_found()
           | bad_request()
           | backup_not_found()
+
+  @type describe_cluster_peers_errors() ::
+          internal_server_error()
+          | file_system_not_found()
+          | cluster_peer_not_found()
+          | bad_request()
 
   @type describe_data_repository_associations_errors() ::
           invalid_data_repository_type()
@@ -3722,8 +4799,27 @@ defmodule AWS.FSx do
 
   @type describe_shared_vpc_configuration_errors() :: internal_server_error() | bad_request()
 
+  @type describe_snapmirror_policies_errors() ::
+          snapmirror_policy_not_found() | internal_server_error() | bad_request()
+
+  @type describe_snapmirror_relationships_errors() ::
+          volume_not_found()
+          | snapmirror_relationship_not_found()
+          | internal_server_error()
+          | bad_request()
+
+  @type describe_snapshot_policies_errors() ::
+          snapshot_policy_not_found() | internal_server_error() | bad_request()
+
   @type describe_snapshots_errors() ::
           snapshot_not_found() | internal_server_error() | bad_request()
+
+  @type describe_storage_virtual_machine_peers_errors() ::
+          storage_virtual_machine_peer_not_found()
+          | storage_virtual_machine_not_found()
+          | internal_server_error()
+          | file_system_not_found()
+          | bad_request()
 
   @type describe_storage_virtual_machines_errors() ::
           storage_virtual_machine_not_found() | internal_server_error() | bad_request()
@@ -3774,6 +4870,12 @@ defmodule AWS.FSx do
           | internal_server_error()
           | bad_request()
 
+  @type update_cluster_peer_errors() ::
+          internal_server_error()
+          | incompatible_parameter_error()
+          | cluster_peer_not_found()
+          | bad_request()
+
   @type update_data_repository_association_errors() ::
           service_limit_exceeded()
           | internal_server_error()
@@ -3803,11 +4905,39 @@ defmodule AWS.FSx do
   @type update_shared_vpc_configuration_errors() ::
           internal_server_error() | incompatible_parameter_error() | bad_request()
 
-  @type update_snapshot_errors() :: snapshot_not_found() | internal_server_error() | bad_request()
+  @type update_snapmirror_policy_errors() ::
+          snapmirror_policy_not_found()
+          | internal_server_error()
+          | incompatible_parameter_error()
+          | bad_request()
+
+  @type update_snapmirror_relationship_errors() ::
+          snapmirror_relationship_not_found()
+          | internal_server_error()
+          | incompatible_parameter_error()
+          | bad_request()
+
+  @type update_snapshot_errors() ::
+          snapshot_not_found()
+          | internal_server_error()
+          | incompatible_parameter_error()
+          | bad_request()
+
+  @type update_snapshot_policy_errors() ::
+          snapshot_policy_not_found()
+          | internal_server_error()
+          | incompatible_parameter_error()
+          | bad_request()
 
   @type update_storage_virtual_machine_errors() ::
           unsupported_operation()
           | storage_virtual_machine_not_found()
+          | internal_server_error()
+          | incompatible_parameter_error()
+          | bad_request()
+
+  @type update_storage_virtual_machine_peer_errors() ::
+          storage_virtual_machine_peer_not_found()
           | internal_server_error()
           | incompatible_parameter_error()
           | bad_request()
@@ -4111,6 +5241,27 @@ defmodule AWS.FSx do
   end
 
   @doc """
+  Creates a cluster peer relationship between an Amazon FSx for NetApp ONTAP file
+  system
+  and another ONTAP cluster.
+
+  The `CreateClusterPeer` operation returns while the cluster peer's
+  lifecycle state is still `CREATING`. You can check the cluster peer creation
+  status by calling the DescribeClusterPeers operation.
+  """
+  @spec create_cluster_peer(map(), create_cluster_peer_request(), list()) ::
+          {:ok, create_cluster_peer_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_cluster_peer_errors()}
+  def create_cluster_peer(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateClusterPeer", input, options)
+  end
+
+  @doc """
   Creates an Amazon FSx for Lustre data repository association (DRA).
 
   A data
@@ -4351,12 +5502,59 @@ defmodule AWS.FSx do
   end
 
   @doc """
-  Creates a snapshot of an existing Amazon FSx for OpenZFS volume.
+  Creates a SnapMirror policy for an Amazon FSx for NetApp ONTAP file system or
+  storage
+  virtual machine (SVM).
 
-  With
-  snapshots, you can easily undo file changes and compare file versions by
-  restoring the
-  volume to a previous version.
+  A SnapMirror policy defines how the SnapMirror relationships that
+  use the policy replicate data, including which snapshots to transfer, the
+  maximum
+  number of snapshots to retain on the destination volume, and when to transfer
+  data.
+
+  The `CreateSnapmirrorPolicy` operation returns while the SnapMirror policy's
+  lifecycle state is still `CREATING`. You can check the SnapMirror policy
+  creation status by calling the DescribeSnapmirrorPolicies operation.
+  """
+  @spec create_snapmirror_policy(map(), create_snapmirror_policy_request(), list()) ::
+          {:ok, create_snapmirror_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_snapmirror_policy_errors()}
+  def create_snapmirror_policy(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateSnapmirrorPolicy", input, options)
+  end
+
+  @doc """
+  Creates a SnapMirror relationship that replicates data from a source volume to a
+  destination volume on an Amazon FSx for NetApp ONTAP file system.
+
+  The `CreateSnapmirrorRelationship` operation returns while the SnapMirror
+  relationship's lifecycle state is still `CREATING`. You can check the SnapMirror
+  relationship creation status by calling the DescribeSnapmirrorRelationships
+  operation.
+  """
+  @spec create_snapmirror_relationship(map(), create_snapmirror_relationship_request(), list()) ::
+          {:ok, create_snapmirror_relationship_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_snapmirror_relationship_errors()}
+  def create_snapmirror_relationship(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateSnapmirrorRelationship", input, options)
+  end
+
+  @doc """
+  Creates a snapshot of an existing Amazon FSx for OpenZFS or
+  Amazon FSx for NetApp ONTAP volume.
+
+  With snapshots, you can easily undo file changes
+  and compare file versions by restoring the volume to a previous version.
 
   If a snapshot with the specified client request token exists, and the parameters
   match, this operation returns the description of the existing snapshot. If a
@@ -4368,7 +5566,7 @@ defmodule AWS.FSx do
   following:
 
     *
-  Creates a new OpenZFS snapshot with an assigned ID, and an initial lifecycle
+  Creates a new snapshot with an assigned ID, and an initial lifecycle
   state of `CREATING`.
 
     *
@@ -4403,6 +5601,32 @@ defmodule AWS.FSx do
   end
 
   @doc """
+  Creates a snapshot policy for an Amazon FSx for NetApp ONTAP file system or
+  storage
+  virtual machine (SVM).
+
+  A snapshot policy defines the schedules on which ONTAP
+  automatically creates snapshots of the volumes that use the policy, and the
+  maximum
+  number of snapshots to retain for each schedule.
+
+  The `CreateSnapshotPolicy` operation returns while the snapshot policy's
+  lifecycle state is still `CREATING`. You can check the snapshot policy
+  creation status by calling the DescribeSnapshotPolicies operation.
+  """
+  @spec create_snapshot_policy(map(), create_snapshot_policy_request(), list()) ::
+          {:ok, create_snapshot_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_snapshot_policy_errors()}
+  def create_snapshot_policy(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateSnapshotPolicy", input, options)
+  end
+
+  @doc """
   Creates a storage virtual machine (SVM) for an Amazon FSx for ONTAP file system.
   """
   @spec create_storage_virtual_machine(map(), create_storage_virtual_machine_request(), list()) ::
@@ -4415,6 +5639,30 @@ defmodule AWS.FSx do
       metadata()
 
     Request.request_post(client, meta, "CreateStorageVirtualMachine", input, options)
+  end
+
+  @doc """
+  Creates a storage virtual machine (SVM) peer relationship between an SVM on an
+  Amazon FSx for NetApp ONTAP file system and another SVM.
+
+  The `CreateStorageVirtualMachinePeer` operation returns while the SVM peer's
+  lifecycle state is still `CREATING`. You can check the SVM peer creation
+  status by calling the DescribeStorageVirtualMachinePeers operation.
+  """
+  @spec create_storage_virtual_machine_peer(
+          map(),
+          create_storage_virtual_machine_peer_request(),
+          list()
+        ) ::
+          {:ok, create_storage_virtual_machine_peer_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_storage_virtual_machine_peer_errors()}
+  def create_storage_virtual_machine_peer(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateStorageVirtualMachinePeer", input, options)
   end
 
   @doc """
@@ -4470,6 +5718,21 @@ defmodule AWS.FSx do
       metadata()
 
     Request.request_post(client, meta, "DeleteBackup", input, options)
+  end
+
+  @doc """
+  Deletes an Amazon FSx for NetApp ONTAP cluster peer relationship.
+  """
+  @spec delete_cluster_peer(map(), delete_cluster_peer_request(), list()) ::
+          {:ok, delete_cluster_peer_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_cluster_peer_errors()}
+  def delete_cluster_peer(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteClusterPeer", input, options)
   end
 
   @doc """
@@ -4601,12 +5864,42 @@ defmodule AWS.FSx do
   end
 
   @doc """
-  Deletes an Amazon FSx for OpenZFS snapshot.
+  Deletes an Amazon FSx for NetApp ONTAP SnapMirror policy.
+  """
+  @spec delete_snapmirror_policy(map(), delete_snapmirror_policy_request(), list()) ::
+          {:ok, delete_snapmirror_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_snapmirror_policy_errors()}
+  def delete_snapmirror_policy(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
 
-  After deletion, the snapshot no longer
-  exists, and its data is gone. Deleting a snapshot doesn't affect snapshots
-  stored in a
-  file system backup.
+    Request.request_post(client, meta, "DeleteSnapmirrorPolicy", input, options)
+  end
+
+  @doc """
+  Deletes an Amazon FSx for NetApp ONTAP SnapMirror relationship.
+  """
+  @spec delete_snapmirror_relationship(map(), delete_snapmirror_relationship_request(), list()) ::
+          {:ok, delete_snapmirror_relationship_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_snapmirror_relationship_errors()}
+  def delete_snapmirror_relationship(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteSnapmirrorRelationship", input, options)
+  end
+
+  @doc """
+  Deletes an Amazon FSx for OpenZFS or Amazon FSx for NetApp ONTAP snapshot.
+
+  After
+  deletion, the snapshot no longer exists, and its data is gone. Deleting a
+  snapshot
+  doesn't affect snapshots stored in a file system backup.
 
   The `DeleteSnapshot` operation returns instantly. The snapshot appears with
   the lifecycle status of `DELETING` until the deletion is complete.
@@ -4621,6 +5914,21 @@ defmodule AWS.FSx do
       metadata()
 
     Request.request_post(client, meta, "DeleteSnapshot", input, options)
+  end
+
+  @doc """
+  Deletes an Amazon FSx for NetApp ONTAP snapshot policy.
+  """
+  @spec delete_snapshot_policy(map(), delete_snapshot_policy_request(), list()) ::
+          {:ok, delete_snapshot_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_snapshot_policy_errors()}
+  def delete_snapshot_policy(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteSnapshotPolicy", input, options)
   end
 
   @doc """
@@ -4640,6 +5948,26 @@ defmodule AWS.FSx do
       metadata()
 
     Request.request_post(client, meta, "DeleteStorageVirtualMachine", input, options)
+  end
+
+  @doc """
+  Deletes an Amazon FSx for NetApp ONTAP storage virtual machine (SVM) peer
+  relationship.
+  """
+  @spec delete_storage_virtual_machine_peer(
+          map(),
+          delete_storage_virtual_machine_peer_request(),
+          list()
+        ) ::
+          {:ok, delete_storage_virtual_machine_peer_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_storage_virtual_machine_peer_errors()}
+  def delete_storage_virtual_machine_peer(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteStorageVirtualMachinePeer", input, options)
   end
 
   @doc """
@@ -4702,6 +6030,34 @@ defmodule AWS.FSx do
       metadata()
 
     Request.request_post(client, meta, "DescribeBackups", input, options)
+  end
+
+  @doc """
+  Returns the description of specific Amazon FSx for NetApp ONTAP cluster peers,
+  if a
+  `ClusterPeerIds` value is provided.
+
+  Otherwise, this operation returns all
+  cluster peers owned by your Amazon Web Services account in the
+  Amazon Web Services Region of the endpoint that you're calling.
+
+  When retrieving all cluster peers, you can optionally specify the
+  `MaxResults` parameter to limit the number of cluster peers in a response.
+  If more cluster peers remain, Amazon FSx returns a `NextToken` value
+  in the response. In this case, send a later request with the `NextToken`
+  request parameter set to the value of `NextToken` from the last
+  response.
+  """
+  @spec describe_cluster_peers(map(), describe_cluster_peers_request(), list()) ::
+          {:ok, describe_cluster_peers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_cluster_peers_errors()}
+  def describe_cluster_peers(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeClusterPeers", input, options)
   end
 
   @doc """
@@ -4946,8 +6302,98 @@ defmodule AWS.FSx do
   end
 
   @doc """
-  Returns the description of specific Amazon FSx for OpenZFS snapshots, if a
-  `SnapshotIds` value is provided.
+  Returns the description of specific Amazon FSx for NetApp ONTAP SnapMirror
+  policies,
+  if a `SnapmirrorPolicyIds` value is provided.
+
+  Otherwise, this operation
+  returns all SnapMirror policies owned by your Amazon Web Services account in the
+  Amazon Web Services Region of the endpoint that you're calling.
+
+  When retrieving all SnapMirror policies, you can optionally specify the
+  `MaxResults` parameter to limit the number of SnapMirror policies in a
+  response. If more SnapMirror policies remain, Amazon FSx returns a
+  `NextToken` value in the response. In this case, send a later request with
+  the `NextToken` request parameter set to the value of `NextToken`
+  from the last response.
+  """
+  @spec describe_snapmirror_policies(map(), describe_snapmirror_policies_request(), list()) ::
+          {:ok, describe_snapmirror_policies_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_snapmirror_policies_errors()}
+  def describe_snapmirror_policies(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeSnapmirrorPolicies", input, options)
+  end
+
+  @doc """
+  Returns the description of specific Amazon FSx for NetApp ONTAP SnapMirror
+  relationships, if a `SnapmirrorRelationshipIds` value is provided.
+
+  Otherwise,
+  this operation returns all SnapMirror relationships owned by your
+  Amazon Web Services account in the Amazon Web Services Region of the endpoint
+  that you're
+  calling.
+
+  When retrieving all SnapMirror relationships, you can optionally specify the
+  `MaxResults` parameter to limit the number of SnapMirror relationships in a
+  response. If more SnapMirror relationships remain, Amazon FSx returns a
+  `NextToken` value in the response. In this case, send a later request with the
+  `NextToken` request parameter set to the value of `NextToken` from
+  the last response.
+  """
+  @spec describe_snapmirror_relationships(
+          map(),
+          describe_snapmirror_relationships_request(),
+          list()
+        ) ::
+          {:ok, describe_snapmirror_relationships_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_snapmirror_relationships_errors()}
+  def describe_snapmirror_relationships(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeSnapmirrorRelationships", input, options)
+  end
+
+  @doc """
+  Returns the description of specific Amazon FSx for NetApp ONTAP snapshot
+  policies, if
+  a `SnapshotPolicyIds` value is provided.
+
+  Otherwise, this operation returns
+  all snapshot policies owned by your Amazon Web Services account in the
+  Amazon Web Services Region of the endpoint that you're calling.
+
+  When retrieving all snapshot policies, you can optionally specify the
+  `MaxResults` parameter to limit the number of snapshot policies in a
+  response. If more snapshot policies remain, Amazon FSx returns a
+  `NextToken` value in the response. In this case, send a later request with
+  the `NextToken` request parameter set to the value of `NextToken`
+  from the last response.
+  """
+  @spec describe_snapshot_policies(map(), describe_snapshot_policies_request(), list()) ::
+          {:ok, describe_snapshot_policies_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_snapshot_policies_errors()}
+  def describe_snapshot_policies(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeSnapshotPolicies", input, options)
+  end
+
+  @doc """
+  Returns the description of specific Amazon FSx for OpenZFS and Amazon FSx for
+  NetApp ONTAP
+  snapshots, if a `SnapshotIds` value is provided.
 
   Otherwise, this operation returns all
   snapshots owned by your Amazon Web Services account in the Amazon Web Services
@@ -4989,6 +6435,39 @@ defmodule AWS.FSx do
       metadata()
 
     Request.request_post(client, meta, "DescribeSnapshots", input, options)
+  end
+
+  @doc """
+  Returns the description of specific Amazon FSx for NetApp ONTAP storage virtual
+  machine
+  (SVM) peers, if a `StorageVirtualMachinePeerIds` value is provided.
+
+  Otherwise,
+  this operation returns all SVM peers owned by your Amazon Web Services account
+  in the
+  Amazon Web Services Region of the endpoint that you're calling.
+
+  When retrieving all SVM peers, you can optionally specify the `MaxResults`
+  parameter to limit the number of SVM peers in a response. If more SVM peers
+  remain,
+  Amazon FSx returns a `NextToken` value in the response. In this case,
+  send a later request with the `NextToken` request parameter set to the value
+  of `NextToken` from the last response.
+  """
+  @spec describe_storage_virtual_machine_peers(
+          map(),
+          describe_storage_virtual_machine_peers_request(),
+          list()
+        ) ::
+          {:ok, describe_storage_virtual_machine_peers_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_storage_virtual_machine_peers_errors()}
+  def describe_storage_virtual_machine_peers(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeStorageVirtualMachinePeers", input, options)
   end
 
   @doc """
@@ -5214,6 +6693,21 @@ defmodule AWS.FSx do
       metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
+  end
+
+  @doc """
+  Updates an Amazon FSx for NetApp ONTAP cluster peer relationship.
+  """
+  @spec update_cluster_peer(map(), update_cluster_peer_request(), list()) ::
+          {:ok, update_cluster_peer_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_cluster_peer_errors()}
+  def update_cluster_peer(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateClusterPeer", input, options)
   end
 
   @doc """
@@ -5500,7 +6994,42 @@ defmodule AWS.FSx do
   end
 
   @doc """
-  Updates the name of an Amazon FSx for OpenZFS snapshot.
+  Updates an Amazon FSx for NetApp ONTAP SnapMirror policy.
+  """
+  @spec update_snapmirror_policy(map(), update_snapmirror_policy_request(), list()) ::
+          {:ok, update_snapmirror_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_snapmirror_policy_errors()}
+  def update_snapmirror_policy(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateSnapmirrorPolicy", input, options)
+  end
+
+  @doc """
+  Updates an Amazon FSx for NetApp ONTAP SnapMirror relationship.
+  """
+  @spec update_snapmirror_relationship(map(), update_snapmirror_relationship_request(), list()) ::
+          {:ok, update_snapmirror_relationship_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_snapmirror_relationship_errors()}
+  def update_snapmirror_relationship(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateSnapmirrorRelationship", input, options)
+  end
+
+  @doc """
+  Updates an Amazon FSx for OpenZFS or Amazon FSx for NetApp ONTAP snapshot.
+
+  For Amazon FSx for OpenZFS snapshots, you can update only the name. For
+  Amazon FSx for NetApp ONTAP snapshots, you can update the name and the
+  properties in
+  `OntapConfiguration`.
   """
   @spec update_snapshot(map(), update_snapshot_request(), list()) ::
           {:ok, update_snapshot_response(), any()}
@@ -5512,6 +7041,24 @@ defmodule AWS.FSx do
       metadata()
 
     Request.request_post(client, meta, "UpdateSnapshot", input, options)
+  end
+
+  @doc """
+  Updates an Amazon FSx for NetApp ONTAP snapshot policy.
+
+  You can enable or disable
+  the snapshot policy.
+  """
+  @spec update_snapshot_policy(map(), update_snapshot_policy_request(), list()) ::
+          {:ok, update_snapshot_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_snapshot_policy_errors()}
+  def update_snapshot_policy(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateSnapshotPolicy", input, options)
   end
 
   @doc """
@@ -5527,6 +7074,26 @@ defmodule AWS.FSx do
       metadata()
 
     Request.request_post(client, meta, "UpdateStorageVirtualMachine", input, options)
+  end
+
+  @doc """
+  Updates an Amazon FSx for NetApp ONTAP storage virtual machine (SVM) peer
+  relationship.
+  """
+  @spec update_storage_virtual_machine_peer(
+          map(),
+          update_storage_virtual_machine_peer_request(),
+          list()
+        ) ::
+          {:ok, update_storage_virtual_machine_peer_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_storage_virtual_machine_peer_errors()}
+  def update_storage_virtual_machine_peer(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateStorageVirtualMachinePeer", input, options)
   end
 
   @doc """

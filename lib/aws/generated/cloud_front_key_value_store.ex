@@ -3,8 +3,11 @@
 
 defmodule AWS.CloudFrontKeyValueStore do
   @moduledoc """
-  Amazon CloudFront KeyValueStore Service to View and Update Data in a KVS
-  Resource
+  You can use Amazon CloudFront KeyValueStore to view and update data in a key
+  value store resource.
+
+  For more information, see [Using CloudFront KeyValueStore](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/kvs-with-functions.html)
+  in the *Amazon CloudFront Developer Guide*.
   """
 
   alias AWS.Client
@@ -320,7 +323,7 @@ defmodule AWS.CloudFrontKeyValueStore do
   end
 
   @doc """
-  Deletes the key value pair specified by the key.
+  Deletes the key-value pair specified by the key.
   """
   @spec delete_key(map(), String.t() | atom(), String.t() | atom(), delete_key_request(), list()) ::
           {:ok, delete_key_response(), any()}
@@ -363,7 +366,7 @@ defmodule AWS.CloudFrontKeyValueStore do
   end
 
   @doc """
-  Returns metadata information about Key Value Store.
+  Returns metadata information about the key value store.
   """
   @spec describe_key_value_store(map(), String.t() | atom(), list()) ::
           {:ok, describe_key_value_store_response(), any()}
@@ -388,7 +391,7 @@ defmodule AWS.CloudFrontKeyValueStore do
   end
 
   @doc """
-  Returns a key value pair.
+  Returns a key-value pair.
   """
   @spec get_key(map(), String.t() | atom(), String.t() | atom(), list()) ::
           {:ok, get_key_response(), any()}
@@ -408,7 +411,7 @@ defmodule AWS.CloudFrontKeyValueStore do
   end
 
   @doc """
-  Returns a list of key value pairs.
+  Returns a list of key-value pairs.
   """
   @spec list_keys(
           map(),
@@ -446,7 +449,7 @@ defmodule AWS.CloudFrontKeyValueStore do
   end
 
   @doc """
-  Creates a new key value pair or replaces the value of an existing key.
+  Creates a new key-value pair or replaces the value of an existing key.
   """
   @spec put_key(map(), String.t() | atom(), String.t() | atom(), put_key_request(), list()) ::
           {:ok, put_key_response(), any()}
@@ -489,7 +492,7 @@ defmodule AWS.CloudFrontKeyValueStore do
   end
 
   @doc """
-  Puts or Deletes multiple key value pairs in a single, all-or-nothing operation.
+  Puts or deletes multiple key-value pairs in a single, all-or-nothing operation.
   """
   @spec update_keys(map(), String.t() | atom(), update_keys_request(), list()) ::
           {:ok, update_keys_response(), any()}

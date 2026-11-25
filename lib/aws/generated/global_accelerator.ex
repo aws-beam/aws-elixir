@@ -49,7 +49,7 @@ defmodule AWS.GlobalAccelerator do
   bring to Global Accelerator (BYOIP).
 
   For a standard accelerator,
-  they distribute incoming application traffic across multiple endpoint resources
+  it distributes incoming application traffic across multiple endpoint resources
   in multiple Amazon Web Services Regions , which increases
   the availability of your applications. Endpoints for standard accelerators can
   be Network Load Balancers, Application Load Balancers,
@@ -3186,7 +3186,7 @@ defmodule AWS.GlobalAccelerator do
   @doc """
   Provides a complete mapping from the public accelerator IP address and port to
   destination EC2 instance
-  IP addresses and ports in the virtual public cloud (VPC) subnet endpoint for a
+  IP addresses and ports in the virtual private cloud (VPC) subnet endpoint for a
   custom routing accelerator.
 
   For each subnet endpoint that you add, Global Accelerator creates a new static
@@ -3351,7 +3351,7 @@ defmodule AWS.GlobalAccelerator do
   endpoints by updating an endpoint group by using the
   [UpdateEndpointGroup](https://docs.aws.amazon.com/global-accelerator/latest/api/API_UpdateEndpointGroup.html)
 
-  API operation. There are two advantages to using `AddEndpoints` to remove
+  API operation. There are two advantages to using `RemoveEndpoints` to remove
   endpoints instead:
 
     *

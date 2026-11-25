@@ -3043,6 +3043,7 @@ defmodule AWS.BedrockAgentCore do
       invoke_web_search_input() :: %{
         optional("filters") => web_search_filters(),
         optional("maxResults") => [integer()],
+        optional("userLocation") => web_search_user_location(),
         required("searchQuery") => [String.t() | atom()]
       }
 
@@ -5386,6 +5387,17 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type web_search_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      web_search_user_location() :: %{
+        "country" => String.t() | atom()
+      }
+
+  """
+  @type web_search_user_location() :: %{(String.t() | atom()) => any()}
 
   @type batch_create_memory_records_errors() ::
           validation_exception()

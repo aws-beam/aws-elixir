@@ -663,6 +663,30 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      catalog_options() :: %{
+        "Catalog" => list(),
+        "Enabled" => boolean()
+      }
+
+  """
+  @type catalog_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      catalog_options_status() :: %{
+        "Options" => catalog_options(),
+        "Status" => option_status()
+      }
+
+  """
+  @type catalog_options_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       category_diff_result() :: %{
         "Diverged" => integer(),
         "InSync" => integer(),
@@ -956,6 +980,7 @@ defmodule AWS.OpenSearch do
         optional("AdvancedSecurityOptions") => advanced_security_options_input(),
         optional("AutoTuneOptions") => auto_tune_options_input(),
         optional("AutomatedSnapshotPauseOptions") => automated_snapshot_pause_request_options(),
+        optional("CatalogOptions") => catalog_options(),
         optional("ClusterConfig") => cluster_config(),
         optional("CognitoOptions") => cognito_options(),
         optional("DeploymentStrategyOptions") => deployment_strategy_options(),
@@ -1989,6 +2014,7 @@ defmodule AWS.OpenSearch do
         "AdvancedSecurityOptions" => advanced_security_options_status(),
         "AutoTuneOptions" => auto_tune_options_status(),
         "AutomatedSnapshotPauseOptions" => automated_snapshot_pause_options_status(),
+        "CatalogOptions" => catalog_options_status(),
         "ChangeProgressDetails" => change_progress_details(),
         "ClusterConfig" => cluster_config_status(),
         "CognitoOptions" => cognito_options_status(),
@@ -2132,6 +2158,7 @@ defmodule AWS.OpenSearch do
         "AdvancedSecurityOptions" => advanced_security_options(),
         "AutoTuneOptions" => auto_tune_options_output(),
         "AutomatedSnapshotPauseOptions" => automated_snapshot_pause_options(),
+        "CatalogOptions" => catalog_options(),
         "ChangeProgressDetails" => change_progress_details(),
         "ClusterConfig" => cluster_config(),
         "CognitoOptions" => cognito_options(),
@@ -4113,6 +4140,18 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      s3_tables_encryption_configuration() :: %{
+        "Enabled" => boolean(),
+        "KmsKeyArn" => String.t() | atom()
+      }
+
+  """
+  @type s3_tables_encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       s3_vectors_engine() :: %{
         "Enabled" => boolean()
       }
@@ -4230,6 +4269,17 @@ defmodule AWS.OpenSearch do
 
   """
   @type serverless_vector_acceleration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_managed_s3_tables_catalog() :: %{
+        "EncryptionConfiguration" => s3_tables_encryption_configuration()
+      }
+
+  """
+  @type service_managed_s3_tables_catalog() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4630,6 +4680,7 @@ defmodule AWS.OpenSearch do
         optional("AdvancedSecurityOptions") => advanced_security_options_input(),
         optional("AutoTuneOptions") => auto_tune_options(),
         optional("AutomatedSnapshotPauseOptions") => automated_snapshot_pause_request_options(),
+        optional("CatalogOptions") => catalog_options(),
         optional("ClusterConfig") => cluster_config(),
         optional("CognitoOptions") => cognito_options(),
         optional("DeploymentStrategyOptions") => deployment_strategy_options(),

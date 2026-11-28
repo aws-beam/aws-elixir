@@ -1774,7 +1774,8 @@ defmodule AWS.MarketplaceAgreement do
       
       rate_card_item() :: %{
         "dimensionKey" => String.t() | atom(),
-        "price" => String.t() | atom()
+        "price" => String.t() | atom(),
+        "regionalPrices" => list(regional_price())
       }
       
   """
@@ -1794,6 +1795,18 @@ defmodule AWS.MarketplaceAgreement do
       
   """
   @type recurring_payment_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      regional_price() :: %{
+        "price" => String.t() | atom(),
+        "region" => String.t() | atom()
+      }
+      
+  """
+  @type regional_price() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

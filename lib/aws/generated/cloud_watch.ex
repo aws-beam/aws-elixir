@@ -1070,6 +1070,7 @@ defmodule AWS.CloudWatch do
       
       get_o_tel_enrichment_output() :: %{
         "CreatedAt" => non_neg_integer(),
+        "EnableTagEnrichment" => boolean(),
         "ExcludeFilters" => list(o_tel_enrichment_metric_selector()),
         "IncludeFilters" => list(o_tel_enrichment_metric_selector()),
         "Status" => list(any()),
@@ -2267,6 +2268,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       start_o_tel_enrichment_input() :: %{
+        optional("EnableTagEnrichment") => boolean(),
         optional("ExcludeFilters") => list(o_tel_enrichment_metric_selector()),
         optional("IncludeFilters") => list(o_tel_enrichment_metric_selector())
       }
@@ -2280,6 +2282,7 @@ defmodule AWS.CloudWatch do
       
       start_o_tel_enrichment_output() :: %{
         "CreatedAt" => non_neg_integer(),
+        "EnableTagEnrichment" => boolean(),
         "ExcludeFilters" => list(o_tel_enrichment_metric_selector()),
         "IncludeFilters" => list(o_tel_enrichment_metric_selector()),
         "UpdatedAt" => non_neg_integer()
@@ -2399,6 +2402,7 @@ defmodule AWS.CloudWatch do
   ## Example:
       
       update_o_tel_enrichment_input() :: %{
+        optional("EnableTagEnrichment") => boolean(),
         optional("ExcludeFilters") => list(o_tel_enrichment_metric_selector()),
         optional("IncludeFilters") => list(o_tel_enrichment_metric_selector())
       }
@@ -2412,6 +2416,7 @@ defmodule AWS.CloudWatch do
       
       update_o_tel_enrichment_output() :: %{
         "CreatedAt" => non_neg_integer(),
+        "EnableTagEnrichment" => boolean(),
         "ExcludeFilters" => list(o_tel_enrichment_metric_selector()),
         "IncludeFilters" => list(o_tel_enrichment_metric_selector()),
         "UpdatedAt" => non_neg_integer()
@@ -4606,20 +4611,27 @@ defmodule AWS.CloudWatch do
   Once enabled,
   metrics that contain a resource identifier dimension (for example, EC2
   `CPUUtilization` with an `InstanceId` dimension) are enriched
-  with resource ARN and resource tag labels and become queryable using PromQL.
+  with resource ARN labels and, optionally, resource tag labels, and become
+  queryable
+  using PromQL.
 
-  Before calling this operation, you must enable resource tags on telemetry for
-  your
-  account. For more information, see [Enable resource tags on
+  To include resource tag labels, you must also enable resource tags on telemetry
+  for
+  the account. For more information, see [Enable resource tags on
   telemetry](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/EnableResourceTagsOnTelemetry.html).
+  If `EnableTagEnrichment` is
+  `false`, enrichment reads no resource tags, so it does not require
+  resource tags on telemetry.
 
   Optionally, `IncludeFilters` and `ExcludeFilters` limit
-  enrichment to a subset of the account's metrics. These filters are stored only
-  when this
-  operation starts enrichment. Calling `StartOTelEnrichment` for an account
-  where enrichment is already running has no effect and does not modify the
-  filters that
-  are applied. To change them, use
+  enrichment to a subset of the account's metrics, and `EnableTagEnrichment`
+  controls whether enriched metrics include resource tag labels. These settings
+  are
+  stored only when this operation starts enrichment. Calling
+  `StartOTelEnrichment` for an account where enrichment is already running
+  has no effect and does not modify the filters or the tag enrichment setting that
+  are
+  applied. To change them, use
   [UpdateOTelEnrichment](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_UpdateOTelEnrichment.html).
   """
   @spec start_o_tel_enrichment(map(), start_o_tel_enrichment_input(), list()) ::

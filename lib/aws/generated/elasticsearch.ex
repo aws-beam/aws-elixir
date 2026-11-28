@@ -418,6 +418,30 @@ defmodule AWS.Elasticsearch do
 
   ## Example:
 
+      catalog_options() :: %{
+        "Catalog" => list(),
+        "Enabled" => boolean()
+      }
+
+  """
+  @type catalog_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      catalog_options_status() :: %{
+        "Options" => catalog_options(),
+        "Status" => option_status()
+      }
+
+  """
+  @type catalog_options_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       change_progress_details() :: %{
         "ChangeId" => String.t() | atom(),
         "ConfigChangeStatus" => list(any()),
@@ -571,6 +595,7 @@ defmodule AWS.Elasticsearch do
         optional("AdvancedSecurityOptions") => advanced_security_options_input(),
         optional("AutoTuneOptions") => auto_tune_options_input(),
         optional("AutomatedSnapshotPauseOptions") => automated_snapshot_pause_request_options(),
+        optional("CatalogOptions") => catalog_options(),
         optional("CognitoOptions") => cognito_options(),
         optional("DeploymentStrategyOptions") => deployment_strategy_options(),
         optional("DomainEndpointOptions") => domain_endpoint_options(),
@@ -1345,6 +1370,7 @@ defmodule AWS.Elasticsearch do
         "AdvancedSecurityOptions" => advanced_security_options_status(),
         "AutoTuneOptions" => auto_tune_options_status(),
         "AutomatedSnapshotPauseOptions" => automated_snapshot_pause_options_status(),
+        "CatalogOptions" => catalog_options_status(),
         "ChangeProgressDetails" => change_progress_details(),
         "CognitoOptions" => cognito_options_status(),
         "DeploymentStrategyOptions" => deployment_strategy_options_status(),
@@ -1376,6 +1402,7 @@ defmodule AWS.Elasticsearch do
         "AdvancedSecurityOptions" => advanced_security_options(),
         "AutoTuneOptions" => auto_tune_options_output(),
         "AutomatedSnapshotPauseOptions" => automated_snapshot_pause_options(),
+        "CatalogOptions" => catalog_options(),
         "ChangeProgressDetails" => change_progress_details(),
         "CognitoOptions" => cognito_options(),
         "Created" => boolean(),
@@ -2209,6 +2236,18 @@ defmodule AWS.Elasticsearch do
 
   ## Example:
 
+      s3_tables_encryption_configuration() :: %{
+        "Enabled" => boolean(),
+        "KmsKeyArn" => String.t() | atom()
+      }
+
+  """
+  @type s3_tables_encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       saml_idp() :: %{
         "EntityId" => String.t() | atom(),
         "MetadataContent" => String.t() | atom()
@@ -2262,6 +2301,17 @@ defmodule AWS.Elasticsearch do
 
   """
   @type scheduled_auto_tune_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_managed_s3_tables_catalog() :: %{
+        "EncryptionConfiguration" => s3_tables_encryption_configuration()
+      }
+
+  """
+  @type service_managed_s3_tables_catalog() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2440,6 +2490,7 @@ defmodule AWS.Elasticsearch do
         optional("AdvancedSecurityOptions") => advanced_security_options_input(),
         optional("AutoTuneOptions") => auto_tune_options(),
         optional("AutomatedSnapshotPauseOptions") => automated_snapshot_pause_request_options(),
+        optional("CatalogOptions") => catalog_options(),
         optional("CognitoOptions") => cognito_options(),
         optional("DeploymentStrategyOptions") => deployment_strategy_options(),
         optional("DomainEndpointOptions") => domain_endpoint_options(),

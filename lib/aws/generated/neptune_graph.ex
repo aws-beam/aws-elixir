@@ -105,14 +105,15 @@ defmodule AWS.NeptuneGraph do
   ## Example:
 
       create_graph_input() :: %{
+        optional("computeConfiguration") => list(),
         optional("deletionProtection") => [boolean()],
         optional("kmsKeyIdentifier") => String.t() | atom(),
+        optional("provisionedMemory") => integer(),
         optional("publicConnectivity") => [boolean()],
         optional("replicaCount") => integer(),
         optional("tags") => map(),
         optional("vectorSearchConfiguration") => vector_search_configuration(),
-        required("graphName") => String.t() | atom(),
-        required("provisionedMemory") => integer()
+        required("graphName") => String.t() | atom()
       }
 
   """
@@ -125,6 +126,7 @@ defmodule AWS.NeptuneGraph do
       create_graph_output() :: %{
         "arn" => [String.t() | atom()],
         "buildNumber" => [String.t() | atom()],
+        "computeConfiguration" => list(),
         "createTime" => [non_neg_integer()],
         "deletionProtection" => [boolean()],
         "endpoint" => [String.t() | atom()],
@@ -262,6 +264,7 @@ defmodule AWS.NeptuneGraph do
       delete_graph_output() :: %{
         "arn" => [String.t() | atom()],
         "buildNumber" => [String.t() | atom()],
+        "computeConfiguration" => list(),
         "createTime" => [non_neg_integer()],
         "deletionProtection" => [boolean()],
         "endpoint" => [String.t() | atom()],
@@ -485,6 +488,7 @@ defmodule AWS.NeptuneGraph do
       get_graph_output() :: %{
         "arn" => [String.t() | atom()],
         "buildNumber" => [String.t() | atom()],
+        "computeConfiguration" => list(),
         "createTime" => [non_neg_integer()],
         "deletionProtection" => [boolean()],
         "endpoint" => [String.t() | atom()],
@@ -661,6 +665,17 @@ defmodule AWS.NeptuneGraph do
 
   ## Example:
 
+      graph_session_configuration() :: %{
+        "minMemory" => integer()
+      }
+
+  """
+  @type graph_session_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       graph_snapshot_summary() :: %{
         "arn" => [String.t() | atom()],
         "id" => String.t() | atom(),
@@ -680,6 +695,7 @@ defmodule AWS.NeptuneGraph do
 
       graph_summary() :: %{
         "arn" => [String.t() | atom()],
+        "computeConfiguration" => list(),
         "deletionProtection" => [boolean()],
         "endpoint" => [String.t() | atom()],
         "id" => String.t() | atom(),
@@ -952,6 +968,17 @@ defmodule AWS.NeptuneGraph do
 
   ## Example:
 
+      provisioned_graph_configuration() :: %{
+        "memory" => integer()
+      }
+
+  """
+  @type provisioned_graph_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       query_summary() :: %{
         "elapsed" => [integer()],
         "id" => [String.t() | atom()],
@@ -981,6 +1008,7 @@ defmodule AWS.NeptuneGraph do
       reset_graph_output() :: %{
         "arn" => [String.t() | atom()],
         "buildNumber" => [String.t() | atom()],
+        "computeConfiguration" => list(),
         "createTime" => [non_neg_integer()],
         "deletionProtection" => [boolean()],
         "endpoint" => [String.t() | atom()],
@@ -1015,6 +1043,7 @@ defmodule AWS.NeptuneGraph do
   ## Example:
 
       restore_graph_from_snapshot_input() :: %{
+        optional("computeConfiguration") => list(),
         optional("deletionProtection") => [boolean()],
         optional("provisionedMemory") => integer(),
         optional("publicConnectivity") => [boolean()],
@@ -1033,6 +1062,7 @@ defmodule AWS.NeptuneGraph do
       restore_graph_from_snapshot_output() :: %{
         "arn" => [String.t() | atom()],
         "buildNumber" => [String.t() | atom()],
+        "computeConfiguration" => list(),
         "createTime" => [non_neg_integer()],
         "deletionProtection" => [boolean()],
         "endpoint" => [String.t() | atom()],
@@ -1120,6 +1150,7 @@ defmodule AWS.NeptuneGraph do
       start_graph_output() :: %{
         "arn" => [String.t() | atom()],
         "buildNumber" => [String.t() | atom()],
+        "computeConfiguration" => list(),
         "createTime" => [non_neg_integer()],
         "deletionProtection" => [boolean()],
         "endpoint" => [String.t() | atom()],
@@ -1189,6 +1220,7 @@ defmodule AWS.NeptuneGraph do
       stop_graph_output() :: %{
         "arn" => [String.t() | atom()],
         "buildNumber" => [String.t() | atom()],
+        "computeConfiguration" => list(),
         "createTime" => [non_neg_integer()],
         "deletionProtection" => [boolean()],
         "endpoint" => [String.t() | atom()],
@@ -1275,6 +1307,7 @@ defmodule AWS.NeptuneGraph do
   ## Example:
 
       update_graph_input() :: %{
+        optional("computeConfiguration") => list(),
         optional("deletionProtection") => [boolean()],
         optional("provisionedMemory") => integer(),
         optional("publicConnectivity") => [boolean()]
@@ -1290,6 +1323,7 @@ defmodule AWS.NeptuneGraph do
       update_graph_output() :: %{
         "arn" => [String.t() | atom()],
         "buildNumber" => [String.t() | atom()],
+        "computeConfiguration" => list(),
         "createTime" => [non_neg_integer()],
         "deletionProtection" => [boolean()],
         "endpoint" => [String.t() | atom()],
@@ -1667,6 +1701,18 @@ defmodule AWS.NeptuneGraph do
 
   @doc """
   Creates a new Neptune Analytics graph.
+
+  Neptune Analytics supports two types of graphs, selected using
+  `computeConfiguration`:
+
+    * *Provisioned graphs* use dedicated compute that is always
+  available. Use provisioned graphs for workloads that require higher memory or
+  predictable latency.
+
+    * *Graph sessions* use ephemeral compute that is bootstrapped when a
+  query is sent to the graph. The compute is automatically stopped after a few
+  minutes with no traffic. The next query sent to the graph bootstraps the compute
+  again, so queries that bootstrap the compute are subject to cold start latency.
   """
   @spec create_graph(map(), create_graph_input(), list()) ::
           {:ok, create_graph_output(), any()}
@@ -1730,6 +1776,13 @@ defmodule AWS.NeptuneGraph do
 
   The data can be loaded from files in S3 that in either the [Gremlin CSV format](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-gremlin.html)
   or the [openCypher load format](https://docs.aws.amazon.com/neptune/latest/userguide/bulk-load-tutorial-format-opencypher.html).
+
+  Graph session cannot be created using this API. Create an empty Graph Session
+  using
+  [CreateGraph](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_CreateGraph.html) or restore a snapshot as Graph Session using
+  [RestoreGraphFromSnapshot](https://docs.aws.amazon.com/neptune-analytics/latest/apiref/API_RestoreGraphFromSnapshot.html)
+  and use [neptune.load CALL procedure](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/batch-load.html)
+  to load data into the Graph Session instead.
   """
   @spec create_graph_using_import_task(map(), create_graph_using_import_task_input(), list()) ::
           {:ok, create_graph_using_import_task_output(), any()}
@@ -2493,6 +2546,9 @@ defmodule AWS.NeptuneGraph do
 
   @doc """
   Starts the specific graph.
+
+  Graph sessions are started automatically when a query is sent to the graph.
+  While this API is supported for graph sessions, it isn't required.
   """
   @spec start_graph(map(), String.t() | atom(), start_graph_input(), list()) ::
           {:ok, start_graph_output(), any()}
@@ -2525,6 +2581,9 @@ defmodule AWS.NeptuneGraph do
   Service (S3).
 
   The graph needs to be empty and in the AVAILABLE state.
+
+  Graph sessions don't support this API. Use [neptune.load CALL procedure](https://docs.aws.amazon.com/neptune-analytics/latest/userguide/batch-load.html)
+  to load data into the Graph Session instead.
   """
   @spec start_import_task(map(), String.t() | atom(), start_import_task_input(), list()) ::
           {:ok, start_import_task_output(), any()}
@@ -2554,6 +2613,9 @@ defmodule AWS.NeptuneGraph do
 
   @doc """
   Stops the specific graph.
+
+  Graph sessions are stopped automatically after a few minutes with no traffic.
+  While this API is supported for graph sessions, it isn't required.
   """
   @spec stop_graph(map(), String.t() | atom(), stop_graph_input(), list()) ::
           {:ok, stop_graph_output(), any()}
